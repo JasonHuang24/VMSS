@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme (default) */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111827;
+  --text-primary: #f5f5f5;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --accent: #fbbf24;
+  --border: #27272a;
+  --shadow: rgba(234,179,8,0.25);
+}
+
+/* Light theme - soft, premium, no harsh white boxes */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;          /* very soft off-white */
+  --bg-secondary: #ffffff;        /* clean white for cards */
+  --text-primary: #0f172a;        /* deep slate */
+  --text-secondary: #334155;      /* slate-700 */
+  --text-muted: #64748b;          /* slate-500 */
+  --accent: #b45309;              /* deep amber gold */
+  --border: #e2e8f0;              /* soft slate border */
+  --shadow: rgba(180,83,9,0.25);
+}
+
+/* Global */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.hero-bg {
+  background: radial-gradient(circle at center, rgba(234,179,8,0.12) 0%, transparent 70%);
+  background-color: var(--bg-primary);
+}
+
+/* Cards */
+.layer-card, .sad-card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-primary);
+  transition: all 0.4s ease;
+}
+
+.layer-card:hover, .sad-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px var(--shadow);
+}
+
+/* Override Tailwind classes */
+[data-theme="light"] .text-zinc-100,
+[data-theme="light"] .text-zinc-200,
+[data-theme="light"] .text-zinc-300,
+[data-theme="light"] .text-zinc-400,
+[data-theme="light"] .text-zinc-500 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-yellow-400,
+[data-theme="light"] .text-amber-400,
+[data-theme="light"] .text-red-400,
+[data-theme="light"] .text-red-500 {
+  color: var(--accent) !important;
+}
+
+[data-theme="light"] .bg-zinc-950,
+[data-theme="light"] .bg-zinc-900,
+[data-theme="light"] .bg-zinc-800 {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Navbar in light mode */
+[data-theme="light"] nav {
+  background-color: rgba(255,255,255,0.95) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+/* Links */
+a {
+  color: var(--text-primary);
+}
+
+a:hover {
+  color: var(--accent) !important;
+}
+
+.back-arrow {
+  z-index: 60;
+  transition: opacity 0.4s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.5);
+}
+
+.back-arrow.scrolled-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Long titles wrap */
+.layer-card h2 {
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
+  line-height: 1.25;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .layer-card h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.emblem-logo {
+  animation: fadeIn 1.5s ease-out, subtlePulse 8s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 0.9; transform: scale(1); }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+/* Mobile menu slide animation */
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+  transform-origin: top;
+}
+
+#mobile-menu:not(.hidden) {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

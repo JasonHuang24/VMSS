@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 • Layer Not Found • The Five Rings</title>
+
+  <!-- Theme preload (same as other pages) -->
+  <script>
+    const saved = localStorage.getItem('theme') ||
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+
+  <!-- Basic meta for consistency -->
+  <meta name="description" content="The requested layer does not exist. Return to the known rings.">
+  <meta name="robots" content="noindex">
+
+  <!-- Tailwind CDN (assuming you use it) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon (once you add it) -->
+  <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Main content -->
+  <main class="flex-1 flex items-center justify-center px-6 py-20 text-center">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-8xl md:text-9xl font-bold text-[var(--accent)] mb-6 tracking-tight">
+        404
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-semibold mb-6">
+        Layer Not Found
+      </h1>
+
+      <p class="text-xl md:text-2xl text-[var(--text-secondary)] mb-10 max-w-2xl mx-auto">
+        The requested path lies outside the known rings.<br>
+        No continuity exists here — only consequence.<br>
+        Return to proven ground.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="index.html" 
+           class="inline-block px-10 py-5 bg-[var(--accent)] text-black font-semibold rounded-xl hover:bg-yellow-300 transition text-xl shadow-lg">
+          Return to Home
+        </a>
+        <a href="layers.html" 
+           class="inline-block px-10 py-5 border-2 border-[var(--accent)] text-[var(--accent)] font-semibold rounded-xl hover:bg-[var(--accent)]/10 transition text-xl">
+          Explore the Layers
+        </a>
+      </div>
+
+      <p class="mt-12 text-[var(--text-muted)] italic">
+        "The system measures — and acts."
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
