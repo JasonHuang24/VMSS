@@ -149,3 +149,8 @@ a:hover {
     transform: translateY(0);
   }
 }
+
+.nav-link-active {
+  color: var(--accent) !important;
+  font-weight: 700;
+}

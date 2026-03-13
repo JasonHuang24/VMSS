@@ -46,10 +46,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!menuToggle || !mobileMenu) return;
 
     menuToggle.addEventListener('click', () => {
+      const isOpening = mobileMenu.classList.contains('hidden');
+
       mobileMenu.classList.toggle('hidden');
 
       if (hamburgerIcon) hamburgerIcon.classList.toggle('hidden');
       if (closeIcon) closeIcon.classList.toggle('hidden');
+
+      menuToggle.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
+    });
+  }
+
+  function initActiveNav() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (!navLinks.length) return;
+
+    let currentPage = window.location.pathname.split('/').pop();
+
+    if (!currentPage || currentPage === '') {
+      currentPage = 'index.html';
+    }
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      if (href === currentPage) {
+        link.classList.add('nav-link-active');
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.classList.remove('nav-link-active');
+        link.removeAttribute('aria-current');
+      }
     });
   }
 
@@ -123,9 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       initThemeToggle();
       initMobileMenu();
+      initActiveNav();
       initJoinModal();
     })
     .catch(err => console.error('Failed to load layout components:', err));
 
   initBackArrows();
-});
+});0
