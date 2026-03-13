@@ -68,10 +68,13 @@
 
           <div class="vmss-hero-surface">
             <div class="flex items-center justify-between gap-4 mb-6">
-              <div>
-                <div class="text-xs uppercase tracking-[0.26em] text-[var(--text-muted)]">System Positioning</div>
-                <h2 class="mt-2 text-2xl font-semibold">Institutional overview</h2>
-              </div>
+				<div class="text-xs uppercase tracking-[0.35em] text-neutral-500">
+				SYSTEM POSITIONING
+				</div>
+
+				<h2 class="text-3xl font-semibold">
+				Institutional overview
+				</h2>
               
             </div>
             <img src="images/emblem.jpg" alt="The Five Rings Emblem" class="emblem-logo mx-auto mb-6 w-full max-w-[420px] object-contain opacity-95 drop-shadow-[0_0_25px_rgba(251,191,36,0.22)]">
@@ -93,6 +96,84 @@
         </div>
       </div>
     </section>
+	
+		<section class="vmss-diagram-section py-24">
+		<div class="max-w-5xl mx-auto text-center px-6">
+
+		<h2 class="text-4xl font-bold mb-12">Planetary Ring Structure</h2>
+
+		<svg viewBox="0 0 600 600" class="vmss-ring-diagram">
+
+		<!-- Paths for text alignment -->
+		<defs>
+
+		<path id="ring-terminal-path"
+			  d="M300,300 m-250,0 a250,250 0 1,1 500,0 a250,250 0 1,1 -500,0"/>
+
+		<path id="ring-predatory-path"
+			  d="M300,300 m-200,0 a200,200 0 1,1 400,0 a200,200 0 1,1 -400,0"/>
+
+		<path id="ring-noncompliance-path"
+			  d="M300,300 m-150,0 a150,150 0 1,1 300,0 a150,150 0 1,1 -300,0"/>
+
+		<path id="ring-main-path"
+			  d="M300,300 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"/>
+			  
+		<path id="ring-sanctuary-path"
+				d="M300,300 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/>
+
+		</defs>
+
+		<!-- Ring outlines -->
+
+		<circle cx="300" cy="300" r="250" class="ring ring-terminal"/>
+		<circle cx="300" cy="300" r="200" class="ring ring-predatory"/>
+		<circle cx="300" cy="300" r="150" class="ring ring-noncompliance"/>
+		<circle cx="300" cy="300" r="100" class="ring ring-main"/>
+		<circle cx="300" cy="300" r="50" class="ring ring-sanctuary"/>
+
+		<!-- Curved labels -->
+
+		<text class="ring-label" dy="-8">
+		<textPath href="#ring-terminal-path" startOffset="25%">
+		-3 TERMINAL
+		</textPath>
+		</text>
+
+		<text class="ring-label" dy="-8">
+		<textPath href="#ring-predatory-path" startOffset="25%">
+		-2 PREDATORY
+		</textPath>
+		</text>
+
+		<text class="ring-label"dy="-8">
+		<textPath href="#ring-noncompliance-path" startOffset="25%">
+		-1 NONCOMPLIANCE
+		</textPath>
+		</text>
+
+		<text class="ring-label" dy="-8">
+		<textPath href="#ring-main-path" startOffset="25%">
+		0 MAIN
+		</textPath>
+		</text>
+
+		<text class="ring-label sanctuary-label" dy="-8">
+		  <textPath href="#ring-sanctuary-path" startOffset="25%">
+			+1 SANCTUARY
+		  </textPath>
+		</text>
+		
+		<!-- Civilization core -->
+
+		<circle cx="300" cy="300" r="18"
+				fill="rgba(255,200,80,0.8)"
+				filter="drop-shadow(0 0 10px rgba(255,200,80,0.6))"/>
+				
+		</svg>
+
+		</div>
+		</section>
 
     <section class="vmss-home-section">
       <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
