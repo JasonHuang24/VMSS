@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roadmap • The Five Rings</title>
+  
+  <!-- Apply saved theme BEFORE body paints (prevents flash) -->
+  <script>
+    const saved = localStorage.getItem('theme') ||
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      <!-- Favicon -->
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+
+  <section class="pt-32 pb-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <h1 class="text-6xl font-bold text-center mb-6 text-[var(--text-primary)]">Development Roadmap</h1>
+      <p class="text-center text-2xl text-[var(--text-muted)] mb-20">From the 2026 Boise Accord to a thriving planetary civilization by 2100</p>
+
+      <!-- Visual Timeline -->
+      <div class="relative pl-10 border-l-4 border-[var(--accent)] space-y-24">
+
+        <!-- Phase 0 -->
+        <div class="timeline-item">
+          <div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+            <span class="text-black text-xs font-bold">0</span>
+          </div>
+          <h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 0: Concept & Legal Foundation (2025 – Mid 2026)</h2>
+          <p class="text-[var(--text-secondary)] mb-6">The foundational year where the idea becomes reality.</p>
+          <ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
+            <li>Boise Accord signed in Idaho on January 26, 2026 — the legal and philosophical birth certificate of VMSS.</li>
+            <li>Creation of a sovereign charter entity and non-profit foundation to hold land and technology rights.</li>
+            <li>Core team assembled (engineers, neuroscientists, ethicists, lawyers, and visionary funders).</li>
+            <li>Seed funding secured ($1–3 billion) from aligned high-net-worth individuals and forward-thinking funds.</li>
+            <li>First public whitepaper and ethical framework released to the world.</li>
+          </ul>
+          <p class="mt-6 text-sm text-[var(--text-muted)]">Population: 0 → ~150 (core team + early volunteers)</p>
+        </div>
+
+        <!-- Phase 1 -->
+        <div class="timeline-item">
+          <div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+            <span class="text-black text-xs font-bold">1</span>
+          </div>
+          <h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 1: Core Technology Prototyping (2026 – 2032)</h2>
+          <p class="text-[var(--text-secondary)] mb-6">Building the nervous system of the new civilization.</p>
+          <ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
+            <li>First functional human-grade implant prototypes tested in animals, then limited human trials.</li>
+            <li>STI ledger and real-time intent-detection algorithms proven reliable.</li>
+            <li>Backup vessel animal revival success achieved (target <2% drift risk).</li>
+            <li>Graphene wall material and autonomous drone swarm prototypes tested in controlled environments.</li>
+            <li>Early neural diving demos (Audience Mode) successfully conducted.</li>
+          </ul>
+          <p class="mt-6 text-sm text-[var(--text-muted)]">Population: ~150 → 1,000 (closed team + early volunteers)</p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="timeline-item">
+          <div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+            <span class="text-black text-xs font-bold">2</span>
+          </div>
+          <h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 2: First Enclosed Habitat & Proof-of-Concept Ring (2032 – 2038)</h2>
+          <p class="text-[var(--text-secondary)] mb-6">The first physical ring where the full system is tested with real citizens.</p>
+          <ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
+            <li>Construction of the first small prototype ring (10–20 km diameter) in a remote location.</li>
+            <li>Full UBI + Primary Job Subsidy system launched and tested.</li>
+            <li>Pre-intervention enforcement successfully demonstrated in a small Heaven zone.</li>
+            <li>First 5,000–25,000 voluntary citizens admitted under strict screening.</li>
+            <li>Public data on moral causality and revival reliability released to build global trust.</li>
+          </ul>
+          <p class="mt-6 text-sm text-[var(--text-muted)]">Population: 25,000</p>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="timeline-item">
+          <div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+            <span class="text-black text-xs font-bold">3</span>
+          </div>
+          <h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 3: First Full Ring & Multi-Layer Validation (2038 – 2050)</h2>
+          <p class="text-[var(--text-secondary)] mb-6">Scaling from prototype to functional civilization.</p>
+          <ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
+            <li>Completion of the first full Main Ring (50+ km diameter).</li>
+            <li>Construction and activation of -1 and -2 layers.</li>
+            <li>Reliable human backup vessel revival achieved (<1% drift).</li>
+            <li>First Heaven Layer (+1 Sanctuary) operational with initial SADs.</li>
+            <li>Earth migration program opens to carefully screened applicants.</li>
+          </ul>
+          <p class="mt-6 text-sm text-[var(--text-muted)]">Population: 100,000 → 5 million</p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="timeline-item">
+          <div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+            <span class="text-black text-xs font-bold">4</span>
+          </div>
+          <h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 4: Full Five-Ring Civilization (2050 – 2070)</h2>
+          <p class="text-[var(--text-secondary)] mb-6">The complete concentric structure becomes reality.</p>
+          <ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
+            <li>All five concentric rings completed and fully operational.</li>
+            <li>+1 Sanctuary fully functional with dozens of active SADs.</li>
+            <li>-3 Zero-Intervention Layer active and self-regulating.</li>
+            <li>Inter-ring transit optimized with high-speed vertical maglev shafts.</li>
+            <li>Lifespan extension reaches 200–250 years for the majority of residents.</li>
+          </ul>
+          <p class="mt-6 text-sm text-[var(--text-muted)]">Population: 10 million → 200+ million</p>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="timeline-item">
+          <div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+            <span class="text-black text-xs font-bold">5</span>
+          </div>
+          <h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 5: Planetary & Off-World Expansion (2070 – 2100+)</h2>
+          <p class="text-[var(--text-secondary)] mb-6">From one planet to a multi-planetary civilization.</p>
+          <ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
+            <li>Full planetary population across all rings reaches billions.</li>
+            <li>Orbital habitats and first permanent Mars outposts established using VMSS principles.</li>
+            <li>Lifespan extension reaches 250–300+ years practical for most citizens.</li>
+            <li>VMSS becomes the dominant governance model for new human settlements across the solar system.</li>
+            <li>Early interstellar probe missions launched with backup vessel technology aboard.</li>
+          </ul>
+          <p class="mt-6 text-sm text-[var(--text-muted)]">Population: 1–5+ billion across the rings and beyond</p>
+        </div>
+
+      </div>
+
+      <div class="mt-24 text-center">
+        <p class="text-2xl text-[var(--text-secondary)] italic">
+          From a single signed accord in Boise, Idaho in 2026 to a thriving, post-scarcity planetary civilization by 2100 — this is not fantasy.<br>
+          This is a realistic, hard-won path built on moral causality, advanced technology, and human will.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<div id="navbar-placeholder"></div>
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
