@@ -4,68 +4,218 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Five Rings • VMSS Civilization</title>
-   <meta property="og:title" content="The Five Rings • VMSS Civilization">
-	<meta property="og:description" content="A voluntary society of moral causality. Explore the layers of a post-scarcity world built on continuity and consequence.">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="description" content="The Five Rings: A voluntary civilization structured by moral causality and continuity.">
-  <!-- Apply saved theme BEFORE body paints (prevents flash) -->
+  <meta name="description" content="A voluntary civilization of moral causality, continuity, and consequence. Explore the Five Rings, their layers, technologies, charter, and governance logic.">
+  <meta property="og:title" content="The Five Rings • VMSS Civilization">
+  <meta property="og:description" content="Explore the VMSS layer model, technological framework, charter, and social logic behind The Five Rings.">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
-    const saved = localStorage.getItem('theme') || 
+    const saved = localStorage.getItem('theme') ||
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
-      <!-- Favicon -->
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell home-page">
+  <div id="navbar-placeholder"></div>
 
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
-
-  <!-- Main Content (this pushes footer to bottom) -->
   <main class="flex-1">
-    <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center hero-bg relative">
-      <div class="max-w-5xl mx-auto text-center px-6 pt-20">
+    <section class="hero-bg relative overflow-hidden border-b border-[var(--border)]/60">
+      <div class="max-w-7xl mx-auto px-6 py-20 md:py-28">
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <div class="inline-flex items-center gap-3 rounded-full border border-[var(--border-strong)] bg-[var(--bg-tertiary)]/85 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--text-muted)]">
+              <span class="text-[var(--accent)]">⟐</span>
+              Civilization Framework Preview
+            </div>
+            <h1 class="mt-8 text-5xl md:text-7xl font-black tracking-[-0.06em] leading-[0.95] text-[var(--text-primary)]">
+              The Five Rings
+            </h1>
+            <p class="mt-5 text-2xl md:text-3xl text-[var(--accent-soft)] font-medium">A voluntary society of moral causality</p>
+            <p class="mt-8 max-w-3xl text-lg md:text-xl leading-8 text-[var(--text-secondary)]">
+              The Five Rings is a proposed civilization model built around layered governance, technological accountability, and consequence-bound freedom. Safety, abundance, continuity, and descent are not rhetorical promises here — they are structured outcomes tied to behavior.
+            </p>
 
-        <!-- Emblem -->
-        <img 
-          src="images/emblem.jpg" 
-          alt="The Five Rings Emblem" 
-          class="emblem-logo mx-auto mb-12 w-full max-w-[340px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-[620px] object-contain opacity-90 drop-shadow-[0_0_25px_rgba(251,191,36,0.35)]"
-        >
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="layers.html" class="vmss-cta-primary">Explore the Layers</a>
+              <a href="charter.html" class="vmss-cta-secondary">Read the Charter</a>
+            </div>
 
-        <h1 class="text-7xl md:text-8xl font-black mb-6 bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent tracking-tighter">
-          THE FIVE RINGS
-        </h1>
-        <p class="text-4xl text-[var(--text-secondary)] mb-8">A Voluntary Society of Moral Causality</p>
+            <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+              <div class="vmss-stat-card">
+                <div class="vmss-stat-value">5</div>
+                <div class="vmss-stat-label">Governance Rings</div>
+              </div>
+              <div class="vmss-stat-card">
+                <div class="vmss-stat-value">+1 to -3</div>
+                <div class="vmss-stat-label">Civic Gradient</div>
+              </div>
+              <div class="vmss-stat-card">
+                <div class="vmss-stat-value">24/7</div>
+                <div class="vmss-stat-label">Implant Mediation</div>
+              </div>
+              <div class="vmss-stat-card">
+                <div class="vmss-stat-value">Voluntary</div>
+                <div class="vmss-stat-label">Entry Principle</div>
+              </div>
+            </div>
+          </div>
 
-        <p class="max-w-3xl mx-auto text-xl text-[var(--text-secondary)] leading-relaxed mb-12">
-          The Five Rings is a proposed voluntary society on one planet with five concentric mega-rings. Advanced brain implants and AI enforcement make violence literally impossible in the top layers (Heaven), while lower layers allow full free will with real consequences. Everyone starts with full abundance and dignity — what happens next depends on your choices.
-        </p>
+          <div class="vmss-hero-surface">
+            <div class="flex items-center justify-between gap-4 mb-6">
+              <div>
+                <div class="text-xs uppercase tracking-[0.26em] text-[var(--text-muted)]">System Positioning</div>
+                <h2 class="mt-2 text-2xl font-semibold">Institutional overview</h2>
+              </div>
+              
+            </div>
+            <img src="images/emblem.jpg" alt="The Five Rings Emblem" class="emblem-logo mx-auto mb-6 w-full max-w-[420px] object-contain opacity-95 drop-shadow-[0_0_25px_rgba(251,191,36,0.22)]">
+            <div class="grid gap-3">
+              <div class="vmss-mini-panel">
+                <div class="vmss-mini-title">Moral Causality</div>
+                <p class="vmss-mini-copy">Rights, access, and insulation become legible consequences of conduct rather than ideology or inherited status.</p>
+              </div>
+              <div class="vmss-mini-panel">
+                <div class="vmss-mini-title">Technological Enforcement</div>
+                <p class="vmss-mini-copy">Brain implants, backup vessels, audits, and AI mediation make continuity and consequence operational.</p>
+              </div>
+              <div class="vmss-mini-panel">
+                <div class="vmss-mini-title">Layered Ascent</div>
+                <p class="vmss-mini-copy">Citizens can rise into trust-rich environments or descend into harsher strata based on what they actually do.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="mt-16 flex flex-col sm:flex-row gap-6 justify-center">
-          <a href="layers.html" class="bg-[var(--accent)] hover:bg-amber-700 text-black font-bold px-12 py-5 rounded-2xl text-2xl transition shadow-xl">
-            Explore the Layers
-          </a>
-          <a href="technologies.html" class="border-2 border-[var(--border)] hover:border-[var(--accent)] px-12 py-5 rounded-2xl text-2xl transition">
-            Core Technologies
-          </a>
+    <section class="vmss-home-section">
+      <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <div class="vmss-section-heading-row">
+          <div>
+            <div class="vmss-eyebrow">Core doctrine</div>
+            <h2 class="vmss-section-title">What makes this feel more like a civilization model than a concept page</h2>
+          </div>
+          <p class="vmss-section-copy max-w-2xl">The point is not just atmosphere. The point is legibility: a reader should quickly understand the moral logic, the rings, and the technologies that enforce the system.</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="vmss-panel reveal-item">
+            <div class="vmss-eyebrow">Pillar 01</div>
+            <h3 class="text-2xl font-semibold mt-3">Freedom with consequence</h3>
+            <p class="mt-4 text-[var(--text-secondary)] leading-7">The system does not abolish human agency. It structures a world where harmful agency carries visible, permanent descent.</p>
+          </article>
+          <article class="vmss-panel reveal-item">
+            <div class="vmss-eyebrow">Pillar 02</div>
+            <h3 class="text-2xl font-semibold mt-3">Heaven as earned trust</h3>
+            <p class="mt-4 text-[var(--text-secondary)] leading-7">The upper ring is not utopia by decree. It is an engineered sanctuary reserved for sustained non-harmful conduct.</p>
+          </article>
+          <article class="vmss-panel reveal-item">
+            <div class="vmss-eyebrow">Pillar 03</div>
+            <h3 class="text-2xl font-semibold mt-3">Continuity without absolution</h3>
+            <p class="mt-4 text-[var(--text-secondary)] leading-7">Backup vessels preserve identity, memory, and civil continuity — not innocence, and not an escape from consequence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vmss-home-section vmss-home-section-muted border-y border-[var(--border)]/60">
+      <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+          <div>
+            <div class="vmss-eyebrow">Layer model at a glance</div>
+            <h2 class="vmss-section-title mt-3">A vertical system with reward, proving, restriction, rehabilitation, and terminal exile.</h2>
+            <p class="vmss-section-copy mt-6">This is the clearest conceptual entry point for new readers. Each layer changes not only material conditions, but also how enforcement, risk, and trust behave.</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="layers.html" class="vmss-cta-secondary">See full layer breakdown</a>
+              <a href="enforcement.html" class="vmss-cta-secondary">Study enforcement model</a>
+            </div>
+          </div>
+
+          <div class="vmss-layer-stack reveal-item">
+            <a href="layer-+1.html" class="vmss-layer-band vmss-layer-band-plus">
+              <span class="vmss-layer-level">+1</span>
+              <span>
+                <span class="vmss-layer-name">Sanctuary</span>
+                <span class="vmss-layer-desc">Pre-intervention safety and high-trust living.</span>
+              </span>
+            </a>
+            <a href="layer-0.html" class="vmss-layer-band vmss-layer-band-zero">
+              <span class="vmss-layer-level">0</span>
+              <span>
+                <span class="vmss-layer-name">Main</span>
+                <span class="vmss-layer-desc">The proving ground where free will remains costly and real.</span>
+              </span>
+            </a>
+            <a href="layer--1.html" class="vmss-layer-band vmss-layer-band-negative">
+              <span class="vmss-layer-level">-1</span>
+              <span>
+                <span class="vmss-layer-name">Noncompliance</span>
+                <span class="vmss-layer-desc">Reduced privilege after lower-harm breach.</span>
+              </span>
+            </a>
+            <a href="layer--2.html" class="vmss-layer-band vmss-layer-band-negative-deep">
+              <span class="vmss-layer-level">-2</span>
+              <span>
+                <span class="vmss-layer-name">Predatory</span>
+                <span class="vmss-layer-desc">Severe harm tier with harsh containment.</span>
+              </span>
+            </a>
+            <a href="layer--3.html" class="vmss-layer-band vmss-layer-band-terminal">
+              <span class="vmss-layer-level">-3</span>
+              <span>
+                <span class="vmss-layer-name">Terminal</span>
+                <span class="vmss-layer-desc">No intervention. No restoration. Final consequence.</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vmss-home-section">
+      <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <div class="vmss-panel reveal-item">
+            <div class="vmss-eyebrow">Reading path</div>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mt-3">The fastest way to understand VMSS</h2>
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              <a href="charter.html" class="vmss-mini-panel block">
+                <div class="vmss-mini-title">1. Charter</div>
+                <p class="vmss-mini-copy">Read the governing premises and immutable principles first.</p>
+              </a>
+              <a href="technologies.html" class="vmss-mini-panel block">
+                <div class="vmss-mini-title">2. Technologies</div>
+                <p class="vmss-mini-copy">See how implants, backups, audits, and walls actually make the model enforceable.</p>
+              </a>
+              <a href="simulations.html" class="vmss-mini-panel block">
+                <div class="vmss-mini-title">3. Simulations</div>
+                <p class="vmss-mini-copy">Study practical scenarios and edge cases inside the rings.</p>
+              </a>
+              <a href="join.html" class="vmss-mini-panel block">
+                <div class="vmss-mini-title">4. Entry path</div>
+                <p class="vmss-mini-copy">See what voluntary entry, implant consent, and early life in Main would look like.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="vmss-panel reveal-item bg-gradient-to-br from-[var(--accent-glow)] to-transparent">
+            <div class="vmss-eyebrow">Entry principle</div>
+            <h2 class="text-2xl md:text-3xl font-semibold mt-3">VMSS is framed as a voluntary civil choice.</h2>
+            <p class="mt-5 text-[var(--text-secondary)] leading-7">Entry is opt-in. Citizens consent to implants, moral accounting, and the consequences of living inside a system where trust and risk are explicitly stratified.</p>
+            <p class="mt-5 text-[var(--text-secondary)] leading-7">That framing matters because it distinguishes the project from a coercive state fantasy. The model presents itself as a chosen civilization with transparent rules, not an inescapable dragnet.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-<div id="navbar-placeholder"></div>
-<div id="footer-placeholder"></div>
-
-<script src="script.js"></script>
-
+  <div id="footer-placeholder"></div>
+  <script src="script.js"></script>
 </body>
 </html>

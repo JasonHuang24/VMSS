@@ -1,139 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+
+<html data-theme="dark" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Join • The Five Rings</title>
-  
-  <!-- Apply saved theme BEFORE body paints (prevents flash) -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join • The Five Rings</title>
+<!-- Apply saved theme BEFORE body paints (prevents flash) -->
+<script>
     const saved = localStorage.getItem('theme') ||
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-      <!-- Favicon -->
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
-
-  <section class="pt-32 pb-32">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-6xl font-bold mb-6 text-[var(--text-primary)]">Ready to Join The Five Rings?</h1>
-      <p class="text-2xl text-[var(--text-muted)] mb-16">The choice — and the consequences — are yours.</p>
-
-      <div class="max-w-4xl mx-auto">
-        
-        <!-- What to Expect -->
-        <div class="bg-[var(--bg-secondary)] rounded-3xl p-12 border border-[var(--border)] mb-12">
-          <h2 class="text-4xl font-bold mb-8 text-[var(--accent)]">What to Expect</h2>
-          <ul class="text-left text-lg space-y-6 text-[var(--text-secondary)]">
-            <li>• <strong>Voluntary entry</strong> — implants are opt-in; no coercion</li>
-            <li>• <strong>Full dignity from day one</strong> — $10,000/month UBI in Main Layer</li>
-            <li>• <strong>Freedom + consequence</strong> — create, love, explore; harm = descent</li>
-            <li>• <strong>Backup vessels</strong> — continuity insured (0.5–2% drift risk)</li>
-            <li>• <strong>Ascension path</strong> — Heaven Layers await the compliant</li>
-            <li>• <strong>Pre-intervention in Heaven</strong> — acts halted mid-execution</li>
-            <li>• <strong>Post-intervention in Main & below</strong> — acts may complete; victims revived/treated</li>
-            <li>• <strong>Five Rings structure</strong> — concentric mega-walls, vertical transit</li>
-          </ul>
-        </div>
-
-        <!-- Next Steps (fully restored) -->
-        <div class="bg-[var(--bg-secondary)] rounded-3xl p-12 border border-[var(--border)] mb-12">
-          <h2 class="text-4xl font-bold mb-8 text-[var(--accent)]">Next Steps</h2>
-          <ol class="text-left text-lg space-y-6 list-decimal pl-8 text-[var(--text-secondary)]">
-            <li>Review the Charter and Layers</li>
-            <li>Understand the risks (permanent descent, STI visibility)</li>
-            <li>Consent to implant procedure (voluntary)</li>
-            <li>Begin your life in Main Layer</li>
-            <li>Ascend through compliance and contribution</li>
-            <li>Opt into Selective Ascension Domains as you qualify</li>
-          </ol>
-        </div>
-
-        <!-- Button that opens the form -->
-	<button id="open-entry-modal"
-			class="mt-8 bg-[var(--accent)] hover:bg-amber-700 text-black font-bold px-16 py-6 rounded-2xl text-3xl transition shadow-xl">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div><main class="flex-1"><section class="pt-32 pb-32">
+<div class="max-w-5xl mx-auto px-6 text-center">
+<h1 class="text-6xl font-bold mb-6 text-[var(--text-primary)]">Ready to Join The Five Rings?</h1>
+<p class="text-2xl text-[var(--text-muted)] mb-16">The choice — and the consequences — are yours.</p>
+<div class="max-w-4xl mx-auto">
+<!-- What to Expect -->
+<div class="bg-[var(--bg-secondary)] rounded-3xl p-12 border border-[var(--border)] mb-12">
+<h2 class="text-4xl font-bold mb-8 text-[var(--accent)]">What to Expect</h2>
+<ul class="text-left text-lg space-y-6 text-[var(--text-secondary)]">
+<li>• <strong>Voluntary entry</strong> — implants are opt-in; no coercion</li>
+<li>• <strong>Full dignity from day one</strong> — $10,000/month UBI in Main Layer</li>
+<li>• <strong>Freedom + consequence</strong> — create, love, explore; harm = descent</li>
+<li>• <strong>Backup vessels</strong> — continuity insured (0.5–2% drift risk)</li>
+<li>• <strong>Ascension path</strong> — Heaven Layers await the compliant</li>
+<li>• <strong>Pre-intervention in Heaven</strong> — acts halted mid-execution</li>
+<li>• <strong>Post-intervention in Main &amp; below</strong> — acts may complete; victims revived/treated</li>
+<li>• <strong>Five Rings structure</strong> — concentric mega-walls, vertical transit</li>
+</ul>
+</div>
+<!-- Next Steps (fully restored) -->
+<div class="bg-[var(--bg-secondary)] rounded-3xl p-12 border border-[var(--border)] mb-12">
+<h2 class="text-4xl font-bold mb-8 text-[var(--accent)]">Next Steps</h2>
+<ol class="text-left text-lg space-y-6 list-decimal pl-8 text-[var(--text-secondary)]">
+<li>Review the Charter and Layers</li>
+<li>Understand the risks (permanent descent, STI visibility)</li>
+<li>Consent to implant procedure (voluntary)</li>
+<li>Begin your life in Main Layer</li>
+<li>Ascend through compliance and contribution</li>
+<li>Opt into Selective Ascension Domains as you qualify</li>
+</ol>
+</div>
+<!-- Button that opens the form -->
+<button class="mt-8 bg-[var(--accent)] hover:bg-amber-700 text-black font-bold px-16 py-6 rounded-2xl text-3xl transition shadow-xl reveal-item" id="open-entry-modal">
 	  Begin Entry Process
 	</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Entry Form Modal -->
-	<div id="entryModal" class="hidden fixed inset-0 bg-black/80 items-center justify-center z-[100] p-6">
-    <div class="bg-[var(--bg-secondary)] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-auto border border-[var(--border)]">
-      <div class="p-8">
-        <div class="flex justify-between items-center mb-8">
-          <h2 class="text-3xl font-bold text-[var(--accent)]">Entry Application — The Five Rings</h2>
-          <button id="close-entry-modal" class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]">✕</button>
-        </div>
-
-        <form id="entryForm" class="space-y-8">
-          <div>
-            <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
-            <input type="text" required class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]">
-          </div>
-
-          <div class="grid grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
-              <input type="number" min="18" required class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Current Location</label>
-              <input type="text" placeholder="City, Country" required class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]">
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
-            <textarea required rows="4" class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]" placeholder="Be honest. The system values clarity of intent."></textarea>
-          </div>
-
-          <div class="space-y-6 pt-6 border-t border-[var(--border)]">
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" required class="mt-1 accent-[var(--accent)]">
-              <span class="text-[var(--text-secondary)]">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
-            </label>
-
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" required class="mt-1 accent-[var(--accent)]">
-              <span class="text-[var(--text-secondary)]">I accept that any intentional harm will result in permanent descent with no appeal.</span>
-            </label>
-
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" required class="mt-1 accent-[var(--accent)]">
-              <span class="text-[var(--text-secondary)]">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
-            </label>
-
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" required class="mt-1 accent-[var(--accent)]">
-              <span class="text-[var(--text-secondary)]">I have read and agree to the Charter of The Five Rings.</span>
-            </label>
-          </div>
-
-          <button type="submit" 
-                  class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-6 rounded-2xl text-2xl transition">
+</div>
+</div>
+</section><div class="hidden fixed inset-0 bg-black/80 items-center justify-center z-[100] p-6" id="entryModal">
+<div class="bg-[var(--bg-secondary)] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-auto border border-[var(--border)]">
+<div class="p-8">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-3xl font-bold text-[var(--accent)]">Entry Application — The Five Rings</h2>
+<button class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]" id="close-entry-modal">✕</button>
+</div>
+<form class="space-y-8" id="entryForm">
+<div>
+<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
+<input class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
+<input class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]" min="18" required="" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Current Location</label>
+<input class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]" placeholder="City, Country" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
+<textarea class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]" placeholder="Be honest. The system values clarity of intent." required="" rows="4"></textarea>
+</div>
+<div class="space-y-6 pt-6 border-t border-[var(--border)]">
+<label class="flex items-start gap-3 cursor-pointer">
+<input class="mt-1 accent-[var(--accent)]" required="" type="checkbox"/>
+<span class="text-[var(--text-secondary)]">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
+</label>
+<label class="flex items-start gap-3 cursor-pointer">
+<input class="mt-1 accent-[var(--accent)]" required="" type="checkbox"/>
+<span class="text-[var(--text-secondary)]">I accept that any intentional harm will result in permanent descent with no appeal.</span>
+</label>
+<label class="flex items-start gap-3 cursor-pointer">
+<input class="mt-1 accent-[var(--accent)]" required="" type="checkbox"/>
+<span class="text-[var(--text-secondary)]">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
+</label>
+<label class="flex items-start gap-3 cursor-pointer">
+<input class="mt-1 accent-[var(--accent)]" required="" type="checkbox"/>
+<span class="text-[var(--text-secondary)]">I have read and agree to the Charter of The Five Rings.</span>
+</label>
+</div>
+<button class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-6 rounded-2xl text-2xl transition reveal-item" type="submit">
             Submit Entry Application
           </button>
-        </form>
-      </div>
-    </div>
-  </div>
+</form>
+</div>
+</div>
+</div></main>
+
+<!-- Entry Form Modal -->
 
 
-<div id="navbar-placeholder"></div>
-<div id="footer-placeholder"></div>
 
 <script src="script.js"></script>
-
-</body>
+<div id="footer-placeholder"></div></body>
 </html>

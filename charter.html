@@ -1,111 +1,89 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+
+<html data-theme="dark" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Charter • The Five Rings</title>
-  
-  <!-- Apply saved theme BEFORE body paints (prevents flash) -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Charter • The Five Rings</title>
+<!-- Apply saved theme BEFORE body paints (prevents flash) -->
+<script>
     const saved = localStorage.getItem('theme') ||
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
-    <!-- Favicon -->
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
-
-  <section class="pt-32 pb-32">
-    <div class="max-w-5xl mx-auto px-6">
-      <h1 class="text-6xl font-bold text-center mb-16 text-[var(--text-primary)]">The Charter</h1>
-
-      <div class="prose prose-invert max-w-none text-[var(--text-secondary)] leading-relaxed">
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Preamble</h2>
-        <p>We establish The Five Rings Civilization as a voluntary society governed by immutable moral causality. Harm is structurally mitigated or segregated. Abundance is the birthright of compliance. Technology liberates the self while preserving the innocent. Every citizen begins with full dignity; consequences follow choices without mercy or malice.</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article I – Vertical Moral Stratification System (VMSS)</h2>
-        <p>Layers are sovereign strata of reality, assigned by demonstrated intent and execution of harm.</p>
-        <ul class="list-disc pl-6 space-y-3 mt-4">
-          <li><strong>Heaven Layers (+1 Sanctuary & SADs)</strong>: Pre-Intervention — acts halted mid-execution via neural inhibition and drones.</li>
-          <li><strong>Main Layer (0)</strong>: Post-Intervention — acts may complete; victims revived/treated, perpetrators reassigned.</li>
-          <li><strong>Hell Layers (-1, -2, -3)</strong>: Post-Intervention / No Intervention in -3.</li>
-        </ul>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article II – Social Trust Index (STI)</h2>
-        <p>Separate reputational ledger for non-criminal trust violations. Tiered visibility: minor private, major public. Gates Trust Purity Domains. No crossover to VMSS reassignment. Dips only on outwardly expressed actions — no thought penalties or gains.</p>
-
-		<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article III – Economic Framework</h2>
-        <ul class="list-disc pl-6 space-y-3 mt-4">
-          <li>Automation Dividend Treasury funds UBI ($10,000/month in Main/Heaven Layers, halved progressively downward to incentivize contribution while preventing starvation).</li>
-          <li>Primary Job Subsidy ($10,000/month in Main/Heaven, halved downward) for one qualifying job (≥20 hrs/week of socially useful or approved work).</li>
-          <li>Layer-specific currencies with fixed halving-adjusted exchange rates upon movement between layers (no arbitrage possible).</li>
-          <li>Progressive capital taxation: 90–99% marginal rate on extreme wealth accumulation (e.g., net worth exceeding multiple billions in equivalent value) to prevent dominance and dynastic control while allowing personal success and innovation.</li>
-        </ul>
-        <p class="mt-4 text-[var(--text-secondary)]">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div><main class="flex-1"><section class="pt-32 pb-32">
+<div class="max-w-5xl mx-auto px-6">
+<h1 class="text-6xl font-bold text-center mb-16 text-[var(--text-primary)]">The Charter</h1>
+<div class="prose prose-invert max-w-none text-[var(--text-secondary)] leading-relaxed">
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Preamble</h2>
+<p>We establish The Five Rings Civilization as a voluntary society governed by immutable moral causality. Harm is structurally mitigated or segregated. Abundance is the birthright of compliance. Technology liberates the self while preserving the innocent. Every citizen begins with full dignity; consequences follow choices without mercy or malice.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article I – Vertical Moral Stratification System (VMSS)</h2>
+<p>Layers are sovereign strata of reality, assigned by demonstrated intent and execution of harm.</p>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+<li><strong>Heaven Layers (+1 Sanctuary &amp; SADs)</strong>: Pre-Intervention — acts halted mid-execution via neural inhibition and drones.</li>
+<li><strong>Main Layer (0)</strong>: Post-Intervention — acts may complete; victims revived/treated, perpetrators reassigned.</li>
+<li><strong>Hell Layers (-1, -2, -3)</strong>: Post-Intervention / No Intervention in -3.</li>
+</ul>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article II – Social Trust Index (STI)</h2>
+<p>Separate reputational ledger for non-criminal trust violations. Tiered visibility: minor private, major public. Gates Trust Purity Domains. No crossover to VMSS reassignment. Dips only on outwardly expressed actions — no thought penalties or gains.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article III – Economic Framework</h2>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+<li>Automation Dividend Treasury funds UBI ($10,000/month in Main/Heaven Layers, halved progressively downward to incentivize contribution while preventing starvation).</li>
+<li>Primary Job Subsidy ($10,000/month in Main/Heaven, halved downward) for one qualifying job (≥20 hrs/week of socially useful or approved work).</li>
+<li>Layer-specific currencies with fixed halving-adjusted exchange rates upon movement between layers (no arbitrage possible).</li>
+<li>Progressive capital taxation: 90–99% marginal rate on extreme wealth accumulation (e.g., net worth exceeding multiple billions in equivalent value) to prevent dominance and dynastic control while allowing personal success and innovation.</li>
+</ul>
+<p class="mt-4 text-[var(--text-secondary)]">
           Taxation is applied only to capital gains and extreme holdings — everyday income, creative output, and UBI remain untouched. The high top rate ensures that no individual or family can amass power that threatens the moral gradient or post-scarcity foundation.
         </p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IV – Technology & Continuity</h2>
-        <p>Implants, neural diving, biological augmentation, backup vessels (0.5–2% drift risk), enforcement protocol (pre in Heaven, post in Main/below).</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article V – Rights & Stances</h2>
-        <ul class="list-disc pl-6 space-y-3 mt-4">
-          <li>Freedom of speech (unless harm threshold crossed)</li>
-          <li>Consensual adult prostitution permitted</li>
-          <li>All body transmutations permitted</li>
-          <li>Abortion illegal</li>
-          <li>Automated daycare, education, medical services (except -3)</li>
-          <li>Lower-layer births auto-relocated to Main autoparenting</li>
-        </ul>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VI – Enforcement & Restoration Protocol</h2>
-        <ul class="list-disc pl-6 space-y-3 mt-4">
-          <li><strong>Heaven Layers (+1 & SADs)</strong>: Pre-Intervention — acts halted mid-execution via neural inhibition and drones. No harm completes.</li>
-          <li><strong>Main Layer (0) & Hell (-1/-2)</strong>: Post-Intervention — acts may complete. Victims revived (murder) or treated (rape/other harm) via backup vessels + therapy. Perpetrators reassigned downward.</li>
-          <li><strong>-3 Zero-Intervention</strong>: No intervention or revival — acts complete freely, death is final.</li>
-        </ul>
-
-        <!-- New Articles -->
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VII – Layer Mobility & Ascension Rules</h2>
-        <p>Upward movement is earned through sustained compliance and high STI. Downward movement is immediate and permanent upon breach. Voluntary descent from higher layers is allowed but carries risk of permanent lock-in if a breach occurs while below. Citizens from lower layers cannot visit higher layers — the moral gradient is one-way upward only through demonstrated character.</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VIII – Child Protection & Autoparenting</h2>
-        <p>Children born in lower layers are automatically relocated to Main Layer autoparenting facilities upon birth detection. They begin with neutral status and full dignity in Main (0). This breaks cycles of harm and ensures every child has an optimal start regardless of parental descent.</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IX – Selective Ascension Domains (SADs)</h2>
-        <p>Voluntary, revocable purity zones nested within Heaven Layers. Each is gated by a single measurable metric. Violation results in automatic exclusion back to the layer below. No VMSS reassignment or punishment occurs — only loss of domain access.</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article X – Exit & Re-entry Rules</h2>
-        <p>Exit is always permitted from Main Layer and above. Re-entry requires moral accounting (STI evaluation, psychological screening). Prior crimes are counted. Exit from -3 is impossible — it is terminal.</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XI – Amendment Process</h2>
-        <p>The Charter may be amended only by unanimous consent of all Heaven Layer residents plus a supermajority of Main Layer citizens. Core principles (moral causality, pre-intervention in Heaven, post-intervention in Main, continuity not innocence) are immutable.</p>
-
-        <h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Founding Affirmation</h2>
-        <p>The Five Rings Civilization does not force virtue. It structures reality so that harm self-isolates, trust becomes legible, and continuity becomes a contract — not an escape. Punishment is causal, not vindictive. Freedom is expansive, yet bounded by consequence.</p>
-
-        <p class="text-center text-2xl text-[var(--accent)] mt-20 font-semibold">
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IV – Technology &amp; Continuity</h2>
+<p>Implants, neural diving, biological augmentation, backup vessels (0.5–2% drift risk), enforcement protocol (pre in Heaven, post in Main/below).</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article V – Rights &amp; Stances</h2>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+<li>Freedom of speech (unless harm threshold crossed)</li>
+<li>Consensual adult prostitution permitted</li>
+<li>All body transmutations permitted</li>
+<li>Abortion illegal</li>
+<li>Automated daycare, education, medical services (except -3)</li>
+<li>Lower-layer births auto-relocated to Main autoparenting</li>
+</ul>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VI – Enforcement &amp; Restoration Protocol</h2>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+<li><strong>Heaven Layers (+1 &amp; SADs)</strong>: Pre-Intervention — acts halted mid-execution via neural inhibition and drones. No harm completes.</li>
+<li><strong>Main Layer (0) &amp; Hell (-1/-2)</strong>: Post-Intervention — acts may complete. Victims revived (murder) or treated (rape/other harm) via backup vessels + therapy. Perpetrators reassigned downward.</li>
+<li><strong>-3 Zero-Intervention</strong>: No intervention or revival — acts complete freely, death is final.</li>
+</ul>
+<!-- New Articles -->
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VII – Layer Mobility &amp; Ascension Rules</h2>
+<p>Upward movement is earned through sustained compliance and high STI. Downward movement is immediate and permanent upon breach. Voluntary descent from higher layers is allowed but carries risk of permanent lock-in if a breach occurs while below. Citizens from lower layers cannot visit higher layers — the moral gradient is one-way upward only through demonstrated character.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VIII – Child Protection &amp; Autoparenting</h2>
+<p>Children born in lower layers are automatically relocated to Main Layer autoparenting facilities upon birth detection. They begin with neutral status and full dignity in Main (0). This breaks cycles of harm and ensures every child has an optimal start regardless of parental descent.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IX – Selective Ascension Domains (SADs)</h2>
+<p>Voluntary, revocable purity zones nested within Heaven Layers. Each is gated by a single measurable metric. Violation results in automatic exclusion back to the layer below. No VMSS reassignment or punishment occurs — only loss of domain access.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article X – Exit &amp; Re-entry Rules</h2>
+<p>Exit is always permitted from Main Layer and above. Re-entry requires moral accounting (STI evaluation, psychological screening). Prior crimes are counted. Exit from -3 is impossible — it is terminal.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XI – Amendment Process</h2>
+<p>The Charter may be amended only by unanimous consent of all Heaven Layer residents plus a supermajority of Main Layer citizens. Core principles (moral causality, pre-intervention in Heaven, post-intervention in Main, continuity not innocence) are immutable.</p>
+<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Founding Affirmation</h2>
+<p>The Five Rings Civilization does not force virtue. It structures reality so that harm self-isolates, trust becomes legible, and continuity becomes a contract — not an escape. Punishment is causal, not vindictive. Freedom is expansive, yet bounded by consequence.</p>
+<p class="text-center text-2xl text-[var(--accent)] mt-20 font-semibold">
           Enacted January 26, 2026, Boise Accord
         </p>
-      </div>
-    </div>
-  </section>
+</div>
+</div>
+</section></main>
 
-<div id="navbar-placeholder"></div>
-<div id="footer-placeholder"></div>
+
 
 <script src="script.js"></script>
-  
-</body>
+<div id="footer-placeholder"></div></body>
 </html>

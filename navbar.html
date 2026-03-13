@@ -1,51 +1,48 @@
 <!-- navbar.html -->
-<nav class="fixed top-0 w-full bg-zinc-900/90 backdrop-blur-lg z-50 border-b border-zinc-800">
-  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+<nav class="w-full vmss-nav z-40">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between py-4 gap-4">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="The Five Rings home">
+        <span class="vmss-nav-mark">⟐</span>
+        <span class="leading-tight">
+          <span class="block text-xs uppercase tracking-[0.34em] text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition">VMSS Doctrine Portal</span>
+          <span class="block text-lg md:text-xl font-semibold tracking-[0.08em] text-[var(--text-primary)]">The Five Rings</span>
+        </span>
+      </a>
 
-    <!-- Logo -->
-    <div class="flex items-center gap-3">
-      <span class="text-3xl font-bold text-yellow-400">⟐</span>
-      <span class="text-2xl font-semibold tracking-tight">The Five Rings</span>
+      <div class="hidden lg:flex items-center gap-7 text-sm font-medium">
+        <a href="index.html" class="nav-link hover:text-[var(--accent)] transition">Home</a>
+        <a href="layers.html" class="nav-link hover:text-[var(--accent)] transition">Layers</a>
+        <a href="technologies.html" class="nav-link hover:text-[var(--accent)] transition">Technologies</a>
+        <a href="sads.html" class="nav-link hover:text-[var(--accent)] transition">SADs</a>
+        <a href="enforcement.html" class="nav-link hover:text-[var(--accent)] transition">Enforcement</a>
+        <a href="simulations.html" class="nav-link hover:text-[var(--accent)] transition">Simulations</a>
+        <a href="faq.html" class="nav-link hover:text-[var(--accent)] transition">FAQ</a>
+        <a href="roadmap.html" class="nav-link hover:text-[var(--accent)] transition">Roadmap</a>
+        <a href="charter.html" class="nav-link hover:text-[var(--accent)] transition">Charter</a>
+        <a href="join.html" class="nav-link nav-link-join">Join</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="vmss-icon-button" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="menu-toggle" class="vmss-icon-button lg:hidden" aria-label="Toggle menu" aria-expanded="false">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
     </div>
-
-    <!-- Desktop Menu (hidden on mobile) -->
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <a href="index.html" class="nav-link hover:text-yellow-400 transition">Home</a>
-      <a href="layers.html" class="nav-link hover:text-yellow-400 transition">The Layers</a>
-      <a href="technologies.html" class="nav-link hover:text-yellow-400 transition">Technologies</a>
-      <a href="sads.html" class="nav-link hover:text-yellow-400 transition">SADs</a>
-      <a href="enforcement.html" class="nav-link hover:text-yellow-400 transition">Enforcement</a>
-      <a href="simulations.html" class="nav-link hover:text-yellow-400 transition">Simulations</a>
-      <a href="faq.html" class="nav-link hover:text-yellow-400 transition">FAQ</a>
-      <a href="roadmap.html" class="nav-link hover:text-yellow-400 transition">Roadmap</a>
-      <a href="charter.html" class="nav-link hover:text-yellow-400 transition">Charter</a>
-      <a href="join.html" class="nav-link hover:text-yellow-400 transition">Join</a>
-    </div>
-
-    <!-- Hamburger Button (visible only on mobile) -->
-    <button id="menu-toggle" class="md:hidden text-yellow-400 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
-      <svg id="hamburger-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-      <svg id="close-icon" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="text-yellow-400 text-xl hover:text-yellow-300 transition md:ml-4" aria-label="Toggle theme">
-      <i class="fas fa-moon"></i>
-    </button>
-
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t"
-       style="background-color: var(--bg-secondary); border-color: var(--border);">
-    <div class="px-6 py-8 flex flex-col gap-6 text-lg font-medium"
-         style="color: var(--text-primary);">
+  <div id="mobile-menu" class="hidden lg:hidden border-t vmss-mobile-menu">
+    <div class="max-w-7xl mx-auto px-6 py-7 flex flex-col gap-5 text-base font-medium">
       <a href="index.html" class="nav-link hover:text-[var(--accent)] transition">Home</a>
-      <a href="layers.html" class="nav-link hover:text-[var(--accent)] transition">The Layers</a>
+      <a href="layers.html" class="nav-link hover:text-[var(--accent)] transition">Layers</a>
       <a href="technologies.html" class="nav-link hover:text-[var(--accent)] transition">Technologies</a>
       <a href="sads.html" class="nav-link hover:text-[var(--accent)] transition">SADs</a>
       <a href="enforcement.html" class="nav-link hover:text-[var(--accent)] transition">Enforcement</a>
@@ -53,7 +50,7 @@
       <a href="faq.html" class="nav-link hover:text-[var(--accent)] transition">FAQ</a>
       <a href="roadmap.html" class="nav-link hover:text-[var(--accent)] transition">Roadmap</a>
       <a href="charter.html" class="nav-link hover:text-[var(--accent)] transition">Charter</a>
-      <a href="join.html" class="nav-link hover:text-[var(--accent)] transition">Join</a>
+      <a href="join.html" class="nav-link nav-link-join">Join</a>
     </div>
   </div>
 </nav>

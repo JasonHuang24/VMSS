@@ -1,91 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+
+<html data-theme="dark" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Enforcement & Restoration • The Five Rings</title>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enforcement &amp; Restoration • The Five Rings</title>
+<script>
     const saved = localStorage.getItem('theme') || 
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-      <!-- Favicon -->
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
-
-  <section class="pt-32 pb-32">
-    <div class="max-w-5xl mx-auto px-6">
-      <h1 class="text-6xl font-bold text-center mb-6">Enforcement & Restoration Protocol</h1>
-      <p class="text-center text-2xl text-zinc-400 mb-16">How The Five Rings prevents, responds to, and restores after harm</p>
-
-      <div class="prose prose-invert max-w-none text-zinc-300 text-lg leading-relaxed">
-        <p>The enforcement and restoration system is the backbone of moral causality in The Five Rings. It is divided into two primary modes depending on the layer: **Pre-Intervention** in Heaven Layers (+1 and SADs) and **Post-Intervention** in Main (0) and Hell Layers (-1, -2). The terminal -3 layer has no enforcement or restoration.</p>
-
-        <h2 class="text-4xl font-bold mt-12 mb-8">Pre-Intervention (Heaven Layers Only)</h2>
-        <p>In +1 Sanctuary and all Selective Ascension Domains, the system uses the Threshold Inhibition Protocol (TIP) to halt harmful acts before they complete. This is the highest level of protection — harm is literally impossible in Heaven.</p>
-
-        <h3 class="text-3xl font-bold mt-8 mb-4">How Pre-Intervention Works</h3>
-        <ul class="list-disc pl-8 space-y-4">
-          <li>Implants continuously monitor neural patterns, motor intent, and behavioral context.</li>
-          <li>When intent + imminent execution is detected (e.g., raising a weapon toward someone, initiating non-consensual restraint), the implant triggers targeted motor inhibition (paralysis of relevant muscles) and/or short-range sedation via nano-release.</li>
-          <li>Ambient drones (part of Heaven infrastructure) deploy non-lethal countermeasures: nets, foam, sonic disorientation, or sedative mist.</li>
-          <li>The act is stopped mid-motion (e.g., knife freezes inches from target, assault halts before contact).</li>
-          <li>Perpetrator is immediately subdued and reassigned downward (usually to -3 for capital attempts).</li>
-          <li>Victim experiences the attempt but no physical harm; optional neural therapy processes trauma.</li>
-        </ul>
-
-        <h3 class="text-3xl font-bold mt-8 mb-4">Why Pre-Intervention in Heaven?</h3>
-        <p>Heaven Layers are gated by high compliance metrics (e.g., zero infidelity, zero distortions). Residents here have proven sustained non-harm behavior. The system extends maximum protection to this group, creating an environment of absolute safety and trust — the "heaven" promise fulfilled.</p>
-
-        <h2 class="text-4xl font-bold mt-12 mb-8">Post-Intervention (Main Layer & Hell Layers -1/-2)</h2>
-        <p>In Main (0) and Hell Layers (-1, -2), the system allows acts to complete if the perpetrator ignores warnings/failsafes. This preserves full free will in the proving ground and lower strata. Victims are restored, perpetrators are removed.</p>
-
-        <h3 class="text-3xl font-bold mt-8 mb-4">How Post-Intervention Works</h3>
-        <ul class="list-disc pl-8 space-y-4">
-          <li>Implants warn of rising intent (“Intent approaching threshold”). User can override failsafe.</li>
-          <li>If the act completes (e.g., murder, rape), full incident is captured via implant/AR recordings + AI reconstruction.</li>
-          <li>Murder victims: Backup vessel revives them in the same layer's medical bay (with 0.5–2% drift risk).</li>
-          <li>Rape/other non-lethal harm victims: Immediate automated therapy (neural recalibration, physical restoration via augmentation).</li>
-          <li>Perpetrator: Reassigned downward immediately (e.g., murder → -3, severe assault → -2 or -3).</li>
-          <li>Evidence: Full recordings + reconstruction are irrefutable proof — logged, public for major violations.</li>
-        </ul>
-
-        <h3 class="text-3xl font-bold mt-8 mb-4">Example Scenarios</h3>
-        <ul class="list-disc pl-8 space-y-4">
-          <li><strong>Main Layer Murder Attempt</strong>: Act completes → victim revived in Main medical bay → perpetrator to -3.</li>
-          <li><strong>-1 Assault</strong>: Act completes → victim treated → perpetrator to -2 or -3 if escalates.</li>
-          <li><strong>Heaven Attempt</strong>: Act halted mid-motion → perpetrator to -3 → no harm occurs.</li>
-        </ul>
-
-        <h2 class="text-4xl font-bold mt-12 mb-8">Why the Split?</h2>
-        <p>Heaven Layers are for proven non-harmful citizens — the system extends maximum protection. Main and lower layers are proving grounds — free will must be real, even if risky. Victims are always restored (revival/therapy), perpetrators always face consequence (descent). This balance preserves both innocence and agency.</p>
-
-        <h2 class="text-4xl font-bold mt-12 mb-8">Edge Cases</h2>
-        <ul class="list-disc pl-8 space-y-4">
-          <li><strong>Failsafe Disabled</strong>: User opts out → act completes → post-intervention triggers.</li>
-          <li><strong>Multiple Perpetrators</strong>: All involved reassigned based on intent/execution level.</li>
-          <li><strong>Victim Refuses Revival</strong>: Rare, but possible — continuity respected.</li>
-          <li><strong>Visitor Breach</strong>: Locked in current layer (no return to higher).</li>
-        </ul>
-
-        <p class="mt-12 text-xl italic text-zinc-400">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div><main class="flex-1"><section class="pt-32 pb-32">
+<div class="max-w-5xl mx-auto px-6">
+<h1 class="text-6xl font-bold text-center mb-6">Enforcement &amp; Restoration Protocol</h1>
+<p class="text-center text-2xl text-zinc-400 mb-16">How The Five Rings prevents, responds to, and restores after harm</p>
+<div class="prose prose-invert max-w-none text-zinc-300 text-lg leading-relaxed">
+<p>The enforcement and restoration system is the backbone of moral causality in The Five Rings. It is divided into two primary modes depending on the layer: **Pre-Intervention** in Heaven Layers (+1 and SADs) and **Post-Intervention** in Main (0) and Hell Layers (-1, -2). The terminal -3 layer has no enforcement or restoration.</p>
+<h2 class="text-4xl font-bold mt-12 mb-8">Pre-Intervention (Heaven Layers Only)</h2>
+<p>In +1 Sanctuary and all Selective Ascension Domains, the system uses the Threshold Inhibition Protocol (TIP) to halt harmful acts before they complete. This is the highest level of protection — harm is literally impossible in Heaven.</p>
+<h3 class="text-3xl font-bold mt-8 mb-4">How Pre-Intervention Works</h3>
+<ul class="list-disc pl-8 space-y-4">
+<li>Implants continuously monitor neural patterns, motor intent, and behavioral context.</li>
+<li>When intent + imminent execution is detected (e.g., raising a weapon toward someone, initiating non-consensual restraint), the implant triggers targeted motor inhibition (paralysis of relevant muscles) and/or short-range sedation via nano-release.</li>
+<li>Ambient drones (part of Heaven infrastructure) deploy non-lethal countermeasures: nets, foam, sonic disorientation, or sedative mist.</li>
+<li>The act is stopped mid-motion (e.g., knife freezes inches from target, assault halts before contact).</li>
+<li>Perpetrator is immediately subdued and reassigned downward (usually to -3 for capital attempts).</li>
+<li>Victim experiences the attempt but no physical harm; optional neural therapy processes trauma.</li>
+</ul>
+<h3 class="text-3xl font-bold mt-8 mb-4">Why Pre-Intervention in Heaven?</h3>
+<p>Heaven Layers are gated by high compliance metrics (e.g., zero infidelity, zero distortions). Residents here have proven sustained non-harm behavior. The system extends maximum protection to this group, creating an environment of absolute safety and trust — the "heaven" promise fulfilled.</p>
+<h2 class="text-4xl font-bold mt-12 mb-8">Post-Intervention (Main Layer &amp; Hell Layers -1/-2)</h2>
+<p>In Main (0) and Hell Layers (-1, -2), the system allows acts to complete if the perpetrator ignores warnings/failsafes. This preserves full free will in the proving ground and lower strata. Victims are restored, perpetrators are removed.</p>
+<h3 class="text-3xl font-bold mt-8 mb-4">How Post-Intervention Works</h3>
+<ul class="list-disc pl-8 space-y-4">
+<li>Implants warn of rising intent (“Intent approaching threshold”). User can override failsafe.</li>
+<li>If the act completes (e.g., murder, rape), full incident is captured via implant/AR recordings + AI reconstruction.</li>
+<li>Murder victims: Backup vessel revives them in the same layer's medical bay (with 0.5–2% drift risk).</li>
+<li>Rape/other non-lethal harm victims: Immediate automated therapy (neural recalibration, physical restoration via augmentation).</li>
+<li>Perpetrator: Reassigned downward immediately (e.g., murder → -3, severe assault → -2 or -3).</li>
+<li>Evidence: Full recordings + reconstruction are irrefutable proof — logged, public for major violations.</li>
+</ul>
+<h3 class="text-3xl font-bold mt-8 mb-4">Example Scenarios</h3>
+<ul class="list-disc pl-8 space-y-4">
+<li><strong>Main Layer Murder Attempt</strong>: Act completes → victim revived in Main medical bay → perpetrator to -3.</li>
+<li><strong>-1 Assault</strong>: Act completes → victim treated → perpetrator to -2 or -3 if escalates.</li>
+<li><strong>Heaven Attempt</strong>: Act halted mid-motion → perpetrator to -3 → no harm occurs.</li>
+</ul>
+<h2 class="text-4xl font-bold mt-12 mb-8">Why the Split?</h2>
+<p>Heaven Layers are for proven non-harmful citizens — the system extends maximum protection. Main and lower layers are proving grounds — free will must be real, even if risky. Victims are always restored (revival/therapy), perpetrators always face consequence (descent). This balance preserves both innocence and agency.</p>
+<h2 class="text-4xl font-bold mt-12 mb-8">Edge Cases</h2>
+<ul class="list-disc pl-8 space-y-4">
+<li><strong>Failsafe Disabled</strong>: User opts out → act completes → post-intervention triggers.</li>
+<li><strong>Multiple Perpetrators</strong>: All involved reassigned based on intent/execution level.</li>
+<li><strong>Victim Refuses Revival</strong>: Rare, but possible — continuity respected.</li>
+<li><strong>Visitor Breach</strong>: Locked in current layer (no return to higher).</li>
+</ul>
+<p class="mt-12 text-xl italic text-zinc-400">
           Enforcement is not vengeance. It is consequence. Pre in Heaven protects the proven; post in Main tests the rest. The system measures — and acts.
         </p>
-      </div>
-    </div>
-  </section>
+</div>
+</div>
+</section></main>
 
-<div id="navbar-placeholder"></div>
-<div id="footer-placeholder"></div>
+
 
 <script src="script.js"></script>
-
-</body>
+<div id="footer-placeholder"></div></body>
 </html>
