@@ -59,24 +59,24 @@
         </div>
 
         <!-- Button that opens the form -->
-        <button onclick="showEntryForm()" 
-                class="mt-8 bg-[var(--accent)] hover:bg-amber-700 text-black font-bold px-16 py-6 rounded-2xl text-3xl transition shadow-xl">
-          Begin Entry Process
-        </button>
+	<button id="open-entry-modal"
+			class="mt-8 bg-[var(--accent)] hover:bg-amber-700 text-black font-bold px-16 py-6 rounded-2xl text-3xl transition shadow-xl">
+	  Begin Entry Process
+	</button>
       </div>
     </div>
   </section>
 
   <!-- Entry Form Modal -->
-  <div id="entryModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100] p-6">
+	<div id="entryModal" class="hidden fixed inset-0 bg-black/80 items-center justify-center z-[100] p-6">
     <div class="bg-[var(--bg-secondary)] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-auto border border-[var(--border)]">
       <div class="p-8">
         <div class="flex justify-between items-center mb-8">
           <h2 class="text-3xl font-bold text-[var(--accent)]">Entry Application — The Five Rings</h2>
-          <button onclick="hideEntryForm()" class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]">✕</button>
+          <button id="close-entry-modal" class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]">✕</button>
         </div>
 
-        <form id="entryForm" onsubmit="submitEntry(event)" class="space-y-8">
+        <form id="entryForm" class="space-y-8">
           <div>
             <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
             <input type="text" required class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]">
@@ -129,29 +129,7 @@
     </div>
   </div>
 
-  <!-- Modal & Form Scripts -->
-  <script>
-    function showEntryForm() {
-      document.getElementById('entryModal').classList.remove('hidden');
-      document.getElementById('entryModal').classList.add('flex');
-    }
 
-    function hideEntryForm() {
-      const modal = document.getElementById('entryModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    function submitEntry(e) {
-      e.preventDefault();
-      hideEntryForm();
-      
-      setTimeout(() => {
-        alert("✅ Application Received.\n\nWelcome, citizen.\n\nYour moral accounting and implant procedure have been scheduled. You will begin in the Main Layer (0).\n\nThe choice — and the consequences — are now yours.");
-      }, 600);
-    }
-  </script>
-  
 <div id="navbar-placeholder"></div>
 <div id="footer-placeholder"></div>
 
