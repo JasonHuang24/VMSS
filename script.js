@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     html.setAttribute('data-theme', theme);
     const toggle = document.getElementById('theme-toggle');
     if (toggle) {
-      toggle.innerHTML = theme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      toggle.innerHTML = theme === 'light'
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
     }
   }
 
@@ -74,117 +76,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-function initJoinModal() {
-  const openBtn = document.getElementById('open-entry-modal');
-  const closeBtn = document.getElementById('close-entry-modal');
-  const entryModal = document.getElementById('entryModal');
-  const entryForm = document.getElementById('entryForm');
+  function initJoinModal() {
+    const openBtn = document.getElementById('open-entry-modal');
+    const closeBtn = document.getElementById('close-entry-modal');
+    const entryModal = document.getElementById('entryModal');
+    const entryForm = document.getElementById('entryForm');
 
-  if (!entryModal) return;
+    if (!entryModal) return;
 
-  const showEntryForm = () => {
-    entryModal.classList.remove('hidden');
-    entryModal.classList.add('flex');
-    const firstInput = entryModal.querySelector('input, textarea');
-    if (firstInput) firstInput.focus();
-  };
+    const showEntryForm = () => {
+      entryModal.classList.remove('hidden');
+      entryModal.classList.add('flex');
+      const firstInput = entryModal.querySelector('input, textarea');
+      if (firstInput) firstInput.focus();
+    };
 
-  const hideEntryForm = () => {
-    entryModal.classList.add('hidden');
-    entryModal.classList.remove('flex');
-  };
+    const hideEntryForm = () => {
+      entryModal.classList.add('hidden');
+      entryModal.classList.remove('flex');
+    };
 
-  if (openBtn) openBtn.addEventListener('click', showEntryForm);
-  if (closeBtn) closeBtn.addEventListener('click', hideEntryForm);
+    if (openBtn) openBtn.addEventListener('click', showEntryForm);
+    if (closeBtn) closeBtn.addEventListener('click', hideEntryForm);
 
-  entryModal.addEventListener('click', (e) => {
-    if (e.target === entryModal) hideEntryForm();
-  });
+    entryModal.addEventListener('click', (e) => {
+      if (e.target === entryModal) hideEntryForm();
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) {
-      hideEntryForm();
-    }
-  });
-
-  if (entryForm) {
-    entryForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const submitButton = entryForm.querySelector('button[type="submit"]');
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = 'Submitting Application...';
-      }
-
-      const formData = new FormData(entryForm);
-
-      try {
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: new URLSearchParams(formData).toString()
-        });
-
-        if (!response.ok) {
-          throw new Error('Form submission failed');
-        }
-
-        window.location.href = 'join-success.html';
-      } catch (error) {
-        console.error('Join form submission failed:', error);
-
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = 'Submit Entry Application';
-        }
-
-        alert('Application submission failed. Please try again.');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) {
+        hideEntryForm();
       }
     });
-  }
-}
 
-if (entryForm) {
-  entryForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    if (entryForm) {
+      entryForm.addEventListener('submit', async (e) => {
+        const isLocalhost =
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1';
 
-    const submitButton = entryForm.querySelector('button[type="submit"]');
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = 'Submitting Application...';
-    }
+        if (isLocalhost) {
+          e.preventDefault();
+          window.location.href = 'join-success.html';
+          return;
+        }
 
-    const formData = new FormData(entryForm);
+        e.preventDefault();
 
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData).toString(),
+        const submitButton = entryForm.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Submitting Application...';
+        }
+
+        const formData = new FormData(entryForm);
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(formData).toString()
+          });
+
+          if (!response.ok) {
+            throw new Error(`Form submission failed with status ${response.status}`);
+          }
+
+          window.location.href = 'join-success.html';
+        } catch (error) {
+          console.error('Join form submission failed:', error);
+
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit Entry Application';
+          }
+
+          alert('Application submission failed. Please try again.');
+        }
       });
-
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-
-      window.location.href = 'join-success.html';
-    } catch (error) {
-      console.error('Join form submission failed:', error);
-
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Submit Entry Application';
-      }
-
-      alert('Application submission failed. Please try again.');
     }
-  });
-}
+  }
 
   function initBackArrows() {
     const backArrows = document.querySelectorAll('.back-arrow');
@@ -212,7 +185,6 @@ if (entryForm) {
       const firstH1 = section.querySelector('h1');
       if (firstH1) firstH1.classList.add('vmss-title');
 
-      
       const firstDiv = section.querySelector(':scope > div');
       if (firstDiv) {
         const directChildren = Array.from(firstDiv.children);
@@ -259,8 +231,8 @@ if (entryForm) {
   }
 
   Promise.all([
-    fetch('navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
-    fetch('footer.html').then(r => r.text()).catch(() => '<!-- Footer fetch failed -->')
+    fetch('/navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
+    fetch('/footer.html').then(r => r.text()).catch(() => '<!-- Footer fetch failed -->')
   ])
     .then(([navbarHtml, footerHtml]) => {
       const navPlaceholder = document.getElementById('navbar-placeholder');
