@@ -109,54 +109,55 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (entryForm) {
-      entryForm.addEventListener('submit', async (e) => {
-        const isLocalhost =
-          window.location.hostname === 'localhost' ||
-          window.location.hostname === '127.0.0.1';
+	if (entryForm) {
+	  entryForm.addEventListener('submit', async (e) => {
+		const isLocalhost =
+		  window.location.hostname === 'localhost' ||
+		  window.location.hostname === '127.0.0.1';
 
-        if (isLocalhost) {
-          e.preventDefault();
-          window.location.href = 'join-success.html';
-          return;
-        }
+		if (isLocalhost) {
+		  e.preventDefault();
+		  window.location.href = '/join-success.html';
+		  return;
+		}
 
-        e.preventDefault();
+		e.preventDefault();
 
-        const submitButton = entryForm.querySelector('button[type="submit"]');
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = 'Submitting Application...';
-        }
+		const submitButton = entryForm.querySelector('button[type="submit"]');
+		if (submitButton) {
+		  submitButton.disabled = true;
+		  submitButton.textContent = 'Submitting Application...';
+		}
 
-        const formData = new FormData(entryForm);
+		const formData = new FormData(entryForm);
 
-        try {
-          const response = await fetch('/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams(formData).toString()
-          });
+		try {
+		  const response = await fetch('/join.html', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/x-www-form-urlencoded',
+			  'Accept': 'application/json'
+			},
+			body: new URLSearchParams(formData).toString()
+		  });
 
-          if (!response.ok) {
-            throw new Error(`Form submission failed with status ${response.status}`);
-          }
+		  if (!response.ok) {
+			throw new Error(`Form submission failed with status ${response.status}`);
+		  }
 
-          window.location.href = 'join-success.html';
-        } catch (error) {
-          console.error('Join form submission failed:', error);
+		  window.location.href = '/join-success.html';
+		} catch (error) {
+		  console.error('Join form submission failed:', error);
 
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Submit Entry Application';
-          }
+		  if (submitButton) {
+			submitButton.disabled = false;
+			submitButton.textContent = 'Submit Entry Application';
+		  }
 
-          alert('Application submission failed. Please try again.');
-        }
-      });
-    }
+		  alert('Application submission failed. Please try again.');
+		}
+	  });
+	}
   }
 
   function initBackArrows() {
