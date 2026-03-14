@@ -74,36 +74,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function initJoinModal() {
-    const openBtn = document.getElementById('open-entry-modal');
-    const closeBtn = document.getElementById('close-entry-modal');
-    const entryModal = document.getElementById('entryModal');
-    const entryForm = document.getElementById('entryForm');
+function initJoinModal() {
+  const openBtn = document.getElementById('open-entry-modal');
+  const closeBtn = document.getElementById('close-entry-modal');
+  const entryModal = document.getElementById('entryModal');
+  const entryForm = document.getElementById('entryForm');
 
-    if (!entryModal) return;
+  if (!entryModal) return;
 
-    const showEntryForm = () => {
-      entryModal.classList.remove('hidden');
-      entryModal.classList.add('flex');
-      const firstInput = entryModal.querySelector('input, textarea');
-      if (firstInput) firstInput.focus();
-    };
+  const showEntryForm = () => {
+    entryModal.classList.remove('hidden');
+    entryModal.classList.add('flex');
+    const firstInput = entryModal.querySelector('input, textarea');
+    if (firstInput) firstInput.focus();
+  };
 
-    const hideEntryForm = () => {
-      entryModal.classList.add('hidden');
-      entryModal.classList.remove('flex');
-    };
+  const hideEntryForm = () => {
+    entryModal.classList.add('hidden');
+    entryModal.classList.remove('flex');
+  };
 
-    if (openBtn) openBtn.addEventListener('click', showEntryForm);
-    if (closeBtn) closeBtn.addEventListener('click', hideEntryForm);
+  if (openBtn) openBtn.addEventListener('click', showEntryForm);
+  if (closeBtn) closeBtn.addEventListener('click', hideEntryForm);
 
-    entryModal.addEventListener('click', (e) => {
-      if (e.target === entryModal) hideEntryForm();
+  entryModal.addEventListener('click', (e) => {
+    if (e.target === entryModal) hideEntryForm();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) {
+      hideEntryForm();
+    }
+  });
+
+  if (entryForm) {
+    entryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitButton = entryForm.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting Application...';
+      }
+
+      const formData = new FormData(entryForm);
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        if (!response.ok) {
+          throw new Error('Form submission failed');
+        }
+
+        window.location.href = 'join-success.html';
+      } catch (error) {
+        console.error('Join form submission failed:', error);
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Submit Entry Application';
+        }
+
+        alert('Application submission failed. Please try again.');
+      }
     });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) hideEntryForm();
-    });
+  }
+}
 
 if (entryForm) {
   entryForm.addEventListener('submit', async (e) => {
