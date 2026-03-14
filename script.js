@@ -105,21 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) hideEntryForm();
     });
 
-    if (entryForm) {
-      entryForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        hideEntryForm();
-        setTimeout(() => {
-          alert(`✅ Application Received.
-
-Welcome, citizen.
-
-Your moral accounting and implant procedure have been scheduled. You will begin in the 0 Main.
-
-The choice — and the consequences — are now yours.`);
-        }, 350);
-      });
-    }
+	if (entryForm) {
+	  entryForm.addEventListener('submit', () => {
+		const submitButton = entryForm.querySelector('button[type="submit"]');
+		if (submitButton) {
+		  submitButton.disabled = true;
+		  submitButton.textContent = 'Submitting Application...';
+		}
+	  });
+	}
   }
 
   function initBackArrows() {
