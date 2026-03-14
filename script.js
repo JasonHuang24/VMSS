@@ -105,16 +105,44 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) hideEntryForm();
     });
 
-	if (entryForm) {
-	  entryForm.addEventListener('submit', () => {
-		const submitButton = entryForm.querySelector('button[type="submit"]');
-		if (submitButton) {
-		  submitButton.disabled = true;
-		  submitButton.textContent = 'Submitting Application...';
-		}
-	  });
-	}
-  }
+if (entryForm) {
+  entryForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitButton = entryForm.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting Application...';
+    }
+
+    const formData = new FormData(entryForm);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      window.location.href = 'join-success.html';
+    } catch (error) {
+      console.error('Join form submission failed:', error);
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Entry Application';
+      }
+
+      alert('Application submission failed. Please try again.');
+    }
+  });
+}
 
   function initBackArrows() {
     const backArrows = document.querySelectorAll('.back-arrow');
