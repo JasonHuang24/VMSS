@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 Welcome, citizen.
 
-Your moral accounting and implant procedure have been scheduled. You will begin in the Main Layer (0).
+Your moral accounting and implant procedure have been scheduled. You will begin in the 0 Main.
 
 The choice — and the consequences — are now yours.`);
         }, 350);
