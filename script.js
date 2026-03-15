@@ -96,12 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
     entryModal.classList.remove('hidden');
     entryModal.classList.add('flex');
     document.body.classList.add('overflow-hidden');
+    document.documentElement.classList.add('overflow-hidden');
   };
 
   const hideEntryForm = () => {
     entryModal.classList.add('hidden');
     entryModal.classList.remove('flex');
     document.body.classList.remove('overflow-hidden');
+    document.documentElement.classList.remove('overflow-hidden');
   };
 
   const setMessage = (text, isError = false) => {
@@ -140,94 +142,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!entryForm) return;
 
-entryForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  clearMessage();
+  entryForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearMessage();
 
-  if (!supabaseClient) {
-    setMessage('Submission system is not configured yet.', true);
-    return;
-  }
-
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-  }
-
-  const formData = new FormData(entryForm);
-
-  // Honeypot spam protection
-  const honeypot = formData.get('company')?.toString().trim();
-  if (honeypot) {
-    console.warn('Bot submission blocked by honeypot.');
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Entry Application';
+    if (!supabaseClient) {
+      setMessage('Submission system is not configured yet.', true);
+      return;
     }
-    return;
-  }
-
-  // Cooldown protection: 1 minute between submissions
-  const ENTRY_COOLDOWN_MS = 60 * 1000;
-  const lastSubmissionTime = localStorage.getItem('vmss_last_submission_time');
-  const now = Date.now();
-
-  if (lastSubmissionTime && now - Number(lastSubmissionTime) < ENTRY_COOLDOWN_MS) {
-    const secondsLeft = Math.ceil(
-      (ENTRY_COOLDOWN_MS - (now - Number(lastSubmissionTime))) / 1000
-    );
-    setMessage(`Please wait ${secondsLeft} seconds before submitting again.`, true);
 
     if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Entry Application';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
     }
-    return;
-  }
 
-  const payload = {
-    full_name: formData.get('full_name')?.toString().trim() || '',
-    age: Number(formData.get('age')),
-    location: formData.get('location')?.toString().trim() || '',
-    motivation: formData.get('motivation')?.toString().trim() || '',
-    consent_implants: formData.get('consent_implants') === 'on',
-    consent_reassignment: formData.get('consent_reassignment') === 'on',
-    consent_continuity: formData.get('consent_continuity') === 'on',
-    consent_charter: formData.get('consent_charter') === 'on'
-  };
+    const formData = new FormData(entryForm);
 
-  try {
-    const { error } = await supabaseClient
-      .from('applications')
-      .insert([payload]);
+    const honeypot = formData.get('company')?.toString().trim();
+    if (honeypot) {
+      console.warn('Bot submission blocked by honeypot.');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Entry Application';
+      }
+      return;
+    }
 
-    if (error) throw error;
+    const ENTRY_COOLDOWN_MS = 60 * 1000;
+    const lastSubmissionTime = localStorage.getItem('vmss_last_submission_time');
+    const now = Date.now();
 
-    // Save submission timestamp after a successful insert
-    localStorage.setItem('vmss_last_submission_time', String(Date.now()));
+    if (lastSubmissionTime && now - Number(lastSubmissionTime) < ENTRY_COOLDOWN_MS) {
+      const secondsLeft = Math.ceil(
+        (ENTRY_COOLDOWN_MS - (now - Number(lastSubmissionTime))) / 1000
+      );
+      setMessage(`Please wait ${secondsLeft} seconds before submitting again.`, true);
 
-    entryForm.reset();
-    hideEntryForm();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Entry Application';
+      }
+      return;
+    }
 
-    setTimeout(() => {
-      alert(`✅ Application Received.
+    const payload = {
+      full_name: formData.get('full_name')?.toString().trim() || '',
+      age: Number(formData.get('age')),
+      location: formData.get('location')?.toString().trim() || '',
+      motivation: formData.get('motivation')?.toString().trim() || '',
+      consent_implants: formData.get('consent_implants') === 'on',
+      consent_reassignment: formData.get('consent_reassignment') === 'on',
+      consent_continuity: formData.get('consent_continuity') === 'on',
+      consent_charter: formData.get('consent_charter') === 'on'
+    };
+
+    try {
+      const { error } = await supabaseClient
+        .from('applications')
+        .insert([payload]);
+
+      if (error) throw error;
+
+      localStorage.setItem('vmss_last_submission_time', String(Date.now()));
+
+      entryForm.reset();
+      hideEntryForm();
+
+      setTimeout(() => {
+        alert(`✅ Application Received.
 
 Welcome, citizen.
 
 Your application to The Five Rings has been recorded for review.
 
 The choice — and the consequences — are now yours.`);
-    }, 200);
-  } catch (err) {
-    console.error('Submission error:', err);
-    setMessage('Submission failed. Please try again in a moment.', true);
-  } finally {
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Entry Application';
+      }, 200);
+    } catch (err) {
+      console.error('Submission error:', err);
+      setMessage('Submission failed. Please try again in a moment.', true);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Entry Application';
+      }
     }
-  }
-});
+  });
 }
 
   function initBackArrows() {

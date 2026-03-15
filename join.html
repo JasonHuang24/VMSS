@@ -101,117 +101,121 @@
       </div>
     </section>
 
+<div
+  id="entryModal"
+  class="fixed inset-0 z-[99999] hidden bg-black/85 overflow-hidden"
+>
+  <div class="absolute inset-0 flex items-start justify-center p-4 md:p-8">
     <div
-      id="entryModal"
-      class="fixed inset-0 z-[9999] hidden justify-center bg-black/85 px-4 pt-4 pb-24 md:pt-8 md:pb-8 overflow-y-auto items-start"
-      style="min-height: 100dvh;"
+      class="relative w-full max-w-2xl rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] shadow-2xl overflow-hidden"
+      style="height: min(92dvh, 920px); margin-top: max(0.5rem, env(safe-area-inset-top));"
     >
       <div
-        class="relative w-full max-w-2xl my-2 md:my-8 rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] shadow-2xl overflow-y-auto"
-        style="max-height: calc(100dvh - 8rem);"
+        class="h-full overflow-y-auto p-5 md:p-8"
+        style="padding-bottom: max(7rem, calc(env(safe-area-inset-bottom) + 5rem));"
       >
-        <div class="p-5 md:p-8">
-          <div class="flex justify-between items-center mb-6 md:mb-8">
-            <h2 class="text-2xl md:text-3xl font-bold text-[var(--accent)]">
-              Entry Application — The Five Rings
-            </h2>
-            <button
-              class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]"
-              id="close-entry-modal"
-              type="button"
-            >
-              ✕
-            </button>
+        <div class="flex justify-between items-center mb-6 md:mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-[var(--accent)]">
+            Entry Application — The Five Rings
+          </h2>
+          <button
+            class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]"
+            id="close-entry-modal"
+            type="button"
+          >
+            ✕
+          </button>
+        </div>
+
+        <form class="space-y-6 md:space-y-8" id="entryForm">
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
+            <input
+              name="full_name"
+              class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+              required
+              type="text"
+            />
           </div>
 
-          <form class="space-y-6 md:space-y-8 pb-6 md:pb-8" id="entryForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
+              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
               <input
-                name="full_name"
+                name="age"
                 class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+                min="18"
+                required
+                type="number"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Current Location</label>
+              <input
+                name="location"
+                class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+                placeholder="City, Country"
                 required
                 type="text"
               />
             </div>
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
-                <input
-                  name="age"
-                  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-                  min="18"
-                  required
-                  type="number"
-                />
-              </div>
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
+            <textarea
+              name="motivation"
+              class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+              placeholder="Be honest. The system values clarity of intent."
+              required
+              rows="4"
+            ></textarea>
+          </div>
 
-              <div>
-                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Current Location</label>
-                <input
-                  name="location"
-                  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-                  placeholder="City, Country"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
+          <div class="space-y-5 pt-6 border-t border-[var(--border)]">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input name="consent_implants" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
+              <span class="text-[var(--text-secondary)]">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
+            </label>
 
-            <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
-              <textarea
-                name="motivation"
-                class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-                placeholder="Be honest. The system values clarity of intent."
-                required
-                rows="4"
-              ></textarea>
-            </div>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input name="consent_reassignment" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
+              <span class="text-[var(--text-secondary)]">I accept that any intentional harm will result in permanent layer reassignment with no appeal.</span>
+            </label>
 
-            <div class="space-y-5 pt-6 border-t border-[var(--border)]">
-              <label class="flex items-start gap-3 cursor-pointer">
-                <input name="consent_implants" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
-              </label>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input name="consent_continuity" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
+              <span class="text-[var(--text-secondary)]">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
+            </label>
 
-              <label class="flex items-start gap-3 cursor-pointer">
-                <input name="consent_reassignment" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I accept that any intentional harm will result in permanent layer reassignment with no appeal.</span>
-              </label>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input name="consent_charter" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
+              <span class="text-[var(--text-secondary)]">I have read and agree to the Charter of The Five Rings.</span>
+            </label>
+          </div>
 
-              <label class="flex items-start gap-3 cursor-pointer">
-                <input name="consent_continuity" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
-              </label>
+          <p id="entry-form-message" class="text-sm text-[var(--text-muted)] hidden"></p>
 
-              <label class="flex items-start gap-3 cursor-pointer">
-                <input name="consent_charter" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I have read and agree to the Charter of The Five Rings.</span>
-              </label>
-            </div>
+          <div style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
 
-            <p id="entry-form-message" class="text-sm text-[var(--text-muted)] hidden"></p>
-
-            <div style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <div class="pt-2 pb-4 md:pb-2">
-              <button
-                id="entry-submit-btn"
-                class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-5 md:py-6 rounded-2xl text-xl md:text-2xl transition reveal-item"
-                type="submit"
-              >
-                Submit Entry Application
-              </button>
-            </div>
-          </form>
-        </div>
+          <div class="pt-2">
+            <button
+              id="entry-submit-btn"
+              class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-5 md:py-6 rounded-2xl text-xl md:text-2xl transition reveal-item"
+              type="submit"
+            >
+              Submit Entry Application
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+</div>
   </main>
 
   <div id="footer-placeholder"></div>
