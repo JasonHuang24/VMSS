@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function initJoinModal() {
+function initJoinModal() {
   const openBtn = document.getElementById('open-entry-modal');
   const closeBtn = document.getElementById('close-entry-modal');
   const entryModal = document.getElementById('entryModal');
@@ -92,18 +92,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!entryModal) return;
 
-  const showEntryForm = () => {
-    entryModal.classList.remove('hidden');
-    entryModal.classList.add('flex');
+  const lockPage = () => {
     document.body.classList.add('overflow-hidden');
     document.documentElement.classList.add('overflow-hidden');
+    document.body.style.touchAction = 'none';
+  };
+
+  const unlockPage = () => {
+    document.body.classList.remove('overflow-hidden');
+    document.documentElement.classList.remove('overflow-hidden');
+    document.body.style.touchAction = '';
+  };
+
+  const showEntryForm = () => {
+    entryModal.classList.remove('hidden');
+    entryModal.classList.add('block');
+    entryModal.setAttribute('aria-hidden', 'false');
+    lockPage();
   };
 
   const hideEntryForm = () => {
     entryModal.classList.add('hidden');
-    entryModal.classList.remove('flex');
-    document.body.classList.remove('overflow-hidden');
-    document.documentElement.classList.remove('overflow-hidden');
+    entryModal.classList.remove('block');
+    entryModal.setAttribute('aria-hidden', 'true');
+    unlockPage();
   };
 
   const setMessage = (text, isError = false) => {
