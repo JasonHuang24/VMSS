@@ -333,6 +333,7 @@ The choice — and the consequences — are now yours.`);
 	  initActiveNav();
 	  initJoinModal();
 	  loadApplicantCount();
+	  loadRecentApplicants();
 	})
     .catch(err => console.error('Failed to load layout components:', err));
 
