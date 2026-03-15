@@ -197,17 +197,22 @@ function initJoinModal() {
       return;
     }
 
-    const payload = {
-      full_name: formData.get('full_name')?.toString().trim() || '',
-      age: Number(formData.get('age')),
-      location: formData.get('location')?.toString().trim() || '',
-      motivation: formData.get('motivation')?.toString().trim() || '',
-      consent_implants: formData.get('consent_implants') === 'on',
-      consent_reassignment: formData.get('consent_reassignment') === 'on',
-      consent_continuity: formData.get('consent_continuity') === 'on',
-      consent_charter: formData.get('consent_charter') === 'on'
-    };
+	const payload = {
+	  full_name: formData.get('full_name')?.toString().trim() || '',
+	  age: Number(formData.get('age')),
 
+	  city: formData.get('city')?.toString().trim() || '',
+	  state: formData.get('state')?.toString().trim() || '',
+	  country: formData.get('country')?.toString().trim() || '',
+	  phone: formData.get('phone')?.toString().trim() || '',
+
+	  motivation: formData.get('motivation')?.toString().trim() || '',
+
+	  consent_implants: formData.get('consent_implants') === 'on',
+	  consent_reassignment: formData.get('consent_reassignment') === 'on',
+	  consent_continuity: formData.get('consent_continuity') === 'on',
+	  consent_charter: formData.get('consent_charter') === 'on'
+	};
     try {
       const { error } = await supabaseClient
         .from('applications')
@@ -216,7 +221,8 @@ function initJoinModal() {
       if (error) throw error;
 
       localStorage.setItem('vmss_last_submission_time', String(Date.now()));
-
+		loadApplicantCount();
+		loadRecentApplicants();
       entryForm.reset();
       hideEntryForm();
 
@@ -317,19 +323,83 @@ The choice — and the consequences — are now yours.`);
     fetch('navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
     fetch('footer.html').then(r => r.text()).catch(() => '<!-- Footer fetch failed -->')
   ])
-    .then(([navbarHtml, footerHtml]) => {
-      const navPlaceholder = document.getElementById('navbar-placeholder');
-      const footerPlaceholder = document.getElementById('footer-placeholder');
-      if (navPlaceholder) navPlaceholder.innerHTML = navbarHtml;
-      if (footerPlaceholder) footerPlaceholder.innerHTML = footerHtml;
-      initThemeToggle();
-      initMobileMenu();
-      initActiveNav();
-      initJoinModal();
-    })
+	.then(([navbarHtml, footerHtml]) => {
+	  const navPlaceholder = document.getElementById('navbar-placeholder');
+	  const footerPlaceholder = document.getElementById('footer-placeholder');
+	  if (navPlaceholder) navPlaceholder.innerHTML = navbarHtml;
+	  if (footerPlaceholder) footerPlaceholder.innerHTML = footerHtml;
+	  initThemeToggle();
+	  initMobileMenu();
+	  initActiveNav();
+	  initJoinModal();
+	  loadApplicantCount();
+	})
     .catch(err => console.error('Failed to load layout components:', err));
 
   enhancePageLayout();
   initBackArrows();
   initReveal();
 });
+
+async function loadApplicantCount() {
+  const countEl = document.getElementById('applicant-count');
+
+  if (!countEl || !supabaseClient) return;
+
+  try {
+    const { count, error } = await supabaseClient
+      .from('applications')
+      .select('*', { count: 'exact', head: true });
+
+    if (error) throw error;
+
+    countEl.textContent = count ?? '0';
+  } catch (err) {
+    console.error('Failed to load applicant count:', err);
+    countEl.textContent = '—';
+  }
+}
+
+async function loadRecentApplicants() {
+
+  const container = document.getElementById('recent-applicants');
+
+  if (!container || !supabaseClient) return;
+
+  try {
+
+    const { data, error } = await supabaseClient
+      .from('applications')
+      .select('city, country')
+      .order('created_at', { ascending: false })
+      .limit(5);
+
+    if (error) throw error;
+
+    container.innerHTML = '';
+
+    if (!data || data.length === 0) {
+      container.innerHTML = '<div>No applications yet.</div>';
+      return;
+    }
+
+    data.forEach(row => {
+
+      const city = row.city || '';
+      const country = row.country || '';
+
+      const line = document.createElement('div');
+
+      line.textContent = `• ${city}${city && country ? ', ' : ''}${country}`;
+
+      container.appendChild(line);
+
+    });
+
+  } catch (err) {
+
+    console.error('Failed to load recent applicants:', err);
+    container.innerHTML = '<div>—</div>';
+
+  }
+}
