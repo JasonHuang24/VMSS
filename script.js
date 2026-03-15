@@ -1,3 +1,11 @@
+const SUPABASE_URL = 'https://nizitfgihubglrtovget.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
+
+const supabaseClient =
+  window.supabase && SUPABASE_URL && SUPABASE_ANON_KEY
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
 document.addEventListener('DOMContentLoaded', () => {
   const html = document.documentElement;
 
@@ -11,9 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     html.setAttribute('data-theme', theme);
     const toggle = document.getElementById('theme-toggle');
     if (toggle) {
-      toggle.innerHTML = theme === 'light'
-        ? '<i class="fas fa-sun"></i>'
-        : '<i class="fas fa-moon"></i>';
+      toggle.innerHTML = theme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
   }
 
@@ -77,87 +83,152 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initJoinModal() {
-    const openBtn = document.getElementById('open-entry-modal');
-    const closeBtn = document.getElementById('close-entry-modal');
-    const entryModal = document.getElementById('entryModal');
-    const entryForm = document.getElementById('entryForm');
+  const openBtn = document.getElementById('open-entry-modal');
+  const closeBtn = document.getElementById('close-entry-modal');
+  const entryModal = document.getElementById('entryModal');
+  const entryForm = document.getElementById('entryForm');
+  const submitBtn = document.getElementById('entry-submit-btn');
+  const messageEl = document.getElementById('entry-form-message');
 
-    if (!entryModal) return;
+  if (!entryModal) return;
 
-    const showEntryForm = () => {
-      entryModal.classList.remove('hidden');
-      entryModal.classList.add('flex');
-      const firstInput = entryModal.querySelector('input, textarea');
-      if (firstInput) firstInput.focus();
-    };
+  const showEntryForm = () => {
+    entryModal.classList.remove('hidden');
+    entryModal.classList.add('flex');
+    document.body.classList.add('overflow-hidden');
+  };
 
-    const hideEntryForm = () => {
-      entryModal.classList.add('hidden');
-      entryModal.classList.remove('flex');
-    };
+  const hideEntryForm = () => {
+    entryModal.classList.add('hidden');
+    entryModal.classList.remove('flex');
+    document.body.classList.remove('overflow-hidden');
+  };
 
-    if (openBtn) openBtn.addEventListener('click', showEntryForm);
-    if (closeBtn) closeBtn.addEventListener('click', hideEntryForm);
+  const setMessage = (text, isError = false) => {
+    if (!messageEl) return;
+    messageEl.textContent = text;
+    messageEl.classList.remove('hidden');
+    messageEl.style.color = isError ? '#f87171' : '';
+  };
 
-    entryModal.addEventListener('click', (e) => {
-      if (e.target === entryModal) hideEntryForm();
-    });
+  const clearMessage = () => {
+    if (!messageEl) return;
+    messageEl.textContent = '';
+    messageEl.classList.add('hidden');
+    messageEl.style.color = '';
+  };
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) {
-        hideEntryForm();
-      }
-    });
+  if (openBtn) {
+    openBtn.addEventListener('click', showEntryForm);
+  }
 
-    if (entryForm) {
-      entryForm.addEventListener('submit', async (e) => {
-        const isLocalhost =
-          window.location.hostname === 'localhost' ||
-          window.location.hostname === '127.0.0.1';
+  if (closeBtn) {
+    closeBtn.addEventListener('click', hideEntryForm);
+  }
 
-        if (isLocalhost) {
-          e.preventDefault();
-          window.location.href = 'join-success.html';
-          return;
-        }
+  entryModal.addEventListener('click', (e) => {
+    if (e.target === entryModal) {
+      hideEntryForm();
+    }
+  });
 
-        e.preventDefault();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !entryModal.classList.contains('hidden')) {
+      hideEntryForm();
+    }
+  });
 
-        const submitButton = entryForm.querySelector('button[type="submit"]');
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = 'Submitting Application...';
-        }
+  if (!entryForm) return;
 
-        const formData = new FormData(entryForm);
+entryForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  clearMessage();
 
-        try {
-          const response = await fetch('/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams(formData).toString()
-          });
+  if (!supabaseClient) {
+    setMessage('Submission system is not configured yet.', true);
+    return;
+  }
 
-          if (!response.ok) {
-            throw new Error(`Form submission failed with status ${response.status}`);
-          }
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+  }
 
-          window.location.href = 'join-success.html';
-        } catch (error) {
-          console.error('Join form submission failed:', error);
+  const formData = new FormData(entryForm);
 
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Submit Entry Application';
-          }
+  // Honeypot spam protection
+  const honeypot = formData.get('company')?.toString().trim();
+  if (honeypot) {
+    console.warn('Bot submission blocked by honeypot.');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Entry Application';
+    }
+    return;
+  }
 
-          alert('Application submission failed. Please try again.');
-        }
-      });
+  // Cooldown protection: 1 minute between submissions
+  const ENTRY_COOLDOWN_MS = 60 * 1000;
+  const lastSubmissionTime = localStorage.getItem('vmss_last_submission_time');
+  const now = Date.now();
+
+  if (lastSubmissionTime && now - Number(lastSubmissionTime) < ENTRY_COOLDOWN_MS) {
+    const secondsLeft = Math.ceil(
+      (ENTRY_COOLDOWN_MS - (now - Number(lastSubmissionTime))) / 1000
+    );
+    setMessage(`Please wait ${secondsLeft} seconds before submitting again.`, true);
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Entry Application';
+    }
+    return;
+  }
+
+  const payload = {
+    full_name: formData.get('full_name')?.toString().trim() || '',
+    age: Number(formData.get('age')),
+    location: formData.get('location')?.toString().trim() || '',
+    motivation: formData.get('motivation')?.toString().trim() || '',
+    consent_implants: formData.get('consent_implants') === 'on',
+    consent_reassignment: formData.get('consent_reassignment') === 'on',
+    consent_continuity: formData.get('consent_continuity') === 'on',
+    consent_charter: formData.get('consent_charter') === 'on'
+  };
+
+  try {
+    const { error } = await supabaseClient
+      .from('applications')
+      .insert([payload]);
+
+    if (error) throw error;
+
+    // Save submission timestamp after a successful insert
+    localStorage.setItem('vmss_last_submission_time', String(Date.now()));
+
+    entryForm.reset();
+    hideEntryForm();
+
+    setTimeout(() => {
+      alert(`✅ Application Received.
+
+Welcome, citizen.
+
+Your application to The Five Rings has been recorded for review.
+
+The choice — and the consequences — are now yours.`);
+    }, 200);
+  } catch (err) {
+    console.error('Submission error:', err);
+    setMessage('Submission failed. Please try again in a moment.', true);
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Entry Application';
     }
   }
+});
+}
 
   function initBackArrows() {
     const backArrows = document.querySelectorAll('.back-arrow');
@@ -185,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const firstH1 = section.querySelector('h1');
       if (firstH1) firstH1.classList.add('vmss-title');
 
+      
       const firstDiv = section.querySelector(':scope > div');
       if (firstDiv) {
         const directChildren = Array.from(firstDiv.children);
@@ -231,8 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   Promise.all([
-    fetch('/navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
-    fetch('/footer.html').then(r => r.text()).catch(() => '<!-- Footer fetch failed -->')
+    fetch('navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
+    fetch('footer.html').then(r => r.text()).catch(() => '<!-- Footer fetch failed -->')
   ])
     .then(([navbarHtml, footerHtml]) => {
       const navPlaceholder = document.getElementById('navbar-placeholder');

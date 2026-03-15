@@ -20,39 +20,33 @@
 <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
-<div id="navbar-placeholder"></div>
-
-<main class="flex-1">
-<section class="pt-32 pb-32">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div><main class="flex-1"><section class="pt-32 pb-32">
 <div class="max-w-5xl mx-auto px-6 text-center">
 <h1 class="text-6xl font-bold mb-6 text-[var(--text-primary)]">Ready to Join The Five Rings?</h1>
 <p class="text-2xl text-[var(--text-muted)] mb-16">The choice — and the consequences — are yours.</p>
-
 <div class="max-w-4xl mx-auto">
 <!-- What to Expect -->
 <div class="bg-[var(--bg-secondary)] rounded-3xl p-12 border border-[var(--border)] mb-12">
 <h2 class="text-4xl font-bold mb-8 text-[var(--accent)]">What to Expect</h2>
 <ul class="text-left text-lg space-y-6 text-[var(--text-secondary)]">
 <li>• <strong>Voluntary entry</strong> — implants are opt-in; no coercion</li>
-<li>• <strong>Full dignity from day one</strong> — $10,000/month UBI in 0 Main</li>
+<li>• <strong>Full dignity from day one</strong> — $10,000/month UBI in Main Layer (0)</li>
 <li>• <strong>Freedom + consequence</strong> — create, love, explore; harm = permanent layer reassignment</li>
 <li>• <strong>Backup vessels</strong> — continuity insured (0.5–2% drift risk)</li>
 <li>• <strong>Ascension path</strong> — higher-trust layers await the compliant</li>
-<li>• <strong>Pre-intervention in +1 Sanctuary</strong> — acts halted mid-execution</li>
-<li>• <strong>Post-intervention in Main and below</strong> — acts may complete; victims revived or treated</li>
+<li>• <strong>Pre-intervention in  +1 Sanctuary</strong> — acts halted mid-execution</li>
+<li>• <strong>Post-intervention in Main &amp; below</strong> — acts may complete; victims revived/treated</li>
 <li>• <strong>Five Rings structure</strong> — concentric mega-walls, vertical transit</li>
 </ul>
 </div>
-
-<!-- Next Steps -->
+<!-- Next Steps (fully restored) -->
 <div class="bg-[var(--bg-secondary)] rounded-3xl p-12 border border-[var(--border)] mb-12">
 <h2 class="text-4xl font-bold mb-8 text-[var(--accent)]">Next Steps</h2>
 <ol class="text-left text-lg space-y-6 list-decimal pl-8 text-[var(--text-secondary)]">
 <li>Review the Charter and Layers</li>
 <li>Understand the risks (permanent layer reassignment, STI visibility)</li>
 <li>Consent to implant procedure (voluntary)</li>
-<li>Begin your life in 0 Main</li>
+<li>Begin your life in Main Layer (0)</li>
 <li>Ascend through compliance and contribution</li>
 <li>Opt into Selective Ascension Domains as you qualify</li>
 </ol>
@@ -75,7 +69,7 @@
 <div class="text-left text-lg space-y-6 text-[var(--text-secondary)]">
 <p>Joining The Five Rings is not simply moving to a better city. It is opting into a different civilizational contract.</p>
 <ul class="space-y-4">
-<li>• You begin in <strong>0 Main</strong>, not in Sanctuary.</li>
+<li>• You begin in <strong>Main Layer (0)</strong>, not in Sanctuary.</li>
 <li>• You receive dignity, UBI, safety infrastructure, and access to advanced technologies from day one.</li>
 <li>• Your outward actions become legible to a system built around consequence, STI accountability, and layer reassignment.</li>
 <li>• You remain fully free to act — but harmful acts permanently change the environment you are allowed to inhabit.</li>
@@ -97,8 +91,8 @@
 
 <!-- Button that opens the form -->
 <button class="mt-8 bg-[var(--accent)] hover:bg-amber-700 text-black font-bold px-16 py-6 rounded-2xl text-3xl transition shadow-xl reveal-item" id="open-entry-modal">
-  Begin Entry Process
-</button>
+	  Begin Entry Process
+	</button>
 </div>
 </div>
 </section>
@@ -111,33 +105,14 @@
 <button class="text-3xl text-[var(--text-muted)] hover:text-[var(--accent)]" id="close-entry-modal">✕</button>
 </div>
 
-<form
-  class="space-y-8"
-  id="entryForm"
-  name="vmss-join"
-  method="POST"
-  data-netlify="true"
-  
->
-  <input type="hidden" name="form-name" value="vmss-join"/>
-
+<form class="space-y-8" id="entryForm">
   <div>
     <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
     <input
+      name="full_name"
       class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
       required
       type="text"
-      name="full_name"
-    />
-  </div>
-
-  <div>
-    <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Email Address</label>
-    <input
-      class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-      required
-      type="email"
-      name="email"
     />
   </div>
 
@@ -145,21 +120,21 @@
     <div>
       <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
       <input
+        name="age"
         class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
         min="18"
         required
         type="number"
-        name="age"
       />
     </div>
     <div>
       <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Current Location</label>
       <input
+        name="location"
         class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
         placeholder="City, Country"
         required
         type="text"
-        name="current_location"
       />
     </div>
   </div>
@@ -167,52 +142,59 @@
   <div>
     <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
     <textarea
+      name="motivation"
       class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
       placeholder="Be honest. The system values clarity of intent."
       required
       rows="4"
-      name="motivation"
     ></textarea>
   </div>
 
   <div class="space-y-6 pt-6 border-t border-[var(--border)]">
     <label class="flex items-start gap-3 cursor-pointer">
-      <input class="mt-1 accent-[var(--accent)]" required type="checkbox" name="consent_implants"/>
+      <input name="consent_implants" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
       <span class="text-[var(--text-secondary)]">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
     </label>
+
     <label class="flex items-start gap-3 cursor-pointer">
-      <input class="mt-1 accent-[var(--accent)]" required type="checkbox" name="consent_reassignment"/>
+      <input name="consent_reassignment" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
       <span class="text-[var(--text-secondary)]">I accept that any intentional harm will result in permanent layer reassignment with no appeal.</span>
     </label>
+
     <label class="flex items-start gap-3 cursor-pointer">
-      <input class="mt-1 accent-[var(--accent)]" required type="checkbox" name="consent_continuity"/>
+      <input name="consent_continuity" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
       <span class="text-[var(--text-secondary)]">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
     </label>
+
     <label class="flex items-start gap-3 cursor-pointer">
-      <input class="mt-1 accent-[var(--accent)]" required type="checkbox" name="consent_charter"/>
+      <input name="consent_charter" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
       <span class="text-[var(--text-secondary)]">I have read and agree to the Charter of The Five Rings.</span>
     </label>
   </div>
 
-  <button class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-6 rounded-2xl text-2xl transition reveal-item" type="submit">
+  <p id="entry-form-message" class="text-sm text-[var(--text-muted)] hidden"></p>
+  
+<div style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
+  <label for="company">Company</label>
+  <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+</div>
+
+  <button
+    id="entry-submit-btn"
+    class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-6 rounded-2xl text-2xl transition reveal-item"
+    type="submit"
+  >
     Submit Entry Application
   </button>
 </form>
-</div>
-</div>
-</div>
-</main>
 
-<!-- Netlify form detection -->
-<form name="vmss-join" method="POST" data-netlify="true" hidden>
-  <input type="text" name="full_name">
-  <input type="email" name="email">
-  <input type="number" name="age">
-  <input type="text" name="current_location">
-  <textarea name="motivation"></textarea>
-</form>
+</div>
+</div>
+</div></main>
 
-<script src="script.js"></script>
 <div id="footer-placeholder"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
 </body>
 </html>
