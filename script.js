@@ -1,10 +1,19 @@
 const SUPABASE_URL = 'https://nizitfgihubglrtovget.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
 
-const supabaseClient =
-  window.supabase && SUPABASE_URL && SUPABASE_ANON_KEY
-    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    : null;
+let supabaseClient = null;
+
+if (typeof window.supabase !== 'undefined') {
+  try {
+    supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY
+    );
+  } catch (e) {
+    console.warn('Supabase init failed:', e);
+    supabaseClient = null;
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const html = document.documentElement;
@@ -221,8 +230,13 @@ function initJoinModal() {
       if (error) throw error;
 
       localStorage.setItem('vmss_last_submission_time', String(Date.now()));
-		loadApplicantCount();
-		loadRecentApplicants();
+			if (document.getElementById('applicant-count')) {
+			  loadApplicantCount();
+			}
+
+			if (document.getElementById('recent-applicants')) {
+			  loadRecentApplicants();
+			}
       entryForm.reset();
       hideEntryForm();
 
@@ -332,8 +346,13 @@ The choice — and the consequences — are now yours.`);
 	  initMobileMenu();
 	  initActiveNav();
 	  initJoinModal();
+	if (document.getElementById('applicant-count')) {
 	  loadApplicantCount();
+	}
+
+	if (document.getElementById('recent-applicants')) {
 	  loadRecentApplicants();
+	}
 	})
     .catch(err => console.error('Failed to load layout components:', err));
 
