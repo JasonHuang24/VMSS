@@ -11,8 +11,11 @@
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="styles.css" rel="stylesheet"/>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
 <!-- Favicon -->
 <link href="/favicon.ico" rel="icon" type="image/x-icon"/>
@@ -244,6 +247,6 @@ STI serves as the primary accountability layer for most social behavior. Only se
 
 
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>

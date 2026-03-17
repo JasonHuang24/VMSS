@@ -11,6 +11,8 @@
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <!-- Basic meta for consistency -->
 <meta content="The requested layer does not exist. Return to the known rings." name="description"/>
 <meta content="noindex" name="robots"/>
@@ -53,6 +55,6 @@
 </main>
 <!-- Footer -->
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>
