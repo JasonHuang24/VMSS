@@ -303,10 +303,10 @@ The choice — and the consequences — are now yours.`);
       }
     });
 
-    document.querySelectorAll('.prose').forEach(el => {
-      el.classList.add('vmss-prose', 'vmss-panel', 'reveal-item');
-      el.classList.remove('prose-invert');
-    });
+	document.querySelectorAll('.prose').forEach(el => {
+	  el.classList.add('vmss-prose', 'vmss-panel');
+	  el.classList.remove('prose-invert');
+	});
 
     document.querySelectorAll('.layer-card, .sad-card').forEach(el => {
       el.classList.add('vmss-enhanced-card', 'reveal-item');
@@ -317,21 +317,33 @@ The choice — and the consequences — are now yours.`);
     });
   }
 
-  function initReveal() {
-    const items = document.querySelectorAll('.reveal-item');
-    if (!items.length) return;
+	function initReveal() {
+	  const items = document.querySelectorAll('.reveal-item');
+	  if (!items.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+	  if (!('IntersectionObserver' in window)) {
+		items.forEach(item => item.classList.add('is-visible'));
+		return;
+	  }
 
-    items.forEach(item => observer.observe(item));
-  }
+	  const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+		  if (entry.isIntersecting || entry.intersectionRatio > 0) {
+			entry.target.classList.add('is-visible');
+			observer.unobserve(entry.target);
+		  }
+		});
+	  }, {
+		threshold: 0.01,
+		rootMargin: '0px 0px -5% 0px'
+	  });
+
+	  items.forEach(item => observer.observe(item));
+
+	  setTimeout(() => {
+		items.forEach(item => item.classList.add('is-visible'));
+	  }, 1200);
+	}
 
   Promise.all([
     fetch('navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
