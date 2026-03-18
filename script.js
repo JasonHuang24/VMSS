@@ -1,19 +1,10 @@
 const SUPABASE_URL = 'https://nizitfgihubglrtovget.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
 
-let supabaseClient = null;
-
-if (typeof window.supabase !== 'undefined') {
-  try {
-    supabaseClient = window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_ANON_KEY
-    );
-  } catch (e) {
-    console.warn('Supabase init failed:', e);
-    supabaseClient = null;
-  }
-}
+const supabaseClient =
+  window.supabase && SUPABASE_URL && SUPABASE_ANON_KEY
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
 
 document.addEventListener('DOMContentLoaded', () => {
   const html = document.documentElement;
@@ -230,13 +221,8 @@ function initJoinModal() {
       if (error) throw error;
 
       localStorage.setItem('vmss_last_submission_time', String(Date.now()));
-			if (document.getElementById('applicant-count')) {
-			  loadApplicantCount();
-			}
-
-			if (document.getElementById('recent-applicants')) {
-			  loadRecentApplicants();
-			}
+		loadApplicantCount();
+		loadRecentApplicants();
       entryForm.reset();
       hideEntryForm();
 
@@ -303,10 +289,10 @@ The choice — and the consequences — are now yours.`);
       }
     });
 
-	document.querySelectorAll('.prose').forEach(el => {
-	  el.classList.add('vmss-prose', 'vmss-panel');
-	  el.classList.remove('prose-invert');
-	});
+    document.querySelectorAll('.prose').forEach(el => {
+      el.classList.add('vmss-prose', 'vmss-panel', 'reveal-item');
+      el.classList.remove('prose-invert');
+    });
 
     document.querySelectorAll('.layer-card, .sad-card').forEach(el => {
       el.classList.add('vmss-enhanced-card', 'reveal-item');
@@ -317,33 +303,21 @@ The choice — and the consequences — are now yours.`);
     });
   }
 
-	function initReveal() {
-	  const items = document.querySelectorAll('.reveal-item');
-	  if (!items.length) return;
+  function initReveal() {
+    const items = document.querySelectorAll('.reveal-item');
+    if (!items.length) return;
 
-	  if (!('IntersectionObserver' in window)) {
-		items.forEach(item => item.classList.add('is-visible'));
-		return;
-	  }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-	  const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-		  if (entry.isIntersecting || entry.intersectionRatio > 0) {
-			entry.target.classList.add('is-visible');
-			observer.unobserve(entry.target);
-		  }
-		});
-	  }, {
-		threshold: 0.01,
-		rootMargin: '0px 0px -5% 0px'
-	  });
-
-	  items.forEach(item => observer.observe(item));
-
-	  setTimeout(() => {
-		items.forEach(item => item.classList.add('is-visible'));
-	  }, 1200);
-	}
+    items.forEach(item => observer.observe(item));
+  }
 
   Promise.all([
     fetch('navbar.html').then(r => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
@@ -358,13 +332,8 @@ The choice — and the consequences — are now yours.`);
 	  initMobileMenu();
 	  initActiveNav();
 	  initJoinModal();
-	if (document.getElementById('applicant-count')) {
 	  loadApplicantCount();
-	}
-
-	if (document.getElementById('recent-applicants')) {
 	  loadRecentApplicants();
-	}
 	})
     .catch(err => console.error('Failed to load layout components:', err));
 
