@@ -39,6 +39,21 @@
     });
     return next;
   }
+
+  function getDeltaMessage(previousScore, nextScore, layer, eventLabel) {
+    const delta = nextScore - previousScore;
+    const direction = delta > 0 ? 'rose' : delta < 0 ? 'fell' : 'held steady';
+    const amount = delta === 0 ? '' : ` by ${Math.abs(delta)} points`;
+    const cause = eventLabel ? ` after ${eventLabel.toLowerCase()}` : '';
+    return `STI ${direction}${amount}${cause}. Current placement: ${layer.label}.`;
+  }
+  function pulseElement(element) {
+    if (!element) return;
+    element.classList.remove('vmss-flash');
+    void element.offsetWidth;
+    element.classList.add('vmss-flash');
+    setTimeout(() => element.classList.remove('vmss-flash'), 520);
+  }
   function initSimulator() {
     const root = document.getElementById('sti-console');
     if (!root) return;
@@ -83,13 +98,13 @@
       const layer = layerForScore(score);
       const dashoffset = circumference - (score / 100) * circumference;
       const positivePressure = values.civic + values.contribution + values.conduct;
-      if (scoreEl) scoreEl.textContent = score;
+      if (scoreEl) window.vmssAnimateNumber ? window.vmssAnimateNumber(scoreEl, score, { duration: 460 }) : (scoreEl.textContent = score);
       if (layerEl) layerEl.textContent = layer.label;
       if (toneEl) toneEl.textContent = `${layer.tone} • STI band ${layer.range}`;
       if (profileName) profileName.textContent = sourceLabel || 'Custom profile';
       if (overallShift) overallShift.textContent = score >= 70 ? 'Upward pressure' : score >= 50 ? 'Friction zone' : 'Downward pressure';
       if (stability) stability.textContent = positivePressure >= 40 ? 'High coherence' : positivePressure >= 28 ? 'Mixed coherence' : 'Low coherence';
-      if (gauge) gauge.style.strokeDashoffset = `${dashoffset}`;
+      if (gauge) { gauge.style.strokeDashoffset = `${dashoffset}`; gauge.classList.toggle('is-strong', score >= 70); }
       layerSteps.forEach((step) => step.classList.toggle('is-current', step.dataset.layer === layer.key));
       if (reasoningEl) reasoningEl.innerHTML = explanation(score, values, currentEventLabel).map((line) => `<div class="vmss-insight-item"><strong>Signal:</strong> ${line}</div>`).join('');
       bars.forEach((bar) => {
@@ -99,8 +114,10 @@
         if (fill) fill.style.width = `${(value / max) * 100}%`;
         if (number) number.textContent = key === 'violations' ? `-${value}` : `+${value}`;
       });
-      if (eventFeed && currentEventLabel) eventFeed.textContent = currentEventLabel;
-      if (lastLayerKey && lastLayerKey !== layer.key && eventFeed) eventFeed.textContent = `Layer transition: ${layer.label}`;
+      const previousScore = Number(scoreEl?.dataset.currentValue ?? scoreEl?.textContent ?? score) || score;
+      const detailMessage = getDeltaMessage(previousScore, score, layer, currentEventLabel);
+      if (eventFeed) eventFeed.textContent = lastLayerKey && lastLayerKey !== layer.key ? `Layer transition: ${layer.label}` : detailMessage;
+      if (lastLayerKey && lastLayerKey !== layer.key) pulseElement(root.querySelector('.vmss-score-card'));
       lastLayerKey = layer.key;
       if (window.VMSS) {
         window.VMSS.setState({

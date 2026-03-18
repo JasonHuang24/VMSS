@@ -36,6 +36,37 @@ function vmssLayerForScore(score) {
   return { key:'-3', label:'-3 Terminal', short:'-3 Terminal', band:'0–29' };
 }
 
+function vmssAnimateNumber(element, target, options = {}) {
+  if (!element) return;
+  const duration = options.duration ?? 520;
+  const decimals = options.decimals ?? 0;
+  const prefix = options.prefix ?? '';
+  const suffix = options.suffix ?? '';
+  const start = Number(element.dataset.currentValue ?? element.textContent.replace(/[^0-9.-]/g, '')) || 0;
+  const end = Number(target) || 0;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    element.textContent = `${prefix}${end.toFixed(decimals)}${suffix}`;
+    element.dataset.currentValue = String(end);
+    return;
+  }
+  const startTime = performance.now();
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  cancelAnimationFrame(element._vmssRaf || 0);
+  const tick = (now) => {
+    const progress = Math.min(1, (now - startTime) / duration);
+    const value = start + (end - start) * ease(progress);
+    element.textContent = `${prefix}${value.toFixed(decimals)}${suffix}`;
+    if (progress < 1) {
+      element._vmssRaf = requestAnimationFrame(tick);
+    } else {
+      element.dataset.currentValue = String(end);
+      element.textContent = `${prefix}${end.toFixed(decimals)}${suffix}`;
+    }
+  };
+  element._vmssRaf = requestAnimationFrame(tick);
+}
+window.vmssAnimateNumber = vmssAnimateNumber;
+
 (function initVmssGlobal() {
   const STORAGE_KEY = 'vmss_state';
   const safeLoad = () => {
@@ -155,32 +186,62 @@ function initVmssHud() {
   hud.id = 'vmss-hud';
   hud.className = 'vmss-hud';
   hud.innerHTML = `
-    <div class="vmss-hud-kicker">VMSS live state</div>
-    <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>Main Layer (0)</strong></div>
-    <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>43</strong></div>
-    <div class="vmss-hud-row"><span class="vmss-hud-label">Profile</span><span data-vmss-hud-profile>Balanced baseline</span></div>
-    <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span data-vmss-hud-event>Baseline loaded</span></div>
+    <div class="vmss-hud-top">
+      <div class="vmss-hud-kicker">VMSS live state</div>
+      <button class="vmss-hud-toggle" type="button" aria-expanded="true" aria-label="Minimize live state panel">−</button>
+    </div>
+    <div class="vmss-hud-body">
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>Main Layer (0)</strong></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>43</strong></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Profile</span><span data-vmss-hud-profile>Balanced baseline</span></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span class="vmss-hud-event" data-vmss-hud-event>Baseline loaded</span></div>
+    </div>
     <div class="vmss-hud-actions">
       <a class="vmss-hud-btn is-primary" href="simulations.html#sti-console">Open simulation</a>
       <a class="vmss-hud-btn" href="layers.html">Open rings</a>
     </div>
   `;
   document.body.appendChild(hud);
-  const apply = () => {
-    const state = window.VMSS?.getState ? window.VMSS.getState() : VMSS_DEFAULT_STATE;
-    const layer = window.VMSS?.layerForScore ? window.VMSS.layerForScore(state.stiScore) : vmssLayerForScore(state.stiScore);
-    const scoreEl = hud.querySelector('[data-vmss-hud-score]');
-    const layerEl = hud.querySelector('[data-vmss-hud-layer]');
-    const profileEl = hud.querySelector('[data-vmss-hud-profile]');
-    const eventEl = hud.querySelector('[data-vmss-hud-event]');
-    if (scoreEl) scoreEl.textContent = state.stiScore;
-    if (layerEl) layerEl.textContent = layer.label;
-    if (profileEl) profileEl.textContent = state.profile || 'Custom profile';
-    if (eventEl) eventEl.textContent = state.lastEvent || 'Baseline loaded';
-    hud.setAttribute('data-layer', layer.key);
+  const layerTarget = hud.querySelector('[data-vmss-hud-layer]');
+  const scoreTarget = hud.querySelector('[data-vmss-hud-score]');
+  const profileTarget = hud.querySelector('[data-vmss-hud-profile]');
+  const eventTarget = hud.querySelector('[data-vmss-hud-event]');
+  const toggleBtn = hud.querySelector('.vmss-hud-toggle');
+  let idleTimer = null;
+  const setIdle = (idle) => hud.classList.toggle('is-idle', idle);
+  const scheduleIdle = () => {
+    clearTimeout(idleTimer);
+    setIdle(false);
+    idleTimer = setTimeout(() => setIdle(true), 2600);
   };
+  const setMinimized = (minimized) => {
+    hud.classList.toggle('is-minimized', minimized);
+    toggleBtn.textContent = minimized ? '+' : '−';
+    toggleBtn.setAttribute('aria-expanded', minimized ? 'false' : 'true');
+    toggleBtn.setAttribute('aria-label', minimized ? 'Expand live state panel' : 'Minimize live state panel');
+  };
+  toggleBtn?.addEventListener('click', () => {
+    setMinimized(!hud.classList.contains('is-minimized'));
+    scheduleIdle();
+  });
+  ['mouseenter', 'mousemove', 'focusin', 'touchstart'].forEach((evt) => {
+    hud.addEventListener(evt, scheduleIdle, { passive: true });
+  });
+  const apply = (state = window.VMSS?.getState?.() || VMSS_DEFAULT_STATE) => {
+    const layer = window.VMSS?.layerForScore?.(Number(state.stiScore) || 0) || vmssLayerForScore(Number(state.stiScore) || 0);
+    hud.dataset.layer = state.selectedLayer || layer.key;
+    if (layerTarget) layerTarget.textContent = layer.label;
+    if (scoreTarget) window.vmssAnimateNumber(scoreTarget, Number(state.stiScore) || 0, { duration: 420 });
+    if (profileTarget) profileTarget.textContent = state.profile || 'Balanced baseline';
+    if (eventTarget) eventTarget.textContent = state.lastEvent || 'Baseline loaded';
+    hud.classList.remove('is-updating');
+    void hud.offsetWidth;
+    hud.classList.add('is-updating');
+    setTimeout(() => hud.classList.remove('is-updating'), 540);
+    scheduleIdle();
+  };
+  document.addEventListener('vmss:state-change', (event) => apply(event.detail?.state));
   apply();
-  document.addEventListener('vmss:state-change', apply);
 }
 
 function initVmssLayerEcho() {
@@ -216,6 +277,7 @@ function initVmssLayerLinks() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(() => document.body.classList.add('vmss-ui-ready'));
   const html = document.documentElement;
 
   function getPreferredTheme() {

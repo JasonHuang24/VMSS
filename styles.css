@@ -1361,3 +1361,196 @@ img {
 .vmss-event-buttons { display:flex; flex-wrap:wrap; gap:0.75rem; }
 @media (max-width: 900px) { .vmss-event-grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { .vmss-hud { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width:auto; } }
+
+
+/* v7.6 polish + UX refinement */
+body {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease, color 0.35s ease;
+}
+body.vmss-ui-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+.vmss-main-section {
+  padding-top: 8.75rem !important;
+  padding-bottom: 6.5rem !important;
+}
+.vmss-main-section + .vmss-main-section {
+  padding-top: 5.25rem !important;
+}
+.vmss-content-frame > * + * {
+  margin-top: 1.15rem;
+}
+.vmss-page-intro + * {
+  margin-top: 2rem !important;
+}
+.layer-card,
+.sad-card,
+.vmss-enhanced-card,
+.vmss-panel,
+.vmss-enhanced-panel,
+.vmss-detail-panel,
+.vmss-sim-panel,
+.vmss-score-card,
+.vmss-breakdown-card,
+.vmss-profile-card,
+.vmss-live-panel,
+.vmss-hud,
+.vmss-chip-button,
+.vmss-hud-btn,
+.vmss-ladder-step,
+.vmss-range-row,
+.vmss-readout-tile,
+.vmss-insight-item,
+.vmss-mini-flow .flow-step {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background-color .22s ease, opacity .22s ease;
+}
+.layer-card:active,
+.vmss-chip-button:active,
+.vmss-hud-btn:active,
+.vmss-ring-node:active {
+  transform: translateY(0) scale(.985);
+}
+.vmss-chip-button:focus-visible,
+.vmss-hud-btn:focus-visible,
+.vmss-ring-node:focus-visible,
+.layer-card:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 78%, white 12%);
+  outline-offset: 3px;
+}
+.vmss-layer-card.is-linked-active,
+.is-vmss-current {
+  animation: vmssPulseLift .42s ease;
+}
+.vmss-ladder-step.is-current {
+  box-shadow: 0 22px 40px -34px var(--shadow-accent);
+}
+.vmss-gauge-progress.is-strong {
+  filter: drop-shadow(0 0 14px var(--shadow-accent));
+}
+.vmss-score-number,
+[data-vmss-hud-score] {
+  font-variant-numeric: tabular-nums;
+}
+.vmss-hud {
+  transform-origin: bottom right;
+  transition: transform .24s ease, opacity .24s ease, box-shadow .24s ease, border-color .24s ease, background-color .24s ease;
+}
+.vmss-hud.is-idle {
+  opacity: .78;
+}
+.vmss-hud.is-minimized {
+  width: auto;
+  min-width: 14rem;
+  padding-bottom: .9rem;
+}
+.vmss-hud.is-minimized .vmss-hud-body,
+.vmss-hud.is-minimized .vmss-hud-actions {
+  display: none;
+}
+.vmss-hud-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:.35rem;
+}
+.vmss-hud-toggle {
+  width:2.2rem;
+  height:2.2rem;
+  border-radius:.8rem;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.04);
+  color:var(--text-primary);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+}
+.vmss-hud.is-updating {
+  border-color: rgba(243,193,95,0.5);
+  box-shadow: 0 24px 60px -34px rgba(243,193,95,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.vmss-hud-event {
+  max-width: 9.5rem;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vmss-event-buttons .vmss-chip-button,
+.vmss-profile-buttons .vmss-chip-button {
+  min-height: 2.9rem;
+}
+.vmss-range-row {
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), transparent 58%), rgba(255,255,255,0.02);
+}
+.vmss-range-row:hover,
+.vmss-readout-tile:hover,
+.vmss-insight-item:hover,
+.vmss-mini-flow .flow-step:hover {
+  border-color: var(--border-strong);
+}
+.vmss-insight-item {
+  position: relative;
+  overflow: hidden;
+}
+.vmss-insight-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: .28rem;
+  background: linear-gradient(180deg, var(--accent-soft), var(--accent));
+  opacity: .55;
+}
+.vmss-motion-soft {
+  transition: opacity .28s ease, transform .28s ease;
+}
+.vmss-flash {
+  animation: vmssFlash .52s ease;
+}
+@keyframes vmssPulseLift {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(-3px); }
+}
+@keyframes vmssFlash {
+  0% { box-shadow: 0 0 0 0 rgba(243,193,95,0); }
+  35% { box-shadow: 0 0 0 8px rgba(243,193,95,0.12); }
+  100% { box-shadow: 0 0 0 0 rgba(243,193,95,0); }
+}
+@media (max-width: 768px) {
+  body {
+    transform: none;
+  }
+  .vmss-main-section {
+    padding-top: 7.5rem !important;
+    padding-bottom: 5.25rem !important;
+  }
+  .vmss-main-section + .vmss-main-section {
+    padding-top: 4rem !important;
+  }
+  .vmss-hud {
+    max-width: none;
+    transform-origin: bottom center;
+  }
+  .vmss-hud.is-minimized {
+    min-width: 0;
+  }
+  .vmss-hud-event {
+    max-width: 7rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .vmss-hud,
+  .vmss-layer-card.is-linked-active,
+  .is-vmss-current,
+  .vmss-flash {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

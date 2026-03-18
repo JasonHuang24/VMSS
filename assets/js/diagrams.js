@@ -30,7 +30,16 @@
         node.classList.toggle('is-dimmed', !isActive);
         node.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
-      cards.forEach((card) => card.classList.toggle('is-linked-active', card.dataset.layer === layer));
+      cards.forEach((card) => {
+        const active = card.dataset.layer === layer;
+        card.classList.toggle('is-linked-active', active);
+        if (active) {
+          card.classList.remove('vmss-flash');
+          void card.offsetWidth;
+          card.classList.add('vmss-flash');
+          setTimeout(() => card.classList.remove('vmss-flash'), 520);
+        }
+      });
       if (title) title.textContent = info.label;
       if (range) range.textContent = info.range;
       if (summary) summary.textContent = info.summary;
@@ -52,24 +61,7 @@
       const source = event.detail?.meta?.source;
       if (!state || source === 'diagram') return;
       if (state.selectedLayer && state.selectedLayer !== activeLayer) {
-        const info = LAYER_DATA[state.selectedLayer];
-        activeLayer = state.selectedLayer;
-        const layer = state.selectedLayer;
-        const info2 = LAYER_DATA[layer];
-        nodes.forEach((node) => {
-          const isActive = node.dataset.layer === layer;
-          node.classList.toggle('is-active', isActive);
-          node.classList.toggle('is-dimmed', !isActive);
-          node.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-        cards.forEach((card) => card.classList.toggle('is-linked-active', card.dataset.layer === layer));
-        if (title) title.textContent = info2.label;
-        if (range) range.textContent = info2.range;
-        if (summary) summary.textContent = info2.summary;
-        if (rights) rights.textContent = info2.rights;
-        if (doctrine) doctrine.textContent = info2.doctrine;
-        if (risk) risk.textContent = info2.risk;
-        if (openLink) openLink.setAttribute('href', info2.href);
+        sync(state.selectedLayer);
       }
     });
     sync(activeLayer);
