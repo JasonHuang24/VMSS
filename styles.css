@@ -1366,12 +1366,10 @@ img {
 /* v7.6 polish + UX refinement */
 body {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease, color 0.35s ease;
+  transition: opacity 0.35s ease, background-color 0.35s ease, color 0.35s ease;
 }
 body.vmss-ui-ready {
   opacity: 1;
-  transform: translateY(0);
 }
 .vmss-main-section {
   padding-top: 8.75rem !important;
