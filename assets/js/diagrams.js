@@ -19,7 +19,7 @@
     const doctrine = document.getElementById('vmss-layer-doctrine');
     const risk = document.getElementById('vmss-layer-risk');
     const openLink = document.getElementById('vmss-layer-link');
-    let activeLayer = '+1';
+    let activeLayer = (window.VMSS && window.VMSS.getState().selectedLayer) || '+1';
     const sync = (layer) => {
       activeLayer = layer;
       const info = LAYER_DATA[layer];
@@ -38,6 +38,7 @@
       if (doctrine) doctrine.textContent = info.doctrine;
       if (risk) risk.textContent = info.risk;
       if (openLink) openLink.setAttribute('href', info.href);
+      if (window.VMSS) window.VMSS.setState({ selectedLayer: layer, lastEvent: `Focused ${info.label}` }, { source: 'diagram' });
     };
     nodes.forEach((node) => {
       ['mouseenter','focus','click'].forEach((evt) => node.addEventListener(evt, () => sync(node.dataset.layer)));
@@ -46,6 +47,31 @@
       });
     });
     cards.forEach((card) => ['mouseenter','focus'].forEach((evt) => card.addEventListener(evt, () => sync(card.dataset.layer))));
+    document.addEventListener('vmss:state-change', (event) => {
+      const state = event.detail?.state;
+      const source = event.detail?.meta?.source;
+      if (!state || source === 'diagram') return;
+      if (state.selectedLayer && state.selectedLayer !== activeLayer) {
+        const info = LAYER_DATA[state.selectedLayer];
+        activeLayer = state.selectedLayer;
+        const layer = state.selectedLayer;
+        const info2 = LAYER_DATA[layer];
+        nodes.forEach((node) => {
+          const isActive = node.dataset.layer === layer;
+          node.classList.toggle('is-active', isActive);
+          node.classList.toggle('is-dimmed', !isActive);
+          node.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        cards.forEach((card) => card.classList.toggle('is-linked-active', card.dataset.layer === layer));
+        if (title) title.textContent = info2.label;
+        if (range) range.textContent = info2.range;
+        if (summary) summary.textContent = info2.summary;
+        if (rights) rights.textContent = info2.rights;
+        if (doctrine) doctrine.textContent = info2.doctrine;
+        if (risk) risk.textContent = info2.risk;
+        if (openLink) openLink.setAttribute('href', info2.href);
+      }
+    });
     sync(activeLayer);
   }
   document.addEventListener('DOMContentLoaded', initDiagram);

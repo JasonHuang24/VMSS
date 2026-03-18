@@ -1331,3 +1331,33 @@ img {
   .vmss-diagram-shell,.vmss-console-layout,.vmss-slider-grid,.vmss-readouts,.vmss-detail-stat { grid-template-columns:1fr; }
   .vmss-breakdown-bar { grid-template-columns:1fr; }
 }
+
+
+/* v7.5 cohesion layer */
+.vmss-hud {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(21rem, calc(100vw - 1.5rem));
+  z-index: 80;
+  padding: 1rem 1rem 1.05rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), transparent 32%), rgba(8, 14, 28, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 50px -30px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.vmss-hud[data-layer="+1"] { box-shadow: 0 18px 54px -30px rgba(243,193,95,0.55), inset 0 1px 0 rgba(255,255,255,0.08); }
+.vmss-hud-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; margin-bottom: 0.7rem; }
+.vmss-hud-row { display:flex; justify-content:space-between; gap:1rem; padding:0.32rem 0; color:var(--text-secondary); }
+.vmss-hud-row strong { color: var(--text-primary); }
+.vmss-hud-label { color: var(--text-muted); font-size: 0.84rem; }
+.vmss-hud-actions { display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem; margin-top:0.95rem; }
+.vmss-hud-btn { display:inline-flex; align-items:center; justify-content:center; min-height:2.8rem; border-radius:0.9rem; border:1px solid var(--border); background:rgba(255,255,255,0.03); color:var(--text-primary); font-weight:700; }
+.vmss-hud-btn.is-primary { background:linear-gradient(180deg, var(--accent-soft), var(--accent)); color:#1a1403; border-color: rgba(243,193,95,0.55); }
+.is-vmss-current { transform: translateY(-4px); border-color: rgba(243,193,95,0.55) !important; box-shadow: 0 24px 44px -32px rgba(243,193,95,0.45); }
+.vmss-live-panel { padding: 1.3rem; border-radius: 1.6rem; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 42%), var(--bg-elevated); box-shadow: 0 24px 50px -38px var(--shadow); }
+.vmss-event-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:1.25rem; }
+.vmss-event-buttons { display:flex; flex-wrap:wrap; gap:0.75rem; }
+@media (max-width: 900px) { .vmss-event-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .vmss-hud { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width:auto; } }

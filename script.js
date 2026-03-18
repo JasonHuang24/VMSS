@@ -3,6 +3,87 @@ const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
 
 let supabaseClient = null;
 
+
+// =========================
+// VMSS GLOBAL STATE
+// =========================
+const VMSS_DEFAULT_STATE = {
+  selectedLayer: '0',
+  stiScore: 43,
+  profile: 'Balanced baseline',
+  tone: 'Containment threshold engaged',
+  lastEvent: 'Baseline loaded',
+  values: {
+    civic: 11,
+    contribution: 11,
+    conduct: 8,
+    competence: 8,
+    endorsement: 6,
+    recovery: 5,
+    violations: 6,
+  }
+};
+
+function vmssClone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function vmssLayerForScore(score) {
+  if (score >= 85) return { key:'+1', label:'+1 Sanctuary', short:'+1 Sanctuary', band:'85–100' };
+  if (score >= 70) return { key:'0', label:'Main Layer (0)', short:'Layer 0', band:'70–84' };
+  if (score >= 50) return { key:'-1', label:'-1 Noncompliance', short:'-1 Noncompliance', band:'50–69' };
+  if (score >= 30) return { key:'-2', label:'-2 Violent Offense', short:'-2 Violent Offense', band:'30–49' };
+  return { key:'-3', label:'-3 Terminal', short:'-3 Terminal', band:'0–29' };
+}
+
+(function initVmssGlobal() {
+  const STORAGE_KEY = 'vmss_state';
+  const safeLoad = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return vmssClone(VMSS_DEFAULT_STATE);
+      const parsed = JSON.parse(raw);
+      return {
+        ...vmssClone(VMSS_DEFAULT_STATE),
+        ...parsed,
+        values: { ...VMSS_DEFAULT_STATE.values, ...(parsed.values || {}) }
+      };
+    } catch (e) {
+      console.warn('VMSS state load failed:', e);
+      return vmssClone(VMSS_DEFAULT_STATE);
+    }
+  };
+  const safeSave = (state) => {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { console.warn('VMSS state save failed:', e); }
+  };
+  const state = safeLoad();
+  window.VMSS = {
+    state,
+    layerForScore: vmssLayerForScore,
+    getState() { return vmssClone(this.state); },
+    setState(patch = {}, meta = {}) {
+      const next = {
+        ...this.state,
+        ...patch,
+        values: { ...this.state.values, ...(patch.values || {}) }
+      };
+      if ((patch.stiScore ?? next.stiScore) !== undefined && (patch.selectedLayer === undefined)) {
+        next.selectedLayer = vmssLayerForScore(Number(next.stiScore) || 0).key;
+      }
+      this.state = next;
+      safeSave(this.state);
+      document.dispatchEvent(new CustomEvent('vmss:state-change', { detail: { state: this.getState(), meta } }));
+      return this.getState();
+    },
+    reset() {
+      this.state = vmssClone(VMSS_DEFAULT_STATE);
+      safeSave(this.state);
+      document.dispatchEvent(new CustomEvent('vmss:state-change', { detail: { state: this.getState(), meta: { source: 'reset' } } }));
+      return this.getState();
+    }
+  };
+})();
+
 // Safe Supabase init (prevents crashes on pages without it)
 if (typeof window !== 'undefined' && typeof window.supabase !== 'undefined') {
   try {
@@ -64,6 +145,74 @@ function loadRecentApplicants() {
       console.error('Failed to load recent applicants:', err);
       container.innerHTML = '<div>—</div>';
     });
+}
+
+
+
+function initVmssHud() {
+  if (!document.body || document.getElementById('vmss-hud')) return;
+  const hud = document.createElement('aside');
+  hud.id = 'vmss-hud';
+  hud.className = 'vmss-hud';
+  hud.innerHTML = `
+    <div class="vmss-hud-kicker">VMSS live state</div>
+    <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>Main Layer (0)</strong></div>
+    <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>43</strong></div>
+    <div class="vmss-hud-row"><span class="vmss-hud-label">Profile</span><span data-vmss-hud-profile>Balanced baseline</span></div>
+    <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span data-vmss-hud-event>Baseline loaded</span></div>
+    <div class="vmss-hud-actions">
+      <a class="vmss-hud-btn is-primary" href="simulations.html#sti-console">Open simulation</a>
+      <a class="vmss-hud-btn" href="layers.html">Open rings</a>
+    </div>
+  `;
+  document.body.appendChild(hud);
+  const apply = () => {
+    const state = window.VMSS?.getState ? window.VMSS.getState() : VMSS_DEFAULT_STATE;
+    const layer = window.VMSS?.layerForScore ? window.VMSS.layerForScore(state.stiScore) : vmssLayerForScore(state.stiScore);
+    const scoreEl = hud.querySelector('[data-vmss-hud-score]');
+    const layerEl = hud.querySelector('[data-vmss-hud-layer]');
+    const profileEl = hud.querySelector('[data-vmss-hud-profile]');
+    const eventEl = hud.querySelector('[data-vmss-hud-event]');
+    if (scoreEl) scoreEl.textContent = state.stiScore;
+    if (layerEl) layerEl.textContent = layer.label;
+    if (profileEl) profileEl.textContent = state.profile || 'Custom profile';
+    if (eventEl) eventEl.textContent = state.lastEvent || 'Baseline loaded';
+    hud.setAttribute('data-layer', layer.key);
+  };
+  apply();
+  document.addEventListener('vmss:state-change', apply);
+}
+
+function initVmssLayerEcho() {
+  const layerTargets = Array.from(document.querySelectorAll('[data-vmss-layer-echo]'));
+  const scoreTargets = Array.from(document.querySelectorAll('[data-vmss-score-echo]'));
+  const eventTargets = Array.from(document.querySelectorAll('[data-vmss-event-echo]'));
+  if (!layerTargets.length && !scoreTargets.length && !eventTargets.length) return;
+  const apply = () => {
+    const state = window.VMSS.getState();
+    const layer = window.VMSS.layerForScore(state.stiScore);
+    layerTargets.forEach((el) => el.textContent = layer.label);
+    scoreTargets.forEach((el) => el.textContent = String(state.stiScore));
+    eventTargets.forEach((el) => el.textContent = state.lastEvent || 'Baseline loaded');
+  };
+  apply();
+  document.addEventListener('vmss:state-change', apply);
+}
+
+function initVmssLayerLinks() {
+  const links = Array.from(document.querySelectorAll('[data-layer]'));
+  if (!links.length || !window.VMSS) return;
+  const apply = () => {
+    const state = window.VMSS.getState();
+    links.forEach((link) => link.classList.toggle('is-vmss-current', link.dataset.layer === state.selectedLayer));
+  };
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      window.VMSS.setState({ selectedLayer: link.dataset.layer, lastEvent: `Focused ${link.dataset.layer} ring` }, { source: 'layer-link' });
+    });
+  });
+  apply();
+  document.addEventListener('vmss:state-change', apply);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -407,6 +556,9 @@ The choice — and the consequences — are now yours.`);
         initThemeToggle();
         initMobileMenu();
         initActiveNav();
+        initVmssHud();
+        initVmssLayerEcho();
+        initVmssLayerLinks();
         initJoinModal();
 
         if (document.getElementById('applicant-count')) {
