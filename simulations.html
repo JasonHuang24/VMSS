@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Simulations Archive • The Five Rings</title>
+<title>Simulations + STI Console • The Five Rings</title>
 <!-- Apply saved theme BEFORE body paints (prevents flash) -->
 <script>
     const saved = localStorage.getItem('theme') || 
@@ -26,7 +26,66 @@
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div><main class="flex-1"><section class="pt-32 pb-32">
 <div class="max-w-5xl mx-auto px-6">
 <h1 class="text-6xl font-bold text-center mb-6 text-[var(--text-primary)]">Simulations Archive</h1>
-<p class="text-center text-2xl text-[var(--text-muted)] mb-16">Behavioral case studies and system scenarios under VMSS rules — full narrative detail</p>
+<p class="text-center text-2xl text-[var(--text-muted)] mb-16">Interactive trust scoring, layer movement, and behavioral case studies under VMSS rules — full narrative detail</p>
+
+<div class="vmss-console-layout mb-16" id="sti-console">
+  <section class="vmss-sim-panel reveal-item">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div>
+        <span class="vmss-kicker">v7.4 STI Simulation Console</span>
+        <h2 class="text-4xl font-bold text-[var(--text-primary)] mt-4">Prototype trust scoring model</h2>
+        <p class="text-[var(--text-secondary)] mt-3 max-w-2xl">Adjust civic factors, watch the STI score animate, and see how a subject drifts across VMSS layers. This is an illustrative prototype model, not a backend enforcement engine.</p>
+      </div>
+      <div class="vmss-profile-card max-w-xl">
+        <div class="vmss-input-label mb-3">Sample profiles</div>
+        <div class="vmss-profile-buttons">
+          <button class="vmss-chip-button" data-profile="contributor" type="button">High Contributor</button>
+          <button class="vmss-chip-button" data-profile="stable" type="button">Stable Citizen</button>
+          <button class="vmss-chip-button" data-profile="risk" type="button">At-Risk Actor</button>
+          <button class="vmss-chip-button" data-profile="recovery" type="button">Recovering Participant</button>
+          <button class="vmss-chip-button" data-reset-sim type="button">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="vmss-slider-grid">
+      <div class="vmss-range-row"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="civic">Civic compliance</label><span data-value-for="civic">11</span></div><input id="civic" max="20" min="0" name="civic" type="range" value="11"><div class="vmss-range-meta"><span>Threshold discipline</span><span>0–20</span></div></div>
+      <div class="vmss-range-row"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="contribution">Contribution</label><span data-value-for="contribution">11</span></div><input id="contribution" max="20" min="0" name="contribution" type="range" value="11"><div class="vmss-range-meta"><span>Productive value</span><span>0–20</span></div></div>
+      <div class="vmss-range-row"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="conduct">Public conduct</label><span data-value-for="conduct">8</span></div><input id="conduct" max="15" min="0" name="conduct" type="range" value="8"><div class="vmss-range-meta"><span>Behavioral stability</span><span>0–15</span></div></div>
+      <div class="vmss-range-row"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="competence">Verified competence</label><span data-value-for="competence">8</span></div><input id="competence" max="15" min="0" name="competence" type="range" value="8"><div class="vmss-range-meta"><span>Capability confidence</span><span>0–15</span></div></div>
+      <div class="vmss-range-row"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="endorsement">Peer trust</label><span data-value-for="endorsement">6</span></div><input id="endorsement" max="10" min="0" name="endorsement" type="range" value="6"><div class="vmss-range-meta"><span>Social endorsement</span><span>0–10</span></div></div>
+      <div class="vmss-range-row"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="recovery">Recovery modifier</label><span data-value-for="recovery">5</span></div><input id="recovery" max="10" min="0" name="recovery" type="range" value="5"><div class="vmss-range-meta"><span>Rehabilitation signal</span><span>0–10</span></div></div>
+      <div class="vmss-range-row md:col-span-2"><div class="flex items-center justify-between gap-4"><label class="vmss-input-label" for="violations">Violation load</label><span data-value-for="violations">6</span></div><input id="violations" max="20" min="0" name="violations" type="range" value="6"><div class="vmss-range-meta"><span>Penalty pressure</span><span>0–20 deducted</span></div></div>
+    </div>
+    <div class="vmss-readouts">
+      <div class="vmss-readout-tile"><div class="vmss-readout-label">Profile state</div><div class="vmss-readout-value" data-profile-name>Balanced baseline</div></div>
+      <div class="vmss-readout-tile"><div class="vmss-readout-label">Momentum</div><div class="vmss-readout-value" data-overall-shift>Mixed pressure</div></div>
+      <div class="vmss-readout-tile"><div class="vmss-readout-label">Coherence</div><div class="vmss-readout-value" data-stability-band>Mixed coherence</div></div>
+    </div>
+  </section>
+  <aside class="space-y-6 reveal-item">
+    <div class="vmss-score-card">
+      <div class="vmss-gauge"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="vmss-gauge-track" cx="60" cy="60" r="47"></circle><circle class="vmss-gauge-progress" cx="60" cy="60" r="47" data-gauge-progress></circle></svg><div class="vmss-gauge-center"><div class="vmss-score-number" data-sti-score>43</div><div class="vmss-score-caption">STI score</div></div></div>
+      <div class="text-center mt-5"><div class="text-2xl font-bold text-[var(--text-primary)]" data-sti-layer>-2 Violent Offense</div><p class="text-[var(--text-secondary)] mt-2" data-sti-tone>Containment threshold engaged • STI band 30–49</p></div>
+      <div class="vmss-ladder">
+        <div class="vmss-ladder-step" data-layer="+1"><strong>+1 Sanctuary</strong><span class="step-range">85–100</span></div>
+        <div class="vmss-ladder-step" data-layer="0"><strong>Main Layer (0)</strong><span class="step-range">70–84</span></div>
+        <div class="vmss-ladder-step" data-layer="-1"><strong>-1 Noncompliance</strong><span class="step-range">50–69</span></div>
+        <div class="vmss-ladder-step" data-layer="-2"><strong>-2 Violent Offense</strong><span class="step-range">30–49</span></div>
+        <div class="vmss-ladder-step" data-layer="-3"><strong>-3 Terminal</strong><span class="step-range">0–29</span></div>
+      </div>
+    </div>
+    <div class="vmss-breakdown-card"><div class="vmss-input-label">Factor breakdown</div><div class="vmss-breakdown-bars">
+      <div class="vmss-breakdown-bar" data-metric="civic"><strong>Civic</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">+0</span></div>
+      <div class="vmss-breakdown-bar" data-metric="contribution"><strong>Contribution</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">+0</span></div>
+      <div class="vmss-breakdown-bar" data-metric="conduct"><strong>Conduct</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">+0</span></div>
+      <div class="vmss-breakdown-bar" data-metric="competence"><strong>Competence</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">+0</span></div>
+      <div class="vmss-breakdown-bar" data-metric="endorsement"><strong>Peer trust</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">+0</span></div>
+      <div class="vmss-breakdown-bar" data-metric="violations"><strong>Violations</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">-0</span></div>
+      <div class="vmss-breakdown-bar" data-metric="recovery"><strong>Recovery</strong><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-number">+0</span></div>
+    </div></div>
+    <div class="vmss-breakdown-card"><div class="vmss-input-label">System interpretation</div><div class="vmss-insight-list" data-sti-reasoning></div></div>
+  </aside>
+</div>
 
 <div class="space-y-6">
 
@@ -329,5 +388,6 @@ Key lesson: VMSS distinguishes between criminal harm and social trust violations
 </script>
 
 <script src="script.js" defer></script>
+<script src="assets/js/sti-sim.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>
