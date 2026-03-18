@@ -182,6 +182,7 @@ function loadRecentApplicants() {
 
 function initVmssHud() {
   if (!document.body || document.getElementById('vmss-hud')) return;
+  const savedHudMinimized = localStorage.getItem('vmss_hud_minimized') === 'true';
   const hud = document.createElement('aside');
   hud.id = 'vmss-hud';
   hud.className = 'vmss-hud';
@@ -219,6 +220,11 @@ function initVmssHud() {
     toggleBtn.textContent = minimized ? '+' : '−';
     toggleBtn.setAttribute('aria-expanded', minimized ? 'false' : 'true');
     toggleBtn.setAttribute('aria-label', minimized ? 'Expand live state panel' : 'Minimize live state panel');
+    try {
+      localStorage.setItem('vmss_hud_minimized', String(minimized));
+    } catch (e) {
+      console.warn('HUD minimized state save failed:', e);
+    }
   };
   toggleBtn?.addEventListener('click', () => {
     setMinimized(!hud.classList.contains('is-minimized'));
@@ -241,6 +247,7 @@ function initVmssHud() {
     scheduleIdle();
   };
   document.addEventListener('vmss:state-change', (event) => apply(event.detail?.state));
+  setMinimized(savedHudMinimized);
   apply();
 }
 
