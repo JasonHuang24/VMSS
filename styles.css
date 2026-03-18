@@ -1,4 +1,4 @@
-/* VMSS Global Styles — Version 6.0 concept preview */
+/* VMSS Global Styles — Version 8.0 */
 :root {
   --bg-primary: #07090f;
   --bg-secondary: #101522;
@@ -63,6 +63,8 @@ body {
   z-index: 0;
   filter: blur(80px);
   opacity: 0.45;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 .vmss-page-shell::before {
@@ -286,6 +288,7 @@ button[type="submit"]:hover {
 .vmss-cta-secondary:hover {
   border-color: var(--border-strong);
   color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
   transform: translateY(-1px);
 }
 
@@ -448,24 +451,24 @@ button[type="submit"]:hover {
 .prose {
   color: var(--text-secondary) !important;
   max-width: none !important;
-  line-height: 1.92 !important;
+  line-height: 1.85 !important;
 }
 
 .vmss-prose h2,
 .prose h2 {
-  font-size: clamp(1.9rem, 2.6vw, 2.8rem) !important;
-  line-height: 1.08 !important;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.7rem, 2.4vw, 2.5rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.035em;
   color: var(--text-primary) !important;
-  margin-top: 3rem !important;
-  margin-bottom: 1.1rem !important;
-  padding-top: 1rem;
+  margin-top: 3.5rem !important;
+  margin-bottom: 1.25rem !important;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--border);
 }
 
 .vmss-prose h3,
 .prose h3 {
-  font-size: clamp(1.45rem, 2.2vw, 2rem) !important;
+  font-size: clamp(1.3rem, 2vw, 1.75rem) !important;
   color: var(--accent) !important;
   margin-top: 2rem !important;
   margin-bottom: 0.9rem !important;
@@ -481,6 +484,7 @@ button[type="submit"]:hover {
 .vmss-prose strong,
 .prose strong {
   color: var(--text-primary) !important;
+  font-weight: 600;
 }
 
 .vmss-prose ul,
@@ -490,9 +494,36 @@ button[type="submit"]:hover {
   padding-left: 1.45rem;
 }
 
+.vmss-prose li + li,
+.prose li + li {
+  margin-top: 0.5rem;
+}
+
 .vmss-footer {
   border-top: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent), color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+}
+
+/* Simulation & FAQ accordion cards */
+.simulation-card,
+.faq-card {
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.simulation-card:hover,
+.faq-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 32px -16px var(--shadow);
+}
+
+.simulation-content,
+.faq-content {
+  border-top: 1px solid var(--border);
+}
+
+.simulation-content p + p,
+.faq-content p + p {
+  margin-top: 1rem;
 }
 
 .back-arrow {
@@ -634,15 +665,6 @@ a:hover {
 }
 
 /* VMSS Layer Stack Enhancements */
-
-.layer-card {
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-.layer-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
 
 .layer-card.level-positive {
   border-color: rgba(251,191,36,0.35);
@@ -1241,7 +1263,12 @@ img {
   .reveal-item,
   .emblem-logo,
   .vmss-ring-diagram circle,
-  #mobile-menu {
+  #mobile-menu,
+  body,
+  .vmss-hud,
+  .vmss-layer-card.is-linked-active,
+  .is-vmss-current,
+  .vmss-flash {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -1543,14 +1570,4 @@ body.vmss-ui-ready {
     max-width: 7rem;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  body,
-  .vmss-hud,
-  .vmss-layer-card.is-linked-active,
-  .is-vmss-current,
-  .vmss-flash {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-  }
-}
+

@@ -524,10 +524,13 @@ The choice — and the consequences — are now yours.`);
     const backArrows = document.querySelectorAll('.back-arrow');
     if (!backArrows.length) return;
 
+    let scrollRaf = null;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      backArrows.forEach((arrow) => {
-        arrow.classList.toggle('scrolled-hidden', currentScrollY > 150);
+      if (scrollRaf) return;
+      scrollRaf = requestAnimationFrame(() => {
+        const hidden = window.scrollY > 150;
+        backArrows.forEach((arrow) => arrow.classList.toggle('scrolled-hidden', hidden));
+        scrollRaf = null;
       });
     };
 
@@ -588,10 +591,12 @@ The choice — and the consequences — are now yours.`);
       return;
     }
 
+    const seen = new WeakSet();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting || entry.intersectionRatio > 0) {
+          if ((entry.isIntersecting || entry.intersectionRatio > 0) && !seen.has(entry.target)) {
+            seen.add(entry.target);
             entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
           }
@@ -605,9 +610,12 @@ The choice — and the consequences — are now yours.`);
 
     items.forEach((item) => observer.observe(item));
 
+    /* Safety fallback — reveal anything still hidden after nav/footer load settles */
     setTimeout(() => {
-      items.forEach((item) => item.classList.add('is-visible'));
-    }, 1200);
+      items.forEach((item) => {
+        if (!seen.has(item)) item.classList.add('is-visible');
+      });
+    }, 1400);
   }
 
   Promise.all([
