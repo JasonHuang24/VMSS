@@ -1218,3 +1218,36 @@ fill: var(--text-primary);
     padding: 1.2rem;
   }
 }
+
+
+/* v7.3 performance pass */
+@media (max-width: 768px) {
+  .vmss-page-shell::before,
+  .vmss-page-shell::after {
+    display: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.reveal-item {
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item,
+  .emblem-logo,
+  .vmss-ring-diagram circle,
+  #mobile-menu {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
