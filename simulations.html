@@ -97,7 +97,8 @@
   </section>
   <aside class="space-y-6 reveal-item">
     <div class="vmss-score-card">
-      <div class="vmss-gauge"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="vmss-gauge-track" cx="60" cy="60" r="47"></circle><circle class="vmss-gauge-progress" cx="60" cy="60" r="47" data-gauge-progress></circle></svg><div class="vmss-gauge-center"><div class="vmss-score-number" data-sti-score>43</div><div class="vmss-score-caption">STI score</div></div></div>
+      <div class="vmss-gauge"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="vmss-gauge-track" cx="60" cy="60" r="47"></circle><circle class="vmss-gauge-progress" cx="60" cy="60" r="47" data-gauge-progress></circle></svg><div class="vmss-gauge-center"><div class="vmss-score-number" data-sti-score aria-label="STI score">43</div><div class="vmss-score-caption">STI score</div></div></div>
+      <div aria-live="polite" aria-atomic="true" class="sr-only" data-sti-live></div>
 	<div class="text-center mt-5">
 	<div class="mt-4 max-w-md mx-auto text-left bg-slate-100/60 dark:bg-white/5 border border-slate-300/40 dark:border-white/10 rounded-lg px-4 py-3">
 	  <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -136,7 +137,7 @@
 
 <!-- Elon Musk -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-1" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Elon Musk</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Adaptive Outcome</p>
@@ -144,7 +145,7 @@
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-1" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Elon Musk enters Main Layer as a voluntary opt-in. He is fifty-four, but that is a detail he is already planning to revise. Within hours of receiving his implant, he has submitted a formal data request to the VMSS infrastructure team — he wants to understand the Threshold Inhibition Protocol at the engineering level. When informed that thoughts are private but intent and execution are monitored, he nods and says, precisely: "Good. Measurable constraints. I can operate inside measurable constraints."
 </p>
@@ -168,7 +169,7 @@ Key lesson: When extreme ambition operates inside a framework it genuinely respe
 
 <!-- Donald Trump -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-2" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Donald Trump</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Incitement Risk</p>
@@ -176,7 +177,7 @@ Key lesson: When extreme ambition operates inside a framework it genuinely respe
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-2" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Donald Trump enters Main Layer and within hours is posting on the public neural forum. The content is immediately characteristic: competitive framing, exclusionary rhetoric, a narrative built around winners and losers with himself as the authoritative classifier of both. The STI ledger begins logging entries within the first day — not for any single egregious act, but for the cumulative pattern of expressed conduct that the system is designed to read.
 </p>
@@ -197,7 +198,7 @@ Key lesson: Rhetorical charisma that crosses into coordinated incitement is trea
 
 <!-- Joe Biden -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-3" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Joe Biden</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Institutional Stability</p>
@@ -205,7 +206,7 @@ Key lesson: Rhetorical charisma that crosses into coordinated incitement is trea
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-3" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Joe Biden enters Main Layer quietly. He does not announce himself, does not seek a platform, and does not begin by positioning himself in relation to the system's hierarchy. His first week is spent in orientation — reading the charter carefully, attending two public forums as a listener, walking the district for several hours each day. His STI begins rising before he has done anything notable, because the baseline conduct the system reads from him — attentive, non-threatening, oriented toward engagement rather than domination — is already scoring well.
 </p>
@@ -226,7 +227,7 @@ Key lesson: Institutional care — consistent, unglamorous, oriented toward othe
 
 <!-- Hilary Duff -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-4" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Hilary Duff</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Relational Integrity</p>
@@ -234,7 +235,7 @@ Key lesson: Institutional care — consistent, unglamorous, oriented toward othe
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-4" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Hilary Duff enters Main Layer with her family intact and a clear sense of what she is here for. She is not pursuing ascension as an abstract goal. She is building a life — for herself, for her children, for the people around her — and the system's evaluation of that life produces the ascension as a byproduct rather than an objective. This is not an unusual pattern in VMSS. It is, in fact, one of the most reliable ones.
 </p>
@@ -258,7 +259,7 @@ Key lesson: Relational integrity — honesty, consistency, and care maintained u
 
 <!-- Taylor Swift -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-5" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Taylor Swift</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Cultural Architecture</p>
@@ -266,7 +267,7 @@ Key lesson: Relational integrity — honesty, consistency, and care maintained u
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-5" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Taylor Swift enters Main Layer with a profile that immediately creates an unusual set of variables for the system to evaluate. Her public recognition is extensive; her arrival generates significant forum attention within hours. VMSS does not weight celebrity as an STI input — the system measures conduct, not reputation — but large social networks mean large surfaces for endorsement and for scrutiny. Both will prove relevant.
 </p>
@@ -290,7 +291,7 @@ Key lesson: The system distinguishes between the breach and the response to it. 
 
 <!-- NEW: Steve Jobs -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-6" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Steve Jobs</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Conditional Ascent</p>
@@ -298,7 +299,7 @@ Key lesson: The system distinguishes between the breach and the response to it. 
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-6" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Steve Jobs enters Main Layer and immediately identifies the system as the most interesting design problem he has ever encountered. Not the technology — the philosophy. A civilization built around legible consequences for behavior is, in his read, the kind of constraint that produces the best possible output. He respects the architecture. He also immediately begins looking for its edges.
 </p>
@@ -322,7 +323,7 @@ Key lesson: Creative output and interpersonal conduct are evaluated on separate 
 
 <!-- NEW: Nelson Mandela -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-7" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Nelson Mandela</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Historical Personality &nbsp;·&nbsp; Classification: Institutional Trust</p>
@@ -330,7 +331,7 @@ Key lesson: Creative output and interpersonal conduct are evaluated on separate 
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-7" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Nelson Mandela enters Main Layer and reads the charter in full on his first day. He does not engage with it as a legal document. He engages with it as a philosophical one — tracing the logic of each article back to its foundational premise, noting where the system's conclusions align with principles he spent decades working toward on Earth and where they diverge. He has opinions about both. He shares them, in public forums, with the precision and intellectual honesty that produced some of the most consequential institutional work of the twentieth century.
 </p>
@@ -360,7 +361,7 @@ Key lesson: The capacity to hold a system accountable to its own stated principl
 
 <!-- Jeffrey Dahmer -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-8" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Jeffrey Dahmer</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Criminal Profile &nbsp;·&nbsp; Classification: Capital Harm</p>
@@ -368,7 +369,7 @@ Key lesson: The capacity to hold a system accountable to its own stated principl
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-8" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Jeffrey Dahmer enters Main Layer and maintains low visibility for his first several days. He is observant and patient — characteristics the system records without alarm, because thoughts alone carry no threshold weight. The implant is logging, as it logs for every resident, the pattern of his neural activity. It detects persistent predatory intent signals from early in his residency. It issues no warning, because warning thresholds are calibrated to the transition from intent to execution. He has not yet made that transition.
 </p>
@@ -389,7 +390,7 @@ Key lesson: The system responds to execution, not intent. That design choice car
 
 <!-- Osama Bin Laden -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-9" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Osama Bin Laden</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Criminal Profile &nbsp;·&nbsp; Classification: Ideological Violence</p>
@@ -397,7 +398,7 @@ Key lesson: The system responds to execution, not intent. That design choice car
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-9" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 Osama Bin Laden enters Main Layer and begins operating within the protected speech framework immediately. His early forum posts are ideologically charged but remain within the threshold — VMSS protects speech, including religious and political speech, until it crosses into coordinated incitement to harm. He understands this distinction and, initially, stays inside it.
 </p>
@@ -421,7 +422,7 @@ Key lesson: The system's protection of speech is substantive and precise. It doe
 
 <!-- Armed Bank Robbery -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-10" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Armed Robbery</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Enforcement Scenario &nbsp;·&nbsp; Classification: Violent Crime</p>
@@ -429,7 +430,7 @@ Key lesson: The system's protection of speech is substantive and precise. It doe
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-10" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 A resident enters a commercial facility carrying a weapon and issues a threat to staff. Neural implants detect violent intent and motor preparation within milliseconds, triggering internal failsafe warnings. The resident overrides the motor inhibition safeguard and proceeds with the threat.
 </p>
@@ -447,7 +448,7 @@ Key lesson: Armed coercion escalates directly to the criminal pathway. The impla
 
 <!-- Adultery -->
 <div class="simulation-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleSimulation(this)" aria-expanded="false" aria-controls="sim-content-11" type="button">
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">Relational Trust Breach</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: STI Scenario &nbsp;·&nbsp; Classification: Non-Criminal Breach</p>
@@ -455,7 +456,7 @@ Key lesson: Armed coercion escalates directly to the criminal pathway. The impla
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
-<div class="simulation-content hidden px-8 pb-8">
+<div id="sim-content-11" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
 A resident in a registered exclusive partnership engages in sexual contact with a third party outside the agreement's defined terms. The implant and AR context systems log the event. No criminal law has been violated — VMSS does not criminalize infidelity. The behavior is processed through the Social Trust Index system.
 </p>
@@ -490,13 +491,16 @@ Key lesson: The STI system closes the accountability gap for harms that fall bel
     function toggleSimulation(btn) {
       const content = btn.nextElementSibling;
       const icon = btn.querySelector('.icon');
-      
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        icon.style.transform = 'rotate(90deg)';
-      } else {
+      const isOpen = !content.classList.contains('hidden');
+
+      if (isOpen) {
         content.classList.add('hidden');
         icon.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(90deg)';
+        btn.setAttribute('aria-expanded', 'true');
       }
     }
 </script>

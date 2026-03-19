@@ -62,6 +62,7 @@
     const layerEl = root.querySelector('[data-sti-layer]');
     const toneEl = root.querySelector('[data-sti-tone]');
     const reasoningEl = root.querySelector('[data-sti-reasoning]');
+    const liveRegion = root.querySelector('[data-sti-live]');
     const gauge = root.querySelector('[data-gauge-progress]');
     const layerSteps = Array.from(root.querySelectorAll('.vmss-ladder-step'));
     const bars = Array.from(root.querySelectorAll('.vmss-breakdown-bar'));
@@ -117,6 +118,9 @@
       const previousScore = Number(scoreEl?.dataset.currentValue ?? scoreEl?.textContent ?? score) || score;
       const detailMessage = getDeltaMessage(previousScore, score, layer, currentEventLabel);
       if (eventFeed) eventFeed.textContent = lastLayerKey && lastLayerKey !== layer.key ? `Layer transition: ${layer.label}` : detailMessage;
+      if (liveRegion) liveRegion.textContent = lastLayerKey && lastLayerKey !== layer.key
+        ? `Layer transition: now in ${layer.label}. STI ${score}.`
+        : `STI ${score}. ${layer.label}.`;
       if (lastLayerKey && lastLayerKey !== layer.key) pulseElement(root.querySelector('.vmss-score-card'));
       lastLayerKey = layer.key;
       if (window.VMSS) {

@@ -186,6 +186,7 @@ function initVmssHud() {
   const hud = document.createElement('aside');
   hud.id = 'vmss-hud';
   hud.className = 'vmss-hud';
+  hud.setAttribute('aria-label', 'VMSS live state panel');
   hud.innerHTML = `
     <div class="vmss-hud-top">
       <div class="vmss-hud-kicker">VMSS live state</div>
@@ -201,12 +202,14 @@ function initVmssHud() {
       <a class="vmss-hud-btn is-primary" href="simulations.html#sti-console">Open simulation</a>
       <a class="vmss-hud-btn" href="layers.html">Open rings</a>
     </div>
+    <div aria-live="polite" aria-atomic="true" class="sr-only" data-vmss-hud-live></div>
   `;
   document.body.appendChild(hud);
   const layerTarget = hud.querySelector('[data-vmss-hud-layer]');
   const scoreTarget = hud.querySelector('[data-vmss-hud-score]');
   const profileTarget = hud.querySelector('[data-vmss-hud-profile]');
   const eventTarget = hud.querySelector('[data-vmss-hud-event]');
+  const liveRegion = hud.querySelector('[data-vmss-hud-live]');
   const toggleBtn = hud.querySelector('.vmss-hud-toggle');
   let idleTimer = null;
   const setIdle = (idle) => hud.classList.toggle('is-idle', idle);
@@ -240,6 +243,7 @@ function initVmssHud() {
     if (scoreTarget) window.vmssAnimateNumber(scoreTarget, Number(state.stiScore) || 0, { duration: 420 });
     if (profileTarget) profileTarget.textContent = state.profile || 'Balanced baseline';
     if (eventTarget) eventTarget.textContent = state.lastEvent || 'Baseline loaded';
+    if (liveRegion) liveRegion.textContent = `STI score ${Number(state.stiScore) || 0}, ${layer.label}.`;
     hud.classList.remove('is-updating');
     void hud.offsetWidth;
     hud.classList.add('is-updating');
@@ -407,11 +411,34 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.touchAction = '';
     };
 
+    const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    let lastFocused = null;
+
+    const trapFocus = (e) => {
+      const focusable = Array.from(entryModal.querySelectorAll(FOCUSABLE));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      }
+    };
+
     const showEntryForm = () => {
+      lastFocused = document.activeElement;
       entryModal.classList.remove('hidden');
       entryModal.classList.add('block');
       entryModal.setAttribute('aria-hidden', 'false');
       lockPage();
+      requestAnimationFrame(() => {
+        const first = entryModal.querySelector(FOCUSABLE);
+        if (first) first.focus();
+      });
+      entryModal.addEventListener('keydown', trapFocus);
     };
 
     const hideEntryForm = () => {
@@ -419,6 +446,8 @@ document.addEventListener('DOMContentLoaded', () => {
       entryModal.classList.remove('block');
       entryModal.setAttribute('aria-hidden', 'true');
       unlockPage();
+      entryModal.removeEventListener('keydown', trapFocus);
+      if (lastFocused) lastFocused.focus();
     };
 
     const setMessage = (text, isError = false) => {

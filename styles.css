@@ -1,4 +1,4 @@
-/* VMSS Global Styles — Version 8.1 */
+/* VMSS Global Styles — Version 8.2 */
 :root {
   --bg-primary: #07090f;
   --bg-secondary: #101522;
@@ -1584,3 +1584,17 @@ body.vmss-ui-ready {
   }
 }
 
+/* ========================= */
+/* ACCESSIBILITY UTILITIES   */
+/* ========================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
