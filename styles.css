@@ -1296,7 +1296,7 @@ img {
   text-transform: uppercase;
 }
 .vmss-diagram-shell { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr); gap:1.5rem; align-items:stretch; }
-.vmss-diagram-stage,.vmss-detail-panel,.vmss-sim-panel,.vmss-score-card,.vmss-breakdown-card,.vmss-profile-card {
+.vmss-diagram-stage,.vmss-sim-panel,.vmss-score-card,.vmss-breakdown-card,.vmss-profile-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 42%), var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 1.8rem;
@@ -1305,15 +1305,20 @@ img {
   padding: 1.5rem;
 }
 .vmss-diagram-stage svg { width:100%; height:auto; overflow:visible; }
+.vmss-detail-panel { background:transparent; border:none; box-shadow:none; backdrop-filter:none; padding:1.5rem 0.5rem; }
 .vmss-ring-node { cursor:pointer; transition:opacity .22s ease, transform .22s ease; }
 .vmss-ring-node .ring-hit,.vmss-ring-node .ring-core,.vmss-ring-node .ring-label-chip,.layer-card {
   transition: transform .22s ease, opacity .22s ease, stroke .22s ease, fill .22s ease, filter .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 .vmss-ring-node.is-dimmed { opacity:.42; }
-.vmss-ring-node.is-active,.vmss-ring-node:hover { opacity:1; }
-.vmss-ring-node.is-active .ring-core,.vmss-ring-node:hover .ring-core { filter:drop-shadow(0 0 18px var(--shadow-accent)); stroke:var(--accent); }
-.vmss-ring-node.is-active .ring-hit,.vmss-ring-node:hover .ring-hit { transform-origin:center; transform:scale(1.015); }
-.vmss-ring-node.is-active .ring-label-chip,.vmss-ring-node:hover .ring-label-chip { fill:color-mix(in srgb, var(--accent) 16%, var(--bg-secondary)); stroke:var(--accent); }
+.vmss-ring-node.is-active { opacity:1; }
+.vmss-ring-node:hover:not(.is-active) { opacity:.75; }
+.vmss-ring-node.is-active .ring-core { filter:drop-shadow(0 0 18px var(--shadow-accent)); stroke:var(--accent); }
+.vmss-ring-node:hover:not(.is-active) .ring-core { filter:drop-shadow(0 0 8px var(--shadow-accent)); stroke:color-mix(in srgb, var(--accent) 55%, transparent); }
+.vmss-ring-node.is-active .ring-hit { transform-origin:center; transform:scale(1.015); }
+.vmss-ring-node:hover:not(.is-active) .ring-hit { transform-origin:center; transform:scale(1.008); }
+.vmss-ring-node.is-active .ring-label-chip { fill:color-mix(in srgb, var(--accent) 16%, var(--bg-secondary)); stroke:var(--accent); }
+.vmss-ring-node:hover:not(.is-active) .ring-label-chip { fill:color-mix(in srgb, var(--accent) 7%, var(--bg-secondary)); stroke:color-mix(in srgb, var(--accent) 40%, var(--border)); }
 .vmss-ring-status { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
 .vmss-layer-pills { display:flex; flex-wrap:wrap; gap:.6rem; }
 .vmss-layer-pill { padding:.45rem .7rem; border-radius:999px; border:1px solid var(--border); color:var(--text-secondary); background:rgba(255,255,255,0.03); font-size:.8rem; }
@@ -1431,7 +1436,6 @@ body.vmss-ui-ready {
 .vmss-enhanced-card,
 .vmss-panel,
 .vmss-enhanced-panel,
-.vmss-detail-panel,
 .vmss-sim-panel,
 .vmss-score-card,
 .vmss-breakdown-card,
@@ -1452,6 +1456,9 @@ body.vmss-ui-ready {
 .vmss-hud-btn:active,
 .vmss-ring-node:active {
   transform: translateY(0) scale(.985);
+}
+.vmss-ring-node:focus {
+  outline: none;
 }
 .vmss-chip-button:focus-visible,
 .vmss-hud-btn:focus-visible,

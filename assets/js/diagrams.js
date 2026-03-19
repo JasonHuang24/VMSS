@@ -50,12 +50,13 @@
       if (window.VMSS) window.VMSS.setState({ selectedLayer: layer, lastEvent: `Focused ${info.label}` }, { source: 'diagram' });
     };
     nodes.forEach((node) => {
-      ['mouseenter','focus','click'].forEach((evt) => node.addEventListener(evt, () => sync(node.dataset.layer)));
+      node.addEventListener('click', (e) => { sync(node.dataset.layer); e.currentTarget.blur(); });
+      node.addEventListener('focus', () => sync(node.dataset.layer));
       node.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); sync(node.dataset.layer); }
       });
     });
-    cards.forEach((card) => ['mouseenter','focus'].forEach((evt) => card.addEventListener(evt, () => sync(card.dataset.layer))));
+    cards.forEach((card) => ['click','focus'].forEach((evt) => card.addEventListener(evt, () => sync(card.dataset.layer))));
     document.addEventListener('vmss:state-change', (event) => {
       const state = event.detail?.state;
       const source = event.detail?.meta?.source;
