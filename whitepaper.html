@@ -210,10 +210,22 @@
       </div>
 
 
+    <!-- PAGINATED WHITEPAPER
+         Each <article class="page" data-page="N"> is a section of the whitepaper.
+         Only the .active article is visible at any time (display:block vs display:none).
+         totalPages is derived at runtime from querySelectorAll('.page').length —
+         adding new pages here automatically updates the pagination controls
+         and "Page X of N" indicator without any other changes needed.
+
+         data-page="14" id="glossary" — the glossary anchor. Linked from the
+         document relationship card and from index.html reading path.
+         The #glossary hash in external links is intercepted by the JS below
+         to call showPage(14) rather than trying to scroll to a hidden element.
+    -->
     <section class="paper">
       <div class="paper-head">
         <div class="paper-title">White paper pages</div>
-        <div class="page-indicator" id="pageIndicator">Page 1 of 13</div>
+        <div class="page-indicator" id="pageIndicator">Page 1 of 15</div>
       </div>
 
       <article class="page active" data-page="1">
@@ -534,9 +546,26 @@
       <p class="m-0 text-[var(--text-secondary)] leading-7">For the formal constitutional version of these principles, see the <a href="charter.html" class="text-[var(--accent)] font-semibold hover:underline">Charter</a>. The whitepaper is explanatory; the Charter is binding.</p>
     </div>
   </div>
+<!-- footer.html is fetched and injected here by script.js Promise.all. -->
 <div id="footer-placeholder"></div>
   <script src="script.js" defer></script>
 	<script>
+	  /*
+	   * Whitepaper pagination script.
+	   *
+	   * showPage(n)      — activates page n, updates indicator, re-renders buttons,
+	   *                    resets scroll inside the active page container (mobile fix).
+	   * renderPagination — builds Prev / numbered buttons (windowed ±2) / Next.
+	   *                    Numbers are ellipsis-clamped on narrow viewports via CSS.
+	   *
+	   * Hash navigation: if the URL contains a #hash on load, the script finds the
+	   * matching article by id and jumps to its data-page. Used by external links
+	   * pointing to whitepaper.html#glossary.
+	   *
+	   * In-page anchor interception: <a href="#glossary"> inside the document
+	   * relationship card would normally scroll to a hidden element. The click
+	   * handler instead calls showPage() and smooth-scrolls to the paper top.
+	   */
 	  const pages = Array.from(document.querySelectorAll('.page'));
 	  const totalPages = pages.length;
 	  const pagination = document.getElementById('pagination');

@@ -33,6 +33,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell home-page">
+  <!-- navbar.html is fetched and injected here by script.js Promise.all.
+       All nav-dependent inits (theme toggle, mobile menu, active nav,
+       HUD, layer links) run in a requestAnimationFrame after injection. -->
   <div id="navbar-placeholder"></div>
 
   <main class="flex-1">
@@ -69,6 +72,9 @@
               · Unfamiliar with a term? The <a href="whitepaper.html#glossary" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">glossary</a> is on pages 14–15 of the whitepaper.
             </p>
 
+            <!-- Key system metrics — static summary figures displayed on the hero.
+                 These are intentionally hardcoded rather than data-driven;
+                 they reflect the architectural constants of the VMSS framework. -->
             <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
               <div class="vmss-stat-card">
                 <div class="vmss-stat-value">5</div>
@@ -444,6 +450,9 @@
                 <p class="vmss-mini-copy">See what voluntary entry, implant consent, and early life in Main would look like.</p>
               </a>
             </div>
+            <!-- Whitepaper callout — the final step in the reading path.
+                 vmss-whitepaper-callout is a dedicated card style that spans
+                 full width to signal it as a primary destination. -->
             <a href="whitepaper.html" class="vmss-whitepaper-callout reveal-item">
               <div>
                 <div class="vmss-eyebrow">5. Whitepaper</div>
@@ -465,6 +474,7 @@
     </section>
   </main>
 
+  <!-- footer.html is fetched and injected here by script.js Promise.all. -->
   <div id="footer-placeholder"></div>
   <script src="script.js" defer></script>
 </body>

@@ -50,6 +50,22 @@
   to see how layer logic is enforced in practice.
 </p>
 
+<!-- INTERACTIVE RING DIAGRAM
+     Managed by assets/js/diagrams.js (initDiagram).
+     data-vmss-diagram is the root selector queried by that script.
+
+     Each .vmss-ring-node <g> contains:
+       .ring-hit   — wide invisible stroke that forms the clickable hit area
+       .ring-core  — thin visible stroke (the ring line itself)
+       .ring-label-chip — rounded rect behind the label text
+
+     The detail panel (aside.vmss-detail-panel) is populated by diagrams.js
+     via getElementById on the ids below. It is intentionally borderless/
+     backgroundless — see .vmss-detail-panel in styles.css.
+
+     ring-hit stroke-width is intentionally wide (44–62px) so the rings
+     are easy to click/tap without needing pixel-perfect aim.
+-->
 <div class="mt-14 vmss-diagram-shell" data-vmss-diagram>
   <div class="vmss-diagram-stage reveal-item">
     <div class="vmss-ring-status">
@@ -103,6 +119,8 @@
       <div class="flow-step"><div class="vmss-mini-title">Simulation link</div><p class="vmss-mini-copy">Use the STI console to see how score pressure can push a citizen between rings.</p></div>
     </div>
   </div>
+  <!-- DETAIL PANEL — populated by diagrams.js sync() on each ring selection.
+       All ids below are queried by that script; content is replaced in place. -->
   <aside class="vmss-detail-panel reveal-item">
     <span class="vmss-kicker">Active Ring</span>
     <h2 class="text-4xl font-bold text-[var(--text-primary)] mt-4" id="vmss-layer-title">+1 Sanctuary</h2>
@@ -216,5 +234,6 @@
 
 <script src="script.js" defer></script>
 <script src="assets/js/diagrams.js" defer></script>
+<!-- footer.html is fetched and injected here by script.js Promise.all. -->
 <div id="footer-placeholder"></div></body>
 </html>

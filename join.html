@@ -105,7 +105,10 @@
               <li>• Do not join if you want the benefits without accepting the consequences</li>
             </ul>
           </div>
-		  
+		<!-- LIVE APPLICANT DATA — populated by loadApplicantCount() and
+		     loadRecentApplicants() in script.js via Supabase.
+		     Both show fallback content ("—" / "Loading...") until the
+		     async fetch completes. -->
 		<div class="mb-10 text-xl text-[var(--text-muted)]">
 		  Applications awaiting entry:
 		  <span id="applicant-count" class="text-[var(--accent)] font-bold">—</span>
@@ -136,9 +139,23 @@
     </section>
   </main>
 
-  <div id="footer-placeholder"></div>
+  <!-- footer.html is fetched and injected here by script.js Promise.all. -->
+<div id="footer-placeholder"></div>
 
-  <!-- Modal moved outside main -->
+  <!-- ENTRY MODAL
+       Managed by initJoinModal() in script.js.
+       Opened by #open-entry-modal button, closed by #close-entry-modal,
+       Escape key, or clicking the backdrop.
+
+       Accessibility features (v8.2):
+         - role="dialog" + aria-modal="true" restricts screen reader navigation
+         - aria-labelledby="entry-modal-title" announces the modal title on open
+         - Focus trap: Tab/Shift+Tab cycle within focusable elements only
+         - Focus returns to #open-entry-modal on close
+
+       The modal is intentionally placed OUTSIDE <main> so it sits at the top
+       of the stacking context and isn't clipped by overflow:hidden on ancestors.
+  -->
   <div
     id="entryModal"
     class="fixed inset-0 z-[99999] hidden bg-black/85"
@@ -297,6 +314,9 @@
 
             <p id="entry-form-message" class="text-sm text-[var(--text-muted)] hidden"></p>
 
+            <!-- HONEYPOT FIELD — visually hidden, never filled by real users.
+                 If "company" has a value on submit, initJoinModal silently
+                 drops the submission without error feedback (bot detection). -->
             <div style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
               <label for="company">Company</label>
               <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />

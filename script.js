@@ -1,4 +1,26 @@
-const SUPABASE_URL = 'https://nizitfgihubglrtovget.supabase.co';
+/**
+ * script.js — VMSS Global Runtime
+ *
+ * Loaded on every page. Responsibilities:
+ *   - Defines the global VMSS state object (window.VMSS) and its event bus
+ *   - Provides vmssAnimateNumber() for animated numeric transitions
+ *   - Fetches and injects navbar.html / footer.html into placeholder divs
+ *   - Initialises per-page features after layout components are ready:
+ *     theme toggle, mobile menu, active nav, live state HUD, layer echo,
+ *     layer links, join modal, scroll-reveal, back arrows
+ *   - Handles Supabase integration for the join form (applicant count + submissions)
+ *
+ * Execution order:
+ *   1. Global constants + vmssAnimateNumber exposed immediately (synchronous)
+ *   2. initVmssGlobal() runs as IIFE — sets up window.VMSS
+ *   3. Supabase client initialised if library is present
+ *   4. DOMContentLoaded fires:
+ *      a. enhancePageLayout() + initBackArrows() + initReveal() run immediately
+ *      b. navbar.html + footer.html fetched in parallel
+ *      c. All nav-dependent inits run inside requestAnimationFrame after injection
+ */
+
+const SUPABASE_URL      = 'https://nizitfgihubglrtovget.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
 
 let supabaseClient = null;
@@ -7,6 +29,11 @@ let supabaseClient = null;
 // =========================
 // VMSS GLOBAL STATE
 // =========================
+/**
+ * Default state shape. Also used as the merge base when loading
+ * a partial or corrupted state from localStorage, so every key
+ * always has a valid fallback value.
+ */
 const VMSS_DEFAULT_STATE = {
   selectedLayer: '0',
   stiScore: 43,
@@ -28,6 +55,12 @@ function vmssClone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+/**
+ * Maps a numeric STI score to its layer descriptor.
+ * Exposed on window.VMSS.layerForScore so external modules can call it.
+ * sti-sim.js has its own copy that also returns a .tone field — this
+ * version is intentionally minimal (key, label, short, band only).
+ */
 function vmssLayerForScore(score) {
   if (score >= 85) return { key:'+1', label:'+1 Sanctuary', short:'+1 Sanctuary', band:'85–100' };
   if (score >= 70) return { key:'0', label:'Main Layer (0)', short:'Layer 0', band:'70–84' };
@@ -36,6 +69,13 @@ function vmssLayerForScore(score) {
   return { key:'-3', label:'-3 Terminal', short:'-3 Terminal', band:'0–29' };
 }
 
+/**
+ * Smoothly animates a numeric text element from its current value to target.
+ * Uses cubic ease-out and requestAnimationFrame. Respects prefers-reduced-motion.
+ * Stores the current value in element.dataset.currentValue so render functions
+ * can read the logical value rather than parsing the animated display string.
+ * Exposed as window.vmssAnimateNumber for use by sti-sim.js.
+ */
 function vmssAnimateNumber(element, target, options = {}) {
   if (!element) return;
   const duration = options.duration ?? 520;
@@ -67,6 +107,19 @@ function vmssAnimateNumber(element, target, options = {}) {
 }
 window.vmssAnimateNumber = vmssAnimateNumber;
 
+/**
+ * initVmssGlobal — sets up window.VMSS, the global state store.
+ *
+ * window.VMSS provides:
+ *   .getState()           — returns a deep clone of current state
+ *   .setState(patch, meta)— merges patch, saves to localStorage, fires vmss:state-change
+ *   .reset()              — restores default state
+ *   .layerForScore(score) — maps score to layer descriptor
+ *
+ * The vmss:state-change CustomEvent is the cross-component communication bus.
+ * Every interactive component (HUD, diagram, STI console) listens for it and
+ * fires it via setState, passing a source tag in meta to prevent feedback loops.
+ */
 (function initVmssGlobal() {
   const STORAGE_KEY = 'vmss_state';
   const safeLoad = () => {
@@ -115,7 +168,9 @@ window.vmssAnimateNumber = vmssAnimateNumber;
   };
 })();
 
-// Safe Supabase init (prevents crashes on pages without it)
+// Supabase client — initialised only if the Supabase SDK is present on the page.
+// The SDK is loaded selectively (only on join.html) to avoid unnecessary overhead
+// on pages that don't need it.
 if (typeof window !== 'undefined' && typeof window.supabase !== 'undefined') {
   try {
     supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -128,6 +183,8 @@ if (typeof window !== 'undefined' && typeof window.supabase !== 'undefined') {
 // =========================
 // SUPABASE HELPERS
 // =========================
+
+/** Fetches the total application count and updates the #applicant-count element. */
 function loadApplicantCount() {
   const countEl = document.getElementById('applicant-count');
   if (!countEl || !supabaseClient) return Promise.resolve();
@@ -145,6 +202,7 @@ function loadApplicantCount() {
     });
 }
 
+/** Fetches the 5 most recent applicants and renders their city/country into #recent-applicants. */
 function loadRecentApplicants() {
   const container = document.getElementById('recent-applicants');
   if (!container || !supabaseClient) return Promise.resolve();
@@ -160,7 +218,9 @@ function loadRecentApplicants() {
       container.innerHTML = '';
 
       if (!data || data.length === 0) {
-        container.innerHTML = '<div>No applications yet.</div>';
+        const empty = document.createElement('div');
+        empty.textContent = 'No applications yet.';
+        container.appendChild(empty);
         return;
       }
 
@@ -177,9 +237,23 @@ function loadRecentApplicants() {
       container.innerHTML = '<div>—</div>';
     });
 }
-
-
-
+/**
+ * initVmssHud — creates and manages the floating live state panel.
+ *
+ * The HUD is injected into document.body as an <aside> element.
+ * It displays the current STI score, layer, profile name, and last event,
+ * updating whenever a vmss:state-change event fires.
+ *
+ * Idle behaviour: the HUD fades slightly after 2.6s of inactivity.
+ *   Any interaction (hover, focus, touch) resets the idle timer.
+ *
+ * Minimise/expand: persisted in localStorage so the preference survives
+ *   page navigation. On mobile (<768px), auto-minimises on load unless
+ *   the user has already set an explicit preference.
+ *
+ * The border glows gold when layer = +1 Sanctuary (via CSS [data-layer="+1"]).
+ * The border flashes accent briefly on each state update (vmss-hud.is-updating).
+ */
 function initVmssHud() {
   if (!document.body || document.getElementById('vmss-hud')) return;
   const savedHudMinimized = localStorage.getItem('vmss_hud_minimized') === 'true';
@@ -275,11 +349,22 @@ function initVmssHud() {
   apply();
 }
 
+/**
+ * initVmssLayerEcho — syncs text elements marked with data-vmss-*-echo
+ * to the current global state values.
+ *
+ * Any element with [data-vmss-layer-echo], [data-vmss-score-echo], or
+ * [data-vmss-event-echo] will have its textContent updated whenever the
+ * global state changes. Used on the systems.html page to show the live
+ * STI layer and score in the cohesion layer banner without coupling
+ * that page directly to the simulation console.
+ */
 function initVmssLayerEcho() {
   const layerTargets = Array.from(document.querySelectorAll('[data-vmss-layer-echo]'));
   const scoreTargets = Array.from(document.querySelectorAll('[data-vmss-score-echo]'));
   const eventTargets = Array.from(document.querySelectorAll('[data-vmss-event-echo]'));
   if (!layerTargets.length && !scoreTargets.length && !eventTargets.length) return;
+  if (!window.VMSS) return;
   const apply = () => {
     const state = window.VMSS.getState();
     const layer = window.VMSS.layerForScore(state.stiScore);
@@ -291,6 +376,14 @@ function initVmssLayerEcho() {
   document.addEventListener('vmss:state-change', apply);
 }
 
+/**
+ * initVmssLayerLinks — highlights the layer link that matches the current
+ * global selected layer.
+ *
+ * Any element with [data-layer] gets .is-vmss-current toggled to match the
+ * active layer in global state. Clicking a layer link also updates the global
+ * state, so the HUD and ring map reflect the selection immediately.
+ */
 function initVmssLayerLinks() {
   const links = Array.from(document.querySelectorAll('[data-layer]'));
   if (!links.length || !window.VMSS) return;
@@ -307,91 +400,127 @@ function initVmssLayerLinks() {
   document.addEventListener('vmss:state-change', apply);
 }
 
+// =========================
+// THEME
+// =========================
+
+/**
+ * Returns the user's preferred theme: 'dark' or 'light'.
+ * Checks localStorage first, then falls back to the OS preference.
+ */
+function getPreferredTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light' || saved === 'dark') return saved;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+/**
+ * Applies a theme by setting data-theme on <html> and updating the
+ * theme toggle button icon. Called on page load and on toggle click.
+ */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.innerHTML = theme === 'light'
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+  }
+}
+
+/** Wires up the theme toggle button. Runs after the navbar is injected. */
+function initThemeToggle() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+  applyTheme(getPreferredTheme());
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+}
+
+// =========================
+// MOBILE MENU
+// =========================
+
+/**
+ * Wires up the hamburger/close toggle for the mobile nav drawer.
+ * Clicking any nav link inside the drawer also closes it.
+ * aria-expanded is kept in sync with the open/closed state.
+ */
+function initMobileMenu() {
+  const menuToggle    = document.getElementById('menu-toggle');
+  const mobileMenu    = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon     = document.getElementById('close-icon');
+  const navLinks      = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+  if (!menuToggle || !mobileMenu) return;
+
+  const setExpanded = (open) => {
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mobileMenu.classList.toggle('hidden', !open);
+    if (hamburgerIcon) hamburgerIcon.classList.toggle('hidden', open);
+    if (closeIcon)     closeIcon.classList.toggle('hidden', !open);
+  };
+
+  menuToggle.addEventListener('click', () => setExpanded(mobileMenu.classList.contains('hidden')));
+  navLinks.forEach((link) => link.addEventListener('click', () => setExpanded(false)));
+}
+
+// =========================
+// ACTIVE NAV
+// =========================
+
+/**
+ * Marks the nav link matching the current page with .nav-link-active
+ * and aria-current="page". Runs after the navbar is injected so the
+ * links exist in the DOM.
+ */
+function initActiveNav() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  if (!navLinks.length) return;
+
+  let currentPage = window.location.pathname.split('/').pop();
+  if (!currentPage || currentPage === '') currentPage = 'index.html';
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const isActive = href === currentPage;
+    link.classList.toggle('nav-link-active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+// =========================
+// DOM READY
+// =========================
+
 document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => document.body.classList.add('vmss-ui-ready'));
-  const html = document.documentElement;
 
-  function getPreferredTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  function applyTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-      toggle.innerHTML =
-        theme === 'light'
-          ? '<i class="fas fa-sun"></i>'
-          : '<i class="fas fa-moon"></i>';
-    }
-  }
-
-  function initThemeToggle() {
-    const toggle = document.getElementById('theme-toggle');
-    if (!toggle) return;
-
-    applyTheme(getPreferredTheme());
-
-    toggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme') || getPreferredTheme();
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', newTheme);
-      applyTheme(newTheme);
-    });
-  }
-
-  function initMobileMenu() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
-    const navLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-
-    if (!menuToggle || !mobileMenu) return;
-
-    const setExpanded = (open) => {
-      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      mobileMenu.classList.toggle('hidden', !open);
-      if (hamburgerIcon) hamburgerIcon.classList.toggle('hidden', open);
-      if (closeIcon) closeIcon.classList.toggle('hidden', !open);
-    };
-
-    menuToggle.addEventListener('click', () => {
-      const isOpening = mobileMenu.classList.contains('hidden');
-      setExpanded(isOpening);
-    });
-
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => setExpanded(false));
-    });
-  }
-
-  function initActiveNav() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    if (!navLinks.length) return;
-
-    let currentPage = window.location.pathname.split('/').pop();
-    if (!currentPage || currentPage === '') currentPage = 'index.html';
-
-    navLinks.forEach((link) => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-
-      if (href === currentPage) {
-        link.classList.add('nav-link-active');
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.classList.remove('nav-link-active');
-        link.removeAttribute('aria-current');
-      }
-    });
-  }
-
+  /**
+   * initJoinModal — manages the entry application modal on join.html.
+   *
+   * Features:
+   *   - Opens/closes the modal with aria-hidden toggled correctly
+   *   - Focus trap: Tab/Shift+Tab cycle within the modal while open
+   *   - Focus returns to the triggering element on close
+   *   - Escape key closes the modal; clicking the backdrop also closes it
+   *   - Honeypot field blocks bot submissions silently
+   *   - 60-second cooldown between submissions (localStorage-based)
+   *   - Submits to Supabase, refreshes applicant count and recent list on success
+   */
   function initJoinModal() {
-    const openBtn = document.getElementById('open-entry-modal');
-    const closeBtn = document.getElementById('close-entry-modal');
+    const openBtn    = document.getElementById('open-entry-modal');
+    const closeBtn   = document.getElementById('close-entry-modal');
     const entryModal = document.getElementById('entryModal');
     const entryForm = document.getElementById('entryForm');
     const submitBtn = document.getElementById('entry-submit-btn');
@@ -569,6 +698,11 @@ The choice — and the consequences — are now yours.`);
     });
   }
 
+  /**
+   * initBackArrows — hides the floating back-arrow button when the user
+   * scrolls past 150px. Uses requestAnimationFrame to throttle scroll
+   * events and avoid layout thrash.
+   */
   function initBackArrows() {
     const backArrows = document.querySelectorAll('.back-arrow');
     if (!backArrows.length) return;
@@ -587,6 +721,18 @@ The choice — and the consequences — are now yours.`);
     handleScroll();
   }
 
+  /**
+   * enhancePageLayout — applies VMSS design system classes to generic
+   * page sections that don't have them hardcoded in their HTML.
+   *
+   * This keeps individual HTML pages leaner by centralising class
+   * application here rather than repeating vmss-main-section,
+   * vmss-title, vmss-page-intro etc. on every page individually.
+   *
+   * Note: the vmss-enhanced-panel-candidate / [data-vmss-panel] selector
+   * requires pages to explicitly opt in via a data attribute — the old
+   * class*= approach was fragile and matched unintended elements.
+   */
   function enhancePageLayout() {
     document.body.classList.add('vmss-page-shell');
 
@@ -625,12 +771,23 @@ The choice — and the consequences — are now yours.`);
     });
 
     document
-      .querySelectorAll('section [class*="bg-[var(--bg-secondary)]"]')
+      .querySelectorAll('section .vmss-enhanced-panel-candidate, section [data-vmss-panel]')
       .forEach((el) => {
         el.classList.add('vmss-enhanced-panel', 'reveal-item');
       });
   }
 
+  /**
+   * initReveal — scroll-triggered fade-in for elements with .reveal-item.
+   *
+   * Uses IntersectionObserver (threshold 0.01, -5% bottom rootMargin) so
+   * elements animate in slightly before they fully enter the viewport.
+   * Falls back to immediate visibility if IntersectionObserver isn't available.
+   *
+   * Safety timeout at 1400ms reveals anything still hidden after the
+   * navbar/footer fetch settles, preventing content from getting stuck
+   * invisible if the fetch is slow.
+   */
   function initReveal() {
     const items = document.querySelectorAll('.reveal-item');
     if (!items.length) return;
@@ -667,6 +824,14 @@ The choice — and the consequences — are now yours.`);
     }, 1400);
   }
 
+  /**
+   * Fetch navbar.html and footer.html in parallel, inject them into their
+   * placeholder divs, then initialise all features that depend on the navbar
+   * being in the DOM (theme toggle, mobile menu, active nav, HUD, etc.).
+   *
+   * All nav-dependent inits are wrapped in requestAnimationFrame so the
+   * browser has completed layout before we query injected elements.
+   */
   Promise.all([
     fetch('navbar.html').then((r) => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
     fetch('footer.html').then((r) => r.text()).catch(() => '<!-- Footer fetch failed -->')

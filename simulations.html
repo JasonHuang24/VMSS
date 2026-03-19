@@ -41,6 +41,17 @@
 <p class="text-center text-2xl text-[var(--text-muted)] mb-6">Interactive trust scoring, layer movement, and behavioral case studies under VMSS rules — full narrative detail</p>
 <p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-16">Best read after <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a> and <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>. This page shows a prototype interpretation layer: first inspect the console, then compare that logic against the longer historical case studies below.</p>
 
+<!-- STI SIMULATION CONSOLE
+     Initialised by assets/js/sti-sim.js (initSimulator).
+     id="sti-console" is the root element queried by that script.
+     All data-* attributes inside are read/written by the console:
+       data-sti-score, data-sti-layer, data-sti-tone  — live readouts
+       data-profile-name, data-overall-shift, data-stability-band — readout tiles
+       data-gauge-progress  — SVG arc stroke-dashoffset
+       data-sti-live        — aria-live region for screen reader announcements
+       data-event-feed      — visible event log line
+       data-sti-reasoning   — system interpretation panel
+-->
 <div class="vmss-console-layout mb-16" id="sti-console">
   <section class="vmss-sim-panel reveal-item">
     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -503,5 +514,6 @@ Key lesson: The STI system closes the accountability gap for harms that fall bel
 
 <script src="script.js" defer></script>
 <script src="assets/js/sti-sim.js" defer></script>
+<!-- footer.html is fetched and injected here by script.js Promise.all. -->
 <div id="footer-placeholder"></div></body>
 </html>

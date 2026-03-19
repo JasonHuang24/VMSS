@@ -1,4 +1,12 @@
 /* VMSS Global Styles — Version 8.2 */
+
+/* =========================
+   DESIGN TOKENS
+   Dark mode (default) and light mode overrides.
+   --accent / --accent-soft: gold palette used for highlights, CTAs, active states
+   --border / --border-strong: subtle borders; strong variant used for accent-adjacent elements
+   --shadow-accent: gold-tinted shadow for elements near the accent colour
+   ========================= */
 :root {
   --bg-primary: #07090f;
   --bg-secondary: #101522;
@@ -41,6 +49,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Layered radial + linear gradient gives the page a subtle warm glow
+   at the top without a harsh edge. Transitions smoothly on theme change. */
 body {
   background:
     radial-gradient(circle at top, var(--accent-glow), transparent 34%),
@@ -54,6 +64,9 @@ body {
   position: relative;
 }
 
+/* Ambient glow orbs — fixed pseudo-elements that sit behind all page content.
+   Left orb: warm gold accent. Right orb: cool blue counterbalance.
+   Disabled on mobile (v7.3) to avoid paint cost on low-power devices. */
 .vmss-page-shell::before,
 .vmss-page-shell::after {
   content: "";
@@ -88,7 +101,10 @@ main, section, footer, nav, #navbar-placeholder, #footer-placeholder {
   z-index: 1;
 }
 
-/* Layout order guards */
+/* Layout order guards — ensures navbar → main → footer stacking regardless
+   of DOM insertion order. The navbar and footer are fetched asynchronously
+   and injected into placeholders, so explicit flex order prevents any flash
+   of incorrect stacking during the fetch. */
 body {
   display: flex;
   flex-direction: column;
@@ -563,6 +579,9 @@ button[type="submit"]:hover {
   animation: slideDown 0.28s ease-out forwards;
 }
 
+/* Scroll-reveal animation — elements start invisible/offset and transition
+   in when the IntersectionObserver fires (see initReveal in script.js).
+   will-change is set in the v7.3 performance pass to hint compositing. */
 .reveal-item {
   opacity: 0;
   transform: translateY(18px);
@@ -1242,7 +1261,12 @@ fill: var(--text-primary);
 }
 
 
-/* v7.3 performance pass */
+/* =========================
+   PERFORMANCE + MOTION
+   Ambient glows disabled on mobile to reduce paint cost.
+   prefers-reduced-motion kills all animations and transitions site-wide —
+   the !important overrides ensure third-party classes don't slip through.
+   ========================= */
 @media (max-width: 768px) {
   .vmss-page-shell::before,
   .vmss-page-shell::after {
@@ -1280,7 +1304,11 @@ img {
 }
 
 
-/* v7.4 interactive diagrams + STI simulation */
+/* =========================
+   INTERACTIVE DIAGRAMS + STI SIMULATION
+   Styles for layers.html (ring diagram, detail panel) and
+   simulations.html (STI console, gauge, slider grid, factor bars).
+   ========================= */
 .vmss-kicker {
   display: inline-flex;
   align-items: center;
@@ -1305,11 +1333,20 @@ img {
   padding: 1.5rem;
 }
 .vmss-diagram-stage svg { width:100%; height:auto; overflow:visible; }
+/* The detail panel sits beside the ring diagram but should read as floating
+   content, not a card. All card chrome (border, background, shadow) is
+   suppressed here. padding retained for alignment. */
 .vmss-detail-panel { background:transparent; border:none; box-shadow:none; backdrop-filter:none; padding:1.5rem 0.5rem; }
 .vmss-ring-node { cursor:pointer; transition:opacity .22s ease, transform .22s ease; }
 .vmss-ring-node .ring-hit,.vmss-ring-node .ring-core,.vmss-ring-node .ring-label-chip,.layer-card {
   transition: transform .22s ease, opacity .22s ease, stroke .22s ease, fill .22s ease, filter .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
+/* Ring node interaction — three distinct states:
+   .is-dimmed   : non-active rings fade to 42% opacity
+   .is-active   : selected ring at full opacity with accent glow + scale
+   :hover (not active) : subtle preview glow at reduced intensity,
+                         without committing the selection (click-only model)
+   The :not(.is-active) guard ensures hover styles never override active styles. */
 .vmss-ring-node.is-dimmed { opacity:.42; }
 .vmss-ring-node.is-active { opacity:1; }
 .vmss-ring-node:hover:not(.is-active) { opacity:.75; }
@@ -1338,6 +1375,10 @@ img {
 .vmss-chip-button { padding:.7rem 1rem; border-radius:999px; border:1px solid var(--border); color:var(--text-primary); background:rgba(255,255,255,0.03); font-weight:600; transition:transform .22s ease,border-color .22s ease,color .22s ease; }
 .vmss-chip-button:hover,.vmss-chip-button.is-active { border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
 .vmss-readouts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; margin-top:1rem; }
+/* STI gauge — SVG circle with stroke-dashoffset animation.
+   The gauge starts fully hidden (dashoffset = circumference) and
+   transitions to (1 - score/100) * circumference on each render.
+   .is-strong adds a brighter glow when score >= 70 (Main Layer+). */
 .vmss-gauge { position:relative; width:min(280px,100%); aspect-ratio:1; margin:0 auto; }
 .vmss-gauge svg { width:100%; height:100%; }
 .vmss-gauge-track { fill:none; stroke:rgba(255,255,255,0.08); stroke-width:14; }
@@ -1346,12 +1387,18 @@ img {
 .vmss-score-number { font-size:clamp(2.8rem,6vw,4rem); line-height:.95; font-weight:800; color:var(--text-primary); }
 .vmss-score-caption { color:var(--text-muted); margin-top:.35rem; }
 .vmss-ladder { margin-top:1.25rem; display:grid; gap:.65rem; }
+/* Ladder step — the left-edge accent bar (::before) is transparent by default
+   and fills with accent colour when .is-current is applied. The translateX(4px)
+   nudge gives a subtle "selected" indent effect. */
 .vmss-ladder-step { position:relative; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.85rem 1rem; border-radius:1rem; border:1px solid var(--border); background:rgba(255,255,255,0.03); overflow:hidden; transition:border-color .22s ease, transform .22s ease, background-color .22s ease; }
 .vmss-ladder-step::before { content:""; position:absolute; inset:0 auto 0 0; width:.35rem; background:transparent; transition:background .22s ease; }
 .vmss-ladder-step.is-current { border-color:var(--accent); background:color-mix(in srgb, var(--accent) 10%, var(--bg-secondary)); transform:translateX(4px); }
 .vmss-ladder-step.is-current::before { background:var(--accent); }
 .vmss-ladder-step .step-range { color:var(--text-muted); font-size:.84rem; }
 .vmss-breakdown-bars { display:grid; gap:.75rem; margin-top:1rem; }
+/* Factor breakdown bar — three-column grid: label | track | number.
+   On mobile (<960px) this reflows to two rows: label+number on row 1,
+   track spanning full width on row 2 (see mobile breakpoint below). */
 .vmss-breakdown-bar { display:grid; grid-template-columns:130px minmax(0,1fr) 56px; gap:.85rem; align-items:center; }
 .vmss-breakdown-bar .bar-track { position:relative; height:.6rem; border-radius:999px; background:rgba(255,255,255,0.06); overflow:hidden; }
 .vmss-breakdown-bar .bar-fill { position:absolute; inset:0 auto 0 0; width:0%; border-radius:999px; background:linear-gradient(90deg, var(--accent-soft), var(--accent)); transition:width .45s ease; }
@@ -1378,7 +1425,12 @@ img {
 }
 
 
-/* v7.5 cohesion layer */
+/* =========================
+   LIVE STATE HUD
+   Fixed bottom-right panel injected into document.body by initVmssHud().
+   Width capped at 21rem or viewport-minus-padding, whichever is smaller.
+   Gold glow variant activates when data-layer="+1" (Sanctuary).
+   ========================= */
 .vmss-hud {
   position: fixed;
   right: 1rem;
@@ -1412,7 +1464,12 @@ img {
 @media (max-width: 768px) { .vmss-hud { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width:auto; } }
 
 
-/* v7.6 polish + UX refinement */
+/* =========================
+   POLISH + UX REFINEMENT
+   body starts at opacity:0 and fades in once vmss-ui-ready is applied
+   by script.js (via requestAnimationFrame after DOMContentLoaded).
+   This prevents a flash of unstyled content before the navbar/footer inject.
+   ========================= */
 body {
   opacity: 0;
   transition: opacity 0.35s ease, background-color 0.35s ease, color 0.35s ease;
@@ -1462,6 +1519,10 @@ body.vmss-ui-ready {
 .vmss-ring-node:focus {
   outline: none;
 }
+/* Keyboard focus outline — only shown for focus-visible (keyboard nav),
+   not for mouse clicks. vmss-ring-node:focus { outline:none } suppresses
+   the default rectangular browser outline that SVG <g> elements produce
+   on click; blur() in diagrams.js ensures it's never visible after clicks. */
 .vmss-chip-button:focus-visible,
 .vmss-hud-btn:focus-visible,
 .vmss-ring-node:focus-visible,
@@ -1518,6 +1579,7 @@ body.vmss-ui-ready {
   justify-content:center;
   font-size:1rem;
 }
+/* .is-updating: brief accent border flash on each state change (triggered in script.js) */
 .vmss-hud.is-updating {
   border-color: rgba(243,193,95,0.5);
   box-shadow: 0 24px 60px -34px rgba(243,193,95,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
@@ -1565,11 +1627,16 @@ body.vmss-ui-ready {
   50% { transform: translateY(-5px); }
   100% { transform: translateY(-3px); }
 }
+/* vmssFlash — ripple-style box-shadow pulse used on layer transitions
+   and state updates. Applied/removed programmatically via pulseElement(). */
 @keyframes vmssFlash {
   0% { box-shadow: 0 0 0 0 rgba(243,193,95,0); }
   35% { box-shadow: 0 0 0 8px rgba(243,193,95,0.12); }
   100% { box-shadow: 0 0 0 0 rgba(243,193,95,0); }
 }
+/* Mobile HUD — stretches edge-to-edge at the bottom on small screens.
+   min-width:0 override allows the minimized HUD to shrink fully rather
+   than being constrained by the desktop min-width rule. */
 @media (max-width: 768px) {
   body {
     transform: none;
@@ -1593,9 +1660,17 @@ body.vmss-ui-ready {
   }
 }
 
-/* ========================= */
-/* ACCESSIBILITY UTILITIES   */
-/* ========================= */
+/* =========================
+   ACCESSIBILITY UTILITIES
+   ========================= */
+
+/**
+ * .sr-only — visually hidden but readable by screen readers.
+ * Used for aria-live regions in the HUD and STI console so score
+ * changes are announced without being visible on screen.
+ * Standard technique from the a11y community; clip:rect(0,0,0,0)
+ * is used over clip-path for broader browser support.
+ */
 .sr-only {
   position: absolute;
   width: 1px;
