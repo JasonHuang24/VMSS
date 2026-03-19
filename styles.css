@@ -1,4 +1,4 @@
-/* VMSS Global Styles — Version 8.0 */
+/* VMSS Global Styles — Version 8.1 */
 :root {
   --bg-primary: #07090f;
   --bg-secondary: #101522;
@@ -1356,7 +1356,20 @@ img {
 .vmss-action-row { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
 @media (max-width: 960px) {
   .vmss-diagram-shell,.vmss-console-layout,.vmss-slider-grid,.vmss-readouts,.vmss-detail-stat { grid-template-columns:1fr; }
-  .vmss-breakdown-bar { grid-template-columns:1fr; }
+  .vmss-breakdown-bar {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: .4rem .85rem;
+  }
+  .vmss-breakdown-bar .bar-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .bar-number {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
 }
 
 

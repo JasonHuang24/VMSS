@@ -247,7 +247,27 @@ function initVmssHud() {
     scheduleIdle();
   };
   document.addEventListener('vmss:state-change', (event) => apply(event.detail?.state));
-  setMinimized(savedHudMinimized);
+  const isMobile = () => window.innerWidth < 768;
+
+  /* Auto-minimise on mobile unless user has explicitly set a preference */
+  const hasUserPref = localStorage.getItem('vmss_hud_minimized') !== null;
+  if (hasUserPref) {
+    setMinimized(savedHudMinimized);
+  } else {
+    setMinimized(isMobile());
+  }
+
+  /* Re-evaluate on resize — only when no user preference is stored */
+  let resizeRaf = null;
+  window.addEventListener('resize', () => {
+    if (localStorage.getItem('vmss_hud_minimized') !== null) return;
+    if (resizeRaf) return;
+    resizeRaf = requestAnimationFrame(() => {
+      setMinimized(isMobile());
+      resizeRaf = null;
+    });
+  }, { passive: true });
+
   apply();
 }
 
