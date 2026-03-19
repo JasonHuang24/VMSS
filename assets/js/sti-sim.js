@@ -73,12 +73,10 @@
     const stability = root.querySelector('[data-stability-band]');
     const eventButtons = Array.from(root.querySelectorAll('[data-sti-event]'));
     const eventFeed = root.querySelector('[data-event-feed]');
-    const walkthrough = Array.from(root.querySelectorAll('[data-walkthrough-step]'));
-    const stepLabel = root.querySelector('[data-walkthrough-status]');
+    const randomizeBtn = root.querySelector('[data-randomize-sim]');
     const circumference = 2 * Math.PI * 47;
     let lastLayerKey = null;
     let currentEventLabel = '';
-    let walkthroughIndex = -1;
     if (gauge) { gauge.style.strokeDasharray = `${circumference}`; gauge.style.strokeDashoffset = `${circumference}`; }
     const getValues = () => inputs.reduce((acc, input) => (acc[input.name] = Number(input.value), acc), {});
     const setValues = (values) => {
@@ -144,25 +142,23 @@
       buttons.forEach((btn) => btn.classList.remove('is-active'));
       render('Event-driven profile', { source: 'sti-event' });
     };
-    const walkthroughStates = [
-      { label:'Step 1 • Baseline citizen', profile:'stable' },
-      { label:'Step 2 • Violation drives descent', event:'violation' },
-      { label:'Step 3 • Recovery restores trust', event:'rehab' },
-      { label:'Step 4 • Contribution pushes upward', event:'service' }
-    ];
-    const runWalkthrough = () => {
-      walkthroughIndex = (walkthroughIndex + 1) % walkthroughStates.length;
-      const step = walkthroughStates[walkthroughIndex];
-      walkthrough.forEach((btn, index) => btn.classList.toggle('is-active', index === walkthroughIndex));
-      if (step.profile) {
-        const profileValues = PROFILES[step.profile];
-        setValues(profileValues);
-        currentEventLabel = 'Baseline loaded for walkthrough';
-        render(step.label, { source: 'walkthrough' });
-      }
-      if (step.event) applyEvent(step.event);
-      if (stepLabel) stepLabel.textContent = step.label;
+    const randomize = () => {
+      const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+      const next = {
+        civic:        rand(0, 20),
+        contribution: rand(0, 20),
+        conduct:      rand(0, 15),
+        competence:   rand(0, 15),
+        endorsement:  rand(0, 10),
+        recovery:     rand(0, 10),
+        violations:   rand(0, 20),
+      };
+      setValues(next);
+      buttons.forEach((btn) => btn.classList.remove('is-active'));
+      currentEventLabel = 'Random profile generated';
+      render('Random profile', { source: 'randomize' });
     };
+    if (randomizeBtn) randomizeBtn.addEventListener('click', randomize);
     buttons.forEach((button) => button.addEventListener('click', () => {
       const profile = PROFILES[button.dataset.profile];
       if (!profile) return;
@@ -173,7 +169,6 @@
       render(button.textContent.trim(), { source: 'profile' });
     }));
     eventButtons.forEach((button) => button.addEventListener('click', () => applyEvent(button.dataset.stiEvent)));
-    walkthrough.forEach((button) => button.addEventListener('click', runWalkthrough));
     inputs.forEach((input) => input.addEventListener('input', () => { buttons.forEach((btn) => btn.classList.remove('is-active')); currentEventLabel = 'Manual factor adjustment'; render('Custom profile', { source: 'manual' }); }));
     if (resetBtn) resetBtn.addEventListener('click', () => {
       const defaults = { civic:11, contribution:11, conduct:8, competence:8, endorsement:6, recovery:5, violations:6 };
@@ -181,14 +176,11 @@
       buttons.forEach((btn) => btn.classList.remove('is-active'));
       currentEventLabel = 'Baseline loaded';
       render('Balanced baseline', { source: 'reset' });
-      walkthroughIndex = -1;
-      walkthrough.forEach((btn) => btn.classList.remove('is-active'));
-      if (stepLabel) stepLabel.textContent = 'Walkthrough idle';
     });
     document.addEventListener('vmss:state-change', (event) => {
       const source = event.detail?.meta?.source;
       const state = event.detail?.state;
-      if (!state || ['sti-sim','sti-event','profile','manual','reset','walkthrough'].includes(source)) return;
+      if (!state || ['sti-sim','sti-event','profile','manual','reset','walkthrough','randomize'].includes(source)) return;
       if (state.values) setValues(state.values);
       currentEventLabel = state.lastEvent || currentEventLabel;
       render(state.profile || 'Synced profile', { source: 'external-sync' });

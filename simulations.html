@@ -74,25 +74,21 @@
       <div class="vmss-readout-tile"><div class="vmss-readout-label">Momentum</div><div class="vmss-readout-value" data-overall-shift>Mixed pressure</div></div>
       <div class="vmss-readout-tile"><div class="vmss-readout-label">Coherence</div><div class="vmss-readout-value" data-stability-band>Mixed coherence</div></div>
     </div>
-    <div class="vmss-event-grid mt-8">
-      <div class="vmss-breakdown-card">
-        <div class="vmss-input-label">Event-driven simulation</div>
-        <div class="vmss-event-buttons mt-4">
-          <button class="vmss-chip-button" data-sti-event="violation" type="button">Commit violation</button>
-          <button class="vmss-chip-button" data-sti-event="service" type="button">Complete civic service</button>
-          <button class="vmss-chip-button" data-sti-event="endorsement" type="button">Receive endorsement</button>
-          <button class="vmss-chip-button" data-sti-event="audit" type="button">Fail compliance check</button>
-          <button class="vmss-chip-button" data-sti-event="rehab" type="button">Rehabilitation period</button>
-        </div>
-        <p class="text-sm text-[var(--text-muted)] mt-4" data-event-feed>Baseline loaded</p>
+    <div class="vmss-breakdown-card mt-8">
+      <div class="vmss-input-label">Event-driven simulation</div>
+      <div class="vmss-event-buttons mt-4">
+        <button class="vmss-chip-button" data-sti-event="violation" type="button">Commit violation</button>
+        <button class="vmss-chip-button" data-sti-event="service" type="button">Complete civic service</button>
+        <button class="vmss-chip-button" data-sti-event="endorsement" type="button">Receive endorsement</button>
+        <button class="vmss-chip-button" data-sti-event="audit" type="button">Fail compliance check</button>
+        <button class="vmss-chip-button" data-sti-event="rehab" type="button">Rehabilitation period</button>
       </div>
-      <div class="vmss-breakdown-card">
-        <div class="vmss-input-label">Guided walkthrough</div>
-        <div class="vmss-profile-buttons mt-4">
-          <button class="vmss-chip-button" data-walkthrough-step type="button">Advance walkthrough</button>
-        </div>
-        <p class="text-sm text-[var(--text-muted)] mt-4" data-walkthrough-status>Walkthrough idle</p>
+      <div class="vmss-event-divider"></div>
+      <div class="vmss-input-label">Randomizer</div>
+      <div class="vmss-event-buttons mt-3">
+        <button class="vmss-chip-button vmss-randomize-btn" data-randomize-sim type="button">Randomize profile</button>
       </div>
+      <p class="text-sm text-[var(--text-muted)] mt-4" data-event-feed>Baseline loaded</p>
     </div>
   </section>
   <aside class="space-y-6 reveal-item">

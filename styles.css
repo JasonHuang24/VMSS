@@ -1404,8 +1404,10 @@ img {
 .vmss-hud-btn.is-primary { background:linear-gradient(180deg, var(--accent-soft), var(--accent)); color:#1a1403; border-color: rgba(243,193,95,0.55); }
 .is-vmss-current { transform: translateY(-4px); border-color: rgba(243,193,95,0.55) !important; box-shadow: 0 24px 44px -32px rgba(243,193,95,0.45); }
 .vmss-live-panel { padding: 1.3rem; border-radius: 1.6rem; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 42%), var(--bg-elevated); box-shadow: 0 24px 50px -38px var(--shadow); }
-.vmss-event-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:1.25rem; }
-.vmss-event-buttons { display:flex; flex-wrap:wrap; gap:0.75rem; }
+.vmss-event-buttons { display:flex; flex-wrap:wrap; gap:0.65rem; }
+.vmss-event-buttons .vmss-chip-button { flex:1 1 auto; text-align:center; }
+.vmss-randomize-btn { flex:1 1 100% !important; justify-content:center; }
+.vmss-event-divider { border:none; border-top:1px solid var(--border); margin:1.2rem 0 1rem; }
 @media (max-width: 900px) { .vmss-event-grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { .vmss-hud { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width:auto; } }
 
