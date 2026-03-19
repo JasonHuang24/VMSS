@@ -20,6 +20,13 @@
     const risk = document.getElementById('vmss-layer-risk');
     const openLink = document.getElementById('vmss-layer-link');
     let activeLayer = (window.VMSS && window.VMSS.getState().selectedLayer) || '+1';
+    const LAYER_LABELS = {
+      '+1': '+1 Sanctuary: Highest-trust ring. Pre-intervention safety and maximum civic privileges.',
+      '0':  'Main Layer 0: The proving ground. Full life and agency, with post-intervention enforcement.',
+      '-1': '-1 Noncompliance: Reduced privilege after lower-harm breach. Status and access contract.',
+      '-2': '-2 Violent Offense: Severe harm tier with harsh containment and sharply reduced freedoms.',
+      '-3': '-3 Terminal: Capital offense layer. No intervention, no restoration, no revival.'
+    };
     const sync = (layer) => {
       activeLayer = layer;
       const info = LAYER_DATA[layer];
@@ -29,6 +36,8 @@
         node.classList.toggle('is-active', isActive);
         node.classList.toggle('is-dimmed', !isActive);
         node.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        const base = LAYER_LABELS[node.dataset.layer] || node.dataset.layer;
+        node.setAttribute('aria-label', isActive ? `Selected: ${base}` : base);
       });
       cards.forEach((card) => {
         const active = card.dataset.layer === layer;

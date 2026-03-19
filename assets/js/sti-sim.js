@@ -1,12 +1,12 @@
 
 (function () {
   const PROFILES = {
-    contributor: { civic:18, contribution:19, conduct:14, competence:13, endorsement:9, violations:2, recovery:8 },
-    stable: { civic:14, contribution:13, conduct:12, competence:10, endorsement:7, violations:5, recovery:4 },
-    risk: { civic:8, contribution:6, conduct:5, competence:7, endorsement:3, violations:15, recovery:1 },
-    recovery: { civic:10, contribution:9, conduct:9, competence:8, endorsement:5, violations:10, recovery:9 }
+    contributor: { civic:18, contribution:19, conduct:18, competence:17, endorsement:9, violations:2, recovery:8 },
+    stable:      { civic:14, contribution:13, conduct:12, competence:10, endorsement:7, violations:5, recovery:4 },
+    risk:        { civic:8,  contribution:6,  conduct:5,  competence:7,  endorsement:3, violations:15, recovery:1 },
+    recovery:    { civic:10, contribution:9,  conduct:9,  competence:8,  endorsement:5, violations:10, recovery:9 }
   };
-  const CATEGORY_META = { civic:['Civic compliance',20], contribution:['Contribution',20], conduct:['Public conduct',15], competence:['Verified competence',15], endorsement:['Peer trust',10], violations:['Violation load',20], recovery:['Recovery modifier',10] };
+  const CATEGORY_META = { civic:['Civic compliance',20], contribution:['Contribution',20], conduct:['Public conduct',20], competence:['Verified competence',20], endorsement:['Peer trust',10], violations:['Violation load',20], recovery:['Recovery modifier',10] };
   const EVENT_DELTAS = {
     violation: { label:'Compliance violation logged', values:{ violations:+5, conduct:-2, civic:-3 } },
     service: { label:'Civic service completed', values:{ contribution:+4, civic:+2, endorsement:+1 } },
@@ -143,20 +143,41 @@
       render('Event-driven profile', { source: 'sti-event' });
     };
     const randomize = () => {
-      const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-      const next = {
-        civic:        rand(0, 20),
-        contribution: rand(0, 20),
-        conduct:      rand(0, 15),
-        competence:   rand(0, 15),
-        endorsement:  rand(0, 10),
-        recovery:     rand(0, 10),
-        violations:   rand(0, 20),
-      };
+      /* Generate a target score uniformly 0–100 so the resulting layer distribution
+         is proportional to each band's width: ~30% in -3, ~20% in -2/-1, ~15% in 0/+1.
+         Violations are then set to achieve that score; positive factors fill the remainder. */
+      const target = Math.floor(Math.random() * 101);
+      const violMax = Math.min(20, 100 - target);
+      const viol = Math.floor(Math.random() * (violMax + 1));
+      const needed = target + viol;
+
+      /* Distribute 'needed' across positive factors respecting their maxes */
+      const posMeta = [
+        ['civic', 20], ['contribution', 20], ['conduct', 20],
+        ['competence', 20], ['endorsement', 10], ['recovery', 10]
+      ];
+      const next = {};
+      let remaining = Math.min(needed, 100);
+      posMeta.forEach(([key, max], i) => {
+        const futureMax = posMeta.slice(i + 1).reduce((s, [, m]) => s + m, 0);
+        const lo = Math.max(0, remaining - futureMax);
+        const hi = Math.min(max, remaining);
+        const val = lo >= hi ? lo : lo + Math.floor(Math.random() * (hi - lo + 1));
+        next[key] = val;
+        remaining -= val;
+      });
+      next.violations = viol;
+
       setValues(next);
       buttons.forEach((btn) => btn.classList.remove('is-active'));
       currentEventLabel = 'Random profile generated';
+      const computedScore = Math.max(0, Math.min(100,
+        next.civic + next.contribution + next.conduct +
+        next.competence + next.endorsement + next.recovery - next.violations
+      ));
+      const computedLayer = layerForScore(computedScore);
       render('Random profile', { source: 'randomize' });
+      if (liveRegion) liveRegion.textContent = `Random profile generated. STI score ${computedScore}, placing in ${computedLayer.label}.`;
     };
     if (randomizeBtn) randomizeBtn.addEventListener('click', randomize);
     buttons.forEach((button) => button.addEventListener('click', () => {
