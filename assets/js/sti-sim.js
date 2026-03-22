@@ -247,6 +247,10 @@
       inputs.forEach((input) => {
         const el = root.querySelector(`[data-value-for="${input.name}"]`);
         if (el) el.textContent = input.value;
+        // Keep aria-valuetext in sync so screen readers announce the human-readable value
+        const suffix = input.name === 'violations' ? ' out of 20 deducted'
+                     : ` out of ${input.max}`;
+        input.setAttribute('aria-valuetext', `${input.value}${suffix}`);
       });
 
     // --- Render cycle ----------------------------------------------------
