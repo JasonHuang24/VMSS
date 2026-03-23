@@ -1,9 +1,10 @@
-# The Five Rings — VMSS Civilization
+# The Five Rings — VMSS Civilization (Full Site)
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 8.0
+**Version:** 10.0
 **Live site:** https://jasonhuang24.github.io/VMSS/
+**Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
 
 ---
@@ -12,7 +13,9 @@ A voluntary civilization framework built on moral causality, layered governance,
 
 The Five Rings is a proposed civilization model organized around five concentric governance rings (+1 to -3). Citizens are placed in rings based on demonstrated behavior — not birth, wealth, or ideology. The system combines technoneural enforcement, a Social Trust Index, automation-funded UBI, backup vessel continuity, and consequence-bound freedom into a single coherent architecture.
 
-The site functions as a doctrine portal: it explains the model, makes the logic legible, and provides interactive tools to explore how the system evaluates behavior.
+This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, current-state technology annotations, a 15-page paginated whitepaper, and extended FAQ edge cases.
+
+A **lite version** of the site exists at the companion repository (VMSSLite) for readers who want the full doctrine in a faster, more focused reading experience.
 
 ---
 
@@ -20,22 +23,22 @@ The site functions as a doctrine portal: it explains the model, makes the logic 
 
 | Page | Purpose |
 |---|---|
-| `index.html` | Homepage — ring diagram, justice flow, layer overview |
+| `index.html` | Homepage — ring diagram, justice flow, layer overview, lite site callout |
 | `layers.html` | Interactive Five Rings map with live layer detail panel |
-| `layer-+1.html` | +1 Sanctuary — pre-intervention, SADs, Heaven Ring |
-| `layer-0.html` | Main Layer (0) — the proving ground, default entry |
-| `layer--1.html` | -1 Noncompliance — civic violation tier |
-| `layer--2.html` | -2 Violent Offense — severe harm stratum |
-| `layer--3.html` | -3 Terminal — zero intervention, final consequence |
-| `systems.html` | Governance, economy, energy, and enforcement architecture |
-| `technologies.html` | Implants, neural diving, backup vessels, augmentation, SADs |
+| `layer-+1.html` | +1 Sanctuary — pre-intervention, SADs, Heaven Ring, narrative simulation |
+| `layer-0.html` | Main Layer (0) — the proving ground, default entry, narrative simulation |
+| `layer--1.html` | -1 Noncompliance — The Balanced Layer, narrative simulation |
+| `layer--2.html` | -2 Violent Offense — The Lower Restrictions Layer, narrative simulation |
+| `layer--3.html` | -3 Terminal — The Freedom Layer, narrative simulation |
+| `systems.html` | Governance, economy, enforcement architecture, savings circulation mandate |
+| `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in purity zones within +1 |
-| `simulations.html` | STI console + historical personality and mechanism simulations |
+| `simulations.html` | STI console + historical personality simulations + Full Spectrum profiles |
 | `why-vmss.html` | The case for the civilization model |
-| `whitepaper.html` | 13-page paginated institutional draft |
-| `charter.html` | Founding constitutional document |
-| `faq.html` | Frequently asked questions |
-| `roadmap.html` | Development roadmap — 2026 Boise Accord to 2100+ |
+| `whitepaper.html` | 15-page paginated institutional draft with glossary |
+| `charter.html` | Founding constitutional document — all 21 articles |
+| `faq.html` | Extended FAQ with edge cases |
+| `roadmap.html` | Seven-phase development roadmap — 2026 Boise Accord to 3000 |
 | `join.html` | Voluntary entry process and application form |
 
 ---
@@ -88,13 +91,21 @@ The site functions as a doctrine portal: it explains the model, makes the logic 
 
 **VMSS** — Vertical Moral Stratification System. Behavioral stratification replaces incarceration. Layer placement is a permanent environmental consequence of demonstrated conduct, not a time sentence.
 
-**STI** — Social Trust Index. A separate ledger for non-criminal trust violations. Covers harms that fall below legal thresholds — fraud, chronic deception, harassment — and makes them socially legible without criminalizing them.
+**STI** — Social Trust Index. A separate ledger for non-criminal trust violations. Covers harms that fall below legal thresholds — fraud, chronic deception, harassment — and makes them socially legible without criminalizing them. Operates on two distinct tracks: social trust violations (STI) and hard behavioral flags (criminal record log).
 
-**Backup Vessels** — Periodic encrypted mind-state backups. Revival preserves continuity, not innocence. Death in -3 Terminal is final.
+**Backup Vessels** — Periodic encrypted mind-state backups. Fabrication is sovereign VMSS technology. In -1 and -2, continuity is serviced through VMSS-operated fabrication satellite installations. In -3 Terminal, the implant severs the backup vessel link at the hardware level — death is final.
 
 **Neural Diving** — Direct mind-to-mind interface technology. Audience mode (passive observation) and Pilot mode (temporary control, requires consent). The civilization's primary medium for empathy, education, and art.
 
 **SADs** — Selective Ascension Domains. Opt-in sub-zones within +1 Sanctuary, each gated by a single measurable metric. Citizens may qualify for multiple simultaneously.
+
+**Leakage** — The gap between stated consequence and actual consequence delivery. Starting reality: ~90%. Founding aspiration: 0%. Target by 3000: ~0.01%.
+
+---
+
+## Companion Repository
+
+The **VMSSLite** repository contains a condensed version of the site — same doctrine, faster read. No interactive widgets, no current-state annotations, condensed pages, six archetypal simulations instead of the full archive. Ideal for first-time readers.
 
 ---
 
