@@ -1,4 +1,11 @@
-/* VMSS Global Styles — Version 10.7 */
+/* VMSS Global Styles — Version 10.9 */
+
+/* Heading font — Space Grotesk */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
 
 /* =========================
    DESIGN TOKENS
@@ -448,7 +455,7 @@ button[type="submit"]:hover {
 }
 
 .layer-card:hover, .sad-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
   box-shadow: 0 30px 45px -30px var(--shadow-accent);
 }
@@ -711,35 +718,6 @@ max-width: 600px;
 margin: auto;
 }
 
-.ring {
-fill: none;
-stroke-width: 4;
-opacity: 0.9;
-}
-
-/* ring colors */
-
-.ring-sanctuary {
-stroke: var(--accent);
-stroke-width: 6;
-}
-
-.ring-main {
-stroke: rgba(255,255,255,0.6);
-}
-
-.ring-noncompliance {
-stroke: rgba(255,165,0,0.6);
-}
-
-.ring-predatory {
-stroke: rgba(255,90,90,0.7);
-}
-
-.ring-terminal {
-stroke: rgba(150,0,0,0.8);
-}
-
 .ring-label {
 font-size: 16px;
 letter-spacing: 2px;
@@ -754,7 +732,7 @@ font-weight: 700;
 fill: var(--text-primary);
 }
 
-/* Megastructure ring styling */
+/* Ring styling */
 
 .ring {
   fill: none;
