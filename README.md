@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 11.0
+**Version:** 14.0
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -30,13 +30,14 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `layer--1.html` | -1 Noncompliance — The Balanced Layer, narrative simulation |
 | `layer--2.html` | -2 Violent Offense — The Lower Restrictions Layer, narrative simulation |
 | `layer--3.html` | -3 Terminal — The Freedom Layer, narrative simulation |
-| `systems.html` | Governance, economy, enforcement architecture, savings circulation mandate |
+| `systems.html` | Economy, enforcement architecture, savings circulation mandate |
 | `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
-| `sads.html` | Selective Ascension Domains — opt-in purity zones within +1 |
+| `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
 | `simulations.html` | STI console + historical personality simulations + Full Spectrum profiles |
 | `why-vmss.html` | The case for the civilization model |
+| `world.html` | The World of VMSS — international law, founding era, geopolitical context |
 | `whitepaper.html` | 15-page paginated institutional draft with glossary |
-| `charter.html` | Founding constitutional document — all 21 articles |
+| `charter.html` | Founding constitutional document — all 25 articles |
 | `faq.html` | Extended FAQ with edge cases |
 | `roadmap.html` | Seven-phase development roadmap — 2026 Boise Accord to 3000 |
 | `join.html` | Voluntary entry process and application form |
@@ -65,6 +66,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ├── sads.html
 ├── simulations.html
 ├── why-vmss.html
+├── world.html
 ├── whitepaper.html
 ├── charter.html
 ├── faq.html
@@ -97,7 +99,9 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 
 **Neural Diving** — Direct mind-to-mind interface technology. Audience mode (passive observation) and Pilot mode (temporary control, requires consent). The civilization's primary medium for empathy, education, and art.
 
-**SADs** — Selective Ascension Domains. Opt-in sub-zones within +1 Sanctuary, each gated by a single measurable metric. Citizens may qualify for multiple simultaneously.
+**SADs** — Selective Ascension Domains. Opt-in metric-gated domains within +1 Sanctuary, each filtered by a single measurable criterion. Citizens may qualify for multiple simultaneously.
+
+**Governance** — Three-body structure: President (chief executive, drawn from Meritboard), Meritboard (50–100 members, credentialing body), Supreme Court (10 justices, edge-case jurisdiction). No elections. Competence is measured, not campaigned for.
 
 **Leakage** — The gap between stated consequence and actual consequence delivery. Starting reality: ~90%. Founding aspiration: 0%. Target by 3000: ~0.01%.
 
