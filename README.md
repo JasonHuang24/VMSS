@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 14.0
+**Version:** 14.1
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -33,13 +33,13 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `systems.html` | Economy, enforcement architecture, savings circulation mandate |
 | `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
-| `simulations.html` | STI console + historical personality simulations + Full Spectrum profiles |
+| `simulations.html` | STI console + historical personality simulations + Full Spectrum profiles + civilizational scenarios |
 | `why-vmss.html` | The case for the civilization model |
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context |
 | `whitepaper.html` | 15-page paginated institutional draft with glossary |
-| `charter.html` | Founding constitutional document — all 25 articles |
+| `charter.html` | Founding constitutional document — all 27 articles |
 | `faq.html` | Extended FAQ with edge cases |
-| `roadmap.html` | Seven-phase development roadmap — 2026 Boise Accord to 3000 |
+| `roadmap.html` | Seven-phase development roadmap — 2026 Founding Treaty to 3000 |
 | `join.html` | Voluntary entry process and application form |
 
 ---
@@ -113,4 +113,4 @@ The **VMSSLite** repository contains a condensed version of the site — same do
 
 ---
 
-*Founded January 26, 2026 — Boise Accord*
+*Founded March 29, 2026 — Founding Treaty*
