@@ -36,7 +36,7 @@
       padding-bottom: 4rem;
     }
     .shell {
-      max-width: 70%;
+      max-width: 100%;
       margin: 0 auto;
       padding: 0 20px 56px;
     }
@@ -277,6 +277,9 @@
       text-align: center;
     }
 
+    @media (min-width: 1024px) {
+      .shell { max-width: 70%; }
+    }
     @media (max-width: 860px) {
       .grid, .grid-3 { grid-template-columns: 1fr; }
       .stat-row { grid-template-columns: repeat(3, 1fr); }
