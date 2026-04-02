@@ -433,11 +433,6 @@ button[type="submit"]:hover {
   font-size: 0.95rem;
 }
 
-.vmss-main-section {
-  padding-top: 8.75rem !important;
-  padding-bottom: 6rem !important;
-}
-
 .vmss-content-frame {
   position: relative;
 }
@@ -678,11 +673,6 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .vmss-main-section {
-    padding-top: 7.5rem !important;
-    padding-bottom: 5rem !important;
-  }
-
   .vmss-panel,
   .vmss-enhanced-panel,
   .vmss-hero-surface,
@@ -700,7 +690,6 @@ a:hover {
     top: 5.8rem !important;
   }
 }
-
 
 /* ----- 12. LAYER CARD VARIANTS & RING DIAGRAM ----- */
 .layer-card h2 {
@@ -731,23 +720,23 @@ a:hover {
 /* Ring diagram (SVG) */
 
 .vmss-ring-diagram {
-width: 100%;
-max-width: 600px;
-margin: auto;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
 .ring-label {
-font-size: 16px;
-letter-spacing: 2px;
-fill: var(--text-secondary);
-font-weight: 600;
-text-anchor: middle;
+  font-size: 16px;
+  letter-spacing: 2px;
+  fill: var(--text-secondary);
+  font-weight: 600;
+  text-anchor: middle;
 }
 
 .ring-center-label {
-font-size: 18px;
-font-weight: 700;
-fill: var(--text-primary);
+  font-size: 18px;
+  font-weight: 700;
+  fill: var(--text-primary);
 }
 
 /* Ring stroke colours */
@@ -1256,7 +1245,6 @@ fill: var(--text-primary);
   }
 }
 
-
 /* ----- 15. PERFORMANCE & REDUCED MOTION ----- */
 @media (max-width: 768px) {
   .vmss-page-shell::before,
@@ -1293,7 +1281,6 @@ img {
     scroll-behavior: auto !important;
   }
 }
-
 
 /* ----- 16. INTERACTIVE DIAGRAMS & STI SIMULATION ----- */
 .vmss-kicker {
@@ -1411,7 +1398,6 @@ img {
   }
 }
 
-
 /* ----- 17. HUD / LIVE STATE PANEL ----- */
 .vmss-hud {
   position: fixed;
@@ -1447,7 +1433,6 @@ img {
   .vmss-hud:not(.is-minimized) { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width:auto; }
   .vmss-hud.is-minimized { right: 0.75rem; bottom: 0.75rem; left: auto; width: auto; }
 }
-
 
 /* Body fade-in: starts at opacity:0, transitions in once script.js
    applies .vmss-ui-ready after navbar/footer inject. Prevents FOUC. */
@@ -1678,7 +1663,6 @@ body.vmss-ui-ready {
 }
 
 /* ----- ENTRY MODAL (responsive) ----- */
-/* Mobile: fixed height, large safe-area padding, scrollable */
 .entry-modal-box {
   height: min(92dvh, 920px);
 }
@@ -1732,7 +1716,6 @@ body.vmss-ui-ready {
 .vmss-card.reveal-item {
   margin-bottom: 1.5rem !important;
 }
-
 
 /* Flow chart and grid gaps */
 .not-prose .gap-8 {
