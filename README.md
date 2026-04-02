@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 15.4
+**Version:** 15.5
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -35,7 +35,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
 | `simulations.html` | STI console + historical personality simulations + Full Spectrum profiles + civilizational scenarios |
 | `why-vmss.html` | The case for the civilization model |
-| `world.html` | The World of VMSS — international law, founding era, geopolitical context |
+| `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
 | `whitepaper.html` | 15-page paginated institutional draft with glossary |
 | `charter.html` | Founding constitutional document — all 28 articles |
 | `faq.html` | Extended FAQ with edge cases |
