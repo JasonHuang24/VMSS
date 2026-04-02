@@ -130,14 +130,14 @@
   >
     <div class="absolute inset-0 flex items-start justify-center p-3 md:p-8">
       <div
-        class="relative w-full max-w-2xl rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] shadow-2xl overflow-hidden"
-        style="height: min(92dvh, 920px); margin-top: max(0.5rem, env(safe-area-inset-top));"
+        class="relative w-full max-w-2xl lg:max-w-3xl rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] shadow-2xl overflow-hidden entry-modal-box"
+        style="margin-top: max(0.5rem, env(safe-area-inset-top));"
       >
         <div
-          class="h-full overflow-y-auto p-5 md:p-8"
-          style="padding-bottom: max(8rem, calc(env(safe-area-inset-bottom) + 6rem)); -webkit-overflow-scrolling: touch;"
+          class="overflow-y-auto p-5 md:p-8 entry-modal-scroll"
+          style="-webkit-overflow-scrolling: touch;"
         >
-          <div class="flex justify-between items-center mb-6 md:mb-8">
+          <div class="flex justify-between items-center mb-6 md:mb-8 lg:mb-5">
             <h2 id="entry-modal-title" class="text-2xl md:text-3xl font-bold text-[var(--accent)]">
               Entry Application — The Five Rings
             </h2>
@@ -151,38 +151,33 @@
             </button>
           </div>
 
-          <form class="space-y-6 md:space-y-8" id="entryForm">
-		  
-            <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
-              <input
-                name="full_name"
-                class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-                required
-                type="text"
-              />
+          <form class="space-y-5 md:space-y-6 lg:space-y-4" id="entryForm">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 lg:gap-6">
+              <div>
+                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
+                <input
+                  name="full_name"
+                  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+                  required
+                  type="text"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
+                <input
+                  name="age"
+                  class="w-full lg:w-28 bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+                  min="18"
+                  required
+                  type="number"
+                />
+              </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
-			  Age
-			</label>
-
-			<input
-			  name="age"
-			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-			  min="18"
-			  required
-			  type="number"
-			/>
-		  </div>
-
-		</div>
-
-
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
 
 		  <div>
 			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
@@ -191,7 +186,7 @@
 
 			<input
 			  name="city"
-			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="text"
 			  placeholder="City"
 			  required
@@ -206,7 +201,7 @@
 
 			<input
 			  name="state"
-			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="text"
 			  placeholder="State / Province / Region"
 			/>
@@ -220,7 +215,7 @@
 
 			<input
 			  name="country"
-			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="text"
 			  placeholder="Country"
 			  required
@@ -230,49 +225,50 @@
 		</div>
 
 
-		<div>
-		  <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
-			Phone Number (Optional)
-		  </label>
+		<div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-6">
+		  <div>
+		    <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+			  Phone Number (Optional)
+		    </label>
+		    <input
+			  name="phone"
+			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+			  type="tel"
+			  placeholder="+1 555 555 5555"
+		    />
+		  </div>
 
-		  <input
-			name="phone"
-			class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-			type="tel"
-			placeholder="+1 555 555 5555"
-		  />
-		</div>
-
-            <div>
+		  <div>
               <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
               <textarea
                 name="motivation"
-                class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+                class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl lg:rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] entry-modal-textarea"
                 placeholder="Be honest. The system values clarity of intent."
                 required
                 rows="4"
               ></textarea>
-            </div>
+		  </div>
+		</div>
 
-            <div class="space-y-5 pt-6 border-t border-[var(--border)]">
+            <div class="space-y-5 lg:space-y-3 pt-4 lg:pt-3 border-t border-[var(--border)]">
               <label class="flex items-start gap-3 cursor-pointer">
                 <input name="consent_implants" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
+                <span class="text-[var(--text-secondary)] lg:text-sm">I understand that implants are voluntary but required for full participation, including backup vessels and neural diving.</span>
               </label>
 
               <label class="flex items-start gap-3 cursor-pointer">
                 <input name="consent_reassignment" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I accept that any intentional harm will result in permanent layer reassignment with no appeal.</span>
+                <span class="text-[var(--text-secondary)] lg:text-sm">I accept that any intentional harm will result in permanent layer reassignment with no appeal.</span>
               </label>
 
               <label class="flex items-start gap-3 cursor-pointer">
                 <input name="consent_continuity" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
+                <span class="text-[var(--text-secondary)] lg:text-sm">I understand that backup vessels preserve continuity, not innocence — moral status is not reset upon revival.</span>
               </label>
 
               <label class="flex items-start gap-3 cursor-pointer">
                 <input name="consent_charter" class="mt-1 accent-[var(--accent)]" required type="checkbox" />
-                <span class="text-[var(--text-secondary)]">I have read and agree to the Charter of The Five Rings.</span>
+                <span class="text-[var(--text-secondary)] lg:text-sm">I have read and agree to the Charter of The Five Rings.</span>
               </label>
             </div>
 
@@ -286,10 +282,10 @@
               <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
             </div>
 
-            <div class="pt-2">
+            <div class="pt-2 lg:pt-1">
               <button
                 id="entry-submit-btn"
-                class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-5 md:py-6 rounded-2xl text-xl md:text-2xl transition reveal-item"
+                class="w-full bg-[var(--accent)] hover:bg-amber-700 text-black font-bold py-5 md:py-6 lg:py-4 rounded-2xl text-xl md:text-2xl lg:text-xl transition reveal-item"
                 type="submit"
               >
                 Submit Entry Application

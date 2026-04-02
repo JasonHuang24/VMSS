@@ -1677,6 +1677,33 @@ body.vmss-ui-ready {
   border: 0;
 }
 
+/* ----- ENTRY MODAL (responsive) ----- */
+/* Mobile: fixed height, large safe-area padding, scrollable */
+.entry-modal-box {
+  height: min(92dvh, 920px);
+}
+.entry-modal-scroll {
+  height: 100%;
+  padding-bottom: max(8rem, calc(env(safe-area-inset-bottom) + 6rem));
+}
+
+/* Desktop: auto-height, no forced scroll, compact padding */
+@media (min-width: 1024px) {
+  .entry-modal-box {
+    height: auto;
+    max-height: 90dvh;
+  }
+  .entry-modal-scroll {
+    height: auto;
+    max-height: 90dvh;
+    padding-bottom: 2.5rem;
+  }
+  .entry-modal-textarea {
+    height: 5rem;
+    min-height: 5rem;
+  }
+}
+
 /* ----- 19. DENSITY OVERRIDES -----
    Must be at end of file to override Tailwind CDN inline classes.
    Proportional tightening: smaller text, tighter gaps, same containers. */
