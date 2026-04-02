@@ -98,6 +98,12 @@
   </url>
 
   <url>
+    <loc>https://jasonhuang24.github.io/VMSS/world.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://jasonhuang24.github.io/VMSS/join.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
