@@ -68,6 +68,18 @@
   </url>
 
   <url>
+    <loc>https://jasonhuang24.github.io/VMSS/simulations-world.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://jasonhuang24.github.io/VMSS/simulations-residents.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://jasonhuang24.github.io/VMSS/why-vmss.html</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
