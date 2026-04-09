@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 17.0
+**Version:** 17.1
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -38,7 +38,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `simulations-residents.html` | Resident Stories dossier — historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
 | `why-vmss.html` | The case for the civilization model |
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
-| `whitepaper.html` | 15-page paginated institutional draft with glossary |
+| `whitepaper.html` | 33-page paginated whitepaper with TOC, page jump, and expanded glossary |
 | `charter.html` | Founding constitutional document — all 28 articles |
 | `faq.html` | Extended FAQ with edge cases |
 | `roadmap.html` | Seven-phase development roadmap — 2026 Founding Treaty to 3000 |
