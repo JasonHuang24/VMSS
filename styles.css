@@ -1311,33 +1311,43 @@ img {
    content, not a card. All card chrome (border, background, shadow) is
    suppressed here. padding retained for alignment. */
 .vmss-detail-panel { background:transparent; border:none; box-shadow:none; backdrop-filter:none; padding:1.5rem 0.5rem; }
+.vmss-detail-panel--card { background:linear-gradient(180deg,rgba(255,255,255,0.025),transparent 50%),var(--bg-elevated); border:1px solid var(--border) !important; border-radius:1.8rem; box-shadow:0 20px 50px -40px var(--shadow); padding:1.8rem 1.6rem; }
+.vmss-ring-svg { width:110%; height:auto; max-height:580px; display:block; margin:0 auto; margin-left:-5%; overflow:visible; }
+@media (max-width:960px) { .vmss-ring-svg { width:100%; margin-left:0; } }
 .vmss-ring-node { cursor:pointer; transition:opacity .22s ease, transform .22s ease; }
-.vmss-ring-node .ring-hit,.vmss-ring-node .ring-core,.vmss-ring-node .ring-label-chip,.layer-card {
-  transition: transform .22s ease, opacity .22s ease, stroke .22s ease, fill .22s ease, filter .22s ease, box-shadow .22s ease, border-color .22s ease;
+.vmss-ring-node .ring-hit,.vmss-ring-node .ring-core,.layer-card {
+  transition: transform .22s ease, opacity .22s ease, stroke .22s ease, stroke-opacity .22s ease, fill .22s ease, filter .22s ease, box-shadow .22s ease, border-color .22s ease, stroke-width .22s ease;
 }
-/* Ring node interaction — three distinct states:
-   .is-dimmed   : non-active rings fade to 42% opacity
-   .is-active   : selected ring at full opacity with accent glow + scale
-   :hover (not active) : subtle preview glow at reduced intensity,
-                         without committing the selection (click-only model)
-   The :not(.is-active) guard ensures hover styles never override active styles. */
-.vmss-ring-node.is-dimmed { opacity:.42; }
+/* Inverted glow: all rings glow by default, selected ring dims to spotlight the detail panel */
+.vmss-ring-node .ring-core { filter:drop-shadow(0 0 18px currentColor); }
+.vmss-ring-outer .ring-core { stroke-opacity:.3; filter:drop-shadow(0 0 6px currentColor); }
+[data-theme="light"] .vmss-ring-outer .ring-core { stroke-opacity:.45; }
+[data-theme="light"] .vmss-ring-node .ring-core { filter:none; }
+[data-theme="light"] .vmss-ring-node.is-active .ring-core { filter:drop-shadow(0 0 12px rgba(0,0,0,0.35)); stroke-opacity:1; stroke-width:16; }
+[data-theme="light"] .vmss-ring-node:hover:not(.is-active) .ring-core { filter:drop-shadow(0 0 6px rgba(0,0,0,0.2)); stroke-width:15; }
+[data-theme="light"] .vmss-ring-outer.is-active .ring-core { filter:drop-shadow(0 0 8px rgba(0,0,0,0.25)); stroke-opacity:.4; stroke-width:12; }
+.vmss-ring-outer:hover:not(.is-active) .ring-core { stroke-opacity:.9; }
+.vmss-ring-node.is-dimmed { opacity:1; }
 .vmss-ring-node.is-active { opacity:1; }
-.vmss-ring-node:hover:not(.is-active) { opacity:.75; }
-.vmss-ring-node.is-active .ring-core { filter:drop-shadow(0 0 18px var(--shadow-accent)); stroke:var(--accent); }
-.vmss-ring-node:hover:not(.is-active) .ring-core { filter:drop-shadow(0 0 8px var(--shadow-accent)); stroke:color-mix(in srgb, var(--accent) 55%, transparent); }
-.vmss-ring-node.is-active .ring-hit { transform-origin:center; transform:scale(1.015); }
-.vmss-ring-node:hover:not(.is-active) .ring-hit { transform-origin:center; transform:scale(1.008); }
-.vmss-ring-node.is-active .ring-label-chip { fill:color-mix(in srgb, var(--accent) 16%, var(--bg-secondary)); stroke:var(--accent); }
-.vmss-ring-node:hover:not(.is-active) .ring-label-chip { fill:color-mix(in srgb, var(--accent) 7%, var(--bg-secondary)); stroke:color-mix(in srgb, var(--accent) 40%, var(--border)); }
-.vmss-ring-status { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
-.vmss-layer-pills { display:flex; flex-wrap:wrap; gap:.6rem; }
-.vmss-layer-pill { padding:.45rem .7rem; border-radius:999px; border:1px solid var(--border); color:var(--text-secondary); background:rgba(255,255,255,0.03); font-size:.8rem; }
-.vmss-detail-stat { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-top:1rem; }
-.vmss-detail-stat > div,.vmss-readout-tile { padding:.9rem 1rem; border-radius:1rem; background:rgba(255,255,255,0.03); border:1px solid var(--border); }
-.vmss-detail-stat dt,.vmss-readout-label,.vmss-input-label { font-size:.72rem; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); }
-.vmss-detail-stat dd,.vmss-readout-value { margin-top:.45rem; color:var(--text-primary); font-weight:700; }
-.vmss-layer-card.is-linked-active { border-color:var(--accent); box-shadow:0 24px 42px -28px var(--shadow-accent); transform:translateY(-3px); }
+.vmss-ring-node.is-active .ring-core { stroke-opacity:1; stroke-width:16; filter:drop-shadow(0 0 32px currentColor) drop-shadow(0 0 8px currentColor); }
+.vmss-ring-node.is-active .ring-hit { opacity:.35; }
+.vmss-ring-outer.is-active .ring-core { stroke-opacity:.35; stroke-width:12; filter:none; }
+.vmss-ring-outer.is-active .ring-hit { opacity:.15; }
+.vmss-ring-node:hover:not(.is-active) .ring-core { stroke-width:16; filter:drop-shadow(0 0 28px currentColor); }
+.vmss-ring-node:hover:not(.is-active) .ring-hit { transform-origin:center; transform:scale(1.02); }
+.vmss-ring-status { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:.75rem; }
+.vmss-layer-pills { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem; }
+.vmss-layer-pill { padding:.4rem .75rem; border-radius:999px; border:1px solid var(--border); color:var(--text-secondary); background:rgba(255,255,255,0.03); font-size:.76rem; font-weight:500; }
+.vmss-detail-stat { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; margin-top:1.2rem; }
+.vmss-detail-stat > div,.vmss-readout-tile { padding:1rem 1.1rem; border-radius:1rem; background:rgba(255,255,255,0.025); border:1px solid rgba(144,158,182,0.12); }
+.vmss-detail-stat dt,.vmss-readout-label,.vmss-input-label { font-size:.68rem; text-transform:uppercase; letter-spacing:.18em; color:var(--text-muted); }
+.vmss-detail-stat dd,.vmss-readout-value { margin-top:.4rem; color:var(--text-primary); font-weight:600; font-size:.9rem; line-height:1.45; }
+.layer-card { transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+.layer-card.is-linked-active,.vmss-layer-card.is-linked-active { border-color:var(--accent); box-shadow:0 24px 42px -28px var(--shadow-accent); transform:translateY(-3px); }
+.layer-card--gold:hover { border-color:rgba(243,193,95,0.4); box-shadow:0 16px 36px -24px rgba(243,193,95,0.3); }
+.layer-card--white:hover { border-color:rgba(255,255,255,0.25); box-shadow:0 16px 36px -24px rgba(255,255,255,0.12); }
+.layer-card--orange:hover { border-color:rgba(237,136,59,0.4); box-shadow:0 16px 36px -24px rgba(237,136,59,0.25); }
+.layer-card--red:hover { border-color:rgba(210,94,94,0.4); box-shadow:0 16px 36px -24px rgba(210,94,94,0.2); }
 .vmss-mini-flow { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1rem; }
 .vmss-mini-flow .flow-step { flex:1 1 140px; padding:.9rem 1rem; border-radius:1rem; border:1px solid var(--border); background:rgba(255,255,255,0.03); }
 .vmss-slider-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem; }
@@ -1384,7 +1394,8 @@ img {
 .vmss-insight-list { display:grid; gap:.75rem; margin-top:1rem; }
 .vmss-insight-item { padding:.9rem 1rem; border:1px solid var(--border); border-radius:1rem; background:rgba(255,255,255,0.03); color:var(--text-secondary); }
 .vmss-insight-item strong { color:var(--text-primary); }
-.vmss-action-row { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+.vmss-action-row { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:1rem; }
+.vmss-action-row .vmss-dash-btn { text-align:center; justify-content:center; }
 @media (max-width: 1100px) { .vmss-readouts { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width: 960px) {
   .vmss-diagram-shell,.vmss-console-layout,.vmss-slider-grid,.vmss-readouts,.vmss-detail-stat { grid-template-columns:1fr; }
@@ -1499,6 +1510,9 @@ details[open].vmss-article-ref .vmss-article-ref-toggle::before { transform:rota
 .vmss-dash-select option,.vmss-dash-select optgroup { background:var(--bg-secondary); color:var(--text-primary); }
 .vmss-dash-btn { padding:.45rem .9rem; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,0.04); color:var(--text-primary); font-size:.78rem; font-weight:600; cursor:pointer; transition:border-color .2s,color .2s; }
 .vmss-dash-btn:hover { border-color:var(--accent); color:var(--accent); }
+.vmss-dash-btn--accent { background:linear-gradient(180deg,var(--accent-soft),var(--accent)); color:#1a1403; border-color:rgba(243,193,95,0.5); }
+.vmss-dash-btn--accent:hover { border-color:var(--accent); color:#1a1403; filter:brightness(1.1); }
+.vmss-dash-btn--lg { padding:.7rem 1.4rem; font-size:.9rem; }
 .vmss-dash-disclaimer { font-size:.66rem; color:var(--text-muted); margin:0; padding:.15rem 0 0; opacity:.7; }
 
 /* Main body — two-column dashboard */
