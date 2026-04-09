@@ -183,6 +183,22 @@
       min-width: 32px; text-align: center; color: var(--accent-soft); font-size: 2rem; line-height: 1; transform: translateY(-4px);
     }
     .footer-note { text-align: center; color: var(--text-muted); font-size: 0.92rem; margin-top: 18px; }
+    .page-jump {
+      display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px;
+    }
+    .page-jump label { color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.06em; }
+    .page-jump input {
+      width: 56px; height: 38px; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--bg-tertiary); color: var(--text-primary); text-align: center;
+      font-size: 1rem; font-weight: 700; outline: none;
+    }
+    .page-jump input:focus { border-color: var(--accent); }
+    .page-jump button {
+      height: 38px; padding: 0 14px; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--bg-tertiary); color: var(--accent); font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .page-jump button:hover { border-color: var(--accent); }
     @media (min-width: 1024px) {
       .shell { max-width: 70%; }
     }
@@ -215,10 +231,23 @@
       <div class="lg:max-w-[70%] mx-auto px-6 mt-8 mb-10">
         <div class="rounded-3xl border border-[var(--border-strong)] bg-[var(--bg-secondary)]/90 p-6 shadow-xl">
           <div class="text-xs uppercase tracking-[0.28em] text-[var(--text-muted)] mb-3">Document Relationship</div>
-          <p class="m-0 text-[var(--text-secondary)] leading-7">The <a href="charter.html" class="text-[var(--accent)] font-semibold hover:underline">Charter</a> defines the binding constitutional rules of The Five Rings. This whitepaper explains the rationale, system design, and institutional logic behind those rules. A full <a href="#glossary" class="text-[var(--accent)] font-semibold hover:underline" id="glossary-link">glossary of VMSS terminology</a> is available on pages 14–15.</p>
+          <p class="m-0 text-[var(--text-secondary)] leading-7">The <a href="charter.html" class="text-[var(--accent)] font-semibold hover:underline">Charter</a> defines the binding constitutional rules of The Five Rings. This whitepaper explains the rationale, system design, and institutional logic behind those rules. A full <a href="#glossary" class="text-[var(--accent)] font-semibold hover:underline" id="glossary-link">glossary of VMSS terminology</a> is available on pages 31–33.</p>
         </div>
       </div>
 
+
+    <!-- TABLE OF CONTENTS (auto-generated from page h2 elements) -->
+    <div class="lg:max-w-[70%] mx-auto px-6 mb-10">
+      <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)]/80 overflow-hidden">
+        <button id="tocToggle" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition cursor-pointer" style="background:none;border:none;">
+          <div class="text-xs uppercase tracking-[0.28em] text-[var(--text-muted)]">Table of Contents</div>
+          <span class="text-xl text-[var(--accent)] transition-transform duration-300" id="tocIcon">›</span>
+        </button>
+        <div id="tocBody" class="hidden px-6 pb-5">
+          <div id="tocList" class="grid md:grid-cols-2 gap-x-8 gap-y-1"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- PAGINATED WHITEPAPER
          Each <article class="page" data-page="N"> is a section of the whitepaper.
@@ -240,28 +269,29 @@
 
       <article class="page active" data-page="1">
         <h2>1. Executive Summary</h2>
-        <p>VMSS (Vertical Moral Stratification System) is a proposed civilization architecture designed to address the persistent failures of modern societies: crime without resolution, inequality without accountability, and governance without long-term stability.</p>
-        <p>Rather than relying on incarceration, reactive justice, or purely economic stratification, VMSS introduces a system of behavioral stratification. Individuals are not confined within prisons but instead exist within environmental layers that reflect their demonstrated conduct and level of social risk.</p>
+        <p>The Vertical Moral Stratification System (VMSS) — branded publicly as <strong>The Five Rings</strong> — is an enacted civilization architecture designed to replace the foundational assumptions of modern governance: that justice must be reactive, that freedom and accountability are adversaries, and that civilizational stability requires ideological consensus. VMSS proposes none of these. It proposes that consequence can be made structural, that freedom expands inside well-designed boundaries, and that stability is an engineering problem solvable over centuries rather than an ideological problem solvable by consensus.</p>
+        <p>The civilization is organized around five concentric governance rings (+1 Sanctuary to -3 Terminal), each representing a distinct civilizational environment with its own enforcement posture, economic character, institutional presence, and social texture. Layer placement is determined by demonstrated conduct — not birth, wealth, ideology, or inherited status. A citizen's environment is the consequence of what they have done, not who they are.</p>
         <div class="grid">
           <div class="grid-card">
-            <h4>Principle One</h4>
-            <p>Freedom is preserved wherever possible.</p>
+            <h4>Consequence as Environment</h4>
+            <p>Layer placement replaces incarceration. The punishment is the environment, not a cage inside it. Each layer is a complete civilization on its own terms.</p>
           </div>
           <div class="grid-card">
-            <h4>Principle Two</h4>
-            <p>Consequences are unavoidable when necessary.</p>
+            <h4>Freedom Within Boundaries</h4>
+            <p>Freedom is preserved wherever possible; consequences are unavoidable where necessary. Citizens choose freely within structures that make the cost of harm legible before the act.</p>
           </div>
           <div class="grid-card">
-            <h4>Principle Three</h4>
-            <p>Risk is managed through separation, not confinement.</p>
+            <h4>Risk Managed by Separation</h4>
+            <p>The moral gradient separates populations by demonstrated behavioral density. Higher layers invest more institutional resource; lower layers withdraw it proportionally.</p>
           </div>
           <div class="grid-card">
-            <h4>Structural Goal</h4>
-            <p>Design a durable, self-regulating civilization capable of maintaining order over extreme time horizons.</p>
+            <h4>Long-Horizon Stability</h4>
+            <p>Designed for a 974-year trajectory from founding (2026) to civilizational maturity (3000). Leaders live 200–300 years. Institutional memory is retained in living people, not archives requiring reinterpretation.</p>
           </div>
         </div>
-        <p>The system is supported by AI-assisted governance, a Social Trust Index (STI), an automation-driven economy, neural interface technologies, and restoration-based justice systems that prioritize victim recovery over retributive models.</p>
-        <div class="callout-principle"><strong>Core premise:</strong> VMSS is not designed as a utopia. It is designed as a stable, self-regulating civilization capable of reducing harm while preserving meaningful freedom.</div>
+        <p>The system is supported by technoneural implants providing identity anchoring and behavioral ledger integration, backup vessel continuity guaranteeing revival after death (with layer-graduated reliability), AI-assisted governance replacing electoral politics with merit-based competence ranking, an automation-funded economy delivering universal basic income across all five layers, and a dual enforcement architecture — pre-intervention in the highest-trust layer (acts halted before completion) and post-intervention everywhere else (acts complete, consequence follows).</p>
+        <p>This whitepaper explains the rationale, institutional logic, and operational design behind each of these systems. The <a href="charter.html" class="text-[var(--accent)] font-semibold hover:underline">Charter</a> defines the binding constitutional rules. This document explains why those rules exist, how they interact, and what they produce at civilizational scale.</p>
+        <div class="callout-principle"><strong>Core premise:</strong> VMSS is not designed as a utopia. It is designed as a stable, self-regulating civilization capable of reducing harm, preserving meaningful freedom, and maintaining structural integrity across centuries — built with high reserves of corrective capacity, not with the assumption that all actors will behave well.</div>
       </article>
 
       <article class="page" data-page="2">
@@ -292,6 +322,11 @@
         <p>The Social Trust Index provides a legible structure for evaluating social reliability without automatically criminalizing every breach of trust. STI operates on seven weighted dimensions — civic compliance, contribution, relational integrity, social conduct, cognitive integrity, economic behavior, and crisis response — producing a composite score from 0 to 100. Minor violations remain private. Major violations log to the public ledger. The 10:1 penalty-to-recovery ratio ensures trust is approximately ten times harder to rebuild than it is to lose. The system makes reliability visible, not virtuous — an STI score is a behavioral record, not a moral judgment.</p>
         <h3>3.6 Long-Term Stability</h3>
         <p>VMSS is designed for civilizational longevity. Policy simulation, load-bearing charter provisions protected by the full amendment gauntlet, and infrastructure planning support continuity over centuries rather than electoral cycles. Leaders who live 200–300 years carry institutional memory in living form rather than archived text. Constitutional originalism — the retroactive attempt to recover what living memory would have preserved — is unnecessary when the founders are still alive. The civilization does not cycle through generational amnesia. It compounds. Every decade of operation adds depth to the governance structure that no electoral system can match.</p>
+        <h3>3.7 The Founding Core</h3>
+        <p>The civilization rests on four founding principles inscribed in the Charter Preamble by the Chief Architect at the moment of founding: <em>consequence follows conduct</em> (moral causality), <em>harm is halted before it completes in the layer of highest trust</em> (pre-intervention in Sanctuary), <em>harm may complete in the layer of lived trust and the civilization answers it afterward</em> (post-intervention in Main), and <em>no life is ended, no life is absolved</em> (continuity not innocence). Every subsequent article, every federal law, every regulation, and every district rule exists to do the work these four lines describe.</p>
+        <p>The founding core is load-bearing rather than cemented. No textual rule forbids reaching it. The older framing of these principles as "immutable" is abandoned as dishonest language — a principle whose protection depends on the full weight of the Article XI amendment gauntlet is not immutable, it is load-bearing. The actual guarantee is better than textual prohibition: a rule that says "this cannot be amended" must either be reinterpreted under pressure or produce revolution when it fails. A core protected by structural improbability either holds or visibly fails, with no gray zone and no quiet reinterpretation. The Charter chooses the honest form of protection.</p>
+        <p>Any amendment that would modify the founding core must clear the same Article XI gauntlet as any other amendment — 70% Meritboard filibuster floor, 7/10 Supreme Court constitutional review, +1 Sanctuary consensus, Main Layer 80–90% supermajority, and presidential veto. The populations who hold ratification power at that gauntlet were qualified to hold it precisely because they live under the core. A civilization in which all five bodies simultaneously vote to repeal moral causality is a civilization that has already drifted past the core the original founders wrote. At that point, the honest path is amendment — not textual prohibition, not judicial reinterpretation, not revolution by other means. The founding core is not untouchable. It is expensive enough to reach that only a civilization genuinely beyond it will pay the price, and at that point the cost is legitimate.</p>
+        <div class="callout-principle"><strong>Design principle:</strong> Trust structure over text. Textual prohibitions get reinterpreted, worked around, or ignored under pressure. Structural prohibitions either hold or visibly fail — there is no gray zone. VMSS chooses the structural form because the population capable of amending the core is itself the product of the core.</div>
       </article>
 
       <article class="page" data-page="4">
@@ -771,7 +806,12 @@
 
       <div class="pagination-wrap">
         <div class="pagination" id="pagination"></div>
-        <div class="footer-note">Use the numbered controls to move section by section through the white paper.</div>
+        <div class="page-jump">
+          <label>Go to page</label>
+          <input type="number" id="pageJumpInput" min="1" placeholder="—" />
+          <button id="pageJumpBtn">Go</button>
+        </div>
+        <div class="footer-note">Use the numbered controls, page numbers, or the table of contents to navigate.</div>
       </div>
     </section>
   </div>
@@ -880,6 +920,45 @@
 	      showPage(targetPage);
 	      window.scrollTo({ top: document.querySelector('.paper').offsetTop - 20, behavior: 'smooth' });
 	    });
+	  });
+
+	  /* Page jump input */
+	  const jumpInput = document.getElementById('pageJumpInput');
+	  const jumpBtn = document.getElementById('pageJumpBtn');
+	  jumpInput.max = totalPages;
+	  function doJump() {
+	    const val = parseInt(jumpInput.value, 10);
+	    if (val >= 1 && val <= totalPages) {
+	      showPage(val);
+	      window.scrollTo({ top: document.querySelector('.paper').offsetTop - 20, behavior: 'smooth' });
+	      jumpInput.value = '';
+	    }
+	  }
+	  jumpBtn.addEventListener('click', doJump);
+	  jumpInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') doJump(); });
+
+	  /* Auto-generate Table of Contents from page h2 elements */
+	  const tocList = document.getElementById('tocList');
+	  const tocToggle = document.getElementById('tocToggle');
+	  const tocBody = document.getElementById('tocBody');
+	  const tocIcon = document.getElementById('tocIcon');
+	  pages.forEach((page, idx) => {
+	    const h2 = page.querySelector('h2');
+	    if (!h2) return;
+	    const entry = document.createElement('a');
+	    entry.href = '#';
+	    entry.className = 'flex items-baseline gap-2 py-1 text-sm hover:text-[var(--accent)] transition group';
+	    entry.innerHTML = `<span class="text-[var(--accent)] font-bold min-w-[28px]">p.${idx + 1}</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">${h2.textContent.replace(/^\d+\.\s*/, '')}</span>`;
+	    entry.addEventListener('click', (e) => {
+	      e.preventDefault();
+	      showPage(idx + 1);
+	      window.scrollTo({ top: document.querySelector('.paper').offsetTop - 20, behavior: 'smooth' });
+	    });
+	    tocList.appendChild(entry);
+	  });
+	  tocToggle.addEventListener('click', () => {
+	    const hidden = tocBody.classList.toggle('hidden');
+	    tocIcon.style.transform = hidden ? 'rotate(0deg)' : 'rotate(90deg)';
 	  });
 	</script>
 </body>
