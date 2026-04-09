@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 16.4
+**Version:** 17.0
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -33,7 +33,9 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `systems.html` | Economy, enforcement architecture, savings circulation mandate |
 | `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
-| `simulations.html` | STI console + historical personality simulations + Full Spectrum profiles + civilizational scenarios |
+| `simulations.html` | STI console + simulations dossier index (links to World Scenarios and Resident Stories) |
+| `simulations-world.html` | World Scenarios dossier — civilizational stress tests, doctrine cases, architectural pressure tests |
+| `simulations-residents.html` | Resident Stories dossier — historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
 | `why-vmss.html` | The case for the civilization model |
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
 | `whitepaper.html` | 15-page paginated institutional draft with glossary |
@@ -103,7 +105,9 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 
 **SADs** — Selective Ascension Domains. Opt-in metric-gated domains within +1 Sanctuary, each filtered by a single measurable criterion. Citizens may qualify for multiple simultaneously.
 
-**Governance** — Three-body structure: President (chief executive, drawn from Meritboard), Meritboard (50–100 members, credentialing body), Supreme Court (10 justices, edge-case jurisdiction). No elections. Competence is measured, not campaigned for.
+**Governance** — Three-body structure. The **Meritboard** is the civilization's continuously updating competence ranking, with separate sub-rankings for the distinct competencies each role requires. The **President** is drawn from the top of the executive-doctrinal-leadership ranking. **Supreme Court** justices (10) are drawn from the top of the legal-interpretation ranking. Structural independence between executive and judicial branches comes from metric separation within the Meritboard, not pool separation. No elections. Competence is measured, not campaigned for.
+
+**Founding Core** — Four founding lines inscribed in the Charter preamble by the Chief Architect. Not legally immutable — every clause is amendable through the Article XI gauntlet — but protected by structural improbability and by six hundred years of cultural anchoring. The Charter is how the civilization does the work. The four lines are what the civilization is for.
 
 **Leakage** — The gap between stated consequence and actual consequence delivery. Starting reality: ~90%. Founding aspiration: 0%. Target by 3000: ~0.01%.
 
