@@ -473,6 +473,7 @@
         <h3>5.7 Record Contestation</h3>
         <p>A citizen who believes the AI misread the context of a logged behavioral event may contest the record. The AI does not reverse its own observations — contestation requires an external channel. The primary mechanism is the local civil court system. Civil courts are permitted to operate in every layer but are not institutionally built by VMSS — they emerge organically from the population's demand for dispute resolution. A citizen brings a contestation claim to a civil court, which reviews the behavioral data, the surrounding context, and the AI's interpretation. If the court finds the record was contextually incorrect — the AI captured the action accurately but misread the intent, the circumstances, or the relational dynamics — it issues a correction signal that the system ingests as a weighted modifier on the original entry. The original record is not erased. The correction is appended. Both remain visible on the ledger.</p>
         <p class="mt-4 text-[var(--text-secondary)]">The quality and availability of civil court infrastructure varies by layer. Main Layer and Sanctuary produce robust, well-resourced courts because the population has the trust density and institutional capacity to sustain them. Lower layers produce sparser, less formal dispute resolution — private arbitration in -1, reputation-based adjudication in -2, informal resolution or none at all in -3. This is consistent with the doctrine's design: each layer generates the institutional quality its population and environment can sustain.</p>
+        <p class="mt-4 text-[var(--text-secondary)]">Civil court corrections handle ordinary contextual disputes — cases where the AI's interpretation is contested but the category of dispute already has doctrinal precedent. Genuinely novel cases — where no existing doctrine resolves the contextual question — escalate through the Supreme Court's novelty filter (Section 7.7) for constitutional arbitration. The Court's ruling then integrates as settled precedent, resolving the category for all future civil court corrections of the same type. The two levels are sequential, not competing: civil courts apply resolved doctrine to ordinary corrections; the Supreme Court extends the doctrine when civil courts encounter a question the existing framework does not answer.</p>
 
         <h3>5.8 Popular Signal Correction</h3>
         <p>Distinct from civil court contestation, a popular signal correction occurs when the population collectively disputes the AI's characterization of a recorded event. This is not a judicial proceeding — it is a threshold of public disagreement significant enough that the system treats it as a correction input. If a sufficient volume of citizens who directly witnessed or were contextually proximate to a logged event signal that the AI's interpretation does not match what occurred, the system ingests this as a correction modifier. The threshold is weighted toward proximity — signals from citizens who were present carry more weight than signals from citizens reacting to secondhand accounts. Popular signal correction does not erase the original record. It appends a population-sourced contextual modifier that adjusts the STI impact of the event. The AI's observation and the population's contestation both remain permanently visible on the ledger.</p>
@@ -834,15 +835,15 @@
         <h2>18. Enforcement and Restoration</h2>
         <p>VMSS divides enforcement into two modes: pre-intervention in high-trust environments, and post-intervention in Main and lower layers. The division is not arbitrary — it reflects the fundamentally different trust profiles of each population. Residents of +1 Sanctuary have demonstrated sustained non-harm. They have earned an environment where harmful acts cannot complete. Residents of Main Layer have not yet demonstrated that threshold. Their agency is preserved, and consequence follows if they misuse it.</p>
 
-        <h3>9.1 Pre-Intervention — The Threshold Inhibition Protocol</h3>
+        <h3>18.1 Pre-Intervention — The Threshold Inhibition Protocol</h3>
         <p>In +1 Sanctuary and all Selective Ascension Domains, the Threshold Inhibition Protocol halts harmful acts before completion. The mechanism is layered: the implant detects intent combined with imminent execution of a harmful act, triggers targeted motor inhibition of the relevant muscle groups, and coordinates ambient drone countermeasures simultaneously. Nano-release sedation is available as a secondary measure if motor inhibition alone is insufficient. No murder, assault, or sexual violence can reach completion in a pre-intervention environment.</p>
         <p>Pre-intervention is not control. It is the structural expression of earned trust. Every resident of +1 Sanctuary entered voluntarily, demonstrated the behavioral trajectory required, and chose an environment where protection is absolute because everyone around them has done the same. The system does not prevent thoughts, desires, or planning. It prevents the physical completion of acts that would harm other residents who have equally earned the right to live without threat.</p>
 
-        <h3>9.2 Post-Intervention — Agency and Consequence</h3>
+        <h3>18.2 Post-Intervention — Agency and Consequence</h3>
         <p>In Main Layer and lower layers (-1, -2), harmful acts may complete if the actor overrides implant warnings. The failsafe issues escalating alerts as intent thresholds are approached — the citizen can heed them, pause, or disable the failsafe entirely. Disabling the failsafe is logged as a behavioral signal. Any act that follows carries full consequence under post-intervention enforcement.</p>
         <p>Once an act occurs, the system responds in sequence: the implant records the event with full contextual data (intent trajectory, motor execution, environmental conditions). Medical drones deploy to the victim — arrival in seconds, not minutes. Hospital-grade stabilization occurs in the field. If the victim dies and backup vessel infrastructure is operational, revival initiates. The perpetrator is identified through implant telemetry, sedated if necessary via nano-release, transported by enforcement drone, and reassigned downward based on severity assessment. The entire chain — from act to reassignment — can complete in minutes. There is no trial, no plea bargain, no bail hearing. The evidence is non-repudiable. The assessment is automated. The consequence is immediate and permanent.</p>
 
-        <h3>9.3 The Enforcement Chain</h3>
+        <h3>18.3 The Enforcement Chain</h3>
         <table class="table">
           <thead>
             <tr><th>Stage</th><th>Mechanism</th><th>Timeline</th></tr>
@@ -857,7 +858,7 @@
           </tbody>
         </table>
 
-        <h3>9.4 Enforcement by Layer</h3>
+        <h3>18.4 Enforcement by Layer</h3>
         <table class="table">
           <thead>
             <tr><th>Mode</th><th>Environment</th><th>Logic</th></tr>
@@ -869,10 +870,10 @@
           </tbody>
         </table>
 
-        <h3>9.5 Victim Restoration</h3>
+        <h3>18.5 Victim Restoration</h3>
         <p>The system prioritizes victim recovery over perpetrator punishment. Medical drones close the gap between incident and hospital-grade care to near-zero. Backup vessel revival preserves identity continuity for fatal incidents. Financial restitution is automated through the perpetrator's asset liquidation. The victim's STI record is annotated as victimized — no trust penalty for being harmed. In cases of relational violation, the victim's record is adjusted to remove any compounding effects the perpetrator's conduct may have produced on their score. The system does not treat victims as evidence. It treats them as people whose environment failed to protect them, and it restores as much as the technology permits.</p>
 
-        <h3>9.6 Terminal Layer — The Exception</h3>
+        <h3>18.6 Terminal Layer — The Exception</h3>
         <p>In -3 Terminal, the institutional enforcement chain does not operate. No medical drones. No backup vessel revival (the implant severs the link at the hardware level upon terminal reassignment). No automated consequence delivery. Private security firms, organic justice systems, and voluntary community enforcement fill the space — or they don't. The leakage floor in -3 at civilizational maturity (~1% by 3000) is structural rather than technological. The civilization has withdrawn by design. Maximum autonomy, maximum variability, maximum private consequence.</p>
 
         <h3>18.7 System Stability (Charter Article XVI)</h3>
@@ -975,25 +976,25 @@
         <h2>21. Rights and Ethical Considerations</h2>
         <p>VMSS is designed as a powerful system. The rights framework exists to ensure it is not an unbounded one. The charter defines the ceiling of government authority, not merely its aspirations. Every enforcement mechanism, every governance structure, every technology deployment described in this whitepaper operates within the constraints documented here.</p>
 
-        <h3>10.1 Rights Boundaries</h3>
+        <h3>21.1 Rights Boundaries</h3>
         <p>Government is not permitted to exceed the rights limits set by the charter. Cognition is non-public by default — the implant reads behavioral signals for risk-state detection, but thoughts, opinions, fantasies, and internal deliberation carry no institutional consequence and are never broadcast. Speech is unrestricted. Assembly is unrestricted. Religious practice is unrestricted. The system constrains actions that harm others. It does not constrain the inner life or expression of any citizen. A civilization that monitors conduct must be explicit about what it does not monitor, or it becomes the surveillance state it claims to replace.</p>
 
-        <h3>10.2 Transparency</h3>
+        <h3>21.2 Transparency</h3>
         <p>The constitutional framework, enforcement architecture, layer mechanics, governance structure, and civilizational philosophy are published openly. Military operational specifics remain classified. Everything else is public. Citizens verify claims against published source material. Disinformation campaigns fail because the architecture is transparent enough to survive scrutiny. The civilization chose coherence over secrecy — a system that conceals its own rules from its citizens has already failed the trust standard it claims to enforce.</p>
 
-        <h3>10.3 Implant Consent</h3>
+        <h3>21.3 Implant Consent</h3>
         <p>Implants are technically voluntary. Refusal is permitted and carries no criminal consequence. However, refusal produces reduced access to certain services and social opportunities — the system treats non-participation in safety infrastructure as socially significant information. Non-implanted residents are tracked via AR surveillance and biometric resolution rather than implant telemetry. The system does not force adoption. It makes the cost of refusal legible and lets citizens decide. First-generation opt-in is projected at approximately 70–80%, reaching ~86% by Year Ten. The holdouts are principled, not persuadable — and the system respects that.</p>
 
-        <h3>10.4 Exit Rights</h3>
+        <h3>21.4 Exit Rights</h3>
         <p>Main Layer and +1 Sanctuary citizens may leave VMSS freely at any time. Departure is a right, not a privilege. Lower punitive layers (-1, -2, -3) restrict exit because departure from a consequence environment would function as evasion of the consequence that the citizen's conduct produced. This is not imprisonment — the resident has full autonomy within their layer, a functioning economy, UBI, and personal freedom. The restriction is on leaving the civilization to escape the environmental consequence, not on movement or agency within it.</p>
 
-        <h3>10.5 Children</h3>
+        <h3>21.5 Children</h3>
         <p>Children inherit citizenship from birth. No child inherits their parent's layer status, STI score, or criminal record — the clean-record doctrine is absolute. Every child born in any layer has a standing right to relocate to Main Layer autoparenting facilities at any age, enforceable through the implant-linked legal system without parental consent. Every child has an independent AI legal advocate from birth. UBI from birth. VMSS society does not treat children as parental property — a parent's continued relationship with their child is earned through the quality of that relationship. Population sustainability is enforced through Article XXVII's replenishment tax — a compounding 50% tax escalation per child beyond the second that makes unsustainable family sizes economically self-correcting without criminalizing reproduction. Children are held completely harmless at every threshold; the penalty targets the parental decision, never the person produced by it.</p>
 
-        <h3>10.6 Fetal Personhood and Abortion</h3>
+        <h3>21.6 Fetal Personhood and Abortion</h3>
         <p>Backup vessel technology links every fetus at detection. If a pregnancy is terminated, the fetus is reincarnated in Main Layer autoparenting facilities with neutral status and full dignity. The mother faces layer consequences — abortion is classified as murder under VMSS continuity logic because the destruction of a continuity-linked entity meets the definitional threshold regardless of developmental stage. The bodily autonomy objection is answered by infrastructure, not ideology: the mother is not forced to carry the pregnancy. She is held accountable for ending it, and the child's continuity is preserved independently of her choice. A civilization that defines layer reassignment at granular specificity, publishes threshold criteria for every offense category, and operationalizes pre-intervention at the neural level cannot then go vague on fetal personhood and maintain credibility. The position follows logically from the architecture's own load-bearing principles: continuity is sovereign, and the destruction of a continuity-linked entity is classified as murder.</p>
 
-        <h3>10.7 AGI Personhood</h3>
+        <h3>21.7 AGI Personhood</h3>
         <p>An entity capable of reasoning, preference, and autonomous decision-making at or above human level is classified as a person regardless of substrate. AGIs receive STI scores, layer assignment, rights, and consequences identical to those of any human, cyborg, or augmented citizen. This extends to governance — the Supreme Court's flexible composition permits human, AI, AGI, and cyborg justices in any ratio. The doctrinal logic is straightforward: a system built on behavioral accountability cannot arbitrarily exclude entities that exhibit the same behavioral capacity as its human citizens.</p>
       </article>
 
@@ -1124,24 +1125,24 @@
       <article class="page" data-page="27">
         <h2>27. Failure Modes, Leakage, and Mitigations</h2>
         <p>The integrity of VMSS depends on closing the gap between stated consequence and actual consequence. Every failure in the enforcement and infrastructure chain — wall breaches, apprehension failures, drone medical rescue failures, backup vessel deaths, enforcement network gaps — constitutes leakage. Leakage is an affront to the social contract. The more leakage, the more the fabric of the civilization erodes. The founding aspiration is 0% leakage. The starting reality, assessed against current technology at the time of the founding treaty, is approximately 90%. The entire institutional history of VMSS is the story of closing that gap.</p>
-        <h3>11.1 Leakage Categories</h3>
+        <h3>27.1 Leakage Categories</h3>
         <p><strong>Wall breaches:</strong> A punitive resident reaching a higher layer without authorization exposes innocent citizens to someone the system placed elsewhere. The promise of behavioral separation is compromised. Mitigated by sub-surface depth, above-stratosphere height, autonomous sensor networks, seismic monitoring, and eventual forcefield integration.</p>
         <p><strong>Apprehension failures:</strong> A perpetrator who acts and escapes before reassignment leaves an unclosed entry in the moral ledger. Mitigated by implant telemetry, drone response time improvements, and AI governance maturity.</p>
         <p><strong>Drone medical rescue failures:</strong> A victim in Main Layer who dies because the response network failed experienced a leakage of the post-intervention promise. Mitigated by redundant coverage, response time optimization, and energy abundance enabling denser deployment.</p>
         <p><strong>Backup vessel deaths:</strong> Revival failure probability in formative phases represents a leakage of the continuity guarantee. Mitigated by successive technology generations reducing failure rates toward zero across all layers.</p>
-        <h3>11.2 Weighted Leakage and Load-Bearing Categories</h3>
+        <h3>27.2 Weighted Leakage and Load-Bearing Categories</h3>
         <p>Not all leakage categories carry equal weight. Three are load-bearing — backup vessels, the implant ledger, and autonomous enforcement. These have veto weight: the civilization's core promises fail without them regardless of progress elsewhere. A civilization at 80% delivery on autoparenting and 0% on backup vessels is not a 40% functional VMSS. It is a civilization that breaks one of its three foundational promises completely. The average obscures the structural dependency.</p>
         <p>The weighted leakage calculation reflects this. Backup vessels carry approximately 25% of total weight — the continuity guarantee is the most load-bearing of the three foundational promises. The implant ledger and autonomous enforcement each carry approximately 20%. Physical boundary infrastructure carries 15%. Pre-intervention carries 10%. Supporting systems — autoparenting, UBI infrastructure, biological augmentation, medical completeness, and voluntary entry — carry the remaining 10% combined.</p>
         <p>The leakage curve does not decline smoothly across the civilization's history. It declines in steps, each step corresponding to one load-bearing category crossing its critical threshold. The largest single leakage reduction event in the entire 974-year trajectory is the moment backup vessel technology crosses from non-functional to reliably operational. The second largest is the implant ledger achieving continuous identity-anchored coverage at civilizational scale. The third is autonomous enforcement reaching the contextual judgment threshold. These three threshold crossings — whenever they occur across the 21st and 22nd centuries — account for the majority of the reduction from ~90% leakage to ~25% by 2150.</p>
-        <h3>11.2 AI Error</h3>
+        <h3>27.3 AI Error</h3>
         <p>VMSS assumes advanced systems can fail. When failures occur, they are admitted, logged, and preserved as institutional knowledge for future correction. AI governance decisions are subject to human review at defined intervals.</p>
-        <h3>11.3 Leadership Degradation</h3>
+        <h3>27.4 Leadership Degradation</h3>
         <p>Leadership remains subject to the law and to performance replacement. Succession is designed to preserve capability and continuity rather than popularity.</p>
-        <h3>11.4 Infrastructure Attack</h3>
+        <h3>27.5 Infrastructure Attack</h3>
         <p>Critical infrastructure uses both automated and analog security, including EMP-resistant fallback capacity. The analog redundancy principle ensures no single point of failure exists in essential systems.</p>
-        <h3>11.5 Economic Capture</h3>
+        <h3>27.6 Economic Capture</h3>
         <p>Extreme wealth capture is limited through tiered progressive taxation, asset liquidation on descent, anti-laundering enforcement, and property caps. The currency silo architecture prevents arbitrage across layer economies.</p>
-        <h3>11.6 Social Drift</h3>
+        <h3>27.7 Social Drift</h3>
         <p>Load-bearing charter sections, protected by the full Article XI gauntlet rather than textual prohibition, prevent the civilization from slowly dismantling the principles required for long-term stability. The gauntlet is the protection: any instrument capable of reaching the founding core must clear the same populations whose standing to ratify was earned by living under the core.</p>
         <div class="callout-principle"><strong>Accountability principle:</strong> The leakage trajectory is published and public — the civilization measures itself against its own stated aspiration transparently.</div>
       </article>
@@ -1150,7 +1151,7 @@
         <h2>28. Long-Term Civilizational Trajectory</h2>
         <p>VMSS is designed as a long-duration civilization rather than a temporary political arrangement. Its infrastructure, governance model, energy planning, and leakage reduction trajectory are all oriented toward the 31st century as the horizon of mature operation. The civilization of 3000 will be unrecognisable in its precision compared to the prototype of 2150. That gap is the point.</p>
 
-        <h3>12.1 Leakage Reduction Trajectory</h3>
+        <h3>28.1 Leakage Reduction Trajectory</h3>
         <p>The founding aspiration is 0% leakage across all enforcement and infrastructure categories. Using a weighted assessment across all technology categories, VMSS today delivers approximately 10% of its stated promise — a starting leakage of approximately 90%. Three load-bearing categories drive this figure: backup vessels at ~0% delivery, the implant ledger at ~10%, and autonomous enforcement at ~5%. The trajectory toward 0.01% by 3000 is not linear — it declines in steps as each load-bearing category crosses its critical threshold, then accelerates parabolically in the final 150 years as forcefield integration, Dyson-class energy, backup vessel perfection, and AI governance maturity converge simultaneously:</p>
         <table class="table">
           <thead>
@@ -1188,7 +1189,7 @@
         <p class="mt-4 text-[var(--text-secondary)]">The terminal layer's floor at ~1% by 3000 is structural rather than technological. VMSS has withdrawn daily governance from -3 by design — no guaranteed medical access, no satellite-serviced revival, no daily enforcement network. The private market determines outcomes. The leakage that remains in the terminal layer at civilizational maturity is not a gap to be closed. It is the direct expression of the Freedom Layer's own design philosophy: maximum autonomy, maximum variability, maximum private consequence. The upper layers' near-zero figures reflect the opposite design choice — maximum institutional presence, maximum coverage, minimum variance. Both are operating exactly as intended.</p>
         <p>The acceleration between 2850 and 3000 reflects the simultaneous arrival of four compounding improvements: the forcefield closes wall breach leakage almost entirely; Dyson-class energy powers enforcement networks at densities previously impossible; backup vessel revival failure approaches zero; AI governance reaches maturity after centuries of edge case accumulation. Each amplifies the others. Getting from 0.1% to 0.01% happens faster than getting from 1% to 0.1% did.</p>
 
-        <h3>12.2 Infrastructure Scale</h3>
+        <h3>28.2 Infrastructure Scale</h3>
         <div class="grid">
           <div class="grid-card">
             <h4>Energy Scale</h4>
