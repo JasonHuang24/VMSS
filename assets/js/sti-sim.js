@@ -956,11 +956,11 @@
       if (track) track.addEventListener('click', (e) => setFactorFromClick(name, track, e.clientX));
     });
 
-    // Respond to external state changes
+    // Respond to external state changes (ignore diagram ring focus events)
     document.addEventListener('vmss:state-change', (event) => {
       const source = event.detail?.meta?.source;
       const state  = event.detail?.state;
-      if (!state || INTERNAL_SOURCES.has(source)) return;
+      if (!state || INTERNAL_SOURCES.has(source) || source === 'diagram') return;
       if (state.values) setValues(state.values);
       currentEventLabel = state.lastEvent || currentEventLabel;
       render(state.profile || 'Synced profile', { source: 'external-sync' });
@@ -969,10 +969,14 @@
     // --- Initial render --------------------------------------------------
 
     // Restore from global state if it exists (e.g. user visited simulation before)
+    // Filter out diagram focus events — they're not STI console events
     const initial = window.VMSS?.getState?.();
     if (initial?.values) setValues(initial.values);
-    currentEventLabel = initial?.lastEvent || 'Baseline loaded';
+    const initialEvent = initial?.lastEvent || '';
+    currentEventLabel = initialEvent.toLowerCase().includes('focused') ? 'Baseline loaded' : (initialEvent || 'Baseline loaded');
     render(initial?.profile || 'Balanced baseline', { source: 'initial' });
+    // Start with a blank interpretation panel — signals populate on first interaction
+    if (reasoningEl) reasoningEl.innerHTML = '';
   }
 
   document.addEventListener('DOMContentLoaded', initSimulator);
