@@ -493,6 +493,10 @@
     let lastConsequence = '';
     let isTerminal = false; // true = simulation ended (death, imprisonment, or peak achievement)
 
+    /** Cumulative day tallies — persist across eventLog shifts. */
+    let totalPosDays = 0;
+    let totalNegDays = 0;
+
     /**
      * Layer assignment state — decoupled from STI score per Articles XII/XIII.
      * Score informs but does not determine layer. Qualifying events trigger
@@ -643,13 +647,22 @@
       ];
 
       // Pattern-based -1 reassignment (Art. XV accumulation path)
-      // Requires ALL THREE axes AND must be triggered by an actual event, not a manual toggle.
-      // The checkbox shows the hypothetical; only a harmful event makes it real.
+      // Path 1: All three axes active (severity + pattern + irreversible) via harmful event
+      // Path 2: Extreme sustained refusal to correct — STI ≤ 5 with 6+ consecutive harmful events
+      //         The pattern itself becomes evidence of irreversible civic failure (Art. XV)
       const isHarmfulEvent = options.source === 'sti-event' && options.harmful;
+      const consecutiveHarmful = eventLog.length >= 6 && eventLog.slice(-6).every(e => e.harmful);
+      const extremePattern = isHarmfulEvent && !isLocked && score <= 5 && consecutiveHarmful && severity === 'high';
+
       if (!isLocked && isHarmfulEvent && axes >= 3 && severity === 'high' && pattern === 'established' && irreversible) {
         assignedLayer = '-1';
         isLocked = true;
         currentEventLabel += ' \u2014 3-axis evaluation: pattern-based reassignment to -1 (Article XIV/XV)';
+      } else if (extremePattern) {
+        assignedLayer = '-1';
+        isLocked = true;
+        if (reversToggle) reversToggle.checked = true;
+        currentEventLabel += ' \u2014 Sustained refusal to correct: pattern-based reassignment to -1 (Article XV)';
       }
 
       if (axisPanel) {
@@ -682,6 +695,21 @@
 
         // Layer consequences — check recent event streak for in-layer outcomes
         let consequenceHtml = '';
+
+        // Best-outcome terminal: all positive factors maxed, violations at 0
+        if (!isTerminal && values.violations === 0 &&
+            values.civic >= 18 && values.contribution >= 18 && values.conduct >= 18 &&
+            values.competence >= 18 && values.endorsement >= 9 && values.recovery >= 9) {
+          const layerLabels = { '+1': '+1 Sanctuary', '0': 'Main Layer', '-1': '-1 Noncompliance', '-2': '-2 Violent Offense', '-3': '-3 Terminal' };
+          const layerName = layerLabels[assignedLayer] || assignedLayer;
+          const bestText = isLocked
+            ? `Optimal civic profile achieved within ${layerName}. This is the best possible outcome for this layer. Simulation complete.`
+            : 'Optimal civic profile achieved \u2014 all factors at peak, zero violations. Sanctuary-grade citizen. Simulation complete.';
+          consequenceHtml = `<div class="vmss-insight-item vmss-consequence is-positive"><strong>Recognition:</strong> ${bestText} <span class="vmss-terminal-tag">\u2014 TERMINAL</span></div>`;
+          isTerminal = true;
+          root.classList.add('is-terminal');
+        }
+
         if (eventLog.length >= 3 && !isTerminal) {
           const recent = eventLog.slice(-3);
           const allHarmful = recent.every(e => e.harmful);
@@ -694,11 +722,17 @@
             const pool = CONSEQUENCES_NEGATIVE[assignedLayer] || CONSEQUENCES_NEGATIVE['0'];
             picked = randItem(pool);
             type = 'negative';
-          } else if (streak5) {
+          } else if (streak5 && score >= 85 && !isLocked) {
+            // Elite recognition only at STI 85+ and not locked in a lower layer
             picked = randItem(CONSEQUENCES_POSITIVE.elite);
             type = 'positive';
-          } else if (allPositive) {
+          } else if (allPositive && score >= 85 && !isLocked) {
+            // Title recognition only at STI 85+ and not locked
             picked = randItem(CONSEQUENCES_POSITIVE.titles);
+            type = 'positive';
+          } else if (allPositive && isLocked) {
+            // Locked in lower layer: acknowledge improvement but no leadership
+            picked = `Positive conduct noted within ${assignedLayer} \u2014 quality of life improving but layer assignment is permanent.`;
             type = 'positive';
           }
 
@@ -719,27 +753,25 @@
           }
         }
 
-        reasoningEl.insertAdjacentHTML('afterbegin', consequenceHtml + newSignals);
-        // Cap at 20 entries
-        while (reasoningEl.children.length > 30) reasoningEl.removeChild(reasoningEl.lastChild);
+        if (isTerminal && consequenceHtml) {
+          // Terminal state: show only the terminal consequence, clear the rest
+          reasoningEl.innerHTML = consequenceHtml;
+        } else if (!isTerminal) {
+          reasoningEl.insertAdjacentHTML('afterbegin', consequenceHtml + newSignals);
+          while (reasoningEl.children.length > 30) reasoningEl.removeChild(reasoningEl.lastChild);
+        }
       }
 
-      // Day tally — positive vs negative days (demonstrates 10:1 asymmetry)
+      // Day tally — cumulative positive vs negative days (demonstrates 10:1 asymmetry)
       if (tallyPos && tallyNeg && tallyNet) {
-        let posDays = 0, negDays = 0;
-        eventLog.forEach(e => {
-          const d = parseDays(e.duration);
-          if (e.harmful) negDays += d;
-          else posDays += d;
-        });
-        if (!eventLog.length) {
+        if (totalPosDays === 0 && totalNegDays === 0) {
           tallyPos.textContent = tallyNeg.textContent = tallyNet.textContent = '\u2014';
           tallyPos.className = tallyNeg.className = tallyNet.className = 'vmss-tally-value';
         } else {
-          const net = posDays - negDays;
-          tallyPos.textContent = `+${posDays}d`;
+          const net = totalPosDays - totalNegDays;
+          tallyPos.textContent = `+${totalPosDays}d`;
           tallyPos.className = 'vmss-tally-value is-positive';
-          tallyNeg.textContent = `\u2212${negDays}d`;
+          tallyNeg.textContent = `\u2212${totalNegDays}d`;
           tallyNeg.className = 'vmss-tally-value is-negative';
           tallyNet.textContent = (net >= 0 ? `+${net}d` : `\u2212${Math.abs(net)}d`);
           tallyNet.className = `vmss-tally-value ${net >= 0 ? 'is-positive' : 'is-negative'}`;
@@ -812,7 +844,11 @@
       const newScore = scoreModel(next);
       currentEventLabel = `${rolled.label} (${rolled.duration})`;
 
-      // Push to event log
+      // Push to event log + accumulate day tally
+      const eventDays = parseDays(rolled.duration);
+      if (rolled.harmful) totalNegDays += eventDays;
+      else totalPosDays += eventDays;
+
       eventLog.push({
         label: rolled.label,
         classification: rolled.classification,
@@ -866,6 +902,8 @@
       if (reasoningEl) reasoningEl.innerHTML = '';
       isTerminal = false;
       lastConsequence = '';
+      totalPosDays = 0;
+      totalNegDays = 0;
       root.classList.remove('is-terminal');
       const computedScore = scoreModel(next);
       const computedLayer = getEffectiveLayer(computedScore);
@@ -888,6 +926,8 @@
       if (reasoningEl) reasoningEl.innerHTML = '';
       isTerminal = false;
       lastConsequence = '';
+      totalPosDays = 0;
+      totalNegDays = 0;
       root.classList.remove('is-terminal');
       render('Balanced baseline', { source: 'reset' });
       renderEventHistory();
