@@ -996,15 +996,9 @@
       if (track) track.addEventListener('click', (e) => setFactorFromClick(name, track, e.clientX));
     });
 
-    // Respond to external state changes (ignore diagram ring focus events)
-    document.addEventListener('vmss:state-change', (event) => {
-      const source = event.detail?.meta?.source;
-      const state  = event.detail?.state;
-      if (!state || INTERNAL_SOURCES.has(source) || source === 'diagram') return;
-      if (state.values) setValues(state.values);
-      currentEventLabel = state.lastEvent || currentEventLabel;
-      render(state.profile || 'Synced profile', { source: 'external-sync' });
-    });
+    // The STI console is the primary input device — ignore all external state changes.
+    // Other modules (HUD, diagram, layer echo) read from VMSS global state but
+    // should never push state back into the console.
 
     // --- Initial render --------------------------------------------------
 
