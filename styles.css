@@ -1607,6 +1607,11 @@ details[open].vmss-article-ref .vmss-article-ref-toggle::before { transform:rota
 .vmss-consequence.is-positive strong { color:#4ade80; }
 .vmss-terminal-tag { font-size:.65rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; opacity:.8; }
 
+/* Terminal banner */
+.vmss-terminal-banner { display:none; align-items:center; justify-content:center; gap:1rem; padding:.75rem 1.2rem; border-radius:.75rem; border:1px solid var(--accent); background:var(--accent-glow); margin-bottom:.5rem; }
+.vmss-terminal-banner span { font-size:.85rem; font-weight:700; color:var(--text-primary); }
+.vmss-dash.is-terminal .vmss-terminal-banner { display:flex; }
+
 /* Terminal state — simulation ended */
 .vmss-dash.is-terminal .vmss-event-pills,
 .vmss-dash.is-terminal .vmss-factor-grid,

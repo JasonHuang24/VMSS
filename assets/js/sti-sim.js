@@ -466,6 +466,7 @@
     const eventFeed    = root.querySelector('[data-event-feed]');
     const randomizeBtn = root.querySelector('[data-randomize-sim]');
     const resetBtn     = root.querySelector('[data-reset-sim]');
+    const resetTermBtn = root.querySelector('[data-reset-terminal]');
 
     const trajectoryEl   = root.querySelector('[data-trajectory]');
     const eventHistoryEl = root.querySelector('[data-event-history]');
@@ -959,6 +960,7 @@
 
     if (randomizeBtn) randomizeBtn.addEventListener('click', randomize);
     if (resetBtn)     resetBtn.addEventListener('click', resetToDefaults);
+    if (resetTermBtn) resetTermBtn.addEventListener('click', resetToDefaults);
     if (reversToggle) reversToggle.addEventListener('change', () => render('Custom profile', { source: 'manual' }));
 
     // Preset dropdown
