@@ -99,7 +99,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 
 **STI** — Social Trust Index. A separate ledger for non-criminal trust violations. Covers harms that fall below legal thresholds — fraud, chronic deception, harassment — and makes them socially legible without criminalizing them. Operates on two distinct tracks: social trust violations (STI) and hard behavioral flags (criminal record log).
 
-**Backup Vessels** — Periodic encrypted mind-state backups. Fabrication is sovereign VMSS technology. Revival is binary: full fidelity or failure. In -1 and -2, continuity is serviced through VMSS-operated fabrication satellite installations. In -3 Terminal, the implant severs the backup vessel link at the hardware level — death is final.
+**Backup Vessels** — Periodic encrypted mind-state backups. Fabrication is sovereign VMSS technology. Revival is binary: full fidelity or failure. In -1 and -2, continuity is serviced through VMSS-operated fabrication proxy installations. In -3 Terminal, the implant severs the backup vessel link at the hardware level — death is final.
 
 **Neural Diving** — Direct mind-to-mind interface technology. Audience mode (passive observation) and Pilot mode (temporary control, requires consent). The civilization's primary medium for empathy, education, and art.
 
