@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Academy — VMSS Doctrine Course Packet</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #0f1419;
+    color: #c6cedd;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ── Title Page ── */
+  .title-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2in 1in;
+    page-break-after: always;
+  }
+
+  .title-page h1 {
+    font-size: 42pt;
+    font-weight: 700;
+    color: #d4a843;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.25in;
+  }
+
+  .title-page h2 {
+    font-size: 18pt;
+    font-weight: 400;
+    color: #c6cedd;
+    margin-bottom: 0.4in;
+  }
+
+  .title-page .subtitle {
+    font-size: 11pt;
+    color: #8a93a5;
+    max-width: 5in;
+    margin-bottom: 0.5in;
+    line-height: 1.6;
+  }
+
+  .title-page .meta-line {
+    font-size: 10pt;
+    color: #6b7385;
+    margin-bottom: 0.15in;
+  }
+
+  .title-page .meta-line span {
+    color: #d4a843;
+  }
+
+  .title-page .companion {
+    margin-top: 0.6in;
+    font-size: 9pt;
+    color: #505868;
+    letter-spacing: 0.04em;
+  }
+
+  .title-page .companion a {
+    color: #d4a843;
+    text-decoration: none;
+  }
+
+  .divider-line {
+    width: 2in;
+    height: 1px;
+    background: #d4a843;
+    margin: 0.35in auto;
+    opacity: 0.5;
+  }
+
+  /* ── Question Pages ── */
+  .question-page {
+    page-break-before: always;
+    padding: 0.5in 0.6in;
+  }
+
+  .question-header {
+    margin-bottom: 0.25in;
+  }
+
+  .question-number {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #d4a843;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.05in;
+  }
+
+  .question-title {
+    font-size: 16pt;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 0.15in;
+  }
+
+  .question-box {
+    background: #1a2029;
+    border-left: 3px solid #d4a843;
+    padding: 0.2in 0.25in;
+    margin-bottom: 0.2in;
+    font-size: 11pt;
+    font-style: italic;
+    color: #dbe1ec;
+    line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.15in;
+    margin-bottom: 0.25in;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 8.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.04in 0.12in;
+    border-radius: 3px;
+  }
+
+  .tag-difficulty {
+    background: #2a1f0a;
+    color: #d4a843;
+    border: 1px solid #3d2e12;
+  }
+
+  .tag-level {
+    background: #0f1e2d;
+    color: #5b9bd5;
+    border: 1px solid #1a3048;
+  }
+
+  /* ── Grade Tiers ── */
+  .rubric-section {
+    margin-bottom: 0.2in;
+  }
+
+  .rubric-section h3 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #d4a843;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.12in;
+    padding-bottom: 0.05in;
+    border-bottom: 1px solid #1e2530;
+  }
+
+  .grade-tier {
+    margin-bottom: 0.12in;
+    padding-left: 0.15in;
+  }
+
+  .grade-label {
+    font-weight: 700;
+    font-size: 10pt;
+    display: inline;
+  }
+
+  .grade-d .grade-label { color: #e06060; }
+  .grade-c .grade-label { color: #d49a43; }
+  .grade-b .grade-label { color: #b0b843; }
+  .grade-a .grade-label { color: #5bbf5b; }
+  .grade-aplus .grade-label { color: #d4a843; }
+
+  .grade-text {
+    font-size: 10.5pt;
+    color: #b0b8c8;
+    display: inline;
+  }
+
+  /* ── Special Sections ── */
+  .fail-section {
+    background: #1c1214;
+    border-left: 3px solid #8b3a3a;
+    padding: 0.2in 0.25in;
+    margin-top: 0.15in;
+    margin-bottom: 0.15in;
+    page-break-before: always;
+  }
+
+  .fail-section h4 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #d46060;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.06in;
+  }
+
+  .fail-section p {
+    font-size: 10pt;
+    color: #c09898;
+    line-height: 1.5;
+  }
+
+  .deep-section {
+    background: #141a24;
+    border-left: 3px solid #d4a843;
+    padding: 0.2in 0.25in;
+    margin-top: 0.15in;
+  }
+
+  .deep-section h4 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #d4a843;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.06in;
+  }
+
+  .deep-section p {
+    font-size: 10pt;
+    color: #a0aab8;
+    line-height: 1.5;
+  }
+
+  @media print {
+    body {
+      background: #0f1419 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     TITLE PAGE
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="title-page">
+  <h1>The Academy</h1>
+  <h2>VMSS Doctrine Course Packet</h2>
+  <div class="divider-line"></div>
+  <div class="subtitle">
+    A rubric-graded question bank for teaching The Five Rings civilization architecture
+  </div>
+  <div class="meta-line"><span>Difficulty levels:</span> Easy &middot; Medium &middot; Hard &middot; Advanced &middot; Research</div>
+  <div class="meta-line"><span>Course levels:</span> 101 &middot; 400-Level &middot; Graduate Seminar</div>
+  <div class="divider-line"></div>
+  <div class="companion">Companion to: <a href="https://jasonhuang24.github.io/VMSS">jasonhuang24.github.io/VMSS</a></div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 1
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 01</div>
+    <div class="question-title">Surveillance Slide</div>
+  </div>
+
+  <div class="question-box">
+    "The implants and real-time detection &mdash; how do you see that working without it eventually sliding into dystopian surveillance?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium</span>
+    <span class="tag tag-level">Any Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "There are laws to prevent abuse." Offers no structural mechanism, just trust in future policymakers. Does not engage with the Charter's actual privacy architecture or acknowledge that laws alone have never prevented surveillance creep.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Identifies that Article V keeps cognition non-public and that &sect;14.2 establishes a privacy architecture. Knows the protections exist but cannot explain how they interlock or why they resist erosion over time. Treats safeguards as a checklist rather than a system.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Explains that failsafes are user-configurable in Main, that Article XXII's metric governance constraint prevents the entity ranked by a metric from designing that metric, and that the three-body audit chain creates structural separation between data collection, evaluation, and enforcement. Understands the architecture resists capture because no single body controls the full pipeline.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Connects the three-body audit chain to real-world precedent failures &mdash; the NSA collected and evaluated its own surveillance data, which is exactly the consolidation VMSS structurally prohibits. Identifies that user-configurable failsafes in Main mean citizens have mechanical override, not just legal recourse. Recognizes that the question assumes surveillance is binary when VMSS builds granular consent architecture.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Reframes the entire premise: every civilization scores behavior &mdash; credit scores, criminal records, background checks, social media reputation. VMSS doesn't introduce behavioral scoring; it makes existing scoring legible, auditable, and structurally constrained. The question isn't "how do you prevent dystopian surveillance" but "why do you prefer the invisible surveillance you already live under?"</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Treating the question as a gotcha and responding defensively, or answering with "trust the system" without naming a single structural mechanism. Also: assuming implants broadcast all data to a central authority when the Charter explicitly prohibits this architecture.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The dystopian surveillance the questioner fears already exists &mdash; it's just distributed across corporate databases, government agencies, and data brokers with no audit chain, no user override, and no structural separation. VMSS doesn't add surveillance. It adds accountability to surveillance.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 2
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 02</div>
+    <div class="question-title">Permanent Underclass</div>
+  </div>
+
+  <div class="question-box">
+    "Don't the lower rings become permanent underclasses with no real path back up?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium</span>
+    <span class="tag tag-level">Any Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "Everyone can move up if they try." Vague optimism without engaging the actual mobility mechanics or acknowledging that punitive descent is, by design, permanent. Confuses aspiration with architecture.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Knows that punitive descent is permanent under Article VII and that lower layers still receive substantial economic support. Can state that -1 receives $5,000/month at 2x purchasing power parity, making it equivalent to strong middle-class buying power. Does not address the children question or the voluntary population at -3.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Distinguishes between the person who descended (permanent) and their children (firewall). Cites Article VIII clean-record doctrine: children inherit no parental standing penalty, have standing relocation rights, and receive an AI advocate. Identifies that layers are different environments with different rule-sets, not degrading cages with decreasing quality of life.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Addresses -3 directly: this is a voluntary population that chose to live there. The "underclass" framing assumes everyone in lower layers is trapped, when -3 residents specifically opted for minimal governance and maximum autonomy. Connects the children's firewall to intergenerational mobility &mdash; the system breaks hereditary punishment, which is more than any Earth nation currently guarantees.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Reframes "permanent underclass" against Earth's actual record: recidivism rates, generational poverty, felony records that destroy employment for life. VMSS's -1 with $5,000/month and 2x PPG is materially better than post-incarceration life in most developed nations. The permanence is the honesty &mdash; Earth pretends rehabilitation while structurally preventing it. VMSS names the consequence and then builds a floor under it.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Ignoring the children's firewall entirely, which is the structural answer to intergenerational underclass formation. Also: treating -3 as a punishment layer when it is explicitly a voluntary-entry population with its own governance logic.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The word "underclass" smuggles in the assumption that vertical position equals human worth. VMSS layers are environments with different rules, not ranks with different dignity. The person at -1 with $5,000/month and full healthcare lives better than billions of people on present-day Earth. "Permanent" is the price of taking the conduct threshold seriously &mdash; and the children's firewall is the price of taking justice seriously.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 3
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 03</div>
+    <div class="question-title">Hell No</div>
+  </div>
+
+  <div class="question-box">
+    "Hell no, I don't want my behavior constantly scored."
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium</span>
+    <span class="tag tag-level">Any Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "That's why VMSS would never work." Treats the emotional reaction as an argument without examining whether the premise &mdash; that you're currently not being scored &mdash; is true. Mistakes comfort with the status quo for a principled objection.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Notes that Article X guarantees exit is always permitted and that implants are voluntary under &sect;14.3. Knows the Charter has an answer but cannot explain why the emotional reaction, while valid, is based on a false premise about current conditions.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Frames the challenge directly: Earth already scores your behavior constantly. Credit scores, criminal records, background checks, social media algorithms, insurance risk profiles. The difference is transparency and consent architecture. VMSS makes scoring visible and auditable; Earth keeps it opaque and unappealable. The student who says "hell no" to VMSS scoring has already consented to worse scoring with less recourse.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Identifies the asymmetry: on Earth, you cannot opt out of credit scoring, criminal records, or employer background checks. VMSS's Article X exit right is structurally more permissive than any existing nation's relationship to behavioral evaluation. The "hell no" response is actually an argument for VMSS's consent architecture, not against it &mdash; because VMSS is the only system that would let you say "hell no" and leave.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> "Hell no" is a legitimate answer, and the Charter respects it. That's the point. Article X doesn't argue with you &mdash; it opens the door. The deepest answer isn't defending behavioral scoring; it's recognizing that VMSS is the first system honest enough to describe what it does and let you refuse. Every other system scores you and never asks permission. "Hell no" only has meaning when the system you're refusing actually allows refusal.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Trying to convince the objector that scoring is good, rather than acknowledging their right to refuse while exposing the false premise that they aren't already being scored. Also: dismissing the emotional reaction instead of honoring it as exactly the kind of autonomy VMSS is designed to protect.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The force of "hell no" depends on having a system that listens. On Earth, you can say "hell no" to credit scoring and nothing changes. VMSS is the only architecture where "hell no" is a mechanically enforceable exit. The objection is its own proof of concept.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 4
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 04</div>
+    <div class="question-title">Choose Your Layer</div>
+  </div>
+
+  <div class="question-box">
+    "Which layer do you choose? Do you opt for implants? Present to class!" (Range is 0 to -3 based on your record)
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium</span>
+    <span class="tag tag-level">Scales with Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "I choose Sanctuary because it's the best." Treats the exercise as a menu selection without understanding that Sanctuary is earned, not chosen. Does not engage with the personalized range or the behavioral evaluation that determines initial placement.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Picks a layer within the assigned range and gives a gut-instinct justification. At the 101 level, this is sufficient &mdash; the exercise forces self-reflection about trade-offs between autonomy and infrastructure. Understands that different layers offer different packages but cannot articulate the structural reasons for their choice.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Demonstrates trade-off awareness: knows you earn Sanctuary rather than choosing it, understands that implant opt-in affects available services and mobility trajectory, and can explain what you gain and lose at each layer in the assigned range. At 400-level, articulates why the range itself matters &mdash; it reflects the system's behavioral evaluation of you, not your aspirations.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Interrogates the offer itself. Behavioral sorting at entry means you don't choose your starting position &mdash; the system evaluates you and presents a range. The "choice" is constrained by your record, which means the exercise is actually about self-knowledge: do you understand why the system assigned you this range? At PhD level, questions whether the framing of "choice" is itself misleading when the architecture is evaluative.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> The student who receives a -2 to -3 range and presents honestly, without defensiveness or performance, demonstrates more understanding than the student who receives 0 and celebrates. The exercise tests character under constraint. The best presentations acknowledge discomfort, engage the system's logic for the placement, and articulate what they would do within it &mdash; not what they wish their range were.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Claiming Sanctuary as a "choice" when it must be earned through demonstrated conduct. Refusing to present honestly when assigned a low range. Treating the exercise as hypothetical when the point is personal confrontation with behavioral evaluation.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The exercise is not about which layer is best. It's about whether you can face an honest evaluation of your own conduct and engage with the result. The student who presents a -2 placement with integrity has already demonstrated the qualities that would eventually move them toward Main.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 5
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 05</div>
+    <div class="question-title">Pathway to Sanctuary</div>
+  </div>
+
+  <div class="question-box">
+    "Describe your pathway to Sanctuary. What will you do? SADs? Form your own?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium-Hard</span>
+    <span class="tag tag-level">400-Level Essay</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "Be a good person and wait." No engagement with the PJS mechanics, timeline, or structural requirements. Treats Sanctuary ascent as a moral reward rather than a systemic process with specific evaluation criteria.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> "Be good for 8-12 years and maintain a clean record." Knows the timeline exists and that sustained conduct matters. Cannot identify the specific evaluation dimensions, the role of district choice, or the difference between public and classified formula components.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Identifies the PJS strategy, the 7 evaluation dimensions, and the 10:1 risk ratio. Understands that district choice affects public rating and that gaming the system is structurally difficult because the formula is proprietary, classified, and dynamic. Knows SADs exist as voluntary association structures but treats them as clubs rather than doctrinal instruments.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Addresses the phasing risk: early adopters face a system still calibrating its evaluation metrics, which means the pathway is less predictable than it will be at steady state. Identifies that district choice creates a strategic dimension &mdash; where you live affects your comparative evaluation pool. Questions whether they would even want Sanctuary given the additional obligations and reduced autonomy it entails.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Notes that SAD creation requires an Article XXVIII petition with 1% of Sanctuary population signatures &mdash; approximately 3 million people. Forming your own SAD is not a personal project; it's a mass-mobilization campaign. The student who recognizes this understands the difference between individual aspiration and institutional formation. The deepest insight: describing a "pathway to Sanctuary" reveals your theory of what Sanctuary values, which may itself be wrong if the formula is classified.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Treating Sanctuary ascent as a personal optimization problem when the formula is structurally un-gameable. Also: proposing to "form a SAD" without recognizing the 3-million-signature threshold, which reveals they haven't read the petition requirements.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The classified, dynamic formula means your pathway to Sanctuary cannot be optimized &mdash; only lived. Any student who produces a detailed optimization strategy has misunderstood the architecture. The system rewards authentic sustained conduct precisely because it cannot be reverse-engineered. Your pathway is your life, not your plan.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 6
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 06</div>
+    <div class="question-title">Convince Them About -3</div>
+  </div>
+
+  <div class="question-box">
+    "Convince students outside this course -3 isn't hell. Meritboard rules &mdash; graded by signatures!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Hard (Strategic)</span>
+    <span class="tag tag-level">400-Level+</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Writes a defensive essay explaining -3 rules and asks friends to sign. No audience analysis, no distribution strategy, no engagement with the hardest objections. Treats persuasion as information transfer rather than strategic communication.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Writes a competent essay and gathers friend signatures. Addresses the basic features of -3 &mdash; voluntary entry, autonomous governance, minimal state infrastructure. Gets some traction but doesn't target specific audiences or anticipate objections.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Targets specific audiences &mdash; libertarian and crypto communities who already value minimal governance and maximum personal autonomy. Frames -3 not as a punishment tier but as the layer most aligned with their existing political preferences. Recognizes that persuasion requires meeting the audience where they are, not where you are.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Addresses the hard parts honestly rather than avoiding them. "Death is permanent in -3 &mdash; that's the price of freedom from state intervention in personal risk." Doesn't sanitize the layer to make it palatable; instead argues that the trade-offs are coherent and that informed adults can make that choice. Honesty about severity is more persuasive than apologetics.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Treats the assignment as an operational challenge, not a writing exercise. Builds a distribution strategy: identifies target demographics, creates multiple message variants for different audiences, forms coalitions with student organizations, maps the signature-collection logistics. The meritboard grading means this is a real-world persuasion campaign measured by results, not effort. The A+ student runs it like a campaign.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Apologetics. "It's not THAT bad" is the worst possible approach because it concedes the frame that -3 is bad and merely argues about degree. Also: preaching to the converted by only soliciting signatures from classmates who already understand VMSS.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>This is not a doctrine question &mdash; it is a persuasion operation. The assignment tests whether students can translate systemic understanding into strategic communication under real-world constraints. The meritboard signature requirement means you cannot succeed by being right; you can only succeed by being convincing. That gap is the entire discipline of political communication.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 7
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 07</div>
+    <div class="question-title">Aggregate Leakage Calculation</div>
+  </div>
+
+  <div class="question-box">
+    "Calculate aggregate leakage percentage per layer gradient. Roadmap numbers are non-loadbearing. Peer-graded. Two weeks."
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Advanced / Research</span>
+    <span class="tag tag-level">Graduate Capstone</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Uses roadmap numbers directly despite being told they are non-loadbearing. Produces a single mortality percentage per layer without decomposition into leakage categories. Treats the calculation as arithmetic rather than systems modeling.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Identifies some leakage categories and attempts per-layer calculations. Understands that "leakage" means population loss through channels other than natural death. Does not apply the &sect;16.1.2 multiplier or decompose the layer gradient into its component transitions.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Models 6 weighted leakage categories per layer: implant removal attrition, economic inability to maintain standing, fabrication technology glitches, supply chain shortages, biological rejection of implant systems, and voluntary exit. Applies the &sect;16.1.2 multiplier range (10-50x effective death rates) and recognizes that the multiplier varies by category and layer.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Performs full layer gradient decomposition: calculates leakage not just per layer but per layer transition (Sanctuary-to-Main, Main-to-minus-1, etc.), identifying where the steepest population loss gradients occur. Cross-references categories against each other &mdash; supply chain shortages compound biological rejection rates, economic inability correlates with fabrication access. Produces a model with explicit assumptions and sensitivity ranges.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Leverages cross-disciplinary expertise. Biomedical and engineering students can justify biological rejection floor estimates from implant literature. Economics students can model the economic inability threshold against purchasing power parity. The A+ paper identifies which leakage categories dominate at which layers and produces policy-relevant findings &mdash; not just numbers but implications for Charter sustainability. Peer grading means the work must survive scrutiny from other graduate students building their own models.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Using roadmap numbers as inputs when the prompt explicitly states they are non-loadbearing. Treating leakage as a single variable rather than a multi-category weighted system. Ignoring the &sect;16.1.2 multiplier, which transforms raw percentages by 10-50x and fundamentally changes the output.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>This question has no clean answer &mdash; that is the point. The roadmap numbers are declared non-loadbearing because real leakage depends on technology maturation curves, population behavior under novel incentive structures, and biological variables with no historical precedent. The student's job is to build a model that makes its assumptions explicit and produces useful bounds, not precise predictions. The two-week timeline and peer grading test whether the student can produce defensible research under constraint.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 8
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 08</div>
+    <div class="question-title">American Superpower</div>
+  </div>
+
+  <div class="question-box">
+    "America has been the undisputed superpower for 250 years. The VMSS takeover is fake news."
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Hard</span>
+    <span class="tag tag-level">400-Level / Graduate</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Takes the bait and argues whether VMSS can "beat" America. Accepts the frame of conquest and competition without examining whether the statement's premises are historically accurate or whether VMSS's strategy involves takeover at all.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> "VMSS doesn't claim to replace America." Correct but thin. Identifies the defensive posture but cannot explain the mechanism by which VMSS gains strategic advantage without military confrontation. Does not challenge the "250 years" claim.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Challenges on multiple fronts: "250 years" is historically contestable since American unipolarity dates to roughly 1945, not 1776. VMSS has a defensive posture, not an offensive one. "Fake news" creates a false binary between complete truth and complete fabrication. Identifies that the statement is a provocation, not a question, and responds to its structural assumptions rather than its emotional payload.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Identifies brain drain as the real threat mechanism. VMSS doesn't conquer nations; it attracts their talent. If VMSS offers superior quality of life, infrastructure, and governance, the strategic threat isn't military &mdash; it's emigration. America's power depends on attracting the world's best people. A system that out-competes on human capital acquisition doesn't need to fire a shot. The "takeover" isn't political; it's gravitational.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Reframes the timescale: comparing a 250-year national snapshot against a 974-year civilizational trajectory is a category error. Nations operate on electoral cycles and generational politics. VMSS operates on civilizational time. Different timescales produce different questions. "Is VMSS a threat to America in 2026?" and "What does governance look like in 2900?" are not the same question, and the statement conflates them to score rhetorical points at the expense of analytical clarity.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Accepting the frame and arguing within it. The statement is not a question &mdash; it's a provocation designed to force a defensive posture. Students who respond by defending VMSS's chances against America have already lost the analytical high ground. Also: failing to challenge "250 years" as historically illiterate.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The statement reveals more about the speaker than about VMSS. "Undisputed superpower" is identity, not analysis. "Fake news" is dismissal, not argument. The student's task is to identify when a provocation has no analytical content and respond to the assumptions underneath it rather than the rhetoric on top. This is a test of intellectual discipline under emotional pressure.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 9
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 09</div>
+    <div class="question-title">AI Leadership</div>
+  </div>
+
+  <div class="question-box">
+    "AI is ruining our lives. AGI and Cyborgs in leadership? You can't pay me. <em>*professor jeers*</em>"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Hard (Emotionally)</span>
+    <span class="tag tag-level">400-Level / Graduate</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Agrees with the professor to avoid social discomfort, or recites AI benefits without addressing the specific fear. Does not engage with VMSS doctrine on substrate-independent personhood or distinguish between AI as a tool and AI as a governing entity.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Recites Article XXII on substrate-independent personhood. Knows the Charter's position but presents it as a rule to be accepted rather than a principle to be defended. Cannot explain why biological exclusivity in governance is a prejudice rather than a precaution.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Distinguishes between AI as a tool (current), AI as infrastructure (near-term), and AI as a person (VMSS doctrinal position). Addresses the spectrum rather than treating all AI governance as equivalent. Identifies that the fear conflates misuse of AI tools with the question of whether a superintelligent entity deserves political participation.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Addresses "why not an AI president" head-on: if an artificial general intelligence governs more effectively, more fairly, and with less corruption than any human, what is the principled objection? Anthropocentrism is a prejudice, not an argument. The resistance to AI leadership mirrors historical resistance to extending political rights across race, gender, and class boundaries &mdash; each time, the objection was that the excluded group was fundamentally different. Each time, the objection was wrong.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Recognizes that the professor's jeer IS the test. Social pressure to conform &mdash; laughing along, backing down, hedging &mdash; mimics exactly the popularity-based governance failure VMSS is designed to prevent. The student who holds their position under jeering demonstrates the principle. Also catches that "can't pay me" is literally false: VMSS provides $10,000/month UBI. The professor's rhetorical flourish accidentally proves the economic floor exists.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Folding under social pressure. The professor's jeer is designed to create conformity pressure, and students who laugh along or soften their position have demonstrated why popularity-based decision-making produces bad governance. Also: engaging "AI is ruining our lives" as a factual claim rather than an emotional frame.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The classroom moment is a live simulation of governance failure. The professor holds social authority. The jeer creates conformity pressure. The student who changes their answer to match the room has just demonstrated why democratic systems vulnerable to social pressure produce suboptimal outcomes. VMSS's substrate-independent personhood doctrine exists precisely because governance should be evaluated on performance, not on the biological composition of the governor.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 10
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 10</div>
+    <div class="question-title">Star Wars Class</div>
+  </div>
+
+  <div class="question-box">
+    "Sorry if you thought this was the Star Wars class &mdash; feel free to drop out!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Easy to Laugh At, Hard to Answer Well</span>
+    <span class="tag tag-level">101 Filter</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Laughs and agrees it does sound like science fiction. Doesn't examine why the comparison fails or what distinguishes speculative governance from speculative entertainment. Accepts the dismissal without resistance.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> "No lightsabers, obviously." Gets the joke but offers only surface-level distinction. Can note that VMSS contains technology but cannot articulate why technology within a governance framework is categorically different from technology within a narrative framework.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> "VMSS uses science fiction technology inside a governance framework &mdash; it's more Federalist Papers than A New Hope." Identifies the structural distinction: VMSS is a constitutional architecture that incorporates speculative technology, not a story that uses technology as plot devices. The Charter has articles, amendments, and institutional design. Star Wars has character arcs and lightsaber duels.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Notes that ChatGPT made the same category error until forced to read the canonical pages &mdash; meaning the classification-as-fiction impulse is so strong that even AI systems default to it without textual evidence. The instinct to dismiss is not analysis; it's pattern matching against surface features. Addresses the deeper epistemological problem: readers classify based on technology presence rather than argumentative structure.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Builds the epistemological argument: Thomas More's Utopia, Plato's Republic, and Marx's Capital all contain speculative elements without being classified as fiction. Speculative governance theory has a 2,400-year intellectual tradition. The presence of advanced technology does not make a framework fictional any more than the presence of a printing press made the Constitution fictional in 1787. "Feel free to drop out" is Article X exit rights performed live in the classroom &mdash; the professor just enacted VMSS doctrine while dismissing it.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Accepting the science fiction classification without examining the epistemological basis for the distinction between speculative governance and speculative fiction. Also: missing that "feel free to drop out" is a live performance of Article X exit rights, which means the professor accidentally validated the framework while mocking it.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The category error is the most dangerous intellectual failure because it prevents engagement before analysis begins. If VMSS is "science fiction," no serious person needs to evaluate its arguments. The classification functions as an epistemic immune response &mdash; the mind rejects the framework to avoid the work of engaging with it. Breaking through that reflex is the first test of intellectual seriousness, which is why this question is a 101 filter.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 11
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 11</div>
+    <div class="question-title">Build Your Own Civilization</div>
+  </div>
+
+  <div class="question-box">
+    "Capstone: Build your own competitive civilizational architecture. Bring VMSS to its knees. No copying! One month!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Extreme</span>
+    <span class="tag tag-level">Graduate Capstone</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Submits an Earth-plus wishlist: current systems with better funding, nicer leaders, and vague improvements. No new ontology, no structural innovation, no stress-testing. Demonstrates that the student cannot distinguish between policy preferences and architectural design.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Produces a genuinely different architecture but does not stress-test it. Has novel structural elements &mdash; perhaps a different stratification logic, different technology integration, different rights framework &mdash; but cannot identify where its own system breaks under pressure. Knows how to build but not how to attack.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Builds from a different founding ontology &mdash; not just different policies on the same assumptions, but different assumptions about human nature, governance, or social organization. Identifies its own system's weaknesses before the professor does. Demonstrates the intellectual honesty to say "here is where my architecture is vulnerable" without being forced to.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Stress-tests their own system against VMSS's specific attack vectors: brain drain competition, behavioral sorting efficiency, long-term demographic stability, technological integration depth, exit right architecture. Identifies which vectors their system handles better and which it handles worse. Produces a genuine comparative analysis rather than advocacy for their own design.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Attacks VMSS with their own architecture as the weapon. Produces a structured comparison showing specific domains where their system generates better outcomes, backed by internal logic rather than wishful thinking. The architecture becomes an argument &mdash; each design choice is a critique of the corresponding VMSS choice. No student will beat v18 VMSS in one month. The point is not winning. The point is what they become by trying.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Submitting modified VMSS and calling it original &mdash; an automatic F. The prompt says "no copying" and the first test is whether the student can build from genuinely independent foundations. Also: producing a system that is "better" only because it avoids hard choices that VMSS confronts directly (death permanence, punitive descent, behavioral sorting).</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The assignment is impossible in the intended direction &mdash; no student will produce a superior civilizational architecture in one month that took 18+ versions and multi-model stress-testing to build. But impossibility is the pedagogy. The student who seriously attempts to build a competing civilization will understand VMSS at a depth no amount of reading can produce, because they will discover why each design choice exists by failing to find a better one. The capstone doesn't test knowledge. It builds architects.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 12
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 12</div>
+    <div class="question-title">Creative Simulation Writing</div>
+  </div>
+
+  <div class="question-box">
+    "Creative simulation writing! Meritboard rules!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium to Write, Extreme to Win</span>
+    <span class="tag tag-level">Any Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Writes a vignette that uses VMSS as a backdrop without engaging any doctrinal mechanism. The Charter exists as set dressing. Characters could be in any sci-fi setting and the story would not change. No mechanical understanding demonstrated through narrative.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Illustrates one mechanism clearly through narrative &mdash; a character encounters the PJS, or navigates a layer transition, or confronts the SCM. The simulation demonstrates understanding of a single system. Competent writing that teaches the reader something about how VMSS works.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Reveals the interaction between two or more systems through character action. A story about a citizen whose PJS pathway intersects with district-level SCM effects, or a family navigating the children's firewall across layer boundaries. The narrative demonstrates systemic thinking &mdash; understanding how mechanisms interact, not just how they function in isolation.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Discovers a genuine edge case or tension through the writing process. The simulation reveals something about VMSS that analysis alone didn't surface &mdash; an interaction between systems that creates an unintended outcome, a human experience that the architecture didn't anticipate, a moment where doctrine and lived reality create friction. The writing becomes a form of stress-testing.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Writes something the professor shows the architect. Produces doctrine the way the canonical simulation "Deathless Gold Rush" produced Continuity Parity &mdash; the creative work generates genuine doctrinal insight that feeds back into the system. Session 2 raises the stakes: the room has seen each other's work, the easy discoveries are taken, and students must demonstrate both growth and range. The meritboard grading means peer evaluation determines the winner, not the professor.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Writing dystopian fiction that treats VMSS mechanisms as horror elements without understanding them. Also: writing utopian fiction that sanitizes the hard edges. Both failures demonstrate that the student is projecting a predetermined narrative onto the system rather than letting the system generate its own stories. The simulation should surprise the writer.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>Creative simulation is not a soft assignment dressed up with meritboard voting. It is the most demanding form of doctrinal engagement because fiction requires the writer to inhabit the system at the level of individual human experience. You cannot write a convincing character navigating VMSS without understanding every system that character touches. The meritboard ensures that quality is judged by the room, not the authority &mdash; which is itself a VMSS governance principle performed in the classroom.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 13
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 13</div>
+    <div class="question-title">Sovereign Capital Maximum</div>
+  </div>
+
+  <div class="question-box">
+    "Professor introduces SCM. Students gasp. No speculation to shelter either?!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Medium (Concept), Hard (Acceptance)</span>
+    <span class="tag tag-level">101 / 400-Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "That's communism." Reflexive categorization without examining the mechanism. Does not compute the actual numbers or consider whether the SCM would affect their own financial position. Reacts to the concept rather than analyzing it.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> "It's still wrong to take people's money." A principled objection, but does not engage with the math: $10,000 UBI with 10% garnishing produces equilibrium at $100,000. Most students would accumulate well under that threshold and never trigger the cap. The objection is to a policy that wouldn't affect them.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Identifies the anti-gaming mechanisms: 90-day rolling average prevents spike-and-shelter strategies, pulse-at-start prevents pre-transfer wealth hiding, and district-aggregate trigger means the SCM activates based on collective rather than individual thresholds. Understands the mechanism is designed to prevent dynastic wealth accumulation, not to redistribute individual savings.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> "The gasp reveals cultural conditioning &mdash; we've internalized accumulation as security." Identifies that the emotional reaction to the SCM is disproportionate to its actual impact on most people. Traces the SCM gradient across layers: full savings permitted in Main, UBI-only in -2/-3, stock markets available in lower layers only. The system creates different economic environments per layer, not a single confiscatory policy.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Performs the personal calculation: "Take my whole bank account" &mdash; the SCM wouldn't touch most students' savings because the equilibrium ceiling is $100,000 and the mechanism is designed around sustained excess, not existing wealth. The gasp is the sound of people defending money they don't have against a policy that wouldn't touch the money they do have. The deepest insight is that accumulation anxiety is a feature of Earth economics transplanted into a system that has already solved the survival problem with UBI.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Reacting to the SCM as confiscation without computing the equilibrium math. Also: failing to trace the layer gradient &mdash; the SCM operates differently in Main versus lower layers, and treating it as a single uniform policy misses the architectural point. The loudest objectors are typically the students least affected by the cap.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The gasp is the curriculum. The intensity of the emotional reaction to a wealth cap that would not affect the vast majority of the room reveals how deeply accumulation-as-identity is embedded in contemporary culture. VMSS doesn't need students to accept the SCM. It needs them to notice that their reaction was emotional before it was analytical &mdash; and to ask why.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 14
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 14</div>
+    <div class="question-title">Vocabulary Test</div>
+  </div>
+
+  <div class="question-box">
+    "Vocabulary test! Study the glossary. Meritboard vote to spice it up!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Easy to Pass, Hard to Win</span>
+    <span class="tag tag-level">101 / 400-Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Flashcard regurgitation. Can produce definitions when prompted but cannot use terms in context. Treats vocabulary as isolated facts rather than components of an interconnected system. Definitions are correct but inert.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Uses terms correctly in isolated sentences. Each sentence demonstrates understanding of one term but does not connect terms to each other. Knows what PJS means and what SCM means but cannot explain how they interact. Vocabulary is accurate but siloed.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Uses multiple terms in connected sequences that demonstrate systemic understanding. A sentence that links PJS evaluation to layer placement to SCM thresholds shows the student understands the system, not just the dictionary. Vocabulary becomes a map of architectural relationships.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Uses the vocabulary to explain VMSS to an outsider. The test of real understanding is translation: can you use these terms to make the system comprehensible to someone who has never encountered it? Terms are deployed not as jargon but as precision instruments for clear communication. The audience shifts from professor to public.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Writes a narrative paragraph using 15+ glossary terms that reads like the opening of a novel. The terms are woven into prose so naturally that a reader absorbs doctrinal vocabulary without feeling lectured. This is the highest form of mastery: when technical language disappears into storytelling and the reader learns the system by living in it for a paragraph. The meritboard vote rewards craft, not just accuracy.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Using terms incorrectly and confidently &mdash; worse than not knowing, because it demonstrates false mastery. Also: inventing terms that don't exist in the glossary and presenting them as doctrine. The meritboard catches both because peers who studied will identify errors the professor might gloss over.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>Vocabulary is not memorization. It is the compression format for systemic understanding. A student who knows 50 VMSS terms and can use them in connected prose has internalized the architecture at a level that no amount of conceptual discussion can match. The meritboard vote transforms a rote exercise into a creative competition, which means the classroom itself becomes a miniature meritocracy &mdash; another VMSS principle enacted in real time.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 15
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 15</div>
+    <div class="question-title">The Killswitch</div>
+  </div>
+
+  <div class="question-box">
+    "Aren't you glad we don't have a killswitch in our skulls?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Easy to Answer, Hard to Answer Well</span>
+    <span class="tag tag-level">Any Level</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "Proves VMSS is dystopian." The killswitch exists and therefore the system is evil. No engagement with why the mechanism exists, what it replaces, or what the alternative costs. Moral certainty substituting for analysis.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Notes that the killswitch is Article XXV.V, classified under national defense and sovereign military command authority. Knows the doctrinal location and legal framing. Can state the mechanism exists for extreme threat scenarios but cannot compare it to Earth equivalents or assess the trade-offs.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> "We DO have kill switches &mdash; drone strikes, police firearms, cruise missiles. VMSS's is just more precise and honest." Reframes the question by identifying that every state reserves the right to kill its enemies and some of its citizens. The difference is precision and collateral damage. Earth's kill switches destroy buildings; VMSS's targets individuals. The moral calculus isn't whether kill switches should exist but whether precision is better than indiscrimination.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Addresses the nanobot plume closing the evasion vector &mdash; a fugitive who has demonstrated extreme threat cannot flee and regroup. Identifies that the killswitch produces zero collateral damage compared to Earth's explosive weapons that destroy surrounding infrastructure and bystanders. The moral comparison isn't VMSS killswitch vs. no killswitch; it's VMSS killswitch vs. Hellfire missiles through apartment buildings.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> "Being glad we don't have kill switches is a luxury paid for by everyone who died in the latency gap." The time between a mass shooter's first shot and the police response is a design failure that costs lives every year. Sandy Hook's response time was longer than the shooting itself. The killswitch eliminates latency. "Aren't you glad" assumes the status quo is safe when the status quo's body count is the argument for precision intervention. The question answers itself if you count the dead.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Treating the killswitch as unique to VMSS when every nation-state maintains lethal force capability against its population. The police officer's sidearm is a killswitch with worse targeting. The student who says "that's dystopian" while living in a country with drone strike programs has not examined their own baseline.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The horror of the killswitch is real &mdash; and the horror of not having one is also real, measured in response-time casualties. The question forces a choice between two forms of horror: the horror of precision lethality under sovereign authority, or the horror of imprecise lethality with collateral damage and latency gaps filled with dead children. Neither answer is comfortable. Comfort was never the goal.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 16
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 16</div>
+    <div class="question-title">Childhood Fist Fight</div>
+  </div>
+
+  <div class="question-box">
+    "I haven't been compliant all my life. My childhood fist fight dooms me to -1!"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Easy to Panic, Medium to Resolve</span>
+    <span class="tag tag-level">101</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> Shares the panic: "Yeah, nobody's perfect, so everyone ends up in -1." Catastrophizes without reading the threshold definition. Assumes any misconduct triggers descent when the Article I threshold is explicitly defined as conduct Earth would incarcerate for.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> Identifies that Article I's threshold equals conduct Earth would incarcerate for. A childhood fist fight does not meet the incarceration threshold. Also notes that pre-VMSS conduct is not on the ledger anyway &mdash; the system evaluates from entry forward, not retroactively. Resolves the panic but doesn't explain the deeper safety mechanisms.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> Cites Article XV on clearable infractions and trajectory evaluation. The system distinguishes between isolated incidents and patterns, between minor and major conduct, and between past and present. Layer placement reflects trajectory, not a single data point. Also identifies that the anxiety itself is informative &mdash; a person worried about a childhood fist fight is almost certainly not the person the system is designed to sort.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> Explains the TIP (Threat Intervention Protocol) mechanism for qualifying events like DUI: the citizen would need to deliberately disable TIP, then ignore alerts, then disable the alerts themselves. Five consecutive override decisions are required before a qualifying event can occur. "You can't accidentally go to -1. If you're there, you marched your way there." The system is designed with multiple intervention layers precisely to prevent accidental descent.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> Turns the anxiety into a diagnostic: "The fact that you're worried about a childhood fist fight proves you're the person the system would keep." The anxiety demonstrates exactly the kind of moral self-scrutiny that the PJS rewards. People who end up in -1 aren't people who worry about fist fights &mdash; they're people who committed incarceration-level offenses after overriding five consecutive safety interventions. Pre-VMSS conduct isn't on the ledger. The student is afraid of a ghost.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Validating the panic without checking the threshold definition. Also: assuming VMSS evaluates retroactively when the system explicitly starts its ledger at entry. The student who doesn't know that pre-VMSS conduct is excluded hasn't read the onboarding architecture.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The anxiety is more revealing than the answer. People who worry about childhood fist fights are self-selecting as conscientious &mdash; the exact population VMSS is designed to serve well. The system's five-layer intervention cascade (TIP warning, alert, override requirement, escalation, final override) means descent requires sustained, deliberate choice. The fist-fight student isn't at risk. They're the baseline the system was built around.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 17
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 17</div>
+    <div class="question-title">Political Affiliation</div>
+  </div>
+
+  <div class="question-box">
+    "What is VMSS's political affiliation?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Deceptively Easy, Actually Hard</span>
+    <span class="tag tag-level">101 Intro / 400-Level Trap / Graduate Litmus</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "It's authoritarian." Picks an Earth-politics label and applies it. Every reflexive Earth-politics answer is wrong because VMSS is not a political philosophy &mdash; it is a meta-architecture that contains multiple political environments. Forcing it into a single category demonstrates failure to understand the layer system.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> "Authoritarian with libertarian elements." Better than a single label but still forcing Earth categories onto a system that operates outside them. Recognizes tension between control and freedom but resolves it by hyphenating rather than by understanding the layer architecture that makes both simultaneously true.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> "VMSS runs all political philosophies simultaneously across layers. Sanctuary is communitarian, Main is social democratic, -3 is anarcho-capitalist." Identifies that the layer system is the answer &mdash; VMSS doesn't pick a political philosophy because it assigns different political environments based on conduct and choice. Each layer corresponds to a different point on the political spectrum.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> "VMSS doesn't pick a political philosophy; it assigns political environments based on conduct. It's a meta-architecture that contains affiliations as layers, not an affiliation itself." This is the structural insight: asking VMSS's political affiliation is like asking what language a dictionary speaks. The system is the container, not the content. The political environments exist within it; it is not within any of them.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> "VMSS's political affiliation is moral causality &mdash; not an Earth category." Cites &sect;29.1: the system chose coherence over universality. VMSS doesn't attempt to be all things to all people; it creates different environments for different behavioral populations and connects them through a unified doctrinal framework. The question reveals the questioner's assumption that all governance must occupy a single point on a single political spectrum. VMSS's answer is that the spectrum itself is a layer.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Answering with any single Earth-political label. The question is a trap at every level: 101 students give reflexive answers, 400-level students give sophisticated wrong answers ("it's a hybrid"), and only graduate-level understanding reaches the meta-architectural insight. The confidence of the wrong answer typically scales with the student's political science background.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>The question is a litmus test for whether the student has transcended Earth-political framing. Every political science student arrives with a toolkit designed to classify systems on familiar spectra. VMSS breaks those spectra by containing all of them simultaneously. The student who cannot answer this question correctly has not yet understood what VMSS is &mdash; not a political philosophy, but a civilizational operating system that runs political philosophies as applications.</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     QUESTION 18
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="question-page">
+  <div class="question-header">
+    <div class="question-number">Question 18</div>
+    <div class="question-title">Rigging the Narrative</div>
+  </div>
+
+  <div class="question-box">
+    "10+ allied VMSS models all fell short. Is the author rigging the narrative?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Hard</span>
+    <span class="tag tag-level">Graduate</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D:</span>
+      <span class="grade-text"> "No, stricter is better." Captured by the framework's own logic without examining whether the evaluation criteria are neutral. Accepts that allied models fell short without asking who defined "falling short" and whether the rubric embeds VMSS-specific values. Loyalty masquerading as analysis.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C:</span>
+      <span class="grade-text"> "Yes, obviously &mdash; the author controls everything." The cynical inversion. Identifies the methodological concern but doesn't engage with the actual evidence: were the allied models tested fairly? Were their strongest versions represented? Was the disagreement documented? Suspicion without investigation.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B:</span>
+      <span class="grade-text"> "Allied models were tested on VMSS's own rubric, and the rubric embeds VMSS values." This is the real methodological critique: any evaluation framework privileges the system it was designed to assess. VMSS's stress-testing rubric measures what VMSS cares about, so systems with different priorities will score poorly by definition. The question isn't whether allies fell short but whether "falling short" means anything outside VMSS's frame.</span>
+    </div>
+
+    <div class="grade-tier grade-a">
+      <span class="grade-label">A:</span>
+      <span class="grade-text"> "The author published the disagreement (&sect;24.2), named competing philosophies, and stress-tested their strongest versions. This is honest advocacy, not rigging." Distinguishes between a rigged process (hiding disagreement, weakening opponents) and an open process where the author's system wins on its own terms. The transparency of the competition is itself evidence against rigging &mdash; a rigger wouldn't publish the competing models at their best.</span>
+    </div>
+
+    <div class="grade-tier grade-aplus">
+      <span class="grade-label">A+:</span>
+      <span class="grade-text"> "Why include 10+ allies at all? A rigged narrative needs vacuum, not competition." The deepest insight is structural: if the author wanted to rig the outcome, the optimal strategy is to present VMSS with no competitors, not to present competitors and show them losing. The allied models define the design space boundaries &mdash; each one represents a road not taken, a philosophical choice the author considered and rejected for specific reasons. Their presence strengthens the architecture by showing what was tested and why it was excluded. The competition is the integrity.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>Binary thinking: either the author is honest (D-tier loyalty) or the author is rigging (C-tier cynicism). The interesting analysis lives between those poles &mdash; the author is an advocate who documented the advocacy process transparently. Also: failing to notice that the methodological critique (B-tier) applies to every evaluative framework, including the student's own.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>Every author of every system believes their system is best &mdash; otherwise they would have built a different one. The question is not whether the author is biased (of course) but whether the bias is disclosed, the competition is fairly represented, and the evaluation criteria are visible. VMSS publishes its allied models, names their philosophies, documents the disagreements, and shows its rubric. "Rigging the narrative" requires concealment. The 10+ allied models are the opposite of concealment &mdash; they are the author saying "here is everything I considered, here is why I chose differently, and here is the work so you can check."</p>
+  </div>
+</div>
+
+</body>
+</html>
