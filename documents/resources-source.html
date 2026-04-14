@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Resources &mdash; VMSS Doctrine Studies</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #0f1419;
+    color: #c6cedd;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 0;
+    margin: 0;
+  }
+
+  .title-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2in 1in;
+    page-break-after: always;
+  }
+
+  .title-page h1 {
+    font-size: 38pt;
+    font-weight: 700;
+    color: #d4a843;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.25in;
+  }
+
+  .title-page h2 {
+    font-size: 16pt;
+    font-weight: 400;
+    color: #c6cedd;
+    margin-bottom: 0.4in;
+  }
+
+  .title-page .subtitle {
+    font-size: 11pt;
+    color: #8a93a5;
+    max-width: 5in;
+    margin-bottom: 0.5in;
+    line-height: 1.6;
+  }
+
+  .title-page .meta-line {
+    font-size: 10pt;
+    color: #6b7385;
+    margin-bottom: 0.15in;
+  }
+
+  .title-page .meta-line span {
+    color: #d4a843;
+  }
+
+  .title-page .companion {
+    margin-top: 0.6in;
+    font-size: 9pt;
+    color: #505868;
+    letter-spacing: 0.04em;
+  }
+
+  .title-page .companion a {
+    color: #d4a843;
+    text-decoration: none;
+  }
+
+  .divider-line {
+    width: 2in;
+    height: 1px;
+    background: #d4a843;
+    margin: 0.35in auto;
+    opacity: 0.5;
+  }
+
+  .resource-page {
+    page-break-before: always;
+    padding: 0.5in 0.6in;
+  }
+
+  h2.resource-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #d4a843;
+    margin-bottom: 0.15in;
+  }
+
+  h3 {
+    font-size: 14pt;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-top: 0.3in;
+    margin-bottom: 0.1in;
+  }
+
+  h4 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #d4a843;
+    margin-top: 0.2in;
+    margin-bottom: 0.06in;
+  }
+
+  p {
+    margin-bottom: 0.12in;
+    color: #b0b8c8;
+    line-height: 1.6;
+  }
+
+  .resource-intro {
+    background: #1a2029;
+    border-left: 3px solid #d4a843;
+    padding: 0.2in 0.25in;
+    margin-bottom: 0.25in;
+    font-style: italic;
+    color: #dbe1ec;
+  }
+
+  .volume-block {
+    background: #141a24;
+    border-left: 3px solid #3a4050;
+    padding: 0.15in 0.2in;
+    margin-bottom: 0.15in;
+  }
+
+  .volume-block h4 {
+    color: #d4a843;
+    margin-top: 0;
+  }
+
+  ol {
+    padding-left: 0.3in;
+    margin-bottom: 0.15in;
+  }
+
+  ol li {
+    margin-bottom: 0.08in;
+    color: #b0b8c8;
+    line-height: 1.5;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.2in;
+    margin-bottom: 0.2in;
+    font-size: 9.5pt;
+  }
+
+  th {
+    background: #1a2029;
+    color: #d4a843;
+    padding: 0.08in 0.12in;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 8.5pt;
+    border-bottom: 1px solid #2a3040;
+  }
+
+  td {
+    padding: 0.06in 0.12in;
+    color: #b0b8c8;
+    border-bottom: 1px solid #1a2029;
+    vertical-align: top;
+  }
+
+  .tag-box {
+    display: inline-block;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.03in 0.1in;
+    border-radius: 3px;
+    background: #2a1f0a;
+    color: #d4a843;
+    border: 1px solid #3d2e12;
+    margin-right: 0.08in;
+  }
+
+  @media print {
+    body {
+      background: #0f1419 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- TITLE PAGE -->
+<div class="title-page">
+  <h1>Academic Resources</h1>
+  <h2>VMSS Doctrine Studies &mdash; Reference Library</h2>
+  <div class="divider-line"></div>
+  <div class="subtitle">
+    Supplementary reference materials for The Five Rings civilization architecture. Textbook chapters, technology analyses, research frameworks, and long-horizon projections.
+  </div>
+  <div class="meta-line"><span>Resource 1:</span> Teleportation Technology Analysis &amp; Layer-Gradient Deployment Timeline</div>
+  <div class="meta-line"><span>Resource 2:</span> VMSS Long Horizons &mdash; Post-Maturity Civilization Library (6 Volumes)</div>
+  <div class="divider-line"></div>
+  <div class="companion">Companion to: <a href="https://jasonhuang24.github.io/VMSS">jasonhuang24.github.io/VMSS</a></div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     RESOURCE 1: TELEPORTATION TECHNOLOGY ANALYSIS
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="resource-page">
+  <h2 class="resource-title">Resource 1: Teleportation Technology Analysis</h2>
+  <p style="color: #8a93a5; font-size: 10pt; margin-bottom: 0.2in;">Layer-Gradient Deployment Timeline &middot; Textbook Reference &middot; Companion to Academy Q27 (The Leap)</p>
+
+  <div class="resource-intro">
+    Teleportation as described in Academy Q27 is a post-maturity technology. This reference analyzes the technology stack dependencies, estimates the development timeline per layer gradient, and maps the deployment sequence against the civilization&rsquo;s institutional withdrawal curve.
+  </div>
+
+  <h3>Technology Stack Dependencies</h3>
+  <p>Teleportation requires four capabilities operating simultaneously: full-body molecular scanning (not just neural mind-state), real-time pattern transmission at molecular fidelity, destination fabrication from transmitted pattern, and controlled origin disintegration. Only one of these exists in the current roadmap: destination fabrication, which is backup vessel technology pointed at a transmitted blueprint instead of a stored one.</p>
+
+  <h4>Full-Body Molecular Scanning &mdash; The Bottleneck</h4>
+  <p>The implant captures neural patterns for mind-state backup. Teleportation requires scanning the entire body at molecular resolution &mdash; every cell, every protein fold, every chemical gradient, every microbiome organism, all captured simultaneously and encoded as transmissible data. The jump from neural mind-state scanning to full-body molecular scanning is like the jump from photographing a building&rsquo;s facade to cataloguing every atom in its structure. The implant&rsquo;s scanning resolution is extraordinary by any Earth standard. It is still orders of magnitude below what teleportation requires.</p>
+
+  <h4>Energy Requirements</h4>
+  <p>Full-body molecular scanning at the speed required for teleportation demands computational and energy throughput that the Dyson swarm&rsquo;s second segment enables for other applications but probably does not enable for this one. The forcefield failed at football-field scale for 10 seconds because the energy density was insufficient. Full-body molecular scanning at teleportation speed is a harder energy problem than the forcefield &mdash; because the forcefield only needs to maintain a barrier at the molecular level, while the scanner needs to read every molecule in a human body simultaneously. Reading is harder than blocking.</p>
+
+  <h4>The Forcefield as Precursor</h4>
+  <p>The forcefield&rsquo;s biological safety paradox (how to make a molecular-level barrier that doesn&rsquo;t harm biology) is directly related to teleportation&rsquo;s molecular scanning problem. Solving the forcefield&rsquo;s biological interaction problem probably produces the theoretical framework that makes teleportation scanning possible. Teleportation is downstream of forcefield maturity. If the forcefield reaches full deployment by ~2900 (post-delay), the theoretical breakthroughs that enable teleportation scanning emerge from that research &mdash; probably another century of development to adapt barrier-interaction physics into scanning-interaction physics.</p>
+
+  <h3>Timeline Estimate</h3>
+  <p>The civilization reaches ~0.01% leakage by 3000 &mdash; &ldquo;mature VMSS, theoretical minimum approached.&rdquo; Teleportation is not a founding-era technology. It is a post-maturity technology &mdash; the kind of capability a civilization develops after it has finished building the architecture it originally designed and starts pushing into territory the founders did not map.</p>
+  <p>The pattern in the roadmap: each century produces one transformative technology threshold. Mega-walls (22nd&ndash;24th), backup vessel maturation (25th), enforcement drone saturation (26th), AI governance maturity (27th), Dyson swarm energy (28th), forcefield integration (29th), convergence (30th). Teleportation sits after this sequence because it depends on the convergence. It needs mature fabrication, mature AI, Dyson-class energy, and forcefield-derived biological interaction theory all operating as inputs.</p>
+
+  <h3>Layer-Gradient Deployment Timeline</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Prototype Access</th>
+        <th>Civilian Deployment</th>
+        <th>Maturity Leakage</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>+1 Sanctuary</strong></td>
+        <td>~3200</td>
+        <td>~3250</td>
+        <td>~0.0001%</td>
+        <td>First deployment. Full implant coverage, full monitoring, lowest spoofing incentive. Proof-of-concept environment &mdash; safest to deploy and least necessary.</td>
+      </tr>
+      <tr>
+        <td><strong>0 Main (Metropolis)</strong></td>
+        <td>~3250</td>
+        <td>~3300&ndash;3350</td>
+        <td>~0.01&ndash;0.05%</td>
+        <td>Scaled deployment. 3 billion citizens, thousands of hubs. Where teleportation becomes transformative. Generates volume data driving failure rate improvement.</td>
+      </tr>
+      <tr>
+        <td><strong>-1 Noncompliance</strong></td>
+        <td>~3350</td>
+        <td>~3400&ndash;3450</td>
+        <td>~0.1&ndash;0.3%</td>
+        <td>Cross-layer spoofing incentive increases. Tighter transmission protocols, higher-frequency key rotation. One century after Sanctuary.</td>
+      </tr>
+      <tr>
+        <td><strong>-2 Violent Offense</strong></td>
+        <td>~3450</td>
+        <td>~3500&ndash;3550</td>
+        <td>~0.5&ndash;1.0%</td>
+        <td>Hub security contested by territorial cooperatives. Private fabrication capacity enables unauthorized endpoints. Deployment-vs-withholding debate most acute here.</td>
+      </tr>
+      <tr>
+        <td><strong>-3 Terminal</strong></td>
+        <td>~3550+</td>
+        <td>Limited or never</td>
+        <td>~1&ndash;2% (if deployed)</td>
+        <td>No institutional presence for sovereign hubs. No backup vessels for failure safety net. Maximum wall breach risk. Limited deployment to voluntary districts only, or withheld entirely.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Key Deployment Observations</h3>
+
+  <h4>The Top-Down Pattern Holds</h4>
+  <p>Every technology in the roadmap deploys from Sanctuary downward. Teleportation follows the same gradient with wider gaps between layers because security requirements scale inversely with institutional presence. The gap between Sanctuary deployment (~3250) and -3 limited deployment (~3550+) is three centuries.</p>
+
+  <h4>The PPG Sensitivity Factor</h4>
+  <p>Each Freedom Token buys 8x what a Main dollar buys. Price movements in Freedom Tokens have 8x the real-world impact per token. Thin markets with high-PPG tokens are structurally more sensitive to demand shocks &mdash; including demand shocks from teleportation-enabled tourism.</p>
+
+  <h4>The -3 Question</h4>
+  <p>-3 may never get teleportation. Building sovereign hubs in -3 re-extends federal infrastructure into the Freedom Layer, contradicting the layer&rsquo;s design philosophy. -3 residents have no backup vessel coverage &mdash; teleportation failure is permanent death. Every unauthorized hub in -3 is a potential breach point into any layer. The case for limited deployment (voluntary-district-to-voluntary-district, physically incapable of cross-layer routing) exists but the case for withholding entirely is also doctrinally sound.</p>
+
+  <h4>The Entire Timeline is Post-3000</h4>
+  <p>The civilization needs to finish building itself before it builds something that challenges the architecture it just completed. Teleportation is a post-maturity technology for a post-maturity civilization. The founding generation built the walls. The mature generation perfected them. The post-mature generation asks whether walls are still the right answer.</p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════
+     RESOURCE 2: VMSS LONG HORIZONS LIBRARY
+     ════════════════════════════════════════════════════════════════════ -->
+
+<div class="resource-page">
+  <h2 class="resource-title">Resource 2: VMSS Long Horizons</h2>
+  <p style="color: #8a93a5; font-size: 10pt; margin-bottom: 0.2in;">A Post-Maturity Technology &amp; Civilization Library &middot; 6 Volumes &middot; Table of Contents</p>
+
+  <div class="resource-intro">
+    A multi-volume reference library for post-3000 VMSS civilization studies. Each volume covers a domain the founding-era doctrine did not map &mdash; technologies, institutions, and civilizational challenges that emerge after the 974-year roadmap completes and the architecture enters territory the Charter&rsquo;s authors anticipated directionally but could not specify. Required reading for advanced seminars. Each volume generates its own question bank.
+  </div>
+
+  <div class="volume-block">
+    <h4>Volume I &mdash; The Physics of Consequence</h4>
+    <p style="color: #8a93a5; font-size: 9pt; margin-bottom: 0.08in;">Post-maturity technologies that challenge the founding architecture &middot; Era: 3000&ndash;3500</p>
+    <ol>
+      <li><strong>Teleportation:</strong> Molecular Disassembly-Transmission-Fabrication (Resource 1 expanded)</li>
+      <li><strong>Consciousness Forking:</strong> Two simultaneous copies of the same citizen &mdash; which one holds the STI, the layer placement, the criminal record?</li>
+      <li><strong>Time-Dilated Computation:</strong> Citizens experiencing centuries of subjective time in days of real time &mdash; do they age out of Meritboard rankings? Does STI reflect subjective or objective duration?</li>
+      <li><strong>Synthetic Consciousness:</strong> Entities designed from scratch as software. No biological origin. No evolutionary history. Do they qualify for citizenship?</li>
+      <li><strong>Memory Editing:</strong> Targeted deletion of specific memories. A -1 resident who deletes the memory of their qualifying offense &mdash; has trajectory changed or evidence erased?</li>
+      <li><strong>Dimensional Manipulation:</strong> Access to parallel spatial dimensions renders the mega-wall&rsquo;s 15km height meaningless in a dimension the wall doesn&rsquo;t extend into.</li>
+    </ol>
+  </div>
+
+  <div class="volume-block">
+    <h4>Volume II &mdash; The Stellar Expansion</h4>
+    <p style="color: #8a93a5; font-size: 9pt; margin-bottom: 0.08in;">VMSS governance beyond Earth orbit &middot; Era: 3100&ndash;4000+</p>
+    <ol>
+      <li><strong>Lunar Colonies:</strong> Extension of Main Layer jurisdiction or independent charter? PPG implications of lunar economy.</li>
+      <li><strong>Martian Settlement:</strong> Communication delay and STI updates. Martian regulatory law under Article XXVIII &mdash; who votes?</li>
+      <li><strong>Asteroid Belt Resource Extraction:</strong> Hazardous-environment labor. Augmented workers. Overtime Premium Protocol at $125/hr in space.</li>
+      <li><strong>Outer System Expeditions:</strong> Backup vessel coverage attenuates with distance. The 47-minute gap becomes a 47-month gap near Neptune.</li>
+      <li><strong>Generation Ships vs Teleportation Relay:</strong> Two models for interstellar colonization. Self-contained VMSS civilizations vs pattern transmission at lightspeed.</li>
+      <li><strong>The Dyson Swarm as Territory:</strong> Jurisdictional status of millions of orbital collection units. Can a citizen live on a swarm segment?</li>
+    </ol>
+  </div>
+
+  <div class="volume-block">
+    <h4>Volume III &mdash; The Alien Question</h4>
+    <p style="color: #8a93a5; font-size: 9pt; margin-bottom: 0.08in;">First contact doctrine and extraterrestrial diplomacy &middot; Era: 3500+</p>
+    <ol>
+      <li><strong>Detection Protocol:</strong> Who gets told first? Security classification tier for non-human intelligence information.</li>
+      <li><strong>First Contact Doctrine:</strong> External Force Doctrine assumes comprehensible strategic objectives. What if alien cognition is genuinely alien?</li>
+      <li><strong>Extraterrestrial Personhood:</strong> &sect;21.7 grants personhood to any entity at or above human cognitive level regardless of substrate. An alien qualifies under existing doctrine.</li>
+      <li><strong>Xenobiological Augmentation:</strong> Alien-derived biological features. Article V permits &ldquo;all body transmutations&rdquo; &mdash; does &ldquo;all&rdquo; include non-terrestrial biology?</li>
+      <li><strong>Alliance with Non-Human Civilizations:</strong> Governance structures that don&rsquo;t map onto any human category.</li>
+      <li><strong>The Zoo Hypothesis in Reverse:</strong> VMSS discovers it&rsquo;s inside an alien civilization&rsquo;s boundary architecture.</li>
+    </ol>
+  </div>
+
+  <div class="volume-block">
+    <h4>Volume IV &mdash; The Economics of Infinity</h4>
+    <p style="color: #8a93a5; font-size: 9pt; margin-bottom: 0.08in;">Post-scarcity economics at civilizational scales the founding-era model didn&rsquo;t anticipate &middot; Era: 3200&ndash;4000+</p>
+    <ol>
+      <li><strong>The Dyson Dividend:</strong> Energy becomes effectively unlimited. Production costs approach zero. Does UBI increase? Does the SCM threshold change?</li>
+      <li><strong>Multi-Planetary Currency:</strong> Does each off-world settlement get its own siloed currency? Does the PPG extend to 16x or 32x?</li>
+      <li><strong>Post-Material Economics:</strong> When fabrication produces any object at near-zero cost, the scarce resource becomes attention, not material.</li>
+      <li><strong>Interstellar Trade:</strong> Alien economies may not have currency. Gift economies, reputation economies, hive-resource-allocation.</li>
+      <li><strong>The Quadrillionaire Problem:</strong> SCM equilibrium calibrated for single-planet economy. Does it hold at solar-system scale?</li>
+    </ol>
+  </div>
+
+  <div class="volume-block">
+    <h4>Volume V &mdash; The Identity Frontier</h4>
+    <p style="color: #8a93a5; font-size: 9pt; margin-bottom: 0.08in;">What it means to be a person when the technology makes the question harder &middot; Era: 3000&ndash;5000+</p>
+    <ol>
+      <li><strong>The Fork Problem:</strong> Parallel continuity. Two copies, same memories, same STI. Which one votes? Which one&rsquo;s conduct affects the shared record?</li>
+      <li><strong>The Ship of Theseus at Scale:</strong> Every biological component replaced over centuries. When did they stop being biological?</li>
+      <li><strong>Hive Minds:</strong> Multiple citizens merge consciousness. One intelligence, five STIs. Who gets reassigned if the hive commits a crime?</li>
+      <li><strong>Digital Emigration:</strong> Pure digital existence. No body. No location. The layer architecture assumes embodiment.</li>
+      <li><strong>The Last Biological Human:</strong> The founding core was written by biological humans for biological humans. The civilization may contain none.</li>
+    </ol>
+  </div>
+
+  <div class="volume-block">
+    <h4>Volume VI &mdash; The Governance Horizon</h4>
+    <p style="color: #8a93a5; font-size: 9pt; margin-bottom: 0.08in;">What happens to the Charter when the civilization outlives the conditions it was written for &middot; Era: 5000+</p>
+    <ol>
+      <li><strong>The Thousand-Year President:</strong> Does accumulated institutional memory make the incumbent permanently unchallengeable?</li>
+      <li><strong>Article XI at Year 5000:</strong> Post-biological citizens, hive minds, alien residents, consciousness forks &mdash; the amendment process assumes individual, embodied, layer-placed citizens.</li>
+      <li><strong>The Meritboard Singularity:</strong> Rankings too sophisticated for human comprehension. Trust based on track record vs trust based on understanding.</li>
+      <li><strong>The Founding Core at Heat Death:</strong> &ldquo;No life is ended&rdquo; in a universe where all energy is exhausted. What does continuity mean when the physical substrate of the universe is ending?</li>
+    </ol>
+  </div>
+
+  <h3>Library Structure</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Volume</th>
+        <th>Domain</th>
+        <th>Prerequisite</th>
+        <th>Approximate Era</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>I</td><td>Post-Maturity Technology</td><td>Academy Q22&ndash;Q28</td><td>3000&ndash;3500</td></tr>
+      <tr><td>II</td><td>Stellar Expansion</td><td>Vol I + Whitepaper &sect;26.5</td><td>3100&ndash;4000+</td></tr>
+      <tr><td>III</td><td>Extraterrestrial Contact</td><td>Vol II + External Force Doctrine</td><td>3500+</td></tr>
+      <tr><td>IV</td><td>Post-Scarcity Economics</td><td>Vol I + Academy Q20, Q23</td><td>3200&ndash;4000+</td></tr>
+      <tr><td>V</td><td>Identity Frontier</td><td>Vol I + Academy Q22</td><td>3000&ndash;5000+</td></tr>
+      <tr><td>VI</td><td>Governance Horizon</td><td>Full Charter + All Volumes</td><td>5000+</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 0.3in; font-style: italic; color: #8a93a5;">Each volume generates its own question bank following the Academy format &mdash; difficulty ratings, course scaling, grade-tier responses, failure modes, and deepest layers. The library is the doctoral program. The Academy course packet is the entrance exam.</p>
+</div>
+
+</body>
+</html>
