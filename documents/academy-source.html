@@ -277,6 +277,53 @@
     widows: 3;
   }
 
+  .toc-page {
+    page-break-before: always;
+    padding: 0.6in 0.8in;
+  }
+
+  .toc-page h2 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #d4a843;
+    text-align: center;
+    margin-bottom: 0.35in;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .toc-section-label {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #8a93a5;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.25in;
+    margin-bottom: 0.12in;
+    border-bottom: 1px solid #2a3040;
+    padding-bottom: 0.06in;
+  }
+
+  .toc-entry {
+    display: block;
+    font-size: 10.5pt;
+    color: #c6cedd;
+    text-decoration: none;
+    padding: 0.04in 0;
+    line-height: 1.6;
+  }
+
+  .toc-entry:hover {
+    color: #d4a843;
+  }
+
+  .toc-entry .toc-qnum {
+    color: #d4a843;
+    font-weight: 600;
+    display: inline-block;
+    width: 0.55in;
+  }
+
   @media print {
     body {
       background: #0f1419 !important;
@@ -306,8 +353,46 @@
 </div>
 
 
+<!-- TABLE OF CONTENTS -->
+<div class="toc-page">
+  <h2>Table of Contents</h2>
+
+  <div class="toc-section-label">Standard Format</div>
+  <a class="toc-entry" href="#q1"><span class="toc-qnum">Q01</span> Surveillance Slide</a>
+  <a class="toc-entry" href="#q2"><span class="toc-qnum">Q02</span> Permanent Underclass</a>
+  <a class="toc-entry" href="#q3"><span class="toc-qnum">Q03</span> &ldquo;Hell No, I Don&rsquo;t Want My Behavior Scored&rdquo;</a>
+  <a class="toc-entry" href="#q4"><span class="toc-qnum">Q04</span> Choose Your Layer</a>
+  <a class="toc-entry" href="#q5"><span class="toc-qnum">Q05</span> Pathway to Sanctuary</a>
+  <a class="toc-entry" href="#q6"><span class="toc-qnum">Q06</span> Convince Outsiders -3 Isn&rsquo;t Hell</a>
+  <a class="toc-entry" href="#q7"><span class="toc-qnum">Q07</span> Aggregate Leakage Calculation</a>
+  <a class="toc-entry" href="#q8"><span class="toc-qnum">Q08</span> &ldquo;America Has Been the Undisputed Superpower for 250 Years&hellip;&rdquo;</a>
+  <a class="toc-entry" href="#q9"><span class="toc-qnum">Q09</span> &ldquo;AI Is Ruining Our Lives&hellip;&rdquo;</a>
+  <a class="toc-entry" href="#q10"><span class="toc-qnum">Q10</span> &ldquo;Sorry to Disappoint &mdash; This Isn&rsquo;t Star Wars&hellip;&rdquo;</a>
+  <a class="toc-entry" href="#q11"><span class="toc-qnum">Q11</span> Build Your Own Competing Architecture</a>
+  <a class="toc-entry" href="#q12"><span class="toc-qnum">Q12</span> Creative Simulation Writing</a>
+  <a class="toc-entry" href="#q13"><span class="toc-qnum">Q13</span> SCM Introduction</a>
+  <a class="toc-entry" href="#q14"><span class="toc-qnum">Q14</span> Vocabulary Test</a>
+  <a class="toc-entry" href="#q15"><span class="toc-qnum">Q15</span> &ldquo;Aren&rsquo;t You Glad We Don&rsquo;t Have Kill Switches?&rdquo;</a>
+  <a class="toc-entry" href="#q16"><span class="toc-qnum">Q16</span> &ldquo;My Childhood Fist Fight Dooms Me!&rdquo;</a>
+  <a class="toc-entry" href="#q17"><span class="toc-qnum">Q17</span> &ldquo;What Is VMSS&rsquo;s Political Affiliation?&rdquo;</a>
+  <a class="toc-entry" href="#q18"><span class="toc-qnum">Q18</span> &ldquo;10+ Allied Models Fell Short&hellip;&rdquo;</a>
+  <a class="toc-entry" href="#q19"><span class="toc-qnum">Q19</span> The Patriarchy Accusation</a>
+  <a class="toc-entry" href="#q20"><span class="toc-qnum">Q20</span> The Treasury Audit</a>
+
+  <div class="toc-section-label">Full Rubric</div>
+  <a class="toc-entry" href="#q21"><span class="toc-qnum">Q21</span> The Mercy Leak</a>
+  <a class="toc-entry" href="#q22"><span class="toc-qnum">Q22</span> The 47-Minute Gap</a>
+  <a class="toc-entry" href="#q23"><span class="toc-qnum">Q23</span> The Printing Press</a>
+  <a class="toc-entry" href="#q24"><span class="toc-qnum">Q24</span> The Annihilation Ultimatum</a>
+  <a class="toc-entry" href="#q25"><span class="toc-qnum">Q25</span> The Fifty-Year Setback</a>
+  <a class="toc-entry" href="#q26"><span class="toc-qnum">Q26</span> The Trojan Implant</a>
+  <a class="toc-entry" href="#q27"><span class="toc-qnum">Q27</span> The Leap</a>
+  <a class="toc-entry" href="#q28"><span class="toc-qnum">Q28</span> The Research Map</a>
+</div>
+
+
 <!-- QUESTION 1 -->
-<div class="question-page">
+<div class="question-page" id="q1">
   <div class="question-header">
     <div class="question-number">Question 01</div>
     <div class="question-title">Surveillance Slide</div>
@@ -336,7 +421,7 @@
 </div>
 
 <!-- QUESTION 2 -->
-<div class="question-page">
+<div class="question-page" id="q2">
   <div class="question-header">
     <div class="question-number">Question 02</div>
     <div class="question-title">Permanent Underclass</div>
@@ -365,7 +450,7 @@
 </div>
 
 <!-- QUESTION 3 -->
-<div class="question-page">
+<div class="question-page" id="q3">
   <div class="question-header">
     <div class="question-number">Question 03</div>
     <div class="question-title">"Hell No, I Don't Want My Behavior Scored"</div>
@@ -394,7 +479,7 @@
 </div>
 
 <!-- QUESTION 4 -->
-<div class="question-page">
+<div class="question-page" id="q4">
   <div class="question-header">
     <div class="question-number">Question 04</div>
     <div class="question-title">Choose Your Layer</div>
@@ -423,7 +508,7 @@
 </div>
 
 <!-- QUESTION 5 -->
-<div class="question-page">
+<div class="question-page" id="q5">
   <div class="question-header">
     <div class="question-number">Question 05</div>
     <div class="question-title">Pathway to Sanctuary</div>
@@ -452,7 +537,7 @@
 </div>
 
 <!-- QUESTION 6 -->
-<div class="question-page">
+<div class="question-page" id="q6">
   <div class="question-header">
     <div class="question-number">Question 06</div>
     <div class="question-title">Convince Outsiders -3 Isn't Hell (Meritboard Rules, Graded by Signatures)</div>
@@ -484,7 +569,7 @@
 </div>
 
 <!-- QUESTION 7 -->
-<div class="question-page">
+<div class="question-page" id="q7">
   <div class="question-header">
     <div class="question-number">Question 07</div>
     <div class="question-title">Aggregate Leakage Calculation</div>
@@ -513,7 +598,7 @@
 </div>
 
 <!-- QUESTION 8 -->
-<div class="question-page">
+<div class="question-page" id="q8">
   <div class="question-header">
     <div class="question-number">Question 08</div>
     <div class="question-title">"America Has Been the Undisputed Superpower for 250 Years. The VMSS Takeover is Fake News."</div>
@@ -542,7 +627,7 @@
 </div>
 
 <!-- QUESTION 9 -->
-<div class="question-page">
+<div class="question-page" id="q9">
   <div class="question-header">
     <div class="question-number">Question 09</div>
     <div class="question-title">"AI Is Ruining Our Lives. AGI and Cyborgs in Leadership? You Can't Pay Me. *Professor Jeers*"</div>
@@ -572,7 +657,7 @@
 </div>
 
 <!-- QUESTION 10 -->
-<div class="question-page">
+<div class="question-page" id="q10">
   <div class="question-header">
     <div class="question-number">Question 10</div>
     <div class="question-title">"Sorry to Disappoint — This Isn't Star Wars. Feel Free to Drop Out."</div>
@@ -602,7 +687,7 @@
 </div>
 
 <!-- QUESTION 11 -->
-<div class="question-page">
+<div class="question-page" id="q11">
   <div class="question-header">
     <div class="question-number">Question 11</div>
     <div class="question-title">Build Your Own Competing Architecture (One Month Capstone)</div>
@@ -632,7 +717,7 @@
 </div>
 
 <!-- QUESTION 12 -->
-<div class="question-page">
+<div class="question-page" id="q12">
   <div class="question-header">
     <div class="question-number">Question 12</div>
     <div class="question-title">Creative Simulation Writing (Meritboard Rules)</div>
@@ -662,7 +747,7 @@
 </div>
 
 <!-- QUESTION 13 -->
-<div class="question-page">
+<div class="question-page" id="q13">
   <div class="question-header">
     <div class="question-number">Question 13</div>
     <div class="question-title">SCM Introduction (Students Gasp)</div>
@@ -692,7 +777,7 @@
 </div>
 
 <!-- QUESTION 14 -->
-<div class="question-page">
+<div class="question-page" id="q14">
   <div class="question-header">
     <div class="question-number">Question 14</div>
     <div class="question-title">Vocabulary Test (Meritboard Vote)</div>
@@ -722,7 +807,7 @@
 </div>
 
 <!-- QUESTION 15 -->
-<div class="question-page">
+<div class="question-page" id="q15">
   <div class="question-header">
     <div class="question-number">Question 15</div>
     <div class="question-title">"Aren't You Glad We Don't Have Kill Switches?"</div>
@@ -751,7 +836,7 @@
 </div>
 
 <!-- QUESTION 16 -->
-<div class="question-page">
+<div class="question-page" id="q16">
   <div class="question-header">
     <div class="question-number">Question 16</div>
     <div class="question-title">"My Childhood Fist Fight Dooms Me!"</div>
@@ -781,7 +866,7 @@
 </div>
 
 <!-- QUESTION 17 -->
-<div class="question-page">
+<div class="question-page" id="q17">
   <div class="question-header">
     <div class="question-number">Question 17</div>
     <div class="question-title">"What Is VMSS's Political Affiliation?"</div>
@@ -810,7 +895,7 @@
 </div>
 
 <!-- QUESTION 18 -->
-<div class="question-page">
+<div class="question-page" id="q18">
   <div class="question-header">
     <div class="question-number">Question 18</div>
     <div class="question-title">"10+ Allied Models Fell Short. Is the Author Rigging the Narrative?"</div>
@@ -844,7 +929,7 @@
      QUESTION 19
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q19">
   <div class="question-header">
     <div class="question-number">Question 19</div>
     <div class="question-title">The Patriarchy Accusation</div>
@@ -904,7 +989,7 @@
      QUESTION 20
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q20">
   <div class="question-header">
     <div class="question-number">Question 20</div>
     <div class="question-title">The Treasury Audit</div>
@@ -970,7 +1055,7 @@
      QUESTION 21
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q21">
   <div class="question-header">
     <div class="question-number">Question 21</div>
     <div class="question-title">The Mercy Leak</div>
@@ -1026,7 +1111,7 @@
      QUESTION 22
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q22">
   <div class="question-header">
     <div class="question-number">Question 22</div>
     <div class="question-title">The 47-Minute Gap</div>
@@ -1087,7 +1172,7 @@
      QUESTION 23
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q23">
   <div class="question-header">
     <div class="question-number">Question 23</div>
     <div class="question-title">The Printing Press</div>
@@ -1148,7 +1233,7 @@
      QUESTION 24
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q24">
   <div class="question-header">
     <div class="question-number">Question 24</div>
     <div class="question-title">The Annihilation Ultimatum</div>
@@ -1212,7 +1297,7 @@
      QUESTION 25
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q25">
   <div class="question-header">
     <div class="question-number">Question 25</div>
     <div class="question-title">The Fifty-Year Setback</div>
@@ -1265,7 +1350,7 @@
      QUESTION 26
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q26">
   <div class="question-header">
     <div class="question-number">Question 26</div>
     <div class="question-title">The Trojan Implant</div>
@@ -1320,7 +1405,7 @@
      QUESTION 27
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q27">
   <div class="question-header">
     <div class="question-number">Question 27</div>
     <div class="question-title">The Leap</div>
@@ -1382,7 +1467,7 @@
      QUESTION 28
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="question-page">
+<div class="question-page" id="q28">
   <div class="question-header">
     <div class="question-number">Question 28</div>
     <div class="question-title">The Research Map</div>

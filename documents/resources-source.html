@@ -200,6 +200,39 @@
     margin-right: 0.08in;
   }
 
+  .toc-page {
+    page-break-before: always;
+    padding: 0.6in 0.8in;
+  }
+
+  .toc-page h2 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #d4a843;
+    text-align: center;
+    margin-bottom: 0.35in;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .toc-entry {
+    display: block;
+    font-size: 11pt;
+    color: #c6cedd;
+    text-decoration: none;
+    padding: 0.06in 0;
+    line-height: 1.6;
+  }
+
+  .toc-entry:hover {
+    color: #d4a843;
+  }
+
+  .toc-entry .toc-qnum {
+    color: #d4a843;
+    font-weight: 600;
+  }
+
   @media print {
     body {
       background: #0f1419 !important;
@@ -226,11 +259,19 @@
 </div>
 
 
+<!-- TABLE OF CONTENTS -->
+<div class="toc-page">
+  <h2>Table of Contents</h2>
+  <a class="toc-entry" href="#r1"><span class="toc-qnum">Resource 1:</span> Teleportation Technology Analysis &amp; Layer-Gradient Deployment Timeline</a>
+  <a class="toc-entry" href="#r2"><span class="toc-qnum">Resource 2:</span> VMSS Long Horizons &mdash; Post-Maturity Civilization Library (6 Volumes)</a>
+</div>
+
+
 <!-- ════════════════════════════════════════════════════════════════════
      RESOURCE 1: TELEPORTATION TECHNOLOGY ANALYSIS
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="resource-page">
+<div class="resource-page" id="r1">
   <h2 class="resource-title">Resource 1: Teleportation Technology Analysis</h2>
   <p style="color: #8a93a5; font-size: 10pt; margin-bottom: 0.2in;">Layer-Gradient Deployment Timeline &middot; Textbook Reference &middot; Companion to Academy Q27 (The Leap)</p>
 
@@ -362,7 +403,7 @@
      RESOURCE 2: VMSS LONG HORIZONS LIBRARY
      ════════════════════════════════════════════════════════════════════ -->
 
-<div class="resource-page">
+<div class="resource-page" id="r2">
   <h2 class="resource-title">Resource 2: VMSS Long Horizons</h2>
   <p style="color: #8a93a5; font-size: 10pt; margin-bottom: 0.2in;">A Post-Maturity Technology &amp; Civilization Library &middot; 6 Volumes &middot; Table of Contents</p>
 
