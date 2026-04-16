@@ -5,46 +5,26 @@ This is the VMSS / The Five Rings civilization design project by Jason Huang. Th
 
 ## Current State
 - **Academy:** 32 rubric-graded questions in `documents/academy-source.html`
-- **Academic Resources:** 14 resources across 3 categories in `documents/resources-source.html`
+- **Academic Resources:** 18 resources across 3 categories in `documents/resources-source.html` (World of VMSS: R3, R7, R12, R13, R14, R15, R16, R17, R18 · Universe of VMSS: R1, R2, R4, R6 · VMSS Advanced: R5, R8, R9, R10, R11)
 - **Simulations:** 81 total (39 world, 42 resident) with doctrine snapshot stamps
 - **Dossiers:** 4 (World Scenarios, Resident Stories, The Academy, Academic Resources)
 
-## Outstanding Work
-
-### Q25-Q28 Grade Tier Verification
-Jason may provide a `VERBATIM-SOURCE-TEMPLATE.md` with full chat text for Q25-Q28. These questions have compressed grade tiers that need bulldozing and replacing with the verbatim text. Q21-Q24 were already expanded in the previous session.
-
-### Doctrinal Correction: Kill Switch in Q24
-The Q24 (Annihilation Ultimatum) B-grade response incorrectly leads with the kill switch as an asymmetric advantage against the Kessari. The kill switch has zero reach into the Kessari Federation — their military has no VMSS implants. The Trojan Implant scenario (Q26) hadn't been proposed yet at Q24's timeline. The actual asymmetric advantages are: nanobot plumes (reaches non-implanted), continuity asymmetry (VMSS soldiers revive), autonomous forces (no crews), orbital kinetics, alliance network, glass-cannon vulnerability. The kill switch should be repositioned as a domestic defense instrument with a new composable insight: the kill switch can be used as an **antimatter evasion mechanism** — command authority activates the kill switch on a targeted soldier before the antimatter reaches them, the implant registers the death, backup vessel link processes it, soldier revives. The antimatter hits a corpse. The kill switch becomes a survival tool, not a weapon.
-
-### Format Standard
-Q21-Q28+ use the new structured metadata format:
-- Question (Type) label inside question-box
-- Response Mode, Question Family, Evaluation Emphasis, Canon Anchors in question-meta div
-- Difficulty (with parenthetical) and Course Scaling (with full range)
-- Descriptive grade labels with class-level indicators where appropriate
-
-Q1-Q20 use an older format — don't modify unless Jason asks.
-
-### HTML Entity Reference
+## HTML Entity Reference
 - Quotes: `&ldquo;` `&rdquo;`
 - Apostrophes: `&rsquo;`
 - Em dashes: `&mdash;`
 - Section symbol: `&sect;`
 - Middle dot: `&middot;`
 
-### PDF Regeneration
+## PDF Regeneration
 - Academy: `"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="F:\Programming\VMSS\VMSS Website\documents\vmss-academy-course-packet.pdf" --no-margins "file:///F:/Programming/VMSS/VMSS Website/documents/academy-source.html"`
 - Resources: `"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="F:\Programming\VMSS\VMSS Website\documents\vmss-academic-resources.pdf" --no-margins "file:///F:/Programming/VMSS/VMSS Website/documents/resources-source.html"`
+- After PDF regeneration, bump the cache-busting query string on the iframe src in `simulations-academy.html` / `simulations-resources.html` to match the new version
 
-## Key Doctrine (load these from Charter + whitepaper, don't trust summaries)
-- PPG ranges: -1 ~1.3-1.8x, -2 ~1.8-2.5x, -3 ~2.5-4x (not the old flat 2x/4x/8x)
-- Fabrication proxy installations (not "satellite" or "orbital" for -1/-2 facilities)
-- Three-tier voluntary movement: visitation / elective residency / VPR
-- STI classification: proprietary / classified / dynamic
-- §16.1.2 effective death rates: 10-50x multiplier, five failure modes
-- Treasury dual-mode: regulated budget (peacetime) / warchest (turbulence)
-- Currency printing: Meritboard economics division → CBA → automated production capitalization → ADT → UBI
-- Layer nicknames: Heaven Layer, The Metropolis, The Balanced Layer, The Lower Restrictions Layer, The Freedom Layer
-- Backup vessel visitor rates sync to origin-layer infrastructure
-- Kill switch as antimatter evasion mechanism (new — not yet in any document)
+## Format Conventions
+- Q1-Q20 use the older academy format — don't modify unless Jason asks
+- Q21-Q32 use the structured metadata format: Question (Type) label, Response Mode / Question Family / Evaluation Emphasis / Canon Anchors in question-meta, Difficulty with parenthetical, Course Scaling with full range, descriptive grade labels
+- Academic Resources follow the pattern established by R12/R13: `resource-page` div with `resource-title` h2, styled subtitle paragraph, `resource-intro` div, h3 section headers, concluding pedagogical reflection addressed to "the student"
+
+## Always Load From Source
+Doctrine summaries age faster than the Charter and whitepaper. Load those two files directly each session rather than trusting prior notes.
