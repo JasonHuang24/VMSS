@@ -2883,3 +2883,199 @@ Both arguments are correct. The feature and the cost are the same thing — slow
 The doctrine chose the protection. The 10:1 ratio is the formal expression of that choice. The civilization decided that the cost of penalizing genuine change (moral lag for the individual) is lower than the cost of premature restoration (vulnerability for the population). The ratio is load-bearing because the trust prediction the STI provides is load-bearing — it gates contracts, partnerships, domain access, and phasing eligibility. A prediction that resets too fast is a prediction the audience cannot trust. A prediction the audience cannot trust is a prediction that serves no one — including the citizen it describes.
 
 The student who reads this resource and feels the ratio is too harsh has felt something real — moral lag is a genuine cost. The student who reads it and recognizes that the cost is the price of a trust prediction the population can rely on has understood why the doctrine pays it. The student who reads it and asks whether the civilization should periodically re-examine the ratio through the Article XI gauntlet — testing whether the 10:1 number is still calibrated to observed trust dynamics as the civilization matures and the population's experience of trust evolves — has understood the question at the level the resource was designed to reach. The ratio is not sacred. It is load-bearing. Load-bearing things can be re-evaluated. They just cannot be changed casually.
+
+---
+
+## RESOURCE 11: The Technology Dependency Atlas
+
+**A Meritboard Research Division Reference Document — Leakage Category Dependency Mapping Across the 974-Year Roadmap**
+
+---
+
+*The leakage framework gives the civilization a number: ~90% at founding, ~0.01% at maturity. The atlas gives the civilization a map of every technology, dependency chain, and cascade bottleneck between those two numbers. This document was originally submitted as a capstone defense under Academy Q28 (The Research Map) by the research team listed in the credits. It survived the Meritboard defense, was adopted as a planning reference by the Meritboard's research division, and is published here in its defended form as the Academy's first student-originated doctrinal contribution.*
+
+---
+
+### THE SIX LEAKAGE CATEGORIES
+
+The leakage framework (Charter Article XXIII, Whitepaper §28) identifies six categories of failure between stated consequence and actual consequence delivery. The atlas maps every technology dependency within and across these categories.
+
+**Category 1: Wall Breaches (~15% of total leakage weight)**
+
+A punitive resident reaching a higher layer without authorization. The promise of behavioral separation is compromised. The technology dependencies:
+
+Mega-wall construction (22nd-24th century) — advanced composite materials, 15km/5km/100m continuous barrier, active compensation systems. Dependency chain: materials science breakthrough → manufacturing at construction scale → geological survey → phased construction over ~200 years. The construction timeline is serial — each phase requires the output of the prior phase. Delay in materials science delays everything downstream by approximately the same duration.
+
+Sensor integration — seismic monitoring, ground-penetrating radar, persistent drone swarms, automated turrets. Dependency: these systems can be deployed incrementally before wall completion. Sensor coverage reduces breach leakage even on incomplete wall segments. Partially independent of the wall construction timeline.
+
+Forcefield integration (28th-29th century) — energy barrier layered onto the physical wall. Dependency chain: Dyson swarm energy → forcefield emitter technology → integration with wall infrastructure. The forcefield is downstream of the Dyson swarm — it cannot operate at full coverage without Dyson-class energy abundance. Partial coverage possible with pre-Dyson energy sources but at reduced density. The forcefield is the technology that drives wall breach leakage from ~0.5% to near-zero in the final 150 years.
+
+**Cascade dependency:** Forcefield integration depends on Dyson swarm energy. Dyson swarm depends on Mercury extraction infrastructure. Mercury extraction depends on orbital fabrication capacity. Orbital fabrication depends on the same materials science and manufacturing base that builds the mega-walls. The wall and the swarm share a common upstream dependency — advanced materials fabrication at civilizational scale. A bottleneck in materials science delays both the physical barrier and the energy barrier that eventually supplements it.
+
+**Category 2: Apprehension Failures (~10% weight in pre-intervention, ~5% weight in post-intervention)**
+
+A perpetrator who acts and escapes before reassignment. The technology dependencies:
+
+Implant telemetry — real-time behavioral monitoring and identity anchoring. The implant detects the act, identifies the perpetrator, and transmits the data. Dependency: implant network coverage across the population. At founding, coverage is a fraction of the projected population. At maturity, coverage approaches 100% of implanted citizens (non-implanted citizens tracked via AR surveillance as a fallback). The apprehension failure rate scales inversely with implant coverage — every percentage point of coverage reduces the probability of unidentified perpetration.
+
+Enforcement drone response time — autonomous platforms that physically intercept, sedate, and transport perpetrators. Dependency chain: drone manufacturing capacity → deployment density → AI targeting doctrine maturity. Response time is a function of deployment density — more drones per district means shorter response time. Density depends on manufacturing throughput and energy to sustain persistent patrol coverage.
+
+AI governance contextual judgment — the system's ability to evaluate an act in context rather than applying threshold rules mechanically. Dependency: AI maturity across centuries of edge case accumulation. Early-generation AI governance applies rules. Mature AI governance applies judgment. The gap between rule-application and contextual judgment is the gap between a system that catches obvious offenders and a system that catches sophisticated ones.
+
+**Cascade dependency:** Apprehension reliability depends on implant coverage, drone density, and AI maturity simultaneously. No single technology reduces apprehension failure to near-zero alone. The three must converge — and they mature on different timelines. Implant coverage scales with population adoption (fastest). Drone density scales with manufacturing throughput (moderate). AI contextual judgment scales with accumulated edge case experience (slowest — it requires centuries of operation to develop the judgment depth that catches sophisticated offenders). The slowest component — AI judgment maturity — is the binding constraint on the category.
+
+**Category 3: Drone Medical Rescue Failures (~5% weight)**
+
+A victim who dies because the medical response network failed to arrive in time. The technology dependencies:
+
+Medical drone deployment density — the same density constraint as enforcement drones but with tighter time requirements. Enforcement needs to arrive in minutes. Medical needs to arrive in seconds — the difference between a treatable injury and a death that requires backup vessel revival. Dependency: manufacturing throughput, energy for persistent deployment, and geographic coverage optimization (the AI must position drones to minimize worst-case response time across the entire territory, not just average response time).
+
+Field stabilization technology — nanite injectors, neural therapy modules, cellular repair systems. Dependency chain: nanotechnology maturation → miniaturization for drone-deployable form factors → field reliability under combat/trauma conditions. The technology must work in the field, not just in a hospital. The gap between laboratory capability and field-deployable reliability is measured in decades of iterative engineering.
+
+Hospital infrastructure density — for injuries that exceed field stabilization capability. Dependency: institutional infrastructure buildout, which tracks with population growth and layer-specific investment. Upper layers reach full hospital coverage early. Lower layers reach partial coverage later, consistent with institutional withdrawal gradient.
+
+**Cascade dependency:** Medical rescue failure rate is dominated by response time, which is dominated by drone density, which is dominated by manufacturing throughput. The medical rescue category shares a manufacturing bottleneck with the enforcement drone category — both depend on the same fabrication pipeline for autonomous platforms. A shortfall in fabrication capacity affects both categories simultaneously.
+
+**Category 4: Backup Vessel Deaths (~25% weight — load-bearing)**
+
+Revival failure after death. The most load-bearing leakage category because it directly touches the fourth founding line: "no life is ended." The technology dependencies:
+
+Backup vessel fabrication technology — the ability to build a complete biological body from a mind-state blueprint at full fidelity. Dependency chain: molecular-scale fabrication → biological substrate manufacturing → neural architecture reconstruction → mind-state transfer fidelity. Each link is a separate research frontier. Molecular fabrication matures first (it is downstream of the same nanotechnology that produces medical nanites). Biological substrate manufacturing matures second (growing organs and tissue systems at the complexity and speed revival requires). Neural architecture reconstruction is the hardest — rebuilding a brain that exactly matches the mind-state being transferred, with every synaptic connection, every neural pathway, every chemical gradient reproduced at the fidelity the mind requires to wake up as the same person.
+
+Mind-state synchronization — continuous encrypted backup from the implant to the fabrication facility. Dependency: implant resolution (must capture neural patterns at sufficient fidelity for reconstruction), encryption architecture (must be tamper-proof and non-interceptable), transmission reliability (must maintain continuous sync even during high-activity periods when neural patterns are most complex and most rapidly changing). A mind-state sync that misses 47 minutes (Q22's scenario) produces a gap the revival cannot fill. The sync must be continuous and lossless.
+
+Fabrication proxy installations in lower layers — closed, sovereign VMSS facilities in -1 and -2 that provide backup vessel coverage without exposing the underlying technology. Dependency: physical infrastructure buildout in environments with reduced institutional presence. The fabrication proxies must be secure (surrounded by populations that include hostile actors) and self-sufficient (operating without the full institutional support Main Layer facilities receive). The elevated failure rates in -1 (~1 in 10,000) and -2 (~1 in 1,000) reflect the engineering compromises of operating in reduced-infrastructure environments.
+
+Five failure modes beyond the technology itself (§17.1.2): implant removal (citizen choice, no tech fix), economic inability to maintain a vessel (policy question, not tech), fabrication glitches (irreducible manufacturing variance), supply chain shortages (logistics), and biological rejection (irreducible biological floor). The effective death rate is 10-50x higher than the revival failure rates suggest because these five modes operate independently of the fabrication technology's quality.
+
+**Cascade dependency:** This is the category with the deepest dependency chain and the longest maturation timeline. Backup vessel technology is the single largest contributor to the civilization's leakage — at ~0% delivery at founding, it represents the widest gap between promise and reality. The technology depends on molecular fabrication, biological manufacturing, neural reconstruction, and mind-state synchronization — four research frontiers that mature on independent timelines. The category cannot reach near-zero until all four converge. The five non-technology failure modes impose a floor that no technology improvement can eliminate entirely.
+
+**Category 5: Pre-Intervention Failures (~10% weight)**
+
+In Sanctuary and SADs, a harmful act that completes before the Threshold Inhibition Protocol can halt it. The technology dependencies:
+
+TIP response latency — the time between the implant detecting intent-plus-imminent-execution and the motor inhibition, nano-release sedation, and drone countermeasures activating. At laboratory scale, TIP has been demonstrated. At population scale, the response latency depends on implant processing speed (nanoseconds), neural inhibition transmission time (milliseconds), and drone countermeasure deployment (seconds). The gap between detection and physical halt is where pre-intervention failures occur — an act that executes faster than TIP can respond completes before the system can prevent it.
+
+Implant resolution for intent detection — the implant must distinguish between thinking about harm and being in the physical process of committing it. This distinction is the load-bearing feature of TIP. False positives (triggering on thoughts rather than imminent execution) violate the cognition-is-non-public principle. False negatives (failing to trigger on imminent execution) produce pre-intervention failures. The resolution required to distinguish intent-plus-imminent-execution from intent-without-execution is an AI pattern recognition challenge that matures with the AI governance system's accumulated behavioral data.
+
+Ambient infrastructure density — drone coverage, environmental sensors, and nano-release delivery systems must be dense enough in Sanctuary that no physical location falls outside the countermeasure envelope. A citizen in a Sanctuary bathroom, a remote Sanctuary trail, a private Sanctuary residence — TIP must reach every location within the response latency. Density depends on manufacturing throughput and energy to sustain continuous coverage.
+
+**Cascade dependency:** Pre-intervention failure rate depends on TIP latency, which depends on implant processing speed and drone density. Both are downstream of the same manufacturing and AI maturity trajectories that drive other categories. The unique dependency is intent resolution — the AI's ability to read the difference between thinking and acting at the neural level. This capability matures on a different timeline than the physical infrastructure and is the binding constraint specific to this category.
+
+**Category 6: Supporting Systems (~10% weight combined)**
+
+Autoparenting infrastructure, UBI distribution reliability, biological augmentation safety, medical completeness, and voluntary entry processing. These are individually lower-weight but collectively significant. Each has its own dependency chain but none is load-bearing in the way Categories 1-5 are. The atlas treats them as a combined category with a shared dependency on institutional infrastructure maturity — which tracks with population growth, economic output, and the general civilizational buildout rather than with any specific technology breakthrough.
+
+---
+
+### THE THREE CONVERGENCE POINTS
+
+The atlas identifies three moments in the 974-year roadmap where multiple technology dependency chains converge simultaneously — producing step-function reductions in leakage rather than gradual improvement.
+
+**Convergence Point 1: Energy Threshold (~2600-2800)**
+
+The Dyson swarm reaches sufficient capacity to power forcefield integration, unlimited fabrication throughput, and computational density that enables mature AI governance. Three leakage categories benefit simultaneously: wall breach (forcefield), backup vessel (fabrication throughput), and apprehension (AI maturity enabled by computational abundance). The energy threshold is the single most impactful convergence because it unlocks improvements across the most categories. The roadmap's leakage reduction from ~2% to ~0.5% in the 2650-2750 window is driven primarily by this convergence.
+
+**Convergence Point 2: Neural Scanning Maturity (~2400-2600)**
+
+The implant's neural pattern scanning reaches the resolution required for three capabilities simultaneously: full-fidelity mind-state backup (backup vessel category), precise intent detection for TIP (pre-intervention category), and deep behavioral pattern reading for AI contextual judgment (apprehension category). The scanning technology is upstream of all three — and the resolution requirement for each is different. Mind-state backup needs the broadest scan (the entire neural state). Intent detection needs the fastest scan (real-time motor preparation detection). Behavioral pattern reading needs the deepest scan (long-horizon pattern recognition across years of accumulated data). The convergence occurs when scanning resolution satisfies all three requirements, which is more demanding than satisfying any one alone.
+
+**Convergence Point 3: AI Governance Maturity (~2500-2700)**
+
+The AI governance system's accumulated edge case experience reaches the depth required for three capabilities simultaneously: contextual judgment in apprehension (evaluating acts in context rather than against thresholds), intent resolution in pre-intervention (distinguishing thinking from acting at the neural level), and behavioral field modeling (understanding how environments shape conduct — Q30's territory). AI maturity is the slowest-maturing dependency because it requires centuries of operational experience that cannot be accelerated through funding or engineering — the edge cases must actually occur before the AI can learn from them. The civilization cannot crash-program wisdom. It can only accumulate it.
+
+---
+
+### THE CASCADE DEPENDENCY DIAGRAM
+
+The atlas includes a directed graph where nodes are research capabilities and edges are "enables" relationships. The graph reveals that the six leakage categories are not independent columns in a table. They are a network. The atlas is the map of that network.
+
+Key structural features of the graph:
+
+**High out-degree nodes (most downstream dependencies):**
+- Advanced materials fabrication — enables mega-wall construction, orbital fabrication stations, drone manufacturing, backup vessel hardware, forcefield emitter production. Bottleneck in materials fabrication propagates to five categories simultaneously.
+- Dyson swarm energy — enables forcefield integration, unlimited fabrication throughput, computational density for AI governance. Energy bottleneck propagates to three categories.
+- Neural scanning resolution — enables mind-state backup fidelity, TIP intent detection, AI behavioral pattern reading. Scanning bottleneck propagates to three categories.
+
+**Serial vs. parallel dependencies:**
+- Wall construction and forcefield integration are serial — the forcefield requires the wall as its physical foundation. Delay in wall construction delays forcefield integration by approximately the same duration.
+- Backup vessel technology and apprehension technology are parallel — they mature on independent timelines and do not depend on each other. Progress in one does not accelerate or delay the other.
+- AI governance maturity is serial with everything it feeds — contextual judgment, intent resolution, and behavioral field modeling all require the same accumulated experience base. No parallel path exists. The AI must learn, and learning takes time.
+
+**The critical path:** The longest serial dependency chain in the atlas runs from materials science breakthrough → mega-wall construction → forcefield emitter integration → Dyson swarm energy → full forcefield coverage. This chain spans approximately 600 years (22nd century materials to 28th century forcefield). It is the critical path because every node is serial and delay at any node propagates forward without compression. The Meritboard's resource allocation should prioritize the critical path's earliest bottleneck — materials science — because that is where delay compounds most severely.
+
+---
+
+### THE BLOCKER CLASSIFICATION
+
+Every technology dependency in the atlas is classified by blocker type. The classification determines the appropriate resource allocation strategy — because different blocker types respond to different interventions.
+
+**Scientific blockers:** Unknown physics that no amount of funding or engineering talent can resolve without a theoretical breakthrough. Strategy: fund basic research broadly, accept uncertainty about timeline, and do not set milestones that assume the breakthrough arrives on schedule. Example: the biological safety paradox in forcefield technology (Q25) — how to make a molecular-level barrier that does not harm biology. The physics is unknown. The breakthrough cannot be scheduled.
+
+**Engineering blockers:** Known physics, unknown implementation at the required scale or fidelity. Strategy: fund the team, set milestones, hold the team accountable for progress. Example: scaling backup vessel fabrication from laboratory prototype to civilizational deployment. The physics of molecular fabrication is understood. Building a fabrication system that operates at the speed, fidelity, and volume the civilization requires is an engineering challenge, not a scientific one.
+
+**Ethical blockers:** Technology that is feasible but doctrinally prohibited or doctrinally contested. Strategy: route through the Article XI amendment gauntlet or the Supreme Court's novelty jurisdiction. No engineering solution exists because the blocker is constitutional, not technical. Example: continuous mind-state backup (relevant to Q22's 47-minute gap) — the implant could capture continuously rather than periodically. The blocker is not engineering. It is Article V's cognition-is-non-public principle. Continuous capture means continuous recording of cognitive activity. The technology exists. The doctrine does not permit its use. A research roadmap that treats this as a technology problem will never solve it because the solution requires an Article XI amendment, not a laboratory breakthrough.
+
+**Economic blockers:** Technology that is feasible and doctrinally permissible but requires resource allocation at a scale the civilization's current economic output cannot sustain. Strategy: sequence the investment, fund enabling technologies first (the Dyson swarm enables energy abundance that funds everything else), and accept that some programs must wait for the economic base to grow. Example: fabrication proxy installations in -2 operate at elevated failure rates partly because the institutional investment required for full-fidelity fabrication in a reduced-institutional-presence environment exceeds the current allocation. The technology works. The funding for optimal deployment does not yet exist.
+
+---
+
+### THE HONESTY AUDIT
+
+The atlas includes a self-assessment section that examines whether each blocker classification is correct — or whether the team's initial classification concealed an engineering problem as a scientific one (making it sound harder than it is to avoid milestone accountability) or an ethical problem as an engineering one (avoiding the constitutional conversation by framing the obstacle as technical).
+
+Three blockers were reclassified from scientific to engineering upon deeper analysis — because the physics was known but the implementation gap was so large that the team's first instinct was to call it unsolved science rather than extremely difficult engineering. The reclassification changes the resource strategy from "fund and hope" to "fund and schedule" — a meaningful difference for the Meritboard's allocation decisions.
+
+Two blockers were reclassified from engineering to ethical — continuous mind-state backup and continuous behavioral recording at cognitive depth. Both are technically feasible. Both collide with Article V. The research roadmap cannot solve them because the obstacle is not in the laboratory. It is in the Charter. The reclassification routes the obstacle to the correct institutional pathway (Article XI or Supreme Court novelty) rather than letting it languish as an unsolved engineering problem that engineering cannot solve.
+
+The honesty audit is the atlas's most valuable section — not because it changes the leakage projections, but because it ensures the civilization allocates resources to obstacles classified correctly. A scientific blocker funded as an engineering program wastes the engineering budget. An ethical blocker funded as a scientific program wastes the research budget. The audit catches these misallocations before the Meritboard defense, which is where misclassification is most expensive to discover.
+
+---
+
+### THE LEAKAGE TRAJECTORY UNDER THE ATLAS
+
+The atlas produces a refined leakage trajectory that accounts for dependency chains, cascade effects, and convergence points:
+
+| Year | Weighted Leakage | Primary Driver |
+|---|---|---|
+| 2026 | ~90% | Founding — blueprint established, enabling technologies not operational |
+| 2150 | ~25% | Three load-bearing categories cross critical thresholds (implant, enforcement, backup vessel prototype) |
+| 2350 | ~8% | Full wall network approaching completion, implant coverage near-universal |
+| 2550 | ~2% | Enforcement drone saturation, backup vessel maturation in upper layers |
+| 2650 | ~1% | AI governance approaching maturity, neural scanning convergence |
+| 2750 | ~0.5% | Energy threshold convergence begins — Dyson swarm enables forcefield prototype |
+| 2850 | ~0.1% | Full forcefield network operational — parabolic acceleration begins |
+| 2950 | ~0.02% | Convergence of all mature technologies |
+| 3000 | ~0.01% | Mature VMSS — theoretical minimum approached |
+
+The atlas trajectory matches the roadmap's published projections (Charter Article XXIII, Whitepaper §29.1) because the dependency analysis confirms the roadmap's sequencing is correct — the technologies mature in the order the roadmap assumes, and the cascade dependencies do not produce bottlenecks the roadmap did not anticipate. The atlas validates the trajectory rather than revising it. The contribution is not a different number but a *mechanistic explanation* of why the number is what it is — which technologies contribute what reduction, at what point, through what dependency chain, with what cascade risk if any single dependency is delayed.
+
+---
+
+### CREDITS
+
+This atlas was originally submitted as a capstone defense under Academy Q28 (The Research Map) by the following research team. It survived the Meritboard defense panel's adversarial examination, was adopted by the Meritboard's research division as a long-horizon planning reference, and is published here in its defended form.
+
+The Academy recognizes this work as the first student-originated contribution to enter the civilization's operational doctrine. The research team's names are recorded in the Founders' Archive Domain (SAD) as contributing scholars.
+
+---
+
+**Dr. Amara Okafor-Reyes** · Ph.D. Civilizational Systems Engineering, Main Layer · Lead author, cascade dependency diagram, convergence point analysis
+
+**Kael Voss** · Ph.D. Theoretical Physics, +1 Sanctuary · Scientific blocker classification, energy threshold modeling, forcefield dependency chain
+
+**Dr. Lian Xu** · Ph.D. Computational Neuroscience, Main Layer · Neural scanning convergence analysis, intent resolution modeling, mind-state synchronization dependencies
+
+**ARIA-7** · AGI, Meritboard Research Division · AI governance maturity modeling, edge case accumulation projections, contextual judgment timeline
+
+**Tomás Herrera-Nakamura** · Ph.D. Materials Science & Structural Engineering, Main Layer · Mega-wall construction timeline, advanced composites dependency chain, critical path analysis
+
+**Dr. Sable Osei** · M.D./Ph.D. Biomedical Engineering & Revival Systems, Main Layer · Backup vessel technology dependencies, five failure mode analysis, fabrication proxy assessment
+
+**Ren Ishikawa** · Ph.D. Governance & Institutional Design, +1 Sanctuary · Blocker reclassification methodology, honesty audit framework, ethical blocker routing
+
+**Yuki Fontaine-Park** · Ph.D. Economics & Resource Allocation, Main Layer · Economic blocker analysis, Meritboard allocation strategy, Dyson swarm capital sequencing
+
+---
+
+*Defended before the Meritboard Research Division Panel, Year 2847. Published as Meritboard Reference Document MRD-2847-0041. Adopted into the Academy curriculum as Resource 11 by faculty vote, Year 2848.*
