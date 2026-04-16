@@ -2609,3 +2609,277 @@ Second: the parallel universe defense is categorically inadmissible — not beca
 Third: the evidentiary standard for temporal observation is reconstruction fidelity — the degree to which the sensor's output matches the physical traces it was given. If the reconstruction is internally consistent, corroborated by independent physical traces, and produced at a fidelity level the Court has certified as equivalent to implant observation, the evidence is admissible. The defendant may challenge the fidelity. They may not challenge the universe.
 
 Novelty extinction applies after the ruling. The same defense can never reach the Court again. Every subsequent defendant who attempts the parallel universe argument is rejected at the novelty filter — the category is settled, the precedent is cited, and the AI governance system applies the ruling automatically. The first defendant to try it creates the precedent that ensures no one else can.
+
+---
+
+## RESOURCE 8: The Public Signal Architecture
+
+**A Behavioral Systems Textbook Excerpt — How Population Input Enters the STI Pipeline**
+
+---
+
+*The STI is not purely machine-observed. The system ingests population-scale endorsement and disapproval signals as a weighted input alongside AI behavioral observation. Most students encounter this fact in Whitepaper §5.6 and assume they understand it. Almost none of them do. The public signal architecture is the most misunderstood component of the STI system — simultaneously more constrained and more powerful than casual reading suggests. This resource maps the full signal pipeline from citizen action through AI observation through public input through contestation through correction, and identifies the design constraints that prevent the system from becoming either a popularity contest or an opaque machine judgment.*
+
+---
+
+### THE PIPELINE
+
+A citizen acts. The act produces consequences in the physical world. The STI system processes this act through two independent channels that converge into a single score update.
+
+**Channel 1: AI Behavioral Observation.** The implant records the act with full contextual data — intent trajectory, motor execution, environmental conditions, relational dynamics, and the physiological state of the actor. The AR surveillance infrastructure (drones, cameras, environmental sensors) corroborates the implant telemetry with external observation. The AI governance system evaluates the act against the seven STI dimensions (civic compliance, contribution, relational integrity, social conduct, cognitive integrity, economic behavior, crisis response) and produces a preliminary score adjustment — the machine's assessment of what the act means for the citizen's behavioral reliability.
+
+This assessment is not a human judgment. It is a computation — the AI reads the behavioral data, applies the formula (proprietary, classified, dynamic — §5.4.1), and produces a number. The number reflects what the act looks like through the lens of seven weighted dimensions as the AI currently calibrates them. The AI does not have opinions. It has weights. The weights evolve as the AI governance system's understanding of trust matures, but at any given moment, the assessment is deterministic — the same act with the same contextual data produces the same preliminary adjustment every time.
+
+**Channel 2: Public Signal Input.** Citizens who observed the act — or who observed its consequences in the visible public ledger — may signal approval or disapproval. These signals are voluntary, individual, and continuous. A citizen does not file a report. They express a signal — a behavioral endorsement or a behavioral objection — that the system ingests as data.
+
+The signals are not votes. They do not override the AI's assessment. They do not independently determine any STI outcome. They function as *acceleration or deceleration inputs* on the trajectory the AI's behavioral observation already indicates. A citizen whose AI-observed conduct is positive and who receives strong public endorsement will see faster STI gains than one whose conduct is equally positive but socially invisible. A citizen whose conduct is deteriorating and who receives broad public disapproval will see faster STI decline.
+
+The critical constraint: **public signals cannot move STI against the grain of observed behavior.** If the AI's behavioral observation shows positive conduct, no volume of public disapproval can make the score go down. If the AI's observation shows deteriorating conduct, no volume of public endorsement can make the score go up. Public signals amplify trajectory. They do not create it.
+
+**Convergence.** The two channels merge in the score computation. The AI's preliminary assessment establishes the direction. The public signal input adjusts the speed. The output is a single score update that reflects both what the machine observed and what the population expressed — but the machine's observation is structurally dominant. The public signal can make the machine's trajectory express faster or slower. It cannot reverse it.
+
+---
+
+### PROXIMITY-WEIGHTING
+
+Not all public signals carry equal weight. The system applies proximity-weighting — signals from citizens who were physically closer to the act, who have a longer relational history with the actor, or who were directly affected by the act carry more weight than signals from citizens reacting to secondhand accounts or public ledger summaries.
+
+The weighting exists because proximity correlates with observational quality. A citizen who witnessed the act in person has information the public ledger summary does not capture — tone, body language, relational context, ambient circumstances. A citizen who read about the act on a ledger summary is reacting to a compressed description of what happened, stripped of the contextual richness the witness experienced. The system values the witness's signal more because the witness's observation is closer to the AI's own observation in informational quality.
+
+The proximity gradient operates on three axes:
+
+**Physical proximity.** Were you present when the act occurred? Signals from witnesses carry more weight than signals from citizens who learned about the act after the fact. The implant records location, so the system knows who was physically present.
+
+**Relational proximity.** Do you have an ongoing relationship with the actor? Signals from people who interact with the citizen regularly — neighbors, colleagues, friends, family — carry more weight than signals from strangers. The relational proximity axis captures information about behavioral patterns that no single act reveals. A neighbor who signals disapproval after years of positive interaction is providing information about a trajectory shift that a stranger's signal cannot contain.
+
+**Consequential proximity.** Were you affected by the act? Signals from people who experienced the consequences — victims, beneficiaries, dependents — carry the most weight of all. The person who was harmed by the act has information about its impact that no observer, however close, fully possesses. The person who was helped by the act has equivalent information about its positive impact. Consequential proximity is the strongest axis because the consequences are what the STI is ultimately measuring.
+
+The three axes compound. A neighbor who witnessed the act and was directly affected produces the highest-weight signal. A stranger who read about the act on the public ledger produces the lowest-weight signal. The system does not treat all opinions as equal because all opinions are not equally informed.
+
+---
+
+### WHAT PUBLIC SIGNALS CANNOT DO
+
+The constraints on public signals are as important as the signals themselves. The system was designed with explicit limits on what population input can achieve — and these limits are load-bearing architecture, not administrative convenience.
+
+**Public signals cannot create trajectory.** A citizen with stable, positive AI-observed behavior cannot be damaged by public disapproval alone. If every person in a district signals disapproval of a citizen whose behavioral data shows no harmful conduct, the citizen's STI is unaffected. The signals amplify nothing because there is no negative trajectory to amplify. This constraint is what prevents STI from becoming a popularity contest — the machine's observation is the ground truth, and the population's opinion of a citizen is structurally subordinate to the machine's reading of what that citizen actually did.
+
+**Public signals cannot override AI observation.** The AI governance system processes behavioral data at a depth and continuity no human observer can match. The implant records intent trajectory, not just visible action. The AI reads patterns across months and years, not just incidents. A population that is sincerely convinced a citizen is dangerous — based on gut feeling, neighborhood gossip, cultural prejudice, or pattern-matching against stereotypes — cannot move the STI if the behavioral data does not support their reading. The system protects citizens from moral panic, social prejudice, and collective misjudgment by making the machine's observation structurally dominant over the population's opinion.
+
+**Public signals cannot erase records.** Every signal — positive or negative — is appended to the ledger, not substituted for prior entries. A citizen whose act was initially met with public disapproval and later reconsidered by the same population has both signals on the record. The disapproval does not disappear when the approval arrives. Both are visible. Both are weighted. The trajectory reflects the sequence. This prevents the social phenomenon of retroactive reputation laundering — a community that initially condemned an act and later decided to forgive it cannot erase the condemnation from the record. They can add the forgiveness. Both remain.
+
+**Public signals cannot produce layer reassignment.** STI score changes — however caused — do not produce punitive layer reassignment (Charter Articles XII and XIII). Layer reassignment requires the criminal record log (Track 2), not the STI score (Track 1). Public signals feed into the STI score only. They have no mechanism to trigger the criminal evaluation pathway. A citizen whose STI drops to 10 because of sustained public disapproval amplifying an AI-observed decline is socially flagged and trust-gated — but they are not reassigned. Reassignment requires a qualifying event evaluated through the three-axis proportionality framework. Public opinion is not a qualifying event.
+
+---
+
+### CONTESTATION AND CORRECTION
+
+The public signal system is not the only channel through which citizens interact with the STI. Two correction mechanisms allow citizens to challenge the AI's own interpretation.
+
+**Civil court contestation (§5.7).** A citizen who believes the AI misread the context of a logged behavioral event may bring a contestation claim to a local civil court. The court reviews the behavioral data, the surrounding context, and the AI's interpretation. If the court finds the record was contextually incorrect — the AI captured the action accurately but misread the intent, the circumstances, or the relational dynamics — it issues a correction signal that the system ingests as a weighted modifier on the original entry. The original record is not erased. The correction is appended. Both remain visible on the ledger.
+
+Civil court contestation handles ordinary contextual disputes — cases where the AI's interpretation is contested but the category of dispute already has doctrinal precedent. The quality of civil court infrastructure varies by layer. Main Layer and Sanctuary produce robust, well-resourced courts because the population has the trust density and institutional capacity to sustain them. Lower layers produce sparser, less formal dispute resolution — consistent with the doctrine's institutional withdrawal gradient.
+
+**Popular signal correction (§5.8).** Distinct from civil court contestation, a popular signal correction occurs when the population *collectively* disputes the AI's characterization of a recorded event. This is not a judicial proceeding. It is a threshold of public disagreement significant enough that the system treats it as a correction input. If a sufficient volume of citizens who directly witnessed or were contextually proximate to the event signal that the AI's interpretation does not match what occurred, the system ingests this as a correction modifier.
+
+The threshold is weighted toward proximity — signals from citizens who were present carry more weight than signals from citizens reacting to secondhand accounts. Popular signal correction does not erase the original record. It appends a population-sourced contextual modifier that adjusts the STI impact of the event. The AI's observation and the population's contestation both remain permanently visible on the ledger.
+
+The distinction between public signals (§5.6) and popular signal correction (§5.8) is important: public signals are ongoing, continuous, and feed into every score update. Popular signal correction is event-specific, threshold-gated, and functions as a correction to a specific AI interpretation. Public signals say "here is what the population thinks of this citizen's overall conduct." Popular signal correction says "the AI got this specific event wrong, and enough proximate witnesses agree that the correction should be ingested."
+
+---
+
+### THE LAYER-CONTEXTUAL RATING
+
+The STI formula is identical across all layers. The weights, the dimensions, the computation — all the same. What varies is the public rating component, which draws from the visible ledger and reflects the judgment of the citizen's *layer population*.
+
+A citizen's STI consequence for identical conduct is not uniform across layers. The peers scoring conduct in +1 Sanctuary apply the standards of a high-trust, pre-intervention environment where chronic impairment, relational deception, or social disruption are rated harshly against the ambient behavioral norms. The same conduct rated by the population of -2 or -3 is assessed against that layer's ambient standard — an environment where the behavioral baseline is different, the tolerance for disruption is higher, and the peer population's experience of what constitutes notable conduct reflects the layer they inhabit.
+
+This is not a bug. It is a deliberate design feature. The doctrine treats context as a legitimate variable in reputational assessment. A citizen who is rude to a neighbor in Sanctuary has violated a norm that the population holds with near-universal consistency. The same rudeness in -2 may register as unremarkable against the ambient standard. The STI does not pretend that context is irrelevant to trust. It builds context into the public rating component and lets each layer's population define the standard their signals express.
+
+The institutional implication: a citizen who moves between layers (through visitation or elective residency) carries the same STI score but enters a different public signal environment. Their future score trajectory is influenced by a population with a different ambient standard. A Sanctuary resident visiting -3 receives public signals from a population that rates conduct against a -3 baseline. Their STI may move differently in -3 than it would have in Sanctuary for identical behavior — because the population providing the signal input is calibrating against different norms. The formula is the same. The signal environment is layer-specific. The score reflects both.
+
+---
+
+### THE DESIGN LOGIC
+
+The public signal architecture solves a problem that pure machine observation cannot: social trust is not purely behavioral. Two citizens can exhibit identical behavioral data — same compliance, same contribution, same conduct metrics — and be trusted differently by the people who know them. One is warm, reliable, and present. The other is correct, efficient, and absent. The AI reads the same behavioral profile. The population reads different people. The public signal input allows the system to capture the dimension of trust that behavior alone does not fully express — the human judgment that distinguishes between someone who meets every metric and someone who is genuinely trusted.
+
+The constraint architecture ensures this human judgment cannot be weaponized. The AI's observation remains dominant. The public input can only accelerate or decelerate a trajectory the AI already identified. The proximity-weighting ensures informed signals outweigh uninformed ones. The append-only ledger prevents retroactive reputation laundering. The separation between STI (Track 1) and the criminal record log (Track 2) ensures public opinion cannot produce punitive layer reassignment.
+
+The system is not trying to replace human judgment with machine judgment. It is not trying to replace machine judgment with human judgment. It is building a composite that takes the machine's depth of observation and the population's depth of social reading and produces a score that reflects both — with the machine as the structural foundation and the population as the contextual texture. The foundation cannot be overridden. The texture cannot be ignored. The score is richer than either input alone.
+
+The student who reads this resource and concludes that the public signal system is "just likes and dislikes" has missed the architecture entirely. The student who reads it and recognizes that the system is a carefully constrained channel for human social intelligence to enter a machine-dominated pipeline — without the human input ever being allowed to corrupt the machine's ground truth — has understood why the architecture requires both channels and why neither channel alone would produce an STI the civilization could trust.
+
+---
+
+## RESOURCE 9: The Merit Problem
+
+**A Governance Studies Textbook Excerpt — Social Closure in an Open Metric System**
+
+---
+
+*The Meritboard cannot be bribed, lobbied, or campaigned into. No election cycle, no donor class, no political party, no revolving door between industry and regulation. Qualification is measured. Roles are filled from the top of the relevant ranking. The system is procedurally open to every entity in the civilization — human, AI, AGI, cyborg — that demonstrates the required competence. This resource examines the problem the procedural openness does not solve: what happens when the culture that produces high-ranking entities narrows over time, not because the metrics are captured but because the pathways to the metrics are sociologically concentrated.*
+
+---
+
+### THE ARCHITECTURE'S STRENGTH
+
+The Meritboard's anti-capture design is the most sophisticated governance architecture in the VMSS framework. Three interlocking constraints prevent the failure modes that have destroyed every previous meritocratic system:
+
+**Metric governance constraint (Article XXII).** No entity ranked by a metric holds authority over the design of that metric. The Meritboard audits AI governance for drift but does not set the criteria by which its own members are ranked. AI governance administers the metrics but is audited by the body those metrics produce. The circularity is broken by design — the entity being evaluated cannot also be the entity defining the evaluation.
+
+**Metric separation (Article XXII).** The Presidency and the Supreme Court draw from different Meritboard sub-rankings measuring different competencies. The executive-doctrinal-leadership ranking and the legal-interpretation ranking produce non-overlapping populations of qualified candidates. Capture of one ranking does not compromise the other because the underlying metrics are distinct. A coordinated faction would need to dominate two unrelated competence metrics simultaneously — which the metric architecture is designed to prevent.
+
+**Constitutional metric categories (Article XXII).** The metric categories are anchored in the Charter to objectively measurable outputs — research output, cognitive metrics, institutional contribution, doctrinal comprehension, sustained STI record. The categories are not adjustable by any single body. Adding or removing a category would require the Article XI amendment gauntlet. The weighting within categories is operational (administered by AI governance), but the categories themselves are constitutional — cemented at the highest tier of doctrinal protection.
+
+These three constraints eliminate bribery, eliminate campaign politics, eliminate constituency capture, eliminate revolving-door corruption, and eliminate the self-grading problem that undermines every Earth-era meritocratic institution. The system is procedurally open and procedurally incorruptible. That is not the problem.
+
+---
+
+### THE PROBLEM THE ARCHITECTURE DOES NOT SOLVE
+
+Procedural openness does not guarantee sociological openness. A system where anyone *can* qualify is not the same as a system where anyone *does* qualify with equal probability. The metrics are open. The pathways to performing well on the metrics may not be.
+
+Consider the competence metrics the Meritboard evaluates: research output, cognitive metrics, institutional contribution, doctrinal comprehension, sustained STI record. Each of these is objectively measurable. Each is available to any citizen in any layer. But the *probability* of producing exceptional performance on these metrics is not evenly distributed across the population — because the environments that nurture exceptional performance are not evenly distributed.
+
+A Sanctuary-born citizen grows up in a pre-intervention environment with the civilization's densest educational infrastructure, the highest concentration of high-performing adults to learn from, the richest MGD ecosystem for specialized development, and an ambient culture that values the exact competencies the Meritboard measures. A Main Layer citizen has access to the same formal infrastructure but a different ambient culture — broader, more diverse, less concentrated in the specific competencies the leadership rankings reward. A -1 citizen has partial institutional infrastructure and an ambient culture oriented toward reputation-based commerce and private enterprise rather than institutional contribution. A -2 or -3 citizen has minimal institutional infrastructure and an ambient culture oriented toward survival, territorial navigation, and private order.
+
+No metric is biased. No pathway is formally closed. But the citizen who grew up in Sanctuary, attended Sanctuary's educational institutions, was mentored by current or former Meritboard members, and spent their formative years in an environment optimized for exactly the competencies the rankings measure will — on average — outperform the citizen who grew up in -1's repair cooperatives or -3's frontier economy. Not because they are smarter. Not because the system is rigged. Because the environment that produces Meritboard-competitive performance is concentrated in the layers where Meritboard members already live.
+
+This is the merit problem: a system that is procedurally open and metrically fair can still produce a sociological pattern where leadership recruitment narrows to a cultural subset of the population — not because the subset cheated, but because the subset grew up in the environment most optimized for the metrics the system uses.
+
+---
+
+### THE HISTORICAL ANALOGS
+
+Every meritocratic system on Earth has encountered this problem and failed to solve it.
+
+**Imperial China's examination system** (605–1905 CE) was the longest-running meritocracy in human history. Open to any male citizen. Tested on standardized curriculum. Graded anonymously. Procedurally incorruptible by the standards of its era. Over centuries, the system produced a governing class drawn overwhelmingly from families that could afford tutors, study materials, and the years of preparation the exams required. The exams were open. The preparation was not. By the late Qing dynasty, the examination bureaucracy was sociologically closed — not because the exams were unfair, but because the ecosystem that produced successful candidates had concentrated in a narrow stratum of society.
+
+**Modern university admissions** exhibit the same pattern. Standardized tests, blind grading, need-based financial aid — procedurally open by design. Sociologically, the student body of elite institutions is drawn disproportionately from families with educational resources, cultural capital, and proximity to the institutional pipeline. The system is not rigged. The pathway through the system is sociologically concentrated.
+
+**Corporate meritocracy** claims to promote based on performance. In practice, the networks, mentorship relationships, cultural fluency, and institutional visibility that produce promotion-eligible performance are concentrated in demographics that already hold leadership positions. The metrics are real. The ecosystem that produces metric performance is narrow.
+
+VMSS's Meritboard is more resistant to these failure modes than any historical analog because its anti-capture constraints are constitutional rather than administrative. But resistance is not immunity. The question is whether the sociological concentration pattern is *structurally possible* inside the Meritboard architecture — and the honest answer is yes, because the anti-capture constraints protect against metric manipulation, not against environmental concentration of the competencies the metrics measure.
+
+---
+
+### THE DOCTRINE'S EXISTING DEFENSES
+
+The Meritboard is not defenseless against sociological narrowing. Several existing instruments provide partial resistance:
+
+**Substrate neutrality.** The Meritboard ranks human, AI, AGI, and cyborg entities in any combination. AI and AGI entities do not grow up in Sanctuary. They do not attend Sanctuary's educational institutions. They do not absorb Sanctuary's ambient culture. Their performance on the metrics is generated through computational processes that are structurally independent of any layer's sociological environment. An AGI that outperforms every human candidate on the legal-interpretation ranking disrupts the sociological concentration pattern — not because the system intended it, but because substrate neutrality means the ranking accepts performance from any source, including sources outside the human sociological pipeline entirely.
+
+**Layer-agnostic metrics.** The metrics are defined by output, not by origin. Research output is measured by what you produced, not by where you produced it. Cognitive metrics are measured by demonstrated capability, not by educational pedigree. A citizen from -1 who produces exceptional research output is ranked identically to a Sanctuary citizen who produces the same output. The system does not know or care where the performance originated. It measures the performance.
+
+**The Meritboard's breadth.** The ranking spans every major discipline the civilization produces — not just governance, law, and institutional administration, but also science, engineering, medicine, art, and every other domain where measurable achievement is possible. The breadth means no single cultural pipeline can dominate the entire ranking. A Sanctuary educational culture that excels at doctrinal comprehension and institutional contribution may not excel at frontier engineering or crisis response. The sub-rankings diversify the leadership pool across competencies that different environments produce at different rates.
+
+**The civic health participation metric (§7.5).** Article XX's accountability mandate includes surfacing engagement anomalies. If the Meritboard's composition narrows measurably — if the top 100 entities on the executive-doctrinal-leadership ranking are disproportionately drawn from a specific layer, institution, or cultural pipeline — the civic health metric would flag the pattern as an engagement anomaly. The Meritboard is constitutionally required to publish its assessment of the anomaly. The assessment is public. The population can evaluate whether the narrowing reflects genuine merit concentration or sociological closure.
+
+---
+
+### THE GAP THAT REMAINS
+
+The existing defenses are real but they do not close the problem completely. Three residual vulnerabilities persist:
+
+**Cultural legibility.** The Meritboard's metrics are objective. But "doctrinal comprehension" and "institutional contribution" are competencies that reward a specific kind of institutional fluency — the ability to operate within VMSS's governance vocabulary, reference the Charter with precision, and produce work that the institutional evaluation system recognizes as excellent. A citizen who grew up in an environment where this fluency is ambient has an advantage that the metrics do not create but do reward. The fluency is not biased. The distribution of fluency is concentrated.
+
+**Network effects in mentorship.** A current Meritboard member who mentors the next generation of candidates is not violating any rule — mentorship is a positive social contribution that the STI rewards. But the mentorship produces candidates who are calibrated to the institutional standards the mentor represents. Over generations, the mentorship pipeline produces a self-similar cohort — not through exclusion but through cultural reproduction. The candidates who had access to high-ranking mentors are better prepared for the metrics than candidates who prepared independently. The advantage is real, legal, and unaddressable by anti-capture constraints because it operates through positive social behavior rather than manipulation.
+
+**The visibility problem.** To be ranked, your output must be visible to the AI governance system that administers the ranking. A citizen producing exceptional work in a remote -3 cooperative may generate output the ranking system never observes — not because the system refuses to look, but because the institutional infrastructure that surfaces achievement to the ranking system is concentrated in upper layers. The implant records everything the citizen does. But the ranking evaluates *recognized* achievement — research that is published, contributions that are institutionally recorded, cognitive performance that is formally assessed. A citizen whose achievement occurs outside institutional channels may be metrically invisible despite being substantively qualified.
+
+---
+
+### THE DOCTRINAL RESPONSE
+
+The merit problem does not have a clean doctrinal solution — because the problem is not a doctrinal failure. The metrics work. The anti-capture constraints work. The procedural openness is real. The sociological concentration is a second-order effect of environmental stratification that the layer system was designed to produce. The civilization *intended* different layers to develop different cultures, different institutions, and different ambient competencies. The merit problem is the governance consequence of that success.
+
+The composable response operates on three levels:
+
+**Level one: transparency.** The Meritboard's composition is public. The rankings are public. The metric categories are constitutional and published. If sociological narrowing occurs, it is visible — the data shows where the top-ranked entities came from, what environments produced them, and whether the pipeline is diversifying or concentrating. The civic health metric flags the pattern. The Meritboard publishes its assessment. The population evaluates. Transparency does not solve the problem. It prevents the problem from being invisible.
+
+**Level two: substrate diversification.** As AI and AGI entities mature, their increasing presence in the rankings disrupts human sociological patterns by introducing performance sources that are environmentally independent. An AGI does not have a home layer. It does not have a cultural pipeline. Its performance on the metrics is generated from computational capacity, not from sociological advantage. The more AGI entities appear in the rankings, the less the rankings reflect any human cultural concentration — because the non-human entities dilute the pattern. This is not a designed solution. It is an emergent consequence of substrate neutrality that becomes more powerful as AI governance matures across the 974-year trajectory.
+
+**Level three: the Article XXVIII pathway.** If the population concludes that the merit problem has become severe enough to warrant intervention, the regulatory petition mechanism provides the instrument. A petition proposing measures to diversify the institutional pipeline — expanded assessment infrastructure in lower layers, formal mentorship exchange programs across layers, distributed research evaluation that captures achievement in non-institutional contexts — would follow the standard Article XXVIII path: 1% signature threshold, expert panel drafting, 80% population ratification. If the measures touch the Meritboard's constitutional structure (the metric categories, the ranking mechanism, the anti-capture constraints), they exceed regulatory jurisdiction and require the Article XI amendment gauntlet.
+
+The deepest honest answer: the merit problem is the cost of meritocracy. Every system that selects on measured performance will, over time, produce a concentration of the environmental factors that produce that performance. The alternative — selecting on something other than measured performance — produces worse outcomes (electoral politics, hereditary authority, random selection). VMSS chose meritocracy knowing the concentration problem exists, and built the instruments (transparency, substrate diversification, regulatory pathway) to manage it without abandoning the principle. The merit problem is not solvable in the sense of being eliminable. It is manageable in the sense of being visible, monitorable, and addressable through the civilization's own governance mechanisms. A civilization that publishes the problem is better governed than a civilization that denies it.
+
+The student who reads this resource and concludes that the Meritboard is a sham has misread the evidence — the anti-capture constraints are the strongest governance architecture ever designed. The student who reads it and concludes the Meritboard is perfect has missed the sociological dimension the constraints do not reach. The student who reads it and recognizes that the merit problem is a genuine, persistent, manageable cost of the best available governance model — and that the civilization's instruments for managing it are better than any alternative's instruments for managing its own version of the same problem — has understood the resource at the level it was designed to operate.
+
+---
+
+## RESOURCE 10: Memory, Repair, and Moral Lag
+
+**A Behavioral Philosophy Textbook Excerpt — The 10:1 Ratio and the Architecture of Slow Trust**
+
+---
+
+*The STI operates on a 10:1 penalty-to-recovery ratio. Trust is approximately ten times harder to rebuild than it is to lose. This single number is one of the most emotionally contested design choices in the entire doctrine. Critics call it punitive. Defenders call it realistic. The Charter calls it "calibrated to how trust actually operates." This resource examines why the ratio exists, what it produces, what it costs, and whether the cost is worth paying — not as a policy debate but as a structural analysis of what trust is and how consequence-based systems must handle it.*
+
+---
+
+### WHY TRUST IS ASYMMETRIC
+
+The 10:1 ratio is not an arbitrary policy parameter. It is a formalization of an observable truth about how trust operates in every human society that has ever existed.
+
+Trust accumulates slowly because it is built through repeated observation. A person who behaves reliably once has given you one data point. A person who behaves reliably a hundred times has given you a pattern. The pattern is what trust is made of — not any single act, but the aggregate of acts over time that produces a prediction about future behavior. Building the pattern takes time because each new act adds incrementally to an existing record. A year of reliable conduct builds a year's worth of trust. Ten years builds ten years' worth. The accumulation is approximately linear — each act of positive conduct adds a roughly equal increment to the trust prediction.
+
+Trust collapses fast because a single act of betrayal does not merely subtract one data point from the pattern. It *reframes* the pattern. A person who was reliable for ten years and then betrays you has not lost one-tenth of your trust. They have introduced the information that their reliability was not what you thought it was — that the pattern you observed was either incomplete (they were always capable of this), conditional (they were reliable only under certain circumstances you did not identify), or deteriorating (something changed and you did not detect it in time). The betrayal contaminates the entire prior record because the prior record's value as a predictor has been invalidated by an outcome it did not predict.
+
+This is not a moral judgment. It is an information-processing reality. The 10:1 ratio formalizes the informational asymmetry between building a predictive pattern (slow, incremental, roughly linear) and invalidating a predictive pattern (fast, discontinuous, retroactively contaminating). The ratio is calibrated to *how trust actually operates*, not to how the civilization wishes it operated.
+
+---
+
+### THE BOUNDARY-RIDING CLOSURE
+
+The 10:1 ratio serves a second architectural function beyond trust formalization: it closes the boundary-riding exploit.
+
+Boundary-riding is the strategy of sustained low-level harm that stays below any single reassignment threshold. A citizen who commits one minor harassment per month — each individually clearable, each individually below the severity threshold for escalation — accumulates a pattern that the system must eventually recognize as meaningful. Without the 10:1 ratio, the citizen could clear each infraction individually and reset to baseline, maintaining an indefinitely clean active record while producing sustained harm at the community level.
+
+The 10:1 ratio prevents this by making clearance slower than accumulation. A citizen who commits a minor infraction loses trust at the penalty rate. Clearing the infraction and demonstrating corrective conduct restores trust at one-tenth the penalty rate. If the citizen commits another infraction before the first is fully restored, the second penalty compounds on top of the incomplete recovery from the first. The trajectory slopes downward even though each individual act is clearable — because the recovery between acts is structurally insufficient to restore the baseline before the next act arrives.
+
+The boundary-rider discovers that their strategy produces a slow, compounding decline that eventually makes their behavioral pattern legible to the system. They are not punished for any single act. They are scored on a trajectory that the 10:1 ratio ensures they cannot flatten through selective clearance. The asymmetry converts a potential exploit into a losing strategy over time — not by detecting the strategy (which would require reading intent the doctrine does not penalize) but by making the mathematical dynamics of repeated low-level harm inherently self-defeating under the ratio's recovery constraint.
+
+---
+
+### WHAT THE RATIO COSTS
+
+The 10:1 ratio produces the outcome the doctrine intends — slow trust rebuilding, boundary-riding closure, and a score that reflects the informational reality of how trust operates. It also produces costs the doctrine acknowledges but considers acceptable.
+
+**Cost one: moral lag.** A citizen who commits a serious breach, takes full responsibility, makes restitution, and demonstrates sustained behavioral correction for years will still carry a depressed STI score long after their actual conduct has returned to pre-breach levels. The score lags behind the reality. The citizen's *present character* may be exemplary. The citizen's *score* still reflects the breach because the 10:1 recovery rate has not yet restored the trust the breach destroyed. The citizen and the people around them can see the gap between who the citizen is now and what the score says — and the gap feels unjust because the score is describing a historical debt rather than a current reality.
+
+The doctrine's response: the STI formula is weighted on best outcomes across the behavioral record (§5.11 — trajectory weighting). A citizen demonstrating sustained improvement is scored on the trajectory, not on the trough. The trajectory weighting does not eliminate the moral lag — the 10:1 ratio still governs the recovery speed. But it prevents the lag from compounding into a trap by ensuring the system gives credit for the direction of movement, not just the current position. A citizen whose trajectory is upward is treated differently than a citizen whose score is the same but whose trajectory is flat or declining. The lag persists. The system sees through it.
+
+**Cost two: the perception of double punishment.** A citizen who has already experienced the social consequences of a breach — public visibility, relationship damage, professional exclusion, community judgment — may feel that the slow STI recovery constitutes a second punishment on top of the consequences they have already absorbed. The score continues to penalize them for something the social environment has already processed. The citizen has "done their time" in the social sense. The score says they have not done their time in the metric sense.
+
+The doctrine's response: STI is not a punishment mechanism. It is a reliability prediction. The score does not care whether the citizen has suffered enough. It cares whether enough positive data has accumulated to restore the prediction to pre-breach confidence. A citizen who has been socially forgiven has been forgiven by the people who know them. The STI serves the people who *do not* know them — the stranger evaluating whether to enter a contract, the employer evaluating whether to hire, the district evaluating whether to accept a new resident. Those parties do not have the social context that produced forgiveness. They have the score. The score must reflect the informational reality of the breach, not the emotional reality of the forgiveness, because the score's audience is different from the forgiveness's audience.
+
+**Cost three: the repair asymmetry.** A citizen who commits extraordinary repair — public admission, private restitution, community accountability, sustained behavioral correction — does not receive extraordinary credit in the STI. The 10:1 ratio does not have a "repair bonus" that accelerates recovery for citizens who do everything right. A citizen who repairs and a citizen who merely stops offending recover at the same base rate. The trajectory weighting gives credit for sustained improvement, but it does not distinguish between improvement through active repair and improvement through passive cessation.
+
+The doctrine's response: this is a known design limitation, not an oversight. A repair bonus would create a gaming vector — citizens could commit breaches and then perform dramatic public repair for accelerated recovery, producing a cycle of harm-then-performance that the system rewards. The 10:1 ratio's uniformity prevents this exploit. The cost is that genuine repair receives no metric premium. The benefit is that performed repair receives no metric premium either. The system cannot distinguish between genuine and performed repair in the metric — so it treats both identically to prevent the performed version from being incentivized. The social environment — the public signal component — can distinguish between genuine and performed repair, and the public signal input accelerates the trajectory accordingly. But the base rate remains 10:1 regardless of repair quality.
+
+---
+
+### THE PHILOSOPHY BENEATH THE RATIO
+
+The 10:1 ratio is ultimately a statement about the relationship between conduct and time. The civilization claims that consequence follows conduct. The ratio specifies *how long* consequence follows conduct — and the answer is: much longer than the conduct itself took to commit.
+
+A betrayal that took five seconds to commit takes years to recover from in the STI. This temporal asymmetry is not a bureaucratic lag. It is the formalization of a truth the doctrine considers foundational: the damage a harmful act produces is not confined to the moment of the act. The damage radiates forward in time — through the victim's experience, through the community's recalibrated trust, through every future interaction the actor has with people who know or learn about the breach. The STI's slow recovery rate mirrors the slow dissipation of the damage's downstream effects. The score returns to baseline approximately when the damage's effects have dissipated to the point where the pre-breach trust prediction is again defensible.
+
+This is what the Charter means by "calibrated to how trust actually operates." The ratio is not calibrated to what feels fair to the person being scored. It is calibrated to the informational reality of how the scoring audience — the population that relies on the score as a trust prediction — processes the evidence of a breach. The population's trust in the actor does not return to pre-breach levels the moment the actor stops offending. It returns slowly, act by act, observation by observation, as the new data gradually outweighs the contaminating effect of the breach on the prior prediction. The 10:1 ratio formalizes the speed at which that recovery occurs in observable human social systems.
+
+---
+
+### THE DEEPER QUESTION
+
+The question the doctrine does not answer — because it is a question the civilization must answer through lived experience rather than constitutional text — is whether moral lag is a feature or a cost.
+
+The feature argument: moral lag ensures that trust is earned, not declared. A citizen cannot announce "I have changed" and receive immediate metric restoration. They must demonstrate change over time, under observation, at the pace the population's trust naturally rebuilds. The lag is the system's honesty about the fact that trust is not a switch — it is a trajectory, and trajectories take time to establish.
+
+The cost argument: moral lag penalizes the present for the past. A citizen who has genuinely changed is still scored as if they haven't — not because the system disbelieves them, but because the system's recovery rate has not caught up to their actual behavioral improvement. The citizen lives in the gap between who they are and what the score says, and the gap is a consequence of the ratio's design, not of the citizen's conduct.
+
+Both arguments are correct. The feature and the cost are the same thing — slow trust recovery simultaneously protects the population from premature restoration and penalizes the individual for historical debt. The question is which effect the civilization values more: the protection or the penalty.
+
+The doctrine chose the protection. The 10:1 ratio is the formal expression of that choice. The civilization decided that the cost of penalizing genuine change (moral lag for the individual) is lower than the cost of premature restoration (vulnerability for the population). The ratio is load-bearing because the trust prediction the STI provides is load-bearing — it gates contracts, partnerships, domain access, and phasing eligibility. A prediction that resets too fast is a prediction the audience cannot trust. A prediction the audience cannot trust is a prediction that serves no one — including the citizen it describes.
+
+The student who reads this resource and feels the ratio is too harsh has felt something real — moral lag is a genuine cost. The student who reads it and recognizes that the cost is the price of a trust prediction the population can rely on has understood why the doctrine pays it. The student who reads it and asks whether the civilization should periodically re-examine the ratio through the Article XI gauntlet — testing whether the 10:1 number is still calibrated to observed trust dynamics as the civilization matures and the population's experience of trust evolves — has understood the question at the level the resource was designed to reach. The ratio is not sacred. It is load-bearing. Load-bearing things can be re-evaluated. They just cannot be changed casually.
