@@ -3079,3 +3079,231 @@ The Academy recognizes this work as the first student-originated contribution to
 ---
 
 *Defended before the Meritboard Research Division Panel, Year 2847. Published as Meritboard Reference Document MRD-2847-0041. Adopted into the Academy curriculum as Resource 11 by faculty vote, Year 2848.*
+
+---
+
+## RESOURCE 12: International Trade
+
+**A Political Economy Textbook Excerpt — How a Post-Scarcity Civilization Trades with a Scarcity World**
+
+---
+
+*VMSS currency is inconvertible externally. No VMSS currency circulates outside the civilization's borders. International trade operates on a goods-for-goods basis — the oldest form of commerce, applied at civilizational scale between economies operating under fundamentally incompatible assumptions. This resource analyzes the trade architecture, the embargo structure, the allied preferential access system, and the strategic implications of a civilization that can fabricate everything it needs choosing to trade anyway.*
+
+---
+
+### WHY VMSS TRADES AT ALL
+
+A civilization with fabrication technology, automated production at 90%+ capacity, Dyson-class energy trajectory, and a post-scarcity economic base does not need to trade. Every material good the civilization requires can be fabricated from raw feedstock sourced within its own territory or from orbital extraction operations. VMSS is materially self-sufficient in a way no Earth nation has ever been.
+
+VMSS trades for three reasons that are strategic, not economic:
+
+**Diplomatic leverage.** Trade access is the civilization's primary non-military instrument of international influence. A nation that receives VMSS fabrication technology, medical systems, automation infrastructure, and advanced materials integrates those systems into its own economy and becomes dependent on VMSS for maintenance, upgrades, and replacement parts. The dependency is not coercive — the recipient nation benefits enormously from the technology. But the dependency creates a relationship the recipient cannot easily exit. Trade access is Tier 1 of the External Force Doctrine (§24.1) — diplomatic and economic leverage that operates below the threshold of military engagement.
+
+**Alliance maintenance.** Treaty allies receive preferential trade access as a core benefit of the alliance relationship. The access includes technologies restricted from non-allied states — fabrication technology that the ally cannot develop independently, medical systems that exceed anything the ally's domestic research produces, and automation infrastructure that accelerates the ally's own economic development. The trade relationship is the economic foundation of the alliance. An ally that loses trade access loses the technological advantage the alliance provides — which is why trade access is the most powerful sanction the civilization can impose without deploying military capability.
+
+**Information acquisition.** Goods-for-goods trade produces two-way information flow. VMSS exports technology. It imports raw intelligence about the trading partner's economy, industrial capacity, technological development, and strategic priorities — all of which are readable from the composition, volume, and pattern of what the partner requests. A nation that suddenly increases its orders for advanced materials and decreases its orders for medical systems is signaling a shift in strategic priority that the Meritboard's intelligence analysis can read from the trade data alone. The trade relationship is a sensor as much as an exchange.
+
+---
+
+### THE CURRENCY WALL
+
+VMSS currency is inconvertible externally — no circulation outside borders, no exchange markets, no foreign reserves held in VMSS currency. This is not a trade restriction. It is a structural feature of the currency siloing architecture (Charter Article III.IV) extended to international boundaries.
+
+The currency wall produces three effects:
+
+**No financial dependency.** Earth nations that hold US dollars as reserve currency are financially dependent on US monetary policy. A VMSS trading partner holds no VMSS currency and therefore has no exposure to VMSS monetary decisions. The trade relationship is purely goods-based — what you receive is physical, not financial. The civilization cannot be accused of monetary imperialism because it has no mechanism for monetary influence. The currency stays inside the walls.
+
+**No arbitrage.** Currency convertibility creates arbitrage opportunities — traders who exploit exchange rate differentials to extract value without producing goods. The currency wall eliminates this category of financial activity between VMSS and the outside world. Every unit of value that crosses the border is a physical good, not a financial instrument. The trade is what it appears to be — goods for goods, at terms both parties agreed to. No hidden financial extraction operates underneath the physical exchange.
+
+**No sanctions evasion through financial channels.** When VMSS imposes economic sanctions on a non-allied state (Tier 1 of the External Force Doctrine), the sanctions operate on the goods pipeline directly. There are no financial channels to route around because no financial channels exist. The sanctioned nation cannot buy VMSS goods through a third-party currency exchange, through a shell corporation holding VMSS currency, or through any financial mechanism that interposes between the goods and the recipient. The currency wall makes sanctions enforceable at a level Earth sanctions have never achieved — because Earth sanctions must contend with a global financial system designed to move money across borders, and VMSS sanctions operate in a system where money does not cross borders at all.
+
+---
+
+### THE TWO-TIER ACCESS SYSTEM
+
+VMSS maintains two tiers of trade access differentiated by treaty relationship. The distinction is published, non-negotiable, and constitutes the economic dimension of the alliance architecture.
+
+**Tier 1: Allied Nations (Federation Treaty Partners)**
+
+Treaty allies receive full access to the VMSS export catalogue — including restricted technologies that non-allied states cannot obtain at any price. The restricted exports include:
+
+Fabrication technology — the manufacturing systems that produce goods at molecular fidelity. An ally that receives fabrication technology can manufacture VMSS-grade products domestically, reducing its dependency on VMSS supply chains over time. This is deliberate — the alliance is stronger when the ally is technologically capable rather than permanently dependent. The fabrication technology is the most strategically significant export because it transfers productive capability, not just products.
+
+Medical systems — backup vessel precursor technology (not the full backup vessel architecture, which is sovereign and non-transferable), neural interface medical applications, biological augmentation medical protocols, nanite-based surgical and therapeutic systems. Allied nations that adopt these systems see healthcare outcomes improve dramatically — which strengthens the alliance by making the ally's population healthier, more productive, and more invested in the relationship that provides the technology.
+
+Automation infrastructure — AI-directed manufacturing, logistics, and agricultural systems. An ally that receives automation infrastructure can begin its own transition toward post-scarcity economics — reduced labor dependency, increased production surplus, and the economic base for implementing UBI or equivalent social floor programs. The automation export is the most transformative trade item because it changes the ally's economic structure rather than just supplying goods.
+
+Advanced materials — composites, nanomaterials, and engineered substances that VMSS produces through fabrication technology and orbital extraction. These materials exceed anything the ally can manufacture domestically and enable construction, engineering, and manufacturing projects that would otherwise be impossible.
+
+Treaty allies pay for these exports in goods — raw materials, specialty products the ally produces, cultural goods, and strategic commodities. The terms are negotiated bilaterally under the Federation Treaty framework. The exchange rates are not set by currency markets (which do not exist between VMSS and any external nation) but by bilateral negotiation anchored to the goods' assessed value to each party. A nation with abundant rare earth minerals trades raw feedstock for fabrication technology. A nation with advanced pharmaceutical research trades medical intellectual property for automation infrastructure. Each trade relationship is calibrated to what each party produces and what each party needs.
+
+**Tier 2: Non-Allied Nations (Standard Terms)**
+
+Non-allied states trade with VMSS under standard terms — access to non-restricted exports only. The restricted catalogue (fabrication, medical systems, automation, advanced materials) is unavailable. Non-allied nations can purchase:
+
+Consumer goods — products fabricated by VMSS at quality levels that exceed anything Earth manufacturing produces. The goods are physical exports, priced in goods-for-goods terms. A non-allied nation trades commodity exports (agricultural products, minerals, manufactured goods) for VMSS consumer products.
+
+Non-strategic technology — systems and tools that do not confer military, manufacturing, or governance advantage. Communications equipment, entertainment technology, civilian transportation systems, and general-purpose computing hardware fall in this category.
+
+The restriction on strategic exports to non-allied states is not punitive. It is structural. Fabrication technology in the hands of a non-allied state — particularly one with hostile intent — creates a manufacturing base the civilization cannot audit and does not control. The same fabrication technology that builds medical systems can build weapons. The same automation infrastructure that runs factories can run military logistics. The trade restriction ensures that the civilization's most powerful exports go only to partners whose governance standards, human rights baselines, and mutual defense commitments have been verified through the treaty admission process.
+
+---
+
+### THE EMBARGO ARCHITECTURE
+
+Economic sanctions are the primary instrument of Tier 1 of the External Force Doctrine. When a non-allied state's behavior crosses the diplomatic friction threshold — hostile rhetoric, conventional military buildup, treaty violations, human rights abuses at scale — the civilization deploys economic pressure before military capability.
+
+**Graduated embargo.** Sanctions are not binary (full trade or no trade). They are graduated across the non-restricted export catalogue:
+
+Stage 1: restriction on specific non-strategic exports. The sanctioned nation loses access to particular goods categories — the restriction is targeted at goods the nation values most, creating maximum economic pressure with minimum collateral impact on the nation's civilian population.
+
+Stage 2: broad restriction on all non-strategic exports. The nation loses access to the full non-restricted catalogue. Only humanitarian goods (food, basic medical supplies) continue flowing.
+
+Stage 3: complete trade embargo. All goods flow ceases. The nation receives nothing from VMSS — no consumer goods, no technology, no humanitarian supplies. This stage is reserved for nations that have crossed into Tier 2 (active hostility) of the External Force Doctrine.
+
+**Allied coordination.** When VMSS imposes sanctions, treaty allies are expected to align their own trade relationships with the sanctioned nation — reducing the sanctioned nation's ability to route around VMSS restrictions through allied intermediaries. The Federation Treaty includes published provisions for sanctions alignment. An ally that refuses to align faces no direct penalty from VMSS — but the refusal is noted in the alliance relationship and may affect future treaty negotiations.
+
+**Sanctions as off-ramp.** Every sanctions deployment includes a published off-ramp — specific, measurable conditions the sanctioned nation can meet to restore trade access. The conditions are calibrated to the behavior that triggered the sanctions. A nation sanctioned for human rights abuses receives conditions related to human rights reform. A nation sanctioned for military buildup receives conditions related to demilitarization. The off-ramp is public because the External Force Doctrine requires transparency at every tier — the sanctioned nation and the global audience can see exactly what must change for trade to resume.
+
+---
+
+### WHAT HAPPENS TO GLOBAL MARKETS
+
+A civilization that can fabricate any physical good at molecular fidelity and chooses to export those goods on a goods-for-goods basis produces structural effects on global commodity markets that the trading partners must navigate.
+
+**Price compression on manufactured goods.** VMSS exports manufactured goods at quality levels Earth manufacturing cannot match — and the goods-for-goods pricing means the "price" is measured in commodities, not currency. A non-allied nation that trades 1,000 tons of copper for VMSS consumer electronics has effectively priced those electronics in copper. If VMSS electronics are dramatically superior to anything produced domestically, the implicit copper-price of domestic electronics rises — why buy domestic when VMSS quality is available for the same commodity input? Earth-based manufacturers face competition from a post-scarcity producer that does not need profit margins, does not face labor costs, and does not operate under the same resource constraints. The competitive pressure is not hostile — it is structural. VMSS is not trying to destroy Earth manufacturing. It is simply offering better goods at terms Earth manufacturers cannot match because Earth manufacturers operate under scarcity constraints VMSS has transcended.
+
+**Commodity value restructuring.** The goods VMSS wants in trade determines which commodities become strategically valuable in the global economy. If VMSS trades fabrication technology for rare earth minerals, rare earth-producing nations become strategically important in a way they were not before VMSS existed. If VMSS trades medical systems for pharmaceutical research, nations with advanced research sectors gain trade leverage they did not previously hold. VMSS's trade preferences reshape the global commodity hierarchy — and the reshaping is visible because the trade terms are bilateral and published.
+
+**The autarky question.** A non-allied nation that observes its domestic manufacturing becoming uncompetitive against VMSS imports faces a strategic choice: continue trading and accept increasing technological dependency on VMSS, or pursue autarky (economic self-sufficiency) and accept the quality gap. Neither option is comfortable. The trading path produces dependency. The autarky path produces obsolescence. The third option — seeking treaty alliance to gain access to fabrication technology and develop domestic manufacturing capability — is the option VMSS's trade architecture is designed to incentivize. The trade restrictions on non-allied nations and the trade access for allied nations create a structural incentive to meet the treaty admission standards. The civilization does not force nations to join the alliance. It makes the alternative progressively less attractive.
+
+---
+
+### THE STRATEGIC LOGIC
+
+VMSS trades from a position of total material self-sufficiency. It does not need anything the outside world produces. Every trade relationship it maintains is a strategic choice — a deliberate decision to engage with the scarcity economy rather than ignore it.
+
+The strategic logic is containment through integration. A world in which VMSS is economically isolated is a world in which VMSS's technological advantage produces fear, resentment, and strategic desperation in non-allied states. A world in which VMSS trades openly — offering genuine economic benefit to nations that meet basic governance standards — is a world in which the civilizational comparison does its work without military pressure. The trade relationship is the mechanism by which the comparison operates. A nation that receives VMSS medical systems and watches its disease burden drop by 80% does not need to be told the VMSS model works. The trade relationship demonstrated it.
+
+**What VMSS imports.** The civilization that fabricates everything still has an import appetite — for the one category fabrication cannot produce: culture. Foreign music, film, literature, cuisine traditions, fashion aesthetics, performance art, athletic traditions, handcrafted goods with cultural provenance, religious artifacts, and entertainment media represent value that originates in human creative traditions VMSS does not contain. A fabrication system can replicate a hand-thrown ceramic at molecular fidelity. It cannot replicate the tradition, the maker's intent, or the cultural context that gives the original its meaning. VMSS imports authenticity — the cultural goods whose value is inseparable from their origin. ImmersionTube content captured in foreign environments, neural diving experiences recorded by foreign artists, culinary traditions that developed over centuries outside VMSS territory — these are the imports the civilization values most, because they are the imports it cannot produce domestically regardless of how advanced its fabrication technology becomes. The goods-for-goods exchange at this level is technology for culture — and both parties receive something they cannot generate alone.
+
+The deepest strategic implication: VMSS's trade architecture is designed to make the alliance the rational economic choice for every nation capable of meeting the admission standards. A nation that could join but chooses not to is accepting a permanent quality gap, a permanent technology gap, and a permanent competitive disadvantage against nations that did join. The gap compounds every year as allied nations receive fabrication technology and develop domestic production capacity while non-allied nations remain dependent on standard-terms imports. The long-horizon outcome is not military conquest. It is economic gravity — the gradual, voluntary alignment of the global economy around the alliance network, driven not by coercion but by the structural incentive the trade architecture creates.
+
+The student who reads this resource and concludes that VMSS trade policy is benevolent has read the goods correctly and the strategy incorrectly. The student who concludes it is imperialist has read the strategy correctly and the constraints incorrectly — a civilization that offers an off-ramp on every sanction, publishes every trade term, and cannot coerce through currency manipulation is not an empire in any meaningful sense. The student who recognizes that the trade architecture is *designed to make the alliance irresistible without making it compulsory* has understood the strategic logic at the level the resource was written to convey.
+
+---
+
+## RESOURCE 13: Disaster Response Across the Gradient
+
+**A Civil Infrastructure Textbook Excerpt — How Five Civilizations Inside One Architecture Respond to the Same Catastrophe**
+
+---
+
+*A seismic event along a mega-wall fault line affects three adjacent layers simultaneously. The same earthquake. The same magnitude. The same geological force. Five different civilizational responses — because the layers are five different civilizations, each with its own institutional density, enforcement posture, economic character, and private order. This resource analyzes the disaster response architecture by layer, the PJS mobilization mechanism that replaces conscription with economic incentive, and what the gradient reveals about the doctrine's design philosophy when the philosophy is tested by physics.*
+
+---
+
+### THE SCENARIO
+
+A magnitude 8.2 earthquake originates at a fault system that runs beneath the mega-wall separating Main Layer from -1 Noncompliance. The seismic event damages infrastructure on both sides of the wall. Aftershocks propagate into the -2 boundary zone. The wall itself sustains structural monitoring alerts in the affected sector — active compensation systems engaged, sensor networks reporting elevated stress, but no breach. Three layers are simultaneously affected: Main Layer, -1, and the -2 border zone.
+
+The earthquake does not care which layer it hits. The response to it is defined entirely by which layer the damage falls in.
+
+---
+
+### +1 SANCTUARY RESPONSE
+
+Sanctuary is not directly affected by this scenario — it sits inside the innermost ring, geologically separated from the fault system by the Main Layer ring and the Sanctuary/Main mega-wall. But Sanctuary's response architecture illustrates the ceiling of what VMSS disaster infrastructure produces at maximum institutional density.
+
+In a Sanctuary earthquake scenario: the Threshold Inhibition Protocol extends to disaster prevention — structural monitoring systems detect seismic precursors (micro-tremors, stress accumulation in fault systems) and initiate pre-emptive evacuation before the event occurs. The civilization's densest sensor network operates in Sanctuary. The same AI that detects harmful intent in human behavior detects harmful stress accumulation in geological structures. Medical drones pre-position in projected impact zones. Fabrication facilities prepare backup vessel capacity for potential mass casualties. Enforcement infrastructure shifts from behavioral monitoring to disaster coordination — drones that normally patrol for harmful conduct are redirected to search-and-rescue, structural assessment, and evacuation support.
+
+The PJS mechanism activates immediately. Every citizen engaged in disaster response — evacuation assistance, medical triage, structural assessment, debris clearance, logistics support — is performing critical infrastructure work. The $10,000/month PJS activates for qualifying hours. Overtime premium at $125/hr activates above 20 hours per week. A Sanctuary citizen who works 60 hours of disaster response in the first week earns $10,000 UBI + $10,000 PJS + $5,000 overtime premium. The economic signal is immediate and unambiguous: this is the most valuable work available right now.
+
+Casualties in Sanctuary are near-zero because the pre-intervention infrastructure extends to natural disasters — not through preventing earthquakes, but through detecting them early enough that evacuation completes before the shaking arrives. Backup vessel capacity handles the rare cases where evacuation was incomplete. Medical drones arrive at injury sites in seconds. Hospital infrastructure is comprehensive and immediate. The earthquake produces property damage. It does not produce death.
+
+---
+
+### MAIN LAYER RESPONSE
+
+Main Layer absorbs the direct impact. Three billion people across a continent-scale ring. The earthquake damages residential, commercial, and institutional infrastructure in the affected districts — approximately 50-100 districts (50-100 million people) depending on the quake's footprint.
+
+**Institutional response (immediate — minutes).** The AI governance system detects the seismic event and shifts enforcement infrastructure to disaster mode. Medical drones redeploy from behavioral patrol to search-and-rescue across the entire affected zone. Response time to trapped or injured citizens: seconds to minutes, depending on drone density in the specific district. The medical drone network is the civilization's first responder — faster than any Earth-era emergency service because the drones are already airborne, already distributed, and require no dispatch latency. A citizen trapped under rubble triggers implant telemetry alerts — the system knows their location, their physiological state, and the severity of their injuries before the first drone arrives.
+
+Backup vessel infrastructure activates for mass casualties. Citizens who die in the earthquake are queued for revival at Main Layer fabrication facilities. The revival queue may extend from hours to days depending on the casualty volume — fabrication facilities have throughput limits, and a mass casualty event that produces thousands of simultaneous deaths saturates the queue. The civilization's contingency: overflow capacity at Sanctuary fabrication facilities and emergency fabrication at orbital stations. The deaths are temporary but the queue is real — a citizen who dies early in the earthquake revives within hours. A citizen who dies in a late aftershock may wait days. The queue is triaged by revival urgency (citizens with dependent children first, citizens with critical infrastructure roles second, general population third). No citizen is permanently dead from a Main Layer earthquake unless the backup vessel system itself is damaged — which the geographic distribution of fabrication facilities is designed to prevent.
+
+**PJS mobilization (hours).** The Meritboard's federal-administration ranking declares the earthquake zone a critical infrastructure emergency. The qualifying work definition under PJS expands to include every form of disaster response: rescue operations, medical triage, debris clearance, structural assessment, infrastructure repair, logistics and supply distribution, temporary shelter construction, and communication relay. Every citizen in the affected zone who engages in any of these activities is performing qualifying work at the $10,000/month PJS rate, with the $125/hr overtime premium above 20 hours per week.
+
+The economic mobilization is massive. A Main Layer citizen who works 80-hour weeks of disaster response for a month: $10,000 UBI + $10,000 PJS + $30,000 overtime premium (240 excess hours × $125/hr) = $50,000 in a single month. The civilization does not conscript disaster responders. It does not ask for volunteers and hope enough show up. It prices the work at a level that makes disaster response the best economic decision available to every citizen in the affected zone — and the pricing is automatic, triggered by the Meritboard's emergency declaration, funded by the Automation Dividend Treasury.
+
+The contrast with Earth disaster response is stark. Earth relies on a combination of professional first responders (limited in number), military deployment (slow, logistically complex), volunteer organizations (unpredictable capacity), and individual goodwill (exhaustible). VMSS relies on economic incentive at a scale that converts the entire affected population into a paid disaster response workforce. A citizen who would otherwise go to their regular job instead goes to the rubble pile — because the rubble pile pays $50,000/month and the regular job pays $20,000/month. The incentive does the mobilization.
+
+**Duration.** The PJS emergency classification remains active until the Meritboard's assessment determines the critical infrastructure threshold has been restored — buildings stabilized, utilities operational, medical backlog cleared, displaced citizens resettled. For a magnitude 8.2 event affecting 50-100 million people, the emergency classification likely remains active for weeks to months. The overtime premium sustains the response workforce for the entire duration without the burnout-and-attrition cycle that degrades Earth-era disaster response. The workers are not volunteering. They are being paid at rates that make sustained 60-80 hour weeks economically rational for as long as the emergency persists.
+
+---
+
+### -1 NONCOMPLIANCE RESPONSE
+
+The earthquake crosses the mega-wall and affects -1 territory on the other side. The institutional response is thinner. The private response fills the gap — or it doesn't.
+
+**Institutional response (partial).** -1 operates under logging-only AI tracking with slower drone coverage. Medical drone density is lower than Main Layer. Response time to injured citizens is minutes rather than seconds — the drones exist but they are fewer and further apart. The AI governance system detects the earthquake and redeploys available drones to search-and-rescue, but the coverage is incomplete. Districts with higher drone density receive faster response. Districts on the -1 periphery may wait significantly longer.
+
+Backup vessel coverage operates through VMSS fabrication proxy installations — closed sovereign facilities within -1. The revival failure rate is ~1 in 10,000 (compared to ~1 in 1,000,000 in Main). A citizen who dies in the earthquake has a 99.99% chance of revival — still excellent by any absolute standard, but measurably less reliable than Main Layer's 99.9999%. At mass casualty scale, the failure rate difference produces real numbers: an earthquake that kills 10,000 people in Main produces ~0 permanent deaths. The same 10,000 deaths in -1 produces ~1 permanent death. At larger casualty volumes, the gap widens proportionally.
+
+**PJS mobilization in -1.** The same mechanism operates at -1's economic scale. PJS at $5,000/month. Overtime premium at $62.50/hr. An 80-hour-week disaster responder in -1 earns: $5,000 UBI + $5,000 PJS + $15,000 overtime = $25,000/month. The incentive is proportionally equivalent — $25,000 in -1's economy carries purchasing power amplified by the PPG gradient (approximately 1.3-1.8× Main). The work is the best economic option available, just as it is in Main.
+
+**Private response.** Where institutional response is thin, -1's organic infrastructure fills the gap — or attempts to. Reputation-based cooperatives, trade networks, and private security organizations have their own disaster response capacity. A well-organized -1 district with strong cooperative infrastructure may produce disaster response comparable to Main Layer in speed and effectiveness — because the cooperative has invested in its own medical capacity, its own rescue equipment, and its own logistics network. A poorly organized -1 district with weak cooperative infrastructure receives the institutional minimum (whatever drones the federal deployment covers) and little else. The variation within -1 is wider than the variation within Main because institutional coverage is uniform in Main and non-uniform in -1. The disaster reveals the quality of the organic infrastructure each district has built — and the districts that invested in cooperative capacity before the earthquake are the districts that survive it best.
+
+---
+
+### -2 VIOLENT OFFENSE BORDER ZONE RESPONSE
+
+The earthquake's aftershocks reach the -2 boundary zone. The institutional response thins further. The territorial dynamics add a layer of complexity that Main and -1 do not face.
+
+**Institutional response (minimal).** -2 operates with substantially thinner institutional presence. Drone coverage is sparse. Medical response is slow. Backup vessel coverage through fabrication proxy installations operates at a revival failure rate of ~1 in 1,000 — meaning an earthquake that kills 10,000 people in -2 produces approximately 10 permanent deaths. The gap between Main Layer's response and -2's response is now viscerally measurable in body count.
+
+**Territorial complications.** -2's social order is governed by territorial cooperatives and private enforcement. When the earthquake damages infrastructure in a territory controlled by a private security cooperative, the response is governed by the cooperative's priorities — not by the affected citizens' needs. A cooperative that controls water recyclers, power cells, and medical services in a -2 district may prioritize restoring the infrastructure that generates its revenue (the water recyclers, the power cells) over rescuing citizens trapped under residential rubble. The citizens are the cooperative's customers, not its constituents. The incentive structure is commercial, not civic.
+
+The PJS mechanism operates in -2 at $2,500/month PJS with $31.25/hr overtime. An 80-hour-week disaster responder earns: $2,500 UBI + $2,500 PJS + $7,500 overtime = $12,500/month. The incentive is real in -2's economy — amplified by the PPG gradient at approximately 1.8-2.5× Main. But the incentive competes with the territorial cooperatives' own labor demands. A citizen who could earn disaster-response PJS may instead be directed by their cooperative to perform infrastructure repair that serves the cooperative's commercial interests rather than the general population's rescue needs. The PJS mobilization is less effective in -2 because the institutional mechanism (federal PJS declaration) competes with the private power structure (cooperative labor direction) in a way it does not compete in Main or -1.
+
+**Forced revival complication.** -2 permits forced revival as a private enforcement instrument — private operators can deny the escape of death by imposing backup vessel continuity. During a disaster, this creates a perverse dynamic: a citizen who dies in the earthquake and whose cooperative has invested in their training may be revived by the cooperative specifically to return them to productive work — not because the citizen wants to be revived, but because the cooperative's investment in the citizen's skills creates a commercial incentive to restore them. The citizen's revival is driven by commercial logic, not by the citizen's preference. This is consistent with -2's doctrinal character — private justice operates within -2's architectural constraints — but it produces a disaster response environment where the question "who gets revived first" is answered by commercial priority rather than humanitarian triage.
+
+---
+
+### -3 TERMINAL — THE FEDERAL FLOOR
+
+If the earthquake propagated to -3 (unlikely in this specific scenario but doctrinally relevant), the institutional response is the federal floor and nothing else.
+
+**No medical drones.** No enforcement drones. No institutional search-and-rescue. No backup vessel coverage — death in -3 is final. An earthquake in -3 kills people permanently. Every casualty is a permanent loss. The founding-era promise — "no life is ended" — does not apply in -3 because the implant severs the backup vessel link at the moment of terminal reassignment.
+
+**The federal floor responds.** UBI distribution continues — the $1,250/month payment is uninterrupted because it flows through federal infrastructure that operates independently of local conditions. Federal law enforcement responds if the disaster produces civilizational-level threats — a damaged industrial facility releasing nuclear material, a collapsed structure exposing implant hacking equipment, organized groups exploiting the chaos to mount a sovereignty threat. The federal response protects the civilization. It does not protect individual -3 residents from the earthquake's consequences.
+
+**Private response is everything.** The voluntary districts in -3 — the frontier entrepreneurs, the cooperative communities, the organized libertarian settlements — have their own disaster response infrastructure. A well-run voluntary cooperative with medical facilities, rescue equipment, and organized mutual aid may produce disaster response comparable to -1's best districts. The punitive districts — territories controlled by coercive structures, contested zones, ungoverned frontier — have whatever infrastructure the local power dynamics have produced, which in many cases is nothing.
+
+The PJS mechanism operates in -3 at $1,250/month PJS with $15.63/hr overtime. An 80-hour-week disaster responder earns: $1,250 UBI + $1,250 PJS + $3,750 overtime = $6,250/month. The incentive is real — amplified by the PPG gradient at approximately 2.5-4× Main. But the "qualifying work" classification in -3 faces a unique challenge: who certifies that work is qualifying when the institutional infrastructure that normally certifies qualifying work (the AI governance system, the Meritboard's federal-administration ranking) has minimal presence in -3? The PJS declaration is federal. The certification that a specific citizen performed qualifying disaster response work requires verification the federal floor may not have the infrastructure to provide at granular level. The civilization's response: implant-based activity tracking for citizens who retain their implants (a fraction of the -3 population), and self-certification with post-hoc audit for citizens who have removed their implants — a looser verification standard consistent with -3's institutional character, accepted because the alternative is no mobilization incentive at all.
+
+---
+
+### THE GRADIENT REVEALS THE DESIGN
+
+The same earthquake. Five different responses. The student who reads this resource and feels disturbed by the gradient has felt something real — a citizen who dies permanently in -3 from the same geological event that produces zero permanent deaths in Sanctuary is experiencing a consequence of layer placement that the earthquake did not cause and the layer system did.
+
+The doctrine's response: this is not a failure. It is the architecture operating as designed. Each layer delivers what its design promises. Sanctuary promises maximum protection — and delivers it, even against earthquakes. Main Layer promises post-intervention institutional response — and delivers it, with revival capacity that makes earthquake deaths temporary. -1 promises partial institutional response supplemented by organic infrastructure — and delivers exactly that, with variation proportional to the organic infrastructure each district built. -2 promises thin institutional response within a private-justice environment — and delivers that, with the territorial complications the private-justice model produces. -3 promises the federal floor and nothing else — and delivers exactly the federal floor.
+
+No layer fails to deliver what it promised. Every layer delivers *exactly* what it promised. The gradient in disaster response is the gradient in institutional investment made physically visceral by a geological event that treats every layer identically. The earthquake is the control variable. The layer system is the experimental variable. The outcome data demonstrates what institutional withdrawal means in practice — not as a policy abstraction but as a body count gradient produced by the same seismic wave passing through five different civilizational environments.
+
+The student who can hold both truths simultaneously — that the gradient is designed and that the gradient produces permanently different mortality outcomes from identical physical events — has understood the question the resource was designed to surface. The civilization does not promise equal outcomes. It promises proportional outcomes — proportional to the institutional investment each layer receives, which is proportional to the behavioral record that placed the citizen in that layer. The earthquake does not change that calculus. It reveals it.
+
+---
+
+### THE PJS AS MOBILIZATION ARCHITECTURE
+
+The deeper insight the disaster scenario reveals is that the Primary Job Subsidy is not merely a labor incentive. It is the civilization's mobilization architecture — the mechanism by which the civilization converts a crisis into a coordinated response without conscription, without command hierarchy imposed on civilians, and without the coercive instruments that Earth governments deploy during emergencies.
+
+Earth disaster response relies on three mobilization instruments: professional first responders (paid before the disaster, deployed during), military deployment (conscripted or enlisted, ordered to the zone), and volunteers (unpaid, unreliable at scale, exhaustible). All three have structural limits. Professional responders are finite in number. Military deployment takes days. Volunteers burn out.
+
+VMSS replaces all three with a single instrument: economic incentive at emergency scale. The PJS emergency declaration converts the entire affected population into a paid response workforce. The overtime premium ensures sustained effort across weeks and months without burnout — because the workers are not sacrificing; they are earning. The qualification threshold ensures the work is genuinely useful — random citizens do not receive PJS for standing around; they receive it for performing defined critical infrastructure tasks that the Meritboard's emergency classification specifies.
+
+The mobilization scales automatically. A small disaster in a single district activates PJS for that district's population. A catastrophic event across 100 districts activates PJS for 100 million citizens simultaneously. The economic mechanism does not require scaling decisions — the qualifying work definition and the overtime premium operate identically at any scale. The Automation Dividend Treasury absorbs the cost because the treasury's purpose is funding civilizational infrastructure, and disaster response is civilizational infrastructure at its most urgent.
+
+The Earth comparison that matters: during COVID-19, healthcare workers in many countries were asked to work extreme hours for standard pay — or for modest hazard bonuses that did not compensate for the risk, the exhaustion, or the sustained duration. The workers complied out of professional obligation and personal ethics. Many burned out. Many left the profession afterward. The system consumed their goodwill as a resource and did not replenish it. VMSS's PJS mechanism does not consume goodwill. It pays market-clearing rates that make the crisis response work the best available economic option. The worker does not choose between duty and self-interest. The system aligns them. The disaster response worker earning $50,000/month in Main Layer is simultaneously serving the civilization and serving themselves — and the alignment is the mechanism's design, not a coincidence. A civilization that asks its citizens to sacrifice during a crisis has failed to design a system where sacrifice and self-interest point in the same direction. VMSS designed that system. The PJS emergency declaration is how it activates.
