@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 19.0
+**Version:** 19.4
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -37,7 +37,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `simulations-world.html` | World Scenarios dossier — 39 civilizational stress tests, doctrine cases, architectural pressure tests |
 | `simulations-residents.html` | Resident Stories dossier — 42 historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
 | `simulations-academy.html` | The Academy dossier — 32 rubric-graded doctrine questions, Standard Format and Full Rubric, course packet PDF |
-| `simulations-resources.html` | Academic Resources dossier — 29 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
+| `simulations-resources.html` | Academic Resources dossier — 30 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
 | `why-vmss.html` | The case for the civilization model |
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
 | `whitepaper.html` | 34-section paginated whitepaper with TOC, page jump, and expanded glossary |
