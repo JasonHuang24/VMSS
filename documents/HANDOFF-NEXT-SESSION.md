@@ -5,7 +5,7 @@ This is the VMSS / The Five Rings civilization design project by Jason Huang. Th
 
 ## Current State
 - **Academy:** 32 rubric-graded questions in `documents/academy-source.html`
-- **Academic Resources:** 20 resources across 3 categories in `documents/resources-source.html` (World of VMSS: R3, R7, R12, R13, R14, R15, R16, R17, R18 · Universe of VMSS: R1, R2, R4, R6, R19, R20 · VMSS Advanced: R5, R8, R9, R10, R11)
+- **Academic Resources:** 22 resources across 3 categories in `documents/resources-source.html` (World of VMSS: R3, R7, R12, R13, R14, R15, R16, R17, R18 · Universe of VMSS: R1, R2, R4, R6, R19, R20 · VMSS Advanced: R5, R8, R9, R10, R11, R21, R22)
 - **Simulations:** 81 total (39 world, 42 resident) with doctrine snapshot stamps
 - **Dossiers:** 4 (World Scenarios, Resident Stories, The Academy, Academic Resources)
 
