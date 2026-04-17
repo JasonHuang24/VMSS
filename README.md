@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 18.0
+**Version:** 19.0
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -13,7 +13,7 @@ A voluntary civilization framework built on moral causality, layered governance,
 
 The Five Rings is a proposed civilization model organized around five concentric governance rings (+1 to -3). Citizens are placed in rings based on demonstrated behavior — not birth, wealth, or ideology. The system combines technoneural enforcement, a Social Trust Index, automation-funded UBI, backup vessel continuity, and consequence-bound freedom into a single coherent architecture.
 
-This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, current-state technology annotations, a 15-page paginated whitepaper, and extended FAQ edge cases.
+This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, current-state technology annotations, a 34-section paginated whitepaper, a 28-article Charter, a four-dossier simulations archive, a rubric-graded Academy course packet, and an Academic Resources reference library.
 
 A **lite version** of the site exists at the companion repository (VMSSLite) for readers who want the full doctrine in a faster, more focused reading experience.
 
@@ -33,12 +33,14 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `systems.html` | Economy, enforcement architecture, savings circulation mandate |
 | `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
-| `simulations.html` | STI console + simulations dossier index (links to World Scenarios and Resident Stories) |
-| `simulations-world.html` | World Scenarios dossier — civilizational stress tests, doctrine cases, architectural pressure tests |
-| `simulations-residents.html` | Resident Stories dossier — historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
+| `simulations.html` | Simulations dossier index — four dossiers: World Scenarios, Resident Stories, The Academy, Academic Resources |
+| `simulations-world.html` | World Scenarios dossier — 39 civilizational stress tests, doctrine cases, architectural pressure tests |
+| `simulations-residents.html` | Resident Stories dossier — 42 historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
+| `simulations-academy.html` | The Academy dossier — 32 rubric-graded doctrine questions, Standard Format and Full Rubric, course packet PDF |
+| `simulations-resources.html` | Academic Resources dossier — 29 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
 | `why-vmss.html` | The case for the civilization model |
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
-| `whitepaper.html` | 33-page paginated whitepaper with TOC, page jump, and expanded glossary |
+| `whitepaper.html` | 34-section paginated whitepaper with TOC, page jump, and expanded glossary |
 | `charter.html` | Founding constitutional document — all 28 articles |
 | `faq.html` | Extended FAQ with edge cases |
 | `roadmap.html` | Seven-phase development roadmap — 2026 Founding Treaty to 3000 |
@@ -53,6 +55,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 - Tailwind CSS (CDN)
 - Font Awesome (CDN)
 - Supabase (join form backend)
+- Headless Chrome (PDF generation for Academy course packet and Academic Resources)
 - Hosted on GitHub Pages
 
 ---
@@ -68,6 +71,8 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ├── technologies.html
 ├── sads.html
 ├── simulations.html
+├── simulations-world.html  simulations-residents.html
+├── simulations-academy.html  simulations-resources.html
 ├── why-vmss.html
 ├── world.html
 ├── whitepaper.html
@@ -85,6 +90,11 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 │   └── js/
 │       ├── diagrams.js  # Interactive SVG ring diagram
 │       └── sti-sim.js   # STI simulation console
+├── documents/
+│   ├── academy-source.html          # Source for the Academy course packet PDF
+│   ├── resources-source.html        # Source for the Academic Resources PDF
+│   ├── vmss-academy-course-packet.pdf
+│   └── vmss-academic-resources.pdf
 ├── images/
 │   └── emblem.jpg
 ├── sitemap.xml
@@ -97,17 +107,21 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 
 **VMSS** — Vertical Moral Stratification System. Behavioral stratification replaces incarceration. Layer placement is a permanent environmental consequence of demonstrated conduct, not a time sentence.
 
-**STI** — Social Trust Index. A separate ledger for non-criminal trust violations. Covers harms that fall below legal thresholds — fraud, chronic deception, harassment — and makes them socially legible without criminalizing them. Operates on two distinct tracks: social trust violations (STI) and hard behavioral flags (criminal record log).
+**STI** — Social Trust Index. A separate ledger for non-criminal trust violations. Covers harms that fall below legal thresholds — fraud, chronic deception, harassment — and makes them socially legible without criminalizing them. Operates on two distinct tracks: social trust violations (STI) and hard behavioral flags (criminal record log). Juvenile residents carry null STI until age 18, at which point the full ledger of observed conduct initializes the first score.
 
-**Backup Vessels** — Periodic encrypted mind-state backups. Fabrication is sovereign VMSS technology. Revival is binary: full fidelity or failure. In -1 and -2, continuity is serviced through VMSS-operated fabrication proxy installations. In -3 Terminal, the implant severs the backup vessel link at the hardware level — death is final.
+**Backup Vessels** — Periodic encrypted mind-state backups linked to each citizen's implant. Fabrication is sovereign VMSS technology. Revival is binary: full fidelity or failure. In -1 and -2, continuity is serviced through VMSS-operated fabrication proxy installations. In -3 Terminal, the implant severs the backup vessel link at the hardware level — death is final. Fetuses are linked to their own backup vessels via the mother's implant until they have an implant of their own.
 
 **Neural Diving** — Direct mind-to-mind interface technology. Audience mode (passive observation) and Pilot mode (temporary control, requires consent). The civilization's primary medium for empathy, education, and art.
 
 **SADs** — Selective Ascension Domains. Opt-in metric-gated domains within +1 Sanctuary, each filtered by a single measurable criterion. Citizens may qualify for multiple simultaneously.
 
+**MGDs** — Metric-Gated Domains. Layer-agnostic private domains with leakage-tolerant membership criteria. Distinct from SADs by both scope (private, not state-chartered) and leakage posture.
+
 **Governance** — Three-body structure. The **Meritboard** is the civilization's continuously updating competence ranking, with separate sub-rankings for the distinct competencies each role requires. The **President** is drawn from the top of the executive-doctrinal-leadership ranking. **Supreme Court** justices (10) are drawn from the top of the legal-interpretation ranking. Structural independence between executive and judicial branches comes from metric separation within the Meritboard, not pool separation. No elections. Competence is measured, not campaigned for.
 
 **Founding Core** — Four founding lines inscribed in the Charter preamble by the Chief Architect. Not legally immutable — every clause is amendable through the Article XI gauntlet — but protected by structural improbability and by six hundred years of cultural anchoring. The Charter is how the civilization does the work. The four lines are what the civilization is for.
+
+**External Force Doctrine** — Four imminence tiers governing VMSS's use of force beyond its borders, with a parallel three-tier sanctions architecture that operates beneath the force framework and transitions into the national defense track at its highest tier. Alliance reciprocity under the Federation Treaty operates on a separate track from sanctions — an attack on a treaty ally triggers Tier 4 response directly.
 
 **Leakage** — The gap between stated consequence and actual consequence delivery. Starting reality: ~90%. Founding aspiration: 0%. Target by 3000: ~0.01%.
 
