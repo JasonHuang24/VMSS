@@ -314,10 +314,59 @@
       <p class="subtitle">How a civilization of 4.3 billion coexists with a planet that largely did not adopt its model. Geography, military deterrence, alliances, travel, trade, and sovereignty.</p>
     </header>
 
+    <!-- TABLE OF CONTENTS — grouped by thematic section -->
+    <div class="lg:max-w-[70%] mx-auto mb-10">
+      <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)]/80 overflow-hidden">
+        <button id="tocToggle" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition cursor-pointer" style="background:none;border:none;">
+          <div class="text-xs uppercase tracking-[0.28em] text-[var(--text-muted)]">Table of Contents</div>
+          <span class="text-xl text-[var(--accent)] transition-transform duration-300" id="tocIcon">›</span>
+        </button>
+        <div id="tocBody" class="hidden px-6 pb-5">
+          <div id="tocList" class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-0">
+
+            <div>
+              <div class="text-xs uppercase tracking-[0.22em] text-[var(--accent)] font-semibold mt-3 mb-1">Foundation</div>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="1"><span class="text-[var(--accent)] font-bold min-w-[24px]">1</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Geography &amp; Scale</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="2"><span class="text-[var(--accent)] font-bold min-w-[24px]">2</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">History</span></a>
+            </div>
+
+            <div>
+              <div class="text-xs uppercase tracking-[0.22em] text-[var(--accent)] font-semibold mt-3 mb-1">Defense &amp; Law</div>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="3"><span class="text-[var(--accent)] font-bold min-w-[24px]">3</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Military Posture</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="4"><span class="text-[var(--accent)] font-bold min-w-[24px]">4</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Alliance &amp; Diplomacy</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="7"><span class="text-[var(--accent)] font-bold min-w-[24px]">7</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Jurisdiction &amp; Prosecution</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="13"><span class="text-[var(--accent)] font-bold min-w-[24px]">13</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">International Law</span></a>
+            </div>
+
+            <div>
+              <div class="text-xs uppercase tracking-[0.22em] text-[var(--accent)] font-semibold mt-3 mb-1">Movement &amp; Presence</div>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="5"><span class="text-[var(--accent)] font-bold min-w-[24px]">5</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">International Travel</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="6"><span class="text-[var(--accent)] font-bold min-w-[24px]">6</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Foreign Citizens in VMSS</span></a>
+            </div>
+
+            <div>
+              <div class="text-xs uppercase tracking-[0.22em] text-[var(--accent)] font-semibold mt-4 mb-1">Economy &amp; Society</div>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="8"><span class="text-[var(--accent)] font-bold min-w-[24px]">8</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Trade &amp; Currency</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="9"><span class="text-[var(--accent)] font-bold min-w-[24px]">9</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Information</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="10"><span class="text-[var(--accent)] font-bold min-w-[24px]">10</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Culture &amp; Embodiment</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="11"><span class="text-[var(--accent)] font-bold min-w-[24px]">11</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Entertainment &amp; Sensory Culture</span></a>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="12"><span class="text-[var(--accent)] font-bold min-w-[24px]">12</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Daily Life &amp; Social Architecture</span></a>
+            </div>
+
+            <div>
+              <div class="text-xs uppercase tracking-[0.22em] text-[var(--accent)] font-semibold mt-4 mb-1">Comparison</div>
+              <a href="#" class="toc-link flex items-baseline gap-2 py-0.5 text-sm group" data-toc-page="14"><span class="text-[var(--accent)] font-bold min-w-[24px]">14</span><span class="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition">Earth vs. VMSS</span></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="paper">
       <div class="paper-head">
         <div class="paper-title">World Dossier</div>
-        <div class="page-indicator" id="pageIndicator">Page 1 of 10</div>
+        <div class="page-indicator" id="pageIndicator">Page 1 of —</div>
       </div>
 
       <!-- PAGE 1: Geography & Scale -->
@@ -1086,6 +1135,22 @@
         showPage(targetPage);
         window.scrollTo({ top: document.querySelector('.paper').offsetTop - 20, behavior: 'smooth' });
       });
+    });
+
+    /* Table of Contents — click handlers for grouped TOC links */
+    const tocToggle = document.getElementById('tocToggle');
+    const tocBody = document.getElementById('tocBody');
+    const tocIcon = document.getElementById('tocIcon');
+    document.querySelectorAll('.toc-link[data-toc-page]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(Number(link.dataset.tocPage));
+        window.scrollTo({ top: document.querySelector('.paper').offsetTop - 20, behavior: 'smooth' });
+      });
+    });
+    tocToggle.addEventListener('click', () => {
+      const hidden = tocBody.classList.toggle('hidden');
+      tocIcon.style.transform = hidden ? 'rotate(0deg)' : 'rotate(90deg)';
     });
   </script>
 </body>
