@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 19.8
+**Version:** 19.8.1
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -34,7 +34,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
 | `simulations.html` | Simulations dossier index — four dossiers: World Scenarios, Resident Stories, The Academy, Academic Resources |
-| `simulations-world.html` | World Scenarios dossier — 39 civilizational stress tests, doctrine cases, architectural pressure tests |
+| `simulations-world.html` | World Scenarios dossier — 40 civilizational stress tests, doctrine cases, architectural pressure tests |
 | `simulations-residents.html` | Resident Stories dossier — 42 historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
 | `simulations-academy.html` | The Academy dossier — 33 rubric-graded doctrine questions, Standard Format and Full Rubric, course packet PDF |
 | `simulations-resources.html` | Academic Resources dossier — 30 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
