@@ -118,6 +118,8 @@
   .vote-table .pass { color: #6edc7a; }
   .vote-table .fail { color: #ef8280; }
   .vote-table .advisory { color: #7fc2ff; }
+  .law-entry.cross-layer .vote-table td.pass::before { content: attr(data-rat) "% ✓ Ratified · "; color: #6edc7a; font-weight: 600; }
+  .law-entry.cross-layer .vote-table td.advisory::before { content: attr(data-rat) "% ◇ Advisory · "; color: #7fc2ff; font-weight: 600; }
   .law-section-header {
     font-size: 2rem;
     font-weight: 700;
@@ -762,7 +764,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-015</div>
@@ -780,18 +782,18 @@
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Article XXVIII; Article XXV.I (Clean Energy Mandate, biodiversity extension)</span></div>
   </div>
   <div class="law-vote">
-    <h4>Per-Layer Ratification</h4>
+    <h4>Per-Layer Outcome &mdash; Ratified · Percentage is Support Saturation</h4>
     <table class="vote-table">
-      <tr><td>+1 Sanctuary</td><td class="pass">99% &mdash; Categorical prohibition</td></tr>
-      <tr><td>Main Layer</td><td class="pass">65% &mdash; Restricted: certified game preserves, conservation funding mandate</td></tr>
-      <tr><td>-1 Noncompliance</td><td class="pass">57% &mdash; Permitted with licensing and reporting</td></tr>
-      <tr><td>-2 Violent Offense</td><td class="pass">72% &mdash; Permitted with commercial registration (cooperative-administered)</td></tr>
-      <tr><td>-3 Terminal (advisory)</td><td class="advisory">91% &mdash; Unrestricted; largely operational via Colosseum classification</td></tr>
+      <tr><td>+1 Sanctuary</td><td class="pass" data-rat="99">99% support saturation &mdash; Categorical prohibition</td></tr>
+      <tr><td>Main Layer</td><td class="pass" data-rat="82">65% support saturation &mdash; Restricted: certified game preserves, conservation funding mandate</td></tr>
+      <tr><td>-1 Noncompliance</td><td class="pass" data-rat="81">57% support saturation &mdash; Permitted with licensing and reporting</td></tr>
+      <tr><td>-2 Violent Offense</td><td class="pass" data-rat="84">72% support saturation &mdash; Permitted with commercial registration (cooperative-administered)</td></tr>
+      <tr><td>-3 Terminal (advisory)</td><td class="advisory" data-rat="89">91% support saturation &mdash; Unrestricted; largely operational via Colosseum classification</td></tr>
     </table>
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-016</div>
@@ -809,18 +811,18 @@
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Article XXVIII</span></div>
   </div>
   <div class="law-vote">
-    <h4>Per-Layer Ratification</h4>
+    <h4>Per-Layer Outcome &mdash; Ratified · Percentage is Support Saturation</h4>
     <table class="vote-table">
-      <tr><td>+1 Sanctuary</td><td class="pass">92% &mdash; Strict limits (residential 30 km/h, corridor 80)</td></tr>
-      <tr><td>Main Layer</td><td class="pass">84% &mdash; Moderate limits (residential 40, corridor 110)</td></tr>
-      <tr><td>-1 Noncompliance</td><td class="pass">81% &mdash; Relaxed limits (residential 50, corridor 140)</td></tr>
-      <tr><td>-2 Violent Offense</td><td class="pass">80% &mdash; Minimal; cooperative territories set their own</td></tr>
-      <tr><td>-3 Terminal (advisory)</td><td class="advisory">94% no-regulation &mdash; Voluntary districts decline to regulate</td></tr>
+      <tr><td>+1 Sanctuary</td><td class="pass" data-rat="94">92% support saturation &mdash; Strict limits (residential 30 km/h, corridor 80)</td></tr>
+      <tr><td>Main Layer</td><td class="pass" data-rat="87">84% support saturation &mdash; Moderate limits (residential 40, corridor 110)</td></tr>
+      <tr><td>-1 Noncompliance</td><td class="pass" data-rat="84">81% support saturation &mdash; Relaxed limits (residential 50, corridor 140)</td></tr>
+      <tr><td>-2 Violent Offense</td><td class="pass" data-rat="82">80% support saturation &mdash; Minimal; cooperative territories set their own</td></tr>
+      <tr><td>-3 Terminal (advisory)</td><td class="advisory" data-rat="93">94% support saturation &mdash; Voluntary districts decline to regulate</td></tr>
     </table>
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-017</div>
@@ -838,18 +840,18 @@
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Article XXVIII; Whitepaper §12.6 (Anti-Oligarchy Constraints)</span></div>
   </div>
   <div class="law-vote">
-    <h4>Per-Layer Ratification</h4>
+    <h4>Per-Layer Outcome &mdash; Ratified · Percentage is Support Saturation</h4>
     <table class="vote-table">
-      <tr><td>+1 Sanctuary</td><td class="pass">99% &mdash; Prohibited categorically</td></tr>
-      <tr><td>Main Layer</td><td class="pass">65% &mdash; Licensed; community reinvestment mandate</td></tr>
-      <tr><td>-1 Noncompliance</td><td class="pass">72% &mdash; Licensed casinos permitted</td></tr>
-      <tr><td>-2 Violent Offense</td><td class="pass">81% &mdash; Casino districts permitted, cooperative-operated</td></tr>
-      <tr><td>-3 Terminal (advisory)</td><td class="advisory">91% &mdash; Unrestricted; part of frontier economy</td></tr>
+      <tr><td>+1 Sanctuary</td><td class="pass" data-rat="99">99% support saturation &mdash; Prohibited categorically</td></tr>
+      <tr><td>Main Layer</td><td class="pass" data-rat="82">65% support saturation &mdash; Licensed; community reinvestment mandate</td></tr>
+      <tr><td>-1 Noncompliance</td><td class="pass" data-rat="84">72% support saturation &mdash; Licensed casinos permitted</td></tr>
+      <tr><td>-2 Violent Offense</td><td class="pass" data-rat="87">81% support saturation &mdash; Casino districts permitted, cooperative-operated</td></tr>
+      <tr><td>-3 Terminal (advisory)</td><td class="advisory" data-rat="91">91% support saturation &mdash; Unrestricted; part of frontier economy</td></tr>
     </table>
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-018</div>
@@ -867,18 +869,18 @@
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Article XXVIII; Whitepaper §14 (Substance Use Policy)</span></div>
   </div>
   <div class="law-vote">
-    <h4>Per-Layer Ratification</h4>
+    <h4>Per-Layer Outcome &mdash; Ratified · Percentage is Support Saturation</h4>
     <table class="vote-table">
-      <tr><td>+1 Sanctuary</td><td class="pass">94% &mdash; Prohibited in public spaces</td></tr>
-      <tr><td>Main Layer</td><td class="pass">68% &mdash; Restricted to designated venues; ticketed fines for public impairment</td></tr>
-      <tr><td>-1 Noncompliance</td><td class="pass">57% &mdash; Light regulation (displacement of impaired persons from commercial zones)</td></tr>
-      <tr><td>-2 Violent Offense</td><td class="pass">71% &mdash; No regulation</td></tr>
-      <tr><td>-3 Terminal (advisory)</td><td class="advisory">92% &mdash; No regulation</td></tr>
+      <tr><td>+1 Sanctuary</td><td class="pass" data-rat="96">94% support saturation &mdash; Prohibited in public spaces</td></tr>
+      <tr><td>Main Layer</td><td class="pass" data-rat="83">68% support saturation &mdash; Restricted to designated venues; ticketed fines for public impairment</td></tr>
+      <tr><td>-1 Noncompliance</td><td class="pass" data-rat="81">57% support saturation &mdash; Light regulation (displacement of impaired persons from commercial zones)</td></tr>
+      <tr><td>-2 Violent Offense</td><td class="pass" data-rat="85">71% support saturation &mdash; No regulation</td></tr>
+      <tr><td>-3 Terminal (advisory)</td><td class="advisory" data-rat="92">92% support saturation &mdash; No regulation</td></tr>
     </table>
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-019</div>
@@ -896,13 +898,13 @@
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Article XXVIII; Whitepaper §5.13 (Two-Level Moral Causality)</span></div>
   </div>
   <div class="law-vote">
-    <h4>Per-Layer Ratification &amp; Penalty</h4>
+    <h4>Per-Layer Outcome &amp; Penalty &mdash; Ratified · Percentage is Support Saturation</h4>
     <table class="vote-table">
-      <tr><td>+1 Sanctuary</td><td class="pass">96% &mdash; Prohibited; strong STI consequence</td></tr>
-      <tr><td>Main Layer</td><td class="pass">82% &mdash; Prohibited; misdemeanor-level STI impact + fine</td></tr>
-      <tr><td>-1 Noncompliance</td><td class="pass">74% &mdash; Prohibited in commercial/family districts; permitted in designated adult zones</td></tr>
-      <tr><td>-2 Violent Offense</td><td class="pass">80% &mdash; No institutional regulation; cooperative norms apply</td></tr>
-      <tr><td>-3 Terminal (advisory)</td><td class="advisory">93% &mdash; No regulation</td></tr>
+      <tr><td>+1 Sanctuary</td><td class="pass" data-rat="98">96% support saturation &mdash; Prohibited; strong STI consequence</td></tr>
+      <tr><td>Main Layer</td><td class="pass" data-rat="88">82% support saturation &mdash; Prohibited; misdemeanor-level STI impact + fine</td></tr>
+      <tr><td>-1 Noncompliance</td><td class="pass" data-rat="85">74% support saturation &mdash; Prohibited in commercial/family districts; permitted in designated adult zones</td></tr>
+      <tr><td>-2 Violent Offense</td><td class="pass" data-rat="84">80% support saturation &mdash; No institutional regulation; cooperative norms apply</td></tr>
+      <tr><td>-3 Terminal (advisory)</td><td class="advisory" data-rat="93">93% support saturation &mdash; No regulation</td></tr>
     </table>
   </div>
 </article>
@@ -979,7 +981,7 @@
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Articles XXII.II, XII, XX; Whitepaper §5.4.2</span></div>
   </div>
   <div class="law-vote">
-    <h4>Per-Layer Ratification</h4>
+    <h4>Per-Layer Outcome &mdash; Ratified · Percentage is Support Saturation</h4>
     <table class="vote-table">
       <tr><td>+1 Sanctuary</td><td class="pass">97% yes (met)</td></tr>
       <tr><td>Main Layer</td><td class="pass">94% yes (met)</td></tr>
