@@ -9,12 +9,8 @@ This is the VMSS / The Five Rings civilization design project by Jason Huang. Th
 - **Simulations:** 81 total (39 world, 42 resident) with doctrine snapshot stamps
 - **Dossiers:** 4 (World Scenarios, Resident Stories, The Academy, Academic Resources)
 
-## HTML Entity Reference
-- Quotes: `&ldquo;` `&rdquo;`
-- Apostrophes: `&rsquo;`
-- Em dashes: `&mdash;`
-- Section symbol: `&sect;`
-- Middle dot: `&middot;`
+## Typography
+Write prose with native Unicode typography (curly quotes, em dashes, section symbols, middle dots). Every page declares `<meta charset="UTF-8">`, so HTML entities are unnecessary and add source noise. Do not convert existing Unicode to entities.
 
 ## PDF Regeneration
 - Academy: `"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="F:\Programming\VMSS\VMSS Website\documents\vmss-academy-course-packet.pdf" --no-margins "file:///F:/Programming/VMSS/VMSS Website/documents/academy-source.html"`
