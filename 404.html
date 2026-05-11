@@ -16,7 +16,6 @@
   <meta name="twitter:description" content="404 — this path lies outside the known rings. Return to proven ground." />
   <meta name="twitter:image" content="https://jasonhuang24.github.io/VMSS/images/hero-rings.png" />
   <meta name="robots" content="noindex, nofollow" />
-<!-- Theme preload (same as other pages) -->
 <script>
     const saved = localStorage.getItem('theme') ||
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -24,18 +23,14 @@
   </script>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<!-- Basic meta for consistency -->
-<!-- Tailwind CDN (assuming you use it) -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Your styles -->
 <link href="styles.css" rel="stylesheet"/>
-<!-- Favicon (once you add it) -->
-<!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div>
-<!-- Navbar -->
-
-<!-- Main content -->
 <main class="flex-1 flex items-center justify-center px-6 py-20 text-center">
 <div class="max-w-3xl mx-auto">
 <div class="text-8xl md:text-9xl font-bold text-[var(--accent)] mb-6 tracking-tight">
@@ -62,8 +57,6 @@
       </p>
 </div>
 </main>
-<!-- Footer -->
-
 <script src="script.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>
