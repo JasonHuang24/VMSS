@@ -80,6 +80,18 @@
   </url>
 
   <url>
+    <loc>https://jasonhuang24.github.io/VMSS/simulations-academy.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://jasonhuang24.github.io/VMSS/simulations-resources.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://jasonhuang24.github.io/VMSS/why-vmss.html</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
@@ -110,8 +122,20 @@
   </url>
 
   <url>
+    <loc>https://jasonhuang24.github.io/VMSS/law-polling.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://jasonhuang24.github.io/VMSS/world.html</loc>
     <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://jasonhuang24.github.io/VMSS/audiobook.html</loc>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 

@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 19.9.19
+**Version:** 20.0
 **Live site:** https://jasonhuang24.github.io/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhuang24.github.io/VMSS/whitepaper.html
@@ -37,7 +37,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `simulations-world.html` | World Scenarios dossier — 40 civilizational stress tests, doctrine cases, architectural pressure tests |
 | `simulations-residents.html` | Resident Stories dossier — 42 historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
 | `simulations-academy.html` | The Academy dossier — 33 rubric-graded doctrine questions, Standard Format and Full Rubric, course packet PDF |
-| `simulations-resources.html` | Academic Resources dossier — 30 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
+| `simulations-resources.html` | Academic Resources dossier — 33 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
 | `why-vmss.html` | The case for the civilization model |
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
 | `whitepaper.html` | 34-section paginated whitepaper with TOC, page jump, and expanded glossary |
@@ -45,7 +45,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `law-polling.html` | Law polling record — Charter amendments, federal laws, and regulatory petitions with vote breakdowns, drafters, and canon anchors |
 | `faq.html` | Extended FAQ with edge cases |
 | `roadmap.html` | Seven-phase development roadmap — 2026 Founding Treaty to 3000 |
-| `audiobook.html` | The Five Rings audiobook series — free intro, trilogy, standalone volumes |
+| `audiobook.html` | The Five Rings audiobook series — free v8.5 introduction, v11 trilogy (Vols. 1–3), and v11 standalone volumes (Vols. 4–5). All available on ElevenReader |
 | `join.html` | Voluntary entry process and application form |
 
 ---
@@ -97,7 +97,10 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 │   ├── vmss-academy-course-packet.pdf
 │   └── vmss-academic-resources.pdf
 ├── images/
-│   └── emblem.jpg
+│   ├── emblem.jpg
+│   ├── hero-rings.png       # Homepage hero
+│   ├── world-*.png          # World page imagery (geography, military, alliance, etc.)
+│   └── Audiobook/           # Audiobook cover art (free intro + 5 volumes)
 ├── sitemap.xml
 └── robots.txt
 ```
