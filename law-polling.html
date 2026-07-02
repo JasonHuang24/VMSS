@@ -153,6 +153,74 @@
     font-weight: 600;
     margin-bottom: 0.85rem;
   }
+
+  /* Anchor jumps clear the fixed navbar */
+  .law-entry, .law-section-header { scroll-margin-top: 6rem; }
+
+  /* Table of contents */
+  .law-toc {
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--bg-secondary);
+    overflow: hidden;
+    margin-bottom: 2.75rem;
+  }
+  .toc-toggle {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.1rem 1.5rem; background: none; border: none; cursor: pointer;
+    text-align: left; color: var(--text-primary); font: inherit;
+  }
+  .toc-toggle:hover { background: rgba(255,255,255,0.02); }
+  .toc-toggle-label { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); }
+  .toc-toggle-hint { color: var(--text-muted); font-size: 0.82rem; margin-left: 0.7rem; }
+  .toc-chevron { color: var(--accent); font-size: 1rem; transition: transform 0.3s ease; flex-shrink: 0; }
+  .law-toc.open .toc-chevron { transform: rotate(180deg); }
+  .toc-body { display: none; padding: 0.25rem 1.5rem 1.6rem; }
+  .law-toc.open .toc-body { display: block; }
+  .toc-tier { margin-top: 1.5rem; }
+  .toc-tier:first-child { margin-top: 0.5rem; }
+  .toc-tier-head {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 0.75rem; text-decoration: none;
+  }
+  .toc-tier-head:hover { text-decoration: underline; }
+  .toc-count {
+    font-size: 0.66rem; color: var(--text-muted); background: var(--bg-primary);
+    border: 1px solid var(--border); border-radius: 999px; padding: 0.08rem 0.5rem;
+    letter-spacing: normal; font-weight: 600;
+  }
+  .toc-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.1rem 1.6rem;
+  }
+  .toc-link {
+    display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0;
+    font-size: 0.86rem; text-decoration: none; color: var(--text-secondary);
+  }
+  .toc-link:hover { color: var(--accent); }
+  .toc-link:hover .toc-num { color: var(--accent); }
+  .toc-num { color: var(--accent); font-weight: 600; font-size: 0.76rem; white-space: nowrap; flex-shrink: 0; min-width: 3.7rem; }
+  .toc-txt { line-height: 1.3; }
+
+  /* Back to top (bottom-left — clears the simulation widget bottom-right) */
+  .back-to-top {
+    position: fixed; bottom: 1.75rem; left: 1.75rem; z-index: 60;
+    width: 3rem; height: 3rem; border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--accent); color: #1a1205; border: none; cursor: pointer;
+    box-shadow: 0 10px 26px -10px rgba(0,0,0,0.55);
+    opacity: 0; visibility: hidden; transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+  .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+  .back-to-top:hover { filter: brightness(1.08); transform: translateY(-2px); }
+  .back-to-top i { font-size: 1.05rem; }
+  @media (max-width: 640px) {
+    .back-to-top { bottom: 1.1rem; left: 1.1rem; width: 2.75rem; height: 2.75rem; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .toc-toggle-hint { display: none; }
+  }
 </style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
@@ -191,12 +259,111 @@
 <div class="lg:max-w-[70%] mx-auto px-6">
 
 <!-- ════════════════════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+     ════════════════════════════════════════════════════════════════════ -->
+<div class="law-toc" id="lawToc">
+  <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocBody">
+    <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">72 entries · Charter · Federal · Regulatory</span></span>
+    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+  </button>
+  <div class="toc-body" id="tocBody">
+      <div class="toc-tier">
+        <a href="#sec-charter" class="toc-tier-head">Charter Amendments <span class="toc-count">6</span></a>
+        <div class="toc-grid">
+        <a href="#lp-001" class="toc-link"><span class="toc-num">LP-001</span> <span class="toc-txt">Article XXIX &mdash; Extraterrestrial Governance Framework</span></a>
+        <a href="#lp-046" class="toc-link"><span class="toc-num">LP-046</span> <span class="toc-txt">Article XI Consensus Threshold Revision</span></a>
+        <a href="#lp-050" class="toc-link"><span class="toc-num">LP-050</span> <span class="toc-txt">Three-Tier Tenure Codification Amendment</span></a>
+        <a href="#lp-052" class="toc-link"><span class="toc-num">LP-052</span> <span class="toc-txt">Independent Fetal Continuity Registration Amendment</span></a>
+        <a href="#lp-053" class="toc-link"><span class="toc-num">LP-053</span> <span class="toc-txt">Voluntary Cessation Procedure Amendment</span></a>
+        <a href="#lp-057" class="toc-link"><span class="toc-num">LP-057</span> <span class="toc-txt">Earned Reascension Amendment</span></a>
+        </div>
+      </div>
+      <div class="toc-tier">
+        <a href="#sec-federal" class="toc-tier-head">Federal Laws <span class="toc-count">45</span></a>
+        <div class="toc-grid">
+        <a href="#lp-002" class="toc-link"><span class="toc-num">LP-002</span> <span class="toc-txt">PJS Rate Calibration &mdash; Medical Research Roles</span></a>
+        <a href="#lp-003" class="toc-link"><span class="toc-num">LP-003</span> <span class="toc-txt">Meritboard Engagement Thresholds</span></a>
+        <a href="#lp-004" class="toc-link"><span class="toc-num">LP-004</span> <span class="toc-txt">Backup Vessel Parity</span></a>
+        <a href="#lp-004-2" class="toc-link"><span class="toc-num">LP-004.2</span> <span class="toc-txt">Backup Vessel Parity &mdash; Second Pass (Consent-Scoped Redraft)</span></a>
+        <a href="#lp-005" class="toc-link"><span class="toc-num">LP-005</span> <span class="toc-txt">Sovereignty Breach Law</span></a>
+        <a href="#lp-005-2" class="toc-link"><span class="toc-num">LP-005.2</span> <span class="toc-txt">Sovereignty Breach Law &mdash; Second Pass (Scale-Tier Redraft)</span></a>
+        <a href="#lp-005-3" class="toc-link"><span class="toc-num">LP-005.3</span> <span class="toc-txt">Sovereignty Breach Law &mdash; Third Pass (Character-Weighted Classification Override)</span></a>
+        <a href="#lp-006" class="toc-link"><span class="toc-num">LP-006</span> <span class="toc-txt">Lower-Layer Economic Disclosure Law</span></a>
+        <a href="#lp-007" class="toc-link"><span class="toc-num">LP-007</span> <span class="toc-txt">Meritboard Representation Parity</span></a>
+        <a href="#lp-007-2" class="toc-link"><span class="toc-num">LP-007.2</span> <span class="toc-txt">Meritboard Representation Parity &mdash; Second Pass (Role-Scoped Redraft)</span></a>
+        <a href="#lp-008" class="toc-link"><span class="toc-num">LP-008</span> <span class="toc-txt">Neural Diving Consent Expansion</span></a>
+        <a href="#lp-021" class="toc-link"><span class="toc-num">LP-021</span> <span class="toc-txt">Colosseum Classification Non-Export</span></a>
+        <a href="#lp-022" class="toc-link"><span class="toc-num">LP-022</span> <span class="toc-txt">Revival Priority During Mass-Casualty Events</span></a>
+        <a href="#lp-023" class="toc-link"><span class="toc-num">LP-023</span> <span class="toc-txt">Autoparenting Facility Operational Standards</span></a>
+        <a href="#lp-024" class="toc-link"><span class="toc-num">LP-024</span> <span class="toc-txt">Meritboard Representation Parity &mdash; Amendment Attempt</span></a>
+        <a href="#lp-028" class="toc-link"><span class="toc-num">LP-028</span> <span class="toc-txt">Implant Tamper-Abroad Recovery Protocol</span></a>
+        <a href="#lp-029" class="toc-link"><span class="toc-num">LP-029</span> <span class="toc-txt">Orbital Debris Attribution Tax</span></a>
+        <a href="#lp-031" class="toc-link"><span class="toc-num">LP-031</span> <span class="toc-txt">Substrate Continuity Equivalence Act</span></a>
+        <a href="#lp-032" class="toc-link"><span class="toc-num">LP-032</span> <span class="toc-txt">Archive Access and Standing Protocol</span></a>
+        <a href="#lp-033" class="toc-link"><span class="toc-num">LP-033</span> <span class="toc-txt">District Externality Escalation Rule</span></a>
+        <a href="#lp-034" class="toc-link"><span class="toc-num">LP-034</span> <span class="toc-txt">Educational Baseline Designation</span></a>
+        <a href="#lp-035" class="toc-link"><span class="toc-num">LP-035</span> <span class="toc-txt">Status-Carry Jurisdiction Clarification Act</span></a>
+        <a href="#lp-037" class="toc-link"><span class="toc-num">LP-037</span> <span class="toc-txt">Neural Dive Archival Consent Standard</span></a>
+        <a href="#lp-038" class="toc-link"><span class="toc-num">LP-038</span> <span class="toc-txt">Backup Vessel Sync Frequency Mandate</span></a>
+        <a href="#lp-038-2" class="toc-link"><span class="toc-num">LP-038.2</span> <span class="toc-txt">Sync Frequency Mandate &mdash; Second Pass (Notification Architecture Redraft)</span></a>
+        <a href="#lp-039" class="toc-link"><span class="toc-num">LP-039</span> <span class="toc-txt">Academy Capstone Live-Adoption Procedure</span></a>
+        <a href="#lp-040" class="toc-link"><span class="toc-num">LP-040</span> <span class="toc-txt">Federation Treaty Tier-4 Burden-Sharing Protocol</span></a>
+        <a href="#lp-041" class="toc-link"><span class="toc-num">LP-041</span> <span class="toc-txt">Draft Origination &amp; Sponsorship Disclosure Rule</span></a>
+        <a href="#lp-043" class="toc-link"><span class="toc-num">LP-043</span> <span class="toc-txt">MGD Adequacy Review Trigger</span></a>
+        <a href="#lp-044" class="toc-link"><span class="toc-num">LP-044</span> <span class="toc-txt">Sovereign Foothold Limitation &amp; Sunset Rule</span></a>
+        <a href="#lp-045" class="toc-link"><span class="toc-num">LP-045</span> <span class="toc-txt">Substrate-Equivalent Continuity Guarantee</span></a>
+        <a href="#lp-045-2" class="toc-link"><span class="toc-num">LP-045.2</span> <span class="toc-txt">Substrate-Equivalent Continuity &mdash; Second Pass (Functional-Equivalence Redraft)</span></a>
+        <a href="#lp-047" class="toc-link"><span class="toc-num">LP-047</span> <span class="toc-txt">Visitor Defensive Force Protection</span></a>
+        <a href="#lp-047-2" class="toc-link"><span class="toc-num">LP-047.2</span> <span class="toc-txt">Visitor Defensive Force Protection &mdash; Second Pass (Layer-Graduated Redraft)</span></a>
+        <a href="#lp-047-3" class="toc-link"><span class="toc-num">LP-047.3</span> <span class="toc-txt">Visitor Defensive Force Protection &mdash; Third Pass (Temporal Scope Redraft)</span></a>
+        <a href="#lp-048" class="toc-link"><span class="toc-num">LP-048</span> <span class="toc-txt">Defense of Third Parties Extension</span></a>
+        <a href="#lp-048-2" class="toc-link"><span class="toc-num">LP-048.2</span> <span class="toc-txt">Defense of Third Parties &mdash; Second Pass (Incapacitated-Victim Scoping)</span></a>
+        <a href="#lp-048-3" class="toc-link"><span class="toc-num">LP-048.3</span> <span class="toc-txt">Defense of Third Parties &mdash; Third Pass (Reasonable-Perception Standard)</span></a>
+        <a href="#lp-049" class="toc-link"><span class="toc-num">LP-049</span> <span class="toc-txt">Cross-Layer Weapon Transit Specification</span></a>
+        <a href="#lp-054" class="toc-link"><span class="toc-num">LP-054</span> <span class="toc-txt">Post-Descent Parental Authority Boundary Act</span></a>
+        <a href="#lp-055" class="toc-link"><span class="toc-num">LP-055</span> <span class="toc-txt">Implant Removal Conscientious Objection Procedure</span></a>
+        <a href="#lp-056" class="toc-link"><span class="toc-num">LP-056</span> <span class="toc-txt">Restorative Neural Exposure Boundary Act</span></a>
+        <a href="#lp-058" class="toc-link"><span class="toc-num">LP-058</span> <span class="toc-txt">STI Trajectory Advisory Mandate</span></a>
+        <a href="#lp-059" class="toc-link"><span class="toc-num">LP-059</span> <span class="toc-txt">Companion Animal Continuity Act</span></a>
+        <a href="#lp-060" class="toc-link"><span class="toc-num">LP-060</span> <span class="toc-txt">Survivor Elective Memory Excision Act</span></a>
+        </div>
+      </div>
+      <div class="toc-tier">
+        <a href="#sec-regulatory" class="toc-tier-head">Regulatory Petitions <span class="toc-count">21</span></a>
+        <div class="toc-grid">
+        <a href="#lp-009" class="toc-link"><span class="toc-num">LP-009</span> <span class="toc-txt">Non-Consensual Implantation Restriction (-3 Voluntary Districts)</span></a>
+        <a href="#lp-010" class="toc-link"><span class="toc-num">LP-010</span> <span class="toc-txt">Fabrication-Proxy Service Hours (3-District -1 Coalition)</span></a>
+        <a href="#lp-011" class="toc-link"><span class="toc-num">LP-011</span> <span class="toc-txt">Industrial Watershed Discharge Exemption (-3 Petition)</span></a>
+        <a href="#lp-012" class="toc-link"><span class="toc-num">LP-012</span> <span class="toc-txt">Private Detention for Main Layer Misdemeanors</span></a>
+        <a href="#lp-013" class="toc-link"><span class="toc-num">LP-013</span> <span class="toc-txt">AGI Voting Weight Confirmation</span></a>
+        <a href="#lp-014" class="toc-link"><span class="toc-num">LP-014</span> <span class="toc-txt">Cross-Layer Family Visitation Extension (Main Layer)</span></a>
+        <a href="#lp-015" class="toc-link"><span class="toc-num">LP-015</span> <span class="toc-txt">Hunting of Endangered Species</span></a>
+        <a href="#lp-016" class="toc-link"><span class="toc-num">LP-016</span> <span class="toc-txt">Vehicle Speed Limits</span></a>
+        <a href="#lp-017" class="toc-link"><span class="toc-num">LP-017</span> <span class="toc-txt">Casinos</span></a>
+        <a href="#lp-018" class="toc-link"><span class="toc-num">LP-018</span> <span class="toc-txt">Public Intoxication</span></a>
+        <a href="#lp-019" class="toc-link"><span class="toc-num">LP-019</span> <span class="toc-txt">Indecent Exposure</span></a>
+        <a href="#lp-020" class="toc-link"><span class="toc-num">LP-020</span> <span class="toc-txt">District-Level Curfew Petitions (Aggregated Record)</span></a>
+        <a href="#lp-025" class="toc-link"><span class="toc-num">LP-025</span> <span class="toc-txt">Cross-Layer Marriage Recognition Standards</span></a>
+        <a href="#lp-026" class="toc-link"><span class="toc-num">LP-026</span> <span class="toc-txt">STI Weight Calibration Review Cycle</span></a>
+        <a href="#lp-027" class="toc-link"><span class="toc-num">LP-027</span> <span class="toc-txt">MGD Transparency Requirements (Main Layer)</span></a>
+        <a href="#lp-030" class="toc-link"><span class="toc-num">LP-030</span> <span class="toc-txt">-3 Voluntary District Self-Governance Consolidation</span></a>
+        <a href="#lp-036" class="toc-link"><span class="toc-num">LP-036</span> <span class="toc-txt">STI Temporal Comparability Doctrine</span></a>
+        <a href="#lp-042" class="toc-link"><span class="toc-num">LP-042</span> <span class="toc-txt">Canon Anchor Hierarchy Clarification</span></a>
+        <a href="#lp-061" class="toc-link"><span class="toc-num">LP-061</span> <span class="toc-txt">Public-Space Commercial AR Overlay Standards</span></a>
+        <a href="#lp-062" class="toc-link"><span class="toc-num">LP-062</span> <span class="toc-txt">Sexual-Assault Pre-Intervention Mandate (Main Layer)</span></a>
+        <a href="#lp-062-2" class="toc-link"><span class="toc-num">LP-062.2</span> <span class="toc-txt">Sexual-Assault Pre-Intervention &mdash; Second Pass (Opt-Out-Able Default Redraft)</span></a>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
      CHARTER AMENDMENTS (Article XI)
      ════════════════════════════════════════════════════════════════════ -->
-<h2 class="law-section-header">Charter Amendments</h2>
+<h2 class="law-section-header" id="sec-charter">Charter Amendments</h2>
 <p class="law-section-sub">Article XI gauntlet: 70% Meritboard filibuster floor, Supreme Court 7/10 majority, population ratification (Sanctuary consensus + Main Layer 80&ndash;90% supermajority), presidential veto. Lower layers (-1, -2, -3) do not vote on Charter amendments &mdash; Charter revision rights are held by the two populations whose behavioral record qualifies them to shape the ontology the civilization runs on. The highest bar in the civilization&rsquo;s governance architecture.</p>
 
-<article class="law-entry">
+<article id="lp-001" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-001</div>
@@ -225,7 +392,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-046" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-046</div>
@@ -254,7 +421,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-050" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-050</div>
@@ -286,7 +453,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-052" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-052</div>
@@ -317,7 +484,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-053" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-053</div>
@@ -348,7 +515,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-057" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-057</div>
@@ -382,10 +549,10 @@
 <!-- ════════════════════════════════════════════════════════════════════
      FEDERAL LAWS (Article XXV.VI)
      ════════════════════════════════════════════════════════════════════ -->
-<h2 class="law-section-header">Federal Laws</h2>
+<h2 class="law-section-header" id="sec-federal">Federal Laws</h2>
 <p class="law-section-sub">Article XXV.VI drafting ladder: 60% Meritboard filibuster floor, 6/10 Supreme Court majority, three-track population ratification (Sanctuary 90%+, Main 70&ndash;80%, lower-layer aggregate 70&ndash;80%), presidential veto. Binds every layer; cannot reach the founding core.</p>
 
-<article class="law-entry">
+<article id="lp-002" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-002</div>
@@ -414,7 +581,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-003" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-003</div>
@@ -442,7 +609,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-004" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-004</div>
@@ -471,7 +638,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-004-2" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-004.2</div>
@@ -500,7 +667,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-005" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-005</div>
@@ -529,7 +696,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-005-2" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-005.2</div>
@@ -559,7 +726,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-005-3" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -591,7 +758,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-006" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-006</div>
@@ -620,7 +787,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-007" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-007</div>
@@ -649,7 +816,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-007-2" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -679,7 +846,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-008" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-008</div>
@@ -708,7 +875,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-021" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-021</div>
@@ -737,7 +904,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-022" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-022</div>
@@ -766,7 +933,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-023" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-023</div>
@@ -795,7 +962,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-024" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-024</div>
@@ -824,7 +991,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-028" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-028</div>
@@ -853,7 +1020,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-029" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-029</div>
@@ -882,7 +1049,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-031" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-031</div>
@@ -911,7 +1078,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-032" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-032</div>
@@ -940,7 +1107,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-033" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-033</div>
@@ -972,7 +1139,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-034" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-034</div>
@@ -1003,7 +1170,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-035" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-035</div>
@@ -1032,7 +1199,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-037" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-037</div>
@@ -1061,7 +1228,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-038" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-038</div>
@@ -1090,7 +1257,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-038-2" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-038.2</div>
@@ -1119,7 +1286,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-039" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -1149,7 +1316,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-040" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-040</div>
@@ -1178,7 +1345,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-041" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -1208,7 +1375,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-043" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-043</div>
@@ -1237,7 +1404,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-044" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-044</div>
@@ -1266,7 +1433,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-045" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-045</div>
@@ -1295,7 +1462,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-045-2" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -1325,7 +1492,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-047" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-047</div>
@@ -1355,7 +1522,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-047-2" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-047.2</div>
@@ -1385,7 +1552,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-047-3" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -1423,7 +1590,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-048" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-048</div>
@@ -1453,7 +1620,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-048-2" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-048.2</div>
@@ -1483,7 +1650,7 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article id="lp-048-3" class="law-entry pillar">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
@@ -1520,7 +1687,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-049" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-049</div>
@@ -1552,7 +1719,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-054" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-054</div>
@@ -1584,7 +1751,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-055" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-055</div>
@@ -1616,7 +1783,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-056" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-056</div>
@@ -1648,7 +1815,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-058" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-058</div>
@@ -1679,7 +1846,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-059" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-059</div>
@@ -1711,7 +1878,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-060" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-060</div>
@@ -1746,10 +1913,10 @@
 <!-- ════════════════════════════════════════════════════════════════════
      REGULATORY PETITIONS (Article XXVIII)
      ════════════════════════════════════════════════════════════════════ -->
-<h2 class="law-section-header">Regulatory Petitions</h2>
+<h2 class="law-section-header" id="sec-regulatory">Regulatory Petitions</h2>
 <p class="law-section-sub">Article XXVIII mechanism: 1% population signature threshold initiates a petition; Meritboard domain-expert panel drafts the regulation; 80% direct ratification by the affected population enacts it. Layer-wide, district-wide, cross-layer, or advisory-only in -3 Terminal. Dual-key classification (Meritboard + Supreme Court) prevents structural smuggling into the regulatory route.</p>
 
-<article class="law-entry cross-layer">
+<article id="lp-009" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-009</div>
@@ -1776,7 +1943,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-010" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-010</div>
@@ -1803,7 +1970,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-011" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-011</div>
@@ -1831,7 +1998,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-012" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-012</div>
@@ -1859,7 +2026,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-013" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-013</div>
@@ -1888,7 +2055,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-014" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-014</div>
@@ -1913,7 +2080,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-015" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-015</div>
@@ -1942,7 +2109,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-016" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-016</div>
@@ -1971,7 +2138,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-017" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-017</div>
@@ -2000,7 +2167,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-018" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-018</div>
@@ -2029,7 +2196,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-019" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-019</div>
@@ -2058,7 +2225,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-020" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-020</div>
@@ -2086,7 +2253,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-025" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-025</div>
@@ -2112,7 +2279,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-026" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-026</div>
@@ -2141,7 +2308,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-027" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-027</div>
@@ -2166,7 +2333,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-030" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-030</div>
@@ -2193,7 +2360,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-036" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-036</div>
@@ -2222,7 +2389,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-042" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-042</div>
@@ -2251,7 +2418,7 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article id="lp-061" class="law-entry cross-layer">
   <div class="law-header">
     <div>
       <div class="law-number">LP-061</div>
@@ -2280,7 +2447,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-062" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-062</div>
@@ -2312,7 +2479,7 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article id="lp-062-2" class="law-entry">
   <div class="law-header">
     <div>
       <div class="law-number">LP-062.2</div>
@@ -2354,7 +2521,34 @@
 
 </main>
 
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
 <div id="footer-placeholder"></div>
 <script src="script.js" defer></script>
+<script>
+  (function () {
+    // Table-of-contents collapse toggle
+    var toc = document.getElementById('lawToc');
+    var toggle = document.getElementById('tocToggle');
+    if (toc && toggle) {
+      toggle.addEventListener('click', function () {
+        var open = toc.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    // Back-to-top button: reveal after scrolling, smooth-scroll up on click
+    var btn = document.getElementById('backToTop');
+    if (btn) {
+      var onScroll = function () {
+        btn.classList.toggle('show', window.scrollY > 500);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  })();
+</script>
 </body>
 </html>
