@@ -1,0 +1,56 @@
+name: Supabase keep-alive
+
+# Pings the Supabase REST API so the free-tier project registers database
+# activity and never auto-pauses (Supabase pauses free projects that see
+# insufficient activity over a one-week window).
+#
+# The anon key below is the same publishable key already shipped publicly
+# in script.js — embedding it here adds zero exposure.
+#
+# Cron runs every 3 days: 2x safety margin under the one-week threshold,
+# and tolerant of GitHub's best-effort scheduling occasionally skipping a run.
+
+on:
+  schedule:
+    - cron: '17 4 */3 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # for the scheduler keep-alive commit below
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query Supabase (registers as database activity)
+        run: |
+          code=$(curl -s -o /tmp/body -w '%{http_code}' \
+            "https://nizitfgihubglrtovget.supabase.co/rest/v1/applications?select=id&limit=1" \
+            -H "apikey: sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV" \
+            -H "Authorization: Bearer sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV")
+          echo "HTTP $code"
+          cat /tmp/body; echo
+          if [ "$code" != "200" ]; then
+            echo "::error::Supabase ping failed (HTTP $code) — project paused, deleted, or key rotated. Restore it at https://supabase.com/dashboard"
+            exit 1
+          fi
+
+      - name: Checkout (for scheduler keep-alive)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Keep the Actions scheduler alive
+        # GitHub disables scheduled workflows after 60 days without repo
+        # activity. If the last commit is older than 50 days, push an empty
+        # commit so both this workflow and Supabase stay alive unattended.
+        run: |
+          last=$(git log -1 --format=%ct)
+          age_days=$(( ( $(date +%s) - last ) / 86400 ))
+          echo "Last commit was ${age_days} day(s) ago"
+          if [ "$age_days" -ge 50 ]; then
+            git config user.name "vmss-keepalive[bot]"
+            git config user.email "actions@github.com"
+            git commit --allow-empty -m "chore: scheduler keep-alive (no content changes)"
+            git push
+          fi

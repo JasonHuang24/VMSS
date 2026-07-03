@@ -681,7 +681,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const { error } = await supabaseClient.from('applications').insert([payload]);
         if (error) throw error;
 
-        localStorage.setItem('vmss_last_submission_time', String(Date.now()));
+        /* Own try: a storage failure must not flip a successful insert
+           into the error path and invite a duplicate submission. */
+        try {
+          localStorage.setItem('vmss_last_submission_time', String(Date.now()));
+        } catch (e) {
+          console.warn('Cooldown save failed:', e);
+        }
 
         if (document.getElementById('applicant-count')) loadApplicantCount();
         if (document.getElementById('recent-applicants')) loadRecentApplicants();
@@ -740,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.error('Submission error:', err);
-        setMessage('Submission failed. Please try again in a moment.', true);
+        setMessage('Submission failed — the application service may be temporarily offline. Your answers are still filled in; please try again later.', true);
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
