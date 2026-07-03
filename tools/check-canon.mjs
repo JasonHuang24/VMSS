@@ -120,6 +120,23 @@ check(new Set(entryIds).size === entryIds.length, 'entry anchor ids unique');
 const tocLinks = (law.match(/class="toc-link"/g) || []).length;
 check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.mjs)', `${tocLinks} links / ${entries} entries`);
 
+/* Vote-outcome semantics: an Enacted entry's own ratification table must
+   contain no failing gate; a Failed entry must show at least one. Mixed,
+   rerouted, and advisory entries are exempt (their tables legitimately
+   blend outcomes). Guards future LP authoring/correction sweeps. */
+{
+  const blocks = law.split(/(?=<article class="law-entry)/).slice(1);
+  const bad = [];
+  for (const b of blocks) {
+    const id = (b.match(/id="(lp-[\w-]+)"/) || [])[1] || '?';
+    const status = (b.match(/class="status-badge (status-[a-z]+)"/) || [])[1];
+    const fails = (b.match(/<td class="fail"/g) || []).length;
+    if (status === 'status-enacted' && fails > 0) bad.push(`${id}: enacted but ${fails} failing gate(s)`);
+    if (status === 'status-failed' && fails === 0) bad.push(`${id}: failed but no failing gate shown`);
+  }
+  check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
+}
+
 /* ---- 4. LP citations elsewhere resolve to real anchors ---- */
 const anchorSet = new Set(entryIds);
 for (const file of ['whitepaper.html', 'simulations-world.html', 'simulations-residents.html']) {
