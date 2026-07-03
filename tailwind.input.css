@@ -1,0 +1,6 @@
+/* Source for assets/css/tailwind.css — build with `npm run build:css`.
+   Preflight stays enabled: the old Play CDN injected it too, so the
+   compiled sheet must keep it for layout parity. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

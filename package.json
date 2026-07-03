@@ -1,0 +1,12 @@
+{
+  "name": "vmss-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Five Rings — VMSS doctrine portal (static site). Tailwind is compiled ahead of time; run build:css after changing classes in HTML/JS.",
+  "scripts": {
+    "build:css": "tailwindcss -i tailwind.input.css -o assets/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

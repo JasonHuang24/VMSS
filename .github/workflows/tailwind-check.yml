@@ -1,0 +1,29 @@
+name: Tailwind CSS check
+
+# Guard: assets/css/tailwind.css is a committed build artifact.
+# If HTML/JS classes change without running `npm run build:css`,
+# the rebuilt file diverges from the committed one and this fails.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-compiled-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Rebuild Tailwind CSS
+        run: npm run build:css
+
+      - name: Compiled CSS must match the committed file
+        run: git diff --exit-code assets/css/tailwind.css

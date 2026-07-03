@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07090f">
   <title>The Five Rings • VMSS Civilization</title>
   <meta name="description" content="A voluntary civilization of moral causality, continuity, and consequence. Explore the Five Rings, their layers, technologies, charter, and governance logic." />
   <meta property="og:title" content="The Five Rings • VMSS Civilization" />
@@ -21,10 +22,9 @@
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -33,7 +33,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell home-page">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell home-page"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
   <!-- navbar.html is fetched and injected here by script.js Promise.all.
        All nav-dependent inits (theme toggle, mobile menu, active nav,
        HUD, layer links) run in a requestAnimationFrame after injection. -->
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <main class="flex-1">
+  <main id="main-content" class="flex-1">
     <section class="hero-bg relative overflow-hidden border-b border-[var(--border)]/60">
       <div class="lg:max-w-[70%] mx-auto px-6 py-20 md:py-28">
         <div class="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">

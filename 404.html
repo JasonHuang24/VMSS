@@ -5,6 +5,7 @@
   <base href="/VMSS/">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#07090f">
 <title>404 • Layer Not Found • The Five Rings</title>
   <meta name="description" content="The requested path lies outside the known rings. Return to The Five Rings civilization portal." />
   <meta property="og:title" content="Layer Not Found — The Five Rings" />
@@ -22,18 +23,17 @@
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div>
-<main class="flex-1 flex items-center justify-center px-6 py-20 text-center">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable" onclick="document.getElementById('main-content').focus(); return false;">Skip to content</a><div id="navbar-placeholder"></div>
+<main id="main-content" tabindex="-1" class="flex-1 flex items-center justify-center px-6 py-20 text-center">
 <div class="max-w-3xl mx-auto">
 <div class="text-8xl md:text-9xl font-bold text-[var(--accent)] mb-6 tracking-tight">
         404

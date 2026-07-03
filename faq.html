@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#07090f">
 <title>FAQ • The Five Rings</title>
   <meta name="description" content="Frequently asked questions about life in The Five Rings VMSS civilization — covering exits, death, borders, implants, children, SADs, enforcement, and edge cases." />
   <meta property="og:title" content="FAQ — The Five Rings" />
@@ -23,10 +24,9 @@
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
@@ -36,7 +36,7 @@
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><div id="navbar-placeholder"></div><main class="flex-1"><section class="pt-32 pb-32">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
 <h1 class="text-6xl font-bold text-center mb-6 text-[var(--text-primary)]">Frequently Asked Questions</h1>
 <p class="text-center text-2xl text-[var(--text-muted)] mb-16">Everything you need to know about life in The Five Rings</p>
@@ -47,7 +47,7 @@
 <p class="text-[var(--text-muted)] mt-2">Questions about layers, borders, implants, and the basic rules of life in the rings.</p>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I leave VMSS?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -57,7 +57,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if I die?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -67,7 +67,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is suicide stigmatized?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -77,7 +77,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What if a perpetrator kills themselves after committing harm?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -87,7 +87,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Does revival make the victim whole?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -97,7 +97,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">If murder is futile, does violence just shift to non-lethal harm?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -107,7 +107,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to a perpetrator's family after self-termination?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -117,7 +117,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Am I the same person after revival?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -127,7 +127,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How do the borders between rings work?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -137,7 +137,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What are Selective Ascension Domains (SADs)?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -147,7 +147,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I opt out of implants?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -157,7 +157,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to my children if I descend?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -167,7 +167,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do children born in lower layers inherit their parents' status?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -177,7 +177,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How are children scored on the STI? Can a baby lose Sanctuary?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -188,7 +188,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does Earth's population sort into VMSS on day one?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -198,7 +198,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I visit lower layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -212,7 +212,7 @@
 </div>
 <!-- New Expanded Questions -->
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I test the system (e.g., attempt harm to see what happens)?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -223,7 +223,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How do mega-walls prevent breaches?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -236,7 +236,7 @@
 <!-- Add more if you want — these are the core new ones -->
 <!-- Philosophy & Core Rules -->
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why is VMSS not a moral police state?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -247,7 +247,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Isn't trajectory monitoring just thought-crime by another name?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -258,7 +258,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How are combat sports handled across layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -268,7 +268,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is the "continuity, not innocence" rule?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -280,7 +280,7 @@
 </div>
 <!-- Enforcement -->
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if I disable the failsafe?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -291,7 +291,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does pre-intervention work in Heaven? Give an example.</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -303,7 +303,7 @@
 </div>
 <!-- Economy -->
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is the Primary Job Subsidy available in all layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -315,7 +315,7 @@
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can an employer require more than 20 hours a week?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -327,7 +327,7 @@
 
 <!-- Lower Layers -->
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is daily life like in -3?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -338,7 +338,7 @@
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How do lower-layer residents view upper layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -350,7 +350,7 @@
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What actually gets you reassigned to -1?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -362,7 +362,7 @@
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why permanent layer reassignment instead of rehabilitation back upward?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -380,7 +380,7 @@ And if the spam-filter framing sounds harsh, note what makes it fair: this filte
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why not simply use prisons?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -392,7 +392,7 @@ Prisons are expensive, reactive, and often force innocent people to keep sharing
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why does STI exist if criminal law already exists?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -404,7 +404,7 @@ Because many real harms are legal. Adultery, chronic dishonesty, manipulation, a
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is -1 still a consequence if life there is materially stable?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -422,7 +422,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 
 <!-- Practical / Edge Cases -->
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if I refuse revival?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -451,7 +451,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 <div class="space-y-4 mb-12">
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Does a non-qualifying job mean my work isn't valued?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -461,7 +461,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I move my wealth to a lower layer to avoid upper-layer taxes?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -471,7 +471,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to my assets if I descend involuntarily?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -481,7 +481,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I voluntarily descend and keep some of my wealth?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -540,7 +540,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 <div class="space-y-4 mb-12">
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Are the lower layers just prisons with different names?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -550,7 +550,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is -1 better than Earth for convicted populations?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -562,7 +562,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">If -1 is comfortable, what's the actual consequence?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -574,7 +574,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is everyone in -3 a violent criminal?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -584,7 +584,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Does a murderer in -3 just roam free?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -595,7 +595,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can someone be wealthy in -3?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -605,7 +605,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do lower layers develop their own internal hierarchy?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -615,7 +615,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is a colosseum in -3, and why is it legal?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -625,7 +625,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I build something in -3 that the upper layers won't allow?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -635,7 +635,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Are duels to the death legal in -3?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -645,7 +645,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is -3's "wild side" just a euphemism for gang violence?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -655,7 +655,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Who decides what's permitted in a -3 district?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -665,7 +665,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What if VMSS covered the entire planet?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -682,7 +682,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 <div class="space-y-4 mb-12">
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does cross-layer business work? Who are the fixers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -692,7 +692,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What's the difference between visiting a lower layer and descending to one?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -702,7 +702,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why would a Sanctuary resident visit -3?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -712,7 +712,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Does VMSS have a military?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -723,7 +723,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can the lower layers resist VMSS authority?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -739,7 +739,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 <div class="space-y-4 mb-12">
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Are AGIs treated as people?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -750,7 +750,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Who governs VMSS?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -760,7 +760,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How are new laws created without a legislature?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -770,7 +770,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What's the difference between Article XI, federal law, and regulatory law?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -781,7 +781,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why isn't murder explicitly banned in the Charter?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -792,7 +792,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does VMSS federal law compare to US federal law?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -803,7 +803,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if someone has too many children?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -814,7 +814,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do the layers diverge into different species over time?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -824,7 +824,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why is there no jury system?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -835,7 +835,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to de-extinct or revived species?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -846,7 +846,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Will Sanctuary become culturally alien to Main over centuries?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -858,7 +858,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What about hereditary grievance over 500 years?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -870,7 +870,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can the founding principles ever be changed?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -881,7 +881,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How long can a President serve?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -892,7 +892,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What if VMSS wrongly sends someone to a lower layer?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -903,7 +903,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can a visitor exploit their backup vessel in lower layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -914,7 +914,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is VMSS a democracy?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -925,7 +925,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do districts form into states?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -936,7 +936,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 
 <div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is the oldest text in VMSS law?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -967,13 +967,15 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
     function toggleFaq(btn) {
       const content = btn.nextElementSibling;
       const icon = btn.querySelector('.icon');
-      
+
       if (content.classList.contains('hidden')) {
         content.classList.remove('hidden');
         icon.style.transform = 'rotate(90deg)';
+        btn.setAttribute('aria-expanded', 'true');
       } else {
         content.classList.add('hidden');
         icon.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
       }
     }
   </script>

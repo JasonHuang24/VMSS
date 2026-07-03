@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#07090f">
 <title>Resident Stories • Simulations Archive • The Five Rings</title>
 <meta name="description" content="Individual lives running through the VMSS architecture — historical figures, original civilians, and archetypal residents. Forty-six personality and life-path simulations across the Five Rings." />
 <meta property="og:title" content="Resident Stories — Simulations Archive" />
@@ -21,10 +22,9 @@
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', saved);
 </script>
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
@@ -33,9 +33,9 @@
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
 <div id="navbar-placeholder"></div>
-<main class="flex-1">
+<main id="main-content" class="flex-1">
 <a aria-label="Back to Simulations" class="back-arrow fixed top-20 left-6 z-60 p-4 rounded-full text-3xl text-yellow-400 hover:text-yellow-300 transition-all duration-300" href="simulations.html">
 <i class="fas fa-arrow-left"></i>
 </a>

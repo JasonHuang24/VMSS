@@ -649,6 +649,50 @@ a:hover {
   background-color: var(--bg-secondary) !important;
 }
 
+/* Muted metadata line on layer dossier pages (replaces inline #808080).
+   The prose selectors carry the specificity needed to beat
+   `.vmss-prose p / .prose p { color: ... !important }` in section 7. */
+.layer-muted,
+.vmss-prose p.layer-muted,
+.prose p.layer-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Light-theme remaps for dark-calibrated tagline utilities */
+[data-theme="light"] .text-cyan-400 {
+  color: #0e7490 !important;
+}
+
+[data-theme="light"] .text-emerald-400 {
+  color: #047857 !important;
+}
+
+/* Light-theme recalibration of hardcoded status hues
+   (dark values live at .vmss-status-pill, trajectory arrows,
+   event badges, axis values, tally values below) */
+[data-theme="light"] .vmss-status-pill {
+  border-color: rgba(17, 122, 76, 0.35);
+  background: rgba(17, 122, 76, 0.08);
+  color: #117a4c;
+}
+
+[data-theme="light"] .vmss-trajectory-arrow.is-improving { color: #15803d; }
+[data-theme="light"] .vmss-trajectory-arrow.is-declining { color: #b91c1c; }
+[data-theme="light"] .vmss-event-badge.is-clearable { background: rgba(21, 128, 61, 0.1); color: #15803d; }
+[data-theme="light"] .vmss-event-badge.is-permanent { background: rgba(185, 28, 28, 0.08); color: #b91c1c; }
+[data-theme="light"] .vmss-event-delta.is-positive { color: #15803d; }
+[data-theme="light"] .vmss-event-delta.is-negative { color: #b91c1c; }
+[data-theme="light"] .vmss-axis-value.is-low,
+[data-theme="light"] .vmss-axis-value.is-isolated,
+[data-theme="light"] .vmss-axis-value.is-reversible { background: rgba(21, 128, 61, 0.08); color: #15803d; }
+[data-theme="light"] .vmss-axis-value.is-moderate,
+[data-theme="light"] .vmss-axis-value.is-emerging { background: rgba(161, 98, 7, 0.1); color: #a16207; }
+[data-theme="light"] .vmss-axis-value.is-high,
+[data-theme="light"] .vmss-axis-value.is-established,
+[data-theme="light"] .vmss-axis-value.is-irreversible { background: rgba(185, 28, 28, 0.08); color: #b91c1c; }
+[data-theme="light"] .vmss-tally-value.is-positive { color: #15803d; }
+[data-theme="light"] .vmss-tally-value.is-negative { color: #b91c1c; }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.92); }
   to { opacity: 0.95; transform: scale(1); }
@@ -1884,6 +1928,34 @@ body.vmss-ui-ready {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Visually hidden until keyboard-focused — used by the skip-to-content link */
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-secondary);
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 30px -12px var(--shadow);
 }
 
 /* ----- ENTRY MODAL (responsive) ----- */

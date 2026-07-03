@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#07090f">
 <title>Law Polling • The Five Rings</title>
 <meta name="description" content="VMSS law polling record — Charter amendments, federal laws, and regulatory petitions with vote breakdowns, drafters, durations, and canon anchors. A transparency-first record of the civilization's governance in motion." />
 <meta property="og:title" content="Law Polling — The Five Rings" />
@@ -21,10 +22,9 @@
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', saved);
 </script>
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
@@ -212,11 +212,25 @@
   .law-chip:hover { border-color: var(--accent); color: var(--text-primary); }
   .law-chip.is-active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
   .law-filter-count { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+  /* Light-theme recalibration — status/vote hues above are dark-calibrated */
+  [data-theme="light"] .status-enacted { background: rgba(26, 127, 55, 0.08); color: #1a7f37; border-color: rgba(26, 127, 55, 0.4); }
+  [data-theme="light"] .status-failed { background: rgba(180, 35, 24, 0.07); color: #b42318; border-color: rgba(180, 35, 24, 0.35); }
+  [data-theme="light"] .status-rerouted { background: rgba(154, 103, 0, 0.08); color: #9a6700; border-color: rgba(154, 103, 0, 0.4); }
+  [data-theme="light"] .status-advisory { background: rgba(23, 92, 211, 0.07); color: #175cd3; border-color: rgba(23, 92, 211, 0.35); }
+  [data-theme="light"] .status-mixed { background: rgba(126, 34, 206, 0.07); color: #7e22ce; border-color: rgba(126, 34, 206, 0.35); }
+  [data-theme="light"] .vote-table .pass { color: #1a7f37; }
+  [data-theme="light"] .vote-table .fail { color: #b42318; }
+  [data-theme="light"] .vote-table .advisory { color: #175cd3; }
+  [data-theme="light"] .law-entry.cross-layer .vote-table td.pass::before { color: #1a7f37; }
+  [data-theme="light"] .law-entry.cross-layer .vote-table td.advisory::before { color: #175cd3; }
+  [data-theme="light"] .toc-toggle:hover { background: rgba(14, 23, 40, 0.04); }
+  [data-theme="light"] .vote-table td { border-bottom-color: rgba(14, 23, 40, 0.06); }
+  [data-theme="light"] .law-meta-grid, [data-theme="light"] .law-vote { border-top-color: rgba(14, 23, 40, 0.08); }
 </style>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
 <div id="navbar-placeholder"></div>
-<main class="flex-1">
+<main id="main-content" class="flex-1">
 
 <section class="pt-32 pb-2" style="padding-bottom: 1rem !important;">
 <div class="lg:max-w-[70%] mx-auto px-6">

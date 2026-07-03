@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07090f">
   <title>The World of VMSS • The Five Rings</title>
   <meta name="description" content="The Five Rings on the global stage — geography, military posture, alliances, international travel, trade, jurisdiction, and information flow across a civilization of 4.3 billion." />
   <meta property="og:title" content="The World of VMSS — The Five Rings" />
@@ -21,10 +22,9 @@
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', saved);
   </script>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -305,9 +305,9 @@
     }
   </style>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
   <div id="navbar-placeholder"></div>
-  <main class="flex-1 world-main">
+  <main id="main-content" class="flex-1 world-main">
     <div class="shell">
     <header class="hero">
       <div class="eyebrow">International Relations & Sovereignty</div>
