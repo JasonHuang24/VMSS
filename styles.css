@@ -1999,3 +1999,29 @@ body.vmss-ui-ready {
   color: var(--accent-soft);
   text-decoration: underline;
 }
+
+/* ============================================================
+   21. BACK TO TOP (v20.8)
+   Floating button injected by initBackToTop(). Bottom-left,
+   opposite the HUD. Hidden until ~1.5 viewport heights down.
+   ============================================================ */
+/* v20.5.5 design (commit b0f5cb4): solid accent circle, bottom-left —
+   clears the bottom-right HUD. Injected site-wide by initBackToTop(). */
+.vmss-back-to-top {
+  position: fixed; bottom: 1.75rem; left: 1.75rem; z-index: 60;
+  width: 3rem; height: 3rem; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #1a1205; border: none; cursor: pointer;
+  box-shadow: 0 10px 26px -10px rgba(0,0,0,0.55);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+.vmss-back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.vmss-back-to-top:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.vmss-back-to-top i { font-size: 1.05rem; }
+@media (max-width: 640px) {
+  .vmss-back-to-top { bottom: 1.1rem; left: 1.1rem; width: 2.75rem; height: 2.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vmss-back-to-top { transition: none; }
+}

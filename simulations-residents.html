@@ -1731,6 +1731,38 @@ Key lesson: The architecture's hardest cases are not the ones where it fails —
     }
   }
 </script>
+<!-- Deep-link expansion: index rows on simulations.html link to hidden
+     .simulation-content ids. Expand the target card and scroll past the
+     fixed navbar. -->
+<style>.simulation-card,.simulation-content,.simulation-card>button{scroll-margin-top:110px}</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function expandFromHash() {
+      if (!/^#[\w-]+$/.test(location.hash)) return;
+      var el = document.getElementById(location.hash.slice(1));
+      if (!el || !el.classList.contains('simulation-content')) return;
+      el.classList.remove('hidden');
+      var btn = el.previousElementSibling;
+      if (btn && btn.tagName === 'BUTTON') {
+        btn.setAttribute('aria-expanded', 'true');
+        var icon = btn.querySelector('.icon');
+        if (icon) icon.style.transform = 'rotate(90deg)';
+        btn.scrollIntoView();
+        // The navbar is fetched and injected after DOMContentLoaded, which
+        // shifts the document down — re-anchor once it lands.
+        var ph = document.getElementById('navbar-placeholder');
+        if (ph && !ph.children.length) {
+          new MutationObserver(function (m, obs) {
+            obs.disconnect();
+            requestAnimationFrame(function () { btn.scrollIntoView(); });
+          }).observe(ph, { childList: true });
+        }
+      }
+    }
+    expandFromHash();
+    window.addEventListener('hashchange', expandFromHash);
+  });
+</script>
 <script src="script.js" defer></script>
 <div id="footer-placeholder"></div>
 </body>

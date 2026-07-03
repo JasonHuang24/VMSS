@@ -64,6 +64,21 @@ const stamps = (f) => (f.match(/Doctrine Snapshot:/g) || []).length;
 check(stamps(world) >= W, 'world stamps cover cards', `${stamps(world)} stamps / ${W} cards`);
 check(stamps(residents) >= R, 'residents stamps cover cards', `${stamps(residents)} stamps / ${R} cards`);
 
+/* Hub sim index: embedded JSON (tools/build-sim-index.mjs) matches the
+   derived card total, and every anchor resolves in its target file. */
+const idxMatch = hub.match(/<!-- SIM-INDEX-DATA:BEGIN -->\s*<script type="application\/json" id="sim-index-data">([\s\S]*?)<\/script>\s*<!-- SIM-INDEX-DATA:END -->/);
+check(!!idxMatch, 'hub sim index data island present');
+if (idxMatch) {
+  const idx = JSON.parse(idxMatch[1]);
+  check(idx.length === total, 'sim index entry count = derived card total', `${idx.length} entries / ${total} cards`);
+  const idxFiles = { 'simulations-world.html': world, 'simulations-residents.html': residents };
+  const deadAnchors = idx.filter((e) => {
+    const [file, id] = e.a.split('#');
+    return !idxFiles[file] || !idxFiles[file].includes(` id="${id}"`);
+  }).map((e) => e.a);
+  check(deadAnchors.length === 0, 'sim index anchors resolve', deadAnchors.length ? `dead: ${deadAnchors.join(', ')}` : `${idx.length} anchors ok`);
+}
+
 /* ---- 2. Academy / Resources totals vs hub cards ---- */
 const resources = read('documents/resources-source.html');
 const maxOf = (f, re) => Math.max(0, ...[...f.matchAll(re)].map((m) => Number(m[1])));
@@ -101,6 +116,9 @@ check(pillars === manifest.pillarFederalLaws, 'pillar law count', `${pillars} ma
 const entryIds = [...law.matchAll(/<article class="law-entry[^"]*" id="(lp-[\w-]+)"/g)].map((m) => m[1]);
 check(entryIds.length === entries, 'every entry has an anchor id', `${entryIds.length}/${entries}`);
 check(new Set(entryIds).size === entryIds.length, 'entry anchor ids unique');
+
+const tocLinks = (law.match(/class="toc-link"/g) || []).length;
+check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.mjs)', `${tocLinks} links / ${entries} entries`);
 
 /* ---- 4. LP citations elsewhere resolve to real anchors ---- */
 const anchorSet = new Set(entryIds);

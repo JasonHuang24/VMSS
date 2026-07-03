@@ -780,6 +780,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * initBackToTop — injects a floating back-to-top button (bottom-left,
+   * opposite the HUD) that appears after ~1.5 viewport heights of scroll.
+   * Site-wide: every doctrine page is long enough to want it.
+   */
+  function initBackToTop() {
+    if (document.getElementById('vmss-back-to-top')) return;
+    const btn = document.createElement('button');
+    btn.id = 'vmss-back-to-top';
+    btn.className = 'vmss-back-to-top';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.title = 'Back to top';
+    btn.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+    document.body.appendChild(btn);
+
+    btn.addEventListener('click', () => {
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+
+    let raf = null;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        btn.classList.toggle('is-visible', window.scrollY > 500);
+        raf = null;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /**
    * enhancePageLayout — applies VMSS design system classes to generic
    * page sections that don't have them hardcoded in their HTML.
    *
@@ -923,5 +956,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   enhancePageLayout();
   initBackArrows();
+  initBackToTop();
   initReveal();
 });
