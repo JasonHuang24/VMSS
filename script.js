@@ -34,7 +34,7 @@ let supabaseClient = null;
  * always has a valid fallback value.
  */
 const VMSS_DEFAULT_STATE = {
-  selectedLayer: '0',
+  selectedLayer: '-2', // must match the band vmssLayerForScore() gives stiScore
   stiScore: 43,
   profile: 'Balanced baseline',
   tone: 'Containment threshold engaged',
@@ -150,7 +150,7 @@ window.vmssAnimateNumber = vmssAnimateNumber;
         ...patch,
         values: { ...this.state.values, ...(patch.values || {}) }
       };
-      if ((patch.stiScore ?? next.stiScore) !== undefined && (patch.selectedLayer === undefined)) {
+      if (patch.stiScore !== undefined && patch.selectedLayer === undefined) {
         next.selectedLayer = vmssLayerForScore(Number(next.stiScore) || 0).key;
       }
       this.state = next;
@@ -271,7 +271,7 @@ function initVmssHud() {
       <button class="vmss-hud-toggle" type="button" aria-expanded="true" aria-label="Minimize live state panel">−</button>
     </div>
     <div class="vmss-hud-body">
-      <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>Main Layer (0)</strong></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>-2 Violent Offense</strong></div>
       <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>43</strong></div>
       <div class="vmss-hud-row"><span class="vmss-hud-label">Profile</span><span data-vmss-hud-profile>Balanced baseline</span></div>
       <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span class="vmss-hud-event" data-vmss-hud-event>Baseline loaded</span></div>
@@ -296,19 +296,23 @@ function initVmssHud() {
     setIdle(false);
     idleTimer = setTimeout(() => setIdle(true), 2600);
   };
+  /* Applies the visual state only — persistence happens exclusively in the
+     click handler, so programmatic calls (auto-minimise, resize) never
+     masquerade as an explicit user preference. */
   const setMinimized = (minimized) => {
     hud.classList.toggle('is-minimized', minimized);
     toggleBtn.textContent = minimized ? '+' : '−';
     toggleBtn.setAttribute('aria-expanded', minimized ? 'false' : 'true');
     toggleBtn.setAttribute('aria-label', minimized ? 'Expand live state panel' : 'Minimize live state panel');
+  };
+  toggleBtn?.addEventListener('click', () => {
+    const next = !hud.classList.contains('is-minimized');
+    setMinimized(next);
     try {
-      localStorage.setItem('vmss_hud_minimized', String(minimized));
+      localStorage.setItem('vmss_hud_minimized', String(next));
     } catch (e) {
       console.warn('HUD minimized state save failed:', e);
     }
-  };
-  toggleBtn?.addEventListener('click', () => {
-    setMinimized(!hud.classList.contains('is-minimized'));
     scheduleIdle();
   });
   ['mouseenter', 'mousemove', 'focusin', 'touchstart'].forEach((evt) => {
@@ -881,8 +885,8 @@ document.addEventListener('DOMContentLoaded', () => {
    * browser has completed layout before we query injected elements.
    */
   Promise.all([
-    fetch('navbar.html').then((r) => r.text()).catch(() => '<!-- Navbar fetch failed -->'),
-    fetch('footer.html').then((r) => r.text()).catch(() => '<!-- Footer fetch failed -->')
+    fetch('navbar.html').then((r) => (r.ok ? r.text() : Promise.reject(new Error(`navbar.html ${r.status}`)))).catch(() => '<!-- Navbar fetch failed -->'),
+    fetch('footer.html').then((r) => (r.ok ? r.text() : Promise.reject(new Error(`footer.html ${r.status}`)))).catch(() => '<!-- Footer fetch failed -->')
   ])
     .then(([navbarHtml, footerHtml]) => {
       const navPlaceholder = document.getElementById('navbar-placeholder');
