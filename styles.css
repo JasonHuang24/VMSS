@@ -1985,3 +1985,17 @@ body.vmss-ui-ready {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
 }
+
+/* ============================================================
+   20. LP CITATION LINKS (v20.7)
+   In-prose references to law-polling entries (whitepaper,
+   simulations). Deep-link to law-polling.html#lp-xxx anchors.
+   ============================================================ */
+.lp-ref {
+  color: var(--accent);
+  text-decoration: none;
+}
+.lp-ref:hover {
+  color: var(--accent-soft);
+  text-decoration: underline;
+}

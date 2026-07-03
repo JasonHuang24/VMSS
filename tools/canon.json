@@ -1,0 +1,6 @@
+{
+  "comment": "Canonical constants that cannot be derived from the pages themselves. Everything derivable (simulation counts, LP section counts, badge totals) is computed live by check-canon.mjs and cross-checked against every advertised number.",
+  "pillarFederalLaws": 7,
+  "charterLatestArticle": "XXVIII",
+  "currencyZones": 4
+}

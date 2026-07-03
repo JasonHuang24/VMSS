@@ -1,0 +1,19 @@
+name: Canon consistency check
+
+# Recomputes every derivable count (simulation cards, law-polling entries,
+# badge totals, anchor ids) and fails the push if any advertised number,
+# version stamp, or deep link has drifted from reality.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canon checker
+        run: node tools/check-canon.mjs

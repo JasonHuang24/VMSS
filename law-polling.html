@@ -154,6 +154,15 @@
     font-weight: 600;
     margin-bottom: 0.85rem;
   }
+  /* Deep-link + filter chrome (v20.7) */
+  .law-entry, .law-section-header { scroll-margin-top: 110px; }
+  .lp-self { color: inherit; text-decoration: none; }
+  .lp-self:hover { text-decoration: underline; }
+  .law-filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 0.75rem; }
+  .law-chip { font-size: 0.78rem; padding: 0.35rem 0.9rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; transition: border-color .2s, color .2s; }
+  .law-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+  .law-chip.is-active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .law-filter-count { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
 </style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen">
@@ -167,23 +176,34 @@
 <p class="text-[var(--text-muted)] text-center mb-8 max-w-3xl mx-auto">The civilization publishes its legislative record the same way it publishes its leakage rate, its Charter, and its STI architecture &mdash; openly, auditably, and without editorial curation. Every Charter amendment, federal law, and regulatory petition since the civilization began operating is recorded here with filing date, drafter, vote breakdown, threshold, and outcome.</p>
 
 <div class="grid grid-cols-4 gap-6 mb-6 max-w-3xl mx-auto">
-  <div class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] p-5 text-center">
+  <a href="#charter-amendments" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
     <p class="text-2xl font-bold text-[var(--accent)] mb-1">72</p>
     <p class="text-xs text-[var(--text-muted)]">Entries</p>
-  </div>
-  <div class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] p-5 text-center">
+  </a>
+  <a href="#charter-amendments" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
     <p class="text-2xl font-bold text-[var(--accent)] mb-1">6</p>
     <p class="text-xs text-[var(--text-muted)]">Charter</p>
-  </div>
-  <div class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] p-5 text-center">
+  </a>
+  <a href="#federal-laws" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
     <p class="text-2xl font-bold text-[var(--accent)] mb-1">45</p>
     <p class="text-xs text-[var(--text-muted)]">Federal</p>
-  </div>
-  <div class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] p-5 text-center">
+  </a>
+  <a href="#regulatory-petitions" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
     <p class="text-2xl font-bold text-[var(--accent)] mb-1">21</p>
     <p class="text-xs text-[var(--text-muted)]">Regulatory</p>
-  </div>
+  </a>
 </div>
+
+<div class="law-filter-bar" id="law-filter-bar" role="group" aria-label="Filter laws by status">
+  <button class="law-chip is-active" data-filter="all" type="button">All</button>
+  <button class="law-chip" data-filter="status-enacted" type="button">Enacted</button>
+  <button class="law-chip" data-filter="status-failed" type="button">Failed</button>
+  <button class="law-chip" data-filter="status-mixed" type="button">Mixed</button>
+  <button class="law-chip" data-filter="status-rerouted" type="button">Rerouted</button>
+  <button class="law-chip" data-filter="status-advisory" type="button">Advisory</button>
+  <button class="law-chip" data-filter="pillar" type="button">&#11046; Pillar</button>
+</div>
+<p class="law-filter-count" data-law-count>Showing all 72 entries</p>
 
 </div>
 </section>
@@ -194,13 +214,13 @@
 <!-- ════════════════════════════════════════════════════════════════════
      CHARTER AMENDMENTS (Article XI)
      ════════════════════════════════════════════════════════════════════ -->
-<h2 class="law-section-header">Charter Amendments</h2>
+<h2 class="law-section-header" id="charter-amendments">Charter Amendments</h2>
 <p class="law-section-sub">Article XI gauntlet: 70% Meritboard filibuster floor, Supreme Court 7/10 majority, population ratification (Sanctuary consensus + Main Layer 80&ndash;90% supermajority), presidential veto. Lower layers (-1, -2, -3) do not vote on Charter amendments &mdash; Charter revision rights are held by the two populations whose behavioral record qualifies them to shape the ontology the civilization runs on. The highest bar in the civilization&rsquo;s governance architecture.</p>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-001">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-001</div>
+      <div class="law-number"><a href="#lp-001" class="lp-self">LP-001</a></div>
       <h3 class="law-title">Article XXIX &mdash; Extraterrestrial Governance Framework</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary Consensus</span>
@@ -226,10 +246,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-046">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-046</div>
+      <div class="law-number"><a href="#lp-046" class="lp-self">LP-046</a></div>
       <h3 class="law-title">Article XI Consensus Threshold Revision</h3>
     </div>
     <span class="status-badge status-failed">Failed at Meritboard Filibuster</span>
@@ -255,10 +275,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-050">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-050</div>
+      <div class="law-number"><a href="#lp-050" class="lp-self">LP-050</a></div>
       <h3 class="law-title">Three-Tier Tenure Codification Amendment</h3>
     </div>
     <span class="status-badge status-failed">Failed at Supreme Court</span>
@@ -287,10 +307,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-052">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-052</div>
+      <div class="law-number"><a href="#lp-052" class="lp-self">LP-052</a></div>
       <h3 class="law-title">Independent Fetal Continuity Registration Amendment</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary Consensus</span>
@@ -318,10 +338,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-053">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-053</div>
+      <div class="law-number"><a href="#lp-053" class="lp-self">LP-053</a></div>
       <h3 class="law-title">Voluntary Cessation Procedure Amendment</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary Consensus (narrow)</span>
@@ -349,10 +369,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-057">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-057</div>
+      <div class="law-number"><a href="#lp-057" class="lp-self">LP-057</a></div>
       <h3 class="law-title">Earned Reascension Amendment</h3>
     </div>
     <span class="status-badge status-failed">Failed at Main Layer</span>
@@ -383,13 +403,13 @@
 <!-- ════════════════════════════════════════════════════════════════════
      FEDERAL LAWS (Article XXV.VI)
      ════════════════════════════════════════════════════════════════════ -->
-<h2 class="law-section-header">Federal Laws</h2>
+<h2 class="law-section-header" id="federal-laws">Federal Laws</h2>
 <p class="law-section-sub">Article XXV.VI drafting ladder: 60% Meritboard filibuster floor, 6/10 Supreme Court majority, three-track population ratification (Sanctuary 90%+, Main 70&ndash;80%, lower-layer aggregate 70&ndash;80%), presidential veto. Binds every layer; cannot reach the founding core.</p>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-002">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-002</div>
+      <div class="law-number"><a href="#lp-002" class="lp-self">LP-002</a></div>
       <h3 class="law-title">PJS Rate Calibration &mdash; Medical Research Roles</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -415,10 +435,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-003">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-003</div>
+      <div class="law-number"><a href="#lp-003" class="lp-self">LP-003</a></div>
       <h3 class="law-title">Meritboard Engagement Thresholds</h3>
     </div>
     <span class="status-badge status-rerouted">Rerouted by Dual-Key</span>
@@ -443,10 +463,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-004">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-004</div>
+      <div class="law-number"><a href="#lp-004" class="lp-self">LP-004</a></div>
       <h3 class="law-title">Backup Vessel Parity</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary</span>
@@ -472,10 +492,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-004-2">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-004.2</div>
+      <div class="law-number"><a href="#lp-004-2" class="lp-self">LP-004.2</a></div>
       <h3 class="law-title">Backup Vessel Parity &mdash; Second Pass (Consent-Scoped Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -501,10 +521,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-005">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-005</div>
+      <div class="law-number"><a href="#lp-005" class="lp-self">LP-005</a></div>
       <h3 class="law-title">Sovereignty Breach Law</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary</span>
@@ -530,10 +550,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-005-2">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-005.2</div>
+      <div class="law-number"><a href="#lp-005-2" class="lp-self">LP-005.2</a></div>
       <h3 class="law-title">Sovereignty Breach Law &mdash; Second Pass (Scale-Tier Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted · Superseded by LP-005.3</span>
@@ -560,11 +580,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-005-3">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-005.3</div>
+      <div class="law-number"><a href="#lp-005-3" class="lp-self">LP-005.3</a></div>
       <h3 class="law-title">Sovereignty Breach Law &mdash; Third Pass (Character-Weighted Classification Override)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted &middot; Operative</span>
@@ -592,10 +612,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-006">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-006</div>
+      <div class="law-number"><a href="#lp-006" class="lp-self">LP-006</a></div>
       <h3 class="law-title">Lower-Layer Economic Disclosure Law</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -621,10 +641,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-007">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-007</div>
+      <div class="law-number"><a href="#lp-007" class="lp-self">LP-007</a></div>
       <h3 class="law-title">Meritboard Representation Parity</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary</span>
@@ -650,11 +670,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-007-2">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-007.2</div>
+      <div class="law-number"><a href="#lp-007-2" class="lp-self">LP-007.2</a></div>
       <h3 class="law-title">Meritboard Representation Parity &mdash; Second Pass (Role-Scoped Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -680,10 +700,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-008">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-008</div>
+      <div class="law-number"><a href="#lp-008" class="lp-self">LP-008</a></div>
       <h3 class="law-title">Neural Diving Consent Expansion</h3>
     </div>
     <span class="status-badge status-failed">Failed at Lower-Layer Aggregate</span>
@@ -709,10 +729,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-021">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-021</div>
+      <div class="law-number"><a href="#lp-021" class="lp-self">LP-021</a></div>
       <h3 class="law-title">Colosseum Classification Non-Export</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -738,10 +758,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-022">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-022</div>
+      <div class="law-number"><a href="#lp-022" class="lp-self">LP-022</a></div>
       <h3 class="law-title">Revival Priority During Mass-Casualty Events</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -767,10 +787,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-023">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-023</div>
+      <div class="law-number"><a href="#lp-023" class="lp-self">LP-023</a></div>
       <h3 class="law-title">Autoparenting Facility Operational Standards</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -796,10 +816,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-024">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-024</div>
+      <div class="law-number"><a href="#lp-024" class="lp-self">LP-024</a></div>
       <h3 class="law-title">Meritboard Representation Parity &mdash; Amendment Attempt</h3>
     </div>
     <span class="status-badge status-failed">Failed at Ratification</span>
@@ -825,10 +845,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-028">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-028</div>
+      <div class="law-number"><a href="#lp-028" class="lp-self">LP-028</a></div>
       <h3 class="law-title">Implant Tamper-Abroad Recovery Protocol</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -854,10 +874,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-029">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-029</div>
+      <div class="law-number"><a href="#lp-029" class="lp-self">LP-029</a></div>
       <h3 class="law-title">Orbital Debris Attribution Tax</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -883,10 +903,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-031">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-031</div>
+      <div class="law-number"><a href="#lp-031" class="lp-self">LP-031</a></div>
       <h3 class="law-title">Substrate Continuity Equivalence Act</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -912,10 +932,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-032">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-032</div>
+      <div class="law-number"><a href="#lp-032" class="lp-self">LP-032</a></div>
       <h3 class="law-title">Archive Access and Standing Protocol</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -941,10 +961,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-033">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-033</div>
+      <div class="law-number"><a href="#lp-033" class="lp-self">LP-033</a></div>
       <h3 class="law-title">District Externality Escalation Rule</h3>
     </div>
     <span class="status-badge status-rerouted">Rerouted by Dual-Key &mdash; Enacted at Federal</span>
@@ -973,10 +993,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-034">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-034</div>
+      <div class="law-number"><a href="#lp-034" class="lp-self">LP-034</a></div>
       <h3 class="law-title">Educational Baseline Designation</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (Dual-Key Challenge Denied)</span>
@@ -1004,10 +1024,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-035">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-035</div>
+      <div class="law-number"><a href="#lp-035" class="lp-self">LP-035</a></div>
       <h3 class="law-title">Status-Carry Jurisdiction Clarification Act</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1033,10 +1053,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-037">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-037</div>
+      <div class="law-number"><a href="#lp-037" class="lp-self">LP-037</a></div>
       <h3 class="law-title">Neural Dive Archival Consent Standard</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1062,10 +1082,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-038">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-038</div>
+      <div class="law-number"><a href="#lp-038" class="lp-self">LP-038</a></div>
       <h3 class="law-title">Backup Vessel Sync Frequency Mandate</h3>
     </div>
     <span class="status-badge status-failed">Failed at Main Layer</span>
@@ -1091,10 +1111,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-038-2">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-038.2</div>
+      <div class="law-number"><a href="#lp-038-2" class="lp-self">LP-038.2</a></div>
       <h3 class="law-title">Sync Frequency Mandate &mdash; Second Pass (Notification Architecture Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1120,11 +1140,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-039">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-039</div>
+      <div class="law-number"><a href="#lp-039" class="lp-self">LP-039</a></div>
       <h3 class="law-title">Academy Capstone Live-Adoption Procedure</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1150,10 +1170,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-040">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-040</div>
+      <div class="law-number"><a href="#lp-040" class="lp-self">LP-040</a></div>
       <h3 class="law-title">Federation Treaty Tier-4 Burden-Sharing Protocol</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1179,11 +1199,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-041">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-041</div>
+      <div class="law-number"><a href="#lp-041" class="lp-self">LP-041</a></div>
       <h3 class="law-title">Draft Origination &amp; Sponsorship Disclosure Rule</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1209,10 +1229,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-043">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-043</div>
+      <div class="law-number"><a href="#lp-043" class="lp-self">LP-043</a></div>
       <h3 class="law-title">MGD Adequacy Review Trigger</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1238,10 +1258,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-044">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-044</div>
+      <div class="law-number"><a href="#lp-044" class="lp-self">LP-044</a></div>
       <h3 class="law-title">Sovereign Foothold Limitation &amp; Sunset Rule</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1267,10 +1287,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-045">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-045</div>
+      <div class="law-number"><a href="#lp-045" class="lp-self">LP-045</a></div>
       <h3 class="law-title">Substrate-Equivalent Continuity Guarantee</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary</span>
@@ -1296,11 +1316,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-045-2">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-045.2</div>
+      <div class="law-number"><a href="#lp-045-2" class="lp-self">LP-045.2</a></div>
       <h3 class="law-title">Substrate-Equivalent Continuity &mdash; Second Pass (Functional-Equivalence Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted &middot; Operative</span>
@@ -1326,10 +1346,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-047">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-047</div>
+      <div class="law-number"><a href="#lp-047" class="lp-self">LP-047</a></div>
       <h3 class="law-title">Visitor Defensive Force Protection</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary</span>
@@ -1356,10 +1376,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-047-2">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-047.2</div>
+      <div class="law-number"><a href="#lp-047-2" class="lp-self">LP-047.2</a></div>
       <h3 class="law-title">Visitor Defensive Force Protection &mdash; Second Pass (Layer-Graduated Redraft)</h3>
     </div>
     <span class="status-badge status-failed">Failed at Lower-Layer Aggregate</span>
@@ -1386,11 +1406,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-047-3">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-047.3</div>
+      <div class="law-number"><a href="#lp-047-3" class="lp-self">LP-047.3</a></div>
       <h3 class="law-title">Visitor Defensive Force Protection &mdash; Third Pass (Temporal Scope Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted &middot; Operative</span>
@@ -1424,10 +1444,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-048">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-048</div>
+      <div class="law-number"><a href="#lp-048" class="lp-self">LP-048</a></div>
       <h3 class="law-title">Defense of Third Parties Extension</h3>
     </div>
     <span class="status-badge status-failed">Failed at Lower-Layer Aggregate</span>
@@ -1454,10 +1474,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-048-2">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-048.2</div>
+      <div class="law-number"><a href="#lp-048-2" class="lp-self">LP-048.2</a></div>
       <h3 class="law-title">Defense of Third Parties &mdash; Second Pass (Incapacitated-Victim Scoping)</h3>
     </div>
     <span class="status-badge status-failed">Failed at Sanctuary</span>
@@ -1484,11 +1504,11 @@
   </div>
 </article>
 
-<article class="law-entry pillar">
+<article class="law-entry pillar" id="lp-048-3">
   <p class="pillar-label">⬥ Pillar Federal Law</p>
   <div class="law-header">
     <div>
-      <div class="law-number">LP-048.3</div>
+      <div class="law-number"><a href="#lp-048-3" class="lp-self">LP-048.3</a></div>
       <h3 class="law-title">Defense of Third Parties &mdash; Third Pass (Reasonable-Perception Standard)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted &middot; Operative</span>
@@ -1521,10 +1541,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-049">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-049</div>
+      <div class="law-number"><a href="#lp-049" class="lp-self">LP-049</a></div>
       <h3 class="law-title">Cross-Layer Weapon Transit Specification</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1553,10 +1573,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-054">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-054</div>
+      <div class="law-number"><a href="#lp-054" class="lp-self">LP-054</a></div>
       <h3 class="law-title">Post-Descent Parental Authority Boundary Act</h3>
     </div>
     <span class="status-badge status-failed">Failed at Lower-Layer Aggregate</span>
@@ -1585,10 +1605,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-055">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-055</div>
+      <div class="law-number"><a href="#lp-055" class="lp-self">LP-055</a></div>
       <h3 class="law-title">Implant Removal Conscientious Objection Procedure</h3>
     </div>
     <span class="status-badge status-failed">Failed at Supreme Court</span>
@@ -1617,10 +1637,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-056">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-056</div>
+      <div class="law-number"><a href="#lp-056" class="lp-self">LP-056</a></div>
       <h3 class="law-title">Restorative Neural Exposure Boundary Act</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (narrow)</span>
@@ -1649,10 +1669,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-058">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-058</div>
+      <div class="law-number"><a href="#lp-058" class="lp-self">LP-058</a></div>
       <h3 class="law-title">STI Trajectory Advisory Mandate</h3>
     </div>
     <span class="status-badge status-failed">Failed at Meritboard Filibuster</span>
@@ -1680,10 +1700,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-059">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-059</div>
+      <div class="law-number"><a href="#lp-059" class="lp-self">LP-059</a></div>
       <h3 class="law-title">Companion Animal Continuity Act</h3>
     </div>
     <span class="status-badge status-failed">Failed at Lower-Layer Aggregate</span>
@@ -1712,10 +1732,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-060">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-060</div>
+      <div class="law-number"><a href="#lp-060" class="lp-self">LP-060</a></div>
       <h3 class="law-title">Survivor Elective Memory Excision Act</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (Narrow)</span>
@@ -1747,13 +1767,13 @@
 <!-- ════════════════════════════════════════════════════════════════════
      REGULATORY PETITIONS (Article XXVIII)
      ════════════════════════════════════════════════════════════════════ -->
-<h2 class="law-section-header">Regulatory Petitions</h2>
+<h2 class="law-section-header" id="regulatory-petitions">Regulatory Petitions</h2>
 <p class="law-section-sub">Article XXVIII mechanism: 1% population signature threshold initiates a petition; Meritboard domain-expert panel drafts the regulation; 80% direct ratification by the affected population enacts it. Layer-wide, district-wide, cross-layer, or advisory-only in -3 Terminal. Dual-key classification (Meritboard + Supreme Court) prevents structural smuggling into the regulatory route.</p>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-009">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-009</div>
+      <div class="law-number"><a href="#lp-009" class="lp-self">LP-009</a></div>
       <h3 class="law-title">Non-Consensual Implantation Restriction (-3 Voluntary Districts)</h3>
     </div>
     <span class="status-badge status-advisory">Advisory-Only</span>
@@ -1777,10 +1797,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-010">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-010</div>
+      <div class="law-number"><a href="#lp-010" class="lp-self">LP-010</a></div>
       <h3 class="law-title">Fabrication-Proxy Service Hours (3-District -1 Coalition)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (District)</span>
@@ -1804,10 +1824,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-011">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-011</div>
+      <div class="law-number"><a href="#lp-011" class="lp-self">LP-011</a></div>
       <h3 class="law-title">Industrial Watershed Discharge Exemption (-3 Petition)</h3>
     </div>
     <span class="status-badge status-rerouted">Rerouted by Dual-Key</span>
@@ -1832,10 +1852,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-012">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-012</div>
+      <div class="law-number"><a href="#lp-012" class="lp-self">LP-012</a></div>
       <h3 class="law-title">Private Detention for Main Layer Misdemeanors</h3>
     </div>
     <span class="status-badge status-rerouted">Rerouted by Dual-Key</span>
@@ -1860,10 +1880,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-013">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-013</div>
+      <div class="law-number"><a href="#lp-013" class="lp-self">LP-013</a></div>
       <h3 class="law-title">AGI Voting Weight Confirmation</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1889,10 +1909,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-014">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-014</div>
+      <div class="law-number"><a href="#lp-014" class="lp-self">LP-014</a></div>
       <h3 class="law-title">Cross-Layer Family Visitation Extension (Main Layer)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -1914,10 +1934,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-015">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-015</div>
+      <div class="law-number"><a href="#lp-015" class="lp-self">LP-015</a></div>
       <h3 class="law-title">Hunting of Endangered Species</h3>
     </div>
     <span class="status-badge status-mixed">Cross-Layer Variance</span>
@@ -1943,10 +1963,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-016">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-016</div>
+      <div class="law-number"><a href="#lp-016" class="lp-self">LP-016</a></div>
       <h3 class="law-title">Vehicle Speed Limits</h3>
     </div>
     <span class="status-badge status-mixed">Cross-Layer Variance</span>
@@ -1972,10 +1992,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-017">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-017</div>
+      <div class="law-number"><a href="#lp-017" class="lp-self">LP-017</a></div>
       <h3 class="law-title">Casinos</h3>
     </div>
     <span class="status-badge status-mixed">Cross-Layer Variance</span>
@@ -2001,10 +2021,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-018">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-018</div>
+      <div class="law-number"><a href="#lp-018" class="lp-self">LP-018</a></div>
       <h3 class="law-title">Public Intoxication</h3>
     </div>
     <span class="status-badge status-mixed">Cross-Layer Variance</span>
@@ -2030,10 +2050,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-019">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-019</div>
+      <div class="law-number"><a href="#lp-019" class="lp-self">LP-019</a></div>
       <h3 class="law-title">Indecent Exposure</h3>
     </div>
     <span class="status-badge status-mixed">Cross-Layer Variance</span>
@@ -2059,10 +2079,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-020">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-020</div>
+      <div class="law-number"><a href="#lp-020" class="lp-self">LP-020</a></div>
       <h3 class="law-title">District-Level Curfew Petitions (Aggregated Record)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (Multiple Districts)</span>
@@ -2087,10 +2107,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-025">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-025</div>
+      <div class="law-number"><a href="#lp-025" class="lp-self">LP-025</a></div>
       <h3 class="law-title">Cross-Layer Marriage Recognition Standards</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (Main + Sanctuary Joint)</span>
@@ -2113,10 +2133,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-026">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-026</div>
+      <div class="law-number"><a href="#lp-026" class="lp-self">LP-026</a></div>
       <h3 class="law-title">STI Weight Calibration Review Cycle</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -2142,10 +2162,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-027">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-027</div>
+      <div class="law-number"><a href="#lp-027" class="lp-self">LP-027</a></div>
       <h3 class="law-title">MGD Transparency Requirements (Main Layer)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted (Narrow)</span>
@@ -2167,10 +2187,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-030">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-030</div>
+      <div class="law-number"><a href="#lp-030" class="lp-self">LP-030</a></div>
       <h3 class="law-title">-3 Voluntary District Self-Governance Consolidation</h3>
     </div>
     <span class="status-badge status-advisory">Advisory-Only (Honored)</span>
@@ -2194,10 +2214,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-036">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-036</div>
+      <div class="law-number"><a href="#lp-036" class="lp-self">LP-036</a></div>
       <h3 class="law-title">STI Temporal Comparability Doctrine</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -2223,10 +2243,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-042">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-042</div>
+      <div class="law-number"><a href="#lp-042" class="lp-self">LP-042</a></div>
       <h3 class="law-title">Canon Anchor Hierarchy Clarification</h3>
     </div>
     <span class="status-badge status-enacted">Enacted</span>
@@ -2252,10 +2272,10 @@
   </div>
 </article>
 
-<article class="law-entry cross-layer">
+<article class="law-entry cross-layer" id="lp-061">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-061</div>
+      <div class="law-number"><a href="#lp-061" class="lp-self">LP-061</a></div>
       <h3 class="law-title">Public-Space Commercial AR Overlay Standards</h3>
     </div>
     <span class="status-badge status-mixed">Cross-Layer Variance</span>
@@ -2281,10 +2301,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-062">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-062</div>
+      <div class="law-number"><a href="#lp-062" class="lp-self">LP-062</a></div>
       <h3 class="law-title">Sexual-Assault Pre-Intervention Mandate (Main Layer)</h3>
     </div>
     <span class="status-badge status-failed">Failed at Ratification &middot; Dual-Key Challenge Denied</span>
@@ -2313,10 +2333,10 @@
   </div>
 </article>
 
-<article class="law-entry">
+<article class="law-entry" id="lp-062-2">
   <div class="law-header">
     <div>
-      <div class="law-number">LP-062.2</div>
+      <div class="law-number"><a href="#lp-062-2" class="lp-self">LP-062.2</a></div>
       <h3 class="law-title">Sexual-Assault Pre-Intervention &mdash; Second Pass (Opt-Out-Able Default Redraft)</h3>
     </div>
     <span class="status-badge status-enacted">Enacted &middot; Operative</span>
@@ -2356,6 +2376,35 @@
 </main>
 
 <div id="footer-placeholder"></div>
+<script>
+/* Status/pillar filter chips — purely presentational, hides non-matching entries. */
+(function () {
+  const bar = document.getElementById('law-filter-bar');
+  if (!bar) return;
+  const entries = Array.from(document.querySelectorAll('article.law-entry'));
+  const countEl = document.querySelector('[data-law-count]');
+  bar.addEventListener('click', (e) => {
+    const chip = e.target.closest('.law-chip');
+    if (!chip) return;
+    bar.querySelectorAll('.law-chip').forEach((c) => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    const f = chip.dataset.filter;
+    let shown = 0;
+    entries.forEach((entry) => {
+      const show = f === 'all'
+        || (f === 'pillar' && entry.classList.contains('pillar'))
+        || (f !== 'pillar' && !!entry.querySelector('.' + f));
+      entry.style.display = show ? '' : 'none';
+      if (show) shown++;
+    });
+    if (countEl) {
+      countEl.textContent = f === 'all'
+        ? `Showing all ${entries.length} entries`
+        : `Showing ${shown} of ${entries.length} entries`;
+    }
+  });
+})();
+</script>
 <script src="script.js" defer></script>
 </body>
 </html>
