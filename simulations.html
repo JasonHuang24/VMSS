@@ -4,7 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="theme-color" content="#07090f">
+<meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
 <title>Simulations + STI Console • The Five Rings</title>
   <meta name="description" content="Interactive STI trust scoring console and historical personality simulations inside VMSS. Adjust civic variables, trigger events, and watch layer placement shift in real time." />
   <meta property="og:title" content="Simulations + STI Console — The Five Rings" />
@@ -77,7 +78,7 @@
     <!-- LEFT: Score gauge + ladder -->
     <div class="vmss-dash-score">
       <div class="vmss-gauge vmss-gauge--sm"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="vmss-gauge-track" cx="60" cy="60" r="47"></circle><circle class="vmss-gauge-progress" cx="60" cy="60" r="47" data-gauge-progress></circle></svg><div class="vmss-gauge-center"><div class="vmss-score-number" data-sti-score aria-label="STI score">43</div><div class="vmss-score-caption">STI score</div></div></div>
-      <div class="vmss-ratio-badge">10:1 ratio <span class="opacity-60">(<a href="charter.html#article-ii" class="hover:underline">Article II</a>)</span></div>
+      <div class="vmss-ratio-badge">10:1 ratio <span class="text-[var(--text-muted)]">(<a href="charter.html#article-ii" class="text-[var(--accent)] hover:underline">Article II</a>)</span></div>
       <div aria-live="polite" aria-atomic="true" class="sr-only" data-sti-live></div>
       <div class="vmss-ladder vmss-ladder--compact">
         <div class="vmss-ladder-step" data-layer="+1"><strong>+1</strong> Sanctuary<span class="step-range">85&ndash;100</span></div>
@@ -139,7 +140,7 @@
       <!-- Proportional response + Interpretation side by side -->
       <div class="vmss-dash-bottom">
         <div class="vmss-dash-card">
-          <div class="vmss-dash-card-label">Proportional response <span class="opacity-50">(<a href="charter.html#article-xiv" class="hover:underline">Article XIV</a>)</span></div>
+          <div class="vmss-dash-card-label">Proportional response <span class="text-[var(--text-muted)]">(<a href="charter.html#article-xiv" class="text-[var(--accent)] hover:underline">Article XIV</a>)</span></div>
           <div class="vmss-axis-panel" data-axis-panel>
             <div class="vmss-axis-row"><span class="vmss-axis-label">Severity</span><span class="vmss-axis-value is-low">low</span></div>
             <div class="vmss-axis-row"><span class="vmss-axis-label">Pattern</span><span class="vmss-axis-value is-isolated">isolated</span></div>

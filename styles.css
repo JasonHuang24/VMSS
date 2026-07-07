@@ -55,8 +55,11 @@ h1, h2, h3 {
   --text-primary: #0e1728;
   --text-secondary: #344156;
   --text-muted: #607089;
-  --accent: #b7791f;
-  --accent-soft: #8a5b12;
+  /* #97650f ≈ 5.0:1 on white — passes WCAG AA for normal-size link text,
+     where the previous #b7791f (≈3.6:1) failed. --accent-soft stays darker
+     so hover remains a visible change. */
+  --accent: #97650f;
+  --accent-soft: #7a4f0d;
   --accent-glow: rgba(183, 121, 31, 0.11);
   --border: rgba(99, 115, 141, 0.18);
   --border-strong: rgba(183, 121, 31, 0.25);

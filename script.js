@@ -25,6 +25,18 @@ const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
 
 let supabaseClient = null;
 
+/**
+ * localStorage wrappers that never throw. Storage access can raise
+ * (private mode, "block all cookies", sandboxed webviews) — an unguarded
+ * read in an early init step would abort the entire post-navbar init chain.
+ */
+function vmssStorageGet(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+function vmssStorageSet(key, value) {
+  try { localStorage.setItem(key, value); return true; } catch (e) { return false; }
+}
+
 // =========================
 // VMSS GLOBAL STATE
 // =========================
@@ -260,7 +272,7 @@ function loadRecentApplicants() {
  */
 function initVmssHud() {
   if (!document.body || document.getElementById('vmss-hud')) return;
-  const savedHudMinimized = localStorage.getItem('vmss_hud_minimized') === 'true';
+  const savedHudMinimized = vmssStorageGet('vmss_hud_minimized') === 'true';
   const hud = document.createElement('aside');
   hud.id = 'vmss-hud';
   hud.className = 'vmss-hud';
@@ -336,7 +348,7 @@ function initVmssHud() {
   const isMobile = () => window.innerWidth < 768;
 
   /* Auto-minimise on mobile unless user has explicitly set a preference */
-  const hasUserPref = localStorage.getItem('vmss_hud_minimized') !== null;
+  const hasUserPref = vmssStorageGet('vmss_hud_minimized') !== null;
   if (hasUserPref) {
     setMinimized(savedHudMinimized);
   } else {
@@ -346,7 +358,7 @@ function initVmssHud() {
   /* Re-evaluate on resize — only when no user preference is stored */
   let resizeRaf = null;
   window.addEventListener('resize', () => {
-    if (localStorage.getItem('vmss_hud_minimized') !== null) return;
+    if (vmssStorageGet('vmss_hud_minimized') !== null) return;
     if (resizeRaf) return;
     resizeRaf = requestAnimationFrame(() => {
       setMinimized(isMobile());
@@ -421,7 +433,7 @@ function initVmssLayerLinks() {
  * Checks localStorage first, then falls back to the OS preference.
  */
 function getPreferredTheme() {
-  const saved = localStorage.getItem('theme');
+  const saved = vmssStorageGet('theme');
   if (saved === 'light' || saved === 'dark') return saved;
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
@@ -435,8 +447,13 @@ function applyTheme(theme) {
   const toggle = document.getElementById('theme-toggle');
   if (toggle) {
     toggle.innerHTML = theme === 'light'
-      ? '<i class="fas fa-sun"></i>'
-      : '<i class="fas fa-moon"></i>';
+      ? '<i class="fas fa-sun" aria-hidden="true"></i>'
+      : '<i class="fas fa-moon" aria-hidden="true"></i>';
+    /* Expose current state to assistive tech: the button turns dark mode
+       on/off, so aria-pressed = "is dark active" and the label names the
+       action it will perform. */
+    toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
   }
 }
 
@@ -448,7 +465,7 @@ function initThemeToggle() {
   toggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
     const next = current === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', next);
+    vmssStorageSet('theme', next);
     applyTheme(next);
   });
 }
@@ -471,6 +488,10 @@ function initMobileMenu() {
 
   if (!menuToggle || !mobileMenu) return;
 
+  if (!menuToggle.getAttribute('aria-controls')) {
+    menuToggle.setAttribute('aria-controls', mobileMenu.id || 'mobile-menu');
+  }
+
   const setExpanded = (open) => {
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     mobileMenu.classList.toggle('hidden', !open);
@@ -480,6 +501,14 @@ function initMobileMenu() {
 
   menuToggle.addEventListener('click', () => setExpanded(mobileMenu.classList.contains('hidden')));
   navLinks.forEach((link) => link.addEventListener('click', () => setExpanded(false)));
+
+  /* Escape closes the drawer and returns focus to the toggle. */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      setExpanded(false);
+      menuToggle.focus();
+    }
+  });
 }
 
 // =========================
@@ -498,12 +527,30 @@ function initActiveNav() {
   let currentPage = window.location.pathname.split('/').pop();
   if (!currentPage || currentPage === '') currentPage = 'index.html';
 
+  /* Sub-pages that have no nav entry of their own highlight their hub link,
+     so the "where am I" cue survives on layer and simulation detail pages. */
+  const NAV_PARENTS = {
+    'layer-+1.html': 'layers.html',
+    'layer-0.html': 'layers.html',
+    'layer--1.html': 'layers.html',
+    'layer--2.html': 'layers.html',
+    'layer--3.html': 'layers.html',
+    'simulations-world.html': 'simulations.html',
+    'simulations-residents.html': 'simulations.html',
+    'simulations-academy.html': 'simulations.html',
+    'simulations-resources.html': 'simulations.html'
+  };
+  const parentPage = NAV_PARENTS[currentPage];
+
   navLinks.forEach((link) => {
     const href = link.getAttribute('href');
     if (!href) return;
-    const isActive = href === currentPage;
+    const isExact = href === currentPage;
+    const isActive = isExact || href === parentPage;
     link.classList.toggle('nav-link-active', isActive);
-    if (isActive) {
+    /* aria-current="page" only for the exact page — a highlighted hub link
+       is a section cue, not the current page. */
+    if (isExact) {
       link.setAttribute('aria-current', 'page');
     } else {
       link.removeAttribute('aria-current');
@@ -593,7 +640,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setMessage = (text, isError = false) => {
       if (!messageEl) return;
-      messageEl.textContent = text;
+      /* Prefix errors with a symbol so the state isn't conveyed by color
+         alone (colorblind users) and doesn't rely on the red text. */
+      messageEl.textContent = isError ? `⚠ ${text}` : text;
       messageEl.classList.remove('hidden');
       messageEl.style.color = isError ? '#f87171' : '';
     };
@@ -608,8 +657,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (openBtn) openBtn.addEventListener('click', showEntryForm);
     if (closeBtn) closeBtn.addEventListener('click', hideEntryForm);
 
+    /* Close when the click lands outside the modal box. entryModal's only
+       child is a full-bleed centering wrapper, so `e.target === entryModal`
+       could never fire — test against the box itself instead. */
     entryModal.addEventListener('click', (e) => {
-      if (e.target === entryModal) hideEntryForm();
+      if (!e.target.closest('.entry-modal-box')) hideEntryForm();
     });
 
     document.addEventListener('keydown', (e) => {
@@ -647,7 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const ENTRY_COOLDOWN_MS = 60 * 1000;
-      const lastSubmissionTime = localStorage.getItem('vmss_last_submission_time');
+      const lastSubmissionTime = vmssStorageGet('vmss_last_submission_time');
       const now = Date.now();
 
       if (lastSubmissionTime && now - Number(lastSubmissionTime) < ENTRY_COOLDOWN_MS) {
@@ -719,30 +771,36 @@ document.addEventListener('DOMContentLoaded', () => {
                       <p class="text-sm font-semibold text-[var(--text-primary)]">The Trilogy (Vols. 1–3)</p>
                       <p class="text-xs text-[var(--text-muted)]">Architecture of Consequence · The Ledger · The Intake Files</p>
                     </div>
-                    <a href="#" class="text-sm text-[var(--accent)] hover:text-[var(--accent-soft)] transition font-medium whitespace-nowrap ml-4">Buy →</a>
+                    <a href="audiobook.html" class="text-sm text-[var(--accent)] hover:text-[var(--accent-soft)] transition font-medium whitespace-nowrap ml-4" aria-label="View the Trilogy, Volumes 1 to 3">Listen →</a>
                   </div>
                   <div class="flex items-center justify-between">
                     <div>
                       <p class="text-sm font-semibold text-[var(--text-primary)]">Vol. 4: Fresh Eyes</p>
                       <p class="text-xs text-[var(--text-muted)]">Standalone — A stranger's reckoning</p>
                     </div>
-                    <a href="#" class="text-sm text-[var(--accent)] hover:text-[var(--accent-soft)] transition font-medium whitespace-nowrap ml-4">Buy →</a>
+                    <a href="audiobook.html" class="text-sm text-[var(--accent)] hover:text-[var(--accent-soft)] transition font-medium whitespace-nowrap ml-4" aria-label="View Volume 4, Fresh Eyes">Listen →</a>
                   </div>
                   <div class="flex items-center justify-between">
                     <div>
                       <p class="text-sm font-semibold text-[var(--text-primary)]">Vol. 5: Embodiment</p>
                       <p class="text-xs text-[var(--text-muted)]">Standalone — Beauty & augmentation</p>
                     </div>
-                    <a href="#" class="text-sm text-[var(--accent)] hover:text-[var(--accent-soft)] transition font-medium whitespace-nowrap ml-4">Buy →</a>
+                    <a href="audiobook.html" class="text-sm text-[var(--accent)] hover:text-[var(--accent-soft)] transition font-medium whitespace-nowrap ml-4" aria-label="View Volume 5, Embodiment">Listen →</a>
                   </div>
                 </div>
                 <a href="audiobook.html" class="inline-block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition underline">View all volumes →</a>
               </div>
               <p class="text-[var(--text-muted)] text-sm">The choice — and the consequences — are now yours.</p>
-              <button onclick="document.getElementById('entryModal').classList.add('hidden'); document.getElementById('entryModal').setAttribute('aria-hidden','true');"
+              <button type="button" id="entry-success-close"
                       class="mt-6 text-[var(--text-muted)] hover:text-[var(--accent)] transition text-sm underline">Close</button>
             </div>
           `;
+          /* Wire the success-state Close button to the real teardown so the
+             scroll lock, focus trap, and focus restore are all released.
+             (The old inline onclick only hid the modal, leaving the page
+             permanently scroll-locked — see lockPage/hideEntryForm.) */
+          const successClose = modalBody.querySelector('#entry-success-close');
+          if (successClose) successClose.addEventListener('click', hideEntryForm);
         }
       } catch (err) {
         console.error('Submission error:', err);
