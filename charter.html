@@ -36,6 +36,59 @@
 <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<style>
+  /* Table of contents — law-polling component idiom (v21.0) */
+  h2[id], h3[id] { scroll-margin-top: 6rem; }
+  .law-toc {
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--bg-secondary);
+    overflow: hidden;
+    margin-bottom: 2.75rem;
+  }
+  .toc-toggle {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.1rem 1.5rem; background: none; border: none; cursor: pointer;
+    text-align: left; color: var(--text-primary); font: inherit;
+  }
+  .toc-toggle:hover { background: rgba(255,255,255,0.02); }
+  .toc-toggle-label { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); }
+  .toc-toggle-hint { color: var(--text-muted); font-size: 0.82rem; margin-left: 0.7rem; }
+  .toc-chevron { color: var(--accent); font-size: 1rem; transition: transform 0.3s ease; flex-shrink: 0; }
+  .law-toc.open .toc-chevron { transform: rotate(180deg); }
+  .toc-body { display: none; padding: 0.25rem 1.5rem 1.6rem; }
+  .law-toc.open .toc-body { display: block; }
+  .toc-tier { margin-top: 1.5rem; }
+  .toc-tier:first-child { margin-top: 0.5rem; }
+  .toc-tier-head {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 0.75rem; text-decoration: none;
+  }
+  .toc-tier-head:hover { text-decoration: underline; }
+  .toc-count {
+    font-size: 0.66rem; color: var(--text-muted); background: var(--bg-primary);
+    border: 1px solid var(--border); border-radius: 999px; padding: 0.08rem 0.5rem;
+    letter-spacing: normal; font-weight: 600;
+  }
+  .toc-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.1rem 1.6rem;
+  }
+  .toc-link {
+    display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0;
+    font-size: 0.86rem; text-decoration: none; color: var(--text-secondary);
+  }
+  .toc-link:hover { color: var(--accent); }
+  .toc-link:hover .toc-num { color: var(--accent); }
+  .toc-num { color: var(--accent); font-weight: 600; font-size: 0.76rem; white-space: nowrap; flex-shrink: 0; min-width: 3.7rem; }
+  .toc-txt { line-height: 1.3; }
+  @media (max-width: 640px) {
+    .toc-grid { grid-template-columns: 1fr; }
+    .toc-toggle-hint { display: none; }
+  }
+  [data-theme="light"] .toc-toggle:hover { background: rgba(14, 23, 40, 0.04); }
+</style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
@@ -47,8 +100,51 @@
   </div>
 </div>
 
+<div class="max-w-4xl mx-auto">
+<div class="law-toc" id="charterToc">
+  <button class="toc-toggle" id="charterTocToggle" aria-expanded="false" aria-controls="charterTocBody">
+    <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">Preamble &middot; 28 articles &middot; Founding Affirmation</span></span>
+    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+  </button>
+  <div class="toc-body" id="charterTocBody">
+    <div class="toc-grid">
+    <a href="#preamble" class="toc-link"><span class="toc-num">Pre.</span> <span class="toc-txt">Preamble</span></a>
+    <a href="#article-i" class="toc-link"><span class="toc-num">Art. I</span> <span class="toc-txt">Vertical Moral Stratification System (VMSS)</span></a>
+    <a href="#article-ii" class="toc-link"><span class="toc-num">Art. II</span> <span class="toc-txt">Social Trust Index (STI)</span></a>
+    <a href="#article-iii" class="toc-link"><span class="toc-num">Art. III</span> <span class="toc-txt">Economic Framework</span></a>
+    <a href="#article-iv" class="toc-link"><span class="toc-num">Art. IV</span> <span class="toc-txt">Technology &amp; Continuity</span></a>
+    <a href="#article-v" class="toc-link"><span class="toc-num">Art. V</span> <span class="toc-txt">Rights &amp; Stances</span></a>
+    <a href="#article-vi" class="toc-link"><span class="toc-num">Art. VI</span> <span class="toc-txt">Enforcement &amp; Restoration Protocol</span></a>
+    <a href="#article-vii" class="toc-link"><span class="toc-num">Art. VII</span> <span class="toc-txt">Layer Mobility, Visitation &amp; Ascension Rules</span></a>
+    <a href="#article-viii" class="toc-link"><span class="toc-num">Art. VIII</span> <span class="toc-txt">Child Protection &amp; Autoparenting</span></a>
+    <a href="#article-ix" class="toc-link"><span class="toc-num">Art. IX</span> <span class="toc-txt">Selective Ascension Domains (SADs)</span></a>
+    <a href="#article-x" class="toc-link"><span class="toc-num">Art. X</span> <span class="toc-txt">Exit &amp; Re-entry Rules</span></a>
+    <a href="#article-xi" class="toc-link"><span class="toc-num">Art. XI</span> <span class="toc-txt">Amendment Process</span></a>
+    <a href="#article-xii" class="toc-link"><span class="toc-num">Art. XII</span> <span class="toc-txt">Non-Deterministic Evaluation</span></a>
+    <a href="#article-xiii" class="toc-link"><span class="toc-num">Art. XIII</span> <span class="toc-txt">Separation of Signal and Decision</span></a>
+    <a href="#article-xiv" class="toc-link"><span class="toc-num">Art. XIV</span> <span class="toc-txt">Proportional Response</span></a>
+    <a href="#article-xv" class="toc-link"><span class="toc-num">Art. XV</span> <span class="toc-txt">Clearable Infractions &amp; Trajectory Evaluation</span></a>
+    <a href="#article-xvi" class="toc-link"><span class="toc-num">Art. XVI</span> <span class="toc-txt">System Stability</span></a>
+    <a href="#article-xvii" class="toc-link"><span class="toc-num">Art. XVII</span> <span class="toc-txt">Resistance to Exploitation</span></a>
+    <a href="#article-xviii" class="toc-link"><span class="toc-num">Art. XVIII</span> <span class="toc-txt">Contextual Evaluation &amp; Network Attribution</span></a>
+    <a href="#article-xix" class="toc-link"><span class="toc-num">Art. XIX</span> <span class="toc-txt">Feedback Loop Awareness</span></a>
+    <a href="#article-xx" class="toc-link"><span class="toc-num">Art. XX</span> <span class="toc-txt">System Accountability</span></a>
+    <a href="#article-xxi" class="toc-link"><span class="toc-num">Art. XXI</span> <span class="toc-txt">Supreme Court &amp; Judicial Authority</span></a>
+    <a href="#article-xxii" class="toc-link"><span class="toc-num">Art. XXII</span> <span class="toc-txt">The Meritboard &amp; Executive Authority</span></a>
+    <a href="#article-xxiii" class="toc-link"><span class="toc-num">Art. XXIII</span> <span class="toc-txt">Zero Leakage Aspiration</span></a>
+    <a href="#article-xxiv" class="toc-link"><span class="toc-num">Art. XXIV</span> <span class="toc-txt">Leakage Gradient &amp; Medical Access</span></a>
+    <a href="#article-xxv" class="toc-link"><span class="toc-num">Art. XXV</span> <span class="toc-txt">Federal Law &amp; National Defense</span></a>
+    <a href="#article-xxvi" class="toc-link"><span class="toc-num">Art. XXVI</span> <span class="toc-txt">Substance Use</span></a>
+    <a href="#article-xxvii" class="toc-link"><span class="toc-num">Art. XXVII</span> <span class="toc-txt">UBI Replenishment Ratio &amp; Population Sustainability</span></a>
+    <a href="#article-xxviii" class="toc-link"><span class="toc-num">Art. XXVIII</span> <span class="toc-txt">Regulatory Law &amp; District Governance</span></a>
+    <a href="#founding-affirmation" class="toc-link"><span class="toc-num">Fin.</span> <span class="toc-txt">Founding Affirmation</span></a>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="prose prose-invert max-w-none text-[var(--text-secondary)] leading-relaxed">
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Preamble</h2>
+<h2 id="preamble" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Preamble</h2>
 <p>We establish The Five Rings Civilization as a voluntary society governed by moral causality. Harm is structurally mitigated or segregated. Abundance is the birthright of compliance. Technology liberates the self while preserving the innocent. Every citizen begins with full dignity; consequences follow choices without mercy or malice.</p>
 <div class="my-10 border-l-4 border-[var(--accent)] bg-[var(--accent)]/5 rounded-r-xl pl-8 pr-6 py-8">
 <p class="text-xs uppercase tracking-[0.28em] text-[var(--accent)] font-semibold mb-6">⟐ The Four Founding Lines · Inscribed by the Chief Architect · Unchanged since founding</p>
@@ -58,7 +154,7 @@
 <p class="text-lg text-[var(--text-primary)] leading-8 font-semibold mb-6 italic">No life is ended. No life is absolved. Both truths hold at once.</p>
 <p class="text-[var(--text-secondary)] leading-7 m-0">These four lines are the civilization's symbolic anchor. They are not legally immutable — every clause in this Charter is amendable through the Article XI gauntlet, and the Charter is honest about that fact. But the four lines have never been touched since the Chief Architect wrote them, and they are the room inside which every subsequent article argues with itself. The Charter defines how the civilization does the work. These four lines define what the civilization is for.</p>
 </div>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article I – Vertical Moral Stratification System (VMSS)</h2>
+<h2 id="article-i" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article I – Vertical Moral Stratification System (VMSS)</h2>
 <p>Layers are graduated environments within a single civilization, assigned by demonstrated intent and execution of harm.</p>
 <ul class="list-disc pl-6 space-y-3 mt-4">
 <li><strong>Heaven Layers ( +1 Sanctuary &amp; SADs)</strong>: Pre-Intervention — acts halted mid-execution via neural inhibition and drones.</li>
@@ -77,7 +173,7 @@
 </ul>
 <p class="mt-4 text-[var(--text-secondary)]">A public rating component draws from the visible ledger and reflects the judgment of the citizen's layer population. The peers scoring conduct in +1 Sanctuary apply the standards of a high-trust, pre-intervention environment. The same conduct rated by the population of -2 or -3 is assessed against that layer's ambient standard. The social environment feeding the public rating component varies by layer — a citizen's STI consequence for identical conduct is not uniform across layers, reflecting the civilization's judgment that context is a legitimate variable in reputational assessment.</p>
 <p class="mt-4 text-[var(--text-secondary)]"><strong>Juvenile null-scoring:</strong> Citizens under the age of 18 carry a null STI &mdash; the implant ledger records behavioral observations continuously from birth, but no score is computed or published until the citizen reaches the age of majority. Null is not a number. It is the absence of a score, reflecting the absence of an adult behavioral record. Layer phasing mechanisms that require an STI threshold &mdash; including the 85-point Sanctuary eligibility floor &mdash; cannot evaluate a null input and therefore do not trigger. A child born in Sanctuary remains in Sanctuary under null status because the phasing condition has no score to evaluate against, not because the child has been granted a qualifying score they did not earn. At 18, the STI initializes: the system computes the citizen&rsquo;s first score using the full ledger of behavioral observations accumulated since birth, weighted by the standard trajectory formula. The initialization score determines immediate layer eligibility. Acts that would constitute qualifying events under the adult criminal system &mdash; serious violence, predatory conduct &mdash; are exempt from null protection and are flagged on the criminal record log (Track 2) immediately regardless of age, triggering standard multi-factor evaluation and potential layer reassignment. The null-scoring period is a grace period for the STI score, not for criminal conduct.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article III – Economic Framework</h2>
+<h2 id="article-iii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article III – Economic Framework</h2>
 
 <h3 class="text-2xl font-semibold mt-8 mb-4 text-[var(--accent)]">III.I – Universal Basic Income</h3>
 <p>The Automation Dividend Treasury funds a Universal Basic Income distributed to all citizens across all layers. UBI is the civilizational dividend of an automated economy — not welfare, but birthright. Baseline amounts by layer:</p>
@@ -150,11 +246,11 @@
 <p>The -3 Terminal layer operates without ordinary VMSS institutional economic presence. No speculative market exclusions and no VMSS-administered economic oversight of private economic activity applies in the terminal realm. The Savings Circulation Mandate applies only to UBI-origin savings at the $10 billion district aggregate trigger and 5% monthly rate — VMSS does not reach into private economic gains in -3, but retains authority over funds it distributed. A base tax rate funds the -3 treasury, which is partitioned from the Meritboard's economics division and supports minimal federal infrastructure (UBI distribution, federal law enforcement, federally facilitated child relocation). Beyond this floor, the economic environment that emerges is organic, private, and governed by whatever institutions and norms the population develops independently.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Traditional market mechanisms — including equity markets, commodity trading, speculative instruments, and Earth-analogous financial products — may operate freely in the terminal realm. Private banking, private lending, private contract enforcement, and private property regimes emerge without VMSS involvement. The terminal realm is the Freedom Layer in the fullest economic sense: an environment where VMSS has withdrawn its institutional hand entirely and the consequences of that withdrawal, both positive and negative, belong to those who chose or were assigned to inhabit it.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Currency siloing ensures that terminal realm economic activity remains contained within that layer. Wealth accumulated through terminal realm speculation or capital markets cannot be converted upward. The economic autonomy of the terminal realm does not create a vector for upper layer economic destabilization.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IV – Technology &amp; Continuity</h2>
+<h2 id="article-iv" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IV – Technology &amp; Continuity</h2>
 <p>Implants, neural diving, biological augmentation, backup vessels (layer-graduated revival reliability), enforcement protocol (pre in Heaven, post in Main/below).</p>
 <p class="mt-4 text-[var(--text-secondary)]">Backup vessel fabrication is sovereign VMSS technology. Vessels are manufactured in Main Layer and +1 Sanctuary under tightly controlled institutional processes. The fabrication technology is proprietary and non-transferable — no private actor in any layer can replicate it. In -1 and -2, continuity is serviced through VMSS-operated fabrication proxy installations: closed, sovereign facilities within those layers that provide backup vessel coverage without exposing the underlying technology to the local economy. In -3 Terminal, no fabrication proxy is present. The implant severs the backup vessel link programmatically at the moment of terminal reassignment. Death in -3 is final without exception — this is enforced at the hardware level, not merely by policy.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Three layers of continuity operate distinctly: biological continuity (the uninterrupted developmental or physiological substrate), ledger continuity (the institutional record of behavioral history, STI, and standing), and revival continuity (the backup-vessel infrastructure link). Continuity doctrine binds primarily to ledger continuity. Revival is binary — full fidelity or failure, with no partial state recognized. The STI formula is dynamic within a fixed seven-dimension structure: weight refinement is metric maintenance; any change to the dimension set itself is structural alteration and requires the full <a href="#article-xi" class="text-[var(--accent)] font-semibold hover:underline">Article XI</a> amendment gauntlet.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article V – Rights &amp; Stances</h2>
+<h2 id="article-v" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article V – Rights &amp; Stances</h2>
 <ul class="list-disc pl-6 space-y-3 mt-4">
 <li>Freedom of speech (unless harm threshold crossed)</li>
 <li>Consensual adult prostitution permitted</li>
@@ -163,25 +259,25 @@
 <li>Automated daycare, education, medical services (except -3)</li>
 <li>Children born in lower layers remain with their parents. The right to relocate to Main Layer (0) is a standing human right exercisable at any age, enforceable through the implant-linked legal system. Autoparenting is a destination children may choose — not a default assignment.</li>
 </ul>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VI – Enforcement &amp; Restoration Protocol</h2>
+<h2 id="article-vi" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VI – Enforcement &amp; Restoration Protocol</h2>
 <ul class="list-disc pl-6 space-y-3 mt-4">
 <li><strong>Heaven Layers (+1 &amp; SADs)</strong>: Pre-Intervention — acts halted mid-execution via neural inhibition and drones. No harm completes.</li>
 <li><strong>Main Layer (0) &amp; lower layers (-1/-2)</strong>: Post-Intervention — acts may complete. Victims are revived (murder) or treated (rape/other harm) via backup vessels and therapy. Perpetrators face immediate layer reassignment.</li>
 <li><strong>-3 Terminal (Minimal Institutional Presence)</strong>: No daily intervention or revival — acts complete freely, and death is final. A federal floor remains, activating only on two triggers: violation of absolute federal laws (Articles XXV.I&ndash;XXV.III) or activity triggering the External Force Doctrine. Below these triggers, -3's organized self-ordering is sovereign within the layer by design.</li>
 </ul>
 <!-- New Articles -->
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VII – Layer Mobility, Visitation &amp; Ascension Rules</h2>
+<h2 id="article-vii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VII – Layer Mobility, Visitation &amp; Ascension Rules</h2>
 <p>Upward movement is earned through sustained compliance and demonstrated behavioral trajectory. The civilization operates two distinct mobility mechanisms. <strong>Phasing</strong> governs movement between Main Layer (0) and +1 Sanctuary — it is STI-driven, reversible, and earned through demonstrated character. A Sanctuary resident whose STI falls below the 85-point eligibility floor or who commits a high-impact trust violation phases back to Main Layer and must re-earn ascension through standard criteria. Sanctuary is the highest-upkeep residency in the civilization — not a reward to be collected, but a standard to be continuously met. <strong>Reassignment</strong> governs punitive descent into -1, -2, and -3 — it is triggered by federal law violations and qualifying behavioral breaches, is immediate, and is permanent. These are two different mechanisms with two different severities and two different philosophical commitments.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Three voluntary mechanisms govern downward movement. <strong>Downward visitation</strong> is temporary — citizens visit lower layers while retaining origin-layer status, assets, and institutional relationship. <strong>Elective residency</strong> is an indefinite commitment — citizens choose to reside in a lower layer, retaining origin-layer status and assets, with the right to return at any time. <strong>Voluntary permanent residency</strong> is irreversible — citizens file formally, origin-layer assets are liquidated per the schedule in Article III.V, and the upward pathway closes permanently. The process requires psychological screening and constitutes a formal waiver of the upward pathway. The civilization respects the autonomy of this choice without encouraging or discouraging it.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Visitation and elective residency flow downward only. Citizens may visit or reside in layers below their current placement. Citizens may not visit layers above their current placement. Punitive residents hold no visitation rights to higher layers. Voluntary permanent residents of -3 retain no upward visitation rights. Visitation is temporary and does not alter layer status, asset holdings, or institutional relationship.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The layers are not a hierarchy of suffering. They are distinct civilizational environments, each with its own economic character, social texture, institutional presence, and private order. Lower layers are governed progressively more by private enterprise and organic social structure as institutional presence withdraws. The moral gradient is one-way upward through demonstrated character — not because lower layers are lesser, but because higher layers require a demonstrated record that lower layers do not.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VIII – Child Protection &amp; Autoparenting</h2>
+<h2 id="article-viii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article VIII – Child Protection &amp; Autoparenting</h2>
 <p>Every fetus is automatically linked to its own backup vessel at the moment of detected pregnancy. The linkage is shared with the mother's implant — the fetus has no implant of its own yet, so the mother's implant is the infrastructure that registers the pregnancy, synchronizes the developmental record, and maintains the vessel link on the fetus's behalf. A mother without an active implant produces no link, and the continuity provision does not extend to that pregnancy. The continuity link is instrumentation-bearing, not maternity-specific — any implant-grade apparatus capable of performing the same registration, synchronization, and vessel-reservation functions extends the provision analogously. If the pregnancy is terminated where a link exists, the fetus is reincarnated into its own vessel in Main Layer autoparenting facilities and begins life with neutral status and full dignity in Main (0). Abortion is illegal under VMSS law and classified as murder — the backup vessel mechanic determines what happens to the fetus, not whether the act is permissible. The mother faces layer consequences for the act itself.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Children born in lower layers remain with their parents. No automatic relocation occurs at birth. The right to relocate to Main Layer (0) is a standing human right available to every child at any age, enforceable through the implant-linked legal mediation system without requiring parental consent. VMSS society does not treat children as parental property — every child has access to an independent AI legal advocate from birth. Autoparenting facilities in Main Layer are a destination children may choose freely, not a condition imposed on them.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Parents in lower layers hold no institutional dominion over their children's right of exit. The civilizational standard is high: a parent's continued relationship with their child is earned through the quality of that relationship, not through legal authority. Children who choose to remain with lower layer parents into adulthood do so by genuine election. That choice, made freely against the standing option of Main Layer, carries its own dignity.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IX – Selective Ascension Domains (SADs)</h2>
+<h2 id="article-ix" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article IX – Selective Ascension Domains (SADs)</h2>
 <p>Voluntary, revocable metric-gated domains nested within Heaven Layers. Each is filtered by a single measurable criterion. Violation results in automatic exclusion back to the layer below. No VMSS reassignment or punishment occurs — only loss of domain access.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article X – Exit &amp; Re-entry Rules</h2>
+<h2 id="article-x" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article X – Exit &amp; Re-entry Rules</h2>
 <p>Exit is always permitted from Main Layer and above. Re-entry requires moral accounting (STI evaluation, psychological screening). Prior crimes are counted. Exit from -3 is impossible — it is terminal.</p>
 <div class="my-8 border-l-4 border-[var(--accent)] bg-[var(--accent)]/5 rounded-r-xl pl-6 pr-5 pb-6">
 <p class="text-xs uppercase tracking-[0.28em] text-[var(--accent)] font-semibold pt-6 mb-0">⬥ Pillar Article</p>
@@ -212,27 +308,27 @@
 <p>Minor infractions within Main Layer are clearable and amendable. A resident approaching any informal accumulation threshold through minor violations retains full agency to remediate — clearing the record is evidence of the behavioral correction the system is designed to incentivize, not a loophole. The threshold for -1 reassignment is not a countdown. It is an evaluation of trajectory. Correction resets the trajectory; sustained absence of correction is what the multi-factor evaluation reads as pattern.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Once a resident crosses the threshold into punitive reassignment, the pathway back does not exist. The system's corrective structure operates within Main Layer — incentivising course correction before the line is crossed. After the line is crossed, the consequence is the environment itself, and STI improvement within that environment serves the resident's quality of life there, not as a mechanism for return.</p>
 <p class="mt-4 text-[var(--text-secondary)]">If the system's own audit mechanisms (Article XX) identify a reassignment produced by verified institutional error — corrupted ledger data, identity-system failure, or AI governance processing error, not contested interpretation of a correctly recorded act — the Supreme Court holds remedial authority to address the case as a constitutional novelty. This does not create a general appeals pathway. The Court's novelty filter rejects any claim that does not present verified institutional error, and the category of genuine institutional error is astronomically narrow by design — the layered observation architecture (implant telemetry, AR environment, drone network) makes wrongful factual determination structurally improbable. The clause exists to name the Court as the body responsible for the astronomically unlikely case, which is already its constitutional function.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XVI – System Stability</h2>
+<h2 id="article-xvi" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XVI – System Stability</h2>
 <p>The VMSS framework prioritizes long-term stability over short-term reactivity. Excessive volatility in layer movement or system response must be structurally minimized.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XVII – Resistance to Exploitation</h2>
+<h2 id="article-xvii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XVII – Resistance to Exploitation</h2>
 <p>The system must minimize incentives for manipulation, gaming, or strategic abuse through its design and feedback mechanisms.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XVIII – Contextual Evaluation &amp; Network Attribution</h2>
+<h2 id="article-xviii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XVIII – Contextual Evaluation &amp; Network Attribution</h2>
 <p>All assessments must consider cumulative behavior and situational context rather than isolated events. Context includes network dynamics. The AI governance system tracks statistical correlation between harmful outcomes and beneficiary patterns across citizens. A leader who consistently benefits from harmful acts committed by associates — without issuing explicit instructions — accumulates a pattern on their own ledger when the correlation is statistically anomalous. The three-axis framework evaluates the beneficiary against the aggregate harm their network produced. No conspiracy trial is required. The data produces the attribution. The system distinguishes between active architects — those who structured the network, selected the participants, or designed the conditions that produced the harm — and passive beneficiaries who received gains without evidence of structural involvement. Active architects accumulate the full aggregate harm profile. Passive beneficiaries accumulate only their own direct-action ledger entries; coincidental proximity to profitable harm is not attribution.</p>
 <p class="mt-4 text-[var(--text-secondary)]">When the AI detects temporal clustering — multiple individually sub-threshold acts within a narrow window against the same target or system — timing correlation itself constitutes evidence of coordination. Each participant's act is re-evaluated with the network context: the pattern axis reads the coordinated campaign, not just the individual's isolated contribution. Twenty actors who each commit a one-axis act within hours of each other against the same target are not twenty isolated incidents. They are one coordinated event with twenty contributors, and the aggregate axis profile applies to each. This remains categorical evaluation — the AI reads ledger data for coordination signatures (timing, shared targets, beneficiary flows) and processes through the standard three-axis framework. No judicial interpretation is introduced.</p>
 <h2 id="article-xix" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XIX – Feedback Loop Awareness</h2>
 <p>The system must continuously evaluate how its outputs influence future behavior, preventing destabilizing or self-reinforcing negative cycles.</p>
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XX – System Accountability</h2>
+<h2 id="article-xx" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XX – System Accountability</h2>
 <p>The VMSS framework must include mechanisms for internal review, correction, and adaptation to maintain integrity over time.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The AI governance system surfaces civic participation anomalies — declining petition rates, dropping regulatory ratification participation, falling contestation volume, or shrinking engagement in any district, domain, or demographic — as a required input to the Meritboard's Article XX audit cycle. When participation drops below historical baselines, the Meritboard reviews and publishes its assessment of the cause. The metric measures engagement, not satisfaction — it tells the civilization whether its feedback loops are receiving input, not whether the population is happy with the outputs. The assessment is public. A Meritboard explanation that misreads disengagement as satisfaction is itself contestable through the same participation mechanisms the metric measures, making the metric self-reinforcing.</p>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXI – Supreme Court &amp; Judicial Authority</h2>
+<h2 id="article-xxi" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXI – Supreme Court &amp; Judicial Authority</h2>
 <p>The Supreme Court of VMSS consists of 10 justices drawn from the Meritboard's legal-interpretation ranking and appointed by the President. Selection is purely meritocratic: justices are the highest-ranked entities in the civilization on demonstrated analytical depth, doctrinal comprehension, and sustained judgment under complexity. Composition is flexible — justices may be human, AI, AGI, cyborg, or any combination thereof, in any ratio, reflecting the civilizational diversity the Court adjudicates. No constituency elects them. No political faction nominates them. Competence is measured, not campaigned for.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The Court is structurally independent from the executive branch even though both draw from the Meritboard. The independence comes from metric separation, not pool separation: the Presidency draws from the Meritboard's executive-doctrinal-leadership ranking, while the Court draws from its legal-interpretation ranking. The two rankings measure different competencies and produce non-overlapping populations of qualified candidates. A citizen who ranks at the top of one ranking is unlikely to also rank at the top of the other, because the underlying metrics are distinct. The Meritboard is not a fixed appointed body that supplies both branches from a single talent pool — it is the civilization's continuously updating competence ranking, with separate sub-rankings for the roles each branch requires. Capture would require the same actor or coordinated faction to dominate two unrelated competence metrics simultaneously, which the metric architecture is designed to prevent.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The Court's jurisdiction is edge cases — situations where existing doctrine, charter provisions, and automated enforcement produce ambiguous or contradictory outcomes. The Court does not legislate, and it does not arbitrate routine consequence delivery. Layer reassignment is categorical: the implant and AR infrastructure capture behavioral data, the AI governance system evaluates it against established thresholds, and the ledger records the output. The same fully evaluated behavioral profile — incorporating the act, its context, the perpetrator's pattern history, and the three-axis proportionality assessment (severity, pattern, reversibility) defined in Article XIV — produces the same consequence classification regardless of which district it occurs in or which instance of the AI governance system processes it. No judge weighs the case. No judicial discretion modulates the outcome. The absence of a judge is not a gap — it is the design. Judicial arbitration introduces exactly the kind of discretionary variability the deterministic threshold system was built to eliminate. The Court exists precisely for what automation cannot resolve: genuine constitutional novelty, competing charter principles, and civilizational-level judgment calls that no existing doctrine addresses.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Access to the Court is gated by an automated novelty filter administered by the AI governance system — not by the Court itself. The filter evaluates whether existing charter text, established doctrine, prior Court rulings, or automated threshold evaluation produces a deterministic answer to the dispute. If yes, the case is rejected and existing doctrine is applied automatically. Only cases where the answer is genuinely undetermined pass through to the Court. This prevents novelty laundering — the practice of framing political disputes as constitutional novelties to escape automated doctrine and access an interpretive venue. Every Court ruling automatically integrates into the doctrine corpus as settled precedent. The same category of question can never reach the Court again through the novelty filter. The Court's jurisdiction shrinks with every ruling it makes — novelty extinction, not novelty expansion.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The Court holds the authority to suspend charter provisions during verified civilizational emergencies, subject to the bounds defined in Article XI. Justices serve renewable terms and may be replaced by the President from the Meritboard's legal-interpretation ranking when their performance no longer meets the standard or when a higher-ranked entity becomes available. A Court ruling that proves wrong in retrospect is revisable — the system does not treat judicial authority as infallible, only as the best available judgment at the time of decision.</p>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXII – The Meritboard &amp; Executive Authority</h2>
+<h2 id="article-xxii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXII – The Meritboard &amp; Executive Authority</h2>
 <p>The Meritboard is the civilization's continuously updating competence ranking. It is not a legislature, not an appointed body, and not a fixed membership. It is a dynamic merit-based ranking system that evaluates entities — human, AI, AGI, cyborg, or any combination — across measurable achievement in cognitive metrics, research output, institutional contribution, doctrinal comprehension, and sustained STI record. The ranking updates continuously as performance accrues. The Meritboard maintains separate sub-rankings for the distinct competencies the civilization's highest roles require: executive-doctrinal-leadership, legal-interpretation, federal-administration, and the other functional categories the system tracks. Each ranking is generated from its own metric set and produces its own population of qualified candidates.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The active ranking for any sub-ranking consists of the highest-ranked entities who have not declined to serve — the ranking identifies qualification, and willingness to participate determines active standing. An entity may withdraw from active standing at any time without consequence; the next-ranked entity assumes active status. In practice, each sub-ranking produces a small active body — typically the top entities in each domain who accept the responsibility of governance. The active ranking is naturally compact, not civilizationally wide.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Roles are filled from the top of the relevant active ranking. The President is drawn from the highest-ranked active entity on executive-doctrinal-leadership. Supreme Court justices are drawn from the highest-ranked active entities on legal-interpretation. Federal administrative leadership is drawn from federal-administration. When a current officeholder steps down or is outranked by a higher-performing entity, the next-ranked active entity in that sub-ranking takes the role. There is no campaign cycle, no nomination process, no appointment politics — the rankings determine eligibility, willingness determines active standing, and both are continuously updated. Bad-faith capture of the Meritboard would require simultaneous coordinated dominance of multiple unrelated competence metrics, which the metric architecture is designed to prevent.</p>
@@ -247,7 +343,7 @@
 
 <p class="mt-4 text-[var(--text-secondary)]">The same civilization that trusts the STI ledger to sort 4.3 billion residents into layers trusts measurable achievement to sort its leadership. The Meritboard's breadth — spanning every major discipline the civilization produces — ensures that no single domain of expertise captures the credentialing process. The civilization is governed by demonstrated competence, not electoral popularity or hereditary authority.</p>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXIII – Zero Leakage Aspiration</h2>
+<h2 id="article-xxiii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXIII – Zero Leakage Aspiration</h2>
 <p>The integrity of VMSS depends on the closing of the gap between stated consequence and actual consequence. Every failure in the enforcement and infrastructure chain — wall breaches, apprehension failures, drone medical rescue failures, backup vessel deaths, enforcement network gaps — constitutes leakage. Leakage is an affront to the social contract the civilization is built on. The more leakage, the more the fabric of the civilization erodes. Leakage also compounds across dependent systems — uncertainty in medical delivery is functionally higher when it relies on supply chains operating at their own leakage margin.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The founding aspiration of The Five Rings is 0% leakage across all categories. This is not a promise — it is a direction. The civilization measures itself against perfection rather than against historical precedent. Every percentage point of improvement is a civilizational achievement. Every new technology that closes a leakage category advances the project.</p>
 <p class="mt-4 text-[var(--text-secondary)]">In the formative phases of the 21st and 22nd centuries, leakage of approximately 25% across all categories is anticipated and accepted as the cost of infancy. Trial and error, edge case identification, and successive technological generations will reduce this progressively. The target trajectory:</p>
@@ -268,7 +364,7 @@
 <p class="mt-4 text-[var(--text-secondary)]">The acceleration toward 0.01% in the final 150 years reflects the parabolic convergence of forcefield integration, Dyson-class energy abundance, revival failure elimination, and AI governance maturity arriving simultaneously. The civilization does not claim perfection. It claims direction, commitment, and the long-horizon architecture to approach it.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The VMSS of 3000 will be unrecognizable in its precision compared to the VMSS of 2150. That is the point. The founding generation builds the framework. Every generation that follows tightens it.</p>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXIV – Leakage Gradient &amp; Medical Access</h2>
+<h2 id="article-xxiv" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXIV – Leakage Gradient &amp; Medical Access</h2>
 <p>The 0.01% leakage target by 3000 is a weighted average across all layers and all leakage categories — not a uniform promise applied identically to every resident of every ring. Leakage is inherently graduated across the five-layer architecture, and that graduation is not a deficiency. It is the direct expression of each layer's design philosophy.</p>
 <p class="mt-4 text-[var(--text-secondary)]">In Heaven Layers, where VMSS maintains its fullest institutional presence and the population has demonstrated sustained non-harmful conduct, leakage approaches theoretical zero. Pre-intervention prevents harm before it completes. Medical infrastructure is guaranteed, immediate, and comprehensive. Revival failure rates trend toward elimination. By 3000, leakage in +1 Sanctuary is measured in fractions of a million events — genuine anomaly, not systemic gap.</p>
 <p class="mt-4 text-[var(--text-secondary)]">In the terminal layer, a structural leakage floor persists regardless of civilizational maturity. VMSS has withdrawn daily governance from -3 while maintaining a federal institutional floor — UBI distribution, taxation, federal law enforcement for civilizational-level violations, and federally facilitated child relocation. No daily enforcement network, no guaranteed medical access, no fabrication-proxy revival. The private market determines healthcare access — the wealthy receive treatment, those without means or connections may not. A cure for cancer may exist civilizationally and remain inaccessible to a newly arrived punitive resident with no local currency. This is not a failure of the civilization's technology. It is the consequence of the Freedom Layer's own logic applied to daily life. The terminal layer's leakage floor at civilizational maturity is estimated at approximately 1% — reflecting the irreducible variance of a minimally governed, largely privatized environment.</p>
@@ -321,12 +417,12 @@ Any single track failing terminates the draft. All three must clear independentl
 <p class="mt-4 text-[var(--text-secondary)]">The inclusion of -1, -2, and -3 in federal ratification — in deliberate contrast to Article XI, which excludes them from Charter amendment — is principled, not contradictory. Charter amendment sets the criteria by which residents enter, remain in, or are removed from a layer; populations whose present environment is the consequence of those criteria do not hold revision rights over the criteria themselves, because doing so would allow consequence-bearing populations to unwind their own placement. Federal law operates one tier below: it does not touch the criteria of layer membership, and instead governs cross-layer mandates that reach the daily life of every ring without controlling who lives in which ring. A population whose daily life is bound by an instrument retains standing to consent to that instrument when the instrument does not control whether they remain in that population. The two principles are the same principle applied to instruments operating at different structural depths — consent tracks impact, except where consent would let a population rewrite its own placement criteria. The asymmetry is intentional and load-bearing.</p>
 </div>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXVI – Substance Use</h2>
+<h2 id="article-xxvi" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXVI – Substance Use</h2>
 <p>Substance use in VMSS is neither prohibited nor protected from consequence. The civilization governs outcomes, not inputs. A citizen who uses substances and causes no harm to others incurs no criminal liability and no layer consequence. Use is a personal choice made within a system that will hold the user accountable for whatever follows from it.</p>
 <p class="mt-4 text-[var(--text-secondary)]"><strong>Impaired harm to third parties</strong> enters the standard criminal escalation path. Implant detection identifies intoxication state and behavioral causation at the moment of a harmful act. Autonomous enforcement responds. Judicial review weighs impairment as a contextual factor in assessing culpability — not as a mitigating exit from consequence. Punitive layer reassignment follows from the severity and nature of the harm caused, not from the substance itself.</p>
 <p class="mt-4 text-[var(--text-secondary)]"><strong>Chronic self-harm</strong> without third-party harm is an STI matter. Sustained impairment patterns, dependency behaviors visible to others, and repeated public incapacitation without harm to others enter the visible STI ledger. No criminal enforcement. No punitive reassignment. The record is public where severity warrants it, and the layer population rates it accordingly. STI scoring mechanics — including the proprietary, classified, and dynamic formula, the layer-contextual public rating component, and the 10:1 penalty-to-recovery ratio — are defined in <a href="#article-ii" class="text-[var(--accent)] font-semibold hover:underline">Article II</a>.</p>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXVII – UBI Replenishment Ratio &amp; Population Sustainability</h2>
+<h2 id="article-xxvii" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Article XXVII – UBI Replenishment Ratio &amp; Population Sustainability</h2>
 <p>The civilizational replenishment target is an average of 2.5 children per family — the demographic equilibrium at which automation dividend output and population size remain in sustainable proportion. Every citizen, including every newborn, holds an unconditional right to full UBI. Children receive their complete, untaxed UBI regardless of family size, parental conduct, or any penalty imposed on the parents. No child bears economic consequence for their parents' reproductive choices. This principle is absolute and non-negotiable.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The penalty for exceeding the replenishment threshold falls entirely on the parents through comprehensive tax escalation — income tax, sales tax, property tax, savings circulation mandate rate, and all other applicable fiscal instruments are raised in concert. The escalation compounds at 50% per child beyond the threshold. If a family's baseline aggregate effective tax rate is 40%: the third child raises it to 60%. The fourth child raises it to 90%. The fifth child raises it to 135% — a rate that is mathematically impossible to sustain. At 135%, the parents' total tax liability exceeds their gross income. They cannot earn their way out. Any savings accumulated under the already-punitive tax rates of children three and four are drained by the combined pressure of the overtaxation and the savings circulation mandate operating at escalated rates. The runway to bankruptcy is measured in single-digit years even for the wealthiest households, and the practical reality is that no rational actor accumulates sufficient savings under 60–90% taxation to survive long at 135%.</p>
 <p class="mt-4 text-[var(--text-secondary)]">The sixth child triggers nuclear consequence. Immediate bankruptcy declaration. Full STI financial misconduct flag — permanent, public, and visible on the ledger. Complete asset liquidation: all property, investments, and non-essential holdings seized by the state. -1 reassignment orders issued for both parents without a repayment window. The distinction from child five is structural: the fifth child initiates a financial death spiral that accelerates toward -1 over months or years depending on reserves. The sixth child skips the spiral entirely and delivers the full consequence immediately.</p>
@@ -369,7 +465,7 @@ Any single track failing terminates the draft. All three must clear independentl
 <p class="mt-4 text-[var(--text-secondary)]">When a layer-wide regulation is repealed, all district-level regulations that explicitly derive from it are automatically suspended. A district regulation whose authority, enforcement thresholds, or definitional framework depends on a parent layer-wide regulation cannot survive the repeal of that parent. Suspended district regulations may be re-ratified as standalone regulations through the standard district-level mechanism if the district population still wants them — but they do not persist by default after the framework they operated within is removed.</p>
 </div>
 
-<h2 class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Founding Affirmation</h2>
+<h2 id="founding-affirmation" class="text-4xl font-bold mt-16 mb-6 text-[var(--text-primary)]">Founding Affirmation</h2>
 <p>The Five Rings Civilization does not force virtue. It structures reality so that harm self-isolates, trust becomes legible, and continuity becomes a contract — not an escape. Punishment is causal, not vindictive. Freedom is expansive, yet bounded by consequence.</p>
 <p class="mt-4 text-[var(--text-secondary)]">Every article of this Charter is the civilization doing the work. The four founding lines in the Preamble are what the civilization is for. The articles change as the civilization learns. The four lines do not change, not because they cannot, but because no generation that has read them has found a way to improve on what was written. The Charter is how. The four lines are why.</p>
 <p class="text-center text-2xl text-[var(--accent)] mt-20 font-semibold">
@@ -386,6 +482,17 @@ Any single track failing terminates the draft. All three must clear independentl
 
 
 
+<script>
+/* Table of Contents toggle — law-polling idiom */
+(function () {
+  const toc = document.getElementById('charterToc');
+  const tocToggle = document.getElementById('charterTocToggle');
+  tocToggle?.addEventListener('click', () => {
+    const open = toc.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
 <script src="script.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>

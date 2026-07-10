@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 20.10
+**Version:** 21.0
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -13,7 +13,7 @@ A voluntary civilization framework built on moral causality, layered governance,
 
 The Five Rings is a proposed civilization model organized around five concentric governance rings (+1 to -3). Citizens are placed in rings based on demonstrated behavior — not birth, wealth, or ideology. The system combines technoneural enforcement, a Social Trust Index, automation-funded UBI, backup vessel continuity, and consequence-bound freedom into a single coherent architecture.
 
-This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, current-state technology annotations, a 34-section paginated whitepaper, a 28-article Charter, a four-dossier simulations archive, a rubric-graded Academy course packet, and an Academic Resources reference library.
+This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, current-state technology annotations, a 34-section paginated whitepaper, a 28-article Charter, a filterable simulations archive, a rubric-graded Academy course packet, and an Academic Resources reference library.
 
 A **lite version** of the site exists at the companion repository (VMSSLite) for readers who want the full doctrine in a faster, more focused reading experience.
 
@@ -33,9 +33,8 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `systems.html` | Economy, enforcement architecture, savings circulation mandate |
 | `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
-| `simulations.html` | Simulations dossier index — four dossiers: World Scenarios, Resident Stories, The Academy, Academic Resources |
-| `simulations-world.html` | World Scenarios dossier — 40 civilizational stress tests, doctrine cases, architectural pressure tests |
-| `simulations-residents.html` | Resident Stories dossier — 42 historical figures, original civilians, criminal profiles, archetypal residents, long-horizon simulations |
+| `simulations.html` | Consolidated simulations archive — all World Scenario and Resident Story cards on one page with search, category, and doctrine-snapshot filters; plus Academy and Academic Resources coursework links |
+| `simulations-world.html`, `simulations-residents.html` | Redirect stubs — `noindex`, hash-preserving redirect to `simulations.html` (the two dossiers were merged into the consolidated archive) |
 | `simulations-academy.html` | The Academy dossier — 33 rubric-graded doctrine questions, Standard Format and Full Rubric, course packet PDF |
 | `simulations-resources.html` | Academic Resources dossier — 33 textbook excerpts across World of VMSS, Universe of VMSS, and VMSS Advanced categories |
 | `why-vmss.html` | The case for the civilization model |
@@ -72,7 +71,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ├── technologies.html
 ├── sads.html
 ├── simulations.html
-├── simulations-world.html  simulations-residents.html
+├── simulations-world.html  simulations-residents.html   # redirect stubs → simulations.html
 ├── simulations-academy.html  simulations-resources.html
 ├── why-vmss.html
 ├── world.html
@@ -89,8 +88,9 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ├── styles.css           # Full design system
 ├── assets/
 │   └── js/
-│       ├── diagrams.js  # Interactive SVG ring diagram
-│       └── sti-sim.js   # STI simulation console
+│       ├── diagrams.js     # Interactive SVG ring diagram
+│       ├── sti-sim.js      # STI simulation console
+│       └── card-filter.js  # Shared search/chip/select filter (simulations, faq, why-vmss)
 ├── documents/
 │   ├── academy-source.html          # Source for the Academy course packet PDF
 │   ├── resources-source.html        # Source for the Academic Resources PDF

@@ -43,11 +43,15 @@
 <p class="text-center text-2xl text-[var(--text-muted)] mb-20">The technological foundation that makes moral causality possible</p>
 <div class="space-y-8">
 <!-- 1. Technoneural Implants -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-1" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-brain text-5xl"></i>
             Technoneural Implants
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-1" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-8">
             The central nervous system of VMSS Civilization. These brain-computer interfaces are implanted at entry and serve as identity anchor, intent monitor, failsafe device, personal dashboard, and continuity bridge for backup vessels. Implants are voluntary at civilization entry for Main Layer and below — refusal carries real consequences but is permitted. In +1 Sanctuary, implants are mandatory: the Threshold Inhibition Protocol requires neural hardware to function, and pre-intervention cannot operate without it.
           </p>
@@ -80,12 +84,17 @@
 <div class="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-3">Current State — ~10% Delivery</div>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">Neuralink and competing brain-computer interface programs have demonstrated basic motor intent reading in small numbers of patients. This is the hardware prototype of the technoneural implant — the conceptual proof that a brain-computer interface is achievable. The gap to the VMSS implant is vast: continuous intent monitoring across billions of people, non-repudiable identity anchoring, real-time STI ledger integration, and the failsafe motor inhibition required for the Threshold Inhibition Protocol. The direction is established. The scale and precision required are several generations away.</p>
 </div>
+</div>
 </div><!-- 2. Neural Diving -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-2" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-brain text-5xl"></i>
             Neural Diving
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-2" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-8">
             Direct consensual mind-to-mind interface technology. Users can experience another person’s (or animal’s) subjective perspective in Audience Mode (passive viewing) or Pilot Mode (active control with revocable consent).
           </p>
@@ -131,12 +140,16 @@
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">Telecommunications — phone calls, video calls, immersive VR — prove that humans want and will build richer presence technology. But the gap between a video call and neural diving is the gap between a photograph of fire and being burned. The underlying neuroscience required for genuine experience sharing does not exist even theoretically. We do not yet have a model for how subjective experience is encoded in neural activity, let alone how to transmit and reconstruct it across individuals. Telecommunications is a directional signal, not a functional analog.</p>
 </div>
 </div>
-<!-- 3. Backup Vessels -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+</div><!-- 3. Backup Vessels -->
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-3" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-sync-alt text-5xl"></i>
             Backup Vessels
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-3" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-8">
             Periodic encrypted mind-state backups stored in secure vaults. Upon death or authorized bailout, the latest backup is transferred to a pre-grown or synthesized vessel. “Backup vessels preserve continuity, not innocence.”
           </p>
@@ -170,12 +183,17 @@
 <div class="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-3">Current State — ~0% Delivery</div>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">No functional analog exists. Cryonics has been practiced since the 1960s with no successful revival on record. Organ transplantation proves biological continuity at the component level but does not approach full identity preservation. This is the single largest leakage category by weight — the continuity guarantee is the most load-bearing of VMSS's three foundational promises and the furthest from current capability.</p>
 </div>
+</div>
 </div><!-- 4. Biological Augmentation -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-4" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-dna text-5xl"></i>
             Biological Augmentation
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-4" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-8">
             Consensual, reversible modifications using nanotech, gene editing, and organoid fabrication. Previews available via neural diving.
           </p>
@@ -233,12 +251,17 @@
 <div class="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-3">Current State — ~25% Delivery</div>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">Cosmetic surgery, reconstructive surgery, organ transplantation, CRISPR gene editing, and joint replacement prove the concept. Leg lengthening surgery is a crude analog for body scaling. Gender affirmation procedures demonstrate broad social and medical acceptance of consensual body modification. The gap to VMSS-level augmentation is precision, reversibility, and the full spectrum of transformations the system permits — custom fantasy features, age reversal, transanimal traits. The direction is the most established of any VMSS technology category. The pace is accelerating.</p>
 </div>
+</div>
 </div><!-- 5. Enforcement Systems -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-5" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-shield-alt text-5xl"></i>
             Enforcement Systems
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-5" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-8">
             Medical drones, enforcement turrets, automated response swarms, and the mega-walls that make pre- and post-intervention possible.
           </p>
@@ -259,12 +282,17 @@
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-3">In Heaven Layers and Main Layer, medical completeness tracks directly with technological advancement. Drone response closes the gap between incident and hospital-grade care to near-zero. Institutional hospitals provide the specialized equipment, surgical capacity, and ICU infrastructure that field treatment cannot replicate — the drone delivers you there before the window closes. As nanite capability and biological understanding advance across the centuries, the range of conditions treatable at any given point expands. Upper layer medical leakage is a technology problem — it closes as science advances. Current delivery in institutionally covered layers: approximately 35–40%. Most trauma, infection, and cardiovascular disease handled. Cancer survival rates improving. Neurodegenerative disease, rare genetic conditions, and newly emergent diseases remain the primary gap. Full upper layer medical completeness is a 23rd–24th century milestone.</p>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">In lower layers, medical leakage is an access problem, not a technology problem. The cure may exist civilizationally — but whether the drone arrives, whether the hospital is within reach, and whether the private healthcare market in that district has built adequate infrastructure are all determined by wealth and geography, not by what the civilization's technology can do. A cancer cure available in Main Layer reaches a wealthy -2 resident in a gated compound. It may never reach a newly arrived punitive resident with no local currency. This gap does not close as technology advances. It is structural — the direct consequence of each layer's institutional character. The terminal layer's medical leakage floor persists at approximately 1% by 3000 regardless of how advanced the civilization's medicine becomes.</p>
 </div>
+</div>
 </div><!-- 5b. AR Surveillance Architecture -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-6" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-eye text-5xl"></i>
             AR Surveillance Architecture
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-6" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-8">
             The secondary observation envelope that backstops the implant ledger when the implant is absent, removed, or technically compromised. AR cameras are structurally peer to the implant as a civilizational surveillance instrument — not fine print to the implant story but a load-bearing staple of the architecture in their own right. The relationship parallels the Five Instruments architecture: kill switch covers implant-bearing threats, nanobot plume covers non-implant-bearing threats. Implant covers internal observation for implant-bearers, AR covers equivalent external observation for non-implant-bearers and provides redundant forensic backup for everyone else.
           </p>
@@ -303,12 +331,17 @@
 <div class="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-3">Current State — ~20% Delivery</div>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">The directional analog is well-developed and accelerating. CCTV networks with facial recognition operate at city scale across multiple Earth jurisdictions; China's social credit infrastructure integrates camera networks with biometric identification at near-civilizational scale; license plate readers are universal across developed urban areas; Clearview AI demonstrated population-scale facial recognition with billions of indexed images. Wall-penetrating radar exists in research and limited military deployment. Behavioral analytics, gait recognition, and micro-expression analysis are emerging from research into commercial deployment. DNA databases combined with public cameras approach population coverage in some jurisdictions. The gap to VMSS AR is integration depth, intent-signature inference at-distance, EM-spectrum behavioral signature reading, and the cognition-non-public guarantee enforcement infrastructure — the components exist or are emerging; the architectural integration as a non-broadcast forensic-corroboration envelope is the part Earth has not built. The trajectory is established.</p>
 </div>
+</div>
 </div><!-- 6. Automated Labor & UBI Foundation -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-7" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-robot text-5xl"></i>
             Automated Labor &amp; UBI Foundation
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-7" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
             AI-driven automated labor (fabricators, mining drones, agriculture, construction, maintenance, logistics) generates the surplus that funds the Universal Basic Income across all layers. This is the economic engine that makes post-scarcity possible while still rewarding human contribution through the Primary Job Subsidy.
           </p>
@@ -320,12 +353,17 @@
 <div class="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-3">Current State — ~20% Delivery</div>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">UBI pilots have run successfully in Finland, Kenya, and Stockton California. Alaska's Permanent Fund has distributed oil dividend payments to every resident annually since 1982 — the closest operational analog to the automation dividend concept. AI and robotics are displacing labor at an accelerating rate. The economic theory is proven at pilot scale. The political will and funding mechanism at civilizational scale — and the degree of automation required to sustain it indefinitely — are the remaining gaps.</p>
 </div>
+</div>
 </div><!-- 7. Autoparenting Systems -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-8" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-shield-virus text-5xl"></i>
             Military Technologies — Classified
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-8" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed mb-6">
             The military capability of a civilization at VMSS's technological level does not resemble conventional warfare. No aircraft, no artillery, no infantry deployment in the traditional sense. The civilization that engineered the implant ledger, backup vessel fabrication stations, and planetary forcefields did not stop innovating at conventional weapons. Two primary instruments are publicly acknowledged. Operational specifics remain classified.
           </p>
@@ -340,13 +378,18 @@
 </div>
 </div>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">The civilization anticipated that the most serious threats would come from actors who removed their implants to evade the kill switch. It designed accordingly.</p>
+</div>
 </div><!-- 7b. Military Technologies -->
 
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-9" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-child text-5xl"></i>
             Autoparenting &amp; Child Systems
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-9" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
             Fully automated, high-quality child-rearing facilities in Main Layer. Every child born in any layer has a standing right to relocate here at any age, enforceable through the implant-linked legal system without parental consent. Every child has an independent AI legal advocate from birth. Children who choose autoparenting begin with neutral status and full dignity in Main Layer (0) — no inheritance of parental layer status or STI.
           </p>
@@ -358,12 +401,17 @@
 <div class="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-3">Current State — ~15% Delivery</div>
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">The foster system and state childcare infrastructure prove that society can assume parental responsibility for children separated from their biological parents. The concept works. The execution gap is large — foster systems are chronically underfunded and produce measurably inconsistent outcomes. VMSS autoparenting is designed as a first-class civilizational institution rather than a safety net of last resort. The will to protect children exists institutionally. The automated, quality-controlled, universally accessible infrastructure does not.</p>
 </div>
+</div>
 </div><!-- 8. STI Ledger -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-10" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-chart-line text-5xl"></i>
             Social Trust Index (STI) Ledger
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-10" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
             Separate reputational system for non-criminal trust violations. Tiered visibility. Gates access to many SADs and high-trust opportunities. Only outward actions affect it — cognition is non-public. High STI unlocks better jobs, partnerships, and Heaven access.
           </p>
@@ -408,12 +456,17 @@ STI serves as the primary accountability layer for most social behavior. Conduct
 <p class="text-[var(--text-secondary)] text-sm leading-relaxed">Credit scores, criminal records, sex offender registries, and professional licensing boards are primitive STI implementations that already gate access to housing, employment, and financial products. China's social credit system — whatever its political problems — demonstrates that national-scale behavioral scoring with real consequences is technically achievable today. Security cameras and forensics provide reactive logging in monitored spaces. The gap is comprehensiveness, continuity, and the identity anchor that makes the ledger non-repudiable and non-gameable. The concept is proven. The execution is fragmented.</p>
 </div>
 </div>
+</div>
 <!-- 9. Mega-Walls & Border Security -->
-<div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-8 flex items-center gap-4">
+<div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
+<button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleTech(this)" aria-expanded="false" aria-controls="tech-content-11" type="button">
+<h2 class="text-4xl font-bold text-[var(--accent)] flex items-center gap-4">
 <i class="fas fa-shield-alt text-5xl"></i>
             Mega-Walls &amp; Border Security
           </h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div id="tech-content-11" class="tech-content hidden px-10 pb-10" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
             The physical boundaries between layers are continuous mega-walls: 15km above ground, 5km below ground, with a 1km base cross-section tapering parabolically above midpoint to a ~1m crest at peak altitude. Constructed from advanced composite materials requiring manufacturing technology not yet available at construction scale. The structure presents as a colossal blade jetting out of the earth — sheer-faced, tapered, and nearly insurmountable between zones by any direct approach. The above-ground height exceeds commercial aviation altitude — the stratosphere begins at 12km, placing the wall tops in conditions inhospitable to casual crossing. The sub-surface depth eliminates tunnelling approaches at any scale achievable by individuals or small groups. The 1km base at a 15:1 slenderness ratio handles buckling and wind loading across the altitude band where jet-stream shear is meaningful; the taper above midpoint matches loading reality, since atmospheric density at 15km is approximately 12% of sea level. The walls are a 22nd–24th century construction project.
           </p>
@@ -440,9 +493,29 @@ STI serves as the primary accountability layer for most social behavior. Conduct
 </div>
 </div>
 </div>
+</div>
 </section></main>
 
 
+
+<!-- Accordion Script -->
+<script>
+    function toggleTech(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.icon');
+      const isOpen = !content.classList.contains('hidden');
+
+      if (isOpen) {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(90deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+</script>
 
 <script src="script.js" defer></script>
 <!-- footer.html is fetched and injected here by script.js Promise.all. -->

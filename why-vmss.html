@@ -34,6 +34,16 @@
 <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<style>
+  /* Filter controls — chips copied from law-polling.html; search input from .sim-idx-input */
+  .card-search{display:block;width:100%;max-width:36rem;margin:0 auto 1.25rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:9999px;padding:.55rem 1.1rem;color:var(--text-primary);font-size:.9rem;outline:none;transition:border-color .2s}
+  .card-search:focus{border-color:var(--accent)}
+  .law-filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 0.75rem; }
+  .law-chip { font-size: 0.78rem; padding: 0.35rem 0.9rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; transition: border-color .2s, color .2s; }
+  .law-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+  .law-chip.is-active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .law-filter-count { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+</style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
 <div id="navbar-placeholder"></div>
@@ -57,30 +67,62 @@
       </p>
     </div>
 
-    <div class="grid gap-8">
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">1. No More Jails</h2>
+    <input type="search" id="why-q" class="card-search" placeholder="Search the case for VMSS..." aria-label="Search the case for VMSS" />
+    <div class="law-filter-bar" id="why-filter-bar" role="group" aria-label="Filter arguments by category">
+      <button class="law-chip is-active" data-filter="all" type="button" aria-pressed="true">All</button>
+      <button class="law-chip" data-filter="justice" type="button" aria-pressed="false">Justice &amp; Trust</button>
+      <button class="law-chip" data-filter="economy" type="button" aria-pressed="false">Economy &amp; Abundance</button>
+      <button class="law-chip" data-filter="technology" type="button" aria-pressed="false">Technology &amp; Continuity</button>
+      <button class="law-chip" data-filter="governance" type="button" aria-pressed="false">Governance</button>
+      <button class="law-chip" data-filter="rights" type="button" aria-pressed="false">Rights &amp; Freedom</button>
+      <button class="law-chip" data-filter="layers" type="button" aria-pressed="false">Layers &amp; Society</button>
+      <button class="law-chip" data-filter="philosophy" type="button" aria-pressed="false">Philosophy &amp; Design</button>
+    </div>
+    <p class="law-filter-count" data-why-count role="status" aria-live="polite">Showing all 32 entries</p>
+
+    <div class="grid gap-8" id="why-grid">
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-1" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">1. No More Jails</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-1" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Layer reassignment replaces incarceration as the civilization's primary consequence mechanism. Instead of warehousing offenders in expensive prison systems and later reintroducing them into the same ordinary social environment, VMSS changes the environment itself. This eliminates the federal carceral system and turns justice into civic architecture rather than a time sentence. In lower layers, private detention may still exist as part of local order — "no more jails" is a civilizational reorientation, not a claim that confinement has been abolished from human behavior.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">2. Behavioral Segregation Protects the Innocent</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-2" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">2. Behavioral Segregation Protects the Innocent</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-2" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Most injustice is a pairing problem: innocent people are exposed to immoral people. The rings solve that by separating environments according to demonstrated trustworthiness. High-trust people are no longer forced to absorb the risk created by persistent violators.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">3. STI Covers Social Injustices</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-3" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">3. STI Covers Social Injustices</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-3" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Not all harms should be criminal, but many still deserve consequences. STI makes cheaters, liars, manipulators, and bullies socially accountable without turning every trust failure into a police matter. That closes one of the biggest moral gaps in ordinary civilization.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">4. UBI and Primary Job Subsidy Remove Scarcity Pressure</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-4" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">4. UBI and Primary Job Subsidy Remove Scarcity Pressure</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-4" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           A guaranteed material floor means people are no longer pushed into desperation by the threat of homelessness, hunger, or medical ruin. What you do with your time above survival is entirely yours.
         </p>
@@ -90,53 +132,87 @@
         <p class="text-[var(--text-secondary)] leading-relaxed mt-4">
           Progressive taxation turns success into a civilizational boon rather than a drain. The tiered structure — scaling from 90–99% in upper layers down to 10–15% in -3 — reflects a foundational principle: the tax burden should be proportional to the institutional benefits received. Upper layers fund the highly socialized systems. Lower layers operate in leaner fiscal environments consistent with leaner institutional coverage. The ratio is consistent across all five rings.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">5. Automated Labor Handles the Grunt Work</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-5" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">5. Automated Labor Handles the Grunt Work</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-5" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Dangerous, repetitive, and unwanted labor is offloaded to AI and robotics. Automated manufacturing, logistics, enforcement, and medical response create the surplus and reliability that make the rest of the civilization possible.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">6. Biological Augmentation Ends the Tyranny of the Clock</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="technology">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-6" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">6. Biological Augmentation Ends the Tyranny of the Clock</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-6" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           A 1,000-year upper lifespan and a 500-year fertility window radically change how life is lived. VMSS proposes a civilization where identity, appearance, health, and family timing are no longer dictated by the narrow limits of baseline biology.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">7. Backup Vessels Defeat Freak-Accident Fragility</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="technology">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-7" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">7. Backup Vessels Defeat Freak-Accident Fragility</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-7" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Backup vessels turn continuity into infrastructure. Death from accident, disease, or violence is no longer permanent in layers with revival coverage. The mind transfers at full fidelity; the body catches up as fabrication technology matures. Murder becomes structurally futile above -3 because the victim revives and the perpetrator faces reassignment. You are no longer at the mercy of chance — or of other people.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">8. Neural Diving Creates a New Form of Empathy and Media</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="technology">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-8" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">8. Neural Diving Creates a New Form of Empathy and Media</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-8" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Neural diving — directly experiencing another person’s subjective perspective — is a new civilizational medium. Audience Mode allows passive observation of someone else’s lived experience. Pilot Mode allows temporary inhabitation with fully revocable consent. The applications are immediate: education, therapy, creative collaboration, conflict resolution. The emergent application is structural: you cannot sustain an us-versus-them ideology after inhabiting someone’s subjective experience. Neural diving does not just create empathy as entertainment — it collapses the dehumanization that radicalization requires.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">9. Every Child Has a Standing Exit</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="rights">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-9" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">9. Every Child Has a Standing Exit</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-9" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Children do not inherit their parents’ layer status. Every child born in any layer has a standing right to relocate to Main Layer at any age — enforceable without parental consent. A lower-layer parent who wants to keep their family intact has to earn it through the quality of the relationship, not legal authority. Population sustainability is enforced through economic consequence — Article XXVII’s replenishment tax makes unsustainable family sizes self-correcting without criminalizing reproduction, and children are held completely harmless from the penalty. Full provisions are detailed in the <a href="charter.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Charter</a>.
         </p>
+        </div>
       </div>
 
-      <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">
-        <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">10. Enforcement Infrastructure Makes Justice Difficult to Evade</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-10" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">10. Enforcement Infrastructure Makes Justice Difficult to Evade</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-10" class="why-content hidden px-10 pb-10" role="region">
         <p class="text-[var(--text-secondary)] leading-relaxed">
           Mega-walls, implants, drones, sedation, transport, and automated sensing make leakage of injustice extremely difficult. Consequence is not optional, delayed, or easily escaped.
         </p>
+        </div>
       </div>
-    </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">11. Five Distinct Civilizations Within One</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="layers">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-11" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">11. Five Distinct Civilizations Within One</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-11" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         The layers are not a punishment hierarchy. They are a hierarchy of institutional investment — five distinct environments, each with its own economic character, social texture, enforcement posture, and private order. As institutional presence withdraws with descent, private enterprise and organic social structure expand to fill the space. Each layer is complete on its own terms.
       </p>
@@ -149,10 +225,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         Cross-layer visitation is real and flows downward. A Sanctuary resident visiting -3 arrives economically neutral — their origin currency doesn't spend there, their status carries no privilege in that environment. They work a job, earn local currency, and experience something the upper layers structurally cannot offer. The civilization is richer for having all five layers than it would be with just one.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">12. Not a Utopia. A Well-Equipped Architecture.</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-12" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">12. Not a Utopia. A Well-Equipped Architecture.</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-12" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         VMSS does not abolish free will, conflict, or bad actors. It does not promise that nothing goes wrong. It promises depth of response when things do. The tools are already in the architecture — gradients, containment, reassignment, trust infrastructure, selective domains, institutional withdrawal, federal floors — and they handle most problems without requiring new doctrine or structural patches.
       </p>
@@ -174,10 +255,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The strength is not that nothing goes wrong. The strength is depth of response when it does.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">13. Self-Selection as Civilizational Filter</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-13" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">13. Self-Selection as Civilizational Filter</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-13" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         VMSS does not screen applicants for quality. The act of voluntarily joining IS the screen. The people willing to uproot their lives, accept behavioral accountability, submit to moral accounting on their existing record, and bet on a civilization running at 10% of its stated capability are by definition not the median. They are disproportionately motivated, capable, and dissatisfied with the status quo — exactly the population a new civilization needs.
       </p>
@@ -187,10 +273,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The civilization does not need to advertise. It needs to exist visibly. The comparison does the work. Every year the civilization exists, the case for joining strengthens and the case for staying weakens — not because VMSS improves its pitch, but because the evidence accumulates in the lives of the people who already joined.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">14. Recidivism Is Architecturally Obsolete</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-14" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">14. Recidivism Is Architecturally Obsolete</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-14" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Earth's recidivism rate — approximately 65–70% re-arrest within three years of release in the United States — is not measuring human nature. It is measuring what happens when you return people to the environment that produced the original offense. Incarceration warehouses people, exposes them to worse behavioral influences, removes them from legitimate economic participation, and returns them to the same environmental conditions that produced the crime. The recidivism rate is the system measuring its own failure.
       </p>
@@ -200,10 +291,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         VMSS's answer is not a better recidivism rate. It is the elimination of the architectural condition that produces recidivism in the first place. A -1 resident is not serving time. They are living in an environment calibrated to their demonstrated behavioral profile — with a $60,000/year UBI floor, frontier economic opportunity, and an STI trajectory that is continuous, legible, and within their control. The feedback loop between behavior and environment is immediate and visible. That continuous feedback is worth more for genuine behavioral change than any time-served-and-released system Earth has designed.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">15. Post-Ideological Governance</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-15" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">15. Post-Ideological Governance</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-15" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Every political tribe on Earth finds something to love and something to hate in VMSS. That is not a weakness — it is the signature of a framework that followed internal consistency rather than constituency. The moment a civilization framework makes every political tribe equally comfortable, it has compromised its logic to please audiences. The moment it makes every tribe equally uncomfortable, it has probably found something true.
       </p>
@@ -216,20 +312,30 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         VMSS does not need parties because the architecture already accommodates each philosophy in its appropriate domain. Conservatives express through behavioral accountability and consequence delivery. Liberals express through UBI, institutional dignity, and the child protection framework. Libertarians express through -3, elective residency, and the Freedom Layer's organic private order. The tribes don't disappear — the counter-cultures, the purist enclaves, the voluntary libertarians all represent genuine philosophical commitments. But they express themselves through layer choice and SAD selection rather than through competing for control of a single governance apparatus. You don't need a party when the architecture already has a room for your philosophy.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">16. Abundance, Not Scarcity</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-16" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">16. Abundance, Not Scarcity</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-16" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Earth's institutions were designed for scarcity — for managing conflict between competing interests, for extracting productive value from populations who need to work to survive. The electoral system, the tax code, the criminal justice system, the labor market: all of them assume that resources are limited, that incentives must be coercive, and that governance is fundamentally the management of competing claims on an insufficient supply.
       </p>
       <p class="text-[var(--text-secondary)] leading-relaxed">
         VMSS was designed for abundance — for aligning behavioral consequence with environmental outcome, for a population whose survival is guaranteed and whose aspiration is therefore genuine rather than desperate. A citizen who works does so because the work is worth doing, not because starvation is the alternative. A citizen who contributes to the civilization does so from a floor of $120,000/year guaranteed, with post-scarcity infrastructure, medical completeness as an aspiration, and a 20-hour qualifying week that treats human time as valuable rather than expendable. The creative and economic output per citizen is dramatically higher as a result — not because VMSS citizens are better people, but because the architecture removed the constraints that prevented most people from doing their best work.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">17. The Door Is Always Open</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="rights">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-17" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">17. The Door Is Always Open</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-17" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Exit is always permitted from Main Layer and above. No penalty, no restriction, no consequence for the choice itself. Most institutions restrict exit because they fear what departure rates reveal. A church that makes leaving difficult is implicitly admitting it can't retain members on merit. A country that restricts emigration is implicitly admitting its offer doesn't compete. VMSS publishes Article X openly and proudly — the confidence isn't incidental, it's the point.
       </p>
@@ -242,10 +348,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The data tells the rest of the story. Projected departure rates: 0.1–0.3% in the first decade, declining to statistical noise by year fifty, effectively zero by year one hundred. The people who leave are a rounding error — and even that rounding error shrinks as the civilizational comparison becomes more lopsided with each passing decade. Exit is functionally ceremonial. It exists not because anyone uses it, but because the fact that anyone <em>could</em> use it and almost no one does is the single most powerful rebuttal to every objection the civilization faces. Retention is not a campaign. It is a measurement — and the measurement speaks for itself.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">18. The Competition Model</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-18" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">18. The Competition Model</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-18" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         The strongest objection to any new civilization is not "what's wrong with it?" — it's "why should anyone stay?" VMSS answers this by making the comparison do the work. Every citizen lives inside a daily, concrete contrast between what VMSS delivers and what they left behind. That contrast does not require propaganda. The UBI hits your account every month. The medical drone arrives in seconds, not minutes. The backup vessel sync runs on schedule. The behaviorally pre-screened neighborhood stays safe. You don't need to be told the system works — you experience it continuously.
       </p>
@@ -255,10 +366,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The competition model extends outward. Earth nations watching VMSS operate face a civilizational comparison they cannot suppress: their citizens can see, in real time, what a post-scarcity behaviorally structured society delivers versus what they have. The pressure this creates is not military or diplomatic — it is aspirational. VMSS does not need to export its model. It only needs to exist visibly. The comparison does the rest.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">19. The Cultural Production Thesis</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-19" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">19. The Cultural Production Thesis</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-19" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         A civilization that eliminates survival anxiety does not produce less culture — it produces different culture. When no one is writing to eat, the people who still write are writing because they have something to say. When no one is performing to avoid homelessness, the people who still perform are performing because the work matters to them. UBI does not kill creative motivation. It kills desperation-driven output and replaces it with conviction-driven output.
       </p>
@@ -268,10 +384,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Add neural diving — direct mind-to-mind creative transmission — and the medium itself transforms. A composer does not write notes on a page. She constructs an experience you inhabit. A novelist does not describe a scene. He builds one you walk through. The combination of economic freedom and technological medium produces a cultural output that has no Earth analog. The civilization is not just richer in material terms. It is richer in meaning.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">20. Design Failures, Not Moral Failures</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-20" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">20. Design Failures, Not Moral Failures</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-20" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Most problems that Earth treats as moral failures are design failures. Recidivism is not a moral failure of the offender — it is a design failure of the system that returns them to the same environment. Homelessness is not a moral failure of the homeless — it is a design failure of an economy that permits zero-floor outcomes. Political corruption is not a moral failure of the politician — it is a design failure of a system that selects for campaigning ability rather than governing competence.
       </p>
@@ -281,10 +402,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         This is not moral relativism. VMSS holds individuals to the strictest behavioral accountability of any civilization in history — layer reassignment is permanent and the consequences are environmental, not temporal. But the civilization does not pretend that individual accountability alone solves systemic problems. It fixes the system first, then holds the individual accountable within a system that actually works. Earth does it backwards: it holds individuals accountable within systems that are themselves broken, then blames the individuals when the broken system produces broken outcomes.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">21. Founded on Trajectory, Not Completion</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-21" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">21. Founded on Trajectory, Not Completion</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-21" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         VMSS delivers approximately 10% of its stated promise today. The backup vessel technology does not exist. Continuous behavioral monitoring at civilizational scale does not exist. Autonomous contextual enforcement does not exist. The blueprint describes a civilization that requires technologies several generations away from operational readiness. This is stated openly, not discovered as a gotcha.
       </p>
@@ -294,10 +420,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         No civilization in history was founded at full capability. The United States at founding had 13 states, no standing army, and an economy smaller than several European trading companies. The question is never "is it complete?" — it is "is the direction sound and the trajectory achievable?" VMSS is the first civilization to publish its own capability gap at founding and make the closing of that gap the explicit civilizational project. The 10% is not an embarrassment. It is the most honest founding document ever written.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">22. Radical at Year One. Obvious at Year One Hundred.</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-22" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">22. Radical at Year One. Obvious at Year One Hundred.</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-22" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Every founding document in history sounded radical to its contemporaries. The Declaration of Independence's claim that "all men are created equal" was written by slaveholders and took two centuries of institutional pressure to approximate. The UN Declaration of Human Rights was signed by colonial empires still operating forced labour systems across three continents. The gap between aspiration and reality at the moment of signing is not a disqualification — it is the nature of founding documents. They describe what the signatories commit to building, not what they have already built.
       </p>
@@ -307,10 +438,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         This is the temporal legitimacy arc that every founding framework follows. The question is never whether the document sounds reasonable today. It is whether the trajectory it describes is achievable and whether the principles it encodes are sound. The US Constitution did not become legitimate because 1787 America met its standards. It became legitimate because subsequent generations built toward those standards and, in most cases, eventually reached them. The Charter operates on the same logic — with the advantage of a civilizational horizon measured in centuries rather than decades, and founders who will still be alive to course-correct when the trajectory drifts.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">23. The Nearest Earth Analog</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-23" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">23. The Nearest Earth Analog</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-23" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         The closest existing political concept to VMSS governance is meritocratic institutionalism — the principle that authority should be held by those who have demonstrated the competence to exercise it, embedded within institutions strong enough to outlast any individual. Two historical figures gestured at this. Plato's philosopher kings proposed that the wisest should govern, but offered no mechanism for identifying wisdom beyond philosophical self-assessment. Lee Kuan Yew's Singapore built a functioning meritocratic state that outperformed its regional peers for decades, but concentrated authority in a single leader whose successor problem remained unsolved. Both got the direction right. Neither got the architecture right.
       </p>
@@ -320,10 +456,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The longevity advantage completes the model. Lee Kuan Yew governed for 31 years — an exceptionally long tenure by Earth standards — and Singapore's institutional character still shifted measurably after his death. A VMSS Meritboard member serves for centuries. The institutional character does not shift because the people who defined it are still present, still cognitively sharp, still actively governing. Meritocratic institutionalism without longevity is a temporary achievement. With longevity, it is a permanent architecture.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">24. What Daily Life Actually Looks Like</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="layers">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-24" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">24. What Daily Life Actually Looks Like</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-24" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         The first 23 sections convince you the system is sound. This section answers the question those sections don't: what does it feel like to live here?
       </p>
@@ -339,10 +480,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         This is not a utopian fantasy. Every element described above is a direct logical inference from technology already detailed in the <a href="technologies.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Technologies</a> section and expanded in the <a href="world.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">World Dossier</a>. The site describes VMSS as governance infrastructure. This is what it looks like as lifestyle infrastructure. The same neural diving that enforces empathy education also powers ImmersionTube. The same backup vessels that enable the justice system also enable lethal sports. The same bioaugmentation that creates super-soldiers also creates pet dragons. The reader who finishes this section understands that VMSS is not a surveillance state with interesting technology — it is a civilization where daily life is unrecognizably richer than Earth's.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">25. The Adult Bet</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="rights">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-25" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">25. The Adult Bet</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-25" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         VMSS makes a bet that almost no other civilization in human history has been willing to make. The bet is that adults can be trusted with informed choices that carry real consequences, and that protecting them from those choices does more damage than the choices themselves. Earth's modern instinct runs in the opposite direction. Liability-driven design treats every adult as a potential plaintiff and every choice as a potential lawsuit, and the accumulated logic of that framework produces a culture in which you cannot voluntarily expose yourself to genuine risk on camera, in writing, or under contract — which means you cannot voluntarily learn anything that requires genuine risk. The lesson is sealed off behind the safety rail. The adult is treated as a ward.
       </p>
@@ -352,10 +498,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The Ceiling Seal is the deepest expression of the bet. If descent weren't permanent, if vessel severance weren't actually severance, if -3 weren't actually -3, then the entire moral architecture of the civilization would be theater. The seriousness of the consequences is what makes the freedom mean something, and the freedom is what makes the consequences worth taking seriously. The two are inseparable, and the inseparability is the doctrine. VMSS is not careless about adult lives. It is careful about adult lives in a way that protects the agency the lives are made of, rather than the surfaces they happen to occupy.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">26. Layer Separation as Civilizational Sorting</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="layers">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-26" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">26. Layer Separation as Civilizational Sorting</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-26" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         The most underappreciated doctrinal innovation in VMSS is not any single technology or rule. It is the decision to sort. Other civilizations — fictional and real — produce environments in which corporate towers, residential life, and lawless wild districts coexist inside the same physical city, with the same residents moving between them on the same afternoon, governed by the same nominal laws that nobody can enforce evenly across the strata. The result is the texture of cyberpunk fiction in concept and the texture of failed cities in practice: corporate sovereignty in the towers, ordinary life crushed in the middle, wild violence on the edges, and no boundary between any of them. People absorb the consequences of all three strata without having chosen any of them.
       </p>
@@ -365,10 +516,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The sorting is the entire innovation. Cyberpunk fictions are tragedies because their civilizations contain all the elements VMSS contains and none of the boundaries. The strata are present but the rings are not. People in those cities live under -1's commercial freedom, the Main Layer's residential expectations, and -3's territorial collapse simultaneously, and no one can choose which set of rules applies because no one set of rules applies anywhere. VMSS's answer is to sort them, place each on the ring its consequences justify, and let the residents of each ring live under the rules that ring honestly enforces. The sorting is what allows the wild things to exist without destroying the ordinary things, and the ordinary things to exist without smothering the wild things, and the doctrine to mean what it says everywhere it is stated.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">27. Voluntary Permanent Residency as Creative Freedom</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="rights">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-27" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">27. Voluntary Permanent Residency as Creative Freedom</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-27" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Most descriptions of voluntary permanent residency treat it as either an act of disillusionment — a resident who has decided the upper layers are not for them — or an act of conviction — a libertarian who wants -3's frontier conditions for their own sake. Both readings are real and both are documented. There is a third reading, less common but doctrinally important, that the existing material has under-emphasized: voluntary permanent residency as the price of building things the upper layers will not host. An operator with a project the Main Layer's regulatory framework will not certify, that the upper layers' harm provisions cannot accommodate, that no compromise version preserves the essence of, has exactly one path open to them inside VMSS. They can descend to the layer that will allow it, at the cost of everything the upper layers gave them.
       </p>
@@ -378,31 +534,51 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         This is what makes VMSS more creatively free than civilizations that pretend to be permissive while quietly closing off everything that matters. The upper layers are honest about what they will and will not host, and the lower layers are honest about what they will. An operator does not have to lie about what they are building, smuggle it past a regulator, or watch it die under compromise. They have to choose the layer where the thing can exist, and pay the cost of choosing it. The honesty of the bargain is the freedom. The price is the proof that the freedom is real. Voluntary permanent residency for the sake of a project is rare, but it is the kind of rare that does not exist at all in civilizations that deny their citizens the option in the first place.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">28. Your Leaders Can't Be Bought</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-28" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">28. Your Leaders Can't Be Bought</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-28" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         No campaign donations. No lobbying. No PACs. No donors. No fundraising dinners. No corporate sponsorship of candidates. No revolving door between industry and regulation. The Meritboard is a continuously updating competence ranking — the best in each domain rise automatically, the President is drawn from the top, and Supreme Court justices come from a separate ranking measuring a completely different skill. You can't buy a seat on a leaderboard that measures demonstrated achievement. You can't donate your way to the top of a ranking that tracks research output, doctrinal comprehension, and institutional contribution. Every ten years, the President faces a blind performance review against an unknown challenger on unknown metrics. The only campaign strategy that works is being genuinely good at the job.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">29. Every Alternative Has Been Tested</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-29" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">29. Every Alternative Has Been Tested</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-29" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         What if we used elections? Tested. The Elected Ring simulation documents the result: campaign cycles, constituency capture, and a 14% higher breach rate over twenty years. What if we shared currency across layers? Tested. The Common Coin simulation shows cross-layer economic extraction indistinguishable from colonial economics. What if we removed the killswitch? Tested. Eleven deaths in fourteen weeks. What if descent was reversible? Tested. Deterrent erosion, victim re-traumatization, and residents gaming the recovery system. What if we removed the walls? Tested. Consequence became administrative rather than environmental. What if we made everyone equal economically? Tested. The inflationary spiral consumed the equality within a generation. Thirteen architectural alternatives, all stress-tested against the original model in documented simulations, all producing measurable costs that the traditional architecture does not exhibit. The design choices aren't hunches. They're tested counterfactuals.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">30. The People Write the Rules</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-30" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">30. The People Write the Rules</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-30" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         No legislators. No representatives. No parliament. No congress. When a rule needs to change, any citizen can petition. When 1% of the layer population agrees it's worth discussing, a domain-expert panel drafts the regulation. Then the entire population votes directly — 80% must approve for it to become law. No party-line votes. No back-room deals. No rider amendments. No campaign promises. Just "here's the proposed rule, does 80% of the population want it?" That's a higher democratic threshold than any law on Earth has ever cleared. Districts naturally form coalitions when their interests align — states without the baggage of permanent borders, state legislatures, or state identity politics. The people don't elect someone to write their rules. The people write their own rules and vote on them directly.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">31. The Pledge Earth Won't Make</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-31" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">31. The Pledge Earth Won't Make</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-31" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         Earth pledges selectively. Climate targets. UN Sustainable Development Goals. WHO eradication programs. Paris accords, Vision Zero initiatives, non-proliferation treaties. The pattern is consistent: pledges happen when the target is far enough in the future to be politically safe, abstract enough that no official's career is on the line quarterly, and usually non-binding. Smallpox actually worked. Polio nearly so. Net-zero carbon by 2050 remains a pledgeable target because no single official gets fired when the curve slips.
       </p>
@@ -421,10 +597,15 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         VMSS doesn't solve violence by being utopian. It solves it by being willing to get embarrassed on the scoreboard.
       </p>
+        </div>
     </div>
 
-    <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
-      <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">32. Making Vibes Concrete</h2>
+      <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
+        <button class="w-full px-10 py-8 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleWhy(this)" aria-expanded="false" aria-controls="why-content-32" type="button">
+          <h2 class="text-3xl font-bold text-[var(--accent)]">32. Making Vibes Concrete</h2>
+          <span class="text-3xl transition-transform duration-300 icon">›</span>
+        </button>
+        <div id="why-content-32" class="why-content hidden px-10 pb-10" role="region">
       <p class="text-[var(--text-secondary)] leading-relaxed mb-5">
         STI does not invent a need. It names one that already runs everywhere, badly. Humans have always operated reputation systems informally — whisper networks, the "are we dating the same guy" group, the warning passed quietly about an ex, the instinct to ask around before signing anything. That signal is real, but it is fragmented, anonymous, and it arrives only after someone has already been burned. We built verified reputation infrastructure for borrowers a century ago — the credit score. We built it for sellers — reviews and ratings. We built it for criminals — the record. The one decision we never built it for is the highest-stakes call a person ever makes: who to trust. STI is the missing ledger for that decision.
       </p>
@@ -437,6 +618,8 @@
       <p class="text-[var(--text-secondary)] leading-relaxed">
         The whisper network already renders these verdicts. It just renders them anonymously, answerable to no one, with no way to be corrected when it is wrong. The ledger's difference is accountability: every entry has a source, a standard, and a path to recourse. It clears the wrongly-suspected as readily as it flags the guilty — something the mob, by its nature, can never do. That is the entire proposition. Making vibes concrete. STI takes the gut read that evaporates the instant you try to act on it and pins it to something that survives scrutiny.
       </p>
+        </div>
+    </div>
     </div>
 
     <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] mt-10">
@@ -454,6 +637,37 @@
   </div>
 </section>
 </main>
+<script src="assets/js/card-filter.js"></script>
+<script>
+  initCardFilter({
+    cards: '#why-grid .why-card',
+    search: { el: '#why-q' },
+    radios: { container: '#why-filter-bar', attr: 'data-cat' },
+    count: {
+      el: '[data-why-count]',
+      all: 'Showing all {total} entries',
+      some: 'Showing {shown} of {total} entries'
+    }
+  });
+</script>
+<!-- Accordion Script -->
+<script>
+    function toggleWhy(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.icon');
+      const isOpen = !content.classList.contains('hidden');
+
+      if (isOpen) {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(90deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+</script>
 <script src="script.js" defer></script>
 <!-- footer.html is fetched and injected here by script.js Promise.all. -->
 <div id="footer-placeholder"></div>

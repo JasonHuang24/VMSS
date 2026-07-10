@@ -36,18 +36,38 @@
 <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<style>
+  .law-filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 0.75rem; }
+  .law-chip { font-size: 0.78rem; padding: 0.35rem 0.9rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; transition: border-color .2s, color .2s; }
+  .law-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+  .law-chip.is-active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .law-filter-count { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .card-search{background:var(--bg-secondary);border:1px solid var(--border);border-radius:9999px;padding:.55rem 1.1rem;color:var(--text-primary);font-size:.9rem;outline:none;transition:border-color .2s;display:block;width:100%;max-width:36rem;margin:0 auto 1.25rem}
+  .card-search:focus{border-color:var(--accent)}
+</style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
 <h1 class="text-6xl font-bold text-center mb-6 text-[var(--text-primary)]">Frequently Asked Questions</h1>
 <p class="text-center text-2xl text-[var(--text-muted)] mb-16">Everything you need to know about life in The Five Rings</p>
+<input type="search" id="faq-q" class="card-search" placeholder="Search questions&hellip;" aria-label="Search questions"/>
+<div class="law-filter-bar" id="faq-filter-bar" role="group" aria-label="Filter questions by category">
+<button class="law-chip is-active" data-filter="all" type="button" aria-pressed="true">All</button>
+<button class="law-chip" data-filter="core" type="button" aria-pressed="false">Core Mechanics</button>
+<button class="law-chip" data-filter="philosophy" type="button" aria-pressed="false">Philosophy</button>
+<button class="law-chip" data-filter="economy" type="button" aria-pressed="false">Economy</button>
+<button class="law-chip" data-filter="lower-layer" type="button" aria-pressed="false">Lower Layers</button>
+<button class="law-chip" data-filter="visitation" type="button" aria-pressed="false">Visitation</button>
+<button class="law-chip" data-filter="governance" type="button" aria-pressed="false">Governance</button>
+</div>
+<p class="law-filter-count" data-faq-count role="status" aria-live="polite">Showing all 79 questions</p>
 <div class="space-y-6">
 <!-- Original Questions (restored exactly as they were) -->
-<div class="mt-2 mb-2">
+<div class="mt-2 mb-2" data-faq-header="core">
 <h2 class="text-3xl font-bold text-[var(--text-primary)]">Core Mechanics</h2>
 <p class="text-[var(--text-muted)] mt-2">Questions about layers, borders, implants, and the basic rules of life in the rings.</p>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I leave VMSS?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -57,7 +77,7 @@
 <p class="text-sm text-[var(--text-muted)]">Re-entry from Earth or other civilizations requires moral accounting (STI evaluation, psychological screening). Prior crimes count.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if I die?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -67,7 +87,7 @@
 <p class="text-sm text-[var(--text-muted)]">Continuity is preserved, not innocence. You keep your layer status and STI record.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is suicide stigmatized?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -77,7 +97,7 @@
 <p class="text-sm text-[var(--text-muted)]">The civilization provides continuity infrastructure. It does not compel its use. Removing the implant and choosing not to continue is exercising autonomy the system is designed to preserve.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What if a perpetrator kills themselves after committing harm?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -87,7 +107,7 @@
 <p class="text-sm text-[var(--text-muted)]">This makes murder structurally futile in every layer above -3. The victim comes back. The perpetrator faces reassignment or, if they self-terminate, permanent death. The act stands on the record either way. Justice prevails whether the perpetrator cooperates with it or not.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Does revival make the victim whole?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -97,7 +117,7 @@
 <p class="text-sm text-[var(--text-muted)]">Physical fidelity graduates with technological maturity. In the early centuries, revival resembles recovery from critical injury — the person returns, but with imperfections the original body did not have. By civilizational maturity, physical fidelity approaches indistinguishability. The psychological gap is the one the system treats as permanent and irreducible.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">If murder is futile, does violence just shift to non-lethal harm?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -107,7 +127,7 @@
 <p class="text-sm text-[var(--text-muted)]">The reassignment threshold is calibrated to the act, not the outcome. Attempted murder in +1 Sanctuary — halted mid-motion by TIP — still results in reassignment to -3, even though no harm completed.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to a perpetrator's family after self-termination?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -117,7 +137,7 @@
 <p class="text-sm text-[var(--text-muted)]">The system does not treat families as extensions of the perpetrator. A spouse, child, or parent retains their own STI, their own layer status, and their own standing in the civilization. The act is on the perpetrator's record. It is not on theirs.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Am I the same person after revival?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -127,7 +147,7 @@
 <p class="text-sm text-[var(--text-muted)]">Physical fidelity is the variable. In the civilization's early centuries, the revived body may carry minor imperfections the original did not — think of it as recovering from critical surgery rather than waking from sleep. As backup vessel technology matures across the 2150–3000 trajectory, physical fidelity approaches indistinguishability. The mind is always you. The body catches up.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How do the borders between rings work?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -137,7 +157,7 @@
 <p class="text-sm text-[var(--text-muted)]">Elective residents and downward visitors retain their origin-layer status and may return at any time. Voluntary permanent residents are sealed in — no upward path exists. Punitive reassignment is permanent — no upward path exists from any punitive layer. A breach while visiting or during elective residency triggers severity-based reassignment per standard VMSS consequence.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What are Selective Ascension Domains (SADs)?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -147,7 +167,7 @@
 <p class="text-sm text-[var(--text-muted)]">Examples: Beauty Minimum, Wealth Minimum, Gamers, Metalheads, Hybrid Gamers &amp; Metalheads, Cognitive Clarity, Decision Velocity, Non-Attachment Zone.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I opt out of implants?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -157,7 +177,7 @@
 <p class="text-[var(--text-secondary)]">Removing an implant does not erase your identity or your record. AR surveillance infrastructure — operated by drone patrols, security cameras, other citizens' implants, and government-grade cameras capable of biometric and DNA resolution — makes identity non-repudiable regardless of hardware status. Your STI and criminal record log remain visible to the system and to private institutions reading it. Implant removal is a choice with real access consequences. It is not an evasion tool — you are opting into reduced capability inside a civilization designed around instrumentation, not opting out of the civilization itself.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to my children if I descend?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -167,7 +187,7 @@
 <p class="text-[var(--text-secondary)]">If a pregnancy is terminated, the fetus's continuity is preserved via backup vessel and placed into Main Layer autoparenting with neutral status and full dignity. Under VMSS law, termination of a pregnancy is classified as a killing — because the technology exists to preserve the life, the act of ending it carries consequence. The backup vessel determines the outcome for the child, not whether the parent's choice is consequence-free. The parent faces standard layer reassignment based on severity evaluation.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do children born in lower layers inherit their parents' status?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -177,7 +197,7 @@
 <p class="text-sm text-[var(--text-muted)]">The clean-record doctrine is foundational. A civilization that punishes children for parental conduct has abandoned moral causality — the core principle the entire architecture is built on. Layer assignment follows from individual behavior. Nothing else.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How are children scored on the STI? Can a baby lose Sanctuary?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -188,7 +208,7 @@
 <p class="text-sm text-[var(--text-muted)]">The null period is a grace period for the STI score, not for criminal conduct. Serious violence or predatory acts are flagged on the criminal record log immediately regardless of age and trigger standard multi-factor evaluation. A teenager who commits murder in Sanctuary is not protected by null status. Full provisions in <a href="charter.html#article-ii" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Charter Article II</a> and <a href="whitepaper.html#glossary" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Whitepaper §5.12</a>.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does Earth's population sort into VMSS on day one?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -198,7 +218,7 @@
 <p class="text-sm text-[var(--text-muted)]">There is no lottery, no political sorting, and no demographic targeting. The same measurement infrastructure that will govern the civilization for the next thousand years performs the initial sort. The founding generation builds Main Layer. Every generation that follows earns its own placement.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="core">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I visit lower layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -207,12 +227,12 @@
 <p class="text-[var(--text-secondary)] mb-4">Yes — visitation is allowed from Main and above. You can stay indefinitely unless you breach while there. You arrive economically neutral in the destination layer — your origin currency is non-convertible there. Participating in the local economy requires earning local currency through work or receiving it from residents. Your origin layer status is preserved throughout your visit — including your backup vessel link and full institutional relationship. Visitors to -3 retain backup vessel coverage by default; death during a -3 visit results in standard revival at the visitor's origin-layer medical facility. Voluntary backup vessel suspension is available for visitors who choose to experience -3 at genuine mortal risk — this is the protocol used by resurrection tourists. The suspension is a documented, informed-consent choice made at the boundary, not an automatic consequence of crossing it. If you commit a breach while visiting, standard severity-based reassignment applies — the offense determines your destination layer, not the layer you happen to be visiting.</p>
 </div>
 </div>
-<div class="mt-14 mb-2">
+<div class="mt-14 mb-2" data-faq-header="philosophy">
 <h2 class="text-3xl font-bold text-[var(--text-primary)]">Philosophy & Value</h2>
 <p class="text-[var(--text-muted)] mt-2">Why the system is designed this way, and what it claims to solve better than Earth civilization.</p>
 </div>
 <!-- New Expanded Questions -->
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can I test the system (e.g., attempt harm to see what happens)?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -223,7 +243,7 @@
             </p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How do mega-walls prevent breaches?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -236,7 +256,7 @@
 </div>
 <!-- Add more if you want — these are the core new ones -->
 <!-- Philosophy & Core Rules -->
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why is VMSS not a moral police state?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -247,7 +267,7 @@
             </p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Isn't trajectory monitoring just thought-crime by another name?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -258,7 +278,7 @@
             </p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How are combat sports handled across layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -268,7 +288,7 @@
 <p class="text-sm text-[var(--text-muted)]">The non-uniformity of TIP across layers explains a meaningful portion of Main Layer's popularity — including why some 85+ STI residents who qualify for Sanctuary ascension choose to remain in Main. Sanctuary's pre-intervention standard is the source of its character, but it is also a constraint on the range of activities available within it. Main's combination of post-intervention freedom, combat sport infrastructure, and full backup vessel coverage produces a lifestyle profile many high-STI residents prefer. The doctrine does not treat this as a failure of Sanctuary — it treats it as the correct operation of the gradient. Different layers offer different lives. Ascension is not an obligation.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is the "continuity, not innocence" rule?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -280,7 +300,7 @@
 </div>
 </div>
 <!-- Enforcement -->
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if I disable the failsafe?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -291,7 +311,7 @@
             </p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does pre-intervention work in Heaven? Give an example.</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -303,7 +323,7 @@
 </div>
 </div>
 <!-- Economy -->
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is the Primary Job Subsidy available in all layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -315,7 +335,7 @@
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can an employer require more than 20 hours a week?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -327,7 +347,7 @@
 </div>
 
 <!-- Lower Layers -->
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is daily life like in -3?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -338,7 +358,7 @@
             </p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How do lower-layer residents view upper layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -350,7 +370,7 @@
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What actually gets you reassigned to -1?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -362,7 +382,7 @@
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why permanent layer reassignment instead of rehabilitation back upward?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -380,7 +400,7 @@ And if the spam-filter framing sounds harsh, note what makes it fair: this filte
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why not simply use prisons?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -392,7 +412,7 @@ Prisons are expensive, reactive, and often force innocent people to keep sharing
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why does STI exist if criminal law already exists?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -404,7 +424,7 @@ Because many real harms are legal. Adultery, chronic dishonesty, manipulation, a
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="philosophy">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is -1 still a consequence if life there is materially stable?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -416,13 +436,248 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="mt-14 mb-2">
-<h2 class="text-3xl font-bold text-[var(--text-primary)]">Lower Layers & Consequences</h2>
-<p class="text-[var(--text-muted)] mt-2">What layer reassignment means in practice and how the lower rings differ from one another.</p>
+
+<!-- (All your original questions are kept exactly as they were, just moved into accordion format) -->
+</div>
 </div>
 
-<!-- Practical / Edge Cases -->
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<!-- EDGE CASES SECTION -->
+<div class="lg:max-w-[70%] mx-auto px-6 mt-24">
+<div data-faq-header="economy lower-layer visitation governance">
+<h2 class="text-3xl font-bold text-[var(--text-primary)]">Edge Cases</h2>
+<p class="text-[var(--text-muted)] mt-2 mb-8">Non-obvious scenarios, clarifications on system behavior, and answers to questions that arise once you understand the foundations.</p>
+</div>
+
+<h3 data-faq-header="economy" class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Economy &amp; Work</h3>
+<div class="space-y-4 mb-12">
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Does a non-qualifying job mean my work isn't valued?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">No. The Primary Job Subsidy qualifies work based on contribution to critical infrastructure — systems the civilization needs staffed to function. It is a labor allocation mechanism, not a moral endorsement system. A citizen earning millions as a performer, artist, or entrepreneur is doing something genuinely valuable. The subsidy was never designed for them and becomes trivial at that income level. A citizen doing grey-market consulting at $50 per hour without qualifying is neither prohibited nor stigmatized. Three categories coexist freely: qualifying work that earns the subsidy, non-qualifying ethical work rewarded by the market, and grey-area work that is legal but not subsidized. The civilization has no objection to any of them.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I move my wealth to a lower layer to avoid upper-layer taxes?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Upward conversion is prohibited without exception. Downward conversion is permitted only through authorized downward channels — visitors and elective residents may transfer a portion of their origin-layer assets using the downward transfer retention schedule (1-10% retained depending on net worth), subject to a 90-99% forfeiture that prevents arbitrage. This is intentional architecture — the upper layer economy funds the highly socialized systems the civilization depends on. Open conversion would enable arbitrage that destabilizes those funding mechanisms. A citizen who transfers nothing arrives economically neutral and must earn destination currency through work.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to my assets if I descend involuntarily?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Full liquidation at market value at the moment of reassignment. 100% of proceeds transfer to the Automation Dividend Treasury. Joint assets are liquidated in full — your co-owner's share is returned to them in cash at market value, your share absorbed by the treasury. Family binding agreements made prior to breach are honored from your share before the treasury absorption. Assets transferred to a lower layer within 24 months prior to reassignment are subject to the same liquidation schedule — pre-positioning does not shield assets from consequence.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I voluntarily descend and keep some of my wealth?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Yes. Voluntary permanent residency triggers progressive liquidation rather than full confiscation. Citizens retain between 1% and 10% of liquidated assets depending on net worth at time of filing, converted to destination layer currency. The schedule runs from 90% treasury / 10% retained at under $1 million, scaling to 99% treasury / 1% retained at over $1 billion. Voluntary permanent residency is a legitimate civilizational choice and must remain economically viable — the system captures most of the value while preserving enough to establish yourself in the new environment. The upward pathway is permanently closed at the time of filing. Elective residency — choosing to live in a lower layer without permanent commitment — triggers no liquidation and preserves the right to return at any time.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mt-4">The retained capital lands in an environment where the voluntary resident's non-financial assets are worth considerably more than what was liquidated. Upper layer education and skills are rare in -3's frontier economy — technical expertise that is commonplace in Main Layer commands a significant premium where automation infrastructure is thin and human labor fills the gaps. A clean voluntary permanent residency record on the public ledger signals legitimate choice rather than punitive reassignment, granting day-one access to gated communities that exclude the punitive demographic entirely. Skills, status, and network compound the seed capital rapidly. The percentage looks small. The asymmetric advantage it arrives with does not.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">What happens when people start hoarding savings in upper layers?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">A savings circulation mandate applies across all layers, scaled to each layer's institutional presence and UBI baseline. When population-average savings cross the layer threshold, a monthly garnishing activates that makes idle capital at scale economically irrational while leaving average citizens unaffected. In lower layers the mandate applies only to VMSS-distributed funds — private earnings are untouched. All garnished funds return to the Automation Dividend Treasury and redistribute as UBI. The cycle is self-terminating. Full thresholds and rates are on the <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a> page.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I invest in stocks or speculate in upper layers?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">No. Stock speculation and equity markets are excluded from +1 Sanctuary and Main Layer. Speculative instruments would function as a loophole to shelter capital from the savings circulation mandate. Capital can still be deployed into productive activity, infrastructure, and creative projects — the constraint is on speculative financial instruments, not economic ambition.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">What does the economy look like in -3?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Earth-like capitalism. No speculative market exclusions and no VMSS-administered oversight of private economic activity. The Savings Circulation Mandate applies only to UBI-origin savings — VMSS does not reach into private gains. A base tax rate funds the -3 treasury for minimal federal infrastructure. Beyond that floor, equity markets, private banking, private lending, and private contract enforcement all operate freely. Currency siloing ensures wealth accumulated in -3 stays in -3.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="economy">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Why do the layers have different economic systems?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">The economic character of each layer matches its demographic and institutional reality — this is intentional design, not incidental variation. Upper layers (+1 Sanctuary and Main Layer) are highly socialized post-scarcity environments. The full VMSS institutional apparatus is present and running: revival infrastructure, pre-intervention enforcement, autoparenting, full UBI, legal mediation. Heavy progressive taxation funds all of it. The post-scarcity foundation depends on that funding remaining intact.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mt-4">The middle layers (-1 and -2) are hybrid economies. Partial institutional presence means partial taxation — it would not be equitable to tax citizens at rates corresponding to services they are not receiving. Private enterprise coexists with what institutional infrastructure remains. As you descend through these layers the balance shifts progressively toward private solutions filling the institutional void.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mt-4">-3 Terminal is a capitalist frontier economy. VMSS maintains a federal floor but has withdrawn daily governance. What emerges is raw market economics: private security, private justice, private infrastructure. The 10–15% tax rate is a civilizational membership acknowledgment more than a redistribution mechanism. The gradient is the same logic applied consistently from top to bottom.</p>
+</div>
+</div>
+
+
+</div>
+
+<h3 data-faq-header="lower-layer" class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Lower Layer Life</h3>
+<div class="space-y-4 mb-12">
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Are the lower layers just prisons with different names?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">No. The layers define the relationship between the individual and the VMSS enforcement infrastructure — not the absolute quality of life or the social order that emerges within each environment. VMSS withdraws institutional protection progressively as you descend. It does not mandate chaos or misery. People in every layer still have incentives to cooperate, form communities, build private institutions, and create social order. Lower layers are distinct civilizational environments with their own economic character, social texture, and internal hierarchy — not degraded versions of Main Layer. -3 in particular, with no formal VMSS presence, is more accurately described as a frontier economy than a prison.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Is -1 better than Earth for convicted populations?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Yes — and this is by design, not by accident. A person convicted of a non-violent offense on Earth faces incarceration in a facility with no economic participation, no personal autonomy, no privacy, high rates of violence, and a recidivism rate above 65% upon release. The same person in VMSS -1 receives $5,000/month UBI, lives in an environment with functioning private enterprise, retains full personal autonomy within the layer, has backup vessel continuity, and is never released back into the environment they were removed from.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The comparison is not close. VMSS -1 is materially superior to the median quality of life in most Earth nations, let alone Earth's carceral system. This is the point — the civilization's consequence model does not require suffering to function. It requires separation. The convicted individual lives a life that would be enviable by Earth standards. What they cannot do is access the upper pair's institutions, opportunities, and environments ever again. The consequence is permanent exclusion from the best the civilization offers, not degradation of the baseline.</p>
+<p class="text-sm text-[var(--text-muted)]">Earth punishes by making life worse. VMSS punishes by making life permanently less good than what was available. The first produces resentment and recidivism. The second produces a stable environment where the consequence is structural and the resident's daily life is still worth living.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">If -1 is comfortable, what's the actual consequence?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Exclusion, and the collapse of the credential architecture you spent decades building. -1 has a functioning economy, a genuine community, and a liveable environment &mdash; nobody disputes that. The consequence is in two parts. First: what you no longer have access to. Main Layer and Sanctuary form a symbiotic upper pair with shared institutions, fluid borders, and a combined cultural life that the lower layers cannot replicate. The civilization's celebrities, its leading research institutions, its neural diving composers, and its deepest collaborative networks all operate in the upper pair. Losing access to that for a lifespan measured in centuries is not a minor inconvenience.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mt-4">Second, and more severe: the Selective Ascension Domain (SAD) credentials you personally carried are gone. SADs are Sanctuary-exclusive, state-chartered, and function as the civilization's portable credentialing infrastructure. A resident who built a stack over decades &mdash; Relational Integrity Layer, Cognitive Clarity Domain, Physique Standards, Intelligence Standards, Lineage Integrity, Creative Output, each earned through sustained performance on a specific measurable criterion &mdash; operates every subsequent interaction with that stack as their verified identity. Employment, partnership, matching markets, residential communities, social interactions: the stack travels with the resident and signals state-audited truths about them. Punitive reassignment erases every SAD membership. The stack collapses. The identity-as-credentialed-self that the resident composed over their accumulated behavioral and capability history no longer exists on their portable profile. They cannot re-acquire any of it because Article VII seals the upward pathway and SADs are Sanctuary-only. The economic differential between Main Layer UBI and -1 UBI is trivial compared to this. The real cost of descent lives in the credential architecture, not the income statement.</p>
+<p class="text-sm text-[var(--text-muted)]">The system does not need -1 to be miserable. It needs the upper pair to be extraordinary and the credential architecture to be load-bearing. The consequence is the distance between what you had, what you were, and what you can no longer reach or be.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Is everyone in -3 a violent criminal?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">No. A meaningful portion of -3 residents chose to be there. Citizens who philosophically reject institutional governance, want minimal taxation, and are willing to accept the withdrawal of state protection in exchange for maximum freedom can voluntarily descend to -3. These voluntary libertarian residents arrive with full agency and often significant preparation. They have every incentive to build functional private institutions, maintain social order, and create genuinely liveable environments within the layer. The actual demographic composition of -3 is varied — a concentration of serious punitive cases, a meaningful voluntary population, and the organic sub-stratification that emerges between them.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Does a murderer in -3 just roam free?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Not necessarily. VMSS withdraws its institutional apparatus from -3. It does not prevent private institutions from forming to fill that void. The implant ledger carries two distinct tracks: the STI, which logs social trust violations, and the criminal record log, which carries hard flags like murder convictions. Both travel with every resident into -3 and are visible to every private security operator, landlord, employer, and community. Removing an implant does not erase either track — AR surveillance infrastructure operated by drone patrols, security cameras, and other citizens' implants can resolve identity via DNA and biometric read even without an implant interface. Identity in a mature VMSS civilization is non-repudiable regardless of hardware status.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mt-4">The voluntary libertarian community with its gated districts and private infrastructure has every incentive to exclude high-risk arrivals — and the information to do so accurately. Nothing prevents -3 from developing its own private police forces and private prisons funded by the voluntary community and established operators. History is consistent on this: power vacuums fill. A convicted murderer arriving in -3 enters an environment where the voluntary community has already built private consequences — and those consequences are not obligated to be gentle.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Can someone be wealthy in -3?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Yes. Wealth in -3 is earned and denominated in -3 currency — it cannot be transferred upward, but within the layer economy it is entirely real. Low taxation (10–15%), minimal regulation, and genuine demand for private solutions in a frontier economy create conditions where a capable and reliable operator can accumulate serious wealth. Gated communities, private security, Lamborghinis — these are plausible outcomes in -3 for someone who builds something the local economy values. The voluntary libertarian residents who arrived prepared often become a founding class with structural advantages that compound over time. The layer is not hostile to wealth. It is simply a different kind of economy than what exists above.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Do lower layers develop their own internal hierarchy?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed">Inevitably. In -3, the voluntary libertarian community with its gated districts and private infrastructure sits at one end. Newly arrived punitive residents with no local currency and no connections sit at the other. Everyone else finds their level in between. The public ledger travels with every resident — their record is visible to every private institution making decisions about who gets access to what.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">What is a colosseum in -3, and why is it legal?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">A colosseum, in -3's customary law, is a recognized category of place defined by the contract its gate enforces. The visitor passes through the gate at their own risk. Death is on the table at even odds with survival, openly and without disguise, and the visitor knows it before the gate closes behind them. The death, when it happens, is the thing the visitor paid to enter the proximity of. The operator is not liable for that death because the death is not, in the layer's understanding of the word, an injury. It is the fulfillment of the contract the visitor signed at the gate by stepping through it.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">-3's private justice infrastructure does not investigate colosseum fatalities for the same reason it does not investigate the outcome of a duel both parties agreed to. The category exempts the operator from after-the-fact review. There is no license to apply for. The classification attaches automatically the moment the gate enforces the colosseum contract — open declaration of risk, informed entry, absence of deception about what waits inside. The operator's legal exposure inside -3 collapses to zero from the moment the framing settles. Colosseums are older than any specific operator's project and older than the Charter provision that made voluntary permanent residency in the layer possible.</p>
+</div>
+</div>
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I build something in -3 that the upper layers won't allow?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Yes, and it is one of the doctrinally protected uses of the layer. An operator with a project the upper layers' harm provisions cannot accommodate — a full-fidelity reconstructed-predator park, a live re-enactment environment with real participants, a duel pit, an extreme-stunt operation, an unregulated drug or adult market — has exactly one legitimate path open to them inside VMSS. They can voluntarily descend under Article XIV, convert their upper-layer holdings to terminal-layer tokens at the standing 10:1 ratio, accept that the descent is permanent under the Ceiling Seal, and build the project in -3 to its original specification.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The cost is real. The Ceiling Seal closes behind the descender on the day of arrival. There is no provisional version. What -3 offers in exchange is the only jurisdiction in the civilization where the project can actually exist, populated and operated as the operator intended, without the compromise framework the upper layers would impose. The Saurian Park is the canonical documented example. Whether the local cooperative will permit the enterprise once it is built depends on the standard -3 calculus — payment, mutual benefit, reputational alignment, classification — but the doctrine does not stand in the way of the descent or the project.</p>
+</div>
+</div>
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Are duels to the death legal in -3?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Yes, between consenting adults under the colosseum-class contract framework. A duel between two consenting adults in any layer above -3 is a homicide regardless of consent, because the Charter's harm provisions do not allow consent to override the prohibition on killing. In -3 the harm provisions have been replaced with the cooperative-tolerance framework, and a duel that meets the conditions of mutual informed consent, contained risk, and absence of third-party harm is treated by the local cooperative as a closed matter. The cooperative that hears about the duel after the fact does not investigate, because the participants treated the event as closed by treating it as consented to.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed">This is not the cooperative endorsing killing. It is the cooperative recognizing that the event met the conditions of consent and contract that the cooperative's local rules treat as sufficient for non-intervention. The federal floor still applies — a duel that escalates into a public massacre would invite the federal enforcement track regardless of the local framing — but a clean two-person duel under contained conditions falls inside the layer's customary tolerance and outside any jurisdiction with standing to prosecute it.</p>
+</div>
+</div>
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Is -3's "wild side" just a euphemism for gang violence?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">No. The reflex when people hear "terminal layer" is to picture a prison yard. The reality is closer to a frontier with no sheriff, and the difference between those two pictures is the difference between understanding -3 and not. The wild side of -3 is not random violence. It is the absence of Charter-imposed regulation and the presence of local regulation by cooperatives, security contractors, district enforcers, and voluntary community gatekeepers. That apparatus is the only thing standing between any given enterprise and the right to operate, and it has its own incentives, its own price points, and its own definitions of what counts as a problem.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The wild west was not lawless. The wild west had law — whatever the local sheriff was willing to enforce. -3 is that, scaled and distributed across hundreds of districts. The colosseum-class enterprises, the duel pits, the stunt operations, the unregulated markets that cannot exist in the upper layers — these are not gang outputs. They are commercial enterprises operating under local cooperative tolerance, often paying tribute, often endorsed, often lucrative, and structurally distinct from the punitive-population dynamics that the upper-layer imagination assumes are the only thing -3 contains. The two coexist. They are not the same thing.</p>
+</div>
+</div>
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">Who decides what's permitted in a -3 district?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The local apparatus — the cooperative, security contractor, district enforcer, or voluntary community structure that controls the territory the enterprise wants to operate in. There is no license to apply for and no permit to receive. There is only the question of whether the people who would have stopped you have decided not to, and that question can be answered five different ways: indifference, payment, mutual benefit, reputational alignment, or formal endorsement. Any of the five is sufficient. All five outcomes are legally identical from the operator's perspective. The enterprise is permitted because nothing is stopping it.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The cooperative that accepts payment to permit a profitable enterprise is not betraying its mandate — its mandate is to serve its district's interests as the cooperative defines them, and accepting payment for non-interference is exactly the mandate functioning as designed. The cooperative that endorses an enterprise outright is doing the same thing through a different channel. The cooperative that simply ignores an enterprise that has not generated complaints is doing it through the laziest channel of all. None of this is anarchy. It is a different regulatory regime, with the regulator local, purchasable, and operating on its own incentive structure rather than on a Charter-imposed floor. The federal floor — clean energy, nuclear weapons, implant integrity, civilizational sovereignty — still bounds what no cooperative is permitted to authorise.</p>
+</div>
+</div>
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
+<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
+<h2 class="text-2xl font-semibold text-[var(--accent)]">What if VMSS covered the entire planet?</h2>
+<span class="text-3xl transition-transform duration-300 icon">›</span>
+</button>
+<div class="faq-content hidden px-8 pb-8">
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">It would be structurally worse. Earth remaining outside the system is not a failure of adoption — it is an architectural feature. VMSS requires an external destination for citizens who voluntarily exit under Article X. Without one, the exit provision — the civilization's most confident structural statement — becomes meaningless. A system you cannot leave is a prison regardless of how well it treats you.</p>
+<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Earth also serves as the de facto sorting ground for the unsorted. The 5.7 billion people who did not join at founding — the complement of the 2.4 billion who did, a founding cohort that immigration and reproduction have since grown to the ~4.3 billion residents of today — are not VMSS's problem to classify. If the civilization covered the entire planet, every human alive would require layer assessment, and -3 Terminal would absorb a vastly larger population than the architecture was designed for. The current model — a sovereign civilization coexisting with an external world — keeps the sorting voluntary, the exit real, and the layer populations proportional to the infrastructure that serves them.</p>
+<p class="text-sm text-[var(--text-muted)]">VMSS does not aspire to planetary coverage. It aspires to being so obviously superior that alliance becomes the rational choice for external nations — while remaining a choice, not a mandate.</p>
+</div>
+</div>
+
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="lower-layer">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if I refuse revival?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -439,250 +694,12 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
             </p>
 </div>
 </div>
-<!-- (All your original questions are kept exactly as they were, just moved into accordion format) -->
-</div>
 </div>
 
-<!-- EDGE CASES SECTION -->
-<div class="lg:max-w-[70%] mx-auto px-6 mt-24">
-<h2 class="text-3xl font-bold text-[var(--text-primary)]">Edge Cases</h2>
-<p class="text-[var(--text-muted)] mt-2 mb-8">Non-obvious scenarios, clarifications on system behavior, and answers to questions that arise once you understand the foundations.</p>
-
-<h3 class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Economy &amp; Work</h3>
+<h3 data-faq-header="visitation" class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Visitation &amp; Cross-Layer Movement</h3>
 <div class="space-y-4 mb-12">
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Does a non-qualifying job mean my work isn't valued?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">No. The Primary Job Subsidy qualifies work based on contribution to critical infrastructure — systems the civilization needs staffed to function. It is a labor allocation mechanism, not a moral endorsement system. A citizen earning millions as a performer, artist, or entrepreneur is doing something genuinely valuable. The subsidy was never designed for them and becomes trivial at that income level. A citizen doing grey-market consulting at $50 per hour without qualifying is neither prohibited nor stigmatized. Three categories coexist freely: qualifying work that earns the subsidy, non-qualifying ethical work rewarded by the market, and grey-area work that is legal but not subsidized. The civilization has no objection to any of them.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I move my wealth to a lower layer to avoid upper-layer taxes?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Upward conversion is prohibited without exception. Downward conversion is permitted only through authorized downward channels — visitors and elective residents may transfer a portion of their origin-layer assets using the downward transfer retention schedule (1-10% retained depending on net worth), subject to a 90-99% forfeiture that prevents arbitrage. This is intentional architecture — the upper layer economy funds the highly socialized systems the civilization depends on. Open conversion would enable arbitrage that destabilizes those funding mechanisms. A citizen who transfers nothing arrives economically neutral and must earn destination currency through work.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to my assets if I descend involuntarily?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Full liquidation at market value at the moment of reassignment. 100% of proceeds transfer to the Automation Dividend Treasury. Joint assets are liquidated in full — your co-owner's share is returned to them in cash at market value, your share absorbed by the treasury. Family binding agreements made prior to breach are honored from your share before the treasury absorption. Assets transferred to a lower layer within 24 months prior to reassignment are subject to the same liquidation schedule — pre-positioning does not shield assets from consequence.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I voluntarily descend and keep some of my wealth?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Yes. Voluntary permanent residency triggers progressive liquidation rather than full confiscation. Citizens retain between 1% and 10% of liquidated assets depending on net worth at time of filing, converted to destination layer currency. The schedule runs from 90% treasury / 10% retained at under $1 million, scaling to 99% treasury / 1% retained at over $1 billion. Voluntary permanent residency is a legitimate civilizational choice and must remain economically viable — the system captures most of the value while preserving enough to establish yourself in the new environment. The upward pathway is permanently closed at the time of filing. Elective residency — choosing to live in a lower layer without permanent commitment — triggers no liquidation and preserves the right to return at any time.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mt-4">The retained capital lands in an environment where the voluntary resident's non-financial assets are worth considerably more than what was liquidated. Upper layer education and skills are rare in -3's frontier economy — technical expertise that is commonplace in Main Layer commands a significant premium where automation infrastructure is thin and human labor fills the gaps. A clean voluntary permanent residency record on the public ledger signals legitimate choice rather than punitive reassignment, granting day-one access to gated communities that exclude the punitive demographic entirely. Skills, status, and network compound the seed capital rapidly. The percentage looks small. The asymmetric advantage it arrives with does not.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">What happens when people start hoarding savings in upper layers?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">A savings circulation mandate applies across all layers, scaled to each layer's institutional presence and UBI baseline. When population-average savings cross the layer threshold, a monthly garnishing activates that makes idle capital at scale economically irrational while leaving average citizens unaffected. In lower layers the mandate applies only to VMSS-distributed funds — private earnings are untouched. All garnished funds return to the Automation Dividend Treasury and redistribute as UBI. The cycle is self-terminating. Full thresholds and rates are on the <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a> page.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I invest in stocks or speculate in upper layers?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">No. Stock speculation and equity markets are excluded from +1 Sanctuary and Main Layer. Speculative instruments would function as a loophole to shelter capital from the savings circulation mandate. Capital can still be deployed into productive activity, infrastructure, and creative projects — the constraint is on speculative financial instruments, not economic ambition.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">What does the economy look like in -3?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Earth-like capitalism. No speculative market exclusions and no VMSS-administered oversight of private economic activity. The Savings Circulation Mandate applies only to UBI-origin savings — VMSS does not reach into private gains. A base tax rate funds the -3 treasury for minimal federal infrastructure. Beyond that floor, equity markets, private banking, private lending, and private contract enforcement all operate freely. Currency siloing ensures wealth accumulated in -3 stays in -3.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Why do the layers have different economic systems?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">The economic character of each layer matches its demographic and institutional reality — this is intentional design, not incidental variation. Upper layers (+1 Sanctuary and Main Layer) are highly socialized post-scarcity environments. The full VMSS institutional apparatus is present and running: revival infrastructure, pre-intervention enforcement, autoparenting, full UBI, legal mediation. Heavy progressive taxation funds all of it. The post-scarcity foundation depends on that funding remaining intact.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mt-4">The middle layers (-1 and -2) are hybrid economies. Partial institutional presence means partial taxation — it would not be equitable to tax citizens at rates corresponding to services they are not receiving. Private enterprise coexists with what institutional infrastructure remains. As you descend through these layers the balance shifts progressively toward private solutions filling the institutional void.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mt-4">-3 Terminal is a capitalist frontier economy. VMSS maintains a federal floor but has withdrawn daily governance. What emerges is raw market economics: private security, private justice, private infrastructure. The 10–15% tax rate is a civilizational membership acknowledgment more than a redistribution mechanism. The gradient is the same logic applied consistently from top to bottom.</p>
-</div>
-</div>
-
-
-</div>
-
-<h3 class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Lower Layer Life</h3>
-<div class="space-y-4 mb-12">
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Are the lower layers just prisons with different names?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">No. The layers define the relationship between the individual and the VMSS enforcement infrastructure — not the absolute quality of life or the social order that emerges within each environment. VMSS withdraws institutional protection progressively as you descend. It does not mandate chaos or misery. People in every layer still have incentives to cooperate, form communities, build private institutions, and create social order. Lower layers are distinct civilizational environments with their own economic character, social texture, and internal hierarchy — not degraded versions of Main Layer. -3 in particular, with no formal VMSS presence, is more accurately described as a frontier economy than a prison.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Is -1 better than Earth for convicted populations?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Yes — and this is by design, not by accident. A person convicted of a non-violent offense on Earth faces incarceration in a facility with no economic participation, no personal autonomy, no privacy, high rates of violence, and a recidivism rate above 65% upon release. The same person in VMSS -1 receives $5,000/month UBI, lives in an environment with functioning private enterprise, retains full personal autonomy within the layer, has backup vessel continuity, and is never released back into the environment they were removed from.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The comparison is not close. VMSS -1 is materially superior to the median quality of life in most Earth nations, let alone Earth's carceral system. This is the point — the civilization's consequence model does not require suffering to function. It requires separation. The convicted individual lives a life that would be enviable by Earth standards. What they cannot do is access the upper pair's institutions, opportunities, and environments ever again. The consequence is permanent exclusion from the best the civilization offers, not degradation of the baseline.</p>
-<p class="text-sm text-[var(--text-muted)]">Earth punishes by making life worse. VMSS punishes by making life permanently less good than what was available. The first produces resentment and recidivism. The second produces a stable environment where the consequence is structural and the resident's daily life is still worth living.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">If -1 is comfortable, what's the actual consequence?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Exclusion, and the collapse of the credential architecture you spent decades building. -1 has a functioning economy, a genuine community, and a liveable environment &mdash; nobody disputes that. The consequence is in two parts. First: what you no longer have access to. Main Layer and Sanctuary form a symbiotic upper pair with shared institutions, fluid borders, and a combined cultural life that the lower layers cannot replicate. The civilization's celebrities, its leading research institutions, its neural diving composers, and its deepest collaborative networks all operate in the upper pair. Losing access to that for a lifespan measured in centuries is not a minor inconvenience.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mt-4">Second, and more severe: the Selective Ascension Domain (SAD) credentials you personally carried are gone. SADs are Sanctuary-exclusive, state-chartered, and function as the civilization's portable credentialing infrastructure. A resident who built a stack over decades &mdash; Relational Integrity Layer, Cognitive Clarity Domain, Physique Standards, Intelligence Standards, Lineage Integrity, Creative Output, each earned through sustained performance on a specific measurable criterion &mdash; operates every subsequent interaction with that stack as their verified identity. Employment, partnership, matching markets, residential communities, social interactions: the stack travels with the resident and signals state-audited truths about them. Punitive reassignment erases every SAD membership. The stack collapses. The identity-as-credentialed-self that the resident composed over their accumulated behavioral and capability history no longer exists on their portable profile. They cannot re-acquire any of it because Article VII seals the upward pathway and SADs are Sanctuary-only. The economic differential between Main Layer UBI and -1 UBI is trivial compared to this. The real cost of descent lives in the credential architecture, not the income statement.</p>
-<p class="text-sm text-[var(--text-muted)]">The system does not need -1 to be miserable. It needs the upper pair to be extraordinary and the credential architecture to be load-bearing. The consequence is the distance between what you had, what you were, and what you can no longer reach or be.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Is everyone in -3 a violent criminal?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">No. A meaningful portion of -3 residents chose to be there. Citizens who philosophically reject institutional governance, want minimal taxation, and are willing to accept the withdrawal of state protection in exchange for maximum freedom can voluntarily descend to -3. These voluntary libertarian residents arrive with full agency and often significant preparation. They have every incentive to build functional private institutions, maintain social order, and create genuinely liveable environments within the layer. The actual demographic composition of -3 is varied — a concentration of serious punitive cases, a meaningful voluntary population, and the organic sub-stratification that emerges between them.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Does a murderer in -3 just roam free?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Not necessarily. VMSS withdraws its institutional apparatus from -3. It does not prevent private institutions from forming to fill that void. The implant ledger carries two distinct tracks: the STI, which logs social trust violations, and the criminal record log, which carries hard flags like murder convictions. Both travel with every resident into -3 and are visible to every private security operator, landlord, employer, and community. Removing an implant does not erase either track — AR surveillance infrastructure operated by drone patrols, security cameras, and other citizens' implants can resolve identity via DNA and biometric read even without an implant interface. Identity in a mature VMSS civilization is non-repudiable regardless of hardware status.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mt-4">The voluntary libertarian community with its gated districts and private infrastructure has every incentive to exclude high-risk arrivals — and the information to do so accurately. Nothing prevents -3 from developing its own private police forces and private prisons funded by the voluntary community and established operators. History is consistent on this: power vacuums fill. A convicted murderer arriving in -3 enters an environment where the voluntary community has already built private consequences — and those consequences are not obligated to be gentle.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Can someone be wealthy in -3?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Yes. Wealth in -3 is earned and denominated in -3 currency — it cannot be transferred upward, but within the layer economy it is entirely real. Low taxation (10–15%), minimal regulation, and genuine demand for private solutions in a frontier economy create conditions where a capable and reliable operator can accumulate serious wealth. Gated communities, private security, Lamborghinis — these are plausible outcomes in -3 for someone who builds something the local economy values. The voluntary libertarian residents who arrived prepared often become a founding class with structural advantages that compound over time. The layer is not hostile to wealth. It is simply a different kind of economy than what exists above.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Do lower layers develop their own internal hierarchy?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed">Inevitably. In -3, the voluntary libertarian community with its gated districts and private infrastructure sits at one end. Newly arrived punitive residents with no local currency and no connections sit at the other. Everyone else finds their level in between. The public ledger travels with every resident — their record is visible to every private institution making decisions about who gets access to what.</p>
-</div>
-</div>
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">What is a colosseum in -3, and why is it legal?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">A colosseum, in -3's customary law, is a recognized category of place defined by the contract its gate enforces. The visitor passes through the gate at their own risk. Death is on the table at even odds with survival, openly and without disguise, and the visitor knows it before the gate closes behind them. The death, when it happens, is the thing the visitor paid to enter the proximity of. The operator is not liable for that death because the death is not, in the layer's understanding of the word, an injury. It is the fulfillment of the contract the visitor signed at the gate by stepping through it.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">-3's private justice infrastructure does not investigate colosseum fatalities for the same reason it does not investigate the outcome of a duel both parties agreed to. The category exempts the operator from after-the-fact review. There is no license to apply for. The classification attaches automatically the moment the gate enforces the colosseum contract — open declaration of risk, informed entry, absence of deception about what waits inside. The operator's legal exposure inside -3 collapses to zero from the moment the framing settles. Colosseums are older than any specific operator's project and older than the Charter provision that made voluntary permanent residency in the layer possible.</p>
-</div>
-</div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Can I build something in -3 that the upper layers won't allow?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Yes, and it is one of the doctrinally protected uses of the layer. An operator with a project the upper layers' harm provisions cannot accommodate — a full-fidelity reconstructed-predator park, a live re-enactment environment with real participants, a duel pit, an extreme-stunt operation, an unregulated drug or adult market — has exactly one legitimate path open to them inside VMSS. They can voluntarily descend under Article XIV, convert their upper-layer holdings to terminal-layer tokens at the standing 10:1 ratio, accept that the descent is permanent under the Ceiling Seal, and build the project in -3 to its original specification.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The cost is real. The Ceiling Seal closes behind the descender on the day of arrival. There is no provisional version. What -3 offers in exchange is the only jurisdiction in the civilization where the project can actually exist, populated and operated as the operator intended, without the compromise framework the upper layers would impose. The Saurian Park is the canonical documented example. Whether the local cooperative will permit the enterprise once it is built depends on the standard -3 calculus — payment, mutual benefit, reputational alignment, classification — but the doctrine does not stand in the way of the descent or the project.</p>
-</div>
-</div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Are duels to the death legal in -3?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Yes, between consenting adults under the colosseum-class contract framework. A duel between two consenting adults in any layer above -3 is a homicide regardless of consent, because the Charter's harm provisions do not allow consent to override the prohibition on killing. In -3 the harm provisions have been replaced with the cooperative-tolerance framework, and a duel that meets the conditions of mutual informed consent, contained risk, and absence of third-party harm is treated by the local cooperative as a closed matter. The cooperative that hears about the duel after the fact does not investigate, because the participants treated the event as closed by treating it as consented to.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed">This is not the cooperative endorsing killing. It is the cooperative recognizing that the event met the conditions of consent and contract that the cooperative's local rules treat as sufficient for non-intervention. The federal floor still applies — a duel that escalates into a public massacre would invite the federal enforcement track regardless of the local framing — but a clean two-person duel under contained conditions falls inside the layer's customary tolerance and outside any jurisdiction with standing to prosecute it.</p>
-</div>
-</div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Is -3's "wild side" just a euphemism for gang violence?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">No. The reflex when people hear "terminal layer" is to picture a prison yard. The reality is closer to a frontier with no sheriff, and the difference between those two pictures is the difference between understanding -3 and not. The wild side of -3 is not random violence. It is the absence of Charter-imposed regulation and the presence of local regulation by cooperatives, security contractors, district enforcers, and voluntary community gatekeepers. That apparatus is the only thing standing between any given enterprise and the right to operate, and it has its own incentives, its own price points, and its own definitions of what counts as a problem.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The wild west was not lawless. The wild west had law — whatever the local sheriff was willing to enforce. -3 is that, scaled and distributed across hundreds of districts. The colosseum-class enterprises, the duel pits, the stunt operations, the unregulated markets that cannot exist in the upper layers — these are not gang outputs. They are commercial enterprises operating under local cooperative tolerance, often paying tribute, often endorsed, often lucrative, and structurally distinct from the punitive-population dynamics that the upper-layer imagination assumes are the only thing -3 contains. The two coexist. They are not the same thing.</p>
-</div>
-</div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">Who decides what's permitted in a -3 district?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The local apparatus — the cooperative, security contractor, district enforcer, or voluntary community structure that controls the territory the enterprise wants to operate in. There is no license to apply for and no permit to receive. There is only the question of whether the people who would have stopped you have decided not to, and that question can be answered five different ways: indifference, payment, mutual benefit, reputational alignment, or formal endorsement. Any of the five is sufficient. All five outcomes are legally identical from the operator's perspective. The enterprise is permitted because nothing is stopping it.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">The cooperative that accepts payment to permit a profitable enterprise is not betraying its mandate — its mandate is to serve its district's interests as the cooperative defines them, and accepting payment for non-interference is exactly the mandate functioning as designed. The cooperative that endorses an enterprise outright is doing the same thing through a different channel. The cooperative that simply ignores an enterprise that has not generated complaints is doing it through the laziest channel of all. None of this is anarchy. It is a different regulatory regime, with the regulator local, purchasable, and operating on its own incentive structure rather than on a Charter-imposed floor. The federal floor — clean energy, nuclear weapons, implant integrity, civilizational sovereignty — still bounds what no cooperative is permitted to authorise.</p>
-</div>
-</div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
-<button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
-<h2 class="text-2xl font-semibold text-[var(--accent)]">What if VMSS covered the entire planet?</h2>
-<span class="text-3xl transition-transform duration-300 icon">›</span>
-</button>
-<div class="faq-content hidden px-8 pb-8">
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">It would be structurally worse. Earth remaining outside the system is not a failure of adoption — it is an architectural feature. VMSS requires an external destination for citizens who voluntarily exit under Article X. Without one, the exit provision — the civilization's most confident structural statement — becomes meaningless. A system you cannot leave is a prison regardless of how well it treats you.</p>
-<p class="text-[var(--text-secondary)] leading-relaxed mb-4">Earth also serves as the de facto sorting ground for the unsorted. The 5.7 billion people who did not join at founding — the complement of the 2.4 billion who did, a founding cohort that immigration and reproduction have since grown to the ~4.3 billion residents of today — are not VMSS's problem to classify. If the civilization covered the entire planet, every human alive would require layer assessment, and -3 Terminal would absorb a vastly larger population than the architecture was designed for. The current model — a sovereign civilization coexisting with an external world — keeps the sorting voluntary, the exit real, and the layer populations proportional to the infrastructure that serves them.</p>
-<p class="text-sm text-[var(--text-muted)]">VMSS does not aspire to planetary coverage. It aspires to being so obviously superior that alliance becomes the rational choice for external nations — while remaining a choice, not a mandate.</p>
-</div>
-</div>
-
-</div>
-
-<h3 class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Visitation &amp; Cross-Layer Movement</h3>
-<div class="space-y-4 mb-12">
-
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="visitation">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does cross-layer business work? Who are the fixers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -692,7 +709,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 <p class="text-[var(--text-secondary)] leading-relaxed mb-4">The cross-layer dimension follows the standard visitor protocols. The operator who travels to perform the work travels as a visitor — vessel link active (unless they have separately chosen to suspend it), federal surveillance floor recording, return path intact. The work is performed. The operator returns. The payment is released through the broker's escrow. The federal floor watches the broker's ledger at the standing surveillance level applied to all -1 commercial activity, which is sufficient to detect any contract that would cross the federal thresholds. The brokers are not criminals. They are the connective tissue between layers that the doctrine left deliberately unscripted, and the connective tissue is what allows the cross-layer economy to function without the doctrine having to centrally plan it.</p>
 </div>
 </div>
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="visitation">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What's the difference between visiting a lower layer and descending to one?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -702,7 +719,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="visitation">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why would a Sanctuary resident visit -3?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -712,7 +729,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="visitation">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Does VMSS have a military?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -723,7 +740,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="visitation">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can the lower layers resist VMSS authority?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -736,10 +753,10 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 
 </div>
 
-<h3 class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Governance &amp; Identity</h3>
+<h3 data-faq-header="governance" class="text-xl font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">Governance &amp; Identity</h3>
 <div class="space-y-4 mb-12">
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Are AGIs treated as people?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -750,7 +767,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Who governs VMSS?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -760,7 +777,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How are new laws created without a legislature?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -770,7 +787,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What's the difference between Article XI, federal law, and regulatory law?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -781,7 +798,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why isn't murder explicitly banned in the Charter?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -792,7 +809,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How does VMSS federal law compare to US federal law?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -803,7 +820,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens if someone has too many children?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -814,7 +831,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do the layers diverge into different species over time?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -824,7 +841,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Why is there no jury system?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -835,7 +852,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What happens to de-extinct or revived species?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -846,7 +863,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Will Sanctuary become culturally alien to Main over centuries?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -858,7 +875,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What about hereditary grievance over 500 years?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -870,7 +887,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can the founding principles ever be changed?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -881,7 +898,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">How long can a President serve?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -892,7 +909,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What if VMSS wrongly sends someone to a lower layer?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -903,7 +920,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Can a visitor exploit their backup vessel in lower layers?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -914,7 +931,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Is VMSS a democracy?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -925,7 +942,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">Do districts form into states?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -936,7 +953,7 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
 </div>
 </div>
 
-<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden">
+<div class="faq-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="governance">
 <button class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-[var(--bg-primary)] transition" onclick="toggleFaq(this)" aria-expanded="false" type="button">
 <h2 class="text-2xl font-semibold text-[var(--accent)]">What is the oldest text in VMSS law?</h2>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
@@ -1049,6 +1066,16 @@ Yes. VMSS consequence is not measured by suffering — it is measured by lost ac
     }
   ]
 }
+</script>
+<script src="assets/js/card-filter.js"></script>
+<script>
+  initCardFilter({
+    cards: '.faq-card',
+    search: { el: '#faq-q' },
+    radios: { container: '#faq-filter-bar', attr: 'data-cat' },
+    count: { el: '[data-faq-count]', all: 'Showing all {total} questions', some: 'Showing {shown} of {total} questions' },
+    headers: [{ selector: '[data-faq-header]', headerAttr: 'data-faq-header', cardAttr: 'data-cat' }]
+  });
 </script>
 <script src="script.js" defer></script>
 <div id="footer-placeholder"></div></body>

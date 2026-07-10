@@ -33,6 +33,64 @@
 <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<style>
+  /* Domain filter chrome + collapsible Table of Contents (ported from law-polling.html) */
+  h2[id], h3[id] { scroll-margin-top: 6rem; }
+  .law-toc {
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--bg-secondary);
+    overflow: hidden;
+    margin-bottom: 2.75rem;
+  }
+  .toc-toggle {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.1rem 1.5rem; background: none; border: none; cursor: pointer;
+    text-align: left; color: var(--text-primary); font: inherit;
+  }
+  .toc-toggle:hover { background: rgba(255,255,255,0.02); }
+  .toc-toggle-label { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); }
+  .toc-toggle-hint { color: var(--text-muted); font-size: 0.82rem; margin-left: 0.7rem; }
+  .toc-chevron { color: var(--accent); font-size: 1rem; transition: transform 0.3s ease; flex-shrink: 0; }
+  .law-toc.open .toc-chevron { transform: rotate(180deg); }
+  .toc-body { display: none; padding: 0.25rem 1.5rem 1.6rem; }
+  .law-toc.open .toc-body { display: block; }
+  .toc-tier { margin-top: 1.5rem; }
+  .toc-tier:first-child { margin-top: 0.5rem; }
+  .toc-tier-head {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 0.75rem; text-decoration: none;
+  }
+  .toc-tier-head:hover { text-decoration: underline; }
+  .toc-count {
+    font-size: 0.66rem; color: var(--text-muted); background: var(--bg-primary);
+    border: 1px solid var(--border); border-radius: 999px; padding: 0.08rem 0.5rem;
+    letter-spacing: normal; font-weight: 600;
+  }
+  .toc-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.1rem 1.6rem;
+  }
+  .toc-link {
+    display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0;
+    font-size: 0.86rem; text-decoration: none; color: var(--text-secondary);
+  }
+  .toc-link:hover { color: var(--accent); }
+  .toc-link:hover .toc-num { color: var(--accent); }
+  .toc-num { color: var(--accent); font-weight: 600; font-size: 0.76rem; white-space: nowrap; flex-shrink: 0; min-width: 3.7rem; }
+  .toc-txt { line-height: 1.3; }
+  @media (max-width: 640px) {
+    .toc-grid { grid-template-columns: 1fr; }
+    .toc-toggle-hint { display: none; }
+  }
+  .law-filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 0.75rem; }
+  .law-chip { font-size: 0.78rem; padding: 0.35rem 0.9rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; transition: border-color .2s, color .2s; }
+  .law-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+  .law-chip.is-active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .law-filter-count { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+  [data-theme="light"] .toc-toggle:hover { background: rgba(14, 23, 40, 0.04); }
+</style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
@@ -40,39 +98,94 @@
 <p class="text-center text-2xl text-[var(--text-muted)] mb-6">How The Five Rings governs, sustains, and enforces a civilization built on moral causality</p>
 <p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-8">This page explains how doctrine becomes operations. Read it after <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a>, then continue to <a href="simulations.html#sti-console" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Simulation</a> to see a live prototype of system pressure and interpretation.</p>
 
-<div class="vmss-live-panel vmss-live-panel--v17 mb-7 reveal-item">
-  <span class="vmss-kicker">Live State Integration</span>
-  <div class="grid md:grid-cols-3 gap-4 mt-5">
-    <div class="vmss-readout-tile"><div class="vmss-readout-label">Current layer</div><div class="vmss-readout-value" data-vmss-layer-echo>Main Layer (0)</div></div>
-    <div class="vmss-readout-tile"><div class="vmss-readout-label">Current STI</div><div class="vmss-readout-value" data-vmss-score-echo>43</div></div>
-    <div class="vmss-readout-tile"><div class="vmss-readout-label">Latest state event</div><div class="vmss-readout-value" data-vmss-event-echo>Baseline loaded</div></div>
-  </div>
-  <div class="grid md:grid-cols-2 gap-5 mt-5 pt-5" style="border-top:1px solid var(--border);">
-    <div class="rounded-xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-5">
-      <h2 class="text-xl font-bold text-[var(--text-primary)]">Interactive layer architecture</h2>
-      <p class="text-[var(--text-secondary)] mt-2 leading-relaxed text-[.88rem]">The doctrine portal includes a clickable Five Rings map and a prototype STI console so visitors can inspect trust bands, consequence logic, and layer movement with live feedback.</p>
-      <div class="vmss-action-row mt-4">
-        <a class="vmss-dash-btn vmss-dash-btn--lg vmss-dash-btn--accent" href="layers.html">Open interactive layers</a>
-        <a class="vmss-dash-btn vmss-dash-btn--lg" href="simulations.html#sti-console">Launch STI console</a>
+<div class="law-filter-bar" id="sys-filter-bar" role="group" aria-label="Filter systems by domain">
+  <button class="law-chip is-active" data-filter="all" aria-pressed="true">All</button>
+  <button class="law-chip" data-filter="governance" aria-pressed="false">Governance</button>
+  <button class="law-chip" data-filter="economy" aria-pressed="false">Economy</button>
+  <button class="law-chip" data-filter="rights-citizenship" aria-pressed="false">Rights &amp; Citizenship</button>
+  <button class="law-chip" data-filter="enforcement" aria-pressed="false">Enforcement</button>
+  <button class="law-chip" data-filter="federal-law" aria-pressed="false">Federal Law</button>
+  <button class="law-chip" data-filter="military" aria-pressed="false">Military</button>
+</div>
+<p class="law-filter-count" data-sys-count>Showing all 6 domains</p>
+
+<div class="law-toc" id="sysToc">
+  <button class="toc-toggle" id="sysTocToggle" aria-expanded="false" aria-controls="sysTocBody">
+    <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">6 domains &middot; 27 sections</span></span>
+    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+  </button>
+  <div class="toc-body" id="sysTocBody">
+      <div class="toc-tier" data-domain="governance">
+        <a href="#governance" class="toc-tier-head">Governance <span class="toc-count">2</span></a>
+        <div class="toc-grid">
+        <a href="#governance-flow" class="toc-link"><span class="toc-txt">Governance Flow</span></a>
+        <a href="#governance-principles" class="toc-link"><span class="toc-txt">Governance Principles</span></a>
+        </div>
       </div>
-    </div>
-    <div class="rounded-xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-5">
-      <h2 class="text-xl font-bold text-[var(--text-primary)]">Prototype framing</h2>
-      <p class="text-[var(--text-secondary)] mt-2 leading-relaxed text-[.88rem]">The first pass uses weighted civic variables, visible score pressure, and explicit layer thresholds. It keeps the structure practical and incremental while making the portal feel closer to an actual governance interface. Use it as a readable prototype of evaluation logic, not as a literal backend implementation.</p>
-    </div>
+      <div class="toc-tier" data-domain="economy">
+        <a href="#economy" class="toc-tier-head">Economy <span class="toc-count">12</span></a>
+        <div class="toc-grid">
+        <a href="#ubi-by-layer" class="toc-link"><span class="toc-txt">Universal Basic Income by Layer</span></a>
+        <a href="#primary-job-subsidy" class="toc-link"><span class="toc-txt">Primary Job Subsidy &mdash; The Time Dividend</span></a>
+        <a href="#tiered-taxation" class="toc-link"><span class="toc-txt">Tiered Taxation by Layer</span></a>
+        <a href="#currency-siloing" class="toc-link"><span class="toc-txt">Currency Siloing</span></a>
+        <a href="#central-banking" class="toc-link"><span class="toc-txt">Central Banking Authority</span></a>
+        <a href="#asset-treatment" class="toc-link"><span class="toc-txt">Asset Treatment on Layer Movement</span></a>
+        <a href="#savings-circulation" class="toc-link"><span class="toc-txt">Savings Circulation Mandate</span></a>
+        <a href="#terminal-economic-autonomy" class="toc-link"><span class="toc-txt">Terminal Realm Economic Autonomy</span></a>
+        <a href="#economic-flow" class="toc-link"><span class="toc-txt">Economic Flow</span></a>
+        <a href="#economic-principles" class="toc-link"><span class="toc-txt">Economic Principles</span></a>
+        <a href="#population-sustainability" class="toc-link"><span class="toc-txt">Population Sustainability</span></a>
+        <a href="#energy-infrastructure" class="toc-link"><span class="toc-txt">Energy Infrastructure</span></a>
+        </div>
+      </div>
+      <div class="toc-tier" data-domain="rights-citizenship">
+        <a href="#rights-citizenship" class="toc-tier-head">Rights &amp; Citizenship <span class="toc-count">1</span></a>
+        <div class="toc-grid">
+        <a href="#critical-infrastructure-security" class="toc-link"><span class="toc-txt">Critical Infrastructure Security</span></a>
+        </div>
+      </div>
+      <div class="toc-tier" data-domain="enforcement">
+        <a href="#enforcement" class="toc-tier-head">Enforcement &amp; Restoration <span class="toc-count">11</span></a>
+        <div class="toc-grid">
+        <a href="#enforcement-flow" class="toc-link"><span class="toc-txt">Enforcement Flow</span></a>
+        <a href="#pre-intervention" class="toc-link"><span class="toc-txt">Pre-Intervention (Heaven Layers Only)</span></a>
+        <a href="#post-intervention" class="toc-link"><span class="toc-txt">Post-Intervention (Main &amp; Lower Layers)</span></a>
+        <a href="#example-scenarios" class="toc-link"><span class="toc-txt">Example Scenarios</span></a>
+        <a href="#threshold-breach-resolution" class="toc-link"><span class="toc-txt">How a Threshold Breach Resolves</span></a>
+        <a href="#main-minus-1-threshold" class="toc-link"><span class="toc-txt">The Main&rarr;-1 Threshold</span></a>
+        <a href="#phasing-vs-reassignment" class="toc-link"><span class="toc-txt">Phasing vs Reassignment</span></a>
+        <a href="#enforcement-edge-cases" class="toc-link"><span class="toc-txt">Edge Cases</span></a>
+        <a href="#error-handling-emergency" class="toc-link"><span class="toc-txt">Error Handling and Emergency Protocol</span></a>
+        <a href="#individual-attribution" class="toc-link"><span class="toc-txt">Individual Attribution</span></a>
+        <a href="#ai-governance-planning" class="toc-link"><span class="toc-txt">AI Governance &amp; Ecological Central Planning</span></a>
+        </div>
+      </div>
+      <div class="toc-tier" data-domain="federal-law">
+        <a href="#federal-law" class="toc-tier-head">Federal Law <span class="toc-count">1</span></a>
+        <div class="toc-grid">
+        <a href="#enforcement-escalation-ladder" class="toc-link"><span class="toc-txt">Enforcement Escalation Ladder</span></a>
+        </div>
+      </div>
+      <div class="toc-tier" data-domain="military">
+        <a href="#military" class="toc-tier-head">Military Capability <span class="toc-count">0</span></a>
+        <div class="toc-grid">
+        </div>
+      </div>
   </div>
 </div>
 
 <div class="prose prose-invert max-w-none text-[var(--text-secondary)] text-lg leading-relaxed">
 <p>VMSS is not sustained by ideology alone. It operates through a constitutional charter, AI-assisted policy design, automated enforcement, and an economy structured around abundance, consequence, and long-term civilizational stability. Systems exist to answer the practical question every reader eventually asks: how does this civilization actually function?</p>
 
-<h2 class="text-4xl font-bold mt-12 mb-8">Governance</h2>
+<section data-domain="governance">
+<h2 id="governance" class="text-4xl font-bold mt-12 mb-8">Governance</h2>
 <p>VMSS is governed by a foundational charter developed with AI-assisted modeling and simulation-based policy validation. The Chief Architect established the original framework, but amendments now route through the full Article XI gauntlet — Meritboard review, Supreme Court review, population ratification, and presidential veto. The charter evolves through this supermajority process when improvements are demonstrated through simulation and real-world performance. The founding core — moral causality, pre-intervention in Sanctuary, post-intervention in Main, continuity not innocence — is load-bearing rather than cemented: no textual rule forbids reaching it, but any amendment that would modify it must clear the full Article XI gauntlet, and the populations qualified to ratify at that gauntlet were qualified precisely because they live under the core.</p>
 <p>Leadership is performance-based. A superior candidate can replace an incumbent by outperforming them on the relevant criteria. Leaders remain fully subject to the same laws as everyone else — violation results in immediate loss of position. Succession is determined by alignment with the original framework and demonstrated capability, not election.</p>
 
 <div class="not-prose my-10">
   <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] pt-4 pb-4 px-8 shadow-xl">
-    <h3 class="text-3xl font-bold mt-0 mb-2 text-[var(--accent)]">Governance Flow</h3>
+    <h3 id="governance-flow" class="text-3xl font-bold mt-0 mb-2 text-[var(--accent)]">Governance Flow</h3>
     <div class="grid md:grid-cols-5 gap-4 items-stretch text-center">
       <div class="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-5">
         <div class="text-sm uppercase tracking-widest text-[var(--text-muted)] mb-2">1</div>
@@ -107,7 +220,7 @@
   </div>
 </div>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Governance Principles</h3>
+<h3 id="governance-principles" class="text-3xl font-bold mt-8 mb-4">Governance Principles</h3>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>AI-assisted policy formation</strong>: policies are tested through simulation before adoption.</li>
 <li><strong>Supermajority amendments</strong>: the charter can evolve, but not casually.</li>
@@ -119,10 +232,12 @@
 <li><strong>AI governance as physics</strong>: AI governance operates as environmental physics, not institutional judgment. The implant ledger records what happened. Consequence follows action the way gravity follows a jump — not as a decision made about you, but as an outcome produced by what you did. There is no tribunal weighing your case. There is no appeals process disputing the fall. The system does not guess — it knows. Wrongful conviction is not a category because the mechanism that produces consequence cannot be wrong about what occurred. Contestation under STI Sections 5.7 and 5.8 adjusts how the record is contextualized, not whether the event happened. The event happened. The consequence is physics.</li>
 </ul>
 
-<h2 class="text-4xl font-bold mt-12 mb-8">Economy</h2>
+</section>
+<section data-domain="economy">
+<h2 id="economy" class="text-4xl font-bold mt-12 mb-8">Economy</h2>
 <p>The VMSS economy is built on automation, abundance, and a carefully designed set of layer-proportional economic mechanisms. Universal Basic Income is not charity — it is the civilizational dividend of an automated economy where labor is no longer the primary driver of survival. What you do with your time above survival is entirely yours.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Universal Basic Income by Layer</h3>
+<h3 id="ubi-by-layer" class="text-3xl font-bold mt-8 mb-4">Universal Basic Income by Layer</h3>
 <p>UBI scales proportionally with the institutional benefits each layer receives. Citizens in layers receiving full civilizational services receive the full baseline. Citizens in layers where the institution has withdrawn receive a reduced baseline commensurate with reduced services — the halving structure creates material incentive for compliance without removing dignity from any resident:</p>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>+1 Sanctuary &amp; Main Layer (0):</strong> $10,000/month — full institutional coverage, full civilizational services</li>
@@ -132,7 +247,7 @@
 </ul>
 <p class="mt-4">No layer permits starvation. All figures indexed to 2025 Earth values.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Primary Job Subsidy — The Time Dividend</h3>
+<h3 id="primary-job-subsidy" class="text-3xl font-bold mt-8 mb-4">Primary Job Subsidy — The Time Dividend</h3>
 <p>The Primary Job Subsidy — matching UBI at each layer level — is available to citizens holding one qualifying job of 20 or more hours per week. Its primary purpose is not income. It is time. Twenty qualifying hours unlock the full subsidy, leaving the remainder of the week for the citizen's own purposes. A resident working a qualifying infrastructure role 20 hours per week in Main Layer collects $10,000 in subsidy on top of their $10,000 UBI — while retaining significant weekly hours for creative work, family, building a side enterprise, or anything else.</p>
 <p class="mt-4 text-[var(--text-secondary)]">There is no minimum wage in VMSS — employers set market wages freely for the qualifying 20 hours. Without a premium mechanism, employers could demand 40, 60, or 80-hour weeks at any market wage, effectively nullifying the time dividend the civilization is designed to preserve. The Overtime Premium Protocol closes that gap. Every qualifying hour worked beyond 20 per week requires the employer to pay the layer's primary subsidy rate indexed by the hour — out of pocket, not government-funded. The hourly premium rate per overtime hour: $125/hr in Main Layer and Sanctuary, $62.50/hr in -1, $31.25/hr in -2, $15.63/hr in -3. A Main Layer employer requesting 30 qualifying hours owes $1,250 in overtime premium on top of the agreed base wage. Workers benefit from the premium; employers bear the cost. This creates a genuine cost-benefit threshold every employer must cross before requesting additional hours — considerably stronger than real-world time-and-a-half regimes, which apply only above a minimum wage floor. The civilization has no objection to employers paying it. It simply ensures that every hour beyond the time dividend carries a premium the employer must genuinely justify.</p>
 <p class="mt-4">Qualifying work is defined by contribution to critical infrastructure — systems the civilization requires to function. The subsidy steers labor toward necessary roles without restricting the rest of the economy. Non-qualifying work is not stigmatized:</p>
@@ -143,7 +258,7 @@
 </ul>
 <p class="mt-4">Qualifying thresholds scale with layer institutional intensity. Upper layers apply stricter definitions. Lower layers apply looser definitions reflecting reduced institutional overhead and the privatized character of those economies.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Tiered Taxation by Layer</h3>
+<h3 id="tiered-taxation" class="text-3xl font-bold mt-8 mb-4">Tiered Taxation by Layer</h3>
 <p>The VMSS economic structure follows a deliberate sociopolitical gradient. Upper layers (+1 Sanctuary and Main Layer) operate as highly socialized post-scarcity environments — heavy progressive taxation funds the full institutional apparatus. The middle layers (-1 and -2) are hybrid economies where private enterprise coexists with partial institutional presence. The terminal layer (-3) is a capitalist frontier economy operating without VMSS institutional oversight. This gradient is intentional design, not incidental — the economic character of each layer matches its demographic and institutional reality.</p>
 <p class="mt-4">Progressive taxation applies across all layers, scaled proportionally to institutional benefit received. The cascade halves at each layer descent, reflecting the halving of institutional presence:</p>
 <ul class="list-disc pl-8 space-y-4">
@@ -155,17 +270,17 @@
 <p class="mt-4">Universal Basic Income and Primary Job Subsidy (PJS) payments are untaxed in every layer, unconditionally and without exception. These are civilizational dividends — not income. Taxation applies to earned income above UBI and PJS: capital gains, business revenue, private enterprise profits, and high-income employment. The Savings Circulation Mandate (SCM) operates as the primary instrument against wealth concentration, replacing the need for confiscatory top-bracket rates. The tax collects revenue for the state. The SCM prevents hoarding. Two instruments, two functions.</p>
 <p class="mt-4">The 70% upper-bracket rate permits a genuine elite wealth market in Sanctuary and Main Layer. High earners retain enough after-tax income to sustain luxury consumption — property, vehicles, patronage, entertainment, visible markers of economic success. Yachts, private jets, mansions — these exist and are culturally visible. The aspirational economy creates demand, employment, and cultural texture that confiscatory rates would destroy. The SCM ensures this wealth circulates rather than compounds into dynastic concentration. A high earner grossing $200M annually keeps $60M — enough for an elite lifestyle, not enough to build an empire. The elite market is real. Dynastic hoarding is structurally impossible. In -3 Terminal, the 8% rate combined with no regulatory overhead, legal equity markets, and full market capitalism makes significant wealth accumulation common — the layer's economic character is closer to Earth's most aggressive capitalist economies, but with a UBI floor that Earth lacks. The gradient is deliberate: upper layers prioritize collective infrastructure over private accumulation; lower layers permit the full range of capitalist outcomes the institution has chosen not to regulate.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Currency Siloing</h3>
+<h3 id="currency-siloing" class="text-3xl font-bold mt-8 mb-4">Currency Siloing</h3>
 <p>+1 Sanctuary and Main Layer share a common currency. -1, -2, and -3 each maintain separate currencies. Upward conversion is prohibited without exception. Downward conversion is permitted only through authorized downward channels. VMSS currency is also inconvertible externally — it does not circulate outside the civilization's borders. International <a href="world.html" class="text-[var(--accent)] hover:underline">trade</a> is goods-based.</p>
 <p class="mt-4">This is intentional architecture. The upper layer economy funds the highly socialized systems the civilization depends on. Permitting open conversion would enable arbitrage that destabilizes those funding mechanisms. Visitors and elective residents may transfer a portion of their assets using the downward transfer retention schedule (1-10%), converted at destination-layer purchasing power following the purchasing power gradient (-1 at approximately 1.3–1.8x, -2 at approximately 1.8–2.5x, -3 at approximately 2.5–4x). A citizen who transfers nothing arrives economically neutral and must earn local currency through work.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Central Banking Authority</h3>
+<h3 id="central-banking" class="text-3xl font-bold mt-8 mb-4">Central Banking Authority</h3>
 <p>VMSS maintains a central bank as the sole issuing authority for all layer currencies. The central bank manages currency creation, controls monetary supply across the four siloed economies, and executes the settlement process when citizens cross layer boundaries. When a voluntary permanent resident liquidates upper-layer assets, the central bank retires the origin currency and issues destination-layer currency at the applicable conversion schedule — no private institution or market mechanism handles cross-layer monetary exchange. This is the only genuinely new institution VMSS introduces that has no direct Earth analog: a single monetary authority governing four non-convertible currencies within one civilization.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Asset Treatment on Layer Movement</h3>
+<h3 id="asset-treatment" class="text-3xl font-bold mt-8 mb-4">Asset Treatment on Layer Movement</h3>
 <p>Involuntary descent triggers full asset liquidation at market value. 100% of proceeds transfer to the Automation Dividend Treasury. Voluntary permanent residency triggers progressive liquidation — citizens retain between 1% and 10% of liquidated assets depending on net worth, preserving the viability of the choice while capturing value for the treasury. Elective residency and downward visitation trigger no liquidation — origin-layer assets remain untouched. Full schedule in Article III.V of the Charter.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Savings Circulation Mandate</h3>
+<h3 id="savings-circulation" class="text-3xl font-bold mt-8 mb-4">Savings Circulation Mandate</h3>
 <p>A savings circulation mandate applies across all layers, scaled to the institutional presence VMSS maintains in each. The mechanism prevents idle capital from degrading economic velocity in upper layers and prevents VMSS-distributed funds from being hoarded indefinitely in lower layers. Population denominators for all garnishing triggers are calculated by registered home address as recorded on each citizen's implant ledger — physical location at any given time does not affect layer assignment for this purpose.</p>
 
 <p class="mt-4"><strong>+1 Sanctuary — 10% monthly, $100 billion district aggregate trigger (90-day rolling average):</strong> Activation is determined by a 90-day rolling average of total district savings — not a single-day snapshot. When the rolling average across a district of approximately one million residents reaches $100 billion, a district-wide 10% monthly garnishing activates uniformly — no floor, no exemptions. There is no personal threshold: a citizen holding $10,000 is garnished in the same cycle as a citizen holding $10 million. The rolling window prevents coordinated capital movement from gaming activation timing. Self-correcting by design: at $10,000/month UBI, equilibrium stabilizes naturally. Citizens below equilibrium accumulate; citizens above it deflate. Whales holding millions lose hundreds of thousands monthly unless capital is deployed into productive activity. Stock speculation excluded as a complementary loophole closure.</p>
@@ -178,14 +293,14 @@
 
 <p class="mt-4">All garnished funds across all layers return to the Automation Dividend Treasury and redistribute as UBI. The circulation loop closes: idle capital becomes everyone's civilizational dividend. Every cycle is self-terminating — it deactivates when the relevant aggregate drops below threshold.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Terminal Realm Economic Autonomy</h3>
+<h3 id="terminal-economic-autonomy" class="text-3xl font-bold mt-8 mb-4">Terminal Realm Economic Autonomy</h3>
 <p>The -3 Terminal layer operates outside ordinary VMSS economic oversight. No speculative market exclusions and no VMSS-administered oversight of private economic activity. The Savings Circulation Mandate applies only to UBI-origin savings at the $10 billion district aggregate trigger — VMSS does not reach into private gains. A base tax rate funds the -3 treasury (partitioned from the Meritboard's economics division) supporting minimal federal infrastructure. Beyond this floor, the economic environment is organic — whatever institutions, markets, and norms the population develops independently.</p>
 <p class="mt-4">Traditional market mechanisms operate freely in the terminal realm: equity markets, commodity trading, speculative instruments, private banking, private lending, private contract enforcement. Earth-analogous capitalism is the natural economic expression of a layer where VMSS has withdrawn its institutional hand. The Freedom Layer in the fullest economic sense.</p>
 <p class="mt-4">Currency siloing ensures this autonomy doesn't destabilize upper layer economics. Wealth accumulated through terminal realm markets cannot be converted upward. The terminal realm gets Earth-like capitalism. The upper layers get post-scarcity institutionalism. The wall between them is economic as much as physical.</p>
 
 <div class="not-prose my-10">
   <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] pt-4 pb-4 px-8 shadow-xl">
-    <h3 class="text-3xl font-bold mt-0 mb-2 text-[var(--accent)]">Economic Flow</h3>
+    <h3 id="economic-flow" class="text-3xl font-bold mt-0 mb-2 text-[var(--accent)]">Economic Flow</h3>
     <div class="flex flex-col md:flex-row items-center gap-3 text-center">
       <div class="flex-1 rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-5">
         <div class="font-semibold text-[var(--text-primary)]">Automation</div>
@@ -210,7 +325,7 @@
   </div>
 </div>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Economic Principles</h3>
+<h3 id="economic-principles" class="text-3xl font-bold mt-8 mb-4">Economic Principles</h3>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>Automation-funded prosperity</strong>: AI and robotics perform the bulk of labor. The dividend is civilizational, not earned through hardship.</li>
 <li><strong>UBI as baseline dignity</strong>: survival is guaranteed across all layers. Ambition remains optional and meaningful above it.</li>
@@ -224,7 +339,7 @@
 <li><strong>Property ownership caps</strong>: one primary and one vacation residence per citizen in upper layers.</li>
 <li><strong>Prestige still matters</strong>: citizens strive for influence, innovation, beauty, fitness, intelligence, wealth, and SAD access. The baseline removes desperation — it does not remove drive.</li>
 </ul>
-<h3 class="text-3xl font-bold mt-8 mb-4">Population Sustainability</h3>
+<h3 id="population-sustainability" class="text-3xl font-bold mt-8 mb-4">Population Sustainability</h3>
 <p>VMSS enforces population sustainability through economic consequence rather than prohibition. Article XXVII of the Charter establishes a compounding replenishment tax on households that exceed the replenishment threshold. The mechanism is calibrated to make large families economically self-correcting without criminalizing reproduction itself.</p>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>Replenishment target</strong>: 2.5 children per family. The first two carry no additional tax burden. The third child triggers the replenishment tax.</li>
@@ -235,7 +350,7 @@
 </ul>
 <p class="mt-4">The replenishment tax is the economic expression of a civilizational constraint: a post-scarcity society that guarantees UBI, housing, and institutional support to every citizen cannot permit unlimited population growth without degrading the quality of those guarantees. The tax makes this trade-off legible and self-enforcing. Full mechanism in <a href="charter.html" class="text-[var(--accent)] hover:underline">Article XXVII</a>.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Energy Infrastructure</h3>
+<h3 id="energy-infrastructure" class="text-3xl font-bold mt-8 mb-4">Energy Infrastructure</h3>
 <p>The VMSS electrical grid is powered by renewable energy. Solar, wind, and water systems form the active energy backbone of the civilization, with orbital and terrestrial solar arrays supplying the majority of total grid input through large-scale energy beaming infrastructure. The long-term objective is to expand beyond planetary renewables into Dyson-class energy systems, allowing VMSS to scale toward civilizational energy abundance rather than permanent scarcity.</p>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>Solar as primary source</strong>: large-scale solar arrays provide the majority of power generation.</li>
@@ -244,14 +359,16 @@
 <li><strong>Dyson sphere trajectory</strong>: long-term energy planning is oriented toward megastructure-level capture of stellar output.</li>
 </ul>
 
-<h2 class="text-4xl font-bold mt-12 mb-8">Rights, Transparency, and Citizenship</h2>
+</section>
+<section data-domain="rights-citizenship">
+<h2 id="rights-citizenship" class="text-4xl font-bold mt-12 mb-8">Rights, Transparency, and Citizenship</h2>
 <p>Government is not allowed to overreach beyond the rights established in the charter. Citizens retain protected freedoms, and AI systems are expected to remain within those bounds. Public-benefit information is transparent by default. Enforcement logs, policy rationale, and system-level outcomes are visible when transparency strengthens trust and accountability. Some information remains classified for traditional security reasons.</p>
 <p>Anyone may join VMSS. There is no population cap. The main gatekeeping mechanism is not membership scarcity but behavioral sorting. New citizens are assigned along the layer gradient according to their existing criminal history and demonstrated risk level.</p>
 <p>Neural implants are voluntary in the narrow technical sense, but refusing them comes with real consequences. Citizens who reject implants lose important privileges, and that refusal is visible on the public Social Trust Index ledger. Since implants provide warnings, overrides, and safety infrastructure, refusal is strongly stigmatized. Critically, removing an implant does not erase identity or record — AR surveillance infrastructure operated by drone patrols, security cameras, other citizens' implants, and government-grade cameras capable of biometric and DNA resolution makes identity non-repudiable regardless of hardware status.</p>
 <p>The implant ledger carries two distinct tracks. The STI logs social trust violations — honesty in disputes, contract reliability, relational breaches — and gates access to SADs and high-trust environments. It does not directly trigger physical enforcement. The STI operates on a 10:1 penalty-to-recovery ratio: trust is approximately ten times harder to rebuild than it is to lose, and sustained low-level violations compound under this ratio without recovering between incidents — making boundary-riding a losing strategy. The criminal record log carries hard flags from qualifying behavioral breaches: layer reassignment history, violent offense records, capital crime convictions. Both tracks travel with every citizen across layer boundaries. Private institutions in lower layers — security operators, landlords, community gatekeepers — read both when making access decisions. VMSS administers neither in -3, but the information is present and actionable.</p>
 <p>Citizens in Main Layer and above may leave VMSS freely. Citizens in lower layers may not. Otherwise, departure would function as an escape hatch from consequence and undermine the integrity of the system.</p>
 <p>Children born in lower layers remain with their parents. The right to relocate to Main Layer (0) is a standing human right exercisable at any age, enforceable through the implant-linked legal mediation system without requiring parental consent. Every child has access to an independent AI legal advocate from birth. VMSS society does not treat children as parental property — the parent's continued relationship with their child is earned through the quality of that relationship, not through legal authority.</p>
-<h3 class="text-3xl font-bold mt-8 mb-4">Critical Infrastructure Security</h3>
+<h3 id="critical-infrastructure-security" class="text-3xl font-bold mt-8 mb-4">Critical Infrastructure Security</h3>
 <p>The datacenters that power AI systems and store ledger information are treated as critical civilizational infrastructure. Their protection combines automated security with hardened analog fallback systems. VMSS does not assume that purely digital defenses are sufficient for long-duration stability. Purely digital systems are vulnerable to systemic failure, so analog redundancy remains part of the design.</p>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>AI and ledger protection</strong>: core datacenters are heavily secured because they support governance, enforcement, and continuity records.</li>
@@ -259,12 +376,14 @@
 <li><strong>Analog fallback security</strong>: human guards remain part of the security architecture to preserve resilience in degraded conditions.</li>
 <li><strong>EMP-resistant capability</strong>: analog security systems and associated equipment are designed to remain functional even during electromagnetic disruption.</li>
 </ul>
-<h2 class="text-4xl font-bold mt-12 mb-8">Enforcement &amp; Restoration Protocol</h2>
+</section>
+<section data-domain="enforcement">
+<h2 id="enforcement" class="text-4xl font-bold mt-12 mb-8">Enforcement &amp; Restoration Protocol</h2>
 <p>The enforcement and restoration system is the backbone of moral causality in The Five Rings. It is divided into two primary modes depending on the layer: <strong>Pre-Intervention</strong> in Heaven Layers (+1 and SADs) and <strong>Post-Intervention</strong> in Main Layer (0) and the lower layers (-1, -2). <strong>-3 Terminal</strong> operates with minimal institutional presence — no daily enforcement or restoration.</p>
 
 <div class="not-prose my-10">
   <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] pt-4 pb-4 px-8 shadow-xl">
-    <h3 class="text-3xl font-bold mt-0 mb-2 text-[var(--accent)]">Enforcement Flow</h3>
+    <h3 id="enforcement-flow" class="text-3xl font-bold mt-0 mb-2 text-[var(--accent)]">Enforcement Flow</h3>
     <div class="grid lg:grid-cols-2 gap-8">
       <div>
         <div class="text-sm uppercase tracking-widest text-[var(--text-muted)] mb-3">Heaven Layers</div>
@@ -294,20 +413,20 @@
   </div>
 </div>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Pre-Intervention (Heaven Layers Only)</h3>
+<h3 id="pre-intervention" class="text-3xl font-bold mt-8 mb-4">Pre-Intervention (Heaven Layers Only)</h3>
 <p>In +1 Sanctuary and all Selective Ascension Domains, the <strong>Threshold Inhibition Protocol (TIP)</strong> halts harmful acts before completion. Implants monitor neural patterns and motor intent continuously. When intent plus imminent execution is detected, targeted motor inhibition and ambient drone countermeasures trigger instantly. The act does not complete. The perpetrator is reassigned downward. The victim receives optional neural therapy.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Post-Intervention (Main Layer &amp; Lower Layers -1/-2)</h3>
+<h3 id="post-intervention" class="text-3xl font-bold mt-8 mb-4">Post-Intervention (Main Layer &amp; Lower Layers -1/-2)</h3>
 <p>In Main Layer and the lower layers, acts may complete if the perpetrator overrides implant warnings. Murder victims are revived in backup vessels at full fidelity with a small layer-dependent probability of revival failure. Non-lethal harm victims receive immediate automated therapy and physical restoration. Perpetrators face immediate layer reassignment based on severity.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Example Scenarios</h3>
+<h3 id="example-scenarios" class="text-3xl font-bold mt-8 mb-4">Example Scenarios</h3>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>Main Layer Murder Attempt</strong>: Act completes → victim revived in Main medical bay → perpetrator to -3.</li>
 <li><strong>-1 Assault</strong>: Act completes → victim treated → perpetrator to -2 or -3 if escalation warrants it.</li>
 <li><strong>Heaven Attempt</strong>: Act halted mid-motion → perpetrator to -3 → no harm occurs.</li>
 </ul>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">How a Threshold Breach Resolves</h3>
+<h3 id="threshold-breach-resolution" class="text-3xl font-bold mt-8 mb-4">How a Threshold Breach Resolves</h3>
 <p class="text-[var(--text-secondary)] leading-relaxed mb-4">A Main Layer resident commits assault in a commercial district. Here is what happens, in sequence:</p>
 <ol class="list-decimal pl-8 space-y-3 text-[var(--text-secondary)] leading-relaxed mb-6">
 <li><strong>Detection:</strong> The resident's implant logs the escalation from intent to motor execution. AR telemetry in the district corroborates. Warning signals fire — the resident overrides them.</li>
@@ -319,13 +438,13 @@
 </ol>
 <p class="text-[var(--text-secondary)] leading-relaxed mb-6">Total elapsed time from act to reassignment: minutes, not months. No courtroom, no plea bargain, no parole hearing. The system measured, acted, and moved on. This is not an omission — it is the architecture. Consequence delivery is categorical: the same offense produces the same classification regardless of district, circumstance, or judicial sympathy. The Supreme Court intervenes only when existing doctrine produces no clear answer — genuine constitutional novelty, not routine consequence arbitration.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">The Main→-1 Threshold</h3>
+<h3 id="main-minus-1-threshold" class="text-3xl font-bold mt-8 mb-4">The Main→-1 Threshold</h3>
 <p>The boundary between Main Layer and -1 is categorical, not a continuum. Minor infractions are handled within Main Layer through STI impact, fines, and social consequence — they are clearable and amendable. The threshold into -1 requires either a single qualifying event of sufficient severity (conduct that would result in incarceration — a DUI, an assault, meaningful fraud) or an unremediable pattern of accumulation without correction. Correction resets the trajectory.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Phasing vs Reassignment</h3>
+<h3 id="phasing-vs-reassignment" class="text-3xl font-bold mt-8 mb-4">Phasing vs Reassignment</h3>
 <p>The civilization operates two distinct mobility mechanisms. <strong>Phasing</strong> governs movement between Main Layer (0) and +1 Sanctuary. It is STI-driven, reversible, and earned through demonstrated character. A Sanctuary resident whose STI falls below the 85-point eligibility floor or who commits a high-impact trust violation phases back to Main Layer. Sanctuary is the highest-upkeep residency in the civilization — the pathway between 0 and +1 remains open in both directions, but staying requires continuously meeting the standard. <strong>Reassignment</strong> governs descent into -1, -2, and -3. It is triggered by qualifying behavioral breaches, is immediate, and is permanent. Reassignment seals the ceiling, not the floor.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Edge Cases</h3>
+<h3 id="enforcement-edge-cases" class="text-3xl font-bold mt-8 mb-4">Edge Cases</h3>
 <ul class="list-disc pl-8 space-y-4">
 <li><strong>Failsafe Disabled</strong>: User opts out → act completes → post-intervention triggers.</li>
 <li><strong>Multiple Perpetrators</strong>: All involved face reassignment based on intent and execution level.</li>
@@ -333,21 +452,22 @@
 <li><strong>Visitor Breach</strong>: Triggers standard severity-based reassignment. The layer visited does not determine the consequence — the offense does. A Sanctuary resident committing a -1-level offense while visiting -2 is reassigned to -1, not locked in -2. Visiting status does not insulate a citizen from reassignment, but it does not inflate the consequence either.</li>
 </ul>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Error Handling and Emergency Protocol</h3>
+<h3 id="error-handling-emergency" class="text-3xl font-bold mt-8 mb-4">Error Handling and Emergency Protocol</h3>
 <p>VMSS assumes that even advanced systems can fail. When errors occur, they are admitted, logged, and preserved in the database as institutional knowledge. Failures are not hidden; they are studied. Over time, they become part of the civilization’s textbooks and training material so the next generation learns from them directly.</p>
 <p>Emergency protocols exist for catastrophic failure or system instability, though specific operational details remain restricted for security reasons.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">Individual Attribution</h3>
+<h3 id="individual-attribution" class="text-3xl font-bold mt-8 mb-4">Individual Attribution</h3>
 <p>VMSS does not recognize corporate personhood. It does not need to. The implant ledger attributes every decision to the individual who made it. When a corporation causes harm — ecological destruction, mass exploitation, systemic fraud — the system does not evaluate the entity. It evaluates every person within the decision chain. The executive who directed the strategy, the manager who set quotas, the contractor who executed the operation: each has their own ledger, each carries their own record. AI pattern detection correlates individually innocuous acts across multiple ledgers to identify coordinated harm that no single actor's record would reveal. Plausible deniability collapses when the implant recorded what each person knew, when they knew it, and what decisions they made with that knowledge. Leadership descent triggers standard asset liquidation — the corporate structure loses its upper-layer economic position when its decision-makers lose theirs.</p>
 
-<h3 class="text-3xl font-bold mt-8 mb-4">AI Governance & Ecological Central Planning</h3>
+<h3 id="ai-governance-planning" class="text-3xl font-bold mt-8 mb-4">AI Governance & Ecological Central Planning</h3>
 <p>Real-time AI ecological monitoring with regulatory teeth is a form of centralized planning. The doctrine is honest about this. The AI governance system monitors population dynamics, genetic diversity, resource extraction, and environmental trends across all layers continuously. When it detects a systemic threat — overexploitation patterns, genetic bottlenecks, ecological cascade risks — it flags the pattern and triggers regulatory or federal response. The planning is centralized. The consent is distributed: the Meritboard evaluates, Article XXVIII channels citizen petitions through expert panels, 80% population ratification enacts binding law, and the Supreme Court retains constitutional review authority. The AI does not unilaterally restrict. It recommends, and the democratic-consent layer decides. This is not anti-paternalistic governance in the pure sense — it is ecological stewardship governed by institutional consent rather than executive authority. The civilization chose this trade-off deliberately: the cost of ecological central planning is measured in regulatory friction; the cost of ecological laissez-faire is measured in extinctions.</p>
 
 <p class="mt-12 text-xl italic text-[var(--text-muted)]">The system measures — and acts.</p>
+</section>
 </div>
 
-<div class="vmss-card reveal-item">
-<h2 class="text-4xl font-bold mt-12 mb-8">Federal Law</h2>
+<div class="vmss-card reveal-item" data-domain="federal-law">
+<h2 id="federal-law" class="text-4xl font-bold mt-12 mb-8">Federal Law</h2>
 <p class="text-[var(--text-secondary)] leading-relaxed mb-6">VMSS withdraws institutional governance from lower layers. It does not surrender civilizational sovereignty. Certain laws apply across all five rings without exception — their violation produces externalities that cross layer boundaries or threaten the architecture of the civilization itself. The Freedom Layer's maximum personal autonomy does not extend to actions whose consequences fall on all five rings simultaneously.</p>
 
 <div class="grid md:grid-cols-3 gap-6 mb-8">
@@ -369,7 +489,7 @@
   </div>
 </div>
 
-<h3 class="text-2xl font-bold mb-4 text-[var(--accent)]">Enforcement Escalation Ladder</h3>
+<h3 id="enforcement-escalation-ladder" class="text-2xl font-bold mb-4 text-[var(--accent)]">Enforcement Escalation Ladder</h3>
 <p class="text-[var(--text-secondary)] leading-relaxed mb-4">Violations of federal law in lower layers follow a two-track system:</p>
 <div class="grid md:grid-cols-2 gap-6">
   <div class="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border)] p-6">
@@ -383,8 +503,8 @@
 </div>
 </div>
 
-<div class="vmss-card reveal-item">
-<h2 class="text-4xl font-bold mt-12 mb-8">Military Capability</h2>
+<div class="vmss-card reveal-item" data-domain="military">
+<h2 id="military" class="text-4xl font-bold mt-12 mb-8">Military Capability</h2>
 <p class="text-[var(--text-secondary)] leading-relaxed">Two instruments are publicly acknowledged: the <strong>implant kill switch</strong> (hardware-level, instantaneous, any scale) and <strong>nanobot neutralization plumes</strong> (for non-implanted threats). Both operate on the national defense track exclusively. Removing an implant to evade the kill switch places the actor in the nanobot instrument's operational envelope instead. Full specifications are on the <a href="technologies.html" class="text-[var(--accent)] hover:underline">Technologies</a> page. Operational details are classified.</p>
 </div>
 
@@ -399,6 +519,48 @@
 </div>
 </div>
 </section></main>
+<script>
+/* Domain filter chips — presentational. Hides non-matching domain blocks
+   AND keeps the Table of Contents tiers in sync. Modeled on the
+   law-polling.html filter/ToC controller. */
+(function () {
+  const bar = document.getElementById('sys-filter-bar');
+  if (!bar) return;
+  const blocks = Array.from(document.querySelectorAll('[data-domain]:not(.toc-tier)'));
+  const tiers = Array.from(document.querySelectorAll('.toc-tier[data-domain]'));
+  const countEl = document.querySelector('[data-sys-count]');
+  bar.addEventListener('click', (e) => {
+    const chip = e.target.closest('.law-chip');
+    if (!chip) return;
+    bar.querySelectorAll('.law-chip').forEach((c) => {
+      c.classList.remove('is-active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.classList.add('is-active');
+    chip.setAttribute('aria-pressed', 'true');
+    const f = chip.dataset.filter;
+    blocks.forEach((el) => {
+      el.style.display = (f === 'all' || el.dataset.domain === f) ? '' : 'none';
+    });
+    tiers.forEach((tier) => {
+      tier.style.display = (f === 'all' || tier.dataset.domain === f) ? '' : 'none';
+    });
+    if (countEl) {
+      countEl.textContent = f === 'all'
+        ? 'Showing all 6 domains'
+        : `Showing ${chip.textContent.trim()}`;
+    }
+  });
+
+  /* Table of Contents toggle */
+  const toc = document.getElementById('sysToc');
+  const tocToggle = document.getElementById('sysTocToggle');
+  tocToggle?.addEventListener('click', () => {
+    const open = toc.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
 <script src="script.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>

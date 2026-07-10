@@ -545,8 +545,6 @@ function initActiveNav() {
     'layer--1.html': 'layers.html',
     'layer--2.html': 'layers.html',
     'layer--3.html': 'layers.html',
-    'simulations-world.html': 'simulations.html',
-    'simulations-residents.html': 'simulations.html',
     'simulations-academy.html': 'simulations.html',
     'simulations-resources.html': 'simulations.html'
   };
