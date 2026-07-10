@@ -156,8 +156,9 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 lg:gap-6">
               <div>
-                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name</label>
+                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-full-name">Full Legal Name</label>
                 <input
+                  id="entry-full-name"
                   name="full_name"
                   class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
                   required
@@ -166,8 +167,9 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age</label>
+                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-age">Age</label>
                 <input
+                  id="entry-age"
                   name="age"
                   class="w-full lg:w-28 bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
                   min="18"
@@ -181,11 +183,12 @@
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
 
 		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-city">
 			  City
 			</label>
 
 			<input
+			  id="entry-city"
 			  name="city"
 			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="text"
@@ -196,11 +199,12 @@
 
 
 		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-state">
 			  State / Province / Region
 			</label>
 
 			<input
+			  id="entry-state"
 			  name="state"
 			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="text"
@@ -210,11 +214,12 @@
 
 
 		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-country">
 			  Country
 			</label>
 
 			<input
+			  id="entry-country"
 			  name="country"
 			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="text"
@@ -228,10 +233,11 @@
 
 		<div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-6">
 		  <div>
-		    <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+		    <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-phone">
 			  Phone Number (Optional)
 		    </label>
 		    <input
+			  id="entry-phone"
 			  name="phone"
 			  class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
 			  type="tel"
@@ -240,8 +246,9 @@
 		  </div>
 
 		  <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings?</label>
+              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-motivation">Why do you want to join The Five Rings?</label>
               <textarea
+                id="entry-motivation"
                 name="motivation"
                 class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl lg:rounded-xl px-5 py-4 lg:py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] entry-modal-textarea"
                 placeholder="Be honest. The system values clarity of intent."
@@ -283,6 +290,18 @@
               <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
             </div>
 
+            <!-- Cloudflare Turnstile — the server-verified bot wall that replaces
+                 the old client-only honeypot/cooldown. Replace data-sitekey with
+                 your widget's PUBLIC site key; the matching SECRET key is set on
+                 the Edge Function via `supabase secrets set TURNSTILE_SECRET_KEY`.
+                 The widget injects a hidden "cf-turnstile-response" input into
+                 this form, which initJoinModal reads and forwards to the server. -->
+            <div class="pt-1 flex justify-center">
+              <div class="cf-turnstile"
+                   data-sitekey="0x4AAAAAADzC4XI0aKqG03sh"
+                   data-theme="dark"></div>
+            </div>
+
             <div class="pt-2 lg:pt-1">
               <button
                 id="entry-submit-btn"
@@ -298,7 +317,19 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Pinned exact version + SRI: this page collects PII, so the executable
+       payload must be immutable. Bump the version and hash together. -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.2/dist/umd/supabase.min.js"
+    integrity="sha384-sgcvElP/LlNRtORGYFLO/9K/bENcpJK19HgvqslWXog6d8f/Va4TpltGiBlGntCM"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Cloudflare Turnstile loader. No SRI hash: Cloudflare ships this script
+       from a versionless URL and updates it in place, so a pinned integrity
+       hash would break the widget on their next rollout. It carries no PII and
+       only renders the challenge; the trust boundary is the server-side
+       token verification in the submit-application Edge Function. -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

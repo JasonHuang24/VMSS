@@ -1,0 +1,4 @@
+# Supabase CLI scratch state — never commit
+.branches
+.temp
+.env

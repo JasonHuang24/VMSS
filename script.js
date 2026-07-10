@@ -23,6 +23,12 @@
 const SUPABASE_URL      = 'https://nizitfgihubglrtovget.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_yDPdS68HfKjVQNPQ6KEhyA_333w01sV';
 
+// Entry applications are written server-side by the submit-application Edge
+// Function (Turnstile check + IP rate limit + validation + service-role
+// insert). The publishable key is still sent as apikey/Authorization so the
+// platform gateway lets the anonymous request through.
+const SUBMIT_ENDPOINT   = `${SUPABASE_URL}/functions/v1/submit-application`;
+
 let supabaseClient = null;
 
 // =========================
@@ -188,12 +194,14 @@ function loadApplicantCount() {
   const countEl = document.getElementById('applicant-count');
   if (!countEl || !supabaseClient) return Promise.resolve();
 
+  /* Aggregate RPC — anon has no SELECT on the applications table (it holds
+     PII), so the count comes from a security-definer function instead.
+     Created by supabase/hardening.sql. */
   return supabaseClient
-    .from('applications')
-    .select('*', { count: 'exact', head: true })
-    .then(({ count, error }) => {
+    .rpc('application_count')
+    .then(({ data, error }) => {
       if (error) throw error;
-      countEl.textContent = count ?? '0';
+      countEl.textContent = data ?? '0';
     })
     .catch((err) => {
       console.error('Failed to load applicant count:', err);
@@ -206,8 +214,10 @@ function loadRecentApplicants() {
   const container = document.getElementById('recent-applicants');
   if (!container || !supabaseClient) return Promise.resolve();
 
+  /* Sanitized view (city/country/created_at only) — anon cannot read the
+     applications table directly. Created by supabase/hardening.sql. */
   return supabaseClient
-    .from('applications')
+    .from('recent_applicant_locations')
     .select('city, country')
     .order('created_at', { ascending: false })
     .limit(5)
@@ -526,9 +536,14 @@ document.addEventListener('DOMContentLoaded', () => {
    *   - Focus trap: Tab/Shift+Tab cycle within the modal while open
    *   - Focus returns to the triggering element on close
    *   - Escape key closes the modal; clicking the backdrop also closes it
-   *   - Honeypot field blocks bot submissions silently
-   *   - 60-second cooldown between submissions (localStorage-based)
-   *   - Submits to Supabase, refreshes applicant count and recent list on success
+   *   - Honeypot field + localStorage cooldown: client-side UX niceties only.
+   *     The authoritative abuse controls (Cloudflare Turnstile verification, a
+   *     per-IP rate limit, and payload validation) live server-side in the
+   *     submit-application Edge Function — the honeypot/cooldown just spare
+   *     obvious bots and double-clicks a needless round trip.
+   *   - Requires a solved Turnstile token before it will submit
+   *   - Submits to the submit-application Edge Function, refreshes applicant
+   *     count and recent list on success
    */
   function initJoinModal() {
     const openBtn    = document.getElementById('open-entry-modal');
@@ -624,10 +639,11 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       clearMessage();
 
-      if (!supabaseClient) {
-        setMessage('Submission system is not configured yet.', true);
-        return;
-      }
+      /* Submission goes through a plain fetch to the submit-application Edge
+         Function, not supabaseClient — so it must work even if the Supabase JS
+         bundle is blocked/failed to load. The post-success count/recent-list
+         refresh (loadApplicantCount / loadRecentApplicants) carries its own
+         supabaseClient guard and degrades on its own. */
 
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -663,6 +679,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Turnstile injects a hidden "cf-turnstile-response" input into the form.
+      // Empty means the widget hasn't solved yet (still loading, or expired) —
+      // the server would reject it anyway, so surface it here before the round trip.
+      const turnstileToken = formData.get('cf-turnstile-response')?.toString() || '';
+      if (!turnstileToken) {
+        setMessage('Please complete the verification challenge before submitting.', true);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Entry Application';
+        }
+        return;
+      }
+
       const payload = {
         full_name: formData.get('full_name')?.toString().trim() || '',
         age: Number(formData.get('age')),
@@ -678,8 +707,33 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       try {
-        const { error } = await supabaseClient.from('applications').insert([payload]);
-        if (error) throw error;
+        const res = await fetch(SUBMIT_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify({ ...payload, turnstileToken })
+        });
+
+        if (!res.ok) {
+          /* Turnstile tokens are single-use — reset the widget so the next
+             attempt gets a fresh one instead of reusing a spent token. */
+          if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
+
+          let msg = 'Submission failed — the application service may be temporarily offline. Your answers are still filled in; please try again later.';
+          if (res.status === 429) {
+            msg = 'Too many submissions from your network. Please try again in about an hour.';
+          } else if (res.status === 403) {
+            msg = 'Verification failed. Please complete the challenge again and resubmit.';
+          } else if (res.status === 400) {
+            const info = await res.json().catch(() => null);
+            msg = (info && info.message) ? info.message : 'Please check your entries and try again.';
+          }
+          setMessage(msg, true);
+          return; /* finally re-enables the button */
+        }
 
         /* Own try: a storage failure must not flip a successful insert
            into the error path and invite a duplicate submission. */
@@ -739,13 +793,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="audiobook.html" class="inline-block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition underline">View all volumes →</a>
               </div>
               <p class="text-[var(--text-muted)] text-sm">The choice — and the consequences — are now yours.</p>
-              <button onclick="document.getElementById('entryModal').classList.add('hidden'); document.getElementById('entryModal').setAttribute('aria-hidden','true');"
+              <button id="entry-success-close"
                       class="mt-6 text-[var(--text-muted)] hover:text-[var(--accent)] transition text-sm underline">Close</button>
             </div>
           `;
+          /* The innerHTML swap above destroyed the original ✕ button, so this
+             is the only close control left — it must run the full cleanup path
+             (scroll unlock, focus-trap removal, focus restore), not just hide
+             the modal. */
+          const successClose = document.getElementById('entry-success-close');
+          if (successClose) successClose.addEventListener('click', hideEntryForm);
         }
       } catch (err) {
         console.error('Submission error:', err);
+        if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
         setMessage('Submission failed — the application service may be temporarily offline. Your answers are still filled in; please try again later.', true);
       } finally {
         if (submitBtn) {
