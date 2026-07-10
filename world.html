@@ -1301,7 +1301,7 @@
       );
     }
 
-    renderPagination();
+    showPage(1);
 
     const hashTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
     if (hashTarget) {
@@ -1311,7 +1311,9 @@
 
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', (e) => {
-        const target = document.querySelector(link.getAttribute('href'));
+        const href = link.getAttribute('href');
+        if (href === '#') return; // bare '#' (e.g. TOC links) is an invalid selector
+        const target = document.querySelector(href);
         if (!target) return;
         const targetPage = Number(target.dataset.page);
         if (!targetPage) return;

@@ -2099,7 +2099,7 @@
 		);
 	  }
 
-	  renderPagination();
+	  showPage(1);
 
 	  /* Jump to page via hash — e.g. whitepaper.html#glossary navigates to the page with that id */
 	  const hashTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
@@ -2111,7 +2111,9 @@
 	  /* Intercept in-page anchor clicks that target a paginated article */
 	  document.querySelectorAll('a[href^="#"]').forEach((link) => {
 	    link.addEventListener('click', (e) => {
-	      const target = document.querySelector(link.getAttribute('href'));
+	      const href = link.getAttribute('href');
+	      if (href === '#') return; // bare '#' (e.g. TOC links) is an invalid selector
+	      const target = document.querySelector(href);
 	      if (!target) return;
 	      const targetPage = Number(target.dataset.page);
 	      if (!targetPage) return;
