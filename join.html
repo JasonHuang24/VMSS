@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta name="theme-color" content="#07090f">
+  <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
   <title>Join • The Five Rings</title>
   <meta name="description" content="Ready to enter The Five Rings? Learn what voluntary citizenship in VMSS means — implant consent, UBI, layer placement, consequences, and how to submit your entry application." />
   <meta property="og:title" content="Join The Five Rings — VMSS Civilization" />
@@ -154,9 +155,11 @@
 
           <form class="space-y-5 md:space-y-6 lg:space-y-4" id="entryForm">
 
+            <p class="text-xs text-[var(--text-muted)]"><span class="text-[var(--accent)]" aria-hidden="true">*</span> Required field</p>
+
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 lg:gap-6">
               <div>
-                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-full-name">Full Legal Name</label>
+                <label for="entry-full-name" class="block text-sm font-medium text-[var(--text-muted)] mb-2">Full Legal Name <span class="text-[var(--accent)]" aria-hidden="true">*</span></label>
                 <input
                   id="entry-full-name"
                   name="full_name"
@@ -167,7 +170,7 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-age">Age</label>
+                <label for="entry-age" class="block text-sm font-medium text-[var(--text-muted)] mb-2">Age <span class="text-[var(--accent)]" aria-hidden="true">*</span></label>
                 <input
                   id="entry-age"
                   name="age"
@@ -183,8 +186,8 @@
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
 
 		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-city">
-			  City
+			<label for="entry-city" class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+			  City <span class="text-[var(--accent)]" aria-hidden="true">*</span>
 			</label>
 
 			<input
@@ -199,7 +202,7 @@
 
 
 		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-state">
+			<label for="entry-state" class="block text-sm font-medium text-[var(--text-muted)] mb-2">
 			  State / Province / Region
 			</label>
 
@@ -214,8 +217,8 @@
 
 
 		  <div>
-			<label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-country">
-			  Country
+			<label for="entry-country" class="block text-sm font-medium text-[var(--text-muted)] mb-2">
+			  Country <span class="text-[var(--accent)]" aria-hidden="true">*</span>
 			</label>
 
 			<input
@@ -233,7 +236,7 @@
 
 		<div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 lg:gap-6">
 		  <div>
-		    <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-phone">
+		    <label for="entry-phone" class="block text-sm font-medium text-[var(--text-muted)] mb-2">
 			  Phone Number (Optional)
 		    </label>
 		    <input
@@ -246,7 +249,7 @@
 		  </div>
 
 		  <div>
-              <label class="block text-sm font-medium text-[var(--text-muted)] mb-2" for="entry-motivation">Why do you want to join The Five Rings?</label>
+              <label for="entry-motivation" class="block text-sm font-medium text-[var(--text-muted)] mb-2">Why do you want to join The Five Rings? <span class="text-[var(--accent)]" aria-hidden="true">*</span></label>
               <textarea
                 id="entry-motivation"
                 name="motivation"
@@ -280,7 +283,7 @@
               </label>
             </div>
 
-            <p id="entry-form-message" class="text-sm text-[var(--text-muted)] hidden"></p>
+            <p id="entry-form-message" class="text-sm text-[var(--text-muted)] hidden" role="status" aria-live="polite"></p>
 
             <!-- HONEYPOT FIELD — visually hidden, never filled by real users.
                  If "company" has a value on submit, initJoinModal silently
