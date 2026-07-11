@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 21.4
+**Version:** 21.5
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -43,7 +43,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `charter.html` | Founding constitutional document — all 28 articles |
 | `law-polling.html` | Law polling record — Charter amendments, federal laws, and regulatory petitions with vote breakdowns, drafters, and canon anchors |
 | `faq.html` | Extended FAQ with edge cases |
-| `roadmap.html` | Seven-phase development roadmap — 2026 Founding Treaty to 3000 |
+| `roadmap.html` | Scroll-driven seven-phase roadmap — pinned scenes, persistent year + leakage-gradient rail, 2026 Founding Treaty to 3000 |
 | `audiobook.html` | The Five Rings audiobook series — free v8.5 introduction, v11 trilogy (Vols. 1–3), and v11 standalone volumes (Vols. 4–5). All available on ElevenReader |
 | `join.html` | Voluntary entry process and application form |
 

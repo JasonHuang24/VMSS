@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link href="styles.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/tailwind.css">
+<link href="roadmap.css" rel="stylesheet"/>
 <noscript><style>body{opacity:1}</style></noscript>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
@@ -37,218 +38,619 @@
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1">
+
+<!-- ============ HERO ============ -->
+<section class="rm-hero">
 <div class="lg:max-w-[70%] mx-auto px-6">
 <h1 class="text-6xl font-bold text-center mb-6 text-[var(--text-primary)]">Development Roadmap</h1>
-<p class="text-center text-2xl text-[var(--text-muted)] mb-20">From the 2026 founding treaty to a mature civilization at 0.01% leakage by 3000</p>
-<p class="text-center text-sm text-[var(--text-muted)] max-w-2xl mx-auto -mt-12 mb-20">This roadmap represents a staged evolution of VMSS from conceptual foundation to large-scale civilization deployment. Each phase prioritizes validation, stability, and controlled expansion before progression. Seven phases across 974 years — from a founding treaty to a civilization approaching the theoretical limits of consequence delivery. The starting leakage is approximately 90%. The target is 0.01%.</p>
-<!-- Visual Timeline -->
-<div class="relative pl-10 border-l-4 border-[var(--accent)] space-y-8">
+<p class="text-center text-2xl text-[var(--text-muted)]">Seven phases. 974 years. Leakage from ~90% to 0.01%.</p>
+<div class="rm-hero-meta">
+  <p>Leakage is the gap between stated consequence and actual consequence delivery — every wall breach, apprehension failure, backup vessel death, or enforcement network gap. The founding aspiration is 0%. This is the story of closing the gap, with each phase prioritizing validation, stability, and controlled expansion before progression.</p>
+  <p class="sr-only">Summary of the trajectory for assistive technology: system-wide leakage begins at approximately 90% in 2026, reaches approximately 25% by 2150, approximately 1.5% by 2500, approximately 0.1% by 2850, and approximately 0.01% by 3000. From 2150 onward the figure splits by layer; the full canonical numbers, including the five-layer gradient table, are available in the expandable phase records throughout this page and in the table at the end.</p>
+  <div class="rm-scroll-cue" aria-hidden="true">
+    <span>Scroll — 974 years ahead</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</div>
+</div>
+</section>
 
-<!-- 21ST CENTURY CONTEXT BLOCK -->
-<div class="not-prose mb-8 -ml-10 pl-10">
-  <div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border-strong)] p-8">
-    <div class="vmss-kicker mb-4">21st Century — Where We Actually Are</div>
-    <p class="text-[var(--text-secondary)] leading-relaxed mb-4">The founding treaty establishes VMSS as a civilizational target. It is not a construction schedule. Using a weighted assessment across all technology categories, VMSS today delivers approximately <strong class="text-[var(--text-primary)]">10% of its stated promise</strong> — or equivalently, operates at approximately <strong class="text-[var(--text-primary)]">90% leakage</strong> across all enforcement and infrastructure categories combined. Leakage is the gap between stated consequence and actual consequence delivery: every wall breach, apprehension failure, backup vessel death, or enforcement network gap is leakage. The founding aspiration of VMSS is 0% leakage. The 974-year roadmap is the story of closing the gap from 90% to 0.01%.</p>
-    <p class="text-[var(--text-secondary)] leading-relaxed mb-6">The leakage figure is not uniform across categories. Three are load-bearing — backup vessels, the implant ledger, and autonomous enforcement. These have veto weight: the civilization's core promises fail without them regardless of progress elsewhere. The overall figure is pulled toward 90% primarily by these three gaps, not by the average of all categories.</p>
-    <div class="grid md:grid-cols-2 gap-4 text-sm">
-      <div class="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-4">
-        <div class="text-[var(--accent)] font-semibold uppercase tracking-widest text-xs mb-3">Load-Bearing Gaps</div>
-        <ul class="space-y-2 text-[var(--text-secondary)]">
-          <li><strong class="text-[var(--text-primary)]">Backup vessels — 0% delivery</strong><br>No functional analog exists. Cryonics has no successful revival record. The continuity guarantee is a complete miss with current technology — the single largest leakage category by weight.</li>
-          <li class="mt-3"><strong class="text-[var(--text-primary)]">Implant ledger — ~10% delivery</strong><br>Security cameras, forensics, and behavioral scoring infrastructure exist but are fragmented, gameable, and lack continuous identity-anchored monitoring. China's social credit system proves national-scale behavioral scoring is feasible. The gap is comprehensiveness and the identity anchor.</li>
-          <li class="mt-3"><strong class="text-[var(--text-primary)]">Autonomous enforcement — ~5% delivery</strong><br>Drone hardware prototypes exist militarily. The contextual judgment layer required for VMSS enforcement doesn't exist at civilian scale. Police response times average 10–15 minutes. The US-Mexico border wall — the closest physical analog to the megawall — demonstrates what boundary infrastructure looks like without full sensor and response integration.</li>
-        </ul>
+<!-- ============ SCROLL EXPERIENCE ============ -->
+<div class="rm-experience" id="rm-experience">
+
+  <!-- Persistent rail: timeline indicator + leakage gradient -->
+  <aside class="rm-rail" id="rm-rail" aria-hidden="true">
+    <div class="rm-rail-inner">
+      <div class="rm-rail-year-wrap">
+        <div class="rm-rail-label">Year</div>
+        <div class="rm-rail-year rm-grotesk" id="rm-year">2026</div>
+        <div class="rm-rail-era" id="rm-era">21st Century</div>
       </div>
-      <div class="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-4">
-        <div class="text-[var(--accent)] font-semibold uppercase tracking-widest text-xs mb-3">Partial Foundations</div>
-        <ul class="space-y-2 text-[var(--text-secondary)]">
-          <li><strong class="text-[var(--text-primary)]">UBI / economic model — ~20% delivery</strong><br>Finland, Kenya, and Stockton pilots prove feasibility at small scale. Alaska's Permanent Fund has distributed automation-equivalent dividends since 1982. The economic model is proven in principle. The political will and funding mechanism at civilizational scale are not.</li>
-          <li class="mt-3"><strong class="text-[var(--text-primary)]">Biological augmentation — ~25% delivery</strong><br>Cosmetic surgery, gene editing (CRISPR), organ transplantation, and joint replacement prove the concept. Leg lengthening surgery is a crude analog for body scaling. The direction is established and advancing rapidly.</li>
-          <li class="mt-3"><strong class="text-[var(--text-primary)]">Voluntary entry infrastructure — ~40% delivery</strong><br>Citizenship by naturalization, intentional communities, and religious orders prove humans will voluntarily opt into rule-governed civilizational contracts with defined consequences. The concept is mature. The scale is not.</li>
-          <li class="mt-3"><strong class="text-[var(--text-primary)]">Pre-intervention / TIP — ~2% delivery</strong><br>Restraining orders are the closest analog. Essentially non-functional as a VMSS equivalent. This category requires backup vessel technology and implant ledger to exist first.</li>
-        </ul>
+      <div class="rm-rail-agg-wrap">
+        <div class="rm-rail-label">Weighted leakage</div>
+        <div class="rm-rail-agg rm-grotesk" id="rm-agg">~90%</div>
+      </div>
+      <div class="rm-bar-track" id="rm-bar-track"><div class="rm-bar-fill" id="rm-bar"></div></div>
+      <svg class="rm-chart" id="rm-chart" viewBox="0 0 220 520" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="rm-chips" id="rm-chips">
+        <div class="rm-chip" data-strand="p1"><span class="rm-chip-dot"></span><span class="rm-chip-name">+1</span><span class="rm-chip-val" id="rm-chip-p1">—</span></div>
+        <div class="rm-chip" data-strand="l0"><span class="rm-chip-dot"></span><span class="rm-chip-name">0</span><span class="rm-chip-val" id="rm-chip-l0">—</span></div>
+        <div class="rm-chip" data-strand="m1"><span class="rm-chip-dot"></span><span class="rm-chip-name">-1</span><span class="rm-chip-val" id="rm-chip-m1">—</span></div>
+        <div class="rm-chip" data-strand="m2"><span class="rm-chip-dot"></span><span class="rm-chip-name">-2</span><span class="rm-chip-val" id="rm-chip-m2">—</span></div>
+        <div class="rm-chip" data-strand="m3"><span class="rm-chip-dot"></span><span class="rm-chip-name">-3</span><span class="rm-chip-val" id="rm-chip-m3">—</span></div>
       </div>
     </div>
-    <p class="text-[var(--text-muted)] text-sm mt-6 leading-relaxed">The conceptual and institutional foundations are further along than the headline leakage figure suggests. VMSS is not waiting for someone to have the ideas — the ideas exist in primitive form across existing institutions. It is waiting for enabling technologies to make those ideas operable at civilizational scale with the precision the framework requires. Phases 0 and 1 are not construction. They are the period in which those technologies must cross their critical thresholds before construction becomes possible. We are drafting blueprints for an aircraft in an era without aluminium, combustion engines, or aerodynamic theory. The blueprint is sound. The world needs time.</p>
+  </aside>
+
+  <div class="rm-scenes">
+
+    <!-- ======== SCENE: 21ST CENTURY — WHERE WE ACTUALLY ARE ======== -->
+    <section class="rm-scene" data-scene="now" data-y0="2026" data-y1="2026">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">21st Century</div>
+          <h2 class="rm-title">Where We Actually Are</h2>
+          <p class="rm-lede">Weighted across every enforcement and infrastructure category, VMSS today delivers roughly 10% of its stated promise. The other ~90% is leakage — and closing it is the entire roadmap.</p>
+        </header>
+        <div class="rm-visual rm-now">
+          <div class="rm-now-readout">
+            <div class="rm-now-big rm-grotesk"><span id="now-big">0</span><span class="rm-now-pct">%</span></div>
+            <div class="rm-now-cap">system-wide leakage, 2026</div>
+            <div class="rm-now-sub">≈10% of stated promise delivered</div>
+          </div>
+          <div class="rm-now-meters">
+            <div class="rm-meter-group-label">Load-bearing — veto weight</div>
+            <div class="rm-meter" data-val="0"><span class="rm-meter-name">Backup vessels</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">0%</span></div>
+            <div class="rm-meter" data-val="10"><span class="rm-meter-name">Implant ledger</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">~10%</span></div>
+            <div class="rm-meter" data-val="5"><span class="rm-meter-name">Autonomous enforcement</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">~5%</span></div>
+            <div class="rm-meter-group-label rm-meter-group-2">Partial foundations</div>
+            <div class="rm-meter" data-val="20"><span class="rm-meter-name">UBI / economic model</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">~20%</span></div>
+            <div class="rm-meter" data-val="25"><span class="rm-meter-name">Biological augmentation</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">~25%</span></div>
+            <div class="rm-meter" data-val="40"><span class="rm-meter-name">Voluntary entry</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">~40%</span></div>
+            <div class="rm-meter" data-val="2"><span class="rm-meter-name">Pre-intervention / TIP</span><span class="rm-meter-track"><span class="rm-meter-fill"></span></span><span class="rm-meter-num">~2%</span></div>
+          </div>
+        </div>
+        <p class="rm-stat" id="now-quote">We are drafting blueprints for an aircraft in an era without aluminium, combustion engines, or aerodynamic theory. The blueprint is sound. The world needs time.</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>21st Century — full record</summary>
+      <div class="rm-detail-body">
+        <p>The founding treaty establishes VMSS as a civilizational target. It is not a construction schedule. Using a weighted assessment across all technology categories, VMSS today delivers approximately <strong>10% of its stated promise</strong> — or equivalently, operates at approximately <strong>90% leakage</strong> across all enforcement and infrastructure categories combined. Leakage is the gap between stated consequence and actual consequence delivery: every wall breach, apprehension failure, backup vessel death, or enforcement network gap is leakage. The founding aspiration of VMSS is 0% leakage. The 974-year roadmap is the story of closing the gap from 90% to 0.01%.</p>
+        <p>The leakage figure is not uniform across categories. Three are load-bearing — backup vessels, the implant ledger, and autonomous enforcement. These have veto weight: the civilization's core promises fail without them regardless of progress elsewhere. The overall figure is pulled toward 90% primarily by these three gaps, not by the average of all categories.</p>
+        <h3>Load-Bearing Gaps</h3>
+        <ul class="list-disc pl-6 space-y-3">
+          <li><strong>Backup vessels — 0% delivery</strong><br>No functional analog exists. Cryonics has no successful revival record. The continuity guarantee is a complete miss with current technology — the single largest leakage category by weight.</li>
+          <li><strong>Implant ledger — ~10% delivery</strong><br>Security cameras, forensics, and behavioral scoring infrastructure exist but are fragmented, gameable, and lack continuous identity-anchored monitoring. China's social credit system proves national-scale behavioral scoring is feasible. The gap is comprehensiveness and the identity anchor.</li>
+          <li><strong>Autonomous enforcement — ~5% delivery</strong><br>Drone hardware prototypes exist militarily. The contextual judgment layer required for VMSS enforcement doesn't exist at civilian scale. Police response times average 10–15 minutes. The US-Mexico border wall — the closest physical analog to the megawall — demonstrates what boundary infrastructure looks like without full sensor and response integration.</li>
+        </ul>
+        <h3>Partial Foundations</h3>
+        <ul class="list-disc pl-6 space-y-3">
+          <li><strong>UBI / economic model — ~20% delivery</strong><br>Finland, Kenya, and Stockton pilots prove feasibility at small scale. Alaska's Permanent Fund has distributed automation-equivalent dividends since 1982. The economic model is proven in principle. The political will and funding mechanism at civilizational scale are not.</li>
+          <li><strong>Biological augmentation — ~25% delivery</strong><br>Cosmetic surgery, gene editing (CRISPR), organ transplantation, and joint replacement prove the concept. Leg lengthening surgery is a crude analog for body scaling. The direction is established and advancing rapidly.</li>
+          <li><strong>Voluntary entry infrastructure — ~40% delivery</strong><br>Citizenship by naturalization, intentional communities, and religious orders prove humans will voluntarily opt into rule-governed civilizational contracts with defined consequences. The concept is mature. The scale is not.</li>
+          <li><strong>Pre-intervention / TIP — ~2% delivery</strong><br>Restraining orders are the closest analog. Essentially non-functional as a VMSS equivalent. This category requires backup vessel technology and implant ledger to exist first.</li>
+        </ul>
+        <p class="rm-detail-muted">The conceptual and institutional foundations are further along than the headline leakage figure suggests. VMSS is not waiting for someone to have the ideas — the ideas exist in primitive form across existing institutions. It is waiting for enabling technologies to make those ideas operable at civilizational scale with the precision the framework requires. Phases 0 and 1 are not construction. They are the period in which those technologies must cross their critical thresholds before construction becomes possible. We are drafting blueprints for an aircraft in an era without aluminium, combustion engines, or aerodynamic theory. The blueprint is sound. The world needs time.</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 0 — FOUNDATION & RESEARCH ======== -->
+    <section class="rm-scene" data-scene="p0" data-y0="2026" data-y1="2070">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 0 · 2026 – 2070</div>
+          <h2 class="rm-title">Foundation &amp; Research</h2>
+          <p class="rm-lede">The treaty is signed, the charter released, the research programs seeded. No ring is built in this phase — the enabling technologies must first begin to exist.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blueprint of the five rings being drafted, surrounded by research programs lighting up">
+            <defs>
+              <pattern id="p0-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" fill="none" class="rm-grid-ln"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="960" height="540" fill="url(#p0-grid)" opacity="0.5"/>
+            <!-- Blueprint rings (drawn on) -->
+            <g id="p0-rings">
+              <circle class="rm-draw rm-bp-ring rm-bp-core" cx="480" cy="280" r="42"/>
+              <circle class="rm-draw rm-bp-ring" cx="480" cy="280" r="84"/>
+              <circle class="rm-draw rm-bp-ring" cx="480" cy="280" r="126"/>
+              <circle class="rm-draw rm-bp-ring" cx="480" cy="280" r="168"/>
+              <circle class="rm-draw rm-bp-ring" cx="480" cy="280" r="210"/>
+            </g>
+            <g id="p0-ring-labels" class="rm-svg-txt-mut" font-size="15" text-anchor="middle">
+              <text x="480" y="286">+1</text>
+              <text x="480" y="223">0</text>
+              <text x="480" y="181">-1</text>
+              <text x="480" y="139">-2</text>
+              <text x="480" y="97">-3</text>
+            </g>
+            <!-- Dimension line -->
+            <g id="p0-dim">
+              <line class="rm-draw rm-ln-acc" x1="480" y1="280" x2="628" y2="132" stroke-dasharray="none"/>
+              <text class="rm-svg-txt-mut" x="640" y="124" font-size="13">R = civilizational target</text>
+              <text class="rm-svg-txt-mut" x="640" y="142" font-size="13">status: paper</text>
+            </g>
+            <!-- Treaty stamp -->
+            <g id="p0-stamp" transform="rotate(-8 170 96)">
+              <rect x="60" y="58" width="220" height="76" rx="10" class="rm-stamp-box"/>
+              <text x="170" y="90" text-anchor="middle" class="rm-stamp-txt" font-size="17">FOUNDING TREATY</text>
+              <text x="170" y="114" text-anchor="middle" class="rm-stamp-txt" font-size="15">MARCH 29, 2026</text>
+            </g>
+            <!-- Research nodes -->
+            <g id="p0-nodes">
+              <g class="rm-node" data-i="0"><line class="rm-ln" x1="480" y1="490" x2="480" y2="510"/><circle cx="480" cy="516" r="5"/><text x="480" y="536" text-anchor="middle" font-size="14">BCI implants</text></g>
+              <g class="rm-node" data-i="1"><line class="rm-ln" x1="298" y1="462" x2="262" y2="492"/><circle cx="256" cy="497" r="5"/><text x="250" y="519" text-anchor="middle" font-size="14">Backup vessels</text></g>
+              <g class="rm-node" data-i="2"><line class="rm-ln" x1="662" y1="462" x2="698" y2="492"/><circle cx="704" cy="497" r="5"/><text x="710" y="519" text-anchor="middle" font-size="14">STI ledger</text></g>
+              <g class="rm-node" data-i="3"><line class="rm-ln" x1="262" y1="200" x2="212" y2="180"/><circle cx="205" cy="177" r="5"/><text x="200" y="163" text-anchor="middle" font-size="14">Enforcement drones</text></g>
+              <g class="rm-node" data-i="4"><line class="rm-ln" x1="698" y1="200" x2="748" y2="180"/><circle cx="755" cy="177" r="5"/><text x="760" y="163" text-anchor="middle" font-size="14">UBI pilots</text></g>
+              <g class="rm-node" data-i="5"><line class="rm-ln" x1="700" y1="330" x2="760" y2="352"/><circle cx="767" cy="355" r="5"/><text x="790" y="377" text-anchor="middle" font-size="14">Medical baseline</text></g>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Population: core research team + volunteers · Leakage: ~90% — technology thresholds not yet crossed</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 0 — full record</summary>
+      <div class="rm-detail-body">
+        <p>The civilizational blueprint is established. The enabling technologies do not yet exist — this phase is the period in which they must begin to be developed before construction becomes possible.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Founding treaty signed March 29, 2026 — the legal and philosophical birth certificate of VMSS. Sovereign charter entity and non-profit foundation established to hold land and technology rights. For the contested founding era and geopolitical context, see <a href="world.html" class="text-[var(--accent)] hover:underline">The World of VMSS</a>.</li>
+          <li>Core team assembled across neuroscience, materials engineering, AI systems, ethics, law, and governance. Seed funding secured from aligned long-horizon investors.</li>
+          <li>First public whitepaper and charter released. Governance stress-tests conducted in simulation to identify structural contradictions before any physical deployment.</li>
+          <li>Brain-computer interface research intensifies — early implant prototypes tested in animal models, then limited consenting human trials. No timeline for civilian deployment; this is foundational science, not product development.</li>
+          <li>Backup vessel research initiated as a long-horizon program. Early work focuses on mind-state encoding theory and synthetic biology for vessel growth. Animal-scale continuity experiments begin. Human-grade revival remains decades away.</li>
+          <li>STI ledger architecture designed and stress-tested in closed simulation environments. Behavioral scoring algorithms developed and audited for manipulation vectors.</li>
+          <li>Autonomous drone enforcement prototypes tested in controlled settings. Materials research begins on advanced composite wall construction at scale.</li>
+          <li>UBI pilot programs expanded and studied globally. Economic model validation continues at increasing scale — proving the automation dividend concept before civilizational deployment.</li>
+          <li>Medical completeness research baseline established. Cancer treatment improving but fundamental cures remain elusive. Nanite-based cellular repair in early laboratory stages. Medical completeness delivery in upper layers estimated at ~35–40% — trauma, infection, and most cardiovascular disease handled; neurodegenerative disease, rare genetic conditions, and emergent diseases remain primary gaps.</li>
+          <li>No physical ring construction in this phase. The 21st century ends with the framework established, the research underway, and the first technologies beginning to approach — but not yet crossing — their critical thresholds.</li>
+        </ul>
+        <p class="rm-detail-muted">Population: Core research team + volunteers. Leakage: ~90% → technology thresholds not yet crossed.</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 1 — TECHNOLOGY THRESHOLD CROSSING ======== -->
+    <section class="rm-scene" data-scene="p1" data-y0="2070" data-y1="2150">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 1 · 2070 – 2150</div>
+          <h2 class="rm-title">Technology Threshold Crossing</h2>
+          <p class="rm-lede">First reliable human revival. Identity-anchored monitoring at small scale. Enforcement in seconds, not minutes. A prototype community of thousands runs the full system for the first time.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three technologies rising past an operational threshold while a walled prototype community materializes">
+            <!-- EKG: first human revival -->
+            <g id="p1-ekg">
+              <path class="rm-draw rm-ekg" d="M60 96 H200 l10 0 6 -26 8 52 6 -26 h60 l6 -26 8 52 6 -26 H460" fill="none"/>
+              <text class="rm-svg-txt-mut" x="60" y="66" font-size="14">first reliable human revival — non-functional → operational</text>
+            </g>
+            <!-- Threshold bars -->
+            <g id="p1-bars">
+              <line class="rm-thresh" x1="70" y1="250" x2="450" y2="250"/>
+              <text class="rm-svg-txt-acc" x="70" y="238" font-size="13">operational threshold</text>
+              <g>
+                <rect id="p1-bar-0" class="rm-bar" x="110" y="190" width="56" height="270"/>
+                <circle id="p1-ping-0" class="rm-ping" cx="138" cy="250" r="10"/>
+                <text class="rm-svg-txt" x="138" y="482" text-anchor="middle" font-size="14">Vessels</text>
+              </g>
+              <g>
+                <rect id="p1-bar-1" class="rm-bar" x="230" y="205" width="56" height="255"/>
+                <circle id="p1-ping-1" class="rm-ping" cx="258" cy="250" r="10"/>
+                <text class="rm-svg-txt" x="258" y="482" text-anchor="middle" font-size="14">Ledger</text>
+              </g>
+              <g>
+                <rect id="p1-bar-2" class="rm-bar" x="350" y="215" width="56" height="245"/>
+                <circle id="p1-ping-2" class="rm-ping" cx="378" cy="250" r="10"/>
+                <text class="rm-svg-txt" x="378" y="482" text-anchor="middle" font-size="14">Enforcement</text>
+              </g>
+            </g>
+            <!-- Prototype enclave -->
+            <g id="p1-enclave">
+              <circle id="p1-wall" class="rm-draw rm-wall-ring" cx="700" cy="270" r="150"/>
+              <g id="p1-citizens"></g>
+              <text class="rm-svg-txt-mut" x="700" y="94" text-anchor="middle" font-size="14">first prototype community — thousands of voluntary citizens</text>
+              <g id="p1-meter">
+                <rect x="580" y="472" width="240" height="10" rx="5" class="rm-track"/>
+                <rect id="p1-meter-fill" x="580" y="472" width="108" height="10" rx="5" class="rm-fill-warn"/>
+                <text class="rm-svg-txt" x="580" y="504" font-size="14">prototype leakage <tspan class="rm-svg-txt-acc" id="p1-meter-txt">~40–50%</tspan></text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Population: prototype community of thousands · Leakage: ~90% → ~40–50% inside the prototype</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 1 — full record</summary>
+      <div class="rm-detail-body">
+        <p>The load-bearing technologies begin crossing their critical thresholds. For the first time, meaningful physical infrastructure becomes possible.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Backup vessel technology achieves first reliable human revival in controlled conditions — the single most significant technological event in VMSS history. Revival failure rate still high but the category crosses from non-functional to operational.</li>
+          <li>Neural implant ledger achieves continuous identity-anchored monitoring at small scale. STI computation proven reliable in a closed community environment.</li>
+          <li>Autonomous enforcement reaches civilian deployment threshold — contextual judgment layer operational, response times approaching seconds rather than minutes in prototype zones.</li>
+          <li>First small enclosed prototype community established — hundreds to low thousands of voluntary citizens operating under full VMSS conditions. Not a ring, not a mega-wall — a controlled settlement proving the integrated system works before physical scaling begins.</li>
+          <li>Full UBI and Primary Job Subsidy system operational within the prototype community. Economic model validated under real conditions with real citizens.</li>
+          <li>First sections of boundary wall infrastructure designed and initial construction begun. The mega-wall is a 22nd–24th century project — this phase lays the engineering and materials foundation.</li>
+          <li>Leakage within the prototype community estimated at 40–50% — substantially better than the 90% baseline as load-bearing technologies come online, but still far from civilizational deployment quality.</li>
+          <li>Medical drone systems proven at prototype scale. Nanite-based cellular repair functional in controlled conditions. Medical completeness delivery in upper layers approaches 50–55% by end of phase.</li>
+          <li>First public leakage report issued. The 0.01% aspiration formally adopted as the civilizational standard. Edge cases from the prototype community systematically catalogued.</li>
+        </ul>
+        <p class="rm-detail-muted">Population: Prototype community of thousands. Leakage: ~90% → ~40–50% as load-bearing technologies cross initial thresholds.</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 2 — PLANETARY CONSOLIDATION ======== -->
+    <section class="rm-scene" data-scene="p2" data-y0="2150" data-y1="2350">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 2 · 2150 – 2350</div>
+          <h2 class="rm-title">Planetary Consolidation</h2>
+          <p class="rm-lede">The five rings reach planetary scale — billions of citizens, off-world outposts, lifespans of 250–300+ years. One leakage number becomes five: each layer begins producing the leakage native to what it is.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five rings filling with population while orbital habitats appear and the first interstellar probes launch">
+            <g id="p2-rings">
+              <circle class="rm-draw rm-ring-p1" cx="460" cy="280" r="48"/>
+              <circle class="rm-draw rm-ring-l0" cx="460" cy="280" r="94"/>
+              <circle class="rm-draw rm-ring-m1" cx="460" cy="280" r="140"/>
+              <circle class="rm-draw rm-ring-m2" cx="460" cy="280" r="186"/>
+              <circle class="rm-draw rm-ring-m3" cx="460" cy="280" r="232"/>
+            </g>
+            <g id="p2-dots"></g>
+            <ellipse id="p2-orbit" class="rm-orbit" cx="460" cy="280" rx="290" ry="258"/>
+            <g id="p2-outposts">
+              <circle cx="748" cy="196" r="6" class="rm-outpost"/>
+              <circle cx="196" cy="128" r="5" class="rm-outpost"/>
+              <circle cx="640" cy="516" r="5" class="rm-outpost"/>
+            </g>
+            <g id="p2-probe">
+              <line class="rm-draw rm-probe" x1="676" y1="150" x2="880" y2="52"/>
+              <path class="rm-probe-head" d="M880 52 l-16 2 8 12 z"/>
+              <text class="rm-svg-txt-mut" x="878" y="86" text-anchor="end" font-size="13">first interstellar probes — backup vessels aboard</text>
+            </g>
+            <g id="p2-pop">
+              <text class="rm-svg-txt-mut" x="52" y="90" font-size="14">POPULATION</text>
+              <text class="rm-svg-num" id="p2-pop-num" x="52" y="130" font-size="34">—</text>
+              <text class="rm-svg-txt-mut" x="52" y="156" font-size="13">across the rings and beyond</text>
+            </g>
+            <g id="p2-split">
+              <text class="rm-svg-txt-acc" x="52" y="470" font-size="14">the gradient emerges —</text>
+              <text class="rm-svg-txt-acc" x="52" y="490" font-size="14">five layers, five trajectories</text>
+              <g id="p2-split-lines">
+                <line class="rm-strand-mini rm-ring-p1" x1="52" y1="512" x2="120" y2="500"/>
+                <line class="rm-strand-mini rm-ring-l0" x1="52" y1="512" x2="120" y2="506"/>
+                <line class="rm-strand-mini rm-ring-m1" x1="52" y1="512" x2="120" y2="512"/>
+                <line class="rm-strand-mini rm-ring-m2" x1="52" y1="512" x2="120" y2="518"/>
+                <line class="rm-strand-mini rm-ring-m3" x1="52" y1="512" x2="120" y2="524"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Population: 1–5+ billion across the rings and beyond · Leakage: ~25% by 2150</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 2 — full record</summary>
+      <div class="rm-detail-body">
+        <p>The full five-ring civilization reaches planetary scale and begins confronting the realities of long-duration operation.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Full planetary population across all rings reaches billions. Layer distribution stabilizes across large populations.</li>
+          <li>Orbital habitats and first permanent off-world outposts established using VMSS principles.</li>
+          <li>Lifespan extension reaches 250–300+ years practical for most citizens.</li>
+          <li>Wall construction phases underway — prototype sections of the full boundary infrastructure completed and tested.</li>
+          <li>VMSS becomes the dominant governance model for new human settlements beyond Earth.</li>
+          <li>Early interstellar probe missions launched with backup vessel technology aboard.</li>
+          <li>Upper layer medical completeness reaches approximately 70–80% by end of phase — most cancers curable, neurodegenerative disease treatment advancing significantly, rare genetic conditions the primary remaining gap. Lower layer access inequality becomes clearly documented as structural rather than technological — the cure exists civilizationally, but private market dynamics in -2 and -3 determine who reaches it.</li>
+          <li>System leakage estimated at approximately 25% by 2150 — formative infrastructure operational but incomplete. Edge cases from generations of operation systematically catalogued and addressed through charter amendment process.</li>
+        </ul>
+        <p class="rm-detail-muted">Population: 1–5+ billion across the rings and beyond. Leakage: ~25% by 2150.</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 3 — INFRASTRUCTURE HARDENING ======== -->
+    <section class="rm-scene" data-scene="p3" data-y0="2350" data-y1="2500">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 3 · 2350 – 2500</div>
+          <h2 class="rm-title">Infrastructure Hardening</h2>
+          <p class="rm-lede">The full wall network rises across every ring boundary — the largest continuous engineering project in human history, sealed beneath the ground and above the stratosphere.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross-section of the mega-wall growing above the stratosphere and below ground, blocking aviation and tunnelling, while drone coverage saturates">
+            <line class="rm-ln" x1="0" y1="330" x2="960" y2="330"/>
+            <text class="rm-svg-txt-mut" x="20" y="322" font-size="12">surface</text>
+            <line class="rm-alt-ln" x1="60" y1="96" x2="900" y2="96"/>
+            <text class="rm-svg-txt-mut" x="60" y="86" font-size="12">above stratosphere</text>
+            <line class="rm-alt-ln" x1="60" y1="470" x2="900" y2="470"/>
+            <text class="rm-svg-txt-mut" x="60" y="490" font-size="12">sub-surface envelope</text>
+            <!-- Wall -->
+            <rect id="p3-wall-up" class="rm-wall" x="466" y="84" width="36" height="246"/>
+            <rect id="p3-wall-down" class="rm-wall rm-wall-root" x="466" y="330" width="36" height="150"/>
+            <!-- Aviation attempt -->
+            <g id="p3-air">
+              <path class="rm-draw rm-attempt" d="M80 150 C240 130 360 140 452 150" fill="none"/>
+              <g id="p3-air-x" class="rm-x"><line x1="440" y1="138" x2="464" y2="162"/><line x1="464" y1="138" x2="440" y2="162"/></g>
+              <text class="rm-svg-txt-mut" x="80" y="130" font-size="13">aviation breach — eliminated</text>
+            </g>
+            <!-- Tunnelling attempt -->
+            <g id="p3-tunnel">
+              <path class="rm-draw rm-attempt" d="M80 430 C240 452 360 448 452 440" fill="none"/>
+              <g id="p3-tunnel-x" class="rm-x"><line x1="440" y1="428" x2="464" y2="452"/><line x1="464" y1="428" x2="440" y2="452"/></g>
+              <text class="rm-svg-txt-mut" x="80" y="416" font-size="13">tunnelling — eliminated</text>
+            </g>
+            <!-- Drone saturation -->
+            <g id="p3-drones"></g>
+            <text class="rm-svg-txt-mut" x="560" y="176" font-size="13" id="p3-drones-label">drone coverage — toward saturation, Main Layer and above</text>
+            <!-- Leakage steps -->
+            <g id="p3-steps" font-size="16" text-anchor="end">
+              <text class="rm-svg-num" x="900" y="240" data-i="0">2350 · ~8%</text>
+              <text class="rm-svg-num" x="900" y="268" data-i="1">2400 · ~4%</text>
+              <text class="rm-svg-num" x="900" y="296" data-i="2">2450 · ~2%</text>
+              <text class="rm-svg-num" x="900" y="324" data-i="3">2500 · ~1.5%</text>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Leakage by end of phase: ~1.5%</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 3 — full record</summary>
+      <div class="rm-detail-body">
+        <p>Two centuries of systematic construction and leakage reduction. The civilization transitions from prototype to proven architecture.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Full wall network construction across all five ring boundaries — the largest continuous engineering project in human history.</li>
+          <li>Sub-surface and above-stratosphere wall dimensions proven to eliminate tunnelling and aviation-based breach approaches.</li>
+          <li>Backup vessel technology matures — revival failure rates declining through successive generations of reconstruction science.</li>
+          <li>Enforcement drone coverage expands toward full saturation within Main Layer and above.</li>
+          <li>AI governance systems accumulate two centuries of edge case data — classification accuracy reaches new benchmarks.</li>
+          <li>The lower layer private economies mature. -3 sub-stratification into voluntary and punitive communities is well-established. Private justice infrastructure operates reliably across punitive layers.</li>
+          <li>System leakage trajectory: ~8% (2350) → ~4% (2400) → ~2% (2450) → ~1.5% (2500).</li>
+          <li>First Dyson swarm feasibility studies completed. Energy planning horizon set at 2600 for first partial deployment.</li>
+          <li>Upper layer medical completeness approaches 90–95%. Most remaining gaps are rare genetic edge cases and newly emergent conditions — the tail end of a centuries-long elimination program. The lower layer access gap is fully documented and accepted as the structural consequence of institutional withdrawal. Private medical markets in -1 and -2 have matured but access inequality persists in proportion to wealth distribution.</li>
+        </ul>
+        <p class="rm-detail-muted">Leakage target by end of phase: ~1.5%</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 4 — SYSTEMIC REFINEMENT ======== -->
+    <section class="rm-scene" data-scene="p4" data-y0="2500" data-y1="2600">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 4 · 2500 – 2600</div>
+          <h2 class="rm-title">Systemic Refinement</h2>
+          <p class="rm-lede">The wall network completes. Revival failure approaches near-zero. Building gives way to refining — and the first Dyson swarm segments catch light by 2600.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An enforcement mesh closing its last coverage gaps, a revival reliability gauge sweeping to near-zero failure, and the first Dyson segments appearing">
+            <g id="p4-mesh"></g>
+            <text class="rm-svg-txt-mut" x="90" y="500" font-size="14" id="p4-mesh-label">enforcement network — coverage gaps closing</text>
+            <!-- Revival gauge -->
+            <g id="p4-gauge">
+              <path class="rm-track-arc" d="M 700 300 A 90 90 0 1 1 860 300" fill="none"/>
+              <path id="p4-gauge-fill" class="rm-draw rm-gauge-arc" d="M 700 300 A 90 90 0 1 1 860 300" fill="none"/>
+              <text class="rm-svg-num" id="p4-gauge-num" x="780" y="278" text-anchor="middle" font-size="30">—</text>
+              <text class="rm-svg-txt-mut" x="780" y="330" text-anchor="middle" font-size="13">revival failure → near-zero</text>
+            </g>
+            <!-- Charter maturation -->
+            <g id="p4-charter">
+              <rect x="668" y="392" width="80" height="104" rx="8" class="rm-doc"/>
+              <g id="p4-charter-lines">
+                <line class="rm-ln-acc" x1="682" y1="416" x2="734" y2="416"/>
+                <line class="rm-ln" x1="682" y1="432" x2="734" y2="432"/>
+                <line class="rm-ln" x1="682" y1="448" x2="734" y2="448"/>
+                <line class="rm-ln" x1="682" y1="464" x2="734" y2="464"/>
+                <line class="rm-ln" x1="682" y1="480" x2="726" y2="480"/>
+              </g>
+              <text class="rm-svg-txt-mut" x="768" y="440" font-size="13">350+ years of lived</text>
+              <text class="rm-svg-txt-mut" x="768" y="458" font-size="13">amendments — founding</text>
+              <text class="rm-svg-txt-mut" x="768" y="476" font-size="13">framework → operating constitution</text>
+            </g>
+            <!-- First Dyson segments -->
+            <g id="p4-dyson">
+              <circle cx="878" cy="82" r="20" class="rm-sun"/>
+              <path class="rm-draw rm-collector" d="M 838 82 A 40 40 0 0 1 878 42" fill="none"/>
+              <path class="rm-draw rm-collector" d="M 878 134 A 52 52 0 0 1 826 82" fill="none"/>
+              <text class="rm-svg-txt-mut" x="852" y="160" text-anchor="end" font-size="13">first Dyson segments — 2600</text>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Leakage by end of phase: ~1%</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 4 — full record</summary>
+      <div class="rm-detail-body">
+        <p>The civilization reaches operational maturity. Leakage enters single-digit territory. The focus shifts from building to refining.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Full wall network complete and operational across all layer boundaries. Boundary breach now requires extraordinary organized effort detectable by seismic and sensor networks before completion.</li>
+          <li>Revival failure rate approaches near-zero through mature reconstruction biology. Continuity guarantee becomes reliable at civilizational scale.</li>
+          <li>Enforcement network achieves near-complete coverage — apprehension failure becomes the exception rather than the rule.</li>
+          <li>First partial Dyson swarm segments operational by 2600, beginning the transition to energy abundance beyond planetary renewable capacity.</li>
+          <li>Charter amendments through this period reflect 350+ years of lived civilizational experience — the document matures from founding framework to refined operating constitution.</li>
+          <li>Cross-layer cultural identity is well-established. The informal layer names — the Freedom Layer, the Balanced Layer, the Lower Restrictions Layer — are common civilizational vocabulary.</li>
+          <li>Upper layer medical completeness reaches near-theoretical limits — known disease elimination approaching completion in institutionally covered layers. The remaining leakage in upper layer medical is statistical noise rather than systemic gap. Lower layer medical access inequality stabilizes at its structural floor; the gap no longer narrows as it is not driven by technology.</li>
+          <li>System leakage trajectory: ~1.5% (2500) → ~1.2% (2550) → ~1% (2600).</li>
+        </ul>
+        <p class="rm-detail-muted">Leakage target by end of phase: ~1%</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 5 — THE FORCEFIELD CENTURY ======== -->
+    <section class="rm-scene" data-scene="p5" data-y0="2600" data-y1="2850">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 5 · 2600 – 2850</div>
+          <h2 class="rm-title">The Forcefield Century</h2>
+          <p class="rm-lede">Dyson-class energy makes a planetary forcefield an engineering problem instead of a theoretical one. By 2850 the boundary is layered, redundant, and impenetrable — and the largest single leakage source collapses.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A Dyson swarm accumulating around the sun, feeding an energy channel that ignites forcefield domes over the wall network">
+            <!-- Sun + swarm -->
+            <circle cx="180" cy="170" r="52" class="rm-sun"/>
+            <g id="p5-swarm"></g>
+            <text class="rm-svg-txt-mut" x="70" y="308" font-size="13">Dyson swarm — partial deployment reaches forcefield threshold</text>
+            <!-- Energy channel -->
+            <path id="p5-beam" class="rm-draw rm-beam" d="M 238 208 C 380 300 480 330 596 356" fill="none"/>
+            <!-- Wall run + shields -->
+            <line class="rm-ln" x1="520" y1="430" x2="960" y2="430"/>
+            <g id="p5-walls">
+              <rect x="596" y="356" width="18" height="74" class="rm-wall"/>
+              <rect x="716" y="356" width="18" height="74" class="rm-wall"/>
+              <rect x="836" y="356" width="18" height="74" class="rm-wall"/>
+            </g>
+            <g id="p5-shields">
+              <path id="p5-shield-0" class="rm-shield" d="M 559 430 A 46 52 0 0 1 651 430" fill="none"/>
+              <path id="p5-shield-1" class="rm-shield" d="M 679 430 A 46 52 0 0 1 771 430" fill="none"/>
+              <path id="p5-shield-2" class="rm-shield" d="M 799 430 A 46 52 0 0 1 891 430" fill="none"/>
+              <path id="p5-shield-full" class="rm-shield rm-shield-full" d="M 540 430 A 190 110 0 0 1 920 430" fill="none"/>
+            </g>
+            <g font-size="13" text-anchor="middle">
+              <text class="rm-svg-txt-mut" id="p5-lab-0" x="605" y="356">2750 — prototype section</text>
+              <text class="rm-svg-txt-mut" id="p5-lab-1" x="725" y="340">2800 — partial integration</text>
+              <text class="rm-svg-txt-mut" id="p5-lab-2" x="845" y="356">2850 — full network</text>
+            </g>
+            <!-- Wall-breach leakage collapse -->
+            <g id="p5-breach">
+              <text class="rm-svg-txt" x="520" y="500" font-size="14">wall-breach leakage</text>
+              <rect x="680" y="490" width="220" height="10" rx="5" class="rm-track"/>
+              <rect id="p5-breach-fill" x="680" y="490" width="200" height="10" rx="5" class="rm-fill-warn"/>
+              <text class="rm-svg-txt-mut" id="p5-breach-txt" x="680" y="524" font-size="13">→ functionally negligible</text>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Leakage by end of phase: ~0.1% — the parabolic acceleration commences</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 5 — full record</summary>
+      <div class="rm-detail-body">
+        <p>Dyson-class energy enables a new class of boundary infrastructure. The civilization prepares for its final approach to mature operation.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Dyson swarm energy output reaches levels sufficient for sustained planetary forcefield maintenance — the threshold that makes the forcefield upgrade viable shifts from theoretical to engineering.</li>
+          <li>Forcefield prototype tested on a single wall section by 2750. Results validate integration architecture.</li>
+          <li>Partial forcefield integration across primary layer boundaries by 2800. Wall breach leakage drops sharply — the category that was previously the largest single leakage source becomes functionally negligible.</li>
+          <li>Full forcefield network operational by 2850. Physical mega-wall and energy barrier now operate simultaneously — the boundary infrastructure is layered, redundant, and impenetrable by any means available to individuals or organized groups.</li>
+          <li>AI governance maturity reaches levels where edge case classification accuracy approaches theoretical limits. The system has now processed millennia-equivalent decision data through simulation and centuries of real operation.</li>
+          <li>System leakage trajectory: ~1% (2650) → ~0.5% (2750) → ~0.3% (2800) → ~0.1% (2850). Parabolic acceleration begins.</li>
+        </ul>
+        <p class="rm-detail-muted">Leakage target by end of phase: ~0.1% — the parabolic acceleration commences</p>
+      </div>
+    </details>
+
+    <!-- ======== PHASE 6 — MATURE VMSS ======== -->
+    <section class="rm-scene" data-scene="p6" data-y0="2850" data-y1="3000">
+      <div class="rm-stage">
+        <header class="rm-caption">
+          <div class="rm-kicker">Phase 6 · 2850 – 3000</div>
+          <h2 class="rm-title">Mature VMSS</h2>
+          <p class="rm-lede">Four convergences — forcefield, energy abundance, backup vessel perfection, AI maturity — land inside the same 150-year window and compound. The last 0.09% of leakage falls faster than the preceding 24.91%.</p>
+        </header>
+        <div class="rm-visual">
+          <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four technology arcs rotating in and locking around a central seal as leakage collapses parabolically to 0.01 percent">
+            <!-- Parabolic plunge (background) -->
+            <g id="p6-plunge">
+              <path class="rm-draw rm-plunge" d="M 60 110 C 240 130 360 170 430 300 C 470 380 490 430 520 462 L 900 470" fill="none"/>
+              <text class="rm-svg-txt-mut" x="60" y="92" font-size="13">~0.1% (2850)</text>
+              <text class="rm-svg-txt-mut" x="900" y="500" text-anchor="end" font-size="13">~0.01% (3000)</text>
+            </g>
+            <!-- Convergence seal -->
+            <g id="p6-seal">
+              <circle cx="480" cy="266" r="86" class="rm-seal-core"/>
+              <text class="rm-svg-num" id="p6-num" x="480" y="272" text-anchor="middle" font-size="40">~0.1%</text>
+              <text class="rm-svg-txt-mut" x="480" y="300" text-anchor="middle" font-size="13">system leakage</text>
+              <g id="p6-arcs">
+                <g class="rm-conv" data-i="0"><path class="rm-conv-arc rm-ring-p1" d="M 480 146 A 120 120 0 0 1 594 232" fill="none"/><text class="rm-svg-txt" x="620" y="150" font-size="14">Forcefield</text></g>
+                <g class="rm-conv" data-i="1"><path class="rm-conv-arc rm-conv-blue" d="M 600 300 A 120 120 0 0 1 514 414" fill="none"/><text class="rm-svg-txt" x="640" y="404" font-size="14">Energy</text></g>
+                <g class="rm-conv" data-i="2"><path class="rm-conv-arc rm-ring-m1" d="M 446 414 A 120 120 0 0 1 360 300" fill="none"/><text class="rm-svg-txt" x="252" y="404" text-anchor="end" font-size="14">Vessels</text></g>
+                <g class="rm-conv" data-i="3"><path class="rm-conv-arc rm-ring-l0" d="M 366 232 A 120 120 0 0 1 480 146" fill="none"/><text class="rm-svg-txt" x="316" y="150" text-anchor="end" font-size="14">AI maturity</text></g>
+              </g>
+              <circle id="p6-halo" cx="480" cy="266" r="150" class="rm-halo"/>
+            </g>
+          </svg>
+        </div>
+        <p class="rm-stat" data-stat>Leakage: ~0.01% — what the founding accord promised in 2026, the mature civilization delivers in 3000</p>
+      </div>
+    </section>
+
+    <details class="rm-detail">
+      <summary>Phase 6 — full record</summary>
+      <div class="rm-detail-body">
+        <p>The final approach. Technologies converge. Leakage collapses parabolically. The civilization the founding accord envisioned becomes real.</p>
+        <ul class="list-disc pl-6 space-y-3">
+          <li>Dyson-class energy abundance enables enforcement network densities previously impossible — coverage gaps that produced apprehension failures essentially disappear when energy constraints are lifted.</li>
+          <li>Revival failure eliminated as a meaningful failure category. Reconstruction biology has reached theoretical maturity — the continuity guarantee is as close to absolute as physics permits.</li>
+          <li>Forcefield and physical wall operating in complete integration. The boundary infrastructure of the civilization has no known bypass mechanism available to any non-civilizational actor.</li>
+          <li>AI governance systems operating at maximum achievable accuracy after nearly a millennium of refinement. The judgment calls that produced failures in formative phases are now handled with precision that would have seemed impossible to the founding generation.</li>
+          <li>The four major technology convergences — forcefield, energy abundance, backup vessel perfection, AI maturity — arriving within the same 150-year window compound each other's effect. This is the parabolic spike. The last 0.09% of leakage is eliminated faster than the preceding 24.91%.</li>
+          <li>System leakage trajectory: ~0.1% (2850) → ~0.05% (2900) → ~0.02% (2950) → ~0.01% (3000).</li>
+          <li>The civilization of 3000 measures its consequence delivery at 0.01% leakage across all categories. What the founding accord promised in 2026, the mature civilization delivers in 3000 — not perfectly, but as close to perfectly as any human institution has ever come.</li>
+        </ul>
+        <p class="rm-detail-muted">Leakage target: ~0.01% — mature VMSS achieved</p>
+      </div>
+    </details>
+
   </div>
 </div>
 
-<!-- Phase 0 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">0</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 0: Foundation &amp; Research (2026 – 2070)</h2>
-<p class="text-[var(--text-secondary)] mb-6">The civilizational blueprint is established. The enabling technologies do not yet exist — this phase is the period in which they must begin to be developed before construction becomes possible.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Founding treaty signed March 29, 2026 — the legal and philosophical birth certificate of VMSS. Sovereign charter entity and non-profit foundation established to hold land and technology rights. For the contested founding era and geopolitical context, see <a href="world.html" class="text-[var(--accent)] hover:underline">The World of VMSS</a>.</li>
-<li>Core team assembled across neuroscience, materials engineering, AI systems, ethics, law, and governance. Seed funding secured from aligned long-horizon investors.</li>
-<li>First public whitepaper and charter released. Governance stress-tests conducted in simulation to identify structural contradictions before any physical deployment.</li>
-<li>Brain-computer interface research intensifies — early implant prototypes tested in animal models, then limited consenting human trials. No timeline for civilian deployment; this is foundational science, not product development.</li>
-<li>Backup vessel research initiated as a long-horizon program. Early work focuses on mind-state encoding theory and synthetic biology for vessel growth. Animal-scale continuity experiments begin. Human-grade revival remains decades away.</li>
-<li>STI ledger architecture designed and stress-tested in closed simulation environments. Behavioral scoring algorithms developed and audited for manipulation vectors.</li>
-<li>Autonomous drone enforcement prototypes tested in controlled settings. Materials research begins on advanced composite wall construction at scale.</li>
-<li>UBI pilot programs expanded and studied globally. Economic model validation continues at increasing scale — proving the automation dividend concept before civilizational deployment.</li>
-<li>Medical completeness research baseline established. Cancer treatment improving but fundamental cures remain elusive. Nanite-based cellular repair in early laboratory stages. Medical completeness delivery in upper layers estimated at ~35–40% — trauma, infection, and most cardiovascular disease handled; neurodegenerative disease, rare genetic conditions, and emergent diseases remain primary gaps.</li>
-<li>No physical ring construction in this phase. The 21st century ends with the framework established, the research underway, and the first technologies beginning to approach — but not yet crossing — their critical thresholds.</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Population: Core research team + volunteers. Leakage: ~90% → technology thresholds not yet crossed.</p>
-</div>
-
-<!-- Phase 1 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">1</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 1: Technology Threshold Crossing &amp; First Prototype (2070 – 2150)</h2>
-<p class="text-[var(--text-secondary)] mb-6">The load-bearing technologies begin crossing their critical thresholds. For the first time, meaningful physical infrastructure becomes possible.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Backup vessel technology achieves first reliable human revival in controlled conditions — the single most significant technological event in VMSS history. Revival failure rate still high but the category crosses from non-functional to operational.</li>
-<li>Neural implant ledger achieves continuous identity-anchored monitoring at small scale. STI computation proven reliable in a closed community environment.</li>
-<li>Autonomous enforcement reaches civilian deployment threshold — contextual judgment layer operational, response times approaching seconds rather than minutes in prototype zones.</li>
-<li>First small enclosed prototype community established — hundreds to low thousands of voluntary citizens operating under full VMSS conditions. Not a ring, not a mega-wall — a controlled settlement proving the integrated system works before physical scaling begins.</li>
-<li>Full UBI and Primary Job Subsidy system operational within the prototype community. Economic model validated under real conditions with real citizens.</li>
-<li>First sections of boundary wall infrastructure designed and initial construction begun. The mega-wall is a 22nd–24th century project — this phase lays the engineering and materials foundation.</li>
-<li>Leakage within the prototype community estimated at 40–50% — substantially better than the 90% baseline as load-bearing technologies come online, but still far from civilizational deployment quality.</li>
-<li>Medical drone systems proven at prototype scale. Nanite-based cellular repair functional in controlled conditions. Medical completeness delivery in upper layers approaches 50–55% by end of phase.</li>
-<li>First public leakage report issued. The 0.01% aspiration formally adopted as the civilizational standard. Edge cases from the prototype community systematically catalogued.</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Population: Prototype community of thousands. Leakage: ~90% → ~40–50% as load-bearing technologies cross initial thresholds.</p>
-</div>
-
-<!-- Phase 2 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">2</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 2: Planetary Consolidation (2150 – 2350)</h2>
-<p class="text-[var(--text-secondary)] mb-6">The full five-ring civilization reaches planetary scale and begins confronting the realities of long-duration operation.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Full planetary population across all rings reaches billions. Layer distribution stabilizes across large populations.</li>
-<li>Orbital habitats and first permanent off-world outposts established using VMSS principles.</li>
-<li>Lifespan extension reaches 250–300+ years practical for most citizens.</li>
-<li>Wall construction phases underway — prototype sections of the full boundary infrastructure completed and tested.</li>
-<li>VMSS becomes the dominant governance model for new human settlements beyond Earth.</li>
-<li>Early interstellar probe missions launched with backup vessel technology aboard.</li>
-<li>Upper layer medical completeness reaches approximately 70–80% by end of phase — most cancers curable, neurodegenerative disease treatment advancing significantly, rare genetic conditions the primary remaining gap. Lower layer access inequality becomes clearly documented as structural rather than technological — the cure exists civilizationally, but private market dynamics in -2 and -3 determine who reaches it.</li>
-<li>System leakage estimated at approximately 25% by 2150 — formative infrastructure operational but incomplete. Edge cases from generations of operation systematically catalogued and addressed through charter amendment process.</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Population: 1–5+ billion across the rings and beyond. Leakage: ~25% by 2150.</p>
-</div>
-
-<!-- Phase 3 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">3</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 3: Infrastructure Hardening (2350 – 2500)</h2>
-<p class="text-[var(--text-secondary)] mb-6">Two centuries of systematic construction and leakage reduction. The civilization transitions from prototype to proven architecture.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Full wall network construction across all five ring boundaries — the largest continuous engineering project in human history.</li>
-<li>Sub-surface and above-stratosphere wall dimensions proven to eliminate tunnelling and aviation-based breach approaches.</li>
-<li>Backup vessel technology matures — revival failure rates declining through successive generations of reconstruction science.</li>
-<li>Enforcement drone coverage expands toward full saturation within Main Layer and above.</li>
-<li>AI governance systems accumulate two centuries of edge case data — classification accuracy reaches new benchmarks.</li>
-<li>The lower layer private economies mature. -3 sub-stratification into voluntary and punitive communities is well-established. Private justice infrastructure operates reliably across punitive layers.</li>
-<li>System leakage trajectory: ~8% (2350) → ~4% (2400) → ~2% (2450) → ~1.5% (2500).</li>
-<li>First Dyson swarm feasibility studies completed. Energy planning horizon set at 2600 for first partial deployment.</li>
-<li>Upper layer medical completeness approaches 90–95%. Most remaining gaps are rare genetic edge cases and newly emergent conditions — the tail end of a centuries-long elimination program. The lower layer access gap is fully documented and accepted as the structural consequence of institutional withdrawal. Private medical markets in -1 and -2 have matured but access inequality persists in proportion to wealth distribution.</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Leakage target by end of phase: ~1.5%</p>
-</div>
-
-<!-- Phase 4 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">4</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 4: Systemic Refinement (2500 – 2600)</h2>
-<p class="text-[var(--text-secondary)] mb-6">The civilization reaches operational maturity. Leakage enters single-digit territory. The focus shifts from building to refining.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Full wall network complete and operational across all layer boundaries. Boundary breach now requires extraordinary organized effort detectable by seismic and sensor networks before completion.</li>
-<li>Revival failure rate approaches near-zero through mature reconstruction biology. Continuity guarantee becomes reliable at civilizational scale.</li>
-<li>Enforcement network achieves near-complete coverage — apprehension failure becomes the exception rather than the rule.</li>
-<li>First partial Dyson swarm segments operational by 2600, beginning the transition to energy abundance beyond planetary renewable capacity.</li>
-<li>Charter amendments through this period reflect 350+ years of lived civilizational experience — the document matures from founding framework to refined operating constitution.</li>
-<li>Cross-layer cultural identity is well-established. The informal layer names — the Freedom Layer, the Balanced Layer, the Lower Restrictions Layer — are common civilizational vocabulary.</li>
-<li>Upper layer medical completeness reaches near-theoretical limits — known disease elimination approaching completion in institutionally covered layers. The remaining leakage in upper layer medical is statistical noise rather than systemic gap. Lower layer medical access inequality stabilizes at its structural floor; the gap no longer narrows as it is not driven by technology.</li>
-<li>System leakage trajectory: ~1.5% (2500) → ~1.2% (2550) → ~1% (2600).</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Leakage target by end of phase: ~1%</p>
-</div>
-
-<!-- Phase 5 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">5</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 5: The Forcefield Century (2600 – 2850)</h2>
-<p class="text-[var(--text-secondary)] mb-6">Dyson-class energy enables a new class of boundary infrastructure. The civilization prepares for its final approach to mature operation.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Dyson swarm energy output reaches levels sufficient for sustained planetary forcefield maintenance — the threshold that makes the forcefield upgrade viable shifts from theoretical to engineering.</li>
-<li>Forcefield prototype tested on a single wall section by 2750. Results validate integration architecture.</li>
-<li>Partial forcefield integration across primary layer boundaries by 2800. Wall breach leakage drops sharply — the category that was previously the largest single leakage source becomes functionally negligible.</li>
-<li>Full forcefield network operational by 2850. Physical mega-wall and energy barrier now operate simultaneously — the boundary infrastructure is layered, redundant, and impenetrable by any means available to individuals or organized groups.</li>
-<li>AI governance maturity reaches levels where edge case classification accuracy approaches theoretical limits. The system has now processed millennia-equivalent decision data through simulation and centuries of real operation.</li>
-<li>System leakage trajectory: ~1% (2650) → ~0.5% (2750) → ~0.3% (2800) → ~0.1% (2850). Parabolic acceleration begins.</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Leakage target by end of phase: ~0.1% — the parabolic acceleration commences</p>
-</div>
-
-<!-- Phase 6 -->
-<div class="timeline-item">
-<div class="absolute -left-3 w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-<span class="text-black text-xs font-bold">6</span>
-</div>
-<h2 class="text-4xl font-bold text-[var(--accent)] mb-3">Phase 6: Mature VMSS (2850 – 3000)</h2>
-<p class="text-[var(--text-secondary)] mb-6">The final approach. Technologies converge. Leakage collapses parabolically. The civilization the founding accord envisioned becomes real.</p>
-<ul class="list-disc pl-6 space-y-3 text-[var(--text-secondary)]">
-<li>Dyson-class energy abundance enables enforcement network densities previously impossible — coverage gaps that produced apprehension failures essentially disappear when energy constraints are lifted.</li>
-<li>Revival failure eliminated as a meaningful failure category. Reconstruction biology has reached theoretical maturity — the continuity guarantee is as close to absolute as physics permits.</li>
-<li>Forcefield and physical wall operating in complete integration. The boundary infrastructure of the civilization has no known bypass mechanism available to any non-civilizational actor.</li>
-<li>AI governance systems operating at maximum achievable accuracy after nearly a millennium of refinement. The judgment calls that produced failures in formative phases are now handled with precision that would have seemed impossible to the founding generation.</li>
-<li>The four major technology convergences — forcefield, energy abundance, backup vessel perfection, AI maturity — arriving within the same 150-year window compound each other's effect. This is the parabolic spike. The last 0.09% of leakage is eliminated faster than the preceding 24.91%.</li>
-<li>System leakage trajectory: ~0.1% (2850) → ~0.05% (2900) → ~0.02% (2950) → ~0.01% (3000).</li>
-<li>The civilization of 3000 measures its consequence delivery at 0.01% leakage across all categories. What the founding accord promised in 2026, the mature civilization delivers in 3000 — not perfectly, but as close to perfectly as any human institution has ever come.</li>
-</ul>
-<p class="mt-6 text-sm text-[var(--text-muted)]">Leakage target: ~0.01% — mature VMSS achieved</p>
-</div>
-
-</div>
-
-<div class="mt-16 bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] p-8">
-  <h2 class="text-3xl font-bold mb-4">The Leakage Gradient</h2>
-  <p class="text-[var(--text-secondary)] leading-relaxed mb-6">The trajectory figures above are weighted averages across all five layers. The headline number masks a meaningful spread — one that widens as the civilization matures and upper layers approach near-zero while the terminal layer maintains a structural floor. At key milestones the layer gradient looks approximately as follows:</p>
-  <div class="overflow-x-auto">
-    <table class="w-full text-sm border-collapse">
-      <thead>
-        <tr class="text-xs uppercase tracking-widest text-[var(--text-muted)] border-b border-[var(--border)]">
-          <th class="text-left pb-3 pr-6">Year</th>
-          <th class="text-left pb-3 pr-6">+1 Sanctuary</th>
-          <th class="text-left pb-3 pr-6">Main Layer</th>
-          <th class="text-left pb-3 pr-6">-1</th>
-          <th class="text-left pb-3 pr-6">-2</th>
-          <th class="text-left pb-3">-3 Terminal</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-[var(--border)] text-[var(--text-secondary)]">
-        <tr><td class="py-3 pr-6">2150</td><td class="py-3 pr-6">~15%</td><td class="py-3 pr-6">~20%</td><td class="py-3 pr-6">~30%</td><td class="py-3 pr-6">~40%</td><td class="py-3">~55%</td></tr>
-        <tr><td class="py-3 pr-6">2350</td><td class="py-3 pr-6">~4%</td><td class="py-3 pr-6">~6%</td><td class="py-3 pr-6">~10%</td><td class="py-3 pr-6">~15%</td><td class="py-3">~30%</td></tr>
-        <tr><td class="py-3 pr-6">2550</td><td class="py-3 pr-6">~0.8%</td><td class="py-3 pr-6">~1.5%</td><td class="py-3 pr-6">~3%</td><td class="py-3 pr-6">~5%</td><td class="py-3">~12%</td></tr>
-        <tr><td class="py-3 pr-6">2850</td><td class="py-3 pr-6">~0.01%</td><td class="py-3 pr-6">~0.05%</td><td class="py-3 pr-6">~0.2%</td><td class="py-3 pr-6">~0.4%</td><td class="py-3">~1.2%</td></tr>
-        <tr><td class="py-3 pr-6">3000</td><td class="py-3 pr-6">~0.0001%</td><td class="py-3 pr-6">~0.005%</td><td class="py-3 pr-6">~0.05%</td><td class="py-3 pr-6">~0.2%</td><td class="py-3">~1%</td></tr>
-      </tbody>
-    </table>
+<!-- ============ EPILOGUE — THE LEAKAGE GRADIENT ============ -->
+<section class="rm-epilogue">
+<div class="lg:max-w-[70%] mx-auto px-6">
+  <div class="rm-epilogue-card">
+    <h2 class="text-3xl font-bold mb-4">The Leakage Gradient</h2>
+    <p class="text-[var(--text-secondary)] leading-relaxed mb-6">The trajectory figures in the timeline are weighted averages across all five layers. The headline number masks a meaningful spread — one that widens as the civilization matures and upper layers approach near-zero while the terminal layer maintains a structural floor. Where the five strands land at civilizational maturity:</p>
+    <div class="rm-final-chips">
+      <div class="rm-final-chip" data-strand="p1"><span class="rm-chip-dot"></span><span class="rm-final-name">+1 Sanctuary</span><span class="rm-final-val rm-grotesk">~0.0001%</span></div>
+      <div class="rm-final-chip" data-strand="l0"><span class="rm-chip-dot"></span><span class="rm-final-name">Main Layer</span><span class="rm-final-val rm-grotesk">~0.005%</span></div>
+      <div class="rm-final-chip" data-strand="m1"><span class="rm-chip-dot"></span><span class="rm-final-name">-1</span><span class="rm-final-val rm-grotesk">~0.05%</span></div>
+      <div class="rm-final-chip" data-strand="m2"><span class="rm-chip-dot"></span><span class="rm-final-name">-2</span><span class="rm-final-val rm-grotesk">~0.2%</span></div>
+      <div class="rm-final-chip" data-strand="m3"><span class="rm-chip-dot"></span><span class="rm-final-name">-3 Terminal</span><span class="rm-final-val rm-grotesk">~1%</span></div>
+      <div class="rm-final-chip rm-final-agg" data-strand="agg"><span class="rm-chip-dot"></span><span class="rm-final-name">Weighted</span><span class="rm-final-val rm-grotesk">~0.01%</span></div>
+    </div>
+    <p class="text-[var(--text-secondary)] leading-relaxed mt-6">The terminal layer's ~1% floor at civilizational maturity is structural rather than technological — the inevitable expression of a fully privatized environment operating without institutional coverage. The 0.01% weighted average is the honest aggregate of five layers with five different design philosophies, each producing the leakage native to what it is.</p>
+    <details class="rm-detail rm-detail-table">
+      <summary>The canonical gradient table — layer leakage at key milestones</summary>
+      <div class="rm-detail-body">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="text-xs uppercase tracking-widest text-[var(--text-muted)] border-b border-[var(--border)]">
+                <th class="text-left pb-3 pr-6">Year</th>
+                <th class="text-left pb-3 pr-6">+1 Sanctuary</th>
+                <th class="text-left pb-3 pr-6">Main Layer</th>
+                <th class="text-left pb-3 pr-6">-1</th>
+                <th class="text-left pb-3 pr-6">-2</th>
+                <th class="text-left pb-3">-3 Terminal</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border)] text-[var(--text-secondary)]">
+              <tr><td class="py-3 pr-6">2150</td><td class="py-3 pr-6">~15%</td><td class="py-3 pr-6">~20%</td><td class="py-3 pr-6">~30%</td><td class="py-3 pr-6">~40%</td><td class="py-3">~55%</td></tr>
+              <tr><td class="py-3 pr-6">2350</td><td class="py-3 pr-6">~4%</td><td class="py-3 pr-6">~6%</td><td class="py-3 pr-6">~10%</td><td class="py-3 pr-6">~15%</td><td class="py-3">~30%</td></tr>
+              <tr><td class="py-3 pr-6">2550</td><td class="py-3 pr-6">~0.8%</td><td class="py-3 pr-6">~1.5%</td><td class="py-3 pr-6">~3%</td><td class="py-3 pr-6">~5%</td><td class="py-3">~12%</td></tr>
+              <tr><td class="py-3 pr-6">2850</td><td class="py-3 pr-6">~0.01%</td><td class="py-3 pr-6">~0.05%</td><td class="py-3 pr-6">~0.2%</td><td class="py-3 pr-6">~0.4%</td><td class="py-3">~1.2%</td></tr>
+              <tr><td class="py-3 pr-6">3000</td><td class="py-3 pr-6">~0.0001%</td><td class="py-3 pr-6">~0.005%</td><td class="py-3 pr-6">~0.05%</td><td class="py-3 pr-6">~0.2%</td><td class="py-3">~1%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
   </div>
-  <p class="text-[var(--text-secondary)] leading-relaxed mt-6">The terminal layer's ~1% floor at civilizational maturity is structural rather than technological — the inevitable expression of a fully privatized environment operating without institutional coverage. The 0.01% weighted average is the honest aggregate of five layers with five different design philosophies, each producing the leakage native to what it is.</p>
 </div>
+</section>
 
-</div>
-</section></main>
-
-
+</main>
 
 <script src="script.js" defer></script>
+<script src="roadmap.js" defer></script>
 <div id="footer-placeholder"></div></body>
 </html>
