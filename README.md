@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 21.5
+**Version:** 21.6
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -92,6 +92,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 │       ├── sti-sim.js      # STI simulation console
 │       └── card-filter.js  # Shared search/chip/select filter (simulations, faq, why-vmss)
 ├── documents/
+│   ├── design-principles.md         # The reasoning patterns behind the doctrine (companion to whitepaper §12, §28.0; Charter XI)
 │   ├── academy-source.html          # Source for the Academy course packet PDF
 │   ├── resources-source.html        # Source for the Academic Resources PDF
 │   ├── vmss-academy-course-packet.pdf
