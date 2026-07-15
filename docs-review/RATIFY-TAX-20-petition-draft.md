@@ -57,7 +57,7 @@ back-stopping a bracket no one defends on revenue grounds).
 
 The rates fall **only as automation demonstrably carries the institutional load the tax now
 carries.** Per LP-070's Main-treasury architecture, recalibration conditions on the treasury's
-coverage ratio holding **≥ [FOUNDER-SET]** from automation-side revenue. This petition is inert
+coverage ratio holding **≥ 120% over a trailing 36-month window, with no single month below 100%**, from automation-side revenue. This petition is inert
 until that gate reads green: it is not a standing promise to cut, it is a pre-drafted cut that
 arms when automation revenue covers the treasury's enumerated obligations without the top-bracket
 contribution. If the ratio later slips below threshold, the same ladder repeals it.
@@ -79,7 +79,7 @@ at filing.
 
 ## Placeholders (FOUNDER-AUTHOR)
 
-- Coverage-ratio threshold `[FOUNDER-SET]` (shared with LP-070's treasury paragraph).
+- Coverage-ratio threshold `120% over a trailing 36-month window, with no single month below 100%` (shared with LP-070's treasury paragraph).
 - In-world filing/ratification margins, dates, drafter, and the gauntlet outcome — this petition
   may **fail** a gate, and failure is doctrine: the cascade is a proposal, not a foregone result.
 - The ~$2B-equivalent ceiling is an order-of-magnitude placeholder for founder calibration.
