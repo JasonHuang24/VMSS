@@ -42,6 +42,7 @@ with the founder-ruling letter (A–F) that decided it where one applies.
 | **LP-051** | Enacted | **ENGRAVED (Wave 2)** | §7 | federal seat-handoff spec (after leadership/succession para) |
 | **LP-056** | Enacted | **ENGRAVED (Wave 2)** | §16.1 | restorative-exposure boundary mechanism |
 | **LP-060** | Enacted | **ENGRAVED (Wave 2)** | §17.2 | survivor elective-excision mechanism |
+| **LP-070** | Enacted | **ENGRAVED (v21.9, born)** | §12.5, §12.6 | idle-commercial enforcement + Main-treasury architecture + pulse-ordering + trigger-geography accepted tension; engraved at authoring and cited (LP-070); paired Charter III.III restatement marker per RULING-TIER (Whitepaper §12.1 binding source) |
 | **LP-036** | Enacted (reg) | **ENGRAVED (Wave 2) [RULING C]** | §5.4.1 | cross-era comparability, one sentence at the dynamic-formula/temporal-scoring point |
 | **LP-005.3** ⬥ | Enacted | **ENGRAVED (Wave 2, cross-ref) [RULING A]** | §24 intro | one-sentence pointer; internal counter-sovereignty home remains Charter XXV.IV + registry |
 | **LP-031** | Enacted | **SUPERSEDED-in-spirit [RULING E]** | §22 adj. | registry supersession note added (badge + Supersession row + chain LP-045→LP-045.2→LP-031); no WP engraving |
@@ -85,8 +86,23 @@ with the founder-ruling letter (A–F) that decided it where one applies.
    the explicit 8-year cadence remains uncited. Now referenced indirectly via the
    LP-036 engraving at §5.4.1 ("eight-year calibration cycle"); a direct LP-026
    citation at §5.4.2 is still available if desired.
+3. **Charter restatement audit (v21.9, RULING-TIER):** Charter III.III's rate table is
+   now marked as a restatement of the binding schedule at Whitepaper §12.1 — the first
+   instance of the restatement-marker convention (class `charter-restatement`; italic
+   "Restatement." lead → binding source + tier → recalibration route → precedence rule).
+   A full sweep of every Charter article to mark which text *binds* and which *restates*
+   federal/whitepaper mechanics with the same convention is queued as its own workstream
+   and NOT attempted this pass (rationale in v21.9-FLAGS.md: the aura problem is that any
+   misplaced restatement reads as amendment-tier protection over what is actually federal
+   law; III.III was one instance, a systematic audit is the fix). Owner: a future Charter
+   legibility pass.
 
 ## Checks (Wave 2)
 
 - `node tools/check-canon.mjs` → 68 passed, 0 failed (exit 0).
 - `node tools/build-law-toc.mjs` → 82 entries indexed (7 Charter · 54 Federal · 21 Regulatory), exit 0.
+
+## Checks (v21.9)
+
+- `node tools/check-canon.mjs` → 68 passed, 0 failed (exit 0); derived `law 7/55/22 of 84`.
+- `node tools/build-law-toc.mjs` → 84 entries indexed (7 Charter · 55 Federal · 22 Regulatory), exit 0.
