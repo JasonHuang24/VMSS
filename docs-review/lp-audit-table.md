@@ -42,7 +42,7 @@ with the founder-ruling letter (A–F) that decided it where one applies.
 | **LP-051** | Enacted | **ENGRAVED (Wave 2)** | §7 | federal seat-handoff spec (after leadership/succession para) |
 | **LP-056** | Enacted | **ENGRAVED (Wave 2)** | §16.1 | restorative-exposure boundary mechanism |
 | **LP-060** | Enacted | **ENGRAVED (Wave 2)** | §17.2 | survivor elective-excision mechanism |
-| **LP-070** | Enacted | **ENGRAVED (v21.9, born)** | §12.5, §12.6 | idle-commercial enforcement + Main-treasury architecture + pulse-ordering + trigger-geography accepted tension; engraved at authoring and cited (LP-070); paired Charter III.III restatement marker per RULING-TIER (Whitepaper §12.1 binding source) |
+| **LP-070** | Enacted | **ENGRAVED (v21.9, born)** | §12.5, §12.6 | idle-commercial enforcement + Main-treasury architecture + pulse-ordering + trigger-geography accepted tension + primary-residence value-concentration do-nothing (Palace ruling, §12.5); engraved at authoring and cited (LP-070); paired Charter III.III restatement marker per RULING-TIER (Whitepaper §12.1 binding source) |
 | **LP-036** | Enacted (reg) | **ENGRAVED (Wave 2) [RULING C]** | §5.4.1 | cross-era comparability, one sentence at the dynamic-formula/temporal-scoring point |
 | **LP-005.3** ⬥ | Enacted | **ENGRAVED (Wave 2, cross-ref) [RULING A]** | §24 intro | one-sentence pointer; internal counter-sovereignty home remains Charter XXV.IV + registry |
 | **LP-031** | Enacted | **SUPERSEDED-in-spirit [RULING E]** | §22 adj. | registry supersession note added (badge + Supersession row + chain LP-045→LP-045.2→LP-031); no WP engraving |
