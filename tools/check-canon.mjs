@@ -170,6 +170,28 @@ check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.m
   check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
 }
 
+/* Supersession chain (v22.0.1): the excavated rate-history statutes form a
+   single chain LP-071 → LP-072 → LP-073 → LP-074. Every link but the last is a
+   superseded statute; exactly one — the tail — is the active schedule in force.
+   Guards the record class against a second "active" schedule, a broken chain,
+   or a renumbering that leaves the trajectory without a live terminus. */
+{
+  const CHAIN = ['lp-071', 'lp-072', 'lp-073', 'lp-074'];
+  const statusOf = (id) => {
+    const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
+    return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
+  };
+  const chainStatuses = CHAIN.map(statusOf);
+  const missing = CHAIN.filter((_, i) => chainStatuses[i] === null);
+  const active = chainStatuses.filter((s) => s === 'status-active').length;
+  const superseded = chainStatuses.filter((s) => s === 'status-superseded').length;
+  const tailActive = chainStatuses[CHAIN.length - 1] === 'status-active';
+  const ok = missing.length === 0 && active === 1 && superseded === CHAIN.length - 1 && tailActive;
+  check(ok, 'rate-history supersession chain (LP-071→072→073→074, exactly one active)',
+    missing.length ? `missing: ${missing.join(', ')}`
+      : `active=${active} superseded=${superseded} tail=${chainStatuses[CHAIN.length - 1]}`);
+}
+
 /* ---- 5. LP citations elsewhere resolve to real anchors ---- */
 const anchorSet = new Set(entryIds);
 for (const file of ['whitepaper.html', 'simulations.html']) {

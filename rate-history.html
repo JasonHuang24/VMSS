@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
+  <title>Rate-History Record • The Five Rings</title>
+  <meta name="description" content="The excavated tax-rate trajectory of the civilization — four strata from the founding net-worth cap to the current abundance ratchet, each with its provenance hash. Mode: EXCAVATED." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://jasonhchronicles.com/VMSS/rate-history.html" />
+
+  <script>
+    const saved = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+<noscript><style>body{opacity:1}</style></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+
+  <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+
+  <style>
+    /* Shares the ratification-record document system; recolored to the
+       archival "excavated stratum" stone tone used on law-polling.html. */
+    .pending-shell { --pending-warn: #d98a3a; --excavated: #a8977a; }
+    :root[data-theme="light"] .pending-shell { --pending-warn: #b26a1f; --excavated: #786a52; }
+    .excavated-banner {
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--excavated);
+      background: var(--bg-secondary);
+      border-radius: 14px;
+      padding: 1.1rem 1.35rem;
+      display: flex; gap: .85rem; align-items: flex-start;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+    .excavated-banner i { color: var(--excavated); font-size: 1.15rem; margin-top: .15rem; }
+    .excavated-banner .eb-label {
+      font-size: .7rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--excavated); font-weight: 700; display: block; margin-bottom: .3rem;
+    }
+    .excavated-banner p { color: var(--text-secondary); line-height: 1.6; font-size: .95rem; }
+    .excavated-banner strong { color: var(--text-primary); }
+    .hash { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--excavated); font-weight: 600; }
+    .pending-crosslinks { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .pending-crosslink {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: .5rem .95rem; font-size: .9rem; color: var(--text-secondary);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .pending-crosslink:hover { border-color: var(--accent); color: var(--accent); }
+    .pending-crosslink.is-primary {
+      border-color: var(--excavated); color: var(--text-primary);
+      background: color-mix(in srgb, var(--excavated) 14%, transparent);
+    }
+    .pending-crosslink.is-primary i { color: var(--excavated); }
+    .pending-doc { color: var(--text-secondary); line-height: 1.72; font-size: 1.02rem; }
+    .pending-doc .pending-h { color: var(--text-primary); font-weight: 700; line-height: 1.3; scroll-margin-top: 6rem; }
+    .pending-doc .pending-h1 { font-size: 1.9rem; margin: .2rem 0 1.2rem; }
+    .pending-doc .pending-h2 { font-size: 1.6rem; margin: 2.4rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+    .pending-doc .pending-h3 { font-size: 1.22rem; margin: 1.9rem 0 .7rem; }
+    .pending-doc .pending-p { margin: 0 0 1rem; }
+    .pending-doc strong { color: var(--text-primary); font-weight: 700; }
+    .pending-doc .pending-list { margin: 0 0 1.15rem 1.35rem; padding: 0; }
+    .pending-doc .pending-list li { margin: 0 0 .55rem; padding-left: .2rem; }
+    .pending-doc ul.pending-list { list-style: disc; }
+    .pending-doc .pending-hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+    .pending-table-wrap { overflow-x: auto; margin: 0 0 1.4rem; border: 1px solid var(--border); border-radius: 12px; }
+    .pending-table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 760px; }
+    .pending-table th, .pending-table td { text-align: left; vertical-align: top; padding: .6rem .8rem; border-bottom: 1px solid var(--border); }
+    .pending-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; white-space: nowrap; }
+    .pending-table tbody tr:last-child td { border-bottom: 0; }
+    .pending-table td:first-child { white-space: nowrap; color: var(--text-primary); font-weight: 600; }
+    .era-chip { display:inline-block; font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; font-weight:700; border-radius:999px; padding:.12rem .5rem; }
+    .era-superseded { background: rgba(150,137,112,.16); color: var(--excavated); border:1px solid rgba(150,137,112,.4); }
+    .era-active { background: rgba(34,211,238,.14); color:#4dd6e6; border:1px solid rgba(34,211,238,.42); }
+    :root[data-theme="light"] .era-active { color:#0e7490; }
+  </style>
+</head>
+
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content" class="flex-1 pending-shell">
+    <section class="pt-32 pb-32">
+      <div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
+
+        <div class="mb-8">
+          <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">Ratification Record · Rate-History</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">Rate-History Record — The Excavated Tax Trajectory</h1>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Four strata of the civilization's top-marginal tax posture, read directly off the record — from the blunt founding net-worth cap to the current abundance ratchet. Each stratum names the statute that engraves it and the provenance hash it was excavated from.</p>
+        </div>
+
+        <div class="excavated-banner mb-10" role="note" aria-label="Provenance mode">
+          <i class="fas fa-layer-group" aria-hidden="true"></i>
+          <div>
+            <span class="eb-label">Mode: EXCAVATED</span>
+            <p>This trajectory is <strong>excavated, not authored</strong>: every schedule below is present in the civilization's own commit record and quoted from it. Schedule strata: <span class="hash">4b11bf2</span> (founding net-worth cap) → <span class="hash">18f771d</span> (layered income schedule) → <span class="hash">5c3a0f6</span> (point-halving cascade) → founder ruling R10 (current). The anti-concentration instrument that triggered the third stratum was itself born at <span class="hash">00c7b49</span>. History is immutable: the strata are recorded, not revised.</p>
+          </div>
+        </div>
+
+        <div class="pending-doc">
+
+          <p class="pending-p">The register carries each schedule as its own statute (<a href="law-polling.html#lp-071">LP-071</a> → <a href="law-polling.html#lp-072">LP-072</a> → <a href="law-polling.html#lp-073">LP-073</a> → <a href="law-polling.html#lp-074">LP-074</a>), three of them superseded and one active. This page reads the four together, as a single trajectory.</p>
+
+          <div class="pending-table-wrap">
+            <table class="pending-table">
+              <thead>
+                <tr>
+                  <th scope="col">Era</th>
+                  <th scope="col">In-world years</th>
+                  <th scope="col">Top-marginal schedule</th>
+                  <th scope="col">Structure</th>
+                  <th scope="col">Trigger / cause</th>
+                  <th scope="col">Statute</th>
+                  <th scope="col">Provenance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Foundation<br><span class="era-chip era-superseded">Superseded</span></td>
+                  <td>Y0–Y11</td>
+                  <td>90–99% on net worth exceeding multiple billions</td>
+                  <td>Single band · taxes stock (net worth)</td>
+                  <td>Founding instrument; anti-concentration only</td>
+                  <td><a href="law-polling.html#lp-071">LP-071</a></td>
+                  <td><span class="hash">4b11bf2</span><br>site v4.0 (genesis)</td>
+                </tr>
+                <tr>
+                  <td>Confiscation<br><span class="era-chip era-superseded">Superseded</span></td>
+                  <td>Y12–Y46</td>
+                  <td>90–99 / 45–50 / 20–25 / 10–15 on income &gt; $10,000,000</td>
+                  <td>Four bands · taxes stream (income) · layer-mapped</td>
+                  <td>Pivot from stock to stream; revenue and trust functions added</td>
+                  <td><a href="law-polling.html#lp-072">LP-072</a></td>
+                  <td><span class="hash">18f771d</span><br>v9.0</td>
+                </tr>
+                <tr>
+                  <td>Consolidation<br><span class="era-chip era-superseded">Superseded</span></td>
+                  <td>Y47–Y111</td>
+                  <td>70 / 35 / 17 / 8 on income &gt; $10,000,000</td>
+                  <td>Point rates · exact halving cascade</td>
+                  <td>Savings Circulation Mandate assumes anti-concentration (born <span class="hash">00c7b49</span> · v9.6.1)</td>
+                  <td><a href="law-polling.html#lp-073">LP-073</a></td>
+                  <td><span class="hash">5c3a0f6</span><br>v14.5</td>
+                </tr>
+                <tr>
+                  <td>Abundance<br><span class="era-chip era-active">Active</span></td>
+                  <td>Y112–present</td>
+                  <td>50 / 25 / 12.5 / 6.25 on income &gt; $10,000,000</td>
+                  <td>Point rates · exact halving cascade</td>
+                  <td>Trajectory principle; automation-side revenue matured (R7 abundance posture)</td>
+                  <td><a href="law-polling.html#lp-074">LP-074</a></td>
+                  <td>founder ruling R10<br>canon v22.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pending-p" style="font-size:.9rem;color:var(--text-muted)">The <strong>$10,000,000</strong> earned-income threshold has been unchanged since it was introduced with the layered schedule; the founding cap predates it, taxing net worth rather than income. Era-year boundaries Y47 (SCM transfer) and Y112 (abundance) are founder-set; the Foundation/Confiscation split at Y11 is a record convention.</p>
+
+          <h2 class="pending-h pending-h2">The band-to-point precision arc</h2>
+          <p class="pending-p">The two founding strata governed by <strong>bands</strong> — a range within which each layer's authority set posture annually. Bands were not imprecision for its own sake; they were what a young institution could honestly enforce. At <span class="hash">18f771d</span> the layered schedule still read "90–99% / 45–50% / 20–25% / 10–15%," a range per layer, because enforcement capability had not yet matured to the point where a single number could be held.</p>
+          <p class="pending-p">At <span class="hash">5c3a0f6</span> the bands were cut to <strong>points</strong> in a single restructure — 70 / 35 / 17 / 8, an exact halving cascade. Band-to-point is itself doctrine: point rates are what a matured enforcement capability produces. Variance was no longer necessary, and therefore no longer permitted. The current schedule (50 / 25 / 12.5 / 6.25) keeps the point discipline and halves again from the top. Precision is a record of institutional age, not a stylistic choice.</p>
+
+          <h2 class="pending-h pending-h2">The one-million-to-present population arc</h2>
+          <p class="pending-p">The founding-era record numbers the civilization at <strong>roughly one million citizens</strong> — the same figure that anchors the earliest Savings Circulation Mandate parameters (a $100,000-per-citizen average savings balance reading as $100 billion in aggregate across one million citizens). At that scale, taxing accumulated wealth at a single blunt rate was sufficient: there were few enough concentration vectors that one instrument could watch them all.</p>
+          <p class="pending-p">As the population and its economy grew, no single blunt instrument could carry all three of taxation's founding functions — revenue, anti-concentration, and trust. The layered schedule split the burden across the layers by benefit received; the SCM then lifted anti-concentration off the marginal rate entirely. Each widening of the civilization retired a job the tax rate had been doing alone, and each retirement let the rate fall. The trajectory down is the trace of the institution outgrowing its own crutches.</p>
+
+          <h2 class="pending-h pending-h2">Era artifacts — the 70-schedule period</h2>
+          <p class="pending-p">The Consolidation-era rate (70 / 35 / 17 / 8) is the schedule under which the civilization's <strong>Doctrine-Snapshot v14.5</strong> simulations were authored. These cards are pinned artifacts of that stratum and are <em>not</em> revised to the current schedule — they show the world as it stood at the 70-rate:</p>
+          <ul class="pending-list">
+            <li><a href="simulations.html#sim-civ-4">The Wealth Ceiling</a> — Sera Voss, the neural-diving composer grossing $200M who keeps $60M at the 70% top marginal rate; the canonical illustration of the elite-wealth market the point schedule was tuned to permit while the SCM prevents concentration.</li>
+            <li><a href="simulations.html#sim-civ-2">The Cradle Offensive</a> and <a href="simulations.html#sim-civ-3">The Border Audit</a> — the other two v14.5 civilizational snapshots of the same period.</li>
+          </ul>
+          <p class="pending-p" style="font-size:.9rem;color:var(--text-muted)">Doctrine-Snapshot-stamped simulations are era-pinned by design and are left exactly as engraved. Read them as the 70-schedule's own record, not as current-state claims.</p>
+
+          <h2 class="pending-h pending-h2">The supersession chain</h2>
+          <p class="pending-p">Each stratum is superseded, not repealed — the record keeps where the civilization stood at each stage, and why it moved on. Exactly one schedule is active at a time; the chain has a single live terminus.</p>
+          <div class="pending-crosslinks" style="margin-top:1.1rem">
+            <a href="law-polling.html#lp-071" class="pending-crosslink"><i class="fas fa-monument" aria-hidden="true"></i> LP-071 — Foundation Cap</a>
+            <a href="law-polling.html#lp-072" class="pending-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-072 — Layered Schedule</a>
+            <a href="law-polling.html#lp-073" class="pending-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — First Ratchet</a>
+            <a href="law-polling.html#lp-074" class="pending-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> LP-074 — Abundance Ratchet (Active)</a>
+          </div>
+
+          <h2 class="pending-h pending-h2">The through-line — the Trajectory Principle</h2>
+          <p class="pending-p">The current statute (<a href="law-polling.html#lp-074">LP-074</a>) does not merely set a number; it codifies the pattern the three strata above already demonstrate. <strong>Top marginal rates track institutional need, not posture.</strong> Taxation's three founding functions — revenue, anti-concentration, and trust — each retire as automation revenue, structural anti-concentration instruments, and a verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. The civilization executed that logic once before the principle was written (v14.5, on SCM-transfer grounds); LP-074 states the demonstrated behavior as standing law.</p>
+          <p class="pending-p">Every future reduction under the principle requires audited evidence per the <a href="pending-ratification.html#path-2">Path 2 standing audit</a> — never authored facts. Where authored facts grounded the current reduction, the Path 2 controlling estimate supersedes them (petition v4.1 §7(e)), and the cadence rider binds review. The abundance ratchet was ratified by founder override (R10) over a 1–4 synthetic gauntlet; the opposition brief and session record publish alongside it.</p>
+          <div class="pending-crosslinks" style="margin-top:1.1rem">
+            <a href="pending-ratify-tax-50-record.html" class="pending-crosslink is-primary"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Session Record — founder ruling R10</a>
+            <a href="pending-ratify-tax-50-opposition.html" class="pending-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Opposition Brief — retained in perpetuity</a>
+            <a href="pending-ratification.html#path-2" class="pending-crosslink"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i> Path 2 — standing fiscal-facts audit</a>
+            <a href="pending-ratification.html" class="pending-crosslink"><i class="fas fa-scroll" aria-hidden="true"></i> Ratification Record</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
