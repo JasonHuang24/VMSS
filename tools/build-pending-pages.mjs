@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * build-pending-pages.mjs — generates the "Pending Ratification" section of the
- * site from the docs-review source documents. This is PRE-VOTE, NON-CANON
- * material: the pages carry a standing "PENDING — not canon" banner and never
- * register as law entries (no <article class="law-entry">), so check-canon and
- * build-law-toc are unaffected.
+ * build-pending-pages.mjs — generates the "Ratification Record" section of the
+ * site from the docs-review source documents. These are decided proposals and
+ * their retained adversarial briefs: the pages carry a standing status banner
+ * and never register as law entries (no <article class="law-entry">), so
+ * check-canon and build-law-toc are unaffected.
  *
  * Verbatim guarantee: the source documents are rendered from Markdown to HTML,
  * and the script then asserts that the *visible text* of each generated body
@@ -246,11 +246,11 @@ const PENDING_STYLE = `
   </style>`;
 
 const banner = () => `
-        <div class="pending-banner mb-10" role="note" aria-label="Pending status">
-          <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+        <div class="pending-banner mb-10" role="note" aria-label="Ratification status">
+          <i class="fas fa-circle-check" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Pending — not canon</span>
-            <p>This is a <strong>pre-vote proposal</strong> headed to a gauntlet vote and <strong>may fail</strong>. It is not doctrine. Live tax rates remain <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong> (Charter&nbsp;§12.1, canon&nbsp;v21.9.2). Nothing here changes canon.</p>
+            <span class="pb-label">Ratified — now canon (v22.0)</span>
+            <p><strong>RATIFIED v22.0</strong> — passed by founder ruling R10 over a 1–4 synthetic chamber result (LP-041-style disclosure: margins authored). Opposition brief retained as permanent record.</p>
           </div>
         </div>`;
 
@@ -347,15 +347,15 @@ const built = [];
 /* Ballot — links the opposition brief above the fold, labelled as such. */
 built.push(page({
   file: BALLOT,
-  title: 'RATIFY-TAX-50 Ballot (Pending) • The Five Rings',
-  description: 'Ballot text for RATIFY-TAX-50 (petition v4.1) — a pending, non-canon federal law proposal to reduce the Charter §12.1 top-marginal schedule. Runs as a real gauntlet vote and may fail. Published alongside its opposition brief.',
-  heroKicker: 'Pending Ratification · Ballot Text',
+  title: 'RATIFY-TAX-50 Ballot (Ratified) • The Five Rings',
+  description: 'Ballot text for RATIFY-TAX-50 (petition v4.1) — the federal law proposal that reduced the Charter §12.1 top-marginal schedule to 50/25/12.5/6.25, ratified at canon v22.0 by founder ruling R10. Retained as the enacted schedule’s provenance, alongside its opposition brief.',
+  heroKicker: 'Ratification Record · Ballot Text',
   heroTitle: 'RATIFY-TAX-50 — The Ballot',
-  heroSub: 'Petition v4.1, the text before the gauntlet. Read it alongside the opposition brief that publishes with it, then the two are weighed by the vote — the terminal adjudicator.',
+  heroSub: 'Petition v4.1, the text carried to the gauntlet. Ratified at v22.0 by founder ruling R10 over a 1–4 synthetic chamber result; read alongside the opposition brief retained with it.',
   crosslinks: [
     link(OPP, 'is-primary', 'fa-scale-balanced', 'Opposition Brief — published alongside this ballot'),
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
-    link(HUB, '', 'fa-arrow-left', 'Pending Ratification'),
+    link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
   body: parseBlocks(md.ballot.split('\n')),
   verbatim: { md: md.ballot },
@@ -364,15 +364,15 @@ built.push(page({
 /* Opposition brief — co-presented with the ballot. */
 built.push(page({
   file: OPP,
-  title: 'RATIFY-TAX-50 Opposition Brief (Pending) • The Five Rings',
-  description: 'The in-world opposition brief for RATIFY-TAX-50 — adversarial-review findings that attach verbatim to the gauntlet ballot. Pending, non-canon. Live rates remain 70/35/17/8.',
-  heroKicker: 'Pending Ratification · Opposition Brief',
+  title: 'RATIFY-TAX-50 Opposition Brief (Retained) • The Five Rings',
+  description: 'The in-world opposition brief for RATIFY-TAX-50 — adversarial-review findings that attached verbatim to the gauntlet ballot. Retained as permanent record after ratification at canon v22.0 by founder ruling R10.',
+  heroKicker: 'Ratification Record · Opposition Brief',
   heroTitle: 'RATIFY-TAX-50 — Opposition Brief',
-  heroSub: 'The hostile analysis a real legislature publishes alongside a proposal. It attaches to the ballot verbatim; voters weigh it against the petition’s disclosed case.',
+  heroSub: 'The hostile analysis a real legislature publishes alongside a proposal. It attached to the ballot verbatim and is retained as permanent record — the disclosed case against the schedule that ratified.',
   crosslinks: [
     link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot (petition v4.1)'),
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
-    link(HUB, '', 'fa-arrow-left', 'Pending Ratification'),
+    link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
   body: parseBlocks(md.opp.split('\n')),
   verbatim: { md: md.opp },
@@ -381,15 +381,15 @@ built.push(page({
 /* Session record — provenance. */
 built.push(page({
   file: RECORD,
-  title: 'RATIFY-TAX-50 Session Record (Pending) • The Five Rings',
-  description: 'The founder-ruling and adversarial-review record behind RATIFY-TAX-50. Pending, non-canon provenance for the ballot package. Live rates remain 70/35/17/8.',
-  heroKicker: 'Pending Ratification · Session Record',
+  title: 'RATIFY-TAX-50 Session Record • The Five Rings',
+  description: 'The founder-ruling and adversarial-review record behind RATIFY-TAX-50 — provenance for the schedule ratified at canon v22.0 by founder ruling R10, R10 itself included.',
+  heroKicker: 'Ratification Record · Session Record',
   heroTitle: 'RATIFY-TAX-50 — Session Record',
-  heroSub: 'Founder rulings of record, the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its opposition brief.',
+  heroSub: 'Founder rulings of record — through R10, the override that ratified the schedule — the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its opposition brief.',
   crosslinks: [
     link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot (petition v4.1)'),
     link(OPP, '', 'fa-scale-balanced', 'Opposition Brief'),
-    link(HUB, '', 'fa-arrow-left', 'Pending Ratification'),
+    link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
   body: parseBlocks(md.record.split('\n')),
   verbatim: { md: md.record },
@@ -397,24 +397,28 @@ built.push(page({
 
 /* Hub — authored section landing (no verbatim check). */
 const hubBody = [
-  `<p class="pending-p">This section holds <strong>pre-vote, non-canon</strong> material: proposals drafted and adversarially reviewed, then sent to a gauntlet vote whose outcome is not pre-decided. A proposal here is not doctrine. It may pass; it may fail. A failed vote is itself a legitimate output — a boundary marker under standing doctrine (LP-062 / LP-065).</p>`,
-  `<p class="pending-p">Nothing in this section changes canon. Live doctrine remains <strong>v21.9.2</strong>, and the engraved Charter&nbsp;§12.1 top-marginal tax schedule remains <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong>.</p>`,
-  `<h2 class="pending-h pending-h2">RATIFY-TAX-50</h2>`,
-  `<p class="pending-p">A petition to reduce the engraved §12.1 top-marginal schedule. It runs as a real federal LP vote, expected on current synthetic margins to fail, and run anyway so that a real NO at the threshold fences the rate question as a boundary marker. Per doctrine, the adversarial review’s uncurable findings publish <strong>alongside</strong> the ballot as an opposition brief — presented together, weighed by the vote.</p>`,
+  `<p class="pending-p">This section is the civilization’s <strong>ratification record</strong>: proposals drafted, adversarially reviewed, and carried to a decision — ratified, failed, or superseded — with the adversarial brief that publishes alongside each. Outcomes are not pre-decided; a failed vote is itself a legitimate output and a boundary marker under standing doctrine (LP-062 / LP-065).</p>`,
+  `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Ratified (canon v22.0)</h2>`,
+  `<p class="pending-p"><strong>RATIFIED v22.0</strong> — passed by founder ruling R10 over a 1–4 synthetic chamber result (LP-041-style disclosure: margins authored). The petition reduces the engraved §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>, recalibrated through the Article&nbsp;XXV.VI ladder with Charter&nbsp;III.III restating the binding source. The synthetic chambers returned Meritboard, Court, Sanctuary, and Lower against with Main in favor; the founder overrode to PASS on worldbuilding grounds. The opposition brief is retained as permanent record, and the ballot text stands as the enacted schedule’s provenance.</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
     [link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot — petition v4.1'),
-     link(OPP, 'is-primary', 'fa-scale-balanced', 'Opposition Brief — published alongside'),
+     link(OPP, 'is-primary', 'fa-scale-balanced', 'Opposition Brief — retained as record'),
      link(RECORD, '', 'fa-clipboard-list', 'Session Record — provenance')].join('\n') +
     `\n          </div>`,
+  `<h2 class="pending-h pending-h2">Path 2 — Standing preregistered fiscal-facts audit</h2>`,
+  `<p class="pending-p">Founder ruling R2 stood up Path 2 as a <strong>standing preregistered audit workstream</strong>, decoupled from any petition vote, whose estimates supersede the ballot’s authored values as they land (petition v4.1 §7(e)). R10 routes to this workstream the magnitude questions its worldbuilding rationale does not settle — the rationale is seat-validated for structure, not magnitude. The audit binds itself to six enforceability criteria:</p>`,
+  `<ul class="pending-list"><li><strong>Preregistered methodology</strong> — the estimation method is fixed and published before any results.</li><li><strong>Fixed data cutoff</strong> — each estimate names the data window it draws on.</li><li><strong>Definitions frozen before results</strong> — measured terms are defined ahead of the numbers, never fitted to them.</li><li><strong>Symmetric revision</strong> — estimates move up or down on the evidence, with no directional thumb on the scale.</li><li><strong>Published uncertainty</strong> — every controlling figure ships with its band, not as a bare point estimate.</li><li><strong>Predetermined controlling-estimate rule</strong> — which estimate governs is settled in advance of seeing the values.</li></ul>`,
+  `<p class="pending-p">Two questions are preregistered to the workstream by R10:</p>`,
+  `<ul class="pending-list"><li><strong>(a) SCM activation-frequency response to released liquidity.</strong> Whether the liquidity released at the 50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25 schedule raises district aggregates enough to increase Savings Circulation Mandate trigger frequency, and by how much — the bound R10 leans on to answer concentration.</li><li><strong>(b) Marginal utility of private capital flow in a post-scarcity upper stack.</strong> What an additional retained dollar of elite liquidity buys the civilization once survival and the dividend are already funded from the automation side.</li></ul>`,
 ].join('\n');
 
 built.push(page({
   file: HUB,
-  title: 'Pending Ratification • The Five Rings',
-  description: 'Pending, non-canon proposals headed to a gauntlet vote. Currently: RATIFY-TAX-50, a §12.1 top-marginal tax reduction and its opposition brief. Live canon is unchanged (v21.9.2).',
+  title: 'Ratification Record • The Five Rings',
+  description: 'The civilization’s ratification record. RATIFY-TAX-50 — the §12.1 top-marginal reduction to 50/25/12.5/6.25 — is ratified at canon v22.0 by founder ruling R10, its opposition brief retained as permanent record.',
   heroKicker: 'The Five Rings',
-  heroTitle: 'Pending Ratification',
-  heroSub: 'Pre-vote proposals and the adversarial briefs that publish alongside them. Not canon — subject to a gauntlet vote that may fail.',
+  heroTitle: 'Ratification Record',
+  heroSub: 'Decided proposals and the adversarial briefs that publish alongside them — ratified, failed, or superseded, with their provenance kept on the record.',
   crosslinks: '',
   body: hubBody,
 }));

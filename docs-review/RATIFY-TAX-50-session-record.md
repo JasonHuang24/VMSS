@@ -163,3 +163,7 @@ contest are logged as such.
   outside any seat's authority. Vote is real and allowed to fail
   (rulings R8, LP-062/LP-065 boundary-marker doctrine).
 ---
+
+## Founder ruling R10 — RATIFY-TAX-50 ratified by founder override (post-gauntlet; canon v22.0)
+
+R10 (founder ruling): GAUNTLET RATIFY-TAX-50 — PASS BY FOUNDER OVERRIDE. Synthetic chambers as authored: Meritboard −21 FAIL, Court −13 FAIL, Sanctuary −5 FAIL, Main +3 PASS, Lower −11 FAIL (aggregate 1–4 FAIL). Founder overrides to PASS on worldbuilding grounds [E-founder posture]: the abundance posture (R7, 1.3× automation-side revenue) is fact; 50 remains a high anti-concentration anchor; released capital increases flow and economic activity; concentration from retained liquidity is bounded by more frequent SCM activations. Rationale is founder posture, seat-validated for structure, not magnitude; magnitudes route to Path 2. Scope note: SCM recycle is partitioned from gate math — this rationale answers concentration, not solvency. Treasury erosion remains governed by the cadence rider (review ≤6mo → LP intro ≤12mo → vote ≤6mo) and Path 2 supersession (petition v4.1 §7(e)). Precedent: the civilization has once before cut rates on SCM-transfer grounds (v14.5, commit 5c3a0f6).
