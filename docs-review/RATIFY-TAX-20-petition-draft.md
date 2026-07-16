@@ -1,3 +1,7 @@
+> STATUS: SUPERSEDED by docs-review/RATIFY-TAX-50-petition-v4.md.
+> Retained as boundary-marker record per LP-062/LP-065 doctrine. The
+> neutrality premise in this draft is dead (Sol pass two); do not cite.
+
 # RATIFY-TAX-20 — Top-Marginal Rate Recalibration
 
 **Federal LP petition · DRAFT · UNMERGED · GATED — not enacted, not in the registry.**
