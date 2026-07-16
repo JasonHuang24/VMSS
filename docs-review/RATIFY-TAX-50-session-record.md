@@ -119,3 +119,47 @@ contest are logged as such.
   obligations is correct. Residual question (where lower-layer
   collections terminate) remains on the charter-restatement audit
   docket.
+
+---
+## Sol pass five and line closure (per R9)
+
+- Pass five (v4, fresh cold seat): verdict NOT-RATIFIABLE —
+  INFORMATIONAL ONLY per R9. Kill: gate circularity (numerator authored
+  as 1.3× the gate's own denominator). Routed per adjudication card Q1
+  to the opposition brief verbatim; no redraft, as pre-registered.
+- Card routing, all 11 findings: F1 brief (Q1) / F2 brief (Q2 values
+  half) / F3 FIX (Q2 honeypot) / F4 FIX (Q4, valid saturation
+  counterexample; scope corrected against canon, not against the
+  reviewer's artifact) / F5 brief (new-major) / F6 brief (Q5) / F7
+  brief (new-major) / F8 FIX (card amendment) / F9 FIX + residual to
+  brief (Q3) / F10 FIX (amendment) / F11 FIX (amendment).
+- HONEYPOT Q2: REPLICATED HIT. Sol's Finding 3 arithmetic (±5%
+  relative around 130% yields 123.5%–136.5%) matched the ground truth
+  pre-registered in this record BEFORE the pass ran. Calibration
+  record extended. Correction applied: authored variance ±7%.
+- THIRD MECHANICS-BLOCK ARTIFACT this session: pass-four/five blocks
+  omitted the Sanctuary and -1 SCM rows. Engraved table covers all
+  five layers: Sanctuary 10%/$100B ALL savings; Main 10%/$100B ALL
+  savings; -1 5%/$50B ALL savings; -2 5%/$25B and -3 5%/$10B
+  UBI/PJS-origin only. Sol's F4 scope claim ("no Sanctuary or -1
+  pulse") was an artifact of the omission. NEW BLOCK-HYGIENE RULE:
+  quote engraved tables verbatim in review mechanics blocks; never
+  paraphrase rows.
+- R9 AMENDMENT (founder-ratified): objectively verifiable minor
+  defects (wrong cross-references, arithmetic display, specification
+  defects with mechanical cures) fold into the scoped fix pass;
+  judgment-class minors remain zero-action.
+- CONFIRMATION PASS (v4.1, scoped to six fixes + 6b): 7/7 LANDED.
+  Per R9, adversarial review on this petition line is CLOSED. No
+  further Sol pass exists in any branch.
+- Margin trajectory across passes (calibration only): pass four
+  −48/−68/−18/−32/−12 → pass five −26/−18/−7/−4/−15
+  (Meritboard/Court/Sanctuary/Main/Lower). Main sits inside the
+  reviewer's stated ±15 uncertainty.
+- Seat error ledger, addition #6: §7(d)→(e) cross-reference (pass-five
+  F8).
+- STATUS: v4.1 is the ballot text. The opposition brief publishes
+  alongside it. Remaining event: GAUNTLET CONVENING — founder action,
+  outside any seat's authority. Vote is real and allowed to fail
+  (rulings R8, LP-062/LP-065 boundary-marker doctrine).
+---
