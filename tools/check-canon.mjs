@@ -178,12 +178,14 @@ check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.m
    a live terminus.
 
    The chain is now three links and ends there. From v22.0 to v22.1 it appeared
-   to terminate at LP-074; R13 (v22.2) established that this was drafting
-   history rather than world canon — the schedule never carried a chamber vote —
-   and LP-074/LP-075 were deregistered to the Process record. The guards below
-   replace the old per-statute status assertions: they hold the register clear
-   of both numbers, hold their texts preserved verbatim off-register, hold the
-   principle in doctrine, and hold the tier boundary itself. */
+   to terminate at the drafting designation LP-074; R13 (v22.2) established that
+   this was drafting history rather than world canon — the schedule never carried
+   a chamber vote — and both designations were deregistered to the Process record.
+   (The register's own LP-074, since R15, is RATIFY-TAX-50-II: a different
+   instrument that changes no rate. See guard (a).) The guards below replace the
+   old per-statute status assertions: they hold the register's numbering honest,
+   hold the designation texts preserved verbatim off-register, hold the principle
+   in doctrine, and hold the tier boundary itself. */
 const statusOfLp = (id) => {
   const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
   return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
@@ -200,51 +202,27 @@ const statusOfLp = (id) => {
     missing.length ? `missing: ${missing.join(', ')}`
       : `active=${active} superseded=${superseded} tail=${chainStatuses[CHAIN.length - 1]}`);
 }
-/* (a) The register is clear of both retired numbers. R13 retires 074/075
-   permanently: they are never reissued, so any reappearance — a restored entry
-   or a renumbering that reuses the slot — is drift, not authorship.
+/* (a) Register numbering is in-world numbering (R15, superseding the v22.2
+   retired-numbers note). R13 had retired 074/075 permanently; R15 rescinds that
+   as out-of-world history leaking into in-world numbering. The register never
+   contained an LP-074 in world, so the R14 law takes the next true number and
+   RATIFY-TAX-50-II renumbers LP-076 -> LP-074. What the earlier guard protected
+   — the register must not assert a statute that never registered — is now
+   protected by the facts themselves: LP-074 *is* a registered statute, and the
+   drafting designations live off-register, labeled as designations (guard (b2)).
 
-   Scoped at v22.3. The guard tests two distinct things, because the register
-   now carries a registered statute whose own text cites LP-074 as deregistered
-   drafting history (LP-076 §1, §9.6, citation key).
-
-   (a1) STRUCTURAL — banned everywhere, quoted text included: an id, a ToC link,
-        or an lp-ref/lp-self href naming either number. These are what "restored
-        entry" and "reused slot" actually look like in this file; each would make
-        the register assert that the statute exists. This is the load-bearing half.
-   (a2) BARE MENTION — banned in the register's own authored furniture (summaries,
-        meta grid, ToC, headers), permitted only inside .law-statute, which is
-        verbatim source text rather than the register speaking in its own voice.
-        A petition that says "LP-074 is deregistered drafting history" reinforces
-        R13; the register asserting LP-074 in its own voice would not. */
-const stripStatuteBlocks = (html) => {
-  const OPEN = '<div class="law-statute">';
-  let out = '', i = 0;
-  for (;;) {
-    const s = html.indexOf(OPEN, i);
-    if (s === -1) return out + html.slice(i);
-    out += html.slice(i, s);
-    const re = /<div\b[^>]*>|<\/div>/g;
-    re.lastIndex = s;
-    let depth = 0, m, end = html.length;
-    while ((m = re.exec(html))) {
-      if (m[0] === '</div>') { if (--depth === 0) { end = m.index + m[0].length; break; } }
-      else depth++;
-    }
-    i = end;
-  }
-};
+   (a1) The register's LP-074 is RATIFY-TAX-50-II, not a restored drafting text.
+   (a2) The old number is fully retired from the tree: a stale #lp-076 would be a
+        link into a slot the register no longer has. */
 {
-  const structural = [...law.matchAll(/(?:id|href)="#?(lp-07[45])"/gi)].map((m) => m[1].toLowerCase());
-  check(structural.length === 0,
-    'register makes no structural reference to LP-074/LP-075 (R13: numbers retired, never reissued)',
-    structural.length ? `found id/href: ${[...new Set(structural)].join(', ')}` : 'no id, ToC link, or lp-ref');
+  const entry = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
+  check(entry.includes('RATIFY-TAX-50-II'),
+    "register's LP-074 is RATIFY-TAX-50-II (R15: the R14 law takes the next true number)",
+    entry ? 'entry present, titled RATIFY-TAX-50-II' : 'no lp-074 entry');
 
-  const furniture = stripStatuteBlocks(law);
-  const bare = [...furniture.matchAll(/\blp-07[45]\b/gi)].map((m) => m[0].toLowerCase());
-  check(bare.length === 0,
-    'register does not name LP-074/LP-075 in its own voice (quoted statute text exempt)',
-    bare.length ? `found outside .law-statute: ${[...new Set(bare)].join(', ')}` : 'clear');
+  const stale = [...law.matchAll(/\blp-076\b/gi)].map((m) => m[0]);
+  check(stale.length === 0, 'register carries no LP-076 (R15 renumber complete)',
+    stale.length ? `found ${stale.length}` : 'clear');
 }
 
 /* (b) The deregistered texts survive verbatim off-register. Deregistration is
@@ -258,6 +236,19 @@ const stripStatuteBlocks = (html) => {
   const missing = need.filter(([, t]) => !dereg.includes(t)).map(([k]) => k);
   check(missing.length === 0, 'deregistered-statutes.html preserves both §1 texts verbatim',
     missing.length ? `missing: ${missing.join(', ')}` : 'both present');
+
+  /* (b2) …and are labeled as designations, not statutes (R15 §1). The register's
+     LP-074 is now a live law, so these texts must say what they are on their face:
+     a reader arriving at either one must not read it as the register's LP-074. */
+  const labels = [
+    ['LP-074 designation label', /Drafting designation LP-074 \(process record — never registered in-world\)/],
+    ['LP-075 designation label', /Drafting designation LP-075 \(process record — never registered in-world\)/],
+    ['disambiguation header', /The register’s LP-074 is (<[^>]+>)*RATIFY-TAX-50-II/],
+  ];
+  const unlabeled = labels.filter(([, re]) => !re.test(dereg)).map(([k]) => k);
+  check(unlabeled.length === 0,
+    'deregistered-statutes.html labels both texts as drafting designations (R15 §1)',
+    unlabeled.length ? `missing: ${unlabeled.join(', ')}` : 'both labeled + header');
 }
 
 /* (c) The principle survives as doctrine, in the whitepaper, in R13's wording. */
@@ -291,33 +282,33 @@ const stripStatuteBlocks = (html) => {
     offenders.length ? `offenders: ${offenders.join(', ')}` : 'clean');
 }
 
-/* (e) LP-076 is registered, and registered as an uncommenced law (v22.3). The
+/* (e) LP-074 is registered, and registered as an uncommenced law (v22.4). The
    entry's whole legal character is that it is in force as a rule while both its
    rate schedules are inactive; the commencement line is what tells a reader so
    before they reach the schedules. An entry that lost that line would read as a
    50-schedule enactment, which is exactly the drift v22.2 spent a version
    correcting. */
-const lp076 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-076"')) || '';
+const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
 {
   const need = [
-    ['entry present', !!lp076],
-    ['title', lp076.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
-    ['enacted badge', /class="status-badge status-enacted"/.test(lp076)],
-    ['commencement line', lp076.includes('<strong>IN FORCE: rule only.</strong>')],
-    ['schedules marked inactive', /Schedules A and B <strong>INACTIVE<\/strong>/.test(lp076)],
-    ['live rates named', lp076.includes('<strong>70 / 35 / 17 / 8</strong>')],
+    ['entry present', !!lp074],
+    ['title', lp074.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
+    ['enacted badge', /class="status-badge status-enacted"/.test(lp074)],
+    ['commencement line', lp074.includes('<strong>IN FORCE: rule only.</strong>')],
+    ['schedules marked inactive', /Schedules A and B <strong>INACTIVE<\/strong>/.test(lp074)],
+    ['live rates named', lp074.includes('<strong>70 / 35 / 17 / 8</strong>')],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
-  check(missing.length === 0, 'LP-076 registered with its commencement line (enacted, schedules uncommenced)',
+  check(missing.length === 0, 'LP-074 registered with its commencement line (enacted, schedules uncommenced)',
     missing.length ? `missing: ${missing.join(', ')}` : 'entry + badge + commencement + live rates');
 }
 
 /* (f) SCHEDULE-INACTIVITY GUARD (v22.3). Two halves, both load-bearing.
 
    The live schedule is 70/35/17/8 and nothing registered at v22.3 changes it:
-   LP-076 registers a rule, not a rate. So every canon rate surface must still
+   LP-074 registers a rule, not a rate. So every canon rate surface must still
    state the live schedule, and the 50-schedule must not appear anywhere on the
-   World tier except inside the LP-076 entry, where it is quoted petition text
+   World tier except inside the LP-074 entry, where it is quoted petition text
    describing what *would* take force on a certification that has not happened.
 
    The v22.2 World-tier numeral restriction therefore continues, with the
@@ -338,13 +329,13 @@ const lp076 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   const leaks = [];
   for (const f of worldPages) {
     const src = stripComments(read(f));
-    const outside = f === 'law-polling.html' ? src.split(lp076).join(' ') : src;
+    const outside = f === 'law-polling.html' ? src.split(lp074).join(' ') : src;
     const n = (outside.match(CASCADE) || []).length;
     if (n) leaks.push(`${f} (${n})`);
   }
   check(leaks.length === 0,
-    'schedule-inactivity: 50-schedule confined to the LP-076 entry, stated nowhere as in force',
-    leaks.length ? `50-schedule outside LP-076: ${leaks.join(', ')}` : `${worldPages.length} World pages clear`);
+    'schedule-inactivity: 50-schedule confined to the LP-074 entry, stated nowhere as in force',
+    leaks.length ? `50-schedule outside LP-074: ${leaks.join(', ')}` : `${worldPages.length} World pages clear`);
 }
 
 /* ---- 5. LP citations elsewhere resolve to real anchors ---- */
@@ -375,6 +366,68 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
   const ids = [...stripComments(read(p)).matchAll(/ id="([^"]+)"/g)].map((m) => m[1]);
   const dupes = [...new Set(ids.filter((id, i) => ids.indexOf(id) !== i))];
   check(dupes.length === 0, `${p}: no duplicate ids`, dupes.length ? `dupes: ${dupes.join(', ')}` : `${ids.length} ids`);
+}
+
+/* ---- 8b. LINK-INTEGRITY GUARD (R15 §2/§5) ----
+   R15's readability rule has a machine half: a citation may not promise a
+   section and deliver a page top. Section 9 below already checks in-page
+   anchors on five pages; this checks the case that actually broke — a fragment
+   href from a World-tier page into *another* file, where the id has to exist in
+   the target rather than locally. At v22.3 three such links pointed at
+   pending-ratification.html#path-2, a section that existed with no id on it;
+   every one of them silently landed the reader on the page top.
+
+   Scope is every World-tier page (R15 §5), and targets may be any file, since
+   the World tier cites the Process record. Two exemptions, both narrow:
+     - href="#" on a [data-toc-page] control. These are the whitepaper/world
+       paginated-ToC buttons: the click handler calls preventDefault() and swaps
+       the page in JS, so "#" is an inert fallback, not a citation. They promise
+       no section and there is no id to point at. A bare href="#" anywhere else
+       still fails.
+     - mailto:/http(s):/external hrefs, which this guard does not own. */
+{
+  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
+  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
+  const idCache = new Map();
+  const idsIn = (f) => {
+    if (!idCache.has(f)) {
+      try { idCache.set(f, new Set([...stripComments(read(f)).matchAll(/ id="([^"]+)"/g)].map((m) => m[1]))); }
+      catch { idCache.set(f, null); } // file missing
+    }
+    return idCache.get(f);
+  };
+  const dead = [];
+  let checked = 0;
+  for (const f of worldPages) {
+    const src = stripComments(read(f));
+    // cross-file: page.html#fragment
+    for (const m of src.matchAll(/href="([A-Za-z0-9._/-]+\.html)#([^"]+)"/g)) {
+      const [, tgt, frag] = m;
+      checked++;
+      const ids = idsIn(tgt);
+      if (ids === null) { dead.push(`${f} -> ${tgt} (no such file)`); continue; }
+      if (!ids.has(frag)) dead.push(`${f} -> ${tgt}#${frag}`);
+    }
+    // in-page: #fragment, incl. the empty href="#". Match the whole <a> tag:
+    // data-toc-page sits after href in the markup, so attributes must be read
+    // from the full tag rather than the slice preceding href.
+    const local = idsIn(f);
+    for (const m of src.matchAll(/<a\b[^>]*>/g)) {
+      const tag = m[0];
+      const href = (tag.match(/href="#([^"]*)"/) || [])[1];
+      if (href === undefined) continue;
+      if (href === '') {
+        if (/data-toc-page=/.test(tag)) continue; // JS pager control, not a link
+        dead.push(`${f} -> href="#" (not a ToC control)`);
+        continue;
+      }
+      checked++;
+      if (!local.has(href)) dead.push(`${f} -> #${href}`);
+    }
+  }
+  check(dead.length === 0,
+    `link integrity: every internal fragment href on the World tier resolves (${worldPages.length} pages, ${checked} links)`,
+    dead.length ? `dead: ${[...new Set(dead)].slice(0, 8).join('; ')}` : 'no page-top fallbacks, no dead fragments');
 }
 
 /* ---- 9. In-page href="#x" anchors resolve to a real id ---- */

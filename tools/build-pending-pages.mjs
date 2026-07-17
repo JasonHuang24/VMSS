@@ -35,6 +35,37 @@ const write = (f, s) => writeFileSync(join(ROOT, f), s);
  * ------------------------------------------------------------------ */
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+/* Heading anchors (R15 §2/§4). A register citation may name a section of one of
+   these documents ("[P] §5", "[O] Finding 5", the dateline recorded at R14), and
+   R15 forbids such a cite resolving to a page top. The sections exist; they
+   lacked ids. These are derived from the heading text, so they are stable as
+   long as the heading is, and short enough to read in a URL:
+     "## 5. Fiscal facts schema"        -> sec-5
+     "## Finding 5 — ..."               -> finding-5
+     "## Founder ruling R14 — ..."      -> r14
+     "## Ungrounded instincts ..."      -> ungrounded-instincts (slug fallback)
+   Ids are attributes only: the verbatim check compares visible text, which this
+   does not touch. HEADING_SLUGS is reset per document by mdToHtml. */
+let HEADING_SLUGS = new Set();
+const slugify = (s) =>
+  s.toLowerCase()
+    .replace(/[‐-―]/g, '-')          // unicode dashes
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60) || 'section';
+function headingId(text) {
+  let base;
+  let m;
+  if ((m = text.match(/^Finding (\d+)/))) base = `finding-${m[1]}`;
+  else if ((m = text.match(/^(\d+)\.\s/))) base = `sec-${m[1]}`;
+  else if ((m = text.match(/^Founder ruling (R\d+)/))) base = m[1].toLowerCase();
+  else base = slugify(text.replace(/\*\*/g, ''));
+  let id = base;
+  for (let n = 2; HEADING_SLUGS.has(id); n++) id = `${base}-${n}`;
+  HEADING_SLUGS.add(id);
+  return id;
+}
 const indentOf = (l) => (l.match(/^ */) || [''])[0].length;
 const isBlank = (l) => l.trim() === '';
 const strip = (l) => l.replace(/^ +/, '');
@@ -109,7 +140,8 @@ function parseBlocks(lines) {
     const h = t.match(/^(#{1,6}) (.*)$/);
     if (h) {
       const lvl = Math.min(h[1].length + 1, 6); // page <h1> is the chrome title; docs start at <h2>
-      blocks.push(`<h${lvl} class="pending-h pending-h${h[1].length}">${inline(h[2])}</h${lvl}>`);
+      const id = headingId(h[2]);
+      blocks.push(`<h${lvl} class="pending-h pending-h${h[1].length}" id="${id}">${inline(h[2])}</h${lvl}>`);
       i++; continue;
     }
     if (t === '---') { blocks.push('<hr class="pending-hr">'); i++; continue; }
@@ -136,6 +168,13 @@ function parseBlocks(lines) {
     blocks.push(`<p class="pending-p">${inline(para.join(' '))}</p>`);
   }
   return blocks.join('\n');
+}
+
+/* One rendered document. Resets the heading-slug registry so ids are unique
+   per page and identical across runs. */
+function renderDoc(source) {
+  HEADING_SLUGS = new Set();
+  return parseBlocks(source.split('\n'));
 }
 
 /* ------------------------------------------------------------------ *
@@ -276,7 +315,7 @@ const banner = () => `
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Failed Petition — record retained</span>
-            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record. <strong>Succeeded at ~Y175 by <a href="law-polling.html#lp-076">RATIFY-TAX-50-II</a> (registered 5–0, conditional)</strong> — a new line, not a reopening; it registers a rule and changes no rate.</p>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record. <strong>Succeeded at ~Y175 by <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a> (registered 5–0, conditional)</strong> — a new line, not a reopening; it registers a rule and changes no rate.</p>
           </div>
         </div>`;
 
@@ -409,7 +448,7 @@ built.push(page({
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
-  body: parseBlocks(md.ballot.split('\n')),
+  body: renderDoc(md.ballot),
   verbatim: { md: md.ballot },
 }));
 
@@ -427,7 +466,7 @@ built.push(page({
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
-  body: parseBlocks(md.opp.split('\n')),
+  body: renderDoc(md.opp),
   verbatim: { md: md.opp },
 }));
 
@@ -445,7 +484,7 @@ built.push(page({
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
-  body: parseBlocks(md.adv.split('\n')),
+  body: renderDoc(md.adv),
   verbatim: { md: md.adv },
 }));
 
@@ -463,7 +502,7 @@ built.push(page({
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
   ].join('\n'),
-  body: parseBlocks(md.supp.split('\n')),
+  body: renderDoc(md.supp),
   verbatim: { md: md.supp },
 }));
 
@@ -479,9 +518,9 @@ built.push(page({
     ...briefLinks(RECORD),
     link(BALLOT, '', 'fa-file-lines', 'The Ballot (petition v4.1)'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
-    link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — LP-074 / LP-075'),
+    link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — drafting designations 074 / 075'),
   ].join('\n'),
-  body: parseBlocks(md.record.split('\n')),
+  body: renderDoc(md.record),
   verbatim: { md: md.record },
   framing: true,
 }));
@@ -492,16 +531,16 @@ const hubBody = [
   `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Failed petition</h2>`,
   `<p class="pending-p"><strong>FAILED PETITION.</strong> The petition would have reduced the engraved §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>, an exact halving of every point. It was filed, it went to the chambers, and it lost — twice. <strong>At the gauntlet:</strong> 1–4 against — Meritboard, Court, Sanctuary, and Lower opposed, Main in favor. <strong>On advocacy review:</strong> a cold, citation-verified affirmative review re-ran the vote and narrowed it to 3–2, moving Court, Sanctuary, and Main; but enactment requires zero failing chambers, and Meritboard and Lower held. A majority is not the threshold. The live schedule is and remains <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong> (<a href="law-polling.html#lp-073">LP-073</a>), and the petition is preserved as a failed-petition record under standing doctrine.</p>`,
   `<p class="pending-p">What survived is the direction. Every chamber endorsed the trajectory principle even while refusing the magnitude attached to it — 5–0 across the ratification chambers — and it stands as the <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> at Whitepaper §12.1: top marginal rates track demonstrated institutional need, and any reduction needs audited Path&nbsp;2 facts at the standard zero-fail threshold. RATIFY-TAX-50 may be re-petitioned on exactly those terms once the Path&nbsp;2 controlling estimate lands. All three briefs — opposition, advocacy, and supplemental — publish as permanent record. Rates fall when shown, and hold when merely told.</p>`,
-  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval the reduced schedule was written into the law register as an enacted statute (LP-074), on an authorial override of the failed chamber result, and a trajectory statute was registered beside it (LP-075). The override was withdrawn at v22.1 and both entries were deregistered at v22.2 — the first because it described an enactment that never occurred in world, the second because its principle belongs in doctrine rather than the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the full sequence is told in the <a href="pending-ratify-tax-50-record.html">session record</a>. None of it is world canon; all of it is kept.</p>`,
+  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>, on an authorial override of the failed chamber result, and a trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1 and both entries were deregistered at v22.2 — the first because it described an enactment that never occurred in world, the second because its principle belongs in doctrine rather than the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the full sequence is told in the <a href="pending-ratify-tax-50-record.html">session record</a>. None of it is world canon; all of it is kept. Both are drafting designations only: the register's LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, registered 5–0 at ~Y175, and 075 remains unissued (R15).</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
     [link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot — petition v4.1'),
      link(OPP, 'is-primary', 'fa-scale-balanced', 'Opposition Brief — the case against'),
      link(ADV, 'is-primary', 'fa-scale-balanced', 'Advocacy Brief — the case for'),
      link(SUPP, 'is-primary', 'fa-comments', 'Supplemental Steelman — the case for, restated'),
      link(RECORD, '', 'fa-clipboard-list', 'Session Record — drafting provenance'),
-     link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — LP-074 / LP-075')].join('\n') +
+     link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — drafting designations 074 / 075')].join('\n') +
     `\n          </div>`,
-  `<h2 class="pending-h pending-h2">Path 2 — Standing preregistered fiscal-facts audit</h2>`,
+  `<h2 class="pending-h pending-h2" id="path-2">Path 2 — Standing preregistered fiscal-facts audit</h2>`,
   `<p class="pending-p">Path 2 is a <strong>standing preregistered audit workstream</strong>, decoupled from any petition vote, whose estimates supersede the ballot’s authored values as they land (petition v4.1 §7(e)). The <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> makes it the gate rather than a follow-up: a failed reduction may be re-petitioned when the controlling estimate lands, on audited facts and the standard zero-fail threshold. The questions below are what a genuine ratification would have to answer. The audit binds itself to six enforceability criteria:</p>`,
 
   `<ul class="pending-list"><li><strong>Preregistered methodology</strong> — the estimation method is fixed and published before any results.</li><li><strong>Fixed data cutoff</strong> — each estimate names the data window it draws on.</li><li><strong>Definitions frozen before results</strong> — measured terms are defined ahead of the numbers, never fitted to them.</li><li><strong>Symmetric revision</strong> — estimates move up or down on the evidence, with no directional thumb on the scale.</li><li><strong>Published uncertainty</strong> — every controlling figure ships with its band, not as a bare point estimate.</li><li><strong>Predetermined controlling-estimate rule</strong> — which estimate governs is settled in advance of seeing the values.</li></ul>`,
