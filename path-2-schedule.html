@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
+  <title>The §10.4 Schedule to the Path 2 Charter • The Five Rings</title>
+  <meta name="description" content="The enumerated Schedule to the Path 2 Charter (§10.4), second draft, terminal: the Operative Measure, welfare measurement conventions, interval families, and preprocessing methods that the certification audit computes against. Adopted with the Charter in 2279 (Y178); amendable only per §13.1." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://jasonhchronicles.com/VMSS/path-2-schedule.html" />
+
+  <script>
+    const saved = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+<noscript><style>body{opacity:1}</style></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+
+  <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+
+  <style>
+  .p2-shell { --p2-accent: var(--accent); }
+  .p2-banner {
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--p2-accent);
+    background: var(--bg-secondary);
+    border-radius: 14px;
+    padding: 1.1rem 1.35rem;
+    display: flex; gap: .85rem; align-items: flex-start;
+    box-shadow: 0 10px 30px var(--shadow);
+  }
+  .p2-banner i { color: var(--p2-accent); font-size: 1.15rem; margin-top: .15rem; }
+  .p2-banner .pb-label {
+    font-size: .7rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--p2-accent); font-weight: 700; display: block; margin-bottom: .3rem;
+  }
+  .p2-banner p { color: var(--text-secondary); line-height: 1.6; font-size: .95rem; }
+  .p2-banner strong { color: var(--text-primary); }
+  .p2-crosslinks { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .p2-crosslink {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: .5rem .95rem; font-size: .9rem; color: var(--text-secondary);
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .p2-crosslink:hover { border-color: var(--accent); color: var(--accent); }
+  .p2-crosslink.is-primary {
+    border-color: var(--p2-accent); color: var(--text-primary);
+    background: color-mix(in srgb, var(--p2-accent) 12%, transparent);
+  }
+  .p2-crosslink.is-primary i { color: var(--p2-accent); }
+  /* Statute typography, carried over from the law register unchanged (R16):
+     the ls-* scale as on pending-ratify-tax-50-ii-statute.html. */
+  .law-statute { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.62; margin-bottom: 1rem; }
+  .law-statute .ls-h { color: var(--text-primary); font-weight: 700; line-height: 1.3; scroll-margin-top: 6rem; }
+  .law-statute .ls-h1 { font-size: 1.28rem; margin: 0 0 0.9rem; letter-spacing: 0.02em; }
+  .law-statute .ls-doc-sub { color: var(--text-muted); font-size: 0.86rem; margin: 0 0 1.2rem; }
+  .law-statute .ls-h2 { font-size: 1.06rem; margin: 1.9rem 0 0.7rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); }
+  .law-statute .ls-h2.ls-part { font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); border-bottom: 0; margin: 2.4rem 0 0.4rem; padding-bottom: 0; }
+  .law-statute .ls-h3 { font-size: 0.96rem; margin: 1.2rem 0 0.45rem; color: var(--text-secondary); }
+  .law-statute .ls-p { margin: 0 0 0.8rem; }
+  .law-statute strong { color: var(--text-primary); font-weight: 700; }
+  .law-statute em { font-style: italic; color: var(--text-primary); }
+  .law-statute .ls-list { margin: 0 0 0.9rem 1.25rem; padding: 0; }
+  .law-statute .ls-list li { margin: 0 0 0.45rem; }
+  .law-statute ol.ls-list { list-style: decimal; }
+  .law-statute ul.ls-list { list-style: disc; }
+  .law-statute .ls-hr { border: 0; border-top: 1px solid var(--border); margin: 1.8rem 0; }
+  .law-statute .ls-quote {
+    margin: 0 0 0.9rem; padding: 0.25rem 0 0.25rem 1rem;
+    border-left: 3px solid rgba(34, 211, 238, 0.4); color: var(--text-secondary);
+  }
+  .law-statute .ls-quote .ls-p:last-child { margin-bottom: 0; }
+  .law-statute .ls-cite { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(34, 211, 238, 0.45); }
+  .law-statute .ls-cite:hover { border-bottom-style: solid; }
+  .law-statute a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(34, 211, 238, 0.45); }
+  .law-statute a:hover { border-bottom-style: solid; }
+  .law-statute .ls-ruling { margin-bottom: 2.4rem; }
+  .law-statute .ls-table-wrap { overflow-x: auto; margin: 0 0 1rem; border: 1px solid var(--border); border-radius: 0.6rem; }
+  .law-statute .ls-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 520px; }
+  .law-statute .ls-table th, .law-statute .ls-table td { text-align: left; vertical-align: top; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); }
+  .law-statute .ls-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; }
+  .law-statute .ls-table tbody tr:last-child td { border-bottom: 0; }
+  .law-statute .ls-table td:first-child { white-space: nowrap; color: var(--text-primary); font-weight: 600; }
+  </style>
+</head>
+
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content" class="flex-1 p2-shell">
+    <section class="pt-32 pb-32">
+      <div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
+
+        <div class="mb-8">
+          <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings · Path 2 · Enumerated Schedule</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">The §10.4 Schedule</h1>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">The Charter’s enumerated schedule of welfare measures, interval families, and preprocessing methods — one Operative Measure fixed in text, rival conceptions of value published as diagnostics, and the union confined to estimators of that measure. Adopted with the Charter; amendable only per §13.1.</p>
+        </div>
+
+        <div class="p2-banner mb-10" role="note" aria-label="Schedule status">
+          <i class="fas fa-list-ol" aria-hidden="true"></i>
+          <div>
+            <span class="pb-label">Adopted with the Charter — schedules not in force</span>
+            <p><strong>PART OF THE CHARTER (§10.4).</strong> This Schedule enumerates the welfare measures, interval families, and preprocessing methods the audit may select from, and is part of the <a href="path-2-charter.html#s-10-4">Path 2 Charter</a> for every purpose of §13.1. Its residues are engraved at the <a href="path-2-risk-register.html#rr-9">Register</a> (RR-9 through RR-12). The live schedule remains <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>) until the certification event.</p>
+          </div>
+        </div>
+        <div class="p2-crosslinks mb-12">
+          <a href="path-2-charter.html#s-10-4" class="p2-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Path 2 Charter — §10.4</a>
+          <a href="path-2-risk-register.html" class="p2-crosslink is-primary"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Residual-Risk Register — RR-9 … RR-12</a>
+          <a href="law-polling.html#lp-074" class="p2-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> LP-074 — the register entry</a>
+          <a href="law-polling.html#lp-073" class="p2-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — the schedule in force</a>
+        </div>
+
+        <div class="law-statute">
+          <p class="ls-h ls-h1">SCHEDULE TO THE PATH 2 CHARTER (§10.4) — SECOND DRAFT (TERMINAL)</p>
+          <p class="ls-p ls-doc-sub">Enumerated Welfare Measures, Interval Families, and Preprocessing Methods · Adopted by the chambers with the Charter · Amendable only per §13.1 · 2279 (Y178) · Amended after cold methodological review; residues engraved at Register entries RR-9 through RR-12</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2" id="ruling-of-construction">Preliminary ruling of construction</p>
+          <p class="ls-p">The Charter's §10.5 menu-union rule is a rule for alternative ESTIMATORS of one estimand, not for choosing among welfare philosophies. If the controlling estimate were taken across rival conceptions of value, the harshest philosophy would decide every run in advance. A civilization picks what it counts as value once, in public, at adoption — not per-run, where it can be shopped. This Schedule fixes one Operative Measure, states its measurement conventions in text, enumerates rival conceptions as Mandatory Diagnostics, and confines §10.5's union to estimators of the Operative Measure under §A.4's membership test. Whoever believes the civilization has chosen the wrong conception of value has §13.1 and the diagnostic record as the lawful channel.</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2 ls-part" id="part-a">PART A — WELFARE MEASURES (Finding IV)</p>
+          <p class="ls-h ls-h2" id="om">A.1 The Operative Measure (OM)</p>
+          <p class="ls-p"><strong>OM — Net Discounted Welfare Differential.</strong> The present value, at the civilization's canonical social discount rate as published at lock, of net welfare generated by private deployment of the retained capital, minus the same quantity under §3.4's counterfactual, summed over the thirty-year horizon. The OM is a SCALAR: its pass comparison under §3.4 is made on the one-sided bound of the discounted total itself, constructed per Part B; the Charter's §5.6 vector rule governs Finding IV's concentration-event count and the annual- threshold Findings, not this sum.</p>
+          <p class="ls-p" id="a-1-1"><strong>A.1.1 The contrast, made executable.</strong> <em>Treatment:</em> the deployment of the retained tranche — the per-entity, per-year difference between the 70 and 50 schedules' collections — as traced through the standing SCM property-attribution ledger. A flow not traceable through the ledger generates no margin: untraceable is unattributed, and unattributed is zero, in the activation-unfavorable direction always. <em>Counterfactual:</em> deployment of the same tranche under the public-stream allocation function, estimated from the trailing decade's realized public allocations per the same ledger. <em>Unit of exposure:</em> the ledger-traced venture-year. Attribution of outcomes to traced deployment is identification, governed by §4.5 conservatism and Part A.5.</p>
+          <p class="ls-p" id="a-1-2"><strong>A.1.2 Unified margin rule.</strong> For each traced venture, welfare is the discounted surplus stream from its realized availability date to horizon end, minus the discounted surplus stream of its counterfactual availability date to horizon end, where the counterfactual arrival date is estimated under the locked design and may exceed the horizon. There is no existence/acceleration boundary: a venture whose counterfactual arrival falls beyond the horizon contributes its full within-horizon stream; one arriving a year later contributes one discounted year. The margin is continuous in the arrival estimate; no forecast step converts a finite margin into an unbounded one. "Same venture" across the two regimes is decided by the canonical registry's product-and-function classification at the finest published granularity; classification disputes are membership disputes under A.4.</p>
+          <p class="ls-p" id="a-1-3"><strong>A.1.3 Quality and variety.</strong> Surplus attributable to quality and variety differentials is admissible only through the canonical statistical authority's published hedonic and quality-adjustment methods, applied at the same registry granularity as A.1.2. Differentiation below that granularity is one product. The model-dependence that survives this rule is engraved at RR-10.</p>
+          <p class="ls-p" id="a-1-4"><strong>A.1.4 Displacement netting, once.</strong> Each traced venture's margin is net of the surplus its inputs — talent, attention, coordination capacity, physical substrate — generate under the counterfactual allocation, valued at realized market and shadow prices per A.2's conventions, against the counterfactual's REALIZED allocation pattern, not an imagined best alternative and not assumed idleness. Displacement is netted exactly once, at the venture level, under the accounting identity of A.1.6.</p>
+          <p class="ls-p" id="a-1-5"><strong>A.1.5 External-cost netting.</strong> Each traced venture's margin is net of its external costs — third-party harms, environmental costs, and systemic-risk contributions — valued per the civilization's canonical damage schedules at the lock snapshot. Where no canonical schedule prices a demonstrated external cost, the refusal-side panel may add a damage model to the union under §4.4, and §4.5 prices the ambiguity against activation. No demonstrated external cost is valued at zero by silence.</p>
+          <p class="ls-p" id="a-1-6"><strong>A.1.6 Accounting identity.</strong> OM = Σ over traced ventures of [discounted surplus differential (A.1.2, with A.1.3 adjustments) − displacement (A.1.4) − external cost (A.1.5)]. Each venture appears exactly once; each cost is netted exactly once; the identity is verified arithmetically in the §11.4 execution.</p>
+          <p class="ls-h ls-h2" id="a-2">A.2 Measurement conventions (fixed)</p>
+          <p class="ls-p">Surplus is Marshallian, willingness-to-pay, on uncompensated demand, constructed from demand and supply systems estimated under the locked design. Market boundaries follow the canonical registry classification. Nonmarket and unpriced works enter only through reservation-price construction per the canonical statistical authority's published new-goods method. Taxes and transfers are excluded from surplus: the OM measures welfare, not fiscal flows, and the fiscal flows are Findings I and II's business. All values deflate to real terms per the single canonical deflator at the §6.3 vintage; no component-specific deflators.</p>
+          <p class="ls-h ls-h2" id="a-3">A.3 Partial identification</p>
+          <p class="ls-p">Where a component of the OM is set-identified under the locked assumptions — the counterfactual arrival date, the displacement opportunity set — the union must include a bound-based member constructing valid confidence statements for the identified region per the recognized partial-identification method named in the locked design, and §4.5 takes the region's activation-unfavorable end. A union consisting only of point-identified members over a set-identified component is an incomplete union; the Registrar's §9.2 checklist verifies presence of the bound member as a conformity item.</p>
+          <p class="ls-h ls-h2" id="a-4">A.4 Membership test</p>
+          <p class="ls-p">An estimator is an estimator of the OM if and only if a derivation filed at its §4.4 addition shows that the object it estimates equals the OM under this Schedule's conventions — A.1's contrast, A.2's surplus conventions, A.1.6's identity. The Registrar verifies the derivation's presence and its arithmetic as conformity; disputes over whether a derivation succeeds are appealable under §2.4, where the question is decided as conformity to this Schedule's text. Weighting schemes, compensated-demand constructions, and any object whose derivation requires conventions other than A.2's are not estimators of the OM, whatever estimation vocabulary carries them. The semantic residue is engraved at RR-11.</p>
+          <p class="ls-h ls-h2" id="a-5">A.5 Attribution discipline</p>
+          <p class="ls-p">Causal attribution of outcomes to traced deployment states its identification assumptions in the locked design; contested assumptions are resolved per §4.5 — computed under the admissible assumption least favorable to activation — with admissibility established by §4.4 addition and §4.3 survival. Correlation presented as attribution fails the A.4 derivation.</p>
+          <p class="ls-h ls-h2" id="a-6">A.6 Mandatory Diagnostics (published, non-operative)</p>
+          <p class="ls-p">Every run publishes, for every union member, each diagnostic computed by mechanical transformation of that member — no separate diagnostic estimators exist, so no diagnostic is selectively noncomputable; a member on which a transformation is undefined publishes the arithmetic reason, verified in the §11.4 execution:</p>
+          <ul class="ls-list"><li><strong>D-1 Zero-discount variant.</strong> The member's OM at discount zero.</li><li><strong>D-2 Distribution-weighted variant.</strong> The member's OM under logarithmic consumption weights per the canonical series.</li><li><strong>D-3 Beyond-horizon share.</strong> The fraction of the member's margin arising from ventures whose counterfactual arrival exceeds the horizon.</li><li><strong>D-4 Public-capture fraction.</strong> Numerator: the member's estimated counterfactual surplus from the same traced ventures within the horizon. Denominator: the member's private-deployment surplus, same ventures, same horizon. Published as the pair, not the quotient.</li><li><strong>D-5 Concentration shadow.</strong> The Finding III activation-frequency projection published beside the member's OM as the pair (frequency differential, OM), not a ratio. No division by a near-zero bound.</li></ul>
+          <p class="ls-p">Diagnostics decide nothing in the run. They are the evidence base the §13.1 amendment channel argues from, engraved run over run.</p>
+          <p class="ls-h ls-h2 ls-part" id="part-b">PART B — INTERVAL FAMILIES (§5.1)</p>
+          <p class="ls-p">All constructions are one-sided at 95 percent against activation. For the OM, the construction targets the sampling distribution of the discounted scalar total directly; summing pointwise or simultaneous annual bounds into a total is not admissible. For annual-threshold Findings, §5.6's simultaneous worst-year rule governs.</p>
+          <ul class="ls-list"><li><strong>B-1 Block bootstrap, studentized percentile.</strong> Block length by the canonical statistical authority's published automatic block-length rule; studentized; centering at the estimate; nonstationarity handled per the locked design's declared structure.</li><li><strong>B-2 Analytic, robust.</strong> Bartlett-kernel HAC variance with the published automatic bandwidth rule, or cluster-robust variance with wild-cluster bootstrap mandatory below the effective-cluster threshold stated in the locked design per the published small-cluster standard; max-t simultaneous construction where §5.6 applies; the Bonferroni construction admissible as conservative fallback.</li><li><strong>B-3 Calibrated posterior quantile.</strong> A Bayesian one-sided bound is admissible only with a preregistered operating-characteristic study, executed and escrowed at lock, demonstrating at least 95 percent repeated-sampling coverage of the one-sided bound over the locked design space; prior class, parameterization, and sensitivity analysis locked with it. An uncalibrated posterior is not a member.</li><li><strong>B-4 Identification-region bound.</strong> Confidence statements for set-identified components per the recognized partial- identification construction named in the locked design, entering the union as A.3 requires.</li></ul>
+          <p class="ls-p">No family outside B-1 through B-4 may be selected. §10.5 applies: each panel selects; all selections enter the union.</p>
+          <p class="ls-h ls-h2 ls-part" id="part-c">PART C — PREPROCESSING METHODS (§7.2)</p>
+          <p class="ls-p">Admissible beyond the §7.1 defaults, and nothing else:</p>
+          <ul class="ls-list"><li><strong>C-1 Missing data.</strong> Multiple imputation only. The locked design states the missingness mechanism assumption, the imputation model, auxiliary variables, and a tipping-point sensitivity analysis published with the record; imputation models are union members — either panel may add competing imputation models under §4.4, and the least activation-favorable surviving member controls. There is no complete-case branch. Absence of a venue's outcome is itself an outcome to be modeled, never a license to drop the venture.</li><li><strong>C-2 Deflation.</strong> The single canonical deflator series at the §6.3 vintage, all components. No alternatives.</li><li><strong>C-3 Seasonal and population adjustment.</strong> The source authority's published method, and no other.</li><li><strong>C-4 Outliers.</strong> None. An extreme observation is evidence, not noise.</li></ul>
+          <p class="ls-h ls-h2 ls-part" id="part-d">PART D — STATUS</p>
+          <p class="ls-p"><a href="path-2-charter.html#s-10-4">This Schedule is part of the Charter</a> for every purpose of §13.1. Selections from it at preregistration are Appendix A operationalizations under §10.3 and confer no discretion beyond the enumerated items. In any conflict, the Charter controls; among this Schedule's parts, the Preliminary ruling and then A.1.6's identity control.</p>
+          <hr class="ls-hr">
+          <p class="ls-p"><em>Adopted with the Charter. The rates hold at 70/35/17/8 under LP-073 until the event.</em></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
+  <title>The Path 2 Charter — LP-074 Certification Methodology • The Five Rings</title>
+  <meta name="description" content="The Path 2 Charter (fourth draft, terminal): the certification methodology LP-074 fixes in advance for its Schedule A rate reduction. Adopted by the chambers in 2279 (Y178) with its §10.4 Schedule and Residual-Risk Register; no rate moves until a certification event. The live schedule remains 70/35/17/8 (LP-073)." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://jasonhchronicles.com/VMSS/path-2-charter.html" />
+
+  <script>
+    const saved = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+<noscript><style>body{opacity:1}</style></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+
+  <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+
+  <style>
+  .p2-shell { --p2-accent: var(--accent); }
+  .p2-banner {
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--p2-accent);
+    background: var(--bg-secondary);
+    border-radius: 14px;
+    padding: 1.1rem 1.35rem;
+    display: flex; gap: .85rem; align-items: flex-start;
+    box-shadow: 0 10px 30px var(--shadow);
+  }
+  .p2-banner i { color: var(--p2-accent); font-size: 1.15rem; margin-top: .15rem; }
+  .p2-banner .pb-label {
+    font-size: .7rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--p2-accent); font-weight: 700; display: block; margin-bottom: .3rem;
+  }
+  .p2-banner p { color: var(--text-secondary); line-height: 1.6; font-size: .95rem; }
+  .p2-banner strong { color: var(--text-primary); }
+  .p2-crosslinks { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .p2-crosslink {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: .5rem .95rem; font-size: .9rem; color: var(--text-secondary);
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .p2-crosslink:hover { border-color: var(--accent); color: var(--accent); }
+  .p2-crosslink.is-primary {
+    border-color: var(--p2-accent); color: var(--text-primary);
+    background: color-mix(in srgb, var(--p2-accent) 12%, transparent);
+  }
+  .p2-crosslink.is-primary i { color: var(--p2-accent); }
+  /* Statute typography, carried over from the law register unchanged (R16):
+     the ls-* scale as on pending-ratify-tax-50-ii-statute.html. */
+  .law-statute { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.62; margin-bottom: 1rem; }
+  .law-statute .ls-h { color: var(--text-primary); font-weight: 700; line-height: 1.3; scroll-margin-top: 6rem; }
+  .law-statute .ls-h1 { font-size: 1.28rem; margin: 0 0 0.9rem; letter-spacing: 0.02em; }
+  .law-statute .ls-doc-sub { color: var(--text-muted); font-size: 0.86rem; margin: 0 0 1.2rem; }
+  .law-statute .ls-h2 { font-size: 1.06rem; margin: 1.9rem 0 0.7rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); }
+  .law-statute .ls-h2.ls-part { font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); border-bottom: 0; margin: 2.4rem 0 0.4rem; padding-bottom: 0; }
+  .law-statute .ls-h3 { font-size: 0.96rem; margin: 1.2rem 0 0.45rem; color: var(--text-secondary); }
+  .law-statute .ls-p { margin: 0 0 0.8rem; }
+  .law-statute strong { color: var(--text-primary); font-weight: 700; }
+  .law-statute em { font-style: italic; color: var(--text-primary); }
+  .law-statute .ls-list { margin: 0 0 0.9rem 1.25rem; padding: 0; }
+  .law-statute .ls-list li { margin: 0 0 0.45rem; }
+  .law-statute ol.ls-list { list-style: decimal; }
+  .law-statute ul.ls-list { list-style: disc; }
+  .law-statute .ls-hr { border: 0; border-top: 1px solid var(--border); margin: 1.8rem 0; }
+  .law-statute .ls-quote {
+    margin: 0 0 0.9rem; padding: 0.25rem 0 0.25rem 1rem;
+    border-left: 3px solid rgba(34, 211, 238, 0.4); color: var(--text-secondary);
+  }
+  .law-statute .ls-quote .ls-p:last-child { margin-bottom: 0; }
+  .law-statute .ls-cite { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(34, 211, 238, 0.45); }
+  .law-statute .ls-cite:hover { border-bottom-style: solid; }
+  .law-statute a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(34, 211, 238, 0.45); }
+  .law-statute a:hover { border-bottom-style: solid; }
+  .law-statute .ls-ruling { margin-bottom: 2.4rem; }
+  .law-statute .ls-table-wrap { overflow-x: auto; margin: 0 0 1rem; border: 1px solid var(--border); border-radius: 0.6rem; }
+  .law-statute .ls-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 520px; }
+  .law-statute .ls-table th, .law-statute .ls-table td { text-align: left; vertical-align: top; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); }
+  .law-statute .ls-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; }
+  .law-statute .ls-table tbody tr:last-child td { border-bottom: 0; }
+  .law-statute .ls-table td:first-child { white-space: nowrap; color: var(--text-primary); font-weight: 600; }
+  </style>
+</head>
+
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content" class="flex-1 p2-shell">
+    <section class="pt-32 pb-32">
+      <div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
+
+        <div class="mb-8">
+          <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings · Path 2 · Certification Methodology</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">The Path 2 Charter</h1>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">The methodology LP-074 requires before any rate can move: where a choice can be fixed, this Charter fixes it; where judgment is irreducible, it converts judgment into adversarial mechanism and prices ambiguity against activation. Adopted 2279 (Y178) with its §10.4 Schedule and Residual-Risk Register.</p>
+        </div>
+
+        <div class="p2-banner mb-10" role="note" aria-label="Charter status">
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
+          <div>
+            <span class="pb-label">Adopted · Certification methodology — no rate moved</span>
+            <p><strong>ADOPTED, 2279 (Y178).</strong> This Charter is the methodology <a href="law-polling.html#lp-074">LP-074</a> fixes in advance; adopting it changed no rate. Its <a href="path-2-schedule.html#part-a">§10.4 Schedule</a> and <a href="path-2-risk-register.html">Residual-Risk Register</a> were adopted alongside it, the Register as part of the adoption record. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); nothing here activates any schedule &mdash; activation belongs to the certification event alone. The first decennial window runs 2279&ndash;2288.</p>
+          </div>
+        </div>
+        <div class="p2-crosslinks mb-12">
+          <a href="path-2-schedule.html#part-a" class="p2-crosslink is-primary"><i class="fas fa-list-ol" aria-hidden="true"></i> §10.4 Schedule — enumerated measures</a>
+          <a href="path-2-risk-register.html" class="p2-crosslink is-primary"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Residual-Risk Register — the adoption record</a>
+          <a href="law-polling.html#lp-074" class="p2-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> LP-074 — the register entry</a>
+          <a href="law-polling.html#lp-073" class="p2-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — the schedule in force</a>
+          <a href="pending-ratify-tax-50-rulings.html" class="p2-crosslink"><i class="fas fa-gavel" aria-hidden="true"></i> Presidential rulings — the adoption record</a>
+          <a href="pending-ratify-tax-50-ii-statute.html" class="p2-crosslink"><i class="fas fa-file-contract" aria-hidden="true"></i> RATIFY-TAX-50-II — the conditional statute</a>
+        </div>
+
+        <div class="law-statute">
+          <p class="ls-h ls-h1">THE PATH 2 CHARTER — FOURTH DRAFT (TERMINAL)</p>
+          <p class="ls-p ls-doc-sub">Certification Methodology for LP-074 Schedule A Adopted under the rule enacted 2278 (Y177) · Amended draft, 2279 (Y178) Conforms to the Ruling of the Presidency, 2279 · Amended per the institutional-design review · Ships with its Residual-Risk Register, which is part of the adoption record</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2">Preamble</p>
+          <p class="ls-p">LP-074 changed no rate. It adopted a rule: the Sanctuary/Main top marginal rate falls from 70 to 50 when — and only when — a Path 2 audit certifies, under a methodology fixed in advance, that the system can carry the change. This Charter is that methodology. Where a choice could be fixed, this text fixes it. Where expert judgment is irreducible, this text does not pretend otherwise: it converts judgment into adversarial mechanism, prices ambiguity against activation, and engraves what remains in the Residual-Risk Register adopted alongside it. Nothing in this Charter may be read to activate any schedule; activation belongs to the certification event alone. Nothing in this Charter places any burden of motion on the status quo: the lawful state of the civilization is the enacted schedule.</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2 ls-part">PART ONE — OFFICES</p>
+          <p class="ls-h ls-h2" id="art-1">Article I — The Commission</p>
+          <p class="ls-p" id="s-1-1"><strong>§1.1 Constitution.</strong> Certification authority vests in a Path 2 Audit Commission of three seats, constituted by the chambers from the three highest-ranked eligible entities on the Meritboard rankings named in §1.2, substrate-neutral per the standing definition of the Charter of VMSS.</p>
+          <p class="ls-p" id="s-1-2"><strong>§1.2 Competence.</strong> Eligibility requires demonstrated standing, per the Meritboard rankings then in force, in fiscal estimation, causal inference, or audit methodology; the three seats together must cover all three, each seat drawn from the top of its ranking among entities not disqualified below.</p>
+          <p class="ls-p" id="s-1-3"><strong>§1.3 Quarantine — historical.</strong> No seat may be held by any party who authored, advocated, opposed, or adjudicated any instrument of the TAX-50 proceedings of 2213 or 2276–2278. This quarantine binds for two decennial windows from this Charter's adoption, then converts to a disclosure requirement.</p>
+          <p class="ls-p" id="s-1-4"><strong>§1.4 Quarantine — current.</strong> No seat may be held by any party with a present financial interest in the schedule outcome, a present advocacy role concerning the schedule (the §4.4 panel mandate is not an advocacy role within this section), or a present position in any body whose funding the Findings adjudicate. A seat discovering such an interest mid-run recuses on the record; the next-ranked eligible entity on the same competence ranking completes the cycle, iterating down the ranking as needed. If iteration exhausts the eligible ranking mid-run and §1.2's coverage fails, the run voids for competence collapse per §12.4(b).</p>
+          <p class="ls-p" id="s-1-5"><strong>§1.5 Quarantine — engagement.</strong> §§1.3–1.4 extend to the Commission's entire engagement organization: staff, contractors, model builders, data vendors, and counsel. A prohibited party may not perform through an intermediary what it may not perform in a seat. "Party" and "entity" throughout this Charter carry the standing canon identity doctrine: affiliates, controlled substitutes, and successor identities of a disqualified entity are the entity.</p>
+          <p class="ls-p" id="s-1-6"><strong>§1.6 Action rule.</strong> The Commission acts by majority of three, each Finding voted separately, every vote and dissent published over signature. Vote-binding is symmetric: a vote to certify a Finding whose controlling estimate fails its threshold under §10.2 is void, and a vote to fail a Finding whose controlling estimate meets its threshold is equally void. The disposition of each Finding is the computed comparison itself; the instrument must reproduce, for each Finding, the computed controlling bound and the threshold comparison, and no instrument — certifying or failing — issues until the Registrar's §11.4 execution certifies that the reproduced comparisons match the escrowed computation and that every disposition matches its comparison. Signatures attest the record, not the arithmetic; the arithmetic attests itself, in both directions.</p>
+          <p class="ls-p" id="s-1-7"><strong>§1.7 Tenure.</strong> Seats are held for one certification cycle, dissolving with the run's published result. No entity (per §1.5's identity doctrine) may hold a seat in two consecutive decennial windows. The duty to respond to Registrar and appellate inquiries concerning a run survives dissolution, enforceable as a standing Meritboard sanction.</p>
+          <p class="ls-h ls-h2" id="art-2">Article II — The Registrar</p>
+          <p class="ls-p" id="s-2-1"><strong>§2.1 Office.</strong> A Path 2 Registrar exists as a standing office, institutionally separate from the Commission, with custody and verification authority only. The Registrar is appointed by the chambers from the highest-ranked eligible entity on the Meritboard's audit-methodology ranking, subject to §§1.3–1.5 quarantines, with tenure and removal per the standing Meritboard officer standard. A deputy — the next-ranked eligible entity — is pre-designated and assumes the office immediately upon vacancy; a vacancy of both offices must be filled from the ranking within ninety days, and all run clocks under §§2.4, 11.2, and 12.3 toll during any period in which no Registrar holds office.</p>
+          <p class="ls-p" id="s-2-2"><strong>§2.2 Duties.</strong> The Registrar: (a) holds each preregistration and every escrow deposit under §2.5 as hashed, timestamped, read-only public or sealed artifacts per §9.2's lock mechanics; (b) verifies pre-lock compliance with §6.4, including custody of the §6.6 exposure declarations; (c) verifies conformity of executed analysis to the locked preregistration, including code identity and data provenance, by the §11.4 execution; (d) adjudicates claimed deviations under §§9.3–9.6; (e) maintains the technical-objection docket under §14.4; (f) certifies completeness and executability of publication under Article XI.</p>
+          <p class="ls-p" id="s-2-3"><strong>§2.3 The fence.</strong> The Registrar is expressly barred from methodological authority. It verifies that the Commission did what it locked; it rules never on whether what was locked was wise. Any Registrar determination touching the merits of a specification, estimand, threshold, or finding is void on its face. Custody is a service; judgment belongs to the instrument.</p>
+          <p class="ls-p" id="s-2-4"><strong>§2.4 Appeal.</strong> Every Registrar determination — acceptance, deviation, materiality, coverage, attribution, completeness, docket scope — is appealable to the Supreme Court by the Commission, either §4.4 panel, or the chambers. The Court reviews conformity questions as questions of legal interpretation; the boundary of §2.3's fence is itself justiciable there and nowhere else. The party asserting a deviation bears the burden of showing it. Registrar determinations issue with reasons and evidence, published. A pending appeal tolls the §11.2 clock; the Court decides within ninety days of filing or the Registrar's determination stands affirmed by default; aggregate appellate tolling per run may not exceed one year, after which further appeals proceed without tolling. Litigation is not a clock.</p>
+          <p class="ls-p" id="s-2-5"><strong>§2.5 Escrow.</strong> Milestone deposits are mandatory: at lock, the data snapshot at the §6.3 vintage; before analysis, the complete analysis code and computational environment; before any instrument issues, the full compendium of §11.1. Deposits are sealed until publication, then public. A run whose milestone deposit is absent may not proceed past that milestone.</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2 ls-part">PART TWO — THE TEST</p>
+          <p class="ls-h ls-h2" id="art-3">Article III — Estimands and Pass Thresholds</p>
+          <p class="ls-p">Certification requires all four Findings, each met at its controlling estimate as defined in §10.2. Failure of any one fails the run entire. For each Finding this Article fixes the population, the variable, the causal contrast, the horizon, the summary measure, and the pass threshold. Appendix A may operationalize measurement within §10.3's limits; it may not define success.</p>
+          <p class="ls-p" id="s-3-1"><strong>§3.1 Finding I — Institutional adequacy.</strong> <em>Population:</em> the institutional obligations of Main as enumerated, item by item, in the Charter Restatement snapshotted at lock per §10.1. <em>Variable:</em> annual income-tax receipts, real terms, per the source authority's canonical series for each enumerated item. <em>Contrast:</em> the 50 schedule against the enacted 70 schedule, all else per Article VIII. <em>Horizon:</em> thirty years from projected activation. <em>Summary:</em> the annual coverage ratio — receipts over enumerated obligations — for each horizon year. <em>Threshold:</em> a coverage ratio of at least 1.00 in every horizon year, at the controlling estimate under §5.6's worst-year rule. The dividend stream and its funding base are inadmissible to this Finding.</p>
+          <p class="ls-p" id="s-3-2"><strong>§3.2 Finding II — ADT elasticity.</strong> <em>Population:</em> the ADT base and the dividend stream it funds. <em>Variable:</em> real dividend disbursement per resident. <em>Contrast:</em> as §3.1. <em>Baseline:</em> the ten years ending at the §6.2 cutoff. <em>Horizon:</em> thirty years. <em>Summary:</em> the count of horizon years in which projected real per-resident disbursement falls below the baseline mean by attribution to the schedule change under Article IV's identification rules. <em>Threshold:</em> zero such years, at the controlling estimate. The income-tax stream and its adequacy are inadmissible to this Finding.</p>
+          <p class="ls-p" id="s-3-3"><strong>§3.3 Finding III — Concentration response.</strong> <em>Population:</em> all schedule-subject holdings. <em>Variable:</em> (i) annual SCM activation frequency; (ii) Flow Test status per the canon definition snapshotted at lock per §10.1. <em>Contrast:</em> as §3.1. <em>Baseline:</em> the ten years ending at the §6.2 cutoff. <em>Horizon:</em> thirty years. <em>Summary:</em> (i) projected activation frequency relative to the baseline mean; (ii) Flow Test status per projected year. <em>Threshold:</em> projected activation frequency not exceeding 125 percent of the baseline mean in any horizon year, and the Flow Test holding in every horizon year, both at the controlling estimate under §5.6.</p>
+          <p class="ls-p" id="s-3-4"><strong>§3.4 Finding IV — Marginal utility of retained capital.</strong> <em>Population:</em> capital retained in the upper stack by operation of the schedule change — the difference between the 70 and 50 schedules' collections. <em>Variable:</em> net marginal value of that capital's private deployment under the welfare measures of §10.4's enumerated schedule. <em>Counterfactual:</em> public capture and deployment per the realized deployment pattern of the public streams over the ten years ending at the §6.2 cutoff — the public portfolio as it was, not as either side would idealize or degrade it. <em>Horizon:</em> thirty years. <em>Summary:</em> (i) net marginal value of private over counterfactual public deployment; (ii) count of projected concentration events attributable to the retained capital under Article IV. <em>Threshold:</em> net marginal value strictly greater than zero at the controlling estimate, and zero attributable concentration events at the controlling estimate. No measurable marginal utility fails this Finding.</p>
+          <p class="ls-p" id="s-3-5"><strong>§3.5 Conjunction and seal.</strong> The four Findings are conjunctive. The streams of Findings I and II are evidentially sealed: neither Finding's model or conclusion may be conditioned on, offset by, or informed by the other stream's adequacy. Shared exogenous inputs (macroeconomic series, demographic series) are permitted only if enumerated in the preregistration and identical wherever used. No surplus under any Finding argues for a deficit under another.</p>
+          <p class="ls-h ls-h2" id="art-4">Article IV — Specification Discipline, Adversarial Construction, and Identification</p>
+          <p class="ls-p" id="s-4-1"><strong>§4.1 The admissible set.</strong> The preregistration names an admissible specification set spanning the plausible space of functional forms, identifying assumptions, and estimators, with stated reasons for every candidate class considered and excluded.</p>
+          <p class="ls-p" id="s-4-2"><strong>§4.2 Controlling across the union.</strong> The controlling estimate for each Finding is taken across the entire admissible union — every set member from every source under §4.4, crossed with every menu selection under §10.5: the bound least favorable to activation among all equivalence classes under §4.6. No member is privileged; none may be ignored.</p>
+          <p class="ls-p" id="s-4-3"><strong>§4.3 Validation floor.</strong> Every set member carries a validation test fixed by this section, not by its proponent: out-of-sample projection against a held-out terminal segment of the observation window, with projection error no worse than the naive persistence benchmark on the same segment. A member failing the floor is excluded from the controlling union; its failure, estimates, and the recomputation verifying the exclusion publish in full, and the Registrar verifies by §11.4 execution that exclusion followed this floor and nothing else.</p>
+          <p class="ls-p" id="s-4-4"><strong>§4.4 Adversarial construction.</strong> Upon constitution of a Commission, the chambers seat two panels from the same rankings and quarantines as §§1.1–1.5 (as modified by §1.4's mandate carve-out): a certification-side panel and a refusal-side panel. Each panel holds a MANDATE, not an interest: the certification-side panel's duty is to add the specification-set members, identification assumptions, and menu selections that make the strongest admissible case for activation; the refusal-side panel's duty is the strongest admissible case against. Addition is a duty, not a permission: each panel must add, for each Finding, at least its strongest surviving candidate per its mandate, or publish a signed statement that none exists. Panel performance is scored on the standing Meritboard rankings after publication — the stake is merit, which in this civilization is the currency that matters. Neither panel, nor the Commission, may exclude another party's addition except by the §4.3 floor, mechanically applied. Curation dies because nobody curates; abstention dies because abstention is scored.</p>
+          <p class="ls-p" id="s-4-5"><strong>§4.5 Identification conservatism.</strong> Wherever attribution — "by attribution to the schedule change," "attributable to the retained capital" — depends on contested identification assumptions, the controlling estimate is computed under the admissible assumption least favorable to activation. Attribution ambiguity is not argued; it is priced against activation. Admissibility of an assumption is established by §4.4 addition and §4.3 survival, not by argument.</p>
+          <p class="ls-p" id="s-4-6"><strong>§4.6 Non-redundancy.</strong> Set members sharing identification assumptions and functional class form one equivalence class; the controlling bound is taken over classes, each class represented by its own least activation-favorable surviving member. Padding a class multiplies nothing.</p>
+          <p class="ls-h ls-h2" id="art-5">Article V — Uncertainty</p>
+          <p class="ls-p" id="s-5-1"><strong>§5.1 Framework.</strong> All intervals are one-sided at the 95 percent level, oriented against activation, constructed by a family from the §10.4 enumerated schedule, with dependence structure and clustering unit as declared in the preregistered design and verified in §11.4 execution.</p>
+          <p class="ls-p" id="s-5-2"><strong>§5.2 Joint assurance.</strong> The four Findings are conjunctive; each is tested at its own 95 percent one-sided level, and no multiplicity adjustment may loosen any individual bound. Every uncertainty allocation in this Charter runs against activation.</p>
+          <p class="ls-p" id="s-5-3"><strong>§5.3 Precision floor, by formula.</strong> For each Finding, the maximum admissible width of the controlling interval is the absolute distance between the pass threshold and the baseline-period observed mean of the summary measure. A locked design whose §11.4-verified interval width exceeds this bound cannot certify and cannot fail the Finding on precision alone; it is void for indecision per §12.4(b)(ii), attributed to the lock's gap. The formula is arithmetic; the Registrar computes it.</p>
+          <p class="ls-p" id="s-5-4"><strong>§5.4 Boundary rule.</strong> All threshold comparisons are made on unrounded values. A controlling bound exactly at a threshold fails.</p>
+          <p class="ls-p" id="s-5-5"><strong>§5.5 Point estimates.</strong> Point estimates and full intervals for every union member publish in the instrument, favorable or not.</p>
+          <p class="ls-p" id="s-5-6"><strong>§5.6 Vector-to-bound rule.</strong> For Findings whose thresholds bind in every horizon year, intervals are constructed with simultaneous one-sided 95 percent coverage across the horizon path, and the operative comparison is the worst horizon year at the simultaneous bound. Pointwise, pooled, or selective-year inference is not admissible.</p>
+          <p class="ls-h ls-h2" id="art-6">Article VI — Data</p>
+          <p class="ls-p" id="s-6-1"><strong>§6.1 The observation window, by formula.</strong> The window ends at the §6.2 cutoff and extends backward the greater of twenty years or the span covering two complete cycles per the §10.1 snapshot definition. No party selects the window; this section computes it.</p>
+          <p class="ls-p" id="s-6-2"><strong>§6.2 Fixed cutoff, by formula.</strong> The cutoff is the lock date minus the source authorities' maximum published reporting lag for the enumerated series. No party selects the cutoff; this section computes it from the lock date.</p>
+          <p class="ls-p" id="s-6-3"><strong>§6.3 Vintage, by formula.</strong> The as-of vintage governing all series is the lock date. A post-cutoff revision to a pre-cutoff observation is admissible only if published by the lock date; otherwise the pre-revision value stands. The rule applies identically to favorable and unfavorable revisions.</p>
+          <p class="ls-p" id="s-6-4"><strong>§6.4 Pre-lock prohibition.</strong> Before lock, no Commission or panel party may examine window data, prior vintages of it, aggregates or proxies substantially derived from it, or adjacent-period data selected for outcome-revealing power.</p>
+          <p class="ls-p" id="s-6-5"><strong>§6.5 Evidence floor.</strong> Findings rest on observed measurements. Simulation and model output are admissible only as projection layers that survived §4.3. No model output serves as the observational validation of that model.</p>
+          <p class="ls-p" id="s-6-6"><strong>§6.6 Exposure declarations.</strong> Every Commission and panel party files, before lock, a signed declaration of prior professional exposure to the window's public series. Declarations are escrowed, published with the record, and false declaration is a material deviation attributed to Commission conduct. This section mitigates what no text can erase; the residue is Register entry RR-3.</p>
+          <p class="ls-h ls-h2" id="art-7">Article VII — Preprocessing</p>
+          <p class="ls-p" id="s-7-1"><strong>§7.1 Defaults.</strong> No observation exclusions; missing data by the source authority's published method; no outlier removal; transformations limited to those in Article III's estimand text; weights per the source series; seasonal and population adjustment per the source authority.</p>
+          <p class="ls-p" id="s-7-2"><strong>§7.2 Departures.</strong> A preprocessing departure from §7.1 is admissible only if it is itself a source authority's published method or an item of the §10.4 enumerated schedule. Free-form departures, however reasoned, are amendments under §13.1.</p>
+          <p class="ls-h ls-h2" id="art-8">Article VIII — Intercurrent Events</p>
+          <p class="ls-p" id="s-8-1"><strong>§8.1 Enumerated minimum.</strong> The preregistration must state attribution and sensitivity treatment for at least the following anticipated event classes: statutory change to any enumerated obligation; change to ADT structure; change to SCM doctrine; demographic-regime change per the canon definition; and any event class either §4.4 panel adds. Omission of an enumerable class is a material deviation attributed to Commission conduct.</p>
+          <p class="ls-p" id="s-8-2"><strong>§8.2 Unanticipated.</strong> An unanticipated event routes to the Registrar, which publishes the event beside the locked text and rules only whether the locked treatment covers it, appealably per §2.4. Covered: the run proceeds. Not covered: void without window consumption per §12.4(b), the gap cured at next lock.</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2 ls-part">PART THREE — PROCESS</p>
+          <p class="ls-h ls-h2" id="art-9">Article IX — Preregistration and Lock</p>
+          <p class="ls-p" id="s-9-1"><strong>§9.1 Contents.</strong> The preregistration comprises: the admissible set with exclusion reasons (§4.1) and panel additions (§4.4); menu selections (§10.5); declared dependence design (§5.1); intercurrent treatments (§8.1); Appendix A operationalizations within §10.3; the computed window, cutoff, and vintage of §§6.1–6.3 shown as computations; and nothing that Articles III–VIII or Article X reserve to this Charter.</p>
+          <p class="ls-p" id="s-9-2"><strong>§9.2 Lock mechanics.</strong> Lock occurs when the Registrar accepts the preregistration against the §9.1 checklist — acceptance or a stated checklist defect within ninety days, absence of either being deemed acceptance. The checklist includes executability: the Registrar verifies, as a conformity matter, that the locked design's §11.4 execution over the §4.6 class representatives is completable within the §11.2 period. Upon acceptance the Registrar: computes the artifact's SHA-256 digest from its bytes; obtains a timestamp from the civilization's canonical time authority; publishes digest and timestamp to the public chambers record over the signatures of the Registrar and the clerk of the chambers. The clerk's co-signature is ministerial: withheld beyond ten days, it is deemed given, and the Registrar's publication alone completes lock. No §6.4-prohibited examination may precede lock.</p>
+          <p class="ls-p" id="s-9-3"><strong>§9.3 Deviation.</strong> Any departure from the locked preregistration is a deviation, claimed to and adjudicated by the Registrar, appealably.</p>
+          <p class="ls-p" id="s-9-4"><strong>§9.4 Materiality, by recomputation.</strong> A deviation is material if Registrar recomputation under the locked alternative changes any operative comparison of §5.6, or if the deviation defeats recomputation. Materiality is decided by executing, not predicting. Immaterial deviations are curable on the record.</p>
+          <p class="ls-p" id="s-9-5"><strong>§9.5 Consequences.</strong> A material deviation that recomputation can repair does not void the run: the run proceeds and publishes on the recomputed result, the deviation and repair published with it. No deviation that can be computed away buys any party an exit from publication. Only a recomputation-defeating deviation voids the run; its window consequence, and the removal and Meritboard sanction of any entity to whose conduct the Registrar attributes it, are governed by §12.4(b)(iv).</p>
+          <p class="ls-p" id="s-9-6"><strong>§9.6 Adjudication.</strong> Deviation rulings publish with reasons and the recomputation record. No Commission determination of its own conformity is final.</p>
+          <p class="ls-h ls-h2" id="art-10">Article X — Definitions, Hierarchy, and Menus</p>
+          <p class="ls-p" id="s-10-1"><strong>§10.1 Snapshot at lock.</strong> <em>Flow Test</em>, <em>cycle</em>, and <em>institutional obligations</em> are incorporated from the standing canon and the Charter Restatement as in force at lock, and that snapshot governs the run immutably. An amendment to any cross-referenced source between runs is an amendment to this Charter's schedules and must clear §13.1 before the next lock.</p>
+          <p class="ls-p" id="s-10-2"><strong>§10.2 Controlling estimate.</strong> For each Finding, the controlling estimate is the interval bound, across the §4.2 union under the §4.6 class rule and the §5.6 vector rule, least favorable to activation. This section is the term's sole source of law.</p>
+          <p class="ls-p" id="s-10-3"><strong>§10.3 Appendix A.</strong> A preregistration artifact. It may operationalize measurement — series mappings (which must be the source authority's canonical series wherever one exists), computational procedure, and selections from the §10.4 schedule — and nothing else. It may not define success, alter a threshold, or redefine a frozen term. In any conflict, this Charter controls.</p>
+          <p class="ls-p" id="s-10-4"><strong>§10.4 Enumerated schedule.</strong> The welfare measures (Finding IV), the interval families (§5.1), and the admissible preprocessing methods (§7.2) are enumerated in <a href="path-2-schedule.html#part-a">a schedule adopted by the chambers</a> with this Charter, amendable only per §13.1. Nothing outside the schedule may be selected.</p>
+          <p class="ls-p" id="s-10-5"><strong>§10.5 Menu union.</strong> Where the schedule permits alternatives, each §4.4 panel makes its selections; all selections enter the §4.2 union. Menu shopping is symmetric and therefore empty.</p>
+          <p class="ls-h ls-h2" id="art-11">Article XI — Publication</p>
+          <p class="ls-p" id="s-11-1"><strong>§11.1 Symmetric disclosure.</strong> Every outcome — certification, failure, void — publishes the full compendium: raw and analytic data, complete code, computational environment, execution logs, seeds, provenance chain, point estimates and intervals for every union member, votes, dissents, declarations, and every Registrar certification. Data that cannot be published cannot be admitted: no enumerated series enters any Finding unless its deposit and publication are secured at lock. An incomplete record voids the outcome it accompanies — certification, failure, and void alike.</p>
+          <p class="ls-p" id="s-11-2"><strong>§11.2 Deadline.</strong> The run publishes within two years of lock. On breach, the Registrar publishes the escrowed compendium and the §11.4 execution's computed comparisons as the run's result; the run is thereby published, not voided, and consumes its window. Suppression by silence is not available to any party.</p>
+          <p class="ls-p" id="s-11-3"><strong>§11.3 Correction and supersession.</strong> A material computational or data-integrity defect certified by the Registrar within one year of publication permits one corrected re-analysis of the same locked compendium — never new data, never a new run. The corrected result supersedes the original for every legal purpose: a correction reversing a certification voids it ab initio with prospective rate reversion from the correction's publication; a correction reversing a failure is the certification event. Both instruments publish side by side; only the correction operates.</p>
+          <p class="ls-p" id="s-11-4"><strong>§11.4 Execution.</strong> Before any instrument issues, the Registrar independently executes the escrowed code on the escrowed data in the escrowed environment — over the §4.6 class representatives, whose execution decides every controlling bound — and verifies that the reported comparisons match the executed output and that every §1.6 disposition matches its comparison. Non-execution or mismatch blocks issuance. A Commission's failure to make any §2.5 milestone deposit is a recomputation-defeating deviation attributed to Commission conduct. Execution is conformity, not merits, per §2.3.</p>
+          <p class="ls-h ls-h2" id="art-12">Article XII — Cadence</p>
+          <p class="ls-p" id="s-12-1"><strong>§12.1 Windows.</strong> Decennial windows anchor to LP-074's enactment (2278): the first opens on adoption of this Charter and closes 2288; each subsequent window spans ten years from the last close.</p>
+          <p class="ls-p" id="s-12-2"><strong>§12.2 Commencement and consumption.</strong> A run commences at lock and belongs to the window in which it locks; its result, whenever published, consumes that window and no other. No run may lock while any run is pending anywhere. Only consumption closes a window to further commencement: one consuming run per window, and a §12.4(b) void permits one replacement commencement within the run's window.</p>
+          <p class="ls-p" id="s-12-3"><strong>§12.3 No duty to run.</strong> A window without a run is the lawful status quo. Nothing compels the chambers to constitute a Commission or a Commission to lock. Once constituted, a Commission that has not locked within two years dissolves without window consequence.</p>
+          <p class="ls-p" id="s-12-4"><strong>§12.4 Consumption rules.</strong> (a) A published result — including a §11.2 escrow publication, a §9.5 recomputed publication, and an operative §11.3 correction — consumes the run's window. (b) The following voids do not consume the window, and each permits the single §12.2 replacement commencement: (i) §8.2 non-coverage; (ii) §5.3 indecision; (iii) §1.4 competence collapse; (iv) a recomputation-defeating deviation — with the entity to whose conduct the Registrar attributes it removed from every Path 2 role, sanctioned per the standing Meritboard standard, and excluded from the replacement run. Sabotage buys the saboteur nothing that publication would not have given, and costs the saboteur everything the Meritboard can price; the residue this allocation cannot close is engraved at Register entry RR-6. Attribution rulings publish and are appealable.</p>
+          <p class="ls-p" id="s-12-5"><strong>§12.5 No interim process.</strong> No supplemental estimates, interim reruns, or partial recertifications beyond §11.3's single correction.</p>
+          <p class="ls-h ls-h2" id="art-13">Article XIII — Symmetry</p>
+          <p class="ls-p" id="s-13-1"><strong>§13.1 Amendments.</strong> Every amendment to this Charter or its §10.4 schedule — loosening, tightening, or neutral — requires chamber adoption and must first survive a cold adversarial review. The reviewer is not selected by any sponsor: the reviewer is the highest-ranked eligible entity on the Meritboard's audit-methodology ranking, quarantined per §§1.3–1.5 from the amendment's sponsors and authors, with full evidence access. "Survive" means: every finding is dispositioned on the published record, the reviewer's reply to each disposition publishes before the adoption vote, and any highest-severity finding dispositioned over the reviewer's standing objection is flagged to the Presidency for veto consideration on that ground.</p>
+          <p class="ls-p" id="s-13-2"><strong>§13.2 Revocation.</strong> A certification is revocable only by a revocation run: same Findings, thresholds, controlling-estimate rule, and the certifying run's locked instrument — definitions, union, schedule selections — updated only for the data window computed under §§6.1–6.3 at the new lock, and enlarged as follows: fresh §4.4 panels are seated at the revocation lock and may add to the union under the same duties, floor, and class rules. The union may grow; it may never shrink. Growing the evidence is not changing the ruler. All other instrument changes require §13.1 amendment. Revocation runs are subject to §§12.1–12.2 as runs of their window. If the Findings fail on revocation review, the schedule reverts to LP-073 prospectively. What was shown can be un-shown; what was un-shown restores the prior law — and "un-shown" must mean the world changed, not the ruler.</p>
+          <p class="ls-h ls-h2" id="art-14">Article XIV — Boundaries</p>
+          <p class="ls-p" id="s-14-1"><strong>§14.1 Schedule B untouched.</strong> This Charter governs Schedule A certification only. The Lower Incidence Certificate of LP-074 §6 is a distinct instrument under a distinct evidentiary standard. Nothing certified here satisfies, advances, or presumes any element of Schedule B.</p>
+          <p class="ls-p" id="s-14-2"><strong>§14.2 Argument quarantine.</strong> The petitions, briefs, advocacy, opposition, and adjudication reasoning of the TAX-50 proceedings are inadmissible to any Finding. Argument is quarantined; the world is not: primary data is admissible if independently sourced.</p>
+          <p class="ls-p" id="s-14-3"><strong>§14.3 No advocacy channel.</strong> No brief, petition, or merits argument may be filed with the Commission. The §4.4 panels speak once, before lock, by addition only. The Commission reads the lock and the data. It does not take meetings.</p>
+          <p class="ls-p" id="s-14-4"><strong>§14.4 Technical objections.</strong> Written objections limited to data integrity and computational error may be filed with the Registrar at any time, screened for scope (appealably), and published with their disposition. An objection sustained within §11.3's year routes to correction; one sustained later grounds a revocation run's commencement but changes nothing by itself.</p>
+          <hr class="ls-hr">
+          <p class="ls-h ls-h2" id="parameter-schedule">Parameter Schedule (adoption visibility)</p>
+          <p class="ls-p">Horizon 30 years (all Findings) · coverage ratio ≥ 1.00 every horizon year (I) · impairment years = 0 (II) · activation frequency ≤ 125% of baseline mean and Flow Test holds every year (III) · net marginal value &gt; 0 and attributable concentration events = 0 (IV) · baselines = ten years ending at cutoff · intervals one-sided 95%, simultaneous over horizon, worst-year operative · precision ceiling = |threshold − baseline mean| · window = max(20y, 2 cycles) ending at cutoff · cutoff = lock − max reporting lag · vintage = lock date · validation floor = beat persistence benchmark out-of-sample · acceptance ≤ 90 days else deemed · publication ≤ 2 years from lock (breach = escrow publication) · correction ≤ 1 year from publication · lock-or-dissolve ≤ 2 years from constitution · seat gap ≥ 2 consecutive windows · digest SHA-256, timestamp per canonical time authority, co-signed to chambers record (clerk deemed-signed after 10 days) · appeal decision ≤ 90 days else affirmed · aggregate appellate tolling ≤ 1 year per run · Registrar vacancy filled ≤ 90 days, clocks toll while vacant · historical quarantine sunsets to disclosure after 2 windows · replacement commencement ≤ 1 per window · no concurrent runs.</p>
+          <hr class="ls-hr">
+          <p class="ls-p"><em>Certification pending. The rates hold at 70/35/17/8 under LP-073 until the event. Rates fall when shown, and hold when merely told.</em></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>

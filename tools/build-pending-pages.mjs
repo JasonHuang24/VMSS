@@ -476,6 +476,7 @@ const ADV = 'pending-ratify-tax-50-advocacy.html';
 const SUPP = 'pending-ratify-tax-50-supplemental.html';
 const RECORD = 'pending-ratify-tax-50-record.html';
 const STATUTE = 'pending-ratify-tax-50-ii-statute.html';
+const RULINGS = 'pending-ratify-tax-50-rulings.html';
 
 const link = (href, cls, icon, label) =>
   `          <a href="${href}" class="pending-crosslink${cls ? ' ' + cls : ''}"><i class="fas ${icon}" aria-hidden="true"></i> ${label}</a>`;
@@ -573,6 +574,7 @@ built.push(page({
   crosslinks: [
     ...briefLinks(RECORD),
     link(BALLOT, '', 'fa-file-lines', 'The Ballot (petition v4.1)'),
+    link(RULINGS, '', 'fa-gavel', 'Presidential Rulings — Path 2 Charter'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
     link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — drafting designations 074 / 075'),
   ].join('\n'),
@@ -612,6 +614,8 @@ built.push(page({
     link('law-polling.html#lp-074', 'is-primary', 'fa-scale-balanced', 'LP-074 — the register entry'),
     link('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — the schedule in force'),
     link('whitepaper.html#trajectory-doctrine', '', 'fa-compass', 'Trajectory Doctrine — governing law'),
+    link('path-2-charter.html', 'is-primary', 'fa-scale-balanced', 'Path 2 Charter — certification methodology'),
+    link(RULINGS, '', 'fa-gavel', 'Presidential Rulings — the adoption record'),
     ...briefLinks(STATUTE),
     link(BALLOT, '', 'fa-file-lines', 'The Ballot — petition v4.1'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
@@ -643,6 +647,13 @@ const hubBody = [
   `<ul class="pending-list"><li><strong>Preregistered methodology</strong> — the estimation method is fixed and published before any results.</li><li><strong>Fixed data cutoff</strong> — each estimate names the data window it draws on.</li><li><strong>Definitions frozen before results</strong> — measured terms are defined ahead of the numbers, never fitted to them.</li><li><strong>Symmetric revision</strong> — estimates move up or down on the evidence, with no directional thumb on the scale.</li><li><strong>Published uncertainty</strong> — every controlling figure ships with its band, not as a bare point estimate.</li><li><strong>Predetermined controlling-estimate rule</strong> — which estimate governs is settled in advance of seeing the values.</li></ul>`,
   `<p class="pending-p">Two questions stand preregistered to the workstream:</p>`,
   `<ul class="pending-list"><li><strong>(a) SCM activation-frequency response to released liquidity.</strong> Whether the liquidity released at the proposed 50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25 schedule would raise district aggregates enough to increase Savings Circulation Mandate trigger frequency, and by how much — the bound the affirmative case leans on to answer concentration.</li><li><strong>(b) Marginal utility of private capital flow in a post-scarcity upper stack.</strong> What an additional retained dollar of elite liquidity buys the civilization once survival and the dividend are already funded from the automation side.</li></ul>`,
+  `<p class="pending-p" style="margin-top:1.4rem">Those questions now have a rulebook. The methodology that must answer them — the <a href="path-2-charter.html">Path&nbsp;2 Charter</a>, its <a href="path-2-schedule.html">§10.4 Schedule</a>, and its <a href="path-2-risk-register.html">Residual-Risk Register</a> — was adopted by the chambers in 2279 (Y178), fixed in advance so that no run can shop its own verdict, and its first decennial window runs 2279&ndash;2288. The two <a href="pending-ratify-tax-50-rulings.html">Rulings of the Presidency</a> that adjudicated the adoption publish in this record. Adopting the methodology moved no rate: the schedule holds at <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong> (<a href="law-polling.html#lp-073">LP-073</a>) until a certification event under the Charter.</p>`,
+  `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
+    [link('path-2-charter.html', 'is-primary', 'fa-scale-balanced', 'Path 2 Charter — certification methodology'),
+     link('path-2-schedule.html', 'is-primary', 'fa-list-ol', '§10.4 Schedule — enumerated measures'),
+     link('path-2-risk-register.html', 'is-primary', 'fa-clipboard-check', 'Residual-Risk Register — adoption record'),
+     link(RULINGS, '', 'fa-gavel', 'Presidential Rulings — Path 2 Charter')].join('\n') +
+    `\n          </div>`,
 ].join('\n');
 
 built.push(page({

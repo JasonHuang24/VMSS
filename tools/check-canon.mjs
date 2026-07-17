@@ -408,6 +408,63 @@ const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     leaks.length ? `50-schedule outside LP-074: ${leaks.join(', ')}` : `${worldPages.length} World pages clear`);
 }
 
+/* (g) PATH 2 CHARTER PAGES (R17–R20, v22.5). The certification methodology
+   LP-074 fixes in advance lands as three World-tier instruments — the Charter,
+   its §10.4 Schedule, and its Residual-Risk Register — cross-linked into a
+   closed set (the two Presidential rulings that adopted them are Process tier,
+   in the Ratification Record, and are not this guard's business). Modeled on
+   the statute-page guard (e3): each page exists, is the instrument rather than
+   a summary of one, carries its load-bearing anchors, and its cross-links
+   resolve. The Article count is derived from the page (contiguous I–XIV), not
+   asserted against a literal that would rot if the Charter were amended. */
+const CHARTER_PAGE = 'path-2-charter.html';
+const SCHEDULE_PAGE = 'path-2-schedule.html';
+const REGISTER_PAGE = 'path-2-risk-register.html';
+{
+  const src = (f) => { try { return read(f); } catch { return ''; } };
+  const charterSrc = src(CHARTER_PAGE);
+  const scheduleSrc = src(SCHEDULE_PAGE);
+  const registerSrc = src(REGISTER_PAGE);
+
+  const artNums = [...charterSrc.matchAll(/id="art-(\d+)"/g)].map((m) => Number(m[1])).sort((a, b) => a - b);
+  const artsItoXIV = artNums.length === 14 && artNums.every((n, i) => n === i + 1);
+
+  const need = [
+    ['charter page exists', !!charterSrc],
+    ['charter is the instrument (THE PATH 2 CHARTER)', charterSrc.includes('THE PATH 2 CHARTER')],
+    ['charter carries Articles I–XIV anchors (art-1 … art-14, contiguous)', artsItoXIV],
+    ['charter links the register entry (law-polling.html#lp-074)', charterSrc.includes('law-polling.html#lp-074')],
+    ['charter links the Schedule', charterSrc.includes(SCHEDULE_PAGE)],
+    ['schedule page exists', !!scheduleSrc],
+    ['schedule is the instrument (Operative Measure)', scheduleSrc.includes('Operative Measure')],
+    ['schedule carries Part D', /part d/i.test(scheduleSrc)],
+    ['schedule links the Charter', scheduleSrc.includes(CHARTER_PAGE)],
+    ['register page exists', !!registerSrc],
+    ['register engraves through RR-12', registerSrc.includes('RR-12')],
+    ['register links the Charter', registerSrc.includes(CHARTER_PAGE)],
+    ['register links the Schedule', registerSrc.includes(SCHEDULE_PAGE)],
+  ];
+  const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
+  check(missing.length === 0, 'Path 2 Charter pages published + cross-linked (R17–R20)',
+    missing.length ? `missing: ${missing.join('; ')}` : 'charter + schedule + register present, anchored, cross-linked');
+
+  /* The two-way §10.4 ↔ Schedule chain, asserted where it lives: the link is
+     present and its fragment resolves to a real id in the target. This is the
+     same failure mode the R15 link-integrity guard closed generally; named
+     here so a broken Charter/Schedule cross-reference fails as itself. */
+  const chain = [
+    ['charter → schedule#part-a present', charterSrc.includes(`${SCHEDULE_PAGE}#part-a`)],
+    ['schedule #part-a resolves', scheduleSrc.includes('id="part-a"')],
+    ['schedule → charter#s-10-4 present', scheduleSrc.includes(`${CHARTER_PAGE}#s-10-4`)],
+    ['charter #s-10-4 resolves', charterSrc.includes('id="s-10-4"')],
+    ['schedule → register#rr-9 present', scheduleSrc.includes(`${REGISTER_PAGE}#rr-9`)],
+    ['register #rr-9 resolves', registerSrc.includes('id="rr-9"')],
+  ];
+  const broken = chain.filter(([, ok]) => !ok).map(([k]) => k);
+  check(broken.length === 0, 'Path 2 Charter cross-links resolve to real anchors',
+    broken.length ? `broken: ${broken.join('; ')}` : 'two-way §10.4 ↔ Schedule + Register chain resolves');
+}
+
 /* ---- 5. LP citations elsewhere resolve to real anchors ---- */
 const anchorSet = new Set(entryIds);
 for (const file of ['whitepaper.html', 'simulations.html']) {
