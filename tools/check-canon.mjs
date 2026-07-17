@@ -202,11 +202,49 @@ const statusOfLp = (id) => {
 }
 /* (a) The register is clear of both retired numbers. R13 retires 074/075
    permanently: they are never reissued, so any reappearance — a restored entry
-   or a renumbering that reuses the slot — is drift, not authorship. */
+   or a renumbering that reuses the slot — is drift, not authorship.
+
+   Scoped at v22.3. The guard tests two distinct things, because the register
+   now carries a registered statute whose own text cites LP-074 as deregistered
+   drafting history (LP-076 §1, §9.6, citation key).
+
+   (a1) STRUCTURAL — banned everywhere, quoted text included: an id, a ToC link,
+        or an lp-ref/lp-self href naming either number. These are what "restored
+        entry" and "reused slot" actually look like in this file; each would make
+        the register assert that the statute exists. This is the load-bearing half.
+   (a2) BARE MENTION — banned in the register's own authored furniture (summaries,
+        meta grid, ToC, headers), permitted only inside .law-statute, which is
+        verbatim source text rather than the register speaking in its own voice.
+        A petition that says "LP-074 is deregistered drafting history" reinforces
+        R13; the register asserting LP-074 in its own voice would not. */
+const stripStatuteBlocks = (html) => {
+  const OPEN = '<div class="law-statute">';
+  let out = '', i = 0;
+  for (;;) {
+    const s = html.indexOf(OPEN, i);
+    if (s === -1) return out + html.slice(i);
+    out += html.slice(i, s);
+    const re = /<div\b[^>]*>|<\/div>/g;
+    re.lastIndex = s;
+    let depth = 0, m, end = html.length;
+    while ((m = re.exec(html))) {
+      if (m[0] === '</div>') { if (--depth === 0) { end = m.index + m[0].length; break; } }
+      else depth++;
+    }
+    i = end;
+  }
+};
 {
-  const hits = [...law.matchAll(/\blp-07[45]\b/gi)].map((m) => m[0]);
-  check(hits.length === 0, 'register carries no LP-074/LP-075 (R13: deregistered, numbers retired)',
-    hits.length ? `found: ${[...new Set(hits.map((h) => h.toLowerCase()))].join(', ')}` : 'clear');
+  const structural = [...law.matchAll(/(?:id|href)="#?(lp-07[45])"/gi)].map((m) => m[1].toLowerCase());
+  check(structural.length === 0,
+    'register makes no structural reference to LP-074/LP-075 (R13: numbers retired, never reissued)',
+    structural.length ? `found id/href: ${[...new Set(structural)].join(', ')}` : 'no id, ToC link, or lp-ref');
+
+  const furniture = stripStatuteBlocks(law);
+  const bare = [...furniture.matchAll(/\blp-07[45]\b/gi)].map((m) => m[0].toLowerCase());
+  check(bare.length === 0,
+    'register does not name LP-074/LP-075 in its own voice (quoted statute text exempt)',
+    bare.length ? `found outside .law-statute: ${[...new Set(bare)].join(', ')}` : 'clear');
 }
 
 /* (b) The deregistered texts survive verbatim off-register. Deregistration is
@@ -251,6 +289,62 @@ const statusOfLp = (id) => {
   check(offenders.length === 0,
     `layer guard: no World-tier page presents the founder as an in-world actor (${worldPages.length} pages)`,
     offenders.length ? `offenders: ${offenders.join(', ')}` : 'clean');
+}
+
+/* (e) LP-076 is registered, and registered as an uncommenced law (v22.3). The
+   entry's whole legal character is that it is in force as a rule while both its
+   rate schedules are inactive; the commencement line is what tells a reader so
+   before they reach the schedules. An entry that lost that line would read as a
+   50-schedule enactment, which is exactly the drift v22.2 spent a version
+   correcting. */
+const lp076 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-076"')) || '';
+{
+  const need = [
+    ['entry present', !!lp076],
+    ['title', lp076.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
+    ['enacted badge', /class="status-badge status-enacted"/.test(lp076)],
+    ['commencement line', lp076.includes('<strong>IN FORCE: rule only.</strong>')],
+    ['schedules marked inactive', /Schedules A and B <strong>INACTIVE<\/strong>/.test(lp076)],
+    ['live rates named', lp076.includes('<strong>70 / 35 / 17 / 8</strong>')],
+  ];
+  const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
+  check(missing.length === 0, 'LP-076 registered with its commencement line (enacted, schedules uncommenced)',
+    missing.length ? `missing: ${missing.join(', ')}` : 'entry + badge + commencement + live rates');
+}
+
+/* (f) SCHEDULE-INACTIVITY GUARD (v22.3). Two halves, both load-bearing.
+
+   The live schedule is 70/35/17/8 and nothing registered at v22.3 changes it:
+   LP-076 registers a rule, not a rate. So every canon rate surface must still
+   state the live schedule, and the 50-schedule must not appear anywhere on the
+   World tier except inside the LP-076 entry, where it is quoted petition text
+   describing what *would* take force on a certification that has not happened.
+
+   The v22.2 World-tier numeral restriction therefore continues, with the
+   register entry as its single sanctioned exception. 6.25 is the signature: it
+   is the cascade's terminal rate, it appears in no other canon context, and it
+   stood at zero across the World tier before this entry existed. (12.5 is not
+   usable — the whitepaper numbers a section §12.5.) */
+{
+  const RATE = '70 / 35 / 17 / 8';
+  const rateSurfaces = ['law-polling.html', 'rate-history.html'];
+  const silent = rateSurfaces.filter((f) => !read(f).includes(RATE));
+  check(silent.length === 0, `schedule-inactivity: rate surfaces still state ${RATE} (LP-073 in force)`,
+    silent.length ? `missing the live schedule: ${silent.join(', ')}` : rateSurfaces.join(', '));
+
+  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
+  const CASCADE = /6\.25/g;
+  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
+  const leaks = [];
+  for (const f of worldPages) {
+    const src = stripComments(read(f));
+    const outside = f === 'law-polling.html' ? src.split(lp076).join(' ') : src;
+    const n = (outside.match(CASCADE) || []).length;
+    if (n) leaks.push(`${f} (${n})`);
+  }
+  check(leaks.length === 0,
+    'schedule-inactivity: 50-schedule confined to the LP-076 entry, stated nowhere as in force',
+    leaks.length ? `50-schedule outside LP-076: ${leaks.join(', ')}` : `${worldPages.length} World pages clear`);
 }
 
 /* ---- 5. LP citations elsewhere resolve to real anchors ---- */

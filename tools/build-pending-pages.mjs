@@ -265,13 +265,18 @@ const PENDING_STYLE = `
    which a 50-schedule was written into the register — and taken back out — is
    process history and is told on the session-record page under the Process
    frame, never on a status banner. A banner announces what the civilization
-   decided; it is not the place to narrate how the record got drafted. */
+   decided; it is not the place to narrate how the record got drafted.
+
+   Closing line added v22.3. This petition failed and stays failed — the
+   succession is a fact about the line, not a reversal of this verdict, and the
+   successor is a new filing rather than a reopening. It carries no rate either,
+   so the live schedule named above is unchanged by it. */
 const banner = () => `
         <div class="pending-banner mb-10" role="note" aria-label="Ratification status">
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Failed Petition — record retained</span>
-            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record. <strong>Succeeded at ~Y175 by <a href="law-polling.html#lp-076">RATIFY-TAX-50-II</a> (registered 5–0, conditional)</strong> — a new line, not a reopening; it registers a rule and changes no rate.</p>
           </div>
         </div>`;
 

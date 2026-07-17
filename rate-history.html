@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
   <title>Rate-History Record • The Five Rings</title>
-  <meta name="description" content="The excavated tax-rate trajectory of the civilization — three schedule strata from the founding net-worth cap to the point-halving cascade, each with its provenance hash, and the failed petition that tested the third and did not move it. The 70/35/17/8 cascade is the schedule in force. Mode: EXCAVATED." />
+  <meta name="description" content="The excavated tax-rate trajectory of the civilization — three schedule strata from the founding net-worth cap to the point-halving cascade, each with its provenance hash; the failed petition that tested the third and did not move it; and the conditional successor that passed 5–0 sixty-three years later without changing a rate. The 70/35/17/8 cascade is the schedule in force. Mode: EXCAVATED." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://jasonhchronicles.com/VMSS/rate-history.html" />
 
@@ -91,6 +91,14 @@
       border:1px dashed rgba(239,83,80,.5);
     }
     :root[data-theme="light"] .era-refused { color:#b42318; border-color: rgba(180,35,24,.5); }
+    /* A registered law whose schedules have not commenced is not a stratum
+       either — nothing is engraved yet. Solid edge, because this one carries a
+       chamber vote; amber rather than schedule tone, because it changes no rate. */
+    .era-conditional {
+      background: rgba(212,168,67,.12); color: #d4a843;
+      border:1px solid rgba(212,168,67,.45);
+    }
+    :root[data-theme="light"] .era-conditional { color:#8a6410; border-color: rgba(138,100,16,.45); }
     /* Process-frame footnote: out-of-world authorship, visually demoted so it
        can never be mistaken for a beat of the civilization's own record. */
     .process-note {
@@ -116,20 +124,21 @@
         <div class="mb-8">
           <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings · Rate-History</p>
           <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">Rate-History Record — The Excavated Tax Trajectory</h1>
-          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Three strata of the civilization's top-marginal tax posture, read directly off the record — from the blunt founding net-worth cap to the point-halving cascade — and the petition that tested the third and failed to move it. Each stratum names the statute that engraves it and the provenance hash it was excavated from. The third stratum, 70 / 35 / 17 / 8, is the schedule in force.</p>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Three strata of the civilization's top-marginal tax posture, read directly off the record — from the blunt founding net-worth cap to the point-halving cascade — the petition that tested the third and failed to move it, and the conditional successor that carried every chamber sixty-three years later and still changed no rate. Each stratum names the statute that engraves it and the provenance hash it was excavated from. The third stratum, 70 / 35 / 17 / 8, is the schedule in force.</p>
         </div>
 
         <div class="excavated-banner mb-10" role="note" aria-label="Provenance mode">
           <i class="fas fa-layer-group" aria-hidden="true"></i>
           <div>
             <span class="eb-label">Mode: EXCAVATED</span>
-            <p>This trajectory is <strong>excavated, not authored</strong>: every schedule below is present in the civilization's own commit record and quoted from it. Schedule strata: <span class="hash">4b11bf2</span> (founding net-worth cap) → <span class="hash">18f771d</span> (layered income schedule) → <span class="hash">5c3a0f6</span> (point-halving cascade, <strong>current</strong>). Three strata, three engravings — and no fourth, because the petition that sought one was refused. The anti-concentration instrument that triggered the third stratum was itself born at <span class="hash">00c7b49</span>. History is immutable: the strata are recorded, not revised, and neither are the contests that failed to add to them.</p>
+            <p>This trajectory is <strong>excavated, not authored</strong>: every schedule below is present in the civilization's own commit record and quoted from it. Schedule strata: <span class="hash">4b11bf2</span> (founding net-worth cap) → <span class="hash">18f771d</span> (layered income schedule) → <span class="hash">5c3a0f6</span> (point-halving cascade, <strong>current</strong>). Three strata, three engravings — and still no fourth. The petition that sought one was refused; the successor that passed engraves nothing until an audit certifies it. The anti-concentration instrument that triggered the third stratum was itself born at <span class="hash">00c7b49</span>. History is immutable: the strata are recorded, not revised, and neither are the contests that failed to add to them — nor the one that won the right to add later.</p>
           </div>
         </div>
 
         <div class="pending-doc">
 
           <p class="pending-p">The register carries each schedule as its own statute (<a href="law-polling.html#lp-071">LP-071</a> → <a href="law-polling.html#lp-072">LP-072</a> → <a href="law-polling.html#lp-073">LP-073</a>), two of them superseded and one — the third — active. The chain has three links and one live terminus. It very nearly had a fourth: a petition to halve the cascade again was carried to the chambers and refused, and this page reads that refusal as part of the same trajectory. A schedule the civilization declined to engrave is as much a fact about its tax posture as the three it did.</p>
+          <p class="pending-p">Sixty-three years later the argument came back, and this time it carried — but what carried was not a schedule. <a href="law-polling.html#lp-076">LP-076</a> registers a <strong>conditional rule</strong>: it passed 5–0, and it changes no rate. Both its schedules stay inactive until the standing audit certifies them, which is why the table below still ends at three strata. The chain has not grown a fourth link; it has acquired a fourth link's <em>precondition</em>, sitting in the register and waiting on evidence.</p>
 
           <div class="pending-table-wrap">
             <table class="pending-table">
@@ -181,6 +190,15 @@
                   <td>None — <a href="pending-ratification.html">failed petition</a></td>
                   <td>No engraving<br>no statute<br>no stratum</td>
                 </tr>
+                <tr>
+                  <td>Abundance<br><span class="era-chip era-conditional">Conditional</span></td>
+                  <td>~Y175 — registered, not commenced</td>
+                  <td>The same halving, registered as a rule — no rate in force until certified</td>
+                  <td>Would keep point rates · two schedules, each certification-gated</td>
+                  <td>Refiled 63 years after the Y112 failure as a new line, drafted to the standard the chambers themselves had named: the chambers vote the rule, the audit finds the facts. Passed <strong>5–0</strong> — the line's first zero-fail result. Schedules A and B stay inactive pending Path 2 certification</td>
+                  <td><a href="law-polling.html#lp-076">LP-076</a></td>
+                  <td>Registered<br>not engraved<br>no stratum yet</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -202,22 +220,35 @@
           </ul>
           <p class="pending-p" style="font-size:.9rem;color:var(--text-muted)">Doctrine-Snapshot-stamped simulations are era-pinned by design and are left exactly as engraved. They agree with the schedule in force because the schedule never moved — but the pin is to the era, not to the current number, and it would go stale the moment a reduction genuinely carries. Read them as the 70-schedule's own record.</p>
 
-          <h2 class="pending-h pending-h2">The supersession chain — and the fourth beat</h2>
+          <h2 class="pending-h pending-h2">The supersession chain — the fourth and fifth beats</h2>
           <p class="pending-p">Each stratum is superseded, not repealed — the record keeps where the civilization stood at each stage, and why it moved on. Exactly one schedule is active at a time; the chain has a single live terminus, and that terminus is <a href="law-polling.html#lp-073">LP-073</a>.</p>
           <p class="pending-p">The arc has a fourth beat, and it is not a supersession — it is a refusal. A petition to halve the cascade once more was filed on an abundance argument, and it went to the chambers and lost. The gauntlet returned <strong>1–4</strong>. An advocacy review, argued cold with every citation verified, re-ran the vote and moved three chambers — Court, Sanctuary, and Main — reaching <strong>3–2</strong>. Enactment requires zero failing chambers. Meritboard and Lower held, and the schedule did not move.</p>
           <p class="pending-p">That is the beat worth reading closely, because nothing happened and the nothing was the point. The chambers were not asked whether rates should fall; they were asked whether these rates should fall <em>now</em>, on the evidence presented. They judged the evidence authored rather than audited, and declined. A chain with three links and a defeated challenger is a more honest record than a chain with four — it shows a civilization that has a direction of travel and still makes itself prove each step.</p>
           <p class="pending-p">The contest's literature is preserved in full. The opposition brief that held two chambers at both adjudications, the advocacy brief that moved three, and the supplemental steelman registered after the vote closed all publish in perpetuity at the <a href="pending-ratification.html">Ratification Record</a>. A failed petition is not an embarrassment to be tidied away; under standing doctrine it is a boundary marker, and the briefs are how the civilization remembers where the boundary was drawn and why.</p>
+
+          <p class="pending-p">The fifth beat is the answer to the fourth, and it took sixty-three years to write. At approximately Y175 a successor line was filed — not a resubmission, which the closed line does not permit, but a new petition built on what the refusal had established. It passed its gauntlet <strong>5–0</strong>: <a href="law-polling.html#lp-076">LP-076</a>, the first zero-fail law of the rate line, and the register's first conditional rate law.</p>
+          <p class="pending-p">What makes it the answer is <em>how</em> it passed. The Y112 objections were not out-argued across six decades of rebuttal; they were structurally removed. The chambers had refused to vote authored fiscal facts true, so the successor stopped asking them to — it separates the chambers' legal judgment from the audit's factual judgment entirely. The chambers vote the rule; the standing audit finds the facts; and the rule commences only if and when the facts arrive. Every authored magnitude from the old record is quarantined as legally incapable of activating anything, which converts the old petition's fatal dependency into an inadmissibility. The objection was never answered. It was made impossible to raise.</p>
+          <p class="pending-p">So the schedule in force is still <strong>70 / 35 / 17 / 8</strong>, and this page still ends at three strata. Both of LP-076's schedules are inactive, and they stay inactive through silence, pendency, ambiguity, or a merely preliminary audit — the law lists those outcomes and assigns them all the same result. The narrowest margin in the 5–0 is the most legible fact in it: the <strong>lower layers carried it at +3</strong>, the thinnest of the five, and the lower layers are precisely the ones whose reduction the law withholds longest, behind a separate incidence certificate that must first trace what those collections actually fund. The chamber with the most to lose from being told voted for being shown.</p>
+          <p class="pending-p">A civilization that registers a rate cut it cannot yet execute is doing something more disciplined than either passing or refusing. It is committing to a direction and refusing to pretend it has arrived — <strong>rates fall when shown</strong>, and this law falls-when-shown by construction.</p>
           <div class="pending-crosslinks" style="margin-top:1.1rem">
             <a href="law-polling.html#lp-071" class="pending-crosslink"><i class="fas fa-monument" aria-hidden="true"></i> LP-071 — Foundation Cap</a>
             <a href="law-polling.html#lp-072" class="pending-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-072 — Layered Schedule</a>
             <a href="law-polling.html#lp-073" class="pending-crosslink is-primary"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — First Ratchet (Active)</a>
+            <a href="law-polling.html#lp-076" class="pending-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> LP-076 — Conditional Rate Schedule (5–0)</a>
             <a href="pending-ratification.html" class="pending-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> RATIFY-TAX-50 — the failed petition</a>
           </div>
+
+          <h2 class="pending-h pending-h2">The era rhythm — a lengthening institutional half-life</h2>
+          <p class="pending-p">Read the trajectory by its intervals rather than its rates and a second pattern surfaces. The civilization's structural tax moments are spaced <strong>12, 35, and 65 years</strong> apart — Y0 to the layered schedule at Y12; Y12 to the point cascade at Y47; Y47 to the abundance petition at Y112. Each interval is roughly double the one before it.</p>
+          <p class="pending-p">That is an institutional half-life lengthening as maturity deepens. A young civilization rewrites its tax posture every decade because it is still discovering what the instrument is for; a mature one goes two generations between structural questions because the answers keep holding. The spacing is not drift or neglect — it is the same fact the band-to-point arc records, read on the time axis instead of the precision axis. Institutions that work are revisited less often.</p>
+          <p class="pending-p">The fifth beat lands on that rhythm. The refile at approximately Y175 comes <strong>63 years</strong> after the Y112 failure — the same ~65-year cadence the lengthening had reached, arriving almost exactly on schedule. The interval stopped doubling and settled, which is its own kind of information: the civilization now returns to its rate posture about twice a century, and did so this time not because anything broke but because six decades of preregistered audit data had finally accumulated enough to make the question answerable. The clock that governs this record is evidentiary, not political.</p>
+          <p class="pending-p" style="font-size:.9rem;color:var(--text-muted)">The <strong>Consolidation Era continues</strong>. LP-076 registers a rule, not a rate, and no new era begins until a schedule certifies and commences. Era-year boundaries remain record convention; the intervals above are measured between structural moments (Y12, Y47, Y112, ~Y175), not between era labels, and the third figure — 65 — measures the point cascade's engraving to its first challenge rather than the length of an era still in progress.</p>
 
           <h2 class="pending-h pending-h2">The through-line — the Trajectory Doctrine</h2>
           <p class="pending-p">The direction outlived the petition that failed to advance it. <strong>Top marginal rates track demonstrated institutional need.</strong> Taxation's three founding functions — revenue, anti-concentration, and trust — each retire as automation revenue, structural anti-concentration instruments, and a verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. The civilization executed that logic once already, at v14.5, when the Savings Circulation Mandate took anti-concentration off the marginal rate and the founding bands were cut to points on those grounds.</p>
           <p class="pending-p">The doctrine was endorsed <strong>5–0 across the ratification chambers</strong>. That margin is the most legible fact on this page: the same chambers that refused the reduction endorsed the principle behind it unanimously. The objection was never to the direction of travel — it was to being told the facts rather than shown them. Detached from a specific cut and its authored evidence, the direction was never in dispute.</p>
-          <p class="pending-p">Under the doctrine, any rate reduction requires audited evidence per the <a href="pending-ratification.html#path-2">Path 2 standing audit</a> — never authored facts — at the standard zero-fail threshold. A failed reduction may be re-petitioned when the controlling estimate lands. RATIFY-TAX-50 remains available on exactly those terms. The trajectory itself is unchanged; what the refusal settled is that the next step down has to be earned in the open. The lesson of the attempt, stated plainly: <strong>rates fall when shown, and hold when merely told.</strong></p>
+          <p class="pending-p">Under the doctrine, any rate reduction requires audited evidence per the <a href="pending-ratification.html#path-2">Path 2 standing audit</a> — never authored facts — at the standard zero-fail threshold. That is the term the successor was built to meet, and meeting it is what <a href="law-polling.html#lp-076">LP-076</a> did: it took the doctrine's condition and made it the law's own trigger, so the rule could register while the evidence stayed outstanding. The Y112 line itself closed as failed and was never reopened — the successor is a new line, not a resubmission, which is the distinction the closed-line rule exists to protect.</p>
+          <p class="pending-p">The trajectory itself is unchanged; what the refusal settled is that the next step down has to be earned in the open, and what the registration settled is that the step can be written down before it is earned. The lesson of the attempt, stated plainly: <strong>rates fall when shown, and hold when merely told.</strong></p>
           <div class="pending-crosslinks" style="margin-top:1.1rem">
             <a href="whitepaper.html#trajectory-doctrine" class="pending-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Whitepaper §12.1 — the Trajectory Doctrine</a>
             <a href="pending-ratify-tax-50-opposition.html" class="pending-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Opposition Brief — the case against</a>
