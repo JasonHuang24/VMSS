@@ -79,9 +79,21 @@
   .status-advisory { background: rgba(100, 181, 246, 0.12); color: #7fc2ff; border: 1px solid rgba(100, 181, 246, 0.35); }
   .status-mixed { background: rgba(171, 71, 188, 0.12); color: #c89ad4; border: 1px solid rgba(171, 71, 188, 0.35); }
   /* Record-class statuses (v22.0.1): a superseded statute marks where the
-     civilization once stood; an active statute is the one schedule in force. */
+     civilization once stood; an active statute is the one schedule in force.
+     Vacated (v22.1) is a third record class and not a synonym for either:
+     superseded means a successor replaced it, failed means it never enacted,
+     vacated means it enacted and was then struck when the ground it stood on
+     was withdrawn. Stone tone places it with the record classes; the struck
+     label is the class's whole point. */
   .status-superseded { background: rgba(150, 137, 112, 0.13); color: #c9b79b; border: 1px solid rgba(150, 137, 112, 0.4); }
   .status-active { background: rgba(34, 211, 238, 0.13); color: #4dd6e6; border: 1px solid rgba(34, 211, 238, 0.4); }
+  .status-vacated {
+    background: rgba(150, 137, 112, 0.10); color: #b3a58f;
+    border: 1px dashed rgba(150, 137, 112, 0.55);
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: rgba(150, 137, 112, 0.9);
+  }
   .law-summary {
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -169,6 +181,19 @@
     border-left: 4px solid rgba(150, 137, 112, 0.55);
     background: linear-gradient(to right, rgba(150, 137, 112, 0.05), var(--bg-secondary) 32%);
   }
+  /* Vacated (v22.1): the same stone card, but the rail is broken rather than
+     solid — a statute that was in force and is no longer, distinguished at a
+     glance from the unbroken rail of one that handed off to a successor. */
+  .law-entry.vacated {
+    border-left: 4px solid transparent;
+    border-image: repeating-linear-gradient(
+      to bottom,
+      rgba(150, 137, 112, 0.75) 0 10px,
+      transparent 10px 18px
+    ) 1;
+    background: linear-gradient(to right, rgba(150, 137, 112, 0.05), var(--bg-secondary) 32%);
+  }
+  .strata-label.vacated-label { color: #b3a58f; }
   .strata-label {
     font-size: 0.7rem;
     letter-spacing: 0.28em;
@@ -245,6 +270,12 @@
   [data-theme="light"] .status-active { background: rgba(14, 116, 144, 0.08); color: #0e7490; border-color: rgba(14, 116, 144, 0.42); }
   [data-theme="light"] .law-entry.superseded { border-left-color: rgba(120, 106, 82, 0.5); background: linear-gradient(to right, rgba(120, 106, 82, 0.06), var(--bg-secondary) 32%); }
   [data-theme="light"] .strata-label { color: #6f5d43; }
+  [data-theme="light"] .status-vacated { background: rgba(120, 106, 82, 0.07); color: #6f5d43; border-color: rgba(120, 106, 82, 0.55); text-decoration-color: rgba(120, 106, 82, 0.9); }
+  [data-theme="light"] .law-entry.vacated {
+    border-image: repeating-linear-gradient(to bottom, rgba(120, 106, 82, 0.75) 0 10px, transparent 10px 18px) 1;
+    background: linear-gradient(to right, rgba(120, 106, 82, 0.06), var(--bg-secondary) 32%);
+  }
+  [data-theme="light"] .strata-label.vacated-label { color: #6f5d43; }
   [data-theme="light"] .vote-table .pass { color: #1a7f37; }
   [data-theme="light"] .vote-table .fail { color: #b42318; }
   [data-theme="light"] .vote-table .advisory { color: #175cd3; }
@@ -267,7 +298,7 @@
 
 <div class="grid grid-cols-4 gap-6 mb-6 max-w-3xl mx-auto">
   <a href="#charter-amendments" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
-    <p class="text-2xl font-bold text-[var(--accent)] mb-1">88</p>
+    <p class="text-2xl font-bold text-[var(--accent)] mb-1">89</p>
     <p class="text-xs text-[var(--text-muted)]">Entries</p>
   </a>
   <a href="#charter-amendments" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
@@ -275,7 +306,7 @@
     <p class="text-xs text-[var(--text-muted)]">Charter</p>
   </a>
   <a href="#federal-laws" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
-    <p class="text-2xl font-bold text-[var(--accent)] mb-1">59</p>
+    <p class="text-2xl font-bold text-[var(--accent)] mb-1">60</p>
     <p class="text-xs text-[var(--text-muted)]">Federal</p>
   </a>
   <a href="#regulatory-petitions" class="bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] hover:border-[var(--accent)] transition p-5 text-center block">
@@ -292,14 +323,15 @@
   <button class="law-chip" data-filter="status-rerouted" type="button" aria-pressed="false">Rerouted</button>
   <button class="law-chip" data-filter="status-advisory" type="button" aria-pressed="false">Advisory</button>
   <button class="law-chip" data-filter="status-superseded" type="button" aria-pressed="false">Superseded</button>
+  <button class="law-chip" data-filter="status-vacated" type="button" aria-pressed="false">Vacated</button>
   <button class="law-chip" data-filter="pillar" type="button" aria-pressed="false">&#11046; Pillar</button>
 </div>
-<p class="law-filter-count" data-law-count role="status" aria-live="polite">Showing all 88 entries</p>
+<p class="law-filter-count" data-law-count role="status" aria-live="polite">Showing all 89 entries</p>
 
 <!-- LAW-TOC:BEGIN (generated by tools/build-law-toc.mjs — do not edit by hand) -->
 <div class="law-toc" id="lawToc">
   <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocBody">
-    <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">88 entries &middot; Charter &middot; Federal &middot; Regulatory</span></span>
+    <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">89 entries &middot; Charter &middot; Federal &middot; Regulatory</span></span>
     <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
   </button>
   <div class="toc-body" id="tocBody">
@@ -316,7 +348,7 @@
         </div>
       </div>
       <div class="toc-tier">
-        <a href="#federal-laws" class="toc-tier-head">Federal Laws <span class="toc-count">59</span></a>
+        <a href="#federal-laws" class="toc-tier-head">Federal Laws <span class="toc-count">60</span></a>
         <div class="toc-grid">
         <a href="#lp-002" class="toc-link" data-status="status-enacted" data-pillar="0"><span class="toc-num">LP-002</span> <span class="toc-txt">PJS Rate Calibration &mdash; Medical Research Roles</span></a>
         <a href="#lp-003" class="toc-link" data-status="status-rerouted" data-pillar="0"><span class="toc-num">LP-003</span> <span class="toc-txt">Meritboard Engagement Thresholds</span></a>
@@ -375,8 +407,9 @@
         <a href="#lp-070" class="toc-link" data-status="status-enacted" data-pillar="0"><span class="toc-num">LP-070</span> <span class="toc-txt">Idle-Commercial Enforcement and Main-Treasury Architecture Act</span></a>
         <a href="#lp-071" class="toc-link" data-status="status-superseded" data-pillar="0"><span class="toc-num">LP-071</span> <span class="toc-txt">The Foundation Cap &mdash; Founding Net-Worth Ceiling</span></a>
         <a href="#lp-072" class="toc-link" data-status="status-superseded" data-pillar="0"><span class="toc-num">LP-072</span> <span class="toc-txt">The Layered Schedule &mdash; First Layer-Mapped Income Bands</span></a>
-        <a href="#lp-073" class="toc-link" data-status="status-superseded" data-pillar="0"><span class="toc-num">LP-073</span> <span class="toc-txt">The First Ratchet &mdash; 70/35/17/8 Point-Halving Cascade</span></a>
-        <a href="#lp-074" class="toc-link" data-status="status-active" data-pillar="0"><span class="toc-num">LP-074</span> <span class="toc-txt">The Abundance Ratchet &mdash; 50/25/12.5/6.25 &amp; the Trajectory Principle</span></a>
+        <a href="#lp-073" class="toc-link" data-status="status-active" data-pillar="0"><span class="toc-num">LP-073</span> <span class="toc-txt">The First Ratchet &mdash; 70/35/17/8 Point-Halving Cascade</span></a>
+        <a href="#lp-074" class="toc-link" data-status="status-vacated" data-pillar="0"><span class="toc-num">LP-074</span> <span class="toc-txt">The Abundance Ratchet &mdash; 50/25/12.5/6.25 &amp; the Trajectory Principle</span></a>
+        <a href="#lp-075" class="toc-link" data-status="status-enacted" data-pillar="0"><span class="toc-num">LP-075</span> <span class="toc-txt">The Trajectory Principle</span></a>
         </div>
       </div>
       <div class="toc-tier">
@@ -2349,43 +2382,47 @@
   </div>
 </article>
 
-<article class="law-entry superseded" id="lp-073">
-  <p class="strata-label">&#9707; Superseded Statute &middot; Excavated Stratum</p>
+<article class="law-entry" id="lp-073">
+  <p class="strata-label">&#9707; Active Statute &middot; Excavated Stratum &middot; Restored on Vacatur</p>
   <div class="law-header">
     <div>
       <div class="law-number"><a href="#lp-073" class="lp-self">LP-073</a></div>
       <h3 class="law-title">The First Ratchet &mdash; 70/35/17/8 Point-Halving Cascade</h3>
     </div>
-    <span class="status-badge status-superseded">Superseded</span>
+    <span class="status-badge status-active">Active</span>
   </div>
-  <p class="law-summary">The transfer of the anti-concentration function from the marginal rate to structural recycling, and the sharpening of bands into points. <strong>&sect;1</strong> The Savings Circulation Mandate transferred the anti-concentration function from the marginal rate to structural recycling. For an era the two instruments ran concurrently &mdash; and the civilization observed that the blunt one had become redundant with the precise one. <strong>&sect;2</strong> The founding bands were accordingly cut and sharpened in a single restructure: point rates, exact halving cascade &mdash; 70% / 35% / 17% / 8% top marginal above the unchanged $10,000,000 threshold. <strong>&sect;3</strong> Band-to-point is itself doctrine: point rates are what a matured enforcement capability produces. Variance was no longer necessary; therefore it was no longer permitted. <strong>&sect;4</strong> The gradient principle, first articulated in this era&rsquo;s restatement: taxing at upper rates in environments where the institution delivers minimal services would be extraction, not governance (per commit 5c3a0f6, removed prose, quoted). Superseded by the abundance ratchet (<a href="#lp-074" class="lp-ref">LP-074</a>).</p>
+  <p class="law-summary">The transfer of the anti-concentration function from the marginal rate to structural recycling, and the sharpening of bands into points. <strong>&sect;1</strong> The Savings Circulation Mandate transferred the anti-concentration function from the marginal rate to structural recycling. For an era the two instruments ran concurrently &mdash; and the civilization observed that the blunt one had become redundant with the precise one. <strong>&sect;2</strong> The founding bands were accordingly cut and sharpened in a single restructure: point rates, exact halving cascade &mdash; 70% / 35% / 17% / 8% top marginal above the unchanged $10,000,000 threshold. <strong>&sect;3</strong> Band-to-point is itself doctrine: point rates are what a matured enforcement capability produces. Variance was no longer necessary; therefore it was no longer permitted. <strong>&sect;4</strong> The gradient principle, first articulated in this era&rsquo;s restatement: taxing at upper rates in environments where the institution delivers minimal services would be extraction, not governance (per commit 5c3a0f6, removed prose, quoted). <strong>&sect;5 &mdash; Superseded, then restored:</strong> the abundance ratchet (<a href="#lp-074" class="lp-ref">LP-074</a>) superseded this schedule at canon v22.0 on founder ruling R10. R12 withdrew that override and vacated LP-074, and this statute returned to force at canon v22.1 &mdash; the schedule it engraves is the one in effect. The interval during which LP-074 governed is not erased by its vacatur; it is recorded. Any further reduction proceeds under the trajectory principle as re-registered at <a href="#lp-075" class="lp-ref">LP-075</a>.</p>
   <div class="law-meta-grid">
-    <div class="meta-item"><span class="label">Era</span><span class="value">Consolidation Era &middot; Y47&ndash;Y111</span></div>
+    <div class="meta-item"><span class="label">Era</span><span class="value">Consolidation Era &middot; Y47&ndash;Y111; restored Y112&ndash;present on the vacatur of <a href="#lp-074" class="lp-ref">LP-074</a></span></div>
     <div class="meta-item"><span class="label">Structure</span><span class="value">Point rates &middot; exact halving cascade</span></div>
-    <div class="meta-item"><span class="label">Schedule</span><span class="value">70 / 35 / 17 / 8 on income &gt; $10,000,000</span></div>
+    <div class="meta-item"><span class="label">Schedule</span><span class="value">70 / 35 / 17 / 8 on income &gt; $10,000,000 &mdash; the schedule in force</span></div>
     <div class="meta-item"><span class="label">Trigger</span><span class="value">Savings Circulation Mandate (born commit 00c7b49 &middot; v9.6.1) assumed the anti-concentration function</span></div>
-    <div class="meta-item"><span class="label">Supersedes / Superseded By</span><span class="value">Supersedes <a href="#lp-072" class="lp-ref">LP-072</a>; superseded by <a href="#lp-074" class="lp-ref">LP-074</a></span></div>
-    <div class="meta-item"><span class="label">Provenance</span><span class="value">Excavated &middot; restructure commit 5c3a0f6 &middot; v14.5</span></div>
-    <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Charter III.III &amp; III.VII (Savings Circulation Mandate); Whitepaper &sect;12.1; <a href="rate-history.html">Rate-History record</a></span></div>
+    <div class="meta-item"><span class="label">Supersedes / Superseded By</span><span class="value">Supersedes <a href="#lp-072" class="lp-ref">LP-072</a>; superseded by <a href="#lp-074" class="lp-ref">LP-074</a> at v22.0, restored to force at v22.1 on LP-074&rsquo;s vacatur (founder ruling R12) &mdash; terminus of the excavated rate-history chain</span></div>
+    <div class="meta-item"><span class="label">Provenance</span><span class="value">Excavated &middot; restructure commit 5c3a0f6 &middot; v14.5; restored &middot; founder ruling R12 &middot; canon v22.1</span></div>
+    <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Charter III.III &amp; III.VII (Savings Circulation Mandate); Whitepaper &sect;12.1; <a href="#lp-075" class="lp-ref">LP-075</a> (trajectory principle); <a href="rate-history.html">Rate-History record</a></span></div>
   </div>
 </article>
 
-<article class="law-entry" id="lp-074">
+<article class="law-entry vacated" id="lp-074">
+  <p class="strata-label vacated-label">&#9746; Vacated Statute &middot; Enacting Override Withdrawn</p>
   <div class="law-header">
     <div>
       <div class="law-number"><a href="#lp-074" class="lp-self">LP-074</a></div>
       <h3 class="law-title">The Abundance Ratchet &mdash; 50/25/12.5/6.25 &amp; the Trajectory Principle</h3>
     </div>
-    <span class="status-badge status-active">Active</span>
+    <span class="status-badge status-vacated">Vacated</span>
   </div>
-  <p class="law-summary">The schedule currently in force, and the standing law that governs every future reduction. Ratified by founder ruling R10 over a failed synthetic gauntlet; the terminus of the excavated supersession chain (<a href="#lp-071" class="lp-ref">LP-071</a> &rarr; <a href="#lp-072" class="lp-ref">LP-072</a> &rarr; <a href="#lp-073" class="lp-ref">LP-073</a> &rarr; LP-074). <strong>&sect;1</strong> The engraved schedule is 50% / 25% / 12.5% / 6.25% top marginal above $10,000,000 annually, layer-mapped as before. The threshold, unchanged since its introduction (<a href="#lp-072" class="lp-ref">LP-072</a>), is retained deliberately. <strong>&sect;2</strong> Disclosure of record, permanent: the synthetic gauntlet returned 1&ndash;4 FAIL (Meritboard &minus;21, Court &minus;13, Sanctuary &minus;5, Main +3, Lower &minus;11; margins authored per LP-041-style disclosure). The founder overrode to PASS on worldbuilding grounds (R10). The opposition brief publishes alongside this statute in perpetuity. <strong>&sect;3 &mdash; Trajectory Principle (standing law):</strong> top marginal rates track institutional need, not posture. Taxation&rsquo;s three founding functions &mdash; revenue, anti-concentration, and trust &mdash; each retire as automation revenue, structural anti-concentration instruments, and verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. <strong>&sect;4 &mdash; Gate:</strong> every future reduction under &sect;3 requires audited evidence per the Path 2 standing audit &mdash; never authored facts. Where authored facts ground a reduction (as here), the Path 2 controlling estimate supersedes them (petition v4.1 &sect;7(e)) and the cadence rider binds review. <strong>&sect;5 &mdash; Precedent recorded:</strong> the civilization executed &sect;3 once before this statute existed &mdash; v14.5, on SCM transfer grounds. This law codifies demonstrated constitutional behavior; it does not invent it.</p>
+  <p class="law-summary">Vacated at canon v22.1 by founder ruling R12; the schedule it engraved is no longer in force, and <a href="#lp-073" class="lp-ref">LP-073</a> governs again. The statute text below stands exactly as engraved at v22.0 &mdash; preserved, not amended. It enacted solely on the R10 override of a failed chamber vote, was affirmed short of the enactment threshold at 3&ndash;2 on advocacy review, and fell when the founder withdrew the override that was holding it up. <strong>&sect;1</strong> The engraved schedule is 50% / 25% / 12.5% / 6.25% top marginal above $10,000,000 annually, layer-mapped as before. The threshold, unchanged since its introduction (<a href="#lp-072" class="lp-ref">LP-072</a>), is retained deliberately. <strong>&sect;2</strong> Disclosure of record, permanent: the synthetic gauntlet returned 1&ndash;4 FAIL (Meritboard &minus;21, Court &minus;13, Sanctuary &minus;5, Main +3, Lower &minus;11; margins authored per LP-041-style disclosure). The founder overrode to PASS on worldbuilding grounds (R10). The opposition brief publishes alongside this statute in perpetuity. <strong>&sect;3 &mdash; Trajectory Principle (standing law):</strong> top marginal rates track institutional need, not posture. Taxation&rsquo;s three founding functions &mdash; revenue, anti-concentration, and trust &mdash; each retire as automation revenue, structural anti-concentration instruments, and verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. <strong>&sect;4 &mdash; Gate:</strong> every future reduction under &sect;3 requires audited evidence per the Path 2 standing audit &mdash; never authored facts. Where authored facts ground a reduction (as here), the Path 2 controlling estimate supersedes them (petition v4.1 &sect;7(e)) and the cadence rider binds review. <strong>&sect;5 &mdash; Precedent recorded:</strong> the civilization executed &sect;3 once before this statute existed &mdash; v14.5, on SCM transfer grounds. This law codifies demonstrated constitutional behavior; it does not invent it.</p>
+  <p class="law-summary"><strong>Annotation &mdash; vacatur (appended v22.1, statute text above unaltered):</strong> VACATED, R12: the enacting override (R10) was withdrawn by its author. Schedule reverted to LP-073. Re-ratification available under LP-075 &sect;2 upon the Path 2 controlling estimate &mdash; audited facts, zero-fail threshold, no override.</p>
   <div class="law-meta-grid">
-    <div class="meta-item"><span class="label">Era</span><span class="value">Abundance Era &middot; Y112&ndash;present</span></div>
+    <div class="meta-item"><span class="label">Era</span><span class="value">Abundance Era &middot; Y112 &mdash; vacated; <a href="#lp-073" class="lp-ref">LP-073</a> restored for the interval and forward</span></div>
     <div class="meta-item"><span class="label">Structure</span><span class="value">Point rates &middot; exact halving cascade</span></div>
-    <div class="meta-item"><span class="label">Schedule</span><span class="value">50 / 25 / 12.5 / 6.25 on income &gt; $10,000,000 (threshold unchanged since <a href="#lp-072" class="lp-ref">LP-072</a>)</span></div>
-    <div class="meta-item"><span class="label">Supersedes</span><span class="value"><a href="#lp-073" class="lp-ref">LP-073</a> &mdash; terminus of the excavated rate-history chain</span></div>
-    <div class="meta-item"><span class="label">Provenance</span><span class="value">Founder ruling R10 &middot; canon v22.0</span></div>
-    <div class="meta-item"><span class="label">Record</span><span class="value"><a href="pending-ratify-tax-50-record.html">Session record (R10)</a> &middot; <a href="pending-ratify-tax-50-opposition.html">Opposition brief</a> &middot; <a href="pending-ratification.html#path-2">Path&nbsp;2 audit</a></span></div>
+    <div class="meta-item"><span class="label">Schedule</span><span class="value">50 / 25 / 12.5 / 6.25 on income &gt; $10,000,000 &mdash; engraved v22.0, vacated v22.1, never re-engraved (threshold unchanged since <a href="#lp-072" class="lp-ref">LP-072</a>)</span></div>
+    <div class="meta-item"><span class="label">Supersedes</span><span class="value">Superseded <a href="#lp-073" class="lp-ref">LP-073</a> at v22.0; on this statute&rsquo;s vacatur LP-073 returned to force and is the chain&rsquo;s live terminus again</span></div>
+    <div class="meta-item"><span class="label">Adjudication of record</span><span class="value">Synthetic gauntlet 1&ndash;4 FAIL &rarr; enacted on founder override (R10, v22.0) &rarr; re-run on advocacy review at 3&ndash;2, short of the zero-fail threshold &rarr; override withdrawn, statute vacated (R12, v22.1)</span></div>
+    <div class="meta-item"><span class="label">Provenance</span><span class="value">Enacted &middot; founder ruling R10 &middot; canon v22.0. Vacated &middot; founder ruling R12 &middot; canon v22.1</span></div>
+    <div class="meta-item"><span class="label">Record</span><span class="value"><a href="pending-ratify-tax-50-record.html">Session record (R10, R12)</a> &middot; <a href="pending-ratify-tax-50-opposition.html">Opposition brief</a> &middot; <a href="pending-ratify-tax-50-advocacy.html">Advocacy brief</a> &middot; <a href="pending-ratify-tax-50-supplemental.html">Supplemental steelman</a> &middot; <a href="pending-ratification.html#path-2">Path&nbsp;2 audit</a></span></div>
+    <div class="meta-item"><span class="label">Successor principle</span><span class="value"><a href="#lp-075" class="lp-ref">LP-075</a> &mdash; the trajectory principle drafted at &sect;&sect;3&ndash;4 above, re-registered standalone and enacted 5&ndash;0 on its own vote</span></div>
     <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Whitepaper &sect;12.1 (Tiered Progressive Taxation); Charter III.III via Article XXV.VI (per <a href="#lp-070" class="lp-ref">LP-070</a>); <a href="rate-history.html">Rate-History record</a></span></div>
   </div>
   <div class="law-vote">
@@ -2398,6 +2435,49 @@
       <tr><th scope="row">Lower-Layer Aggregate</th><td class="fail">&minus;11 &mdash; against</td></tr>
     </table>
     <p class="law-summary" style="margin-top:0.85rem">Result: 1&ndash;4 FAIL. The founder overrode to PASS on worldbuilding grounds (ruling R10); the <a href="pending-ratify-tax-50-opposition.html">opposition brief</a> is retained in perpetuity and the <a href="pending-ratify-tax-50-record.html">session record</a> carries the ruling. Magnitude questions route to the <a href="pending-ratification.html#path-2">Path&nbsp;2 standing audit</a>, whose controlling estimates supersede these authored margins (petition v4.1 &sect;7(e)).</p>
+  </div>
+  <div class="law-vote">
+    <h4>Advocacy Review (AFFIRM-TAX-50) &mdash; second adjudication &middot; margins authored per LP-041-style disclosure</h4>
+    <table class="vote-table">
+      <tr><th scope="row">Meritboard</th><td class="fail">&minus;8 &mdash; against</td></tr>
+      <tr><th scope="row">Supreme Court</th><td class="pass">+2 &mdash; in favor</td></tr>
+      <tr><th scope="row">Sanctuary</th><td class="pass">+2 &mdash; in favor</td></tr>
+      <tr><th scope="row">Main Layer</th><td class="pass">+7 &mdash; in favor</td></tr>
+      <tr><th scope="row">Lower-Layer Aggregate</th><td class="fail">&minus;9 &mdash; against</td></tr>
+    </table>
+    <p class="law-summary" style="margin-top:0.85rem">Result: 3&ndash;2 &mdash; <strong>short of the enactment threshold</strong>. The <a href="pending-ratify-tax-50-advocacy.html">advocacy brief</a> (Sol, cold, citations verified) re-ran the vote against the full record and moved three chambers &mdash; Court, Sanctuary, and Main &mdash; but enactment requires zero failing chambers, and Meritboard and Lower held. A majority is not the threshold; the two chambers that held were enough. A <a href="pending-ratify-tax-50-supplemental.html">supplemental steelman</a> was registered after this adjudication and, per the R9 termination pattern, did not reopen it. Both briefs publish as permanent record.</p>
+    <p class="law-summary" style="margin-top:0.85rem">With the vote short at both adjudications, the statute stood only on the R10 override. The founder withdrew it (R12) on precedent grounds &mdash; fiscal law should not stand on founder posture against a failed chamber vote &mdash; and the statute was vacated. <a href="pending-ratification.html">RATIFY-TAX-50</a> remains available for genuine re-ratification under <a href="#lp-075" class="lp-ref">LP-075</a> &sect;2 once the Path 2 controlling estimate lands: audited facts, zero-fail threshold, no override channel.</p>
+  </div>
+</article>
+
+<article class="law-entry" id="lp-075">
+  <div class="law-header">
+    <div>
+      <div class="law-number"><a href="#lp-075" class="lp-self">LP-075</a></div>
+      <h3 class="law-title">The Trajectory Principle</h3>
+    </div>
+    <span class="status-badge status-enacted">Enacted</span>
+  </div>
+  <p class="law-summary">The standing law of rate direction, re-registered on its own vote after the statute that first drafted it was vacated. Every chamber endorsed the principle&rsquo;s direction across both TAX-50 adjudications even while refusing the magnitude it was attached to; standing alone and unencumbered by an authored gate, it carries 5&ndash;0. <strong>Status: ENACTED. Provenance: founder ruling R12, canon v22.1; principle first drafted within vacated <a href="#lp-074" class="lp-ref">LP-074</a> &sect;&sect;3&ndash;4; direction endorsed by all five chambers across both TAX-50 votes.</strong></p>
+  <p class="law-summary"><strong>&sect;1. PRINCIPLE (standing law):</strong> top marginal rates track institutional need, not posture. Taxation&rsquo;s three founding functions &mdash; revenue, anti-concentration, and trust &mdash; each retire as automation revenue, structural anti-concentration instruments, and verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. <strong>&sect;2. GATE:</strong> every rate reduction under &sect;1 requires audited evidence per the <a href="pending-ratification.html#path-2">Path 2 standing audit</a> &mdash; never authored facts. A vacated or failed reduction may be re-petitioned when the Path 2 controlling estimate lands; it faces the standard zero-fail threshold with no override channel. <strong>&sect;3. PRECEDENT:</strong> the civilization has executed &sect;1 once on structural evidence (<a href="#lp-073" class="lp-ref">LP-073</a>, v14.5, SCM function-transfer) and once attempted it on authored facts (<a href="#lp-074" class="lp-ref">LP-074</a>, enacted by override, affirmed short at 3&ndash;2, vacated by withdrawal of the override, R12). Both are record. This statute codifies the demonstrated behavior of both outcomes: rates fall when shown, and hold when merely told.</p>
+  <div class="law-meta-grid">
+    <div class="meta-item"><span class="label">Scope</span><span class="value">Federal (Article XXV.VI) &mdash; standing principle, engraves no rate</span></div>
+    <div class="meta-item"><span class="label">Provenance</span><span class="value">Founder ruling R12 &middot; canon v22.1; principle first drafted within vacated <a href="#lp-074" class="lp-ref">LP-074</a> &sect;&sect;3&ndash;4</span></div>
+    <div class="meta-item"><span class="label">Gate</span><span class="value">Audited Path 2 evidence &middot; standard zero-fail threshold &middot; no override channel</span></div>
+    <div class="meta-item"><span class="label">Precedent recorded</span><span class="value">Executed once on structural evidence (<a href="#lp-073" class="lp-ref">LP-073</a>, v14.5); once attempted on authored facts (<a href="#lp-074" class="lp-ref">LP-074</a>, vacated R12)</span></div>
+    <div class="meta-item"><span class="label">Record</span><span class="value"><a href="pending-ratify-tax-50-record.html">Session record (R12)</a> &middot; <a href="pending-ratify-tax-50-opposition.html">Opposition brief</a> &middot; <a href="pending-ratify-tax-50-advocacy.html">Advocacy brief</a> &middot; <a href="pending-ratify-tax-50-supplemental.html">Supplemental steelman</a></span></div>
+    <div class="meta-item"><span class="label">Canon Anchor</span><span class="value">Charter III.III (Taxation by Layer) via Article XXV.VI (per <a href="#lp-070" class="lp-ref">LP-070</a>); Whitepaper &sect;12.1 (Tiered Progressive Taxation); <a href="rate-history.html">Rate-History record</a></span></div>
+  </div>
+  <div class="law-vote">
+    <h4>Ratification (synthetic, LP-041-style disclosure, margins authored)</h4>
+    <table class="vote-table">
+      <tr><th scope="row">Meritboard</th><td class="pass">+9 &mdash; in favor</td></tr>
+      <tr><th scope="row">Supreme Court</th><td class="pass">+7 &mdash; in favor</td></tr>
+      <tr><th scope="row">Sanctuary</th><td class="pass">+4 &mdash; in favor</td></tr>
+      <tr><th scope="row">Main Layer</th><td class="pass">+5 &mdash; in favor</td></tr>
+      <tr><th scope="row">Lower-Layer Aggregate</th><td class="pass">+3 &mdash; in favor</td></tr>
+    </table>
+    <p class="law-summary" style="margin-top:0.85rem">Meritboard +9 PASS &middot; Court +7 PASS &middot; Sanctuary +4 PASS &middot; Main +5 PASS &middot; Lower +3 PASS &mdash; 5&ndash;0, enacted-grade. The chambers that killed the schedule twice enacted its principle unanimously: the objection was never to the direction, only to being told the facts rather than shown them.</p>
   </div>
 </article>
 

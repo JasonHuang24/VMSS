@@ -170,26 +170,44 @@ check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.m
   check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
 }
 
-/* Supersession chain (v22.0.1): the excavated rate-history statutes form a
-   single chain LP-071 → LP-072 → LP-073 → LP-074. Every link but the last is a
-   superseded statute; exactly one — the tail — is the active schedule in force.
-   Guards the record class against a second "active" schedule, a broken chain,
-   or a renumbering that leaves the trajectory without a live terminus. */
+/* Supersession chain (v22.0.1; re-anchored v22.1): the excavated rate-history
+   statutes form a single chain LP-071 → LP-072 → LP-073. Every link but the
+   last is a superseded statute; exactly one — the tail — is the active schedule
+   in force. Guards the record class against a second "active" schedule, a
+   broken chain, or a renumbering that leaves the trajectory without a live
+   terminus.
+
+   The chain terminated at LP-074 from v22.0 until R12 vacated it; the tail
+   reverted to LP-073. A vacated statute is deliberately NOT a chain link: it
+   engraved a schedule that no longer stands and handed off to no successor, so
+   folding it in would either fake a second active schedule or misreport it as
+   superseded. It is asserted separately below, alongside LP-075 — the
+   trajectory principle it drafted, re-registered standalone. Both are held so a
+   later pass cannot quietly restore LP-074 to force or drop the principle
+   without tripping a check. */
+const statusOfLp = (id) => {
+  const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
+  return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
+};
 {
-  const CHAIN = ['lp-071', 'lp-072', 'lp-073', 'lp-074'];
-  const statusOf = (id) => {
-    const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
-    return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
-  };
-  const chainStatuses = CHAIN.map(statusOf);
+  const CHAIN = ['lp-071', 'lp-072', 'lp-073'];
+  const chainStatuses = CHAIN.map(statusOfLp);
   const missing = CHAIN.filter((_, i) => chainStatuses[i] === null);
   const active = chainStatuses.filter((s) => s === 'status-active').length;
   const superseded = chainStatuses.filter((s) => s === 'status-superseded').length;
   const tailActive = chainStatuses[CHAIN.length - 1] === 'status-active';
   const ok = missing.length === 0 && active === 1 && superseded === CHAIN.length - 1 && tailActive;
-  check(ok, 'rate-history supersession chain (LP-071→072→073→074, exactly one active)',
+  check(ok, 'rate-history supersession chain (LP-071→072→073, exactly one active)',
     missing.length ? `missing: ${missing.join(', ')}`
       : `active=${active} superseded=${superseded} tail=${chainStatuses[CHAIN.length - 1]}`);
+}
+{
+  const s = statusOfLp('lp-074');
+  check(s === 'status-vacated', 'LP-074 vacated (R12: enacting override withdrawn)', `status=${s}`);
+}
+{
+  const s = statusOfLp('lp-075');
+  check(s === 'status-enacted', 'LP-075 trajectory principle enacted (5–0, standalone)', `status=${s}`);
 }
 
 /* ---- 5. LP citations elsewhere resolve to real anchors ---- */

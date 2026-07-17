@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
   <title>Rate-History Record • The Five Rings</title>
-  <meta name="description" content="The excavated tax-rate trajectory of the civilization — four strata from the founding net-worth cap to the current abundance ratchet, each with its provenance hash. Mode: EXCAVATED." />
+  <meta name="description" content="The excavated tax-rate trajectory of the civilization — four strata from the founding net-worth cap through the abundance ratchet that was engraved and then vacated, each with its provenance hash. The 70/35/17/8 point-halving cascade is the schedule in force. Mode: EXCAVATED." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://jasonhchronicles.com/VMSS/rate-history.html" />
 
@@ -84,6 +84,13 @@
     .era-superseded { background: rgba(150,137,112,.16); color: var(--excavated); border:1px solid rgba(150,137,112,.4); }
     .era-active { background: rgba(34,211,238,.14); color:#4dd6e6; border:1px solid rgba(34,211,238,.42); }
     :root[data-theme="light"] .era-active { color:#0e7490; }
+    /* Vacated (v22.1) — mirrors the law-polling record class: stone tone, dashed
+       edge, struck label. Not a synonym for superseded: no successor took over. */
+    .era-vacated {
+      background: rgba(150,137,112,.10); color: var(--excavated);
+      border:1px dashed rgba(150,137,112,.6); text-decoration: line-through;
+      text-decoration-thickness: 1.5px;
+    }
   </style>
 </head>
 
@@ -97,20 +104,20 @@
         <div class="mb-8">
           <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">Ratification Record · Rate-History</p>
           <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">Rate-History Record — The Excavated Tax Trajectory</h1>
-          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Four strata of the civilization's top-marginal tax posture, read directly off the record — from the blunt founding net-worth cap to the current abundance ratchet. Each stratum names the statute that engraves it and the provenance hash it was excavated from.</p>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Four strata of the civilization's top-marginal tax posture, read directly off the record — from the blunt founding net-worth cap through the abundance ratchet that was engraved and then struck. Each stratum names the statute that engraves it and the provenance hash it was excavated from. The third stratum, 70 / 35 / 17 / 8, is the schedule in force.</p>
         </div>
 
         <div class="excavated-banner mb-10" role="note" aria-label="Provenance mode">
           <i class="fas fa-layer-group" aria-hidden="true"></i>
           <div>
             <span class="eb-label">Mode: EXCAVATED</span>
-            <p>This trajectory is <strong>excavated, not authored</strong>: every schedule below is present in the civilization's own commit record and quoted from it. Schedule strata: <span class="hash">4b11bf2</span> (founding net-worth cap) → <span class="hash">18f771d</span> (layered income schedule) → <span class="hash">5c3a0f6</span> (point-halving cascade) → founder ruling R10 (current). The anti-concentration instrument that triggered the third stratum was itself born at <span class="hash">00c7b49</span>. History is immutable: the strata are recorded, not revised.</p>
+            <p>This trajectory is <strong>excavated, not authored</strong>: every schedule below is present in the civilization's own commit record and quoted from it. Schedule strata: <span class="hash">4b11bf2</span> (founding net-worth cap) → <span class="hash">18f771d</span> (layered income schedule) → <span class="hash">5c3a0f6</span> (point-halving cascade, <strong>current</strong>) → founder ruling R10 (abundance ratchet, <strong>vacated at v22.1</strong> by ruling R12). The anti-concentration instrument that triggered the third stratum was itself born at <span class="hash">00c7b49</span>. History is immutable: the strata are recorded, not revised — including the one that was engraved and then struck.</p>
           </div>
         </div>
 
         <div class="pending-doc">
 
-          <p class="pending-p">The register carries each schedule as its own statute (<a href="law-polling.html#lp-071">LP-071</a> → <a href="law-polling.html#lp-072">LP-072</a> → <a href="law-polling.html#lp-073">LP-073</a> → <a href="law-polling.html#lp-074">LP-074</a>), three of them superseded and one active. This page reads the four together, as a single trajectory.</p>
+          <p class="pending-p">The register carries each schedule as its own statute (<a href="law-polling.html#lp-071">LP-071</a> → <a href="law-polling.html#lp-072">LP-072</a> → <a href="law-polling.html#lp-073">LP-073</a>), two of them superseded and one — the third — active. A fourth (<a href="law-polling.html#lp-074">LP-074</a>) was engraved on top of the chain at v22.0 and vacated at v22.1; it is record, not a link, and the chain's live terminus reverted to LP-073. This page reads all four together, as a single trajectory.</p>
 
           <div class="pending-table-wrap">
             <table class="pending-table">
@@ -145,22 +152,22 @@
                   <td><span class="hash">18f771d</span><br>v9.0</td>
                 </tr>
                 <tr>
-                  <td>Consolidation<br><span class="era-chip era-superseded">Superseded</span></td>
-                  <td>Y47–Y111</td>
+                  <td>Consolidation<br><span class="era-chip era-active">Active</span></td>
+                  <td>Y47–Y111; restored Y112–present</td>
                   <td>70 / 35 / 17 / 8 on income &gt; $10,000,000</td>
                   <td>Point rates · exact halving cascade</td>
-                  <td>Savings Circulation Mandate assumes anti-concentration (born <span class="hash">00c7b49</span> · v9.6.1)</td>
+                  <td>Savings Circulation Mandate assumes anti-concentration (born <span class="hash">00c7b49</span> · v9.6.1); returned to force on the vacatur of <a href="law-polling.html#lp-074">LP-074</a></td>
                   <td><a href="law-polling.html#lp-073">LP-073</a></td>
-                  <td><span class="hash">5c3a0f6</span><br>v14.5</td>
+                  <td><span class="hash">5c3a0f6</span><br>v14.5; restored R12 · v22.1</td>
                 </tr>
                 <tr>
-                  <td>Abundance<br><span class="era-chip era-active">Active</span></td>
-                  <td>Y112–present</td>
+                  <td>Abundance<br><span class="era-chip era-vacated">Vacated</span></td>
+                  <td>Y112 — vacated</td>
                   <td>50 / 25 / 12.5 / 6.25 on income &gt; $10,000,000</td>
                   <td>Point rates · exact halving cascade</td>
-                  <td>Trajectory principle; automation-side revenue matured (R7 abundance posture)</td>
+                  <td>Trajectory principle; automation-side revenue matured (R7 abundance posture). Enacted on founder override of a 1–4 vote; affirmed short at 3–2 on advocacy review; vacated when the override was withdrawn (R12)</td>
                   <td><a href="law-polling.html#lp-074">LP-074</a></td>
-                  <td>founder ruling R10<br>canon v22.0</td>
+                  <td>founder ruling R10<br>canon v22.0<br>vacated R12 · v22.1</td>
                 </tr>
               </tbody>
             </table>
@@ -169,35 +176,41 @@
 
           <h2 class="pending-h pending-h2">The band-to-point precision arc</h2>
           <p class="pending-p">The two founding strata governed by <strong>bands</strong> — a range within which each layer's authority set posture annually. Bands were not imprecision for its own sake; they were what a young institution could honestly enforce. At <span class="hash">18f771d</span> the layered schedule still read "90–99% / 45–50% / 20–25% / 10–15%," a range per layer, because enforcement capability had not yet matured to the point where a single number could be held.</p>
-          <p class="pending-p">At <span class="hash">5c3a0f6</span> the bands were cut to <strong>points</strong> in a single restructure — 70 / 35 / 17 / 8, an exact halving cascade. Band-to-point is itself doctrine: point rates are what a matured enforcement capability produces. Variance was no longer necessary, and therefore no longer permitted. The current schedule (50 / 25 / 12.5 / 6.25) keeps the point discipline and halves again from the top. Precision is a record of institutional age, not a stylistic choice.</p>
+          <p class="pending-p">At <span class="hash">5c3a0f6</span> the bands were cut to <strong>points</strong> in a single restructure — 70 / 35 / 17 / 8, an exact halving cascade. Band-to-point is itself doctrine: point rates are what a matured enforcement capability produces. Variance was no longer necessary, and therefore no longer permitted. That schedule is the one in force. The vacated abundance ratchet (50 / 25 / 12.5 / 6.25) kept the point discipline and halved again from the top; its vacatur was never a quarrel with the precision, only with the evidence for the second halving. Precision is a record of institutional age, not a stylistic choice.</p>
 
           <h2 class="pending-h pending-h2">The one-million-to-present population arc</h2>
           <p class="pending-p">The founding-era record numbers the civilization at <strong>roughly one million citizens</strong> — the same figure that anchors the earliest Savings Circulation Mandate parameters (a $100,000-per-citizen average savings balance reading as $100 billion in aggregate across one million citizens). At that scale, taxing accumulated wealth at a single blunt rate was sufficient: there were few enough concentration vectors that one instrument could watch them all.</p>
           <p class="pending-p">As the population and its economy grew, no single blunt instrument could carry all three of taxation's founding functions — revenue, anti-concentration, and trust. The layered schedule split the burden across the layers by benefit received; the SCM then lifted anti-concentration off the marginal rate entirely. Each widening of the civilization retired a job the tax rate had been doing alone, and each retirement let the rate fall. The trajectory down is the trace of the institution outgrowing its own crutches.</p>
 
           <h2 class="pending-h pending-h2">Era artifacts — the 70-schedule period</h2>
-          <p class="pending-p">The Consolidation-era rate (70 / 35 / 17 / 8) is the schedule under which the civilization's <strong>Doctrine-Snapshot v14.5</strong> simulations were authored. These cards are pinned artifacts of that stratum and are <em>not</em> revised to the current schedule — they show the world as it stood at the 70-rate:</p>
+          <p class="pending-p">The Consolidation-era rate (70 / 35 / 17 / 8) is the schedule under which the civilization's <strong>Doctrine-Snapshot v14.5</strong> simulations were authored. These cards are pinned artifacts of that stratum and are never revised to track the schedule — they show the world as it stood at the 70-rate:</p>
           <ul class="pending-list">
             <li><a href="simulations.html#sim-civ-4">The Wealth Ceiling</a> — Sera Voss, the neural-diving composer grossing $200M who keeps $60M at the 70% top marginal rate; the canonical illustration of the elite-wealth market the point schedule was tuned to permit while the SCM prevents concentration.</li>
             <li><a href="simulations.html#sim-civ-2">The Cradle Offensive</a> and <a href="simulations.html#sim-civ-3">The Border Audit</a> — the other two v14.5 civilizational snapshots of the same period.</li>
           </ul>
-          <p class="pending-p" style="font-size:.9rem;color:var(--text-muted)">Doctrine-Snapshot-stamped simulations are era-pinned by design and are left exactly as engraved. Read them as the 70-schedule's own record, not as current-state claims.</p>
+          <p class="pending-p" style="font-size:.9rem;color:var(--text-muted)">Doctrine-Snapshot-stamped simulations are era-pinned by design and are left exactly as engraved. For the v22.0–v22.1 interval they read as historical rather than current; with LP-074 vacated and the 70-schedule restored, they agree with the schedule in force again. That agreement is a coincidence of the vacatur, not a revision — the pin is to the era, not to the current number, and it would go stale again the moment a reduction genuinely carries. Read them as the 70-schedule's own record.</p>
 
-          <h2 class="pending-h pending-h2">The supersession chain</h2>
+          <h2 class="pending-h pending-h2">The supersession chain — and the fourth beat</h2>
           <p class="pending-p">Each stratum is superseded, not repealed — the record keeps where the civilization stood at each stage, and why it moved on. Exactly one schedule is active at a time; the chain has a single live terminus.</p>
+          <p class="pending-p">The arc has a fourth beat, and it is not a supersession. At v22.0 the abundance ratchet was engraved on top of the chain by founder override of a failed vote. At v22.1 the founder withdrew that override on precedent grounds — that fiscal law should not stand on founder posture against a failed chamber vote — and <a href="law-polling.html#lp-074">LP-074</a> was <strong>vacated</strong>. The distinction is load-bearing. A superseded statute handed its work to a successor and stepped back; a vacated statute was in force and was struck, with nothing behind it, so the schedule it displaced returned. <a href="law-polling.html#lp-073">LP-073</a> is the live terminus again — not because it won a new vote, but because the thing that displaced it stopped standing.</p>
+          <p class="pending-p">The reversion runs forward only. The v22.0 engraving, the override, the briefs, and the interval in which the 50-schedule genuinely governed are all record and none of them are edited out. The register carries the vacated statute at full length, its disclosure untouched, next to the schedule that outlived it. A civilization that quietly deleted its reversals would be claiming a straighter line than it walked.</p>
           <div class="pending-crosslinks" style="margin-top:1.1rem">
             <a href="law-polling.html#lp-071" class="pending-crosslink"><i class="fas fa-monument" aria-hidden="true"></i> LP-071 — Foundation Cap</a>
             <a href="law-polling.html#lp-072" class="pending-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-072 — Layered Schedule</a>
-            <a href="law-polling.html#lp-073" class="pending-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — First Ratchet</a>
-            <a href="law-polling.html#lp-074" class="pending-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> LP-074 — Abundance Ratchet (Active)</a>
+            <a href="law-polling.html#lp-073" class="pending-crosslink is-primary"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — First Ratchet (Active)</a>
+            <a href="law-polling.html#lp-074" class="pending-crosslink"><i class="fas fa-ban" aria-hidden="true"></i> LP-074 — Abundance Ratchet (Vacated)</a>
           </div>
 
           <h2 class="pending-h pending-h2">The through-line — the Trajectory Principle</h2>
-          <p class="pending-p">The current statute (<a href="law-polling.html#lp-074">LP-074</a>) does not merely set a number; it codifies the pattern the three strata above already demonstrate. <strong>Top marginal rates track institutional need, not posture.</strong> Taxation's three founding functions — revenue, anti-concentration, and trust — each retire as automation revenue, structural anti-concentration instruments, and a verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. The civilization executed that logic once before the principle was written (v14.5, on SCM-transfer grounds); LP-074 states the demonstrated behavior as standing law.</p>
-          <p class="pending-p">Every future reduction under the principle requires audited evidence per the <a href="pending-ratification.html#path-2">Path 2 standing audit</a> — never authored facts. Where authored facts grounded the current reduction, the Path 2 controlling estimate supersedes them (petition v4.1 §7(e)), and the cadence rider binds review. The abundance ratchet was ratified by founder override (R10) over a 1–4 synthetic gauntlet; the opposition brief and session record publish alongside it.</p>
+          <p class="pending-p">The principle outlived the statute that drafted it. <strong>Top marginal rates track institutional need, not posture.</strong> Taxation's three founding functions — revenue, anti-concentration, and trust — each retire as automation revenue, structural anti-concentration instruments, and a verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. The civilization executed that logic once before the principle was written (v14.5, on SCM-transfer grounds); it was first drafted at <a href="law-polling.html#lp-074">LP-074</a> §§3–4, and when that statute was vacated the principle did not fall with it.</p>
+          <p class="pending-p">It re-registers standalone as <a href="law-polling.html#lp-075">LP-075</a>, enacted <strong>5–0</strong> on its own vote. That margin is the most legible fact on this page: the same chambers that killed the 50-schedule twice enacted its principle unanimously. The objection was never to the direction of travel — it was to being told the facts rather than shown them. Detached from an authored gate, the direction was never in dispute.</p>
+          <p class="pending-p">Under <a href="law-polling.html#lp-075">LP-075</a> §2 every rate reduction requires audited evidence per the <a href="pending-ratification.html#path-2">Path 2 standing audit</a> — never authored facts — and a vacated or failed reduction may be re-petitioned when the controlling estimate lands, facing the standard zero-fail threshold with no override channel. RATIFY-TAX-50 remains available on exactly those terms. The trajectory itself is unchanged; what changed is that the next step down has to be earned in the open. §3 states the lesson of both attempts plainly: <strong>rates fall when shown, and hold when merely told.</strong></p>
           <div class="pending-crosslinks" style="margin-top:1.1rem">
-            <a href="pending-ratify-tax-50-record.html" class="pending-crosslink is-primary"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Session Record — founder ruling R10</a>
-            <a href="pending-ratify-tax-50-opposition.html" class="pending-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Opposition Brief — retained in perpetuity</a>
+            <a href="law-polling.html#lp-075" class="pending-crosslink is-primary"><i class="fas fa-scale-balanced" aria-hidden="true"></i> LP-075 — The Trajectory Principle (Enacted 5–0)</a>
+            <a href="pending-ratify-tax-50-record.html" class="pending-crosslink is-primary"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Session Record — founder rulings R10, R12</a>
+            <a href="pending-ratify-tax-50-opposition.html" class="pending-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Opposition Brief — the case against</a>
+            <a href="pending-ratify-tax-50-advocacy.html" class="pending-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Advocacy Brief — the case for</a>
+            <a href="pending-ratify-tax-50-supplemental.html" class="pending-crosslink"><i class="fas fa-comments" aria-hidden="true"></i> Supplemental Steelman</a>
             <a href="pending-ratification.html#path-2" class="pending-crosslink"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i> Path 2 — standing fiscal-facts audit</a>
             <a href="pending-ratification.html" class="pending-crosslink"><i class="fas fa-scroll" aria-hidden="true"></i> Ratification Record</a>
           </div>
