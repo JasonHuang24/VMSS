@@ -4,7 +4,7 @@
 ## Status codes: CURED (v3 text removes the exploit) · MITIGATED
 ## (v3 reduces it; named residue stands) · ACCEPTED (residue engraved)
 
-### Re-filed v1 findings (Sol regression pass, 28 standing)
+### Re-filed first-review findings (regression pass, 28 standing)
 
 | # | Status | v3 disposition |
 |---:|---|---|
@@ -93,7 +93,7 @@ objection, flagged to the veto. A civilization that could not do this
 would have transferred sovereignty to its reviewers. Accepted, by
 design.
 
-### Institutional-design cross-check findings (Opus cold pass on v3, 12)
+### Institutional-design cross-check findings (second review, cold, on the third draft, 12)
 
 | # | Sev | Status | v4 disposition |
 |---:|---|---|---|
@@ -134,7 +134,7 @@ cannot field a Commission it trusts in the decade after the
 proceedings, the rates hold — which is the promise, not the defect.
 Accepted.
 
-### Schedule cold-pass findings (Sol, on the §10.4 Schedule v1, 17)
+### Schedule findings (cold methodological review of the Schedule’s first draft, 17)
 
 | # | Sev | Status | Schedule v2 disposition |
 |---:|---|---|---|

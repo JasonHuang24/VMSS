@@ -284,11 +284,30 @@ const statusOfLp = (id) => {
     .replace(/&nbsp;/g, ' ')
     .replace(/\s+/g, ' ');
   const BANNED = /founder(?:'|’)?s? (?:ruling|override)/i;
+  /* Seat-name class (v22.5.1). The out-of-world reviewer seats — the models
+     that authored the adversarial passes — are Process-tier authorship, never
+     in-world text. v22.5 shipped three of them in the Residual-Risk Register's
+     section headings ("Sol regression pass", "Opus cold pass"); the corrected
+     in-world framing removed them, and this check makes that leak class
+     mechanical from now on. Case-sensitive and word-bounded so ordinary prose
+     ("console", "Solar", a lowercase "opus") does not trip it; the Process tier
+     is exempt by the same PROCESS_TIER definition the founder rule uses. */
+  const SEAT = /\b(Sol|Opus|Fable|GPT|Claude)\b/;
   const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
-  const offenders = worldPages.filter((f) => BANNED.test(rendered(read(f))));
-  check(offenders.length === 0,
+  const founderOffenders = [];
+  const seatOffenders = [];
+  for (const f of worldPages) {
+    const txt = rendered(read(f));
+    if (BANNED.test(txt)) founderOffenders.push(f);
+    const seat = txt.match(SEAT);
+    if (seat) seatOffenders.push(`${f} ("${seat[1]}")`);
+  }
+  check(founderOffenders.length === 0,
     `layer guard: no World-tier page presents the founder as an in-world actor (${worldPages.length} pages)`,
-    offenders.length ? `offenders: ${offenders.join(', ')}` : 'clean');
+    founderOffenders.length ? `offenders: ${founderOffenders.join(', ')}` : 'clean');
+  check(seatOffenders.length === 0,
+    `layer guard: no World-tier page names an out-of-world reviewer seat (${worldPages.length} pages)`,
+    seatOffenders.length ? `offenders: ${seatOffenders.join(', ')}` : 'clean');
 }
 
 const STATUTE_PAGE = 'pending-ratify-tax-50-ii-statute.html';
