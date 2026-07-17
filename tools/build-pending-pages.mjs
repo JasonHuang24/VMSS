@@ -315,7 +315,52 @@ const banner = () => `
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Failed Petition — record retained</span>
-            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record. <strong>Succeeded at ~Y175 by <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a> (registered 5–0, conditional)</strong> — a new line, not a reopening; it registers a rule and changes no rate.</p>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record. <strong>Succeeded at ~Y175 (2276) by <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a> (enacted 2278, registered 5–0, conditional)</strong> — a new line, not a reopening; it registers a rule and changes no rate.</p>
+          </div>
+        </div>`;
+
+/* Statute typography, carried over from the law register unchanged (R16). The
+   text moved; how it reads should not have. Scoped under .law-statute, so it
+   touches only the one page that renders the instrument. */
+const STATUTE_STYLE = `
+  <style>
+  .law-statute { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.62; margin-bottom: 1rem; }
+  .law-statute .ls-h { color: var(--text-primary); font-weight: 700; line-height: 1.3; }
+  .law-statute .ls-h1 { font-size: 1.02rem; margin: 0 0 0.9rem; letter-spacing: 0.02em; }
+  .law-statute .ls-h2 { font-size: 1rem; margin: 1.6rem 0 0.65rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); }
+  .law-statute .ls-h3 { font-size: 0.93rem; margin: 1.1rem 0 0.45rem; color: var(--text-secondary); }
+  .law-statute .ls-p { margin: 0 0 0.8rem; }
+  .law-statute strong { color: var(--text-primary); font-weight: 700; }
+  .law-statute .ls-list { margin: 0 0 0.9rem 1.25rem; padding: 0; }
+  .law-statute .ls-list li { margin: 0 0 0.45rem; }
+  .law-statute ol.ls-list { list-style: decimal; }
+  .law-statute ul.ls-list { list-style: disc; }
+  .law-statute .ls-hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .law-statute .ls-quote {
+    margin: 0 0 0.9rem; padding: 0.25rem 0 0.25rem 1rem;
+    border-left: 3px solid rgba(34, 211, 238, 0.4); color: var(--text-secondary);
+  }
+  .law-statute .ls-quote .ls-p:last-child { margin-bottom: 0; }
+  .law-statute .ls-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86em; color: var(--text-muted); }
+  .law-statute .ls-cite { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(34, 211, 238, 0.45); }
+  .law-statute .ls-cite:hover { border-bottom-style: solid; }
+  .law-statute .ls-table-wrap { overflow-x: auto; margin: 0 0 1rem; border: 1px solid var(--border); border-radius: 0.6rem; }
+  .law-statute .ls-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 520px; }
+  .law-statute .ls-table th, .law-statute .ls-table td { text-align: left; vertical-align: top; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); }
+  .law-statute .ls-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; }
+  .law-statute .ls-table tbody tr:last-child td { border-bottom: 0; }
+  </style>`;
+
+/* The successor's banner. The failed-petition banner above is the section's
+   default because most of the section is that petition's record; this page is
+   the law that answered it, and carries the one fact a reader arriving at a
+   long conditional statute most needs first: none of its schedules are live. */
+const statuteBanner = () => `
+        <div class="pending-banner mb-10" role="note" aria-label="Statute status">
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
+          <div>
+            <span class="pb-label">Enacted · Conditional — schedules not in force</span>
+            <p><strong>ENACTED, RULE ONLY</strong> — <a href="law-polling.html#lp-074">LP-074</a> registered 5–0 and changed no rate. Schedules A and B are <strong>inactive</strong> pending Path 2 certification; the live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>). This page is the full conditional statute as filed, with the citation apparatus it was drafted with. The register entry at LP-074 tells what the law is and does; this is the instrument itself.</p>
           </div>
         </div>`;
 
@@ -329,7 +374,7 @@ const processFrame = () => `
           <p>This section is the <strong>drafting archive</strong>: the out-of-world authorship history behind the civilization's fiscal law. It is not a page of the world's own record and nothing in it is in force. The archive keeps <strong>interventions and their withdrawal alike</strong> — including the authorial override that was applied to a chamber result during drafting and later taken back, and the statute texts that were written into the register and then deregistered. In world, the founding authority terminated into the charter at Y0 and no ruling of that kind is an event in the civilization's history. What the world records is the vote: <strong>RATIFY-TAX-50 failed</strong>, and the schedule at <a href="law-polling.html#lp-073">LP-073</a> stands.</p>
         </div>`;
 
-function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing }) {
+function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing, statusBanner, extraStyle }) {
   const chrome = `<!DOCTYPE html>
 <html data-theme="dark" lang="en">
 <head>
@@ -359,7 +404,7 @@ function page({ file, title, description, heroKicker, heroTitle, heroSub, crossl
   <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
   <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
   <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-${PENDING_STYLE}
+${PENDING_STYLE}${extraStyle || ''}
 </head>
 
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
@@ -375,7 +420,7 @@ ${PENDING_STYLE}
           <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">${heroSub}</p>
         </div>
 ${framing ? processFrame() : ''}
-${banner()}
+${statusBanner || banner()}
 ${crosslinks ? `        <div class="pending-crosslinks mb-12">\n${crosslinks}\n        </div>` : ''}
 
         <div class="pending-doc">
@@ -414,12 +459,23 @@ const md = {
   record: read(SRC.record),
 };
 
+/* The successor statute is the section's one HTML-sourced page, and the reason
+   is worth stating. Every other page here renders from its Markdown draft. This
+   text was published in the law register instead, and was edited there — R13
+   lifted the founder out of its wording, and R15 rebuilt its citation key into
+   reader-facing links, retiring the draft's raw working-file names. R16 moves
+   the *published* text, not the draft, so the register's rendering is the
+   source. The draft at docs-review/RATIFY-TAX-50-II-petition.md is retained as
+   drafting history and is deliberately not the source of this page. */
+const STATUTE_SRC = read('documents/ratify-tax-50-ii-statute-source.html');
+
 const HUB = 'pending-ratification.html';
 const BALLOT = 'pending-ratify-tax-50-ballot.html';
 const OPP = 'pending-ratify-tax-50-opposition.html';
 const ADV = 'pending-ratify-tax-50-advocacy.html';
 const SUPP = 'pending-ratify-tax-50-supplemental.html';
 const RECORD = 'pending-ratify-tax-50-record.html';
+const STATUTE = 'pending-ratify-tax-50-ii-statute.html';
 
 const link = (href, cls, icon, label) =>
   `          <a href="${href}" class="pending-crosslink${cls ? ' ' + cls : ''}"><i class="fas ${icon}" aria-hidden="true"></i> ${label}</a>`;
@@ -525,15 +581,56 @@ built.push(page({
   framing: true,
 }));
 
+/* The successor statute, in full (R16). The register entry carries the law's
+   account of itself in the register's voice; the instrument that account is of
+   lives here, with the conditions and the citation apparatus a working document
+   needs and a register entry has no business carrying.
+
+   One transformation, and only one: the register cited its neighbours as
+   same-page anchors, and off the register those resolve to nothing. They carry
+   their page now. Everything else — wording, structure, all 125 citation links
+   — is the register's v22.4 text untouched. */
+const statuteBody = (() => {
+  const before = (STATUTE_SRC.match(/href="#lp-/g) || []).length;
+  const html = STATUTE_SRC.replace(/href="#(lp-[\w-]+)"/g, 'href="law-polling.html#$1"');
+  const after = (html.match(/href="#lp-/g) || []).length;
+  if (before === 0) throw new Error('statute source: expected same-page lp- anchors to rehome, found none');
+  if (after !== 0) throw new Error(`statute source: ${after} same-page lp- anchors survived rehoming`);
+  const cites = (html.match(/class="ls-cite">[A-Z]{1,2}<\/a>/g) || []).length;
+  if (cites !== 125) throw new Error(`statute source: ${cites} sigil citations, expected the register's 125`);
+  return `<div class="law-statute">\n${html.replace(/<!--[\s\S]*?-->\n?/, '')}</div>`;
+})();
+
+built.push(page({
+  file: STATUTE,
+  title: 'RATIFY-TAX-50-II — Full Conditional Statute • The Five Rings',
+  description: 'The full text of RATIFY-TAX-50-II, the register’s first conditional rate law (LP-074) — governing rule, the gated Schedule A and Schedule B, certification conditions A1–A8 and B1–B6, the evidentiary quarantine, and the cadence rider. Enacted 5–0 and conditional: no schedule is in force, and the live rates remain 70/35/17/8 at LP-073.',
+  heroKicker: 'Ratification Record · Full Statute Text',
+  heroTitle: 'RATIFY-TAX-50-II — Full Conditional Statute',
+  heroSub: 'The instrument as filed and enacted: the rule the chambers actually voted, every condition the Path 2 audit must certify before a rate moves, and the citations tying each clause to the record that produced it. Registered at LP-074; in force as rule only.',
+  crosslinks: [
+    link('law-polling.html#lp-074', 'is-primary', 'fa-scale-balanced', 'LP-074 — the register entry'),
+    link('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — the schedule in force'),
+    link('whitepaper.html#trajectory-doctrine', '', 'fa-compass', 'Trajectory Doctrine — governing law'),
+    ...briefLinks(STATUTE),
+    link(BALLOT, '', 'fa-file-lines', 'The Ballot — petition v4.1'),
+    link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
+  ].join('\n'),
+  body: statuteBody,
+  statusBanner: statuteBanner(),
+  extraStyle: STATUTE_STYLE,
+}));
+
 /* Hub — authored section landing (no verbatim check). */
 const hubBody = [
   `<p class="pending-p">This section is the <strong>drafting archive</strong> behind the civilization’s ratification record: proposals drafted, adversarially reviewed, and carried to a decision, with the briefs that publish alongside each. Outcomes are not pre-decided; a failed vote is itself a legitimate output and a boundary marker under standing doctrine (LP-062 / LP-065). Because it is an archive of authorship, it keeps what the drafting did and then undid — the interventions, and their withdrawal — where the world’s own record keeps only what the world decided.</p>`,
   `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Failed petition</h2>`,
   `<p class="pending-p"><strong>FAILED PETITION.</strong> The petition would have reduced the engraved §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>, an exact halving of every point. It was filed, it went to the chambers, and it lost — twice. <strong>At the gauntlet:</strong> 1–4 against — Meritboard, Court, Sanctuary, and Lower opposed, Main in favor. <strong>On advocacy review:</strong> a cold, citation-verified affirmative review re-ran the vote and narrowed it to 3–2, moving Court, Sanctuary, and Main; but enactment requires zero failing chambers, and Meritboard and Lower held. A majority is not the threshold. The live schedule is and remains <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong> (<a href="law-polling.html#lp-073">LP-073</a>), and the petition is preserved as a failed-petition record under standing doctrine.</p>`,
   `<p class="pending-p">What survived is the direction. Every chamber endorsed the trajectory principle even while refusing the magnitude attached to it — 5–0 across the ratification chambers — and it stands as the <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> at Whitepaper §12.1: top marginal rates track demonstrated institutional need, and any reduction needs audited Path&nbsp;2 facts at the standard zero-fail threshold. RATIFY-TAX-50 may be re-petitioned on exactly those terms once the Path&nbsp;2 controlling estimate lands. All three briefs — opposition, advocacy, and supplemental — publish as permanent record. Rates fall when shown, and hold when merely told.</p>`,
-  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>, on an authorial override of the failed chamber result, and a trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1 and both entries were deregistered at v22.2 — the first because it described an enactment that never occurred in world, the second because its principle belongs in doctrine rather than the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the full sequence is told in the <a href="pending-ratify-tax-50-record.html">session record</a>. None of it is world canon; all of it is kept. Both are drafting designations only: the register's LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, registered 5–0 at ~Y175, and 075 remains unissued (R15).</p>`,
+  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>, on an authorial override of the failed chamber result, and a trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1 and both entries were deregistered at v22.2 — the first because it described an enactment that never occurred in world, the second because its principle belongs in doctrine rather than the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the full sequence is told in the <a href="pending-ratify-tax-50-record.html">session record</a>. None of it is world canon; all of it is kept. Both are drafting designations only: the register's LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, registered 5–0 at ~Y175 (enacted 2278), and 075 remains unissued (R15). Its full conditional text is published at the <a href="pending-ratify-tax-50-ii-statute.html">full statute page</a> (R16).</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
-    [link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot — petition v4.1'),
+    [link(STATUTE, 'is-primary', 'fa-scale-balanced', 'RATIFY-TAX-50-II — the full conditional statute'),
+     link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot — petition v4.1'),
      link(OPP, 'is-primary', 'fa-scale-balanced', 'Opposition Brief — the case against'),
      link(ADV, 'is-primary', 'fa-scale-balanced', 'Advocacy Brief — the case for'),
      link(SUPP, 'is-primary', 'fa-comments', 'Supplemental Steelman — the case for, restated'),

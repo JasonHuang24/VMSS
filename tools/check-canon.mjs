@@ -153,6 +153,15 @@ check(new Set(entryIds).size === entryIds.length, 'entry anchor ids unique');
 const tocLinks = (law.match(/class="toc-link"/g) || []).length;
 check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.mjs)', `${tocLinks} links / ${entries} entries`);
 
+/* The filter's own count line. The stat cards above were checked against the
+   derived total from the start; this line was not, and it spent v22.3 and v22.4
+   a version behind — server-rendered 87 against 88 real entries, corrected only
+   once a reader clicked a chip. The script now derives it on load, so this
+   guards the no-JS first paint the reader sees before that. */
+const countLine = (law.match(/data-law-count[^>]*>Showing all (\d+) entries</) || [])[1];
+check(Number(countLine) === entries, 'filter count line = entries',
+  `line says ${countLine ?? 'nothing'} / ${entries} entries`);
+
 /* Vote-outcome semantics: an Enacted entry's own ratification table must
    contain no failing gate; a Failed entry must show at least one. Mixed,
    rerouted, and advisory entries are exempt (their tables legitimately
@@ -282,25 +291,86 @@ const statusOfLp = (id) => {
     offenders.length ? `offenders: ${offenders.join(', ')}` : 'clean');
 }
 
-/* (e) LP-074 is registered, and registered as an uncommenced law (v22.4). The
-   entry's whole legal character is that it is in force as a rule while both its
-   rate schedules are inactive; the commencement line is what tells a reader so
-   before they reach the schedules. An entry that lost that line would read as a
-   50-schedule enactment, which is exactly the drift v22.2 spent a version
-   correcting. */
+const STATUTE_PAGE = 'pending-ratify-tax-50-ii-statute.html';
+
+/* (e) LP-074 is registered, and registered as an uncommenced law (v22.4; the
+   evidence re-pointed at R16's house-style entry). The entry's whole legal
+   character is that it is in force as a rule while both its rate schedules are
+   inactive. Until R16 a dedicated commencement line said so; the rewritten
+   entry says it in the status line and in its opening paragraph instead. Either
+   way the reader must learn it before reaching the schedules — an entry that
+   lost the qualifier would read as a 50-schedule enactment, which is exactly
+   the drift v22.2 spent a version correcting. */
 const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
 {
   const need = [
     ['entry present', !!lp074],
     ['title', lp074.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
     ['enacted badge', /class="status-badge status-enacted"/.test(lp074)],
-    ['commencement line', lp074.includes('<strong>IN FORCE: rule only.</strong>')],
-    ['schedules marked inactive', /Schedules A and B <strong>INACTIVE<\/strong>/.test(lp074)],
-    ['live rates named', lp074.includes('<strong>70 / 35 / 17 / 8</strong>')],
+    ['status qualifier', /status-enacted">Enacted &middot; Conditional &mdash; schedules not in force</.test(lp074)],
+    ['changes no rate on passage', lp074.includes('it changes no rate on the day of its passage')],
+    ['live rates named', lp074.includes('The 70/35/17/8 schedule remains in force until certification')],
+    ['anchors the full statute', lp074.includes(`<a href="${STATUTE_PAGE}">Ratification Record</a>`)],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
-  check(missing.length === 0, 'LP-074 registered with its commencement line (enacted, schedules uncommenced)',
-    missing.length ? `missing: ${missing.join(', ')}` : 'entry + badge + commencement + live rates');
+  check(missing.length === 0, 'LP-074 registered as an uncommenced law (enacted, schedules not in force)',
+    missing.length ? `missing: ${missing.join(', ')}` : 'entry + badge + qualifier + live rates + statute anchor');
+}
+
+/* (e2) HOUSE-STYLE GUARD (R16, v22.4.1). Register entries are editorial
+   narrative in the register's voice. The apparatus of a working document —
+   inline bracketed citations, a citation key, the statute's own sectioned text
+   — belongs to the Ratification Record, where a reader has come for the
+   instrument. LP-074 carried all of it into the register and made the case for
+   the rule: the entry ran 43,000 characters, most of it petition text, and the
+   register's other 87 entries do not read that way.
+
+   The guard is over rendered form, not draft shorthand. R15 had already turned
+   the sigils into links, so the drafts' literal "[P," never appears in the
+   register — a guard on that string would pass forever while catching nothing.
+   What the register can actually grow is what LP-074 actually had: ls-cite
+   anchors, a law-statute block, a citation key. Those are what this refuses.
+   The Ratification Record pages are exempt by construction: this reads only
+   law-polling.html, and only inside law-entry articles. */
+{
+  const APPARATUS = [
+    ['inline citation links', /class="ls-cite"/],
+    ['statute text block', /class="law-statute"/],
+    ['citation key', /Citation key/i],
+    ['statute typography', /class="ls-(h|p|list|quote|hr)\b/],
+  ];
+  const blocks = law.split(/(?=<article class="law-entry)/).slice(1);
+  const offenders = [];
+  for (const b of blocks) {
+    const id = (b.match(/id="(lp-[\w-]+)"/) || [])[1] || '?';
+    const found = APPARATUS.filter(([, re]) => re.test(b)).map(([k]) => k);
+    if (found.length) offenders.push(`${id}: ${found.join(', ')}`);
+  }
+  check(offenders.length === 0,
+    'house style: register entries carry no working-document apparatus (R16)',
+    offenders.length ? offenders.join('; ') : `${blocks.length} entries clean`);
+}
+
+/* (e3) The statute the register entry stops short of. R16 moved the full
+   conditional text out of the register on the condition that it stay published
+   and stay reachable — an entry that anchors a page that does not exist would
+   be worse than the entry that carried its own text. So: the page exists, it is
+   the instrument (not a summary of one), and it is not a register entry. */
+{
+  let src = '';
+  try { src = read(STATUTE_PAGE); } catch { /* absent — reported below */ }
+  const need = [
+    ['page exists', !!src],
+    ['Schedule A conditions (A1)', /A1/.test(src)],
+    ['Schedule B conditions (B1)', /B1/.test(src)],
+    ['full statute text', src.includes('RATIFY-TAX-50-II — Conditional Successor Petition')],
+    ['citation apparatus retained', (src.match(/class="ls-cite"/g) || []).length >= 125],
+    ['not a register entry', !src.includes('<article class="law-entry')],
+    ['links back to LP-074', src.includes('law-polling.html#lp-074')],
+  ];
+  const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
+  check(missing.length === 0, `full conditional statute published at ${STATUTE_PAGE} (R16)`,
+    missing.length ? `missing: ${missing.join(', ')}` : 'instrument + conditions + apparatus + backlink');
 }
 
 /* (f) SCHEDULE-INACTIVITY GUARD (v22.3). Two halves, both load-bearing.
