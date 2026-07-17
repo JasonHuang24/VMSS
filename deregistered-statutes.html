@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
+  <title>Deregistered Statutes of Record — LP-074 / LP-075 • The Five Rings</title>
+  <meta name="description" content="Process record: the drafted statute texts of LP-074 and LP-075, deregistered from the law register at canon v22.2. Out-of-world authorship history, preserved verbatim. Numbers 074 and 075 retire and are never reissued." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://jasonhchronicles.com/VMSS/deregistered-statutes.html" />
+
+  <script>
+    const saved = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+<noscript><style>body{opacity:1}</style></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+
+  <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+
+  <style>
+    /* Process tier. Shares the document system of the ratification record;
+       recolored to the archival stone tone. Nothing on this page is world
+       canon — it is drafting history, and it is styled to read that way. */
+    .pending-shell { --process: #8f8577; --process-hot: #a8977a; }
+    :root[data-theme="light"] .pending-shell { --process: #6f6656; --process-hot: #786a52; }
+    .process-banner {
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--process-hot);
+      background: var(--bg-secondary);
+      border-radius: 14px;
+      padding: 1.1rem 1.35rem;
+      display: flex; gap: .85rem; align-items: flex-start;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+    .process-banner i { color: var(--process-hot); font-size: 1.15rem; margin-top: .15rem; }
+    .process-banner .pb-label {
+      font-size: .7rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--process-hot); font-weight: 700; display: block; margin-bottom: .3rem;
+    }
+    .process-banner p { color: var(--text-secondary); line-height: 1.6; font-size: .95rem; }
+    .process-banner strong { color: var(--text-primary); }
+    .pending-crosslinks { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .pending-crosslink {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: .5rem .95rem; font-size: .9rem; color: var(--text-secondary);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .pending-crosslink:hover { border-color: var(--accent); color: var(--accent); }
+    .pending-crosslink.is-primary {
+      border-color: var(--process-hot); color: var(--text-primary);
+      background: color-mix(in srgb, var(--process-hot) 14%, transparent);
+    }
+    .pending-crosslink.is-primary i { color: var(--process-hot); }
+    .pending-doc { color: var(--text-secondary); line-height: 1.72; font-size: 1.02rem; }
+    .pending-doc .pending-h { color: var(--text-primary); font-weight: 700; line-height: 1.3; scroll-margin-top: 6rem; }
+    .pending-doc .pending-h2 { font-size: 1.6rem; margin: 2.4rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+    .pending-doc .pending-h3 { font-size: 1.22rem; margin: 1.9rem 0 .7rem; }
+    .pending-doc .pending-p { margin: 0 0 1rem; }
+    .pending-doc strong { color: var(--text-primary); font-weight: 700; }
+    .pending-doc .pending-hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+    /* A deregistered statute card. Stone, dashed, and explicitly not a law
+       entry: no <article class="law-entry">, so it never enters the register
+       count or the law TOC. The dashed edge is the whole point — this text
+       was drafted and carried, and it is not in force anywhere. */
+    .dereg-card {
+      border: 1px dashed rgba(150,137,112,.55);
+      background: var(--bg-secondary);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      margin: 0 0 1.6rem;
+    }
+    :root[data-theme="light"] .dereg-card { border-color: rgba(120,106,82,.5); }
+    .dereg-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: .5rem; }
+    .dereg-num { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85rem; font-weight: 700; letter-spacing: .06em; color: var(--process-hot); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+    .dereg-title { font-size: 1.24rem; font-weight: 700; color: var(--text-primary); line-height: 1.3; margin-top: .15rem; }
+    .dereg-badge {
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      white-space: nowrap; border-radius: 6px; padding: .3rem .6rem;
+      background: rgba(150,137,112,.10); color: #b3a58f;
+      border: 1px dashed rgba(150,137,112,.55);
+    }
+    :root[data-theme="light"] .dereg-badge { background: rgba(120,106,82,.07); color: #6f5d43; border-color: rgba(120,106,82,.55); }
+    .dereg-eyebrow { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; color: var(--process); margin-bottom: .55rem; }
+    .dereg-history { font-size: .88rem; color: var(--text-muted); margin: 0 0 1rem; padding: .6rem .85rem; border-left: 2px solid rgba(150,137,112,.5); background: var(--bg-tertiary); border-radius: 0 8px 8px 0; }
+    .dereg-history strong { color: var(--text-secondary); }
+    .dereg-text { color: var(--text-secondary); font-size: .94rem; line-height: 1.62; margin: 0; }
+    .dereg-text strong { color: var(--text-primary); }
+    .dereg-text + .dereg-text { margin-top: .85rem; }
+    .dereg-verbatim { font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--process); margin: 1.1rem 0 .45rem; }
+    .lp-ref { color: var(--accent); font-weight: 600; }
+    .lp-ref:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content" class="flex-1 pending-shell">
+    <section class="pt-32 pb-32">
+      <div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
+
+        <div class="mb-8">
+          <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">Process Record · Drafting Archive</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">Deregistered Statutes of Record — LP-074 / LP-075</h1>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Two statute texts that were drafted, numbered, and carried in the law register during the v22.0–v22.1 interval, and that were deregistered at canon v22.2. They are preserved here verbatim. Neither is law; neither ever was, in world.</p>
+        </div>
+
+        <div class="process-banner mb-10" role="note" aria-label="Record tier">
+          <i class="fas fa-box-archive" aria-hidden="true"></i>
+          <div>
+            <span class="pb-label">Process Record — not world canon</span>
+            <p>This page is <strong>drafting history, out-of-world authorship</strong>. It is not a page of the civilization's record and nothing on it is in force. The two texts below were authored into the register and then taken back out of it; they are kept because the archive keeps what it drafted, including what it withdrew. <strong>In world, the schedule was and remains 70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073" class="lp-ref">LP-073</a>, active), and the RATIFY-TAX-50 petition failed its gauntlet. The numbers <strong>074</strong> and <strong>075</strong> retire with this page and are never reissued.</p>
+          </div>
+        </div>
+
+        <div class="pending-doc">
+
+          <p class="pending-p">Both texts are reproduced <strong>verbatim as engraved</strong> — not corrected, not summarized, not softened. Cross-references inside them resolve to their live targets where those still exist; the words are unchanged. The one-line history above each text is authored for this archive and is not part of the statute.</p>
+
+          <h2 class="pending-h pending-h2" id="lp-074">LP-074 — deregistered</h2>
+
+          <div class="dereg-card">
+            <p class="dereg-eyebrow">&#9746; Deregistered Statute · Process Record</p>
+            <div class="dereg-head">
+              <div>
+                <div class="dereg-num">LP-074</div>
+                <div class="dereg-title">The Abundance Ratchet &mdash; 50/25/12.5/6.25 &amp; the Trajectory Principle</div>
+              </div>
+              <span class="dereg-badge">Deregistered</span>
+            </div>
+            <p class="dereg-history"><strong>Status history —</strong> drafted and enacted in the process record (canon v22.0) &rarr; affirmed 3&ndash;2 on advocacy review, short of the zero-fail threshold &rarr; vacated (canon v22.1) &rarr; <strong>deregistered (R13, canon v22.2)</strong>, as describing an enactment that did not occur in world. Number retired, never reissued.</p>
+            <p class="dereg-verbatim">Statute text — verbatim as engraved at v22.0</p>
+            <p class="dereg-text"><strong>&sect;1</strong> The engraved schedule is 50% / 25% / 12.5% / 6.25% top marginal above $10,000,000 annually, layer-mapped as before. The threshold, unchanged since its introduction (<a href="law-polling.html#lp-072" class="lp-ref">LP-072</a>), is retained deliberately. <strong>&sect;2</strong> Disclosure of record, permanent: the synthetic gauntlet returned 1&ndash;4 FAIL (Meritboard &minus;21, Court &minus;13, Sanctuary &minus;5, Main +3, Lower &minus;11; margins authored per LP-041-style disclosure). The founder overrode to PASS on worldbuilding grounds (R10). The opposition brief publishes alongside this statute in perpetuity. <strong>&sect;3 &mdash; Trajectory Principle (standing law):</strong> top marginal rates track institutional need, not posture. Taxation&rsquo;s three founding functions &mdash; revenue, anti-concentration, and trust &mdash; each retire as automation revenue, structural anti-concentration instruments, and verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. <strong>&sect;4 &mdash; Gate:</strong> every future reduction under &sect;3 requires audited evidence per the Path 2 standing audit &mdash; never authored facts. Where authored facts ground a reduction (as here), the Path 2 controlling estimate supersedes them (petition v4.1 &sect;7(e)) and the cadence rider binds review. <strong>&sect;5 &mdash; Precedent recorded:</strong> the civilization executed &sect;3 once before this statute existed &mdash; v14.5, on SCM transfer grounds. This law codifies demonstrated constitutional behavior; it does not invent it.</p>
+            <p class="dereg-verbatim">Annotation — appended at v22.1, statute text above unaltered</p>
+            <p class="dereg-text"><strong>Annotation &mdash; vacatur (appended v22.1, statute text above unaltered):</strong> VACATED, R12: the enacting override (R10) was withdrawn by its author. Schedule reverted to LP-073. Re-ratification available under LP-075 &sect;2 upon the Path 2 controlling estimate &mdash; audited facts, zero-fail threshold, no override.</p>
+          </div>
+
+          <h2 class="pending-h pending-h2" id="lp-075">LP-075 — deregistered</h2>
+
+          <div class="dereg-card">
+            <p class="dereg-eyebrow">&#9746; Deregistered Statute · Process Record</p>
+            <div class="dereg-head">
+              <div>
+                <div class="dereg-num">LP-075</div>
+                <div class="dereg-title">The Trajectory Principle</div>
+              </div>
+              <span class="dereg-badge">Deregistered</span>
+            </div>
+            <p class="dereg-history"><strong>Status history —</strong> enacted 5&ndash;0 in the process record (canon v22.1) &rarr; <strong>folded into whitepaper doctrine as the Trajectory Doctrine (R13, canon v22.2)</strong> and deregistered as a numbered statute. The principle survives in world at <a href="whitepaper.html#trajectory-doctrine" class="lp-ref">Whitepaper &sect;12.1</a>; only the register number retires, never reissued.</p>
+            <p class="dereg-verbatim">Statute text — verbatim as engraved at v22.1</p>
+            <p class="dereg-text"><strong>&sect;1. PRINCIPLE (standing law):</strong> top marginal rates track institutional need, not posture. Taxation&rsquo;s three founding functions &mdash; revenue, anti-concentration, and trust &mdash; each retire as automation revenue, structural anti-concentration instruments, and verified institutional track record respectively mature. Rates ratchet down as functions demonstrably retire. <strong>&sect;2. GATE:</strong> every rate reduction under &sect;1 requires audited evidence per the <a href="pending-ratification.html#path-2" class="lp-ref">Path 2 standing audit</a> &mdash; never authored facts. A vacated or failed reduction may be re-petitioned when the Path 2 controlling estimate lands; it faces the standard zero-fail threshold with no override channel. <strong>&sect;3. PRECEDENT:</strong> the civilization has executed &sect;1 once on structural evidence (<a href="law-polling.html#lp-073" class="lp-ref">LP-073</a>, v14.5, SCM function-transfer) and once attempted it on authored facts (<a href="#lp-074" class="lp-ref">LP-074</a>, enacted by override, affirmed short at 3&ndash;2, vacated by withdrawal of the override, R12). Both are record. This statute codifies the demonstrated behavior of both outcomes: rates fall when shown, and hold when merely told.</p>
+          </div>
+
+          <h2 class="pending-h pending-h2">Why these two left the register</h2>
+          <p class="pending-p">The register is world canon: it carries what the civilization's own institutions decided. LP-074 recorded an enactment that, in world, never happened — the petition it engraved failed its gauntlet 1&ndash;4 and was affirmed only to 3&ndash;2 on advocacy review, short of the zero-fail threshold at both adjudications. A register entry asserting it was law would be the drafting process leaking into the world's record. It is deregistered for that reason and for no other: not because the text was wrong, but because the register was the wrong tier for it.</p>
+          <p class="pending-p">LP-075 has the opposite problem and the same fix. Its principle was never in doubt — the chambers endorsed the direction 5&ndash;0 even as they refused the magnitude attached to it. But it was drafted as a statute about a statute, its provenance chained to a vacatur that is itself process history. Standing on its own it is not a petition outcome at all; it is doctrine. It folds into the whitepaper as the <strong>Trajectory Doctrine</strong>, where in-world provenance reads plainly: <em>endorsed 5&ndash;0 across the ratification chambers</em>. The principle gains force by leaving the register, not less.</p>
+          <p class="pending-p">Nothing here is erased. The interval in which these texts sat in the register is preserved in the drafting archive, the briefs that argued them publish in perpetuity, and every commit that engraved them stands. A civilization that quietly deleted its drafts would be claiming a straighter line than it walked — but a civilization that filed its drafts as law would be claiming a history it did not have. The archive keeps both honest by keeping them apart.</p>
+
+          <div class="pending-crosslinks" style="margin-top:1.4rem">
+            <a href="pending-ratify-tax-50-record.html" class="pending-crosslink is-primary"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Session Record — the drafting provenance</a>
+            <a href="pending-ratification.html" class="pending-crosslink is-primary"><i class="fas fa-box-archive" aria-hidden="true"></i> Ratification Record — drafting archive</a>
+            <a href="law-polling.html#lp-073" class="pending-crosslink"><i class="fas fa-layer-group" aria-hidden="true"></i> LP-073 — the schedule in force (70/35/17/8)</a>
+            <a href="whitepaper.html#trajectory-doctrine" class="pending-crosslink"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Whitepaper §12.1 — the Trajectory Doctrine</a>
+            <a href="rate-history.html" class="pending-crosslink"><i class="fas fa-monument" aria-hidden="true"></i> Rate-History Record</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>

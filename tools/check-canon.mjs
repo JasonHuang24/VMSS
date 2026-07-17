@@ -16,7 +16,7 @@
  *
  * Run:  node tools/check-canon.mjs   (exit 0 = consistent, 1 = drift)
  */
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -170,21 +170,20 @@ check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.m
   check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
 }
 
-/* Supersession chain (v22.0.1; re-anchored v22.1): the excavated rate-history
-   statutes form a single chain LP-071 → LP-072 → LP-073. Every link but the
-   last is a superseded statute; exactly one — the tail — is the active schedule
-   in force. Guards the record class against a second "active" schedule, a
-   broken chain, or a renumbering that leaves the trajectory without a live
-   terminus.
+/* Supersession chain (v22.0.1; re-anchored v22.1; closed v22.2): the excavated
+   rate-history statutes form a single chain LP-071 → LP-072 → LP-073. Every
+   link but the last is a superseded statute; exactly one — the tail — is the
+   active schedule in force. Guards the record class against a second "active"
+   schedule, a broken chain, or a renumbering that leaves the trajectory without
+   a live terminus.
 
-   The chain terminated at LP-074 from v22.0 until R12 vacated it; the tail
-   reverted to LP-073. A vacated statute is deliberately NOT a chain link: it
-   engraved a schedule that no longer stands and handed off to no successor, so
-   folding it in would either fake a second active schedule or misreport it as
-   superseded. It is asserted separately below, alongside LP-075 — the
-   trajectory principle it drafted, re-registered standalone. Both are held so a
-   later pass cannot quietly restore LP-074 to force or drop the principle
-   without tripping a check. */
+   The chain is now three links and ends there. From v22.0 to v22.1 it appeared
+   to terminate at LP-074; R13 (v22.2) established that this was drafting
+   history rather than world canon — the schedule never carried a chamber vote —
+   and LP-074/LP-075 were deregistered to the Process record. The guards below
+   replace the old per-statute status assertions: they hold the register clear
+   of both numbers, hold their texts preserved verbatim off-register, hold the
+   principle in doctrine, and hold the tier boundary itself. */
 const statusOfLp = (id) => {
   const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
   return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
@@ -201,13 +200,57 @@ const statusOfLp = (id) => {
     missing.length ? `missing: ${missing.join(', ')}`
       : `active=${active} superseded=${superseded} tail=${chainStatuses[CHAIN.length - 1]}`);
 }
+/* (a) The register is clear of both retired numbers. R13 retires 074/075
+   permanently: they are never reissued, so any reappearance — a restored entry
+   or a renumbering that reuses the slot — is drift, not authorship. */
 {
-  const s = statusOfLp('lp-074');
-  check(s === 'status-vacated', 'LP-074 vacated (R12: enacting override withdrawn)', `status=${s}`);
+  const hits = [...law.matchAll(/\blp-07[45]\b/gi)].map((m) => m[0]);
+  check(hits.length === 0, 'register carries no LP-074/LP-075 (R13: deregistered, numbers retired)',
+    hits.length ? `found: ${[...new Set(hits.map((h) => h.toLowerCase()))].join(', ')}` : 'clear');
 }
+
+/* (b) The deregistered texts survive verbatim off-register. Deregistration is
+   relocation, not deletion; this is the guard that keeps it honest. */
 {
-  const s = statusOfLp('lp-075');
-  check(s === 'status-enacted', 'LP-075 trajectory principle enacted (5–0, standalone)', `status=${s}`);
+  const dereg = read('deregistered-statutes.html');
+  const need = [
+    ['LP-074 §1', 'The engraved schedule is 50% / 25% / 12.5% / 6.25% top marginal above $10,000,000 annually, layer-mapped as before.'],
+    ['LP-075 §1', 'top marginal rates track institutional need, not posture.'],
+  ];
+  const missing = need.filter(([, t]) => !dereg.includes(t)).map(([k]) => k);
+  check(missing.length === 0, 'deregistered-statutes.html preserves both §1 texts verbatim',
+    missing.length ? `missing: ${missing.join(', ')}` : 'both present');
+}
+
+/* (c) The principle survives as doctrine, in the whitepaper, in R13's wording. */
+{
+  const DOCTRINE = 'top marginal rates track demonstrated institutional need, and any rate reduction requires audited evidence per the Path 2 standing audit — never authored facts — at the standard zero-fail threshold.';
+  check(read('whitepaper.html').includes(DOCTRINE),
+    'whitepaper carries the Trajectory Doctrine (R13 wording)', 'whitepaper.html §12.1');
+}
+
+/* (d) LAYER GUARD (R13): the founder is not an in-world actor. Founding
+   authority terminated into the charter at Y0, so no World-tier page may
+   present a founder ruling or override as an in-world governance event. The
+   Process tier — the Ratification Record set (pending-*, which are the
+   docs-review-derived pages and include the session record) and the
+   deregistered-statutes archive — is exempt by definition: it exists to carry
+   exactly that authorship history, explicitly framed as out-of-world.
+   Checked against rendered text, so a comment explaining the rule does not
+   trip it, and neither does a filename. */
+{
+  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
+  const rendered = (html) => stripComments(html)
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ');
+  const BANNED = /founder(?:'|’)?s? (?:ruling|override)/i;
+  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
+  const offenders = worldPages.filter((f) => BANNED.test(rendered(read(f))));
+  check(offenders.length === 0,
+    `layer guard: no World-tier page presents the founder as an in-world actor (${worldPages.length} pages)`,
+    offenders.length ? `offenders: ${offenders.join(', ')}` : 'clean');
 }
 
 /* ---- 5. LP citations elsewhere resolve to real anchors ---- */

@@ -243,23 +243,49 @@ const PENDING_STYLE = `
     .pending-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; white-space: nowrap; }
     .pending-table tbody tr:last-child td { border-bottom: 0; }
     .pending-table td:first-child { white-space: nowrap; color: var(--text-primary); font-weight: 600; }
+    /* Process-tier framing header (R13, v22.2). Declares the whole section as
+       drafting archive before the reader meets any of its contents. Dashed
+       edge and muted type mark it as apparatus, not canon. */
+    .process-frame {
+      border: 1px dashed var(--border-strong); border-radius: 12px;
+      background: var(--bg-tertiary);
+      padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+      font-size: .88rem; line-height: 1.65; color: var(--text-muted);
+    }
+    .process-frame .pf-label {
+      display: block; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase;
+      font-weight: 700; color: var(--text-secondary); margin-bottom: .4rem;
+    }
+    .process-frame strong { color: var(--text-secondary); }
   </style>`;
 
-/* Standing status banner, carried by every page in the section. Ratified at
-   v22.0 (R10); vacated at v22.1 (R12) when the founder withdrew the override
-   that was the statute's only support. The banner states the whole arc rather
-   than just the current state — the intermediate ratification is record, not
-   an embarrassment to be tidied away. */
+/* Standing status banner, carried by every page in the section. It states the
+   in-world outcome and only that (R13, v22.2): the petition failed its
+   gauntlet and failed again, narrower, on review. The drafting interval in
+   which a 50-schedule was written into the register — and taken back out — is
+   process history and is told on the session-record page under the Process
+   frame, never on a status banner. A banner announces what the civilization
+   decided; it is not the place to narrate how the record got drafted. */
 const banner = () => `
         <div class="pending-banner mb-10" role="note" aria-label="Ratification status">
-          <i class="fas fa-ban" aria-hidden="true"></i>
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Vacated — R12 (v22.1)</span>
-            <p><strong>VACATED — R12</strong> — enacted at v22.0 by founder override of a 1–4 synthetic chamber result; affirmed at 3–2 on advocacy review, short of the zero-fail threshold; vacated at v22.1 by withdrawal of the override. The engraved schedule reverts to <strong>70 / 35 / 17 / 8</strong> (LP-073). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
+            <span class="pb-label">Failed Petition — record retained</span>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
           </div>
         </div>`;
 
-function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim }) {
+/* The section's Process-tier declaration (R13, v22.2). Carried by the hub, at
+   the top, before anything else: this section is drafting archive and reads as
+   out-of-world authorship. It says so about its own interventions too — the
+   record includes the ones that were made and then withdrawn. */
+const processFrame = () => `
+        <div class="process-frame" role="note" aria-label="Record tier">
+          <span class="pf-label">Process Record — drafting archive, not world canon</span>
+          <p>This section is the <strong>drafting archive</strong>: the out-of-world authorship history behind the civilization's fiscal law. It is not a page of the world's own record and nothing in it is in force. The archive keeps <strong>interventions and their withdrawal alike</strong> — including the authorial override that was applied to a chamber result during drafting and later taken back, and the statute texts that were written into the register and then deregistered. In world, the founding authority terminated into the charter at Y0 and no ruling of that kind is an event in the civilization's history. What the world records is the vote: <strong>RATIFY-TAX-50 failed</strong>, and the schedule at <a href="law-polling.html#lp-073">LP-073</a> stands.</p>
+        </div>`;
+
+function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing }) {
   const chrome = `<!DOCTYPE html>
 <html data-theme="dark" lang="en">
 <head>
@@ -304,6 +330,7 @@ ${PENDING_STYLE}
           <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">${heroTitle}</h1>
           <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">${heroSub}</p>
         </div>
+${framing ? processFrame() : ''}
 ${banner()}
 ${crosslinks ? `        <div class="pending-crosslinks mb-12">\n${crosslinks}\n        </div>` : ''}
 
@@ -367,11 +394,11 @@ const briefLinks = (self) => [
 /* Ballot — links all three briefs above the fold, labelled as such. */
 built.push(page({
   file: BALLOT,
-  title: 'RATIFY-TAX-50 Ballot (Vacated) • The Five Rings',
-  description: 'Ballot text for RATIFY-TAX-50 (petition v4.1) — the federal law proposal that reduced the Charter §12.1 top-marginal schedule to 50/25/12.5/6.25. Enacted at canon v22.0 by founder ruling R10 and vacated at v22.1 by ruling R12 when the override was withdrawn. Retained as record alongside its opposition, advocacy, and supplemental briefs.',
+  title: 'RATIFY-TAX-50 Ballot (Failed) • The Five Rings',
+  description: 'Ballot text for RATIFY-TAX-50 (petition v4.1) — the federal law proposal that would have reduced the Charter §12.1 top-marginal schedule to 50/25/12.5/6.25. It failed its gauntlet 1–4 and reached only 3–2 on advocacy review, short of the zero-fail threshold; the schedule at LP-073 stands. Retained as record alongside its opposition, advocacy, and supplemental briefs.',
   heroKicker: 'Ratification Record · Ballot Text',
   heroTitle: 'RATIFY-TAX-50 — The Ballot',
-  heroSub: 'Petition v4.1, the text carried to the gauntlet. Enacted at v22.0 by founder override, affirmed short at 3–2 on advocacy review, and vacated at v22.1 when the override was withdrawn. Read alongside the three briefs retained with it.',
+  heroSub: 'Petition v4.1, the text carried to the gauntlet. It failed there 1–4, and an advocacy review narrowed the vote to 3–2 — still short of the zero-fail threshold. Read alongside the three briefs retained with it.',
   crosslinks: [
     ...briefLinks(BALLOT),
     link(RECORD, '', 'fa-clipboard-list', 'Session Record'),
@@ -385,7 +412,7 @@ built.push(page({
 built.push(page({
   file: OPP,
   title: 'RATIFY-TAX-50 Opposition Brief (Retained) • The Five Rings',
-  description: 'The in-world opposition brief for RATIFY-TAX-50 — adversarial-review findings that attached verbatim to the gauntlet ballot. Retained as permanent record; its findings held Meritboard and Lower at both adjudications, and the statute was vacated at canon v22.1 by founder ruling R12.',
+  description: 'The in-world opposition brief for RATIFY-TAX-50 — adversarial-review findings that attached verbatim to the gauntlet ballot. Retained as permanent record; its findings held Meritboard and Lower at both adjudications, and the petition failed.',
   heroKicker: 'Ratification Record · Opposition Brief',
   heroTitle: 'RATIFY-TAX-50 — Opposition Brief',
   heroSub: 'The hostile analysis a real legislature publishes alongside a proposal. It attached to the ballot verbatim and is retained as permanent record — the case against the schedule, and the one the advocacy review could not move Meritboard or Lower off.',
@@ -439,49 +466,54 @@ built.push(page({
 built.push(page({
   file: RECORD,
   title: 'RATIFY-TAX-50 Session Record • The Five Rings',
-  description: 'The founder-ruling and adversarial-review record behind RATIFY-TAX-50 — provenance for the schedule enacted at canon v22.0 by founder ruling R10 and vacated at v22.1 by ruling R12, both rulings included.',
-  heroKicker: 'Ratification Record · Session Record',
+  description: 'The drafting provenance behind RATIFY-TAX-50 — the authorial rulings of record, the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its briefs. Process tier: out-of-world authorship, including the interventions that were made and later withdrawn.',
+  heroKicker: 'Process Record · Session Record',
   heroTitle: 'RATIFY-TAX-50 — Session Record',
-  heroSub: 'Founder rulings of record — through R10, the override that enacted the schedule, and R12, the withdrawal that vacated it — the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its briefs.',
+  heroSub: 'The drafting provenance, out-of-world: the authorial rulings of record — including the override that was applied during drafting and later withdrawn — the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its briefs. In world, the petition simply failed.',
   crosslinks: [
     ...briefLinks(RECORD),
     link(BALLOT, '', 'fa-file-lines', 'The Ballot (petition v4.1)'),
     link(HUB, '', 'fa-arrow-left', 'Ratification Record'),
+    link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — LP-074 / LP-075'),
   ].join('\n'),
   body: parseBlocks(md.record.split('\n')),
   verbatim: { md: md.record },
+  framing: true,
 }));
 
 /* Hub — authored section landing (no verbatim check). */
 const hubBody = [
-  `<p class="pending-p">This section is the civilization’s <strong>ratification record</strong>: proposals drafted, adversarially reviewed, and carried to a decision — ratified, failed, superseded, or vacated — with the adversarial briefs that publish alongside each. Outcomes are not pre-decided; a failed vote is itself a legitimate output and a boundary marker under standing doctrine (LP-062 / LP-065), and a ratification can be undone when the ground it stood on is withdrawn.</p>`,
-  `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Vacated (canon v22.1)</h2>`,
-  `<p class="pending-p"><strong>VACATED — R12.</strong> The petition would have reduced the engraved §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>. It reached canon by an unusual route and left by a plainer one. <strong>Enacted (v22.0):</strong> the synthetic gauntlet returned 1–4 against — Meritboard, Court, Sanctuary, and Lower opposed, Main in favor — and the founder overrode to PASS on worldbuilding grounds (R10). <strong>Affirmed short (advocacy review):</strong> a cold, citation-verified affirmative review re-ran the vote at 3–2, moving Court, Sanctuary, and Main; enactment requires zero failing chambers, and Meritboard and Lower held. <strong>Vacated (v22.1):</strong> with the vote short at both adjudications, the statute stood only on the override — and the founder withdrew it on precedent grounds, that fiscal law should not stand on founder posture against a failed chamber vote (R12). The engraved schedule reverts to <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong> (<a href="law-polling.html#lp-073">LP-073</a>). The reversion is forward-only: every v22.0.x record stands.</p>`,
-  `<p class="pending-p">What survived is the direction. Every chamber endorsed the trajectory principle even while refusing the magnitude attached to it, and it re-registers standalone as <a href="law-polling.html#lp-075">LP-075</a>, enacted 5–0 on its own vote: rates track institutional need, and every future reduction needs audited Path&nbsp;2 facts, the standard zero-fail threshold, and no override channel. RATIFY-TAX-50 remains available for genuine re-ratification on those terms once the Path&nbsp;2 controlling estimate lands. All three briefs — opposition, advocacy, and supplemental — publish as permanent record. Rates fall when shown, and hold when merely told.</p>`,
+  `<p class="pending-p">This section is the <strong>drafting archive</strong> behind the civilization’s ratification record: proposals drafted, adversarially reviewed, and carried to a decision, with the briefs that publish alongside each. Outcomes are not pre-decided; a failed vote is itself a legitimate output and a boundary marker under standing doctrine (LP-062 / LP-065). Because it is an archive of authorship, it keeps what the drafting did and then undid — the interventions, and their withdrawal — where the world’s own record keeps only what the world decided.</p>`,
+  `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Failed petition</h2>`,
+  `<p class="pending-p"><strong>FAILED PETITION.</strong> The petition would have reduced the engraved §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>, an exact halving of every point. It was filed, it went to the chambers, and it lost — twice. <strong>At the gauntlet:</strong> 1–4 against — Meritboard, Court, Sanctuary, and Lower opposed, Main in favor. <strong>On advocacy review:</strong> a cold, citation-verified affirmative review re-ran the vote and narrowed it to 3–2, moving Court, Sanctuary, and Main; but enactment requires zero failing chambers, and Meritboard and Lower held. A majority is not the threshold. The live schedule is and remains <strong>70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8</strong> (<a href="law-polling.html#lp-073">LP-073</a>), and the petition is preserved as a failed-petition record under standing doctrine.</p>`,
+  `<p class="pending-p">What survived is the direction. Every chamber endorsed the trajectory principle even while refusing the magnitude attached to it — 5–0 across the ratification chambers — and it stands as the <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> at Whitepaper §12.1: top marginal rates track demonstrated institutional need, and any reduction needs audited Path&nbsp;2 facts at the standard zero-fail threshold. RATIFY-TAX-50 may be re-petitioned on exactly those terms once the Path&nbsp;2 controlling estimate lands. All three briefs — opposition, advocacy, and supplemental — publish as permanent record. Rates fall when shown, and hold when merely told.</p>`,
+  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval the reduced schedule was written into the law register as an enacted statute (LP-074), on an authorial override of the failed chamber result, and a trajectory statute was registered beside it (LP-075). The override was withdrawn at v22.1 and both entries were deregistered at v22.2 — the first because it described an enactment that never occurred in world, the second because its principle belongs in doctrine rather than the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the full sequence is told in the <a href="pending-ratify-tax-50-record.html">session record</a>. None of it is world canon; all of it is kept.</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
     [link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot — petition v4.1'),
      link(OPP, 'is-primary', 'fa-scale-balanced', 'Opposition Brief — the case against'),
      link(ADV, 'is-primary', 'fa-scale-balanced', 'Advocacy Brief — the case for'),
      link(SUPP, 'is-primary', 'fa-comments', 'Supplemental Steelman — the case for, restated'),
-     link(RECORD, '', 'fa-clipboard-list', 'Session Record — provenance (R10, R12)')].join('\n') +
+     link(RECORD, '', 'fa-clipboard-list', 'Session Record — drafting provenance'),
+     link('deregistered-statutes.html', '', 'fa-box-archive', 'Deregistered statutes — LP-074 / LP-075')].join('\n') +
     `\n          </div>`,
   `<h2 class="pending-h pending-h2">Path 2 — Standing preregistered fiscal-facts audit</h2>`,
-  `<p class="pending-p">Founder ruling R2 stood up Path 2 as a <strong>standing preregistered audit workstream</strong>, decoupled from any petition vote, whose estimates supersede the ballot’s authored values as they land (petition v4.1 §7(e)). R10 routed its magnitude questions here; R12 withdrew R10 but not the workstream, and <a href="law-polling.html#lp-075">LP-075</a> §2 now makes it the gate rather than a follow-up — a vacated or failed reduction may be re-petitioned when the controlling estimate lands, on audited facts and the standard zero-fail threshold, with no override channel. The questions below are what a genuine re-ratification would have to answer. The audit binds itself to six enforceability criteria:</p>`,
+  `<p class="pending-p">Path 2 is a <strong>standing preregistered audit workstream</strong>, decoupled from any petition vote, whose estimates supersede the ballot’s authored values as they land (petition v4.1 §7(e)). The <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> makes it the gate rather than a follow-up: a failed reduction may be re-petitioned when the controlling estimate lands, on audited facts and the standard zero-fail threshold. The questions below are what a genuine ratification would have to answer. The audit binds itself to six enforceability criteria:</p>`,
 
   `<ul class="pending-list"><li><strong>Preregistered methodology</strong> — the estimation method is fixed and published before any results.</li><li><strong>Fixed data cutoff</strong> — each estimate names the data window it draws on.</li><li><strong>Definitions frozen before results</strong> — measured terms are defined ahead of the numbers, never fitted to them.</li><li><strong>Symmetric revision</strong> — estimates move up or down on the evidence, with no directional thumb on the scale.</li><li><strong>Published uncertainty</strong> — every controlling figure ships with its band, not as a bare point estimate.</li><li><strong>Predetermined controlling-estimate rule</strong> — which estimate governs is settled in advance of seeing the values.</li></ul>`,
-  `<p class="pending-p">Two questions are preregistered to the workstream by R10:</p>`,
-  `<ul class="pending-list"><li><strong>(a) SCM activation-frequency response to released liquidity.</strong> Whether the liquidity released at the 50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25 schedule raises district aggregates enough to increase Savings Circulation Mandate trigger frequency, and by how much — the bound R10 leans on to answer concentration.</li><li><strong>(b) Marginal utility of private capital flow in a post-scarcity upper stack.</strong> What an additional retained dollar of elite liquidity buys the civilization once survival and the dividend are already funded from the automation side.</li></ul>`,
+  `<p class="pending-p">Two questions stand preregistered to the workstream:</p>`,
+  `<ul class="pending-list"><li><strong>(a) SCM activation-frequency response to released liquidity.</strong> Whether the liquidity released at the proposed 50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25 schedule would raise district aggregates enough to increase Savings Circulation Mandate trigger frequency, and by how much — the bound the affirmative case leans on to answer concentration.</li><li><strong>(b) Marginal utility of private capital flow in a post-scarcity upper stack.</strong> What an additional retained dollar of elite liquidity buys the civilization once survival and the dividend are already funded from the automation side.</li></ul>`,
 ].join('\n');
 
 built.push(page({
   file: HUB,
   title: 'Ratification Record • The Five Rings',
-  description: 'The civilization’s ratification record. RATIFY-TAX-50 — the §12.1 top-marginal reduction to 50/25/12.5/6.25 — was enacted at canon v22.0 by founder ruling R10 and vacated at v22.1 by ruling R12; the schedule reverts to 70/35/17/8 and all three briefs are retained as permanent record.',
-  heroKicker: 'The Five Rings',
+  description: 'The drafting archive behind the civilization’s ratification record. RATIFY-TAX-50 — the proposed §12.1 top-marginal reduction to 50/25/12.5/6.25 — failed its gauntlet 1–4 and reached only 3–2 on advocacy review; the schedule at LP-073 (70/35/17/8) stands, and all three briefs are retained as permanent record.',
+  heroKicker: 'Process Record · The Five Rings',
   heroTitle: 'Ratification Record',
-  heroSub: 'Decided proposals and the adversarial briefs that publish alongside them — ratified, failed, superseded, or vacated, with their provenance kept on the record.',
+  heroSub: 'The drafting archive: decided proposals and the adversarial briefs that publish alongside them, with their authorship provenance kept — interventions and withdrawals included.',
   crosslinks: '',
   body: hubBody,
+  framing: true,
 }));
 
 console.log(`pending-pages: built + verified ${built.length} pages`);

@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
   <title>RATIFY-TAX-50 Session Record • The Five Rings</title>
-  <meta name="description" content="The founder-ruling and adversarial-review record behind RATIFY-TAX-50 — provenance for the schedule enacted at canon v22.0 by founder ruling R10 and vacated at v22.1 by ruling R12, both rulings included." />
+  <meta name="description" content="The drafting provenance behind RATIFY-TAX-50 — the authorial rulings of record, the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its briefs. Process tier: out-of-world authorship, including the interventions that were made and later withdrawn." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://jasonhchronicles.com/VMSS/pending-ratify-tax-50-record.html" />
 
@@ -85,6 +85,20 @@
     .pending-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; white-space: nowrap; }
     .pending-table tbody tr:last-child td { border-bottom: 0; }
     .pending-table td:first-child { white-space: nowrap; color: var(--text-primary); font-weight: 600; }
+    /* Process-tier framing header (R13, v22.2). Declares the whole section as
+       drafting archive before the reader meets any of its contents. Dashed
+       edge and muted type mark it as apparatus, not canon. */
+    .process-frame {
+      border: 1px dashed var(--border-strong); border-radius: 12px;
+      background: var(--bg-tertiary);
+      padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+      font-size: .88rem; line-height: 1.65; color: var(--text-muted);
+    }
+    .process-frame .pf-label {
+      display: block; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase;
+      font-weight: 700; color: var(--text-secondary); margin-bottom: .4rem;
+    }
+    .process-frame strong { color: var(--text-secondary); }
   </style>
 </head>
 
@@ -96,16 +110,21 @@
       <div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
 
         <div class="mb-8">
-          <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">Ratification Record · Session Record</p>
+          <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">Process Record · Session Record</p>
           <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">RATIFY-TAX-50 — Session Record</h1>
-          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Founder rulings of record — through R10, the override that enacted the schedule, and R12, the withdrawal that vacated it — the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its briefs.</p>
+          <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">The drafting provenance, out-of-world: the authorial rulings of record — including the override that was applied during drafting and later withdrawn — the adversarial-review ledger, and the line closure that produced the v4.1 ballot text and its briefs. In world, the petition simply failed.</p>
+        </div>
+
+        <div class="process-frame" role="note" aria-label="Record tier">
+          <span class="pf-label">Process Record — drafting archive, not world canon</span>
+          <p>This section is the <strong>drafting archive</strong>: the out-of-world authorship history behind the civilization's fiscal law. It is not a page of the world's own record and nothing in it is in force. The archive keeps <strong>interventions and their withdrawal alike</strong> — including the authorial override that was applied to a chamber result during drafting and later taken back, and the statute texts that were written into the register and then deregistered. In world, the founding authority terminated into the charter at Y0 and no ruling of that kind is an event in the civilization's history. What the world records is the vote: <strong>RATIFY-TAX-50 failed</strong>, and the schedule at <a href="law-polling.html#lp-073">LP-073</a> stands.</p>
         </div>
 
         <div class="pending-banner mb-10" role="note" aria-label="Ratification status">
-          <i class="fas fa-ban" aria-hidden="true"></i>
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Vacated — R12 (v22.1)</span>
-            <p><strong>VACATED — R12</strong> — enacted at v22.0 by founder override of a 1–4 synthetic chamber result; affirmed at 3–2 on advocacy review, short of the zero-fail threshold; vacated at v22.1 by withdrawal of the override. The engraved schedule reverts to <strong>70 / 35 / 17 / 8</strong> (LP-073). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
+            <span class="pb-label">Failed Petition — record retained</span>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
           </div>
         </div>
         <div class="pending-crosslinks mb-12">
@@ -114,6 +133,7 @@
           <a href="pending-ratify-tax-50-supplemental.html" class="pending-crosslink is-primary"><i class="fas fa-comments" aria-hidden="true"></i> Supplemental Steelman — the case for, restated</a>
           <a href="pending-ratify-tax-50-ballot.html" class="pending-crosslink"><i class="fas fa-file-lines" aria-hidden="true"></i> The Ballot (petition v4.1)</a>
           <a href="pending-ratification.html" class="pending-crosslink"><i class="fas fa-arrow-left" aria-hidden="true"></i> Ratification Record</a>
+          <a href="deregistered-statutes.html" class="pending-crosslink"><i class="fas fa-box-archive" aria-hidden="true"></i> Deregistered statutes — LP-074 / LP-075</a>
         </div>
 
         <div class="pending-doc">
@@ -139,6 +159,8 @@
           <p class="pending-p">R10 (founder ruling): GAUNTLET RATIFY-TAX-50 — PASS BY FOUNDER OVERRIDE. Synthetic chambers as authored: Meritboard −21 FAIL, Court −13 FAIL, Sanctuary −5 FAIL, Main +3 PASS, Lower −11 FAIL (aggregate 1–4 FAIL). Founder overrides to PASS on worldbuilding grounds [E-founder posture]: the abundance posture (R7, 1.3× automation-side revenue) is fact; 50 remains a high anti-concentration anchor; released capital increases flow and economic activity; concentration from retained liquidity is bounded by more frequent SCM activations. Rationale is founder posture, seat-validated for structure, not magnitude; magnitudes route to Path 2. Scope note: SCM recycle is partitioned from gate math — this rationale answers concentration, not solvency. Treasury erosion remains governed by the cadence rider (review ≤6mo → LP intro ≤12mo → vote ≤6mo) and Path 2 supersession (petition v4.1 §7(e)). Precedent: the civilization has once before cut rates on SCM-transfer grounds (v14.5, commit 5c3a0f6).</p>
           <h3 class="pending-h pending-h2">Founder ruling R12 — override withdrawn, LP-074 vacated, schedule reverted (canon v22.1)</h3>
           <p class="pending-p">R12 (founder ruling): OVERRIDE WITHDRAWN — LP-074 VACATED. The founder withdraws the R10 override on precedent grounds: fiscal law should not stand on founder posture against a failed chamber vote. LP-074's enactment rested solely on that override; with it withdrawn, LP-074 is vacated (forward reversion; all v22.0.x records immutable). The engraved schedule reverts to LP-073: 70/35/17/8 top marginal above $10,000,000. Adjudication history of record: original synthetic gauntlet 1–4 FAIL; AFFIRM-TAX-50 advocacy review (Sol, cold, citations verified) re-ran the vote at 3–2 — Meritboard −8 FAIL, Court +2 PASS, Sanctuary +2 PASS, Main +7 PASS, Lower −9 FAIL — short of the zero-fail enactment threshold per check-canon vote-outcome semantics. A supplemental steelman was registered post-adjudication without re-adjudication per the R9 termination pattern. Both briefs publish as permanent record. The trajectory principle, endorsed in direction by all chambers, re-registers standalone as LP-075. RATIFY-TAX-50 remains available for genuine re-ratification under LP-075 §2 upon the Path 2 controlling estimate — audited facts, zero-fail threshold, no override. Registered corrections: seat revenue-stream conflation (income tax funds Main institutional obligations, not the ADT-funded dividend stream); seat threshold assumption (adjudication cards now carry an explicit decision rule).</p>
+          <h3 class="pending-h pending-h2">Founder ruling R13 — layer doctrine, in-world reframe, LP-074/075 deregistered (canon v22.2)</h3>
+          <p class="pending-p">R13 (founder ruling): LAYER DOCTRINE + REGISTER SIMPLIFICATION. Two record tiers are established. WORLD CANON: in-world pages; the founder is not an in-world actor — founding authority terminated into the charter at Y0, and no page of World tier may present a founder ruling or override as an in-world governance event. PROCESS RECORD: session records, rulings, and drafting history; explicitly framed as out-of-world authorship. In-world, the RATIFY-TAX-50 arc is: petition filed; failed its gauntlet 1–4; an advocacy review narrowed the vote to 3–2, still short of the zero-fail threshold; preserved as a failed-petition record per standing doctrine; re-petition available on audited facts. The engraved schedule was and remains 70/35/17/8 (LP-073, active). The v22.0–v22.1 interval in which a 50-schedule appeared is drafting history, Process tier. LP-074 and LP-075 deregister: LP-074 describes an enactment that did not occur in-world; LP-075's principle folds into whitepaper doctrine as the TRAJECTORY DOCTRINE, in-world provenance "endorsed 5–0 across the ratification chambers": top marginal rates track demonstrated institutional need, and any rate reduction requires audited evidence per the Path 2 standing audit — never authored facts — at the standard zero-fail threshold. Numbers 074/075 retire, never reissued. The Ratification Record section is Process tier and carries a framing header declaring it the drafting archive, interventions and withdrawals included.</p>
         </div>
 
       </div>

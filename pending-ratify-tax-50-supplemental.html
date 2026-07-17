@@ -85,6 +85,20 @@
     .pending-table thead th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; white-space: nowrap; }
     .pending-table tbody tr:last-child td { border-bottom: 0; }
     .pending-table td:first-child { white-space: nowrap; color: var(--text-primary); font-weight: 600; }
+    /* Process-tier framing header (R13, v22.2). Declares the whole section as
+       drafting archive before the reader meets any of its contents. Dashed
+       edge and muted type mark it as apparatus, not canon. */
+    .process-frame {
+      border: 1px dashed var(--border-strong); border-radius: 12px;
+      background: var(--bg-tertiary);
+      padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+      font-size: .88rem; line-height: 1.65; color: var(--text-muted);
+    }
+    .process-frame .pf-label {
+      display: block; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase;
+      font-weight: 700; color: var(--text-secondary); margin-bottom: .4rem;
+    }
+    .process-frame strong { color: var(--text-secondary); }
   </style>
 </head>
 
@@ -101,11 +115,12 @@
           <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">The affirmative case restated at full length, registered after the 3–2 adjudication had already closed. Per the R9 termination pattern it was recorded without re-adjudication — a brief the record keeps but the vote never heard.</p>
         </div>
 
+
         <div class="pending-banner mb-10" role="note" aria-label="Ratification status">
-          <i class="fas fa-ban" aria-hidden="true"></i>
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Vacated — R12 (v22.1)</span>
-            <p><strong>VACATED — R12</strong> — enacted at v22.0 by founder override of a 1–4 synthetic chamber result; affirmed at 3–2 on advocacy review, short of the zero-fail threshold; vacated at v22.1 by withdrawal of the override. The engraved schedule reverts to <strong>70 / 35 / 17 / 8</strong> (LP-073). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
+            <span class="pb-label">Failed Petition — record retained</span>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); re-petition is available on audited facts (<a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a>). All three briefs — opposition, advocacy, and supplemental — publish as permanent record.</p>
           </div>
         </div>
         <div class="pending-crosslinks mb-12">
