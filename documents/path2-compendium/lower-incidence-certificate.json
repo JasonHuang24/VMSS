@@ -1,0 +1,43 @@
+{
+  "artifactType": "LOWER_INCIDENCE_CERTIFICATE",
+  "publishedAt": "2294-02-12T10:00:00Z",
+  "scheduleACertificatePath": "documents/path2-compendium/schedule-a-final-certificate.json",
+  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
+  "layers": [
+    {
+      "layer": "-1",
+      "currentAggregate": 1.0681774770766383,
+      "currentMinimum": 1.0644432116707605,
+      "forwardMinimum": 1.0599415761065556
+    },
+    {
+      "layer": "-2",
+      "currentAggregate": 1.0700303548239234,
+      "currentMinimum": 1.0678013317192725,
+      "forwardMinimum": 1.0629533407743859
+    },
+    {
+      "layer": "-3",
+      "currentAggregate": 1.068609705506192,
+      "currentMinimum": 1.0649135766712015,
+      "forwardMinimum": 1.0598165878911032
+    }
+  ],
+  "conditions": {
+    "B1": "PASS",
+    "B2": "PASS",
+    "B3": "PASS",
+    "B4": "PASS",
+    "B5": "PASS"
+  },
+  "routeLedgerPath": "documents/path2-compendium/lower-route-obligation-ledgers.json",
+  "sourceRegistryPath": "documents/path2-compendium/source-registry.json",
+  "prohibitedCredits": [
+    "Sanctuary receipts",
+    "Main receipts",
+    "ADT receipts",
+    "SCM recycle",
+    "cyclical backfill"
+  ],
+  "artifactDigest": "1c0c1b4e3bd13de61a471e104ae8f654c5d3a1b0e777119fbbb01f8384ae760d"
+}

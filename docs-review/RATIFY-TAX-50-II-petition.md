@@ -1,10 +1,9 @@
 # RATIFY-TAX-50-II — Conditional Successor Petition
 
-> **Historical filed/enacted conditional instrument.** This source preserves
-> the petition and its conditional clauses verbatim. The purported 2294 Path 2
-> certificate is incomplete and void. LP-073's **70 / 35 / 17 / 8** remains
-> operative; LP-074's candidate **50 / 25 / 12.5 / 6.25** schedules remain
-> conditional, and SCM is unchanged.
+> **ARCHIVE / ENACTED TEXT PRESERVED.** This source preserves the petition and
+> its conditional clauses verbatim. It changed no rate on passage. The later
+> complete 2294 Schedule A and separate Schedule B records satisfied those
+> clauses, activating **50 / 25 / 12.5 / 6.25** in 2295. SCM is unchanged.
 
 **Filed:** approximately Y175, under the Trajectory Doctrine. This is a new
 petition line filed approximately sixty-three years after the Y112 failure of

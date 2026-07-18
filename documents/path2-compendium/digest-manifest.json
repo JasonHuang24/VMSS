@@ -1,0 +1,171 @@
+{
+  "algorithm": "SHA-256",
+  "generatedAt": "2294-02-22T12:00:00Z",
+  "entries": [
+    {
+      "id": "MAIN-T50-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/main-t50.csv",
+      "digest": "b03649dcbc9f8e9c4216a01f4f2f4f277d423eaaa29e1025742bd9f709760a85"
+    },
+    {
+      "id": "MAIN-OBLIGATION-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/main-obligations.csv",
+      "digest": "c69b1dd950d196db674f7f0981f9878dc8da982d72bdf9e19f91fdc671905f5f"
+    },
+    {
+      "id": "ADT-RECEIPTS-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/adt-receipts.csv",
+      "digest": "a60e663baff7d2e54f8f700fcf137ba90c0a25b00d2d1ce02f17a14815ae7f66"
+    },
+    {
+      "id": "DIVIDEND-OBLIGATION-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/dividend-obligations.csv",
+      "digest": "7d4b2407e4d21844a9a01588cae440329dfd66e5d83d76e7607db316c55f9fb3"
+    },
+    {
+      "id": "L1-RECEIPTS-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/lower-1-receipts.csv",
+      "digest": "d6eb85aa3aff484c1bb6301d13b1ce9faf706800309391a4931b522124a39dfe"
+    },
+    {
+      "id": "L1-OBLIGATION-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/lower-1-obligations.csv",
+      "digest": "62426fd1e96b719843277e0a5c6c6a0e3e52b6b506c5e59450e7de74b9ef7119"
+    },
+    {
+      "id": "L2-RECEIPTS-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/lower-2-receipts.csv",
+      "digest": "350eccfcab413e0e4945afde81cffb6dcd62562eb5d79ba9c455e3caaf72ab4a"
+    },
+    {
+      "id": "L2-OBLIGATION-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/lower-2-obligations.csv",
+      "digest": "e8df75e8aa18c6e49563f6d8bbab8ab52cfda15aa7fc00f98679d0af5fffef9a"
+    },
+    {
+      "id": "L3-RECEIPTS-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/lower-3-receipts.csv",
+      "digest": "a97b80e07e42c0766d756e459289080e7cce51b9a7168a05cf8412a5de7261c3"
+    },
+    {
+      "id": "L3-OBLIGATION-LEDGER-2294",
+      "path": "documents/path2-compendium/raw/lower-3-obligations.csv",
+      "digest": "cb28f0efd5a933f1a3fc85c5bbfbad11a524f57ac1081d0eea2e4dec475f60cf"
+    },
+    {
+      "id": "FINDING-I-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-i-observations.json",
+      "digest": "15b9a8a45a5c661fb1e15545320d3477ddb14c99fe315fc662bbabe8aa173756"
+    },
+    {
+      "id": "FINDING-II-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-ii-observations.json",
+      "digest": "b3691bfa3f10dc105acb02cf6bb19dd60cefe01b3c3e2b94dbcd1d4caa84b446"
+    },
+    {
+      "id": "FINDING-III-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-iii-observations.json",
+      "digest": "71ee87a907cfde0b1aabb1ca5ef7088a7e4070be3989b87e3dd9762f9c2a822a"
+    },
+    {
+      "id": "FINDING-IV-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-iv-observations.json",
+      "digest": "ed3c1a69e9b0f32aca07146f3f860f3456c3fb4baf63d4f5bc2ae68e537967a4"
+    },
+    {
+      "id": "COMPENDIUM-raw-data",
+      "path": "documents/path2-compendium/raw-data-index.json",
+      "digest": "19465916d51a0540334ea49d029cfb2656351b2068205cf34e7192630d9ac5ac"
+    },
+    {
+      "id": "COMPENDIUM-analytic-data",
+      "path": "documents/path2-compendium/analytic-results.json",
+      "digest": "c382786df6eeca0162c45c7ef91c5745cdfda5ee874b5e14bd3cc12a015dcda9"
+    },
+    {
+      "id": "COMPENDIUM-calculation-code",
+      "path": "tools/path2-certification-core.mjs",
+      "digest": "f51c3013951582605ad9a5ccf5cf8fcc1d1093ddb66b5cb2bd1b9646d04cf37c"
+    },
+    {
+      "id": "COMPENDIUM-environment-manifest",
+      "path": "documents/path2-compendium/environment-manifest.json",
+      "digest": "e3f8062b509f7c37335c926a1adb9f0f694f26e9f959250b13aff089a7eddf17"
+    },
+    {
+      "id": "COMPENDIUM-source-provenance",
+      "path": "documents/path2-compendium/source-registry.json",
+      "digest": "4c77549a6489ddba0ff23cfacd286bd9f70bd34c14fa7bf2033690e27b188aa3"
+    },
+    {
+      "id": "COMPENDIUM-transformation-rules",
+      "path": "documents/path2-compendium/transformations.md",
+      "digest": "48bb4a761798223f79716c4a633caf9c3aa6a893b235727b29901559f62d1fd8"
+    },
+    {
+      "id": "COMPENDIUM-seeds",
+      "path": "documents/path2-compendium/seeds.md",
+      "digest": "79c6fc05bc0d547394b867b4db0ea2a8e6c51bb98207c2c1b77152397692f77f"
+    },
+    {
+      "id": "COMPENDIUM-execution-logs",
+      "path": "documents/path2-compendium/execution-log.txt",
+      "digest": "f7d03ed68a7878b4614223ae97d191ebe645dfb3cc60e5229c5fbaab26e50a0f"
+    },
+    {
+      "id": "COMPENDIUM-union-estimates-and-intervals",
+      "path": "documents/path2-compendium/union-estimates.json",
+      "digest": "b7c7f4f9ffa2bb8ba021e70357c70e7732fa26277189642231b28a918e37fc60"
+    },
+    {
+      "id": "COMPENDIUM-cold-review-record",
+      "path": "documents/path2-compendium/run-cold-review.json",
+      "digest": "8e9d0fc4200db2cae340f097f47ff876739d72f26d521040f06d7f1c021be8bc"
+    },
+    {
+      "id": "COMPENDIUM-commission-votes-dissents-declarations",
+      "path": "documents/path2-compendium/commission-record.json",
+      "digest": "27757b5452282a16dbbf4ec8b4ed403e286c8f197e3652269261a2c5e3739914"
+    },
+    {
+      "id": "COMPENDIUM-registrar-certifications",
+      "path": "documents/path2-compendium/registrar-certification.json",
+      "digest": "19ea023ece6bc7e0f72d101d2e8c13a4c7769b52e69d17461c78dacca90a028f"
+    },
+    {
+      "id": "COMPENDIUM-lower-incidence-certificate",
+      "path": "documents/path2-compendium/lower-incidence-certificate.json",
+      "digest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf"
+    },
+    {
+      "id": "COMPENDIUM-lower-incidence-adoption",
+      "path": "documents/path2-compendium/lower-incidence-adoption.json",
+      "digest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d"
+    },
+    {
+      "id": "LP075-REVIEW",
+      "path": "documents/path2-compendium/lp-075-section-13-1-review.json",
+      "digest": "a66f547a45de3b6b5d7e3cef8658ddc36f8deff8e64865d683c1afb9b1902f63"
+    },
+    {
+      "id": "REVOCATION-AMENDMENT",
+      "path": "documents/path2-compendium/revocation-amendment-2293.json",
+      "digest": "20a844c06d63b789ca4e45b0a5a84b8da925199f5f5df37d62b6590f5092f47e"
+    },
+    {
+      "id": "SCHEDULE-A-CERTIFICATE",
+      "path": "documents/path2-compendium/schedule-a-final-certificate.json",
+      "digest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4"
+    },
+    {
+      "id": "SCHEDULE-B-CERTIFICATE",
+      "path": "documents/path2-compendium/schedule-b-final-certificate.json",
+      "digest": "d67d819b7816bf6d121b5c80894a3f2736dadf64450d94f1cecef98a4f334160"
+    },
+    {
+      "id": "EFFECTIVE-NOTICE",
+      "path": "documents/path2-compendium/effective-notice-2295.json",
+      "digest": "a707b80b5f2d6b4e4d6fc9bdde63e59354667e798fe5399eb9b26211c0cc1920"
+    }
+  ]
+}

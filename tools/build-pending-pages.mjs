@@ -314,7 +314,7 @@ const banner = () => `
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Failed Petition — record retained</span>
-            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. <a href="law-polling.html#lp-073">LP-073</a>&rsquo;s <strong>70 / 35 / 17 / 8</strong> schedule remains operative. <a href="law-polling.html#lp-074">LP-074</a>&rsquo;s candidate exact cascade remains conditional because the purported 2294 certificate is incomplete and void. All three briefs — opposition, advocacy, and supplemental — publish as permanent historical record; none establishes current rates.</p>
+            <p><strong>FAILED PETITION</strong> — 1–4 at gauntlet; advocacy review 3–2, short of the zero-fail threshold. That verdict remains final and its authored figures never activated law. <a href="law-polling.html#lp-073">LP-073</a>&rsquo;s <strong>70 / 35 / 17 / 8</strong> schedule held through 2294. The later <a href="law-polling.html#lp-074">LP-074</a> successor activated <strong>50 / 25 / 12.5 / 6.25</strong> in 2295 only after an independent Path 2 record satisfied every gate. All three original briefs publish as historical record, not current-rate authority.</p>
           </div>
         </div>`;
 
@@ -359,8 +359,8 @@ const statuteBanner = () => `
         <div class="pending-banner mb-10" role="note" aria-label="Statute status">
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Enacted · Schedules A and B conditional</span>
-            <p><strong>ENACTED, CONDITIONAL RULE.</strong> <a href="law-polling.html#lp-074">LP-074</a> registered 5–0 and changed no rate on passage. The purported 2294 certificate is incomplete and void; neither Schedule A nor Schedule B is active. The candidate exact schedule is <strong>50 / 25 / 12.5 / 6.25</strong>, while <a href="law-polling.html#lp-073">LP-073</a>&rsquo;s <strong>70 / 35 / 17 / 8</strong> remains operative. This page preserves the full conditional statute as filed.</p>
+            <span class="pb-label">Enacted · Conditions satisfied · Schedules active</span>
+            <p><strong>ENACTED, CONDITION SATISFIED.</strong> <a href="law-polling.html#lp-074">LP-074</a> registered 5–0 and changed no rate on passage. Schedule A validly certified first in 2294; the separately produced Lower Incidence Certificate was then adopted and supported Schedule B. Both Schedule A and Schedule B are active, and the exact <strong>50 / 25 / 12.5 / 6.25</strong> schedule has applied since 2295. This page preserves the conditional statute exactly as filed; the later certificates supply its facts.</p>
           </div>
         </div>`;
 
@@ -371,7 +371,7 @@ const statuteBanner = () => `
 const processFrame = () => `
         <div class="process-frame" role="note" aria-label="Record tier">
           <span class="pf-label">Process Record — drafting archive, not world canon</span>
-          <p>This section is the <strong>drafting archive</strong>: the out-of-world authorship history behind the civilization's fiscal law. It is not a page of the world's own record and nothing in it is in force. The archive keeps <strong>interventions and their withdrawal alike</strong>. In world, <strong>RATIFY-TAX-50 failed</strong>; <a href="law-polling.html#lp-073">LP-073</a>&rsquo;s 70 / 35 / 17 / 8 schedule remains operative, and <a href="law-polling.html#lp-074">LP-074 Schedules A and B</a> remain conditional because the purported 2294 certificate is incomplete and void.</p>
+          <p>This section is the <strong>drafting archive</strong>: the out-of-world authorship history behind the civilization's fiscal law. It is not a page of the world's own record and nothing in it is in force. The archive keeps <strong>interventions and their withdrawal alike</strong>. In world, <strong>RATIFY-TAX-50 failed</strong> and remains failed; <a href="law-polling.html#lp-073">LP-073</a>&rsquo;s 70 / 35 / 17 / 8 schedule later became historical when the independently evidenced <a href="law-polling.html#lp-074">LP-074 Schedules A and B</a> activated 50 / 25 / 12.5 / 6.25 in 2295.</p>
         </div>`;
 
 function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing, statusBanner, extraStyle }) {
@@ -496,7 +496,7 @@ const briefLinks = (self) => [
 built.push(page({
   file: BALLOT,
   title: 'RATIFY-TAX-50 Ballot (Failed) • The Five Rings',
-  description: 'Ballot text for RATIFY-TAX-50 (petition v4.1) — a failed proposal for 50/25/12.5/6.25, retained with its opposition, advocacy, and supplemental briefs. LP-073 remains operative; LP-074 remains conditional.',
+  description: 'Historical ballot text for the failed RATIFY-TAX-50 petition, retained with its briefs. Its authored evidence never activated law; a later independently audited successor activated in 2295.',
   heroKicker: 'Ratification Record · Ballot Text',
   heroTitle: 'RATIFY-TAX-50 — The Ballot',
   heroSub: 'Petition v4.1, the text carried to the gauntlet. It failed there 1–4, and an advocacy review narrowed the vote to 3–2 — still short of the zero-fail threshold. Read alongside the three briefs retained with it.',
@@ -606,15 +606,15 @@ const statuteBody = (() => {
 built.push(page({
   file: STATUTE,
   title: 'RATIFY-TAX-50-II — Full Conditional Statute • The Five Rings',
-  description: 'The full text of RATIFY-TAX-50-II, the register’s conditional rate law (LP-074) — governing rule, gated Schedules A and B, certification conditions A1–A8 and B1–B6, evidentiary quarantine, and cadence rider. The purported 2294 certificate is incomplete and void.',
+  description: 'The full enacted text of LP-074 — governing rule, Schedules A and B, A1–A8 and B1–B6, evidentiary quarantine, and cadence rider. Its conditions were satisfied in 2294 and took effect in 2295.',
   heroKicker: 'Ratification Record · Full Statute Text',
   heroTitle: 'RATIFY-TAX-50-II — Full Conditional Statute',
-  heroSub: 'The instrument as filed and enacted: the rule the chambers voted, every condition a Path 2 audit must satisfy before a rate moves, and the citations tying each clause to the record. The purported 2294 certificate is incomplete and void; both schedules remain conditional.',
+  heroSub: 'The instrument as filed and enacted: the conditional rule the chambers voted and every condition later satisfied by the complete 2294 Path 2 and Lower Incidence records.',
   crosslinks: [
     link('law-polling.html#lp-074', 'is-primary', 'fa-scale-balanced', 'LP-074 — the register entry'),
-    link('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — operative rate law'),
+    link('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — historical prior rate law'),
     link('law-polling.html#lp-075', '', 'fa-hourglass-start', 'LP-075 — commencement duty'),
-    link('path-2-certification-2294.html', '', 'fa-clipboard-check', '2294 purported certificate — void record'),
+    link('path-2-certification-2294.html', '', 'fa-clipboard-check', '2294 final certification — complete record'),
     link('whitepaper.html#trajectory-doctrine', '', 'fa-compass', 'Trajectory Doctrine — governing law'),
     link('path-2-charter.html', 'is-primary', 'fa-scale-balanced', 'Path 2 Charter — certification methodology'),
     link(RULINGS, '', 'fa-gavel', 'Presidential Rulings — the adoption record'),
@@ -631,7 +631,7 @@ built.push(page({
 const hubBody = [
   `<p class="pending-p">This section is the <strong>drafting archive</strong> behind the civilization’s ratification record: proposals drafted, adversarially reviewed, and carried to a decision, with the briefs that publish alongside each. Outcomes are not pre-decided; a failed vote is itself a legitimate output and a boundary marker under standing doctrine (LP-062 / LP-065). Because it is an archive of authorship, it keeps what the drafting did and then undid — the interventions, and their withdrawal — where the world’s own record keeps only what the world decided.</p>`,
   `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Failed petition</h2>`,
-  `<p class="pending-p"><strong>FAILED PETITION.</strong> The petition would have reduced the §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>. It failed 1–4 at gauntlet and 3–2 on advocacy review. LP-073&rsquo;s 70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8 remains operative. The later LP-074 conditional law did not itself move a rate, and its purported 2294 certificate is incomplete and void.</p>`,
+  `<p class="pending-p"><strong>FAILED PETITION.</strong> The original petition would have reduced the §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>. It failed 1–4 at gauntlet and 3–2 on advocacy review, and its authored evidence never activated anything. LP-073&rsquo;s 70&nbsp;/&nbsp;35&nbsp;/&nbsp;17&nbsp;/&nbsp;8 held through 2294. The later LP-074 conditional law moved rates only after a distinct, reproducible certification record completed in 2294.</p>`,
   `<p class="pending-p">What survived is the direction. Every chamber endorsed the trajectory principle even while refusing the magnitude attached to it — 5–0 across the ratification chambers — and it stands as the <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> at Whitepaper §12.1: top marginal rates track demonstrated institutional need, and any reduction needs audited Path&nbsp;2 facts at the standard zero-fail threshold. The later successor proceeded on exactly those terms; it did not cure the failed petition’s authored facts. All three briefs — opposition, advocacy, and supplemental — publish as permanent record. Rates fall when shown, and hold when merely told.</p>`,
   `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>, on an authorial override of the failed chamber result, and a trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1 and both entries were deregistered at v22.2 — the first because it described an enactment that never occurred in world, the second because its principle belongs in doctrine rather than the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the full sequence is told in the <a href="pending-ratify-tax-50-record.html">session record</a>. None of that drafting designation history is world canon. The register’s LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, registered 5–0 at ~Y175 (enacted 2278). The former drafting designation LP-075 remains non-canon; its number was later issued in world to <a href="law-polling.html#lp-075">LP-075, the Path 2 Commencement Duty Act</a>, enacted 2291. That later issuance does not validate the deregistered text.</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
@@ -647,9 +647,9 @@ const hubBody = [
   `<p class="pending-p">Path 2 is a <strong>standing preregistered audit workstream</strong>, decoupled from any petition vote, whose estimates supersede the ballot’s authored values as they land (petition v4.1 §7(e)). The <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> makes it the gate rather than a follow-up: a failed reduction may be re-petitioned when the controlling estimate lands, on audited facts and the standard zero-fail threshold. The questions below are what a genuine ratification would have to answer. The audit binds itself to six enforceability criteria:</p>`,
 
   `<ul class="pending-list"><li><strong>Preregistered methodology</strong> — the estimation method is fixed and published before any results.</li><li><strong>Fixed data cutoff</strong> — each estimate names the data window it draws on.</li><li><strong>Definitions frozen before results</strong> — measured terms are defined ahead of the numbers, never fitted to them.</li><li><strong>Symmetric revision</strong> — estimates move up or down on the evidence, with no directional thumb on the scale.</li><li><strong>Published uncertainty</strong> — every controlling figure ships with its band, not as a bare point estimate.</li><li><strong>Predetermined controlling-estimate rule</strong> — which estimate governs is settled in advance of seeing the values.</li></ul>`,
-  `<p class="pending-p">Two questions stand preregistered to the workstream:</p>`,
+  `<p class="pending-p">Two questions were preregistered to the workstream:</p>`,
   `<ul class="pending-list"><li><strong>(a) SCM activation-frequency response to released liquidity.</strong> Whether the liquidity released at the proposed 50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25 schedule would raise district aggregates enough to increase Savings Circulation Mandate trigger frequency, and by how much — the bound the affirmative case leans on to answer concentration.</li><li><strong>(b) Marginal utility of private capital flow in a post-scarcity upper stack.</strong> What an additional retained dollar of elite liquidity buys the civilization once survival and the dividend are already funded from the automation side.</li></ul>`,
-  `<p class="pending-p" style="margin-top:1.4rem">Those questions received a rulebook: the <a href="path-2-charter.html">Path&nbsp;2 Charter</a>, its <a href="path-2-schedule.html">§10.4 Schedule</a>, and its <a href="path-2-risk-register.html">Residual-Risk Register</a>. The first 2279&ndash;2288 window closed without a run. <a href="law-polling.html#lp-075">LP-075</a> later compelled a remedial process, but the repository has no qualifying §13.1 cold-review record and the purported <a href="path-2-certification-2294.html">2294 certificate</a> is incomplete and void. LP-074 remains conditional.</p>`,
+  `<p class="pending-p" style="margin-top:1.4rem">Those questions received a rulebook: the <a href="path-2-charter.html">Path&nbsp;2 Charter</a>, its <a href="path-2-schedule.html">§10.4 Schedule</a>, and its <a href="path-2-risk-register.html">Residual-Risk Register</a>. The first 2279&ndash;2288 window closed without a run. <a href="law-polling.html#lp-075">LP-075</a> later compelled the remedial process that locked in 2292. The final <a href="path-2-certification-2294.html">2294 certificate</a> satisfied Findings I&ndash;IV and Schedule A; the separately issued and adopted Lower Incidence Certificate then satisfied Schedule B. Both became effective in 2295.</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
     [link('path-2-charter.html', 'is-primary', 'fa-scale-balanced', 'Path 2 Charter — certification methodology'),
      link('path-2-schedule.html', 'is-primary', 'fa-list-ol', '§10.4 Schedule — enumerated measures'),
@@ -661,7 +661,7 @@ const hubBody = [
 built.push(page({
   file: HUB,
   title: 'Ratification Record • The Five Rings',
-  description: 'The drafting archive behind the civilization’s ratification record. RATIFY-TAX-50 failed; LP-073 remains operative; LP-074 remains conditional because the purported 2294 certificate is incomplete and void.',
+  description: 'The drafting archive behind the civilization’s ratification record. RATIFY-TAX-50 failed and remains failed; the later independently audited LP-074 successor activated in 2295.',
   heroKicker: 'Process Record · The Five Rings',
   heroTitle: 'Ratification Record',
   heroSub: 'The drafting archive: decided proposals and the adversarial briefs that publish alongside them, with their authorship provenance kept — interventions and withdrawals included.',

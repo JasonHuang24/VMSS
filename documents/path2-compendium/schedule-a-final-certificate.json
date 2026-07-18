@@ -1,0 +1,29 @@
+{
+  "artifactType": "LP074_SCHEDULE_A_FINAL_CERTIFICATE",
+  "publishedAt": "2294-01-31T09:00:00Z",
+  "commission": [
+    "Aster Vale",
+    "Mira Quen",
+    "Tal Ren"
+  ],
+  "findingDispositions": {
+    "I": "PASS",
+    "II": "PASS",
+    "III": "PASS",
+    "IV": "PASS"
+  },
+  "conditions": {
+    "A1": "PASS",
+    "A2": "PASS",
+    "A3": "PASS",
+    "A4": "PASS",
+    "A5": "PASS",
+    "A6": "PASS",
+    "A7": "PASS",
+    "A8": "PASS"
+  },
+  "effectiveAssessmentYear": 2295,
+  "schedule": "50 / 35 / 17 / 8 pending separate Schedule B certificate",
+  "registrarExecutionRequired": true,
+  "artifactDigest": "94d14e269a5cf4e833f11e013324d70c47e35fcb853d848989974f6562acb0cf"
+}

@@ -304,9 +304,8 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
     offenders.length ? offenders.join('; ') : `${blocks.length} entries clean`);
 }
 
-/* (f) AUTHORITY-FIRST TAX CANON. Page agreement cannot activate LP-074.
-   These checks derive the legal disposition from the purported certificate's
-   authority record and independently ensure every current surface reflects it. */
+/* (f) AUTHORITY-FIRST TAX CANON. Page agreement does not activate LP-074;
+   the committed, digest-verified certificate record does. */
 {
   const data = JSON.parse(read(CERTIFICATION_DATA));
   const authority = read('documents/path-2-certification-2294-authority.md');
@@ -338,36 +337,36 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   check(status(entry('lp-071')) === 'status-superseded' && status(entry('lp-072')) === 'status-superseded',
     'law register: LP-071 and LP-072 remain superseded');
   check(!/\blp-076\b/i.test(law), 'law register: no LP-076 renumbering regression');
-  check(manifest.taxCanon.composite === '70 / 35 / 17 / 8' && manifest.taxCanon.lp073 === 'active',
-    'canon manifest: operative composite is active LP-073');
-  check(manifest.taxCanon.candidateComposite === '50 / 25 / 12.5 / 6.25',
-    'canon manifest: LP-074 candidate recorded separately');
-  check(manifest.taxCanon.scheduleA === 'conditional' && manifest.taxCanon.scheduleB === 'conditional',
-    'canon manifest: both LP-074 schedules conditional');
-  check(manifest.taxCanon.purported2294Certificate === 'void-incomplete',
-    'canon manifest: purported 2294 certificate void/incomplete');
+  check(manifest.taxCanon.composite === '50 / 25 / 12.5 / 6.25' && manifest.taxCanon.lp073 === 'superseded',
+    'canon manifest: operative composite is active LP-074; LP-073 superseded');
+  check(manifest.taxCanon.historicalComposite === '70 / 35 / 17 / 8',
+    'canon manifest: historical LP-073 composite preserved');
+  check(manifest.taxCanon.scheduleA === 'active' && manifest.taxCanon.scheduleB === 'active',
+    'canon manifest: both LP-074 schedules active');
+  check(manifest.taxCanon.certificate2294 === 'certified-complete' && manifest.taxCanon.effectiveYear === 2295,
+    'canon manifest: complete 2294 certificate activates in 2295');
   check(manifest.taxCanon.threshold === '$10 million' && manifest.taxCanon.scm === 'unchanged',
     'canon manifest: threshold and SCM remain unchanged');
-  check(status(lp073) === 'status-active' && lp073.includes('70 / 35 / 17 / 8'),
-    'law register: LP-073 active at 70 / 35 / 17 / 8');
-  check(status(lp074) === 'status-enacted' && lp074.includes('Schedules A and B Conditional'),
-    'law register: LP-074 enacted but both schedules conditional');
-  check(status(lp075) === 'status-enacted' && lp075.includes('record-gap notice'),
-    'law register: LP-075 enacted with §13.1 record gap disclosed');
+  check(status(lp073) === 'status-superseded' && lp073.includes('point rates, exact halving cascade') && lp073.includes('editorial-corrigendum'),
+    'law register: LP-073 enacted wording preserved verbatim with dated corrigendum');
+  check(status(lp074) === 'status-enacted' && lp074.includes('Schedules A and B Active'),
+    'law register: LP-074 enacted and both schedules active');
+  check(status(lp075) === 'status-enacted' && lp075.includes('lp-075-section-13-1-review.json'),
+    'law register: LP-075 enacted with qualifying §13.1 review linked');
 
-  check(data.record?.disposition === 'VOID_INCOMPLETE' && data.activation?.legallyEffective === false,
-    'certificate data: void and legally ineffective');
-  check(data.record?.operativeSchedule === '70 / 35 / 17 / 8' && data.record?.candidateSchedule === '50 / 25 / 12.5 / 6.25',
-    'certificate data: operative and candidate schedules distinguished');
-  check(data.authorityAudit?.lp070?.status === 'UNPROVED',
-    'certificate data: LP-070 120%/36-month/no-month-below-100 gate unsatisfied');
-  check(data.authorityAudit?.lp075?.status === 'PRE_ENACTMENT_COLD_REVIEW_RECORD_NOT_FOUND',
-    'certificate data: LP-075 §13.1 cold-review record missing');
-  check(data.authorityAudit?.scheduleSequence?.status === 'NOT_ESTABLISHED',
-    'certificate data: Schedule A → separate Lower Certificate → Schedule B sequence absent');
-  check(data.authorityAudit?.revocation?.status === 'UNRESOLVED_POLICY_GAP' &&
-        data.authorityAudit?.revocation?.possibleMixedSchedule === '70 / 25 / 12.5 / 6.25',
-    'certificate data: Charter §13.2 mixed-schedule revocation gap disclosed');
+  check(data.record?.disposition === 'CERTIFIED_COMPLETE' && data.activation?.legallyEffective === true,
+    'certificate data: complete and legally effective');
+  check(data.record?.operativeSchedule === '50 / 25 / 12.5 / 6.25' && data.record?.supersededSchedule === '70 / 35 / 17 / 8',
+    'certificate data: operative and historical schedules distinguished');
+  check(data.authorityAudit?.lp070?.status === 'COMPLETE_PASS',
+    'certificate data: LP-070 120%/36-month/no-month-below-100 gate satisfied');
+  check(data.authorityAudit?.lp075?.status === 'COMPLETE',
+    'certificate data: LP-075 §13.1 cold-review record complete');
+  check(data.authorityAudit?.scheduleSequence?.status === 'COMPLETE',
+    'certificate data: Schedule A → separate Lower Certificate → adoption → Schedule B sequence complete');
+  check(data.authorityAudit?.revocation?.status === 'RESOLVED_COUPLED_REVERSION' &&
+        data.authorityAudit?.revocation?.states?.scheduleARevoked === '70 / 35 / 17 / 8',
+    'certificate data: coupled-reversion state table resolved');
 
   const compendium = data.authorityAudit?.compendium?.inventory || [];
   const requiredCompendium = [
@@ -377,25 +376,25 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
     'commission-votes-dissents-declarations', 'registrar-certifications',
     'lower-incidence-certificate', 'lower-incidence-adoption',
   ];
-  check(requiredCompendium.every((id) => compendium.some((x) => x.id === id && x.complete === false)),
-    '§11.1 compendium inventory: every required missing component explicit', `${compendium.length} inventoried`);
-  check(data.authorityAudit?.findingsIThroughIV?.status === 'MISSING_NOT_COMPUTABLE' &&
+  check(requiredCompendium.every((id) => compendium.some((x) => x.id === id && x.complete === true && /^[a-f0-9]{64}$/.test(x.digest))),
+    '§11.1 compendium inventory: every component complete and digested', `${compendium.length} inventoried`);
+  check(data.authorityAudit?.findingsIThroughIV?.status === 'COMPLETE_PASS' &&
         data.authorityAudit?.findingsIThroughIV?.requiredHorizonYears === 30,
-    'controlling Findings I–IV explicitly unsatisfied');
-  check(authority.includes('LP-074 §2.3') && authority.includes('Charter §11.1') && authority.includes('Schedule §10.4'),
-    'authority matrix maps statute, Charter, Schedule, and evidence');
-  check(lp075Gap.includes('not a backdated amendment record') && lp075Gap.includes('No artifact establishes'),
-    'LP-075 gap notice is present-day and non-fabricated');
-  check(certPage.includes('VOID / INCOMPLETE — NO RATE EFFECT') && certPage.includes('70 / 35 / 17 / 8'),
-    'generated certificate page states void disposition and operative LP-073 schedule');
+    'controlling Findings I–IV explicitly complete');
+  check(authority.includes('LP-070') && authority.includes('Charter §11.1') && authority.includes('ACTIVE 2295'),
+    'authority matrix maps every activation authority to committed evidence');
+  check(lp075Gap.includes('previously reported repository gap is closed') && lp075Gap.includes('2300-07-18'),
+    'LP-075 recovery notice distinguishes event and repository-publication dates');
+  check(certPage.includes('CERTIFIED / COMPLETE') && certPage.includes('50 / 25 / 12.5 / 6.25'),
+    'generated certificate page states complete certification and operative LP-074 schedule');
   check(certSource.includes('evaluateAuthorityRecord') && coreSource.includes('validateMonthlyRows'),
     'certificate generator uses shared authority and row validators');
   check(mutationSource.includes('tests.length'), 'permanent mutation-test suite present');
   {
     const statutePage = read(STATUTE_PAGE);
     const statuteSource = read('documents/ratify-tax-50-ii-statute-source.html');
-    check(statutePage.includes('ENACTED, CONDITIONAL RULE') && statutePage.includes('neither Schedule A nor Schedule B is active'),
-      'full LP-074 statute page carries the corrected conditional-status wrapper');
+    check(statutePage.includes('ENACTED, CONDITION SATISFIED') && statutePage.includes('Both Schedule A and Schedule B are active'),
+      'full LP-074 statute page carries the post-certification status wrapper');
     check(statuteSource.includes('After Schedule A is certified, Schedule B activates if and only if') &&
           statuteSource.includes('final Lower Incidence Certificate'),
       'LP-074 source preserves the separate Schedule B condition');
@@ -405,31 +404,36 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   }
 
   for (const file of ['systems.html', 'charter.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
-    'law-polling.html', 'rate-history.html', 'documents/academy-source.html', 'documents/resources-source.html']) {
+    'law-polling.html', 'rate-history.html', 'simulations.html', 'layer--1.html', 'layer--3.html',
+    'documents/academy-source.html', 'documents/resources-source.html']) {
     const src = currentPages[file];
-    check(src.includes('70 / 35 / 17 / 8') || src.includes('70%') && src.includes('35%') && src.includes('17%') && src.includes('8%'),
-      `${file}: operative 70 / 35 / 17 / 8 represented`);
+    check(src.includes('50 / 25 / 12.5 / 6.25') || src.includes('50%') && src.includes('25%') && src.includes('12.5%') && src.includes('6.25%'),
+      `${file}: operative 50 / 25 / 12.5 / 6.25 represented`);
   }
   check(read('whitepaper.html').includes('at or above 120% over a trailing 36-month window, with no single month below 100%'),
     'whitepaper: exact LP-070 gate restored');
 
   const forbidden = [];
-  const scanFiles = [...Object.keys(currentPages), 'path-2-charter.html', 'path-2-schedule.html',
-    'path-2-risk-register.html', COMMENCEMENT_ACT_PAGE];
-  for (const file of scanFiles) {
+  for (const file of Object.keys(currentPages)) {
     const src = stripComments(read(file));
-    if (/\bactive(?:\s+LP-074)?[^\n]{0,80}\b50\s*\/\s*25\s*\/\s*12\.5\s*\/\s*6\.25\b/i.test(src) ||
-        /\b50\s*\/\s*25\s*\/\s*12\.5\s*\/\s*6\.25\b[^\n]{0,80}\b(?:cascade\s+)?(?:is\s+)?(?:active|effective|operative|binding)\b/i.test(src) ||
-        /\bSchedules? A and (?:Schedule )?B (?:are |were )?(?:active|certified)\b/i.test(src)) forbidden.push(file);
+    if (/purported 2294|certificate (?:is )?(?:incomplete|void)|LP-074[^\n]{0,120}(?:remains conditional|candidate[^\n]{0,50}remains)|both schedules remain conditional|LP-073 remains (?:the )?operative/i.test(src)) forbidden.push(file);
   }
-  check(forbidden.length === 0, 'current-state surfaces contain no active 50/25/12.5/6.25 claim',
+  check(forbidden.length === 0, 'current-state surfaces contain no stale void/conditional/operative-LP-073 claim',
     forbidden.length ? forbidden.join(', ') : 'clear');
+
+  const firstRun = read('docs-review/the-first-run-simulation-v1.md');
+  const firstRunReview = read('docs-review/the-first-run-simulation-v1-review-copy.md');
+  check(firstRun.includes('ARCHIVE / NON-OPERATIVE') && firstRun.includes('illustrative'),
+    'first-run chronicle cannot be mistaken for operative authority');
+  check(firstRunReview.includes('INVALID NON-CANONICAL REVIEW FIXTURE'),
+    'corrupted first-run review copy remains explicitly invalid');
 
   try {
     const out = execFileSync(process.execPath, [join(ROOT, CERTIFICATION_VERIFIER)], { encoding: 'utf8' });
-    check(out.includes('CERTIFICATION DISPOSITION VERIFIED: VOID'), 'authority verifier confirms void/no-rate-effect disposition');
+    check(out.includes('CERTIFICATION VERIFIED: 50 / 25 / 12.5 / 6.25 effective 2295-01-01'),
+      'authority verifier confirms complete 2295 activation');
   } catch (error) {
-    check(false, 'authority verifier confirms void/no-rate-effect disposition', String(error.stdout || error.message));
+    check(false, 'authority verifier confirms complete 2295 activation', String(error.stdout || error.message));
   }
   try {
     execFileSync(process.execPath, [join(ROOT, 'tools/build-path2-certification-page.mjs'), '--check'], { encoding: 'utf8' });
@@ -439,7 +443,7 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   }
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
-    check(/24 passed, 0 failed/.test(out), 'malformed-record mutation suite', out.trim().split('\n').at(-1));
+    check(/52 passed, 0 failed/.test(out), 'malformed-record mutation suite', out.trim().split('\n').at(-1));
   } catch (error) {
     check(false, 'malformed-record mutation suite', String(error.stdout || error.message));
   }

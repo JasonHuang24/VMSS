@@ -1,0 +1,45 @@
+{
+  "units": "constant-2292 dividend credits per resident",
+  "baseline": [
+    {
+      "year": 2282,
+      "realDividendPerResident": 99.42
+    },
+    {
+      "year": 2283,
+      "realDividendPerResident": 99.577
+    },
+    {
+      "year": 2284,
+      "realDividendPerResident": 99.635
+    },
+    {
+      "year": 2285,
+      "realDividendPerResident": 99.826
+    },
+    {
+      "year": 2286,
+      "realDividendPerResident": 99.859
+    },
+    {
+      "year": 2287,
+      "realDividendPerResident": 100.027
+    },
+    {
+      "year": 2288,
+      "realDividendPerResident": 100.189
+    },
+    {
+      "year": 2289,
+      "realDividendPerResident": 100.234
+    },
+    {
+      "year": 2290,
+      "realDividendPerResident": 100.39
+    },
+    {
+      "year": 2291,
+      "realDividendPerResident": 100.438
+    }
+  ]
+}

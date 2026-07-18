@@ -5,11 +5,10 @@ work). Author: Fable 5 seat, end of the Path 2 Charter arc. Jason is the
 founder; his rulings are canon. All protocol from the post-TAX-50
 handoff remains binding EXCEPT where superseded below.
 
-> **Historical handoff status — authority correction.** This handoff closes at
-> the 2279 adoption phase and preserves that phase's language. The purported
-> 2294 certificate is incomplete and void. LP-073's **70 / 35 / 17 / 8**
-> remains operative; LP-074's candidate schedules remain conditional, LP-075 is
-> procedural only, and the Savings Circulation Mandate (SCM) is unchanged.
+> **ARCHIVE / NON-OPERATIVE HANDOFF.** This handoff closes at the 2279 adoption
+> phase and preserves that phase's language. LP-073's **70 / 35 / 17 / 8**
+> applied then. The later complete 2294 certificates activated LP-074 in 2295;
+> LP-075 remains procedural and SCM remains unchanged.
 
 STATE OF THE REPO — verify before trusting (fresh clone, always)
 Expected: canon v22.5.1 (+possible trailing chore commits, e.g. tailwind

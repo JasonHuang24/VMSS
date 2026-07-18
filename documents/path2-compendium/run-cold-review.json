@@ -1,0 +1,22 @@
+{
+  "artifactType": "RUN_SPECIFIC_COLD_REVIEW",
+  "reviewer": "Northglass Reproduction Office",
+  "selectedBy": "mechanical audit-methodology ranking",
+  "startedAt": "2293-10-02T09:00:00Z",
+  "completedAt": "2294-01-24T17:00:00Z",
+  "findings": [
+    {
+      "id": "RUN-1",
+      "finding": "Refusal-panel member must control Findings I-IV where least favorable.",
+      "disposition": "Verified in executed union.",
+      "reply": "Closed."
+    },
+    {
+      "id": "RUN-2",
+      "finding": "Lower certificate must issue after Schedule A.",
+      "disposition": "Sequencing hold placed on Lower publication.",
+      "reply": "Closed."
+    }
+  ],
+  "unresolved": []
+}

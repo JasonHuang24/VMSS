@@ -1,0 +1,105 @@
+{
+  "generatedFrom": [
+    {
+      "id": "MAIN-T50-LEDGER-2294",
+      "digest": "b03649dcbc9f8e9c4216a01f4f2f4f277d423eaaa29e1025742bd9f709760a85"
+    },
+    {
+      "id": "MAIN-OBLIGATION-LEDGER-2294",
+      "digest": "c69b1dd950d196db674f7f0981f9878dc8da982d72bdf9e19f91fdc671905f5f"
+    },
+    {
+      "id": "ADT-RECEIPTS-LEDGER-2294",
+      "digest": "a60e663baff7d2e54f8f700fcf137ba90c0a25b00d2d1ce02f17a14815ae7f66"
+    },
+    {
+      "id": "DIVIDEND-OBLIGATION-LEDGER-2294",
+      "digest": "7d4b2407e4d21844a9a01588cae440329dfd66e5d83d76e7607db316c55f9fb3"
+    },
+    {
+      "id": "L1-RECEIPTS-LEDGER-2294",
+      "digest": "d6eb85aa3aff484c1bb6301d13b1ce9faf706800309391a4931b522124a39dfe"
+    },
+    {
+      "id": "L1-OBLIGATION-LEDGER-2294",
+      "digest": "62426fd1e96b719843277e0a5c6c6a0e3e52b6b506c5e59450e7de74b9ef7119"
+    },
+    {
+      "id": "L2-RECEIPTS-LEDGER-2294",
+      "digest": "350eccfcab413e0e4945afde81cffb6dcd62562eb5d79ba9c455e3caaf72ab4a"
+    },
+    {
+      "id": "L2-OBLIGATION-LEDGER-2294",
+      "digest": "e8df75e8aa18c6e49563f6d8bbab8ab52cfda15aa7fc00f98679d0af5fffef9a"
+    },
+    {
+      "id": "L3-RECEIPTS-LEDGER-2294",
+      "digest": "a97b80e07e42c0766d756e459289080e7cce51b9a7168a05cf8412a5de7261c3"
+    },
+    {
+      "id": "L3-OBLIGATION-LEDGER-2294",
+      "digest": "cb28f0efd5a933f1a3fc85c5bbfbad11a524f57ac1081d0eea2e4dec475f60cf"
+    },
+    {
+      "id": "FINDING-I-OBSERVATIONS-2294",
+      "digest": "15b9a8a45a5c661fb1e15545320d3477ddb14c99fe315fc662bbabe8aa173756"
+    },
+    {
+      "id": "FINDING-II-OBSERVATIONS-2294",
+      "digest": "b3691bfa3f10dc105acb02cf6bb19dd60cefe01b3c3e2b94dbcd1d4caa84b446"
+    },
+    {
+      "id": "FINDING-III-OBSERVATIONS-2294",
+      "digest": "71ee87a907cfde0b1aabb1ca5ef7088a7e4070be3989b87e3dd9762f9c2a822a"
+    },
+    {
+      "id": "FINDING-IV-OBSERVATIONS-2294",
+      "digest": "ed3c1a69e9b0f32aca07146f3f860f3456c3fb4baf63d4f5bc2ae68e537967a4"
+    }
+  ],
+  "scheduleA": {
+    "main12": 1.0674512752939065,
+    "mainMinimum": 1.0587356549230786,
+    "mainForwardMinimum": 1.0554219131018892,
+    "adt36": 1.2308089511415603,
+    "adtMinimum": 1.2238538015178915
+  },
+  "scheduleB": [
+    {
+      "layer": "-1",
+      "currentAggregate": 1.0681774770766383,
+      "currentMinimum": 1.0644432116707605,
+      "forwardMinimum": 1.0599415761065556
+    },
+    {
+      "layer": "-2",
+      "currentAggregate": 1.0700303548239234,
+      "currentMinimum": 1.0678013317192725,
+      "forwardMinimum": 1.0629533407743859
+    },
+    {
+      "layer": "-3",
+      "currentAggregate": 1.068609705506192,
+      "currentMinimum": 1.0649135766712015,
+      "forwardMinimum": 1.0598165878911032
+    }
+  ],
+  "findings": {
+    "I": {
+      "leastFavorableMember": "I-refusal-stress",
+      "disposition": "PASS"
+    },
+    "II": {
+      "leastFavorableMember": "II-refusal-attribution",
+      "disposition": "PASS"
+    },
+    "III": {
+      "leastFavorableMember": "III-refusal-tail",
+      "disposition": "PASS"
+    },
+    "IV": {
+      "leastFavorableMember": "IV-refusal-partial-id",
+      "disposition": "PASS"
+    }
+  }
+}

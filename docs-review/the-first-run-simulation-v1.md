@@ -3,6 +3,11 @@
 ### Illustrative tier · Figures marked ~ are illustrative, not register data
 ### 2279–2281 (Y178–Y180)
 
+> **ARCHIVE / NON-OPERATIVE ILLUSTRATIVE CHRONICLE.** This counterfactual
+> narrative is not the historical record of a completed run and is not fiscal
+> evidence. The actual 2279–2288 window closed without a run. The separately
+> committed 2292–2294 remedial compendium is the certification authority.
+
 ---
 
 ## I. Constitution

@@ -1,0 +1,55 @@
+{
+  "units": "billion constant-2292 credits and discounted welfare-credit equivalents",
+  "observedPublicDeployment": [
+    {
+      "year": 2282,
+      "publicFirstAllocation": 38.2,
+      "realizedWelfare": 42.88
+    },
+    {
+      "year": 2283,
+      "publicFirstAllocation": 39.2,
+      "realizedWelfare": 43.1
+    },
+    {
+      "year": 2284,
+      "publicFirstAllocation": 39.21,
+      "realizedWelfare": 44.33
+    },
+    {
+      "year": 2285,
+      "publicFirstAllocation": 40.55,
+      "realizedWelfare": 44.56
+    },
+    {
+      "year": 2286,
+      "publicFirstAllocation": 40.31,
+      "realizedWelfare": 45.77
+    },
+    {
+      "year": 2287,
+      "publicFirstAllocation": 41.42,
+      "realizedWelfare": 45.65
+    },
+    {
+      "year": 2288,
+      "publicFirstAllocation": 42.47,
+      "realizedWelfare": 46.73
+    },
+    {
+      "year": 2289,
+      "publicFirstAllocation": 42.35,
+      "realizedWelfare": 47.6
+    },
+    {
+      "year": 2290,
+      "publicFirstAllocation": 43.34,
+      "realizedWelfare": 47.79
+    },
+    {
+      "year": 2291,
+      "publicFirstAllocation": 43.25,
+      "realizedWelfare": 49
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "artifactType": "REGISTRAR_COMPLETENESS_AND_EXECUTION_CERTIFICATION",
+  "registrar": "Ilex Public Reproduction Office",
+  "completedAt": "2294-02-21T18:00:00Z",
+  "findingsMatchEscrowExecution": true,
+  "conditionsMatchEscrowExecution": true,
+  "codeIdentityVerified": true,
+  "dataProvenanceVerified": true,
+  "compendiumComplete": true,
+  "independentExecution": "Node.js verifier executed over escrowed files; all comparisons and digests matched.",
+  "dissent": null
+}

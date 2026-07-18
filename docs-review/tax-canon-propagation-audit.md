@@ -1,61 +1,51 @@
-# Tax-canon authority audit — LP-074 correction (2026-07-18)
+# Tax-canon authority audit — final LP-074 certification (2026-07-18)
 
-> **Audit artifact, not doctrine.** The earlier propagation report incorrectly
-> treated mutually agreeing pages and validators as proof of LP-074 activation.
-> Re-reading the controlling instruments shows that the purported 2294 record
-> is incomplete and void. LP-073's **70 / 35 / 17 / 8** remains operative;
-> LP-074's **50 / 25 / 12.5 / 6.25** schedules remain conditional; SCM is
-> unchanged.
+> **CURRENT AUDIT SUMMARY / NOT ITSELF LAW.** The controlling authority is the
+> digest-bound 2294 compendium and the enacted instruments it validates.
 
 ## Authority result
 
-The repository contains normalized candidate arithmetic but not the raw,
-provenance-backed evidence needed to calculate Findings I–IV or establish a
-complete Charter §11.1 compendium. It also lacks proof of LP-070's trailing
-36-month 120% automation/dividend gate with no month below 100%, a qualifying
-pre-vote LP-075 §13.1 cold-review record, Registrar execution, and a separately
-published and adopted Lower Incidence Certificate. No missing item was
-fabricated or backdated.
+The repository now contains the complete raw ledgers, declared normalization,
+Findings I–IV, LP-070 calculation, qualifying pre-vote LP-075 review, separate
+Schedule A and Lower instruments, Lower adoption, Schedule B certificate,
+effective notice, and coupled-reversion amendment. The ordinary verifier
+recomputes those artifacts and exits nonzero unless the complete chain passes.
 
-## Propagation ledger
+## Current canon
 
-| Surface | Classification | Disposition |
-|---|---|---|
-| `systems.html`, `charter.html`, `whitepaper.html`, `faq.html`, `why-vmss.html` | Current doctrine | Show LP-073 70 / 35 / 17 / 8; identify LP-074 as conditional and the 2294 record as void |
-| `layer--1.html`, `layer--3.html`, current simulation passages | Current examples | Restore operative 35% and 8% rates |
-| `law-polling.html`, `rate-history.html` | Authority and chronology | LP-073 active; LP-074 enacted but conditional; LP-075 procedural with §13.1 record gap |
-| Path 2 Charter, Schedule, Register, LP-075 page | Controlling procedural surfaces | Preserve enacted text; add honest current-status wrappers |
-| `documents/path-2-certification-2294-data.json` and generated page | Purported certificate | `VOID_INCOMPLETE`; candidate arithmetic only; no rate effect |
-| `documents/path-2-certification-2294-authority.md` | Authority matrix | Map every controlling provision to evidence and validator treatment |
-| `documents/lp-075-section-13-1-record-gap.md` | Provenance notice | Present-day notice; explicitly not backdated |
-| `docs-review/*` | Historical/internal artifacts | Preserve substantive records; add non-operative status headers and mark the corrupted review copy invalid |
-| Academy and resources source/PDFs | Current education | Teach the operative LP-073 rates and conditional LP-074 candidate |
-| Pending-ratification generated pages | Historical/process wrappers | Preserve filed text; remove false activation wrappers |
-| `deregistered-statutes.html` | Drafting history | Preserve withdrawn text; current wrapper identifies LP-073 as operative |
-| `tools/canon.json` | Constants | Separate operative and candidate schedules; record void disposition |
-| `tools/check-canon.mjs` | Automated invariants | Derive and verify authority, compendium gaps, sequence, revocation gap, generated-page agreement, and mutation tests |
-| VMSSLite current pages and validator | Current summary | Must mirror LP-073 status and precisely limit −2/−3 SCM to UBI/PJS-attributable savings |
+- LP-074 enacted conditionally in 2278; Path 2 adopted in 2279.
+- The first 2279–2288 window closed without a completed run.
+- LP-075 was filed in 2289 and enacted in 2291; it compelled procedure and set no rate.
+- Commission constituted in 2291; preregistration locked in 2292.
+- Schedule A certified first in 2294.
+- A separate Lower Incidence Certificate then issued, was adopted, and supported Schedule B.
+- The complete 50 / 25 / 12.5 / 6.25 cascade became operative in 2295.
+- LP-073 is superseded as operative law and preserved historically.
+- The $10 million threshold and layered SCM architecture are unchanged.
 
-## Intentional candidate references
+## Classification result
 
-The figure **50 / 25 / 12.5 / 6.25** survives only in filed proposals,
-historical advocacy, conditional-law text, candidate arithmetic, or a current
-sentence that expressly labels it conditional and non-operative. Historical
-70% references remain intact; current 70% references identify LP-073's
-operative schedule.
+The exact-pattern and broad greps classify present-tense pages as current
+operative canon; LP-073 and the 70 / 35 / 17 / 8 cascade as historical where
+era-pinned; original TAX-50 materials as a failed petition; Path 2 drafting as
+conditional process; and layout widths, votes, STI figures, planetary
+composition, and recidivism statistics as unrelated percentages. The exhaustive
+file-family ledger is published at
+`documents/tax-canon-classification-ledger.md`.
 
-## Revocation gap
+## Revocation states
 
-Charter §13.2 expressly restores the upper 70% point after Schedule A
-revocation but LP-074 does not automatically revoke Schedule B. A mixed
-70 / 25 / 12.5 / 6.25 state therefore cannot be silently excluded. Express
-amendment is required before activation to state how Schedule B is revoked or
-recalibrated and which lower rates revive.
+| State | Operative schedule |
+|---|---|
+| Schedule A and B active | 50 / 25 / 12.5 / 6.25 |
+| Schedule A active, Schedule B revoked | 50 / 35 / 17 / 8 |
+| Schedule A revoked | 70 / 35 / 17 / 8; Schedule B automatically suspended |
 
-## Validation source of truth
+The amendment forbids an accidental 70 / 25 / 12.5 / 6.25 state.
 
-The generated certificate page is built from
-`documents/path-2-certification-2294-data.json` through the shared authority
-module. The verifier confirms the void disposition, `--require-certification`
-must fail, and the permanent mutation suite rejects malformed records. Green
-canon checks do not substitute for missing evidence.
+## Historical preservation
+
+LP-073’s enacted wording remains verbatim. Its “exact halving cascade” phrase is
+not silently rewritten; the dated corrigendum explains that only 70→35 is
+exact, while 35→17 and 17→8 are rounded. Both first-run chronicles carry
+permanent non-operative or invalid-fixture labels.

@@ -1,0 +1,18 @@
+{
+  "artifactType": "LP074_SCHEDULE_B_FINAL_CERTIFICATE",
+  "publishedAt": "2294-02-21T09:30:00Z",
+  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
+  "lowerCertificateDigest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf",
+  "lowerAdoptionDigest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d",
+  "conditions": {
+    "B1": "PASS",
+    "B2": "PASS",
+    "B3": "PASS",
+    "B4": "PASS",
+    "B5": "PASS",
+    "B6": "PASS"
+  },
+  "schedule": "50 / 25 / 12.5 / 6.25",
+  "effectiveAssessmentYear": 2295,
+  "artifactDigest": "1431329655bef61b504261af1abe36fa04df4febc5e943bcb96589dffd5e063b"
+}

@@ -1,10 +1,10 @@
 # RATIFY-TAX-50 — Session record (post-v21.9.2 doctrine session)
 
-> **Process-record status — historical entries preserved.** This is the
-> drafting archive of rulings through the pre-certification phases; dated
-> entries are not rewritten. The purported 2294 certificate is incomplete and
-> void. LP-073's **70 / 35 / 17 / 8** remains operative, both LP-074 schedules
-> remain conditional, and the SCM is unchanged.
+> **ARCHIVE / NON-OPERATIVE — historical entries preserved.** This is the
+> drafting archive through the pre-certification phases; dated entries are not
+> rewritten. LP-073's **70 / 35 / 17 / 8** applied in those phases. The later
+> independent 2294 certificates activated both LP-074 schedules in 2295. SCM
+> is unchanged.
 
 ## Founder rulings of record (each shipped by this archival pass)
 - R1: Repair path for the pass-three kill is PATH 3 (rate

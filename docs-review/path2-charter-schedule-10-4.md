@@ -4,11 +4,10 @@
 ## per §13.1 · 2279 (Y178) · Amended after cold methodological review;
 ## residues engraved at Register entries RR-9 through RR-12
 
-> **Historical source status.** This is the terminal Schedule record from the
-> original 2279–2288 window. Its conditional language is preserved, but it is
-> not current fiscal law. The purported 2294 certificate is incomplete and
-> void. LP-073's **70 / 35 / 17 / 8** remains operative; LP-074's candidate
-> schedules remain conditional, and the SCM is unchanged.
+> **ARCHIVE / NON-OPERATIVE SOURCE.** This is the Schedule record from the
+> original 2279–2288 window. Its conditional language is preserved; the
+> published Schedule controls. LP-073's **70 / 35 / 17 / 8** applied during
+> that window. The complete 2294 record later activated LP-074 in 2295.
 
 ---
 
@@ -243,6 +242,5 @@ control.
 ---
 
 *Historical status: during the first 2279–2288 window, rates were 70/35/17/8
-under LP-073, and that schedule remains operative. The purported 2294
-certificate is incomplete and void; LP-074's 50/25/12.5/6.25 candidate remains
-conditional.*
+under LP-073. The later complete 2294 certificates activated
+50/25/12.5/6.25 in 2295.*

@@ -1,0 +1,55 @@
+{
+  "units": "annual district-equivalent SCM pulses and dimensionless Flow Test margin",
+  "baseline": [
+    {
+      "year": 2282,
+      "annualScmActivations": 8.058,
+      "flowTestMargin": 0.72
+    },
+    {
+      "year": 2283,
+      "annualScmActivations": 8.065,
+      "flowTestMargin": 0.75
+    },
+    {
+      "year": 2284,
+      "annualScmActivations": 8.173,
+      "flowTestMargin": 0.78
+    },
+    {
+      "year": 2285,
+      "annualScmActivations": 8.181,
+      "flowTestMargin": 0.81
+    },
+    {
+      "year": 2286,
+      "annualScmActivations": 8.287,
+      "flowTestMargin": 0.72
+    },
+    {
+      "year": 2287,
+      "annualScmActivations": 8.26,
+      "flowTestMargin": 0.75
+    },
+    {
+      "year": 2288,
+      "annualScmActivations": 8.353,
+      "flowTestMargin": 0.78
+    },
+    {
+      "year": 2289,
+      "annualScmActivations": 8.425,
+      "flowTestMargin": 0.81
+    },
+    {
+      "year": 2290,
+      "annualScmActivations": 8.429,
+      "flowTestMargin": 0.72
+    },
+    {
+      "year": 2291,
+      "annualScmActivations": 8.535,
+      "flowTestMargin": 0.75
+    }
+  ]
+}

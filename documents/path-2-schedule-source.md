@@ -238,8 +238,9 @@ control.
 
 *Adopted with the Charter. During the first 2279–2288 window, the 70/35/17/8
 schedule held under LP-073 because no commencement duty existed. LP-075
-later compelled a process but neither selected a rate nor supplied
-certification evidence. The purported 2294 certificate is incomplete and
-void; it does not lawfully apply this Schedule or supply the separate Lower
-Incidence Certificate. LP-073 remains operative and LP-074 remains
-conditional.*
+later compelled a process but selected no rate. The remedial run locked in
+2292 and applied this Schedule in the complete 2294 Schedule A certificate.
+A separate Lower Incidence Certificate subsequently issued and was adopted
+before Schedule B certified. LP-074's full 50/25/12.5/6.25 cascade became
+operative for the 2295 assessment year; this Schedule's methods, not the
+failed original petition's authored evidence, produced that result.*

@@ -448,15 +448,15 @@ const built = [];
   built.push([CHARTER, page({
     file: CHARTER,
     title: 'The Path 2 Charter — LP-074 Certification Methodology • The Five Rings',
-    description: 'The Path 2 Charter, adopted in 2279 and amended by LP-075 in 2291. Its fixed methodology governs any LP-074 certification; the purported 2294 record is incomplete and void, so LP-073 remains operative.',
+    description: 'The Path 2 Charter, adopted in 2279 and amended in 2291 and 2293. Its fixed methodology governed the complete 2294 LP-074 certification effective in 2295.',
     heroKicker: 'The Five Rings · Path 2 · Certification Methodology',
     heroTitle: 'The Path 2 Charter',
     heroSub: 'The methodology LP-074 requires before a rate can move: where a choice can be fixed, this Charter fixes it; where judgment is irreducible, it converts judgment into adversarial mechanism and prices ambiguity against activation. Adopted 2279 and amended in 2291.',
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Charter status">
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Adopted 2279 · Amended 2291 · LP-074 schedules remain conditional</span>
-            <p><strong>HISTORICAL ADOPTION, CURRENT CONTROL.</strong> Adoption changed no rate, and original §12.3 made the 2279&ndash;2288 no-run window lawful. <a href="law-polling.html#lp-075">LP-075</a> later compelled a remedial process without changing a condition. The purported <a href="${CERTIFICATION}">2294 certificate</a> lacks the controlling Findings, complete compendium, gate proof, cold-review record, and separate Lower Incidence Certificate; it is void. <a href="law-polling.html#lp-073">LP-073</a>&rsquo;s <strong>70 / 35 / 17 / 8</strong> schedule remains operative, while both <a href="law-polling.html#lp-074">LP-074</a> schedules remain conditional.</p>
+            <span class="pb-label">Adopted 2279 · Amended 2291 and 2293 · Applied by the 2294 certification</span>
+            <p><strong>HISTORICAL ADOPTION, CURRENT CONTROL.</strong> Adoption changed no rate, and original §12.3 made the 2279&ndash;2288 no-run window lawful. <a href="law-polling.html#lp-075">LP-075</a> later compelled a remedial process without changing a condition. That process locked in 2292 and produced the complete <a href="${CERTIFICATION}">2294 certificate</a>. Schedule A certified first; the separate Lower Incidence Certificate then issued, was adopted, and supported Schedule B. Both schedules took effect in 2295 at <strong>50 / 25 / 12.5 / 6.25</strong>.</p>
           </div>
         </div>`,
     crosslinks: [
@@ -492,7 +492,7 @@ const built = [];
           <i class="fas fa-list-ol" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Adopted with the Charter · No valid 2294 application</span>
-            <p><strong>PART OF THE CHARTER (§10.4).</strong> This Schedule enumerates the welfare measures, interval families, and preprocessing methods the audit may select from, and is part of the <a href="${CHARTER}#s-10-4">Path 2 Charter</a> for every purpose of §13.1. Its residues are engraved at the <a href="${REGISTER}#rr-9">Register</a> (RR-9 through RR-12). The purported <a href="${CERTIFICATION}">2294 record</a> is incomplete and void. It neither lawfully applies this Schedule to Schedule A nor supplies a separate B1&ndash;B6 Lower Incidence Certificate. LP-073 remains rate-setting.</p>
+            <p><strong>PART OF THE CHARTER (§10.4).</strong> This Schedule enumerates the welfare measures, interval families, and preprocessing methods the audit may select from, and is part of the <a href="${CHARTER}#s-10-4">Path 2 Charter</a> for every purpose of §13.1. Its residues are engraved at the <a href="${REGISTER}#rr-9">Register</a> (RR-9 through RR-12). The complete <a href="${CERTIFICATION}">2294 record</a> applied this Schedule to Findings I&ndash;IV and Schedule A; the distinct Lower Incidence Certificate separately supplied B1&ndash;B6 before Schedule B certification.</p>
           </div>
         </div>`,
     crosslinks: [
@@ -523,7 +523,7 @@ const built = [];
           <i class="fas fa-clipboard-check" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Adoption record · 2291 cadence amendment noted</span>
-            <p><strong>THE ADOPTION RECORD.</strong> This Register ships with the <a href="${CHARTER}">Path 2 Charter</a> and its <a href="${SCHEDULE}">§10.4 Schedule</a>, binding as the Charter’s own account of its limits. It disposes of the standing adversarial findings against the instrument and engraves the twelve residues <strong>RR-1 through RR-12</strong> that no text can close. Its 2291 annotation records LP-075&rsquo;s procedural amendment; no finding here activates a rate. The purported 2294 certificate is incomplete and void, so LP-073 remains operative.</p>
+            <p><strong>THE ADOPTION RECORD.</strong> This Register ships with the <a href="${CHARTER}">Path 2 Charter</a> and its <a href="${SCHEDULE}">§10.4 Schedule</a>, binding as the Charter’s own account of its limits. It disposes of the standing adversarial findings against the instrument and engraves the twelve residues <strong>RR-1 through RR-12</strong> that no text can close. Its 2291 annotation records LP-075&rsquo;s procedural amendment and its 2293 annotation records coupled reversion. No finding here activated a rate by itself; the complete 2294 certificates did.</p>
           </div>
         </div>`,
     crosslinks: [
@@ -559,7 +559,7 @@ const built = [];
           <i class="fas fa-gavel" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Historical adoption record — 2279 (Y178)</span>
-            <p><strong>THE ADJUDICATION OF RECORD.</strong> These 2279 rulings adopted the <a href="path-2-charter.html">Path 2 Charter</a> and its <a href="path-2-risk-register.html">Residual-Risk Register</a>; they changed no rate. LP-075 later compelled a process the original Charter did not require. The purported <a href="${CERTIFICATION}">2294 certificate</a> is incomplete and void; LP-073&rsquo;s 70 / 35 / 17 / 8 schedule remains operative. The historical rulings remain unchanged.</p>
+            <p><strong>THE ADJUDICATION OF RECORD.</strong> These 2279 rulings adopted the <a href="path-2-charter.html">Path 2 Charter</a> and its <a href="path-2-risk-register.html">Residual-Risk Register</a>; they changed no rate. LP-075 later compelled a process the original Charter did not require. The complete <a href="${CERTIFICATION}">2294 certificate</a> subsequently applied the unchanged methodology and activated LP-074 in 2295. The historical rulings remain unchanged.</p>
           </div>
         </div>`,
     crosslinks: [

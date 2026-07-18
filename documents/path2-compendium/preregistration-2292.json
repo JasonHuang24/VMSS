@@ -1,0 +1,78 @@
+{
+  "artifactType": "PATH2_PREREGISTRATION",
+  "lockedAt": "2292-02-15T12:00:00Z",
+  "cutoff": "2292-01",
+  "vintage": "2292-02-15",
+  "observationWindow": "2272-02 through 2292-01",
+  "maximumReportingLagMonths": 1,
+  "panels": {
+    "certification": "Lumen Fiscal Methods Collective",
+    "refusal": "Cairn Adverse Inference Bench"
+  },
+  "admissibleMembers": {
+    "I": [
+      {
+        "id": "I-certification-panel",
+        "panel": "certification",
+        "equivalenceClass": "I-ec-dynamic",
+        "family": "B-1 block bootstrap"
+      },
+      {
+        "id": "I-refusal-stress",
+        "panel": "refusal",
+        "equivalenceClass": "I-ec-local-trend",
+        "family": "B-2 analytic max-t"
+      }
+    ],
+    "II": [
+      {
+        "id": "II-certification-panel",
+        "panel": "certification",
+        "equivalenceClass": "II-ec-state-space",
+        "family": "B-1 block bootstrap"
+      },
+      {
+        "id": "II-refusal-attribution",
+        "panel": "refusal",
+        "equivalenceClass": "II-ec-local-level",
+        "family": "B-2 analytic max-t"
+      }
+    ],
+    "III": [
+      {
+        "id": "III-certification-panel",
+        "panel": "certification",
+        "equivalenceClass": "III-ec-count-panel",
+        "family": "B-1 block bootstrap"
+      },
+      {
+        "id": "III-refusal-tail",
+        "panel": "refusal",
+        "equivalenceClass": "III-ec-threshold-hazard",
+        "family": "B-2 analytic max-t"
+      }
+    ],
+    "IV": [
+      {
+        "id": "IV-certification-panel",
+        "panel": "certification",
+        "equivalenceClass": "IV-ec-demand-system",
+        "family": "B-1 block bootstrap"
+      },
+      {
+        "id": "IV-refusal-partial-id",
+        "panel": "refusal",
+        "equivalenceClass": "IV-ec-partial-id",
+        "family": "B-4 identification-region bound"
+      }
+    ]
+  },
+  "intercurrentTreatments": [
+    "obligation-law change",
+    "ADT structural change",
+    "SCM doctrine change",
+    "demographic regime change"
+  ],
+  "codeEntryPoint": "tools/verify-path2-certification-2294.mjs",
+  "seeds": "not applicable; analytic and deterministic interval inputs are deposited, with no stochastic recomputation step"
+}

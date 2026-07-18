@@ -1,0 +1,12 @@
+{
+  "runtime": "Node.js",
+  "minimumVersion": "20.0.0",
+  "dependencies": [],
+  "locale": "en-US",
+  "timezone": "UTC",
+  "deterministic": true,
+  "entryPoints": [
+    "tools/build-path2-certification-record.mjs",
+    "tools/verify-path2-certification-2294.mjs"
+  ]
+}

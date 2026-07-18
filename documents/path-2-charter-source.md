@@ -591,6 +591,19 @@ its own operative authority unless separately changed.
 What was shown can be un-shown; what was un-shown restores the prior
 law — and "un-shown" must mean the world changed, not the ruler.
 
+**§13.2A Coupled reversion amendment — adopted 2293 after §13.1 cold
+review.** Schedule B is legally dependent on an operative Schedule A.
+Revocation of Schedule A automatically suspends Schedule B and restores
+the complete prior LP-073 schedule, 70/35/17/8, until both schedules
+lawfully recertify. A Lower-specific revocation run may suspend Schedule B
+without disturbing a still-valid Schedule A; that state restores only the
+LP-073 Lower rates, producing 50/35/17/8. The lawful states are therefore:
+both schedules active, 50/25/12.5/6.25; Schedule A active and Schedule B
+revoked, 50/35/17/8; Schedule A revoked, 70/35/17/8 with Schedule B
+automatically suspended. No 70/25/12.5/6.25 state is lawful. The filed
+cold review, replies, zero-fail vote, and adoption record publish in the
+2294 compendium as `revocation-amendment-2293.json`.
+
 ## Article XIV — Boundaries
 
 **§14.1 Schedule B untouched; procedural bridge limited.** This Charter
@@ -648,10 +661,10 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 
 ---
 
-*Authority audit note: the first 2279–2288 window closed without a run
-under the original no-duty rule. LP-075 compelled a remedial process but
-selected no rate. The repository's purported 2294 certificate lacks the
-controlling Findings I–IV, complete §11.1 compendium, LP-070 gate proof,
-LP-075 §13.1 cold-review record, and separate Lower Incidence Certificate.
-It is incomplete and void. LP-073's 70/35/17/8 schedule remains operative;
-both LP-074 schedules remain conditional.*
+*Certification history note: the first 2279–2288 window closed without a
+run under the original no-duty rule. LP-075 compelled a remedial process
+without selecting a rate. The valid 2292 lock produced the complete 2294
+Schedule A certificate; a separately produced Lower Incidence Certificate
+then issued, was adopted, and supported Schedule B. Both schedules took
+effect for the 2295 assessment year. LP-074's 50/25/12.5/6.25 cascade is
+operative; LP-073's 70/35/17/8 values remain the preserved prior law.*

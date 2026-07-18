@@ -1,0 +1,19 @@
+{
+  "artifactType": "LP074_UNIFIED_EFFECTIVE_NOTICE",
+  "publishedAt": "2294-02-22T12:00:00Z",
+  "effectiveAt": "2295-01-01T00:00:00Z",
+  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
+  "lowerCertificateDigest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf",
+  "lowerAdoptionDigest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d",
+  "scheduleBCertificateDigest": "d67d819b7816bf6d121b5c80894a3f2736dadf64450d94f1cecef98a4f334160",
+  "rates": {
+    "sanctuaryAndMain": 50,
+    "lower1": 25,
+    "lower2": 12.5,
+    "lower3": 6.25
+  },
+  "threshold": "$10 million",
+  "scm": "unchanged in parameters and layered scope",
+  "lp073": "superseded as operative rate law; preserved historically",
+  "artifactDigest": "6efdd2493bc011c240cb7e74c6b724eb5cfbc7828dfb37fe95fc3666d5d87715"
+}

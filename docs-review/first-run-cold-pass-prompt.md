@@ -1,10 +1,10 @@
 # COLD PASS — THE FIRST RUN (illustrative-tier chronicle, in-flight)
 ## Adversarial review prompt. Paste whole into the reviewing seat with the review copy attached.
 
-> **Historical review frame.** This prompt concerns an illustrative chronicle,
-> not a completed run or current authority. The purported 2294 certificate is
-> incomplete and void. LP-073's **70 / 35 / 17 / 8** remains operative;
-> LP-074's candidate schedules remain conditional, and the SCM is unchanged.
+> **ARCHIVE / NON-OPERATIVE.** This prompt concerns an illustrative,
+> counterfactual chronicle, not a completed run or current authority. The real
+> first window closed without a run. The later remedial record validly
+> activated LP-074's **50 / 25 / 12.5 / 6.25** schedules in 2295.
 
 ---
 
@@ -48,10 +48,10 @@ consistent with, but not drawn from, register data.
   identity, B-4 partial identification, Findings I–IV.
 - https://jasonhchronicles.com/VMSS/path-2-risk-register.html — the
   Residual-Risk Register: engravings RR-1 through RR-12.
-- Anchor facts for the 2279–2281 chronicle: the rates were 70/35/17/8 under
-  LP-073; instrument adopted 2279; certification window open through 2288;
-  Finding IV undecided. LP-073 remains operative. LP-074's candidate cascade
-  remains conditional because the purported 2294 certificate is void.
+- Anchor facts inside the illustrative 2279–2281 chronicle: the rates were
+  70/35/17/8 under LP-073; instrument adopted 2279; certification window open
+  through 2288; Finding IV undecided. Those are not present-tense claims. The
+  actual remedial certificates later activated LP-074 in 2295.
 
 ## REVIEW DIMENSIONS
 

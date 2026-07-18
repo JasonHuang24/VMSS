@@ -2,6 +2,9 @@
 ## Disposition of the 50 standing adversarial findings against v2
 ## Adopted alongside the Charter; part of the adoption record.
 ## 2291 amendment note: LP-075 changed future commencement duty only.
+## 2293 amendment note: a §13.1-reviewed coupled-reversion rule made
+## Schedule B dependent on an operative Schedule A and created a direct
+## Lower-specific revocation route.
 ## The adoption findings below remain historical dispositions; the first
 ## 2279–2288 no-run was lawful under the then-operative §12.3.
 ## Status codes: CURED (v3 text removes the exploit) · MITIGATED

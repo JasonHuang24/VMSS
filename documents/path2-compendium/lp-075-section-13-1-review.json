@@ -1,0 +1,54 @@
+{
+  "artifactType": "LP075_SECTION_13_1_COLD_REVIEW",
+  "inWorldRecoveryNotice": "Recovered and repository-published 2300-07-18; event dates below are original chamber timestamps.",
+  "reviewer": {
+    "name": "Sable Meridian Audit Cooperative",
+    "eligibilityRank": 1,
+    "selectionMethod": "highest-ranked eligible audit-methodology entity after mechanical quarantine screening",
+    "selectedAt": "2290-03-02T09:00:00Z"
+  },
+  "reviewCompletedAt": "2290-07-18T16:00:00Z",
+  "drafterRepliesPublishedAt": "2290-08-10T12:00:00Z",
+  "voteAt": "2291-01-20T14:00:00Z",
+  "enactedAt": "2291-01-22T10:00:00Z",
+  "findings": [
+    {
+      "id": "CR-1",
+      "severity": "medium",
+      "finding": "The remedial cadence must not deem either schedule certified.",
+      "drafterDisposition": "Accepted; outcome-neutrality and separate termination added to §12.3.",
+      "reviewerReply": "Resolved; language preserves every substantive gate.",
+      "unresolvedObjection": false,
+      "presidentialFlag": false
+    },
+    {
+      "id": "CR-2",
+      "severity": "medium",
+      "finding": "Schedule B must remain dependent on its distinct Lower Incidence Certificate.",
+      "drafterDisposition": "Accepted; §12.3 and §14.1 expressly preserve the distinct pathway.",
+      "reviewerReply": "Resolved; no Schedule A evidence cross-credits Schedule B.",
+      "unresolvedObjection": false,
+      "presidentialFlag": false
+    },
+    {
+      "id": "CR-3",
+      "severity": "low",
+      "finding": "Non-locking sanctions require attribution and appeal.",
+      "drafterDisposition": "Accepted; Registrar attribution and §2.4 appeal incorporated.",
+      "reviewerReply": "Resolved.",
+      "unresolvedObjection": false,
+      "presidentialFlag": false
+    }
+  ],
+  "finalVote": {
+    "chambers": {
+      "Sanctuary": "PASS",
+      "Main": "PASS",
+      "Lower": "PASS",
+      "Court": "PASS",
+      "Meritboard": "PASS"
+    },
+    "zeroFails": true
+  },
+  "artifactDigest": "1c30c40e34705e2edac2ce930d2af7016355f5d1905ad7930d8984f0895e046c"
+}

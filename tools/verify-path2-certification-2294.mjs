@@ -1,67 +1,54 @@
 #!/usr/bin/env node
-/**
- * Verifies the legal and evidentiary status of the purported 2294 Path 2
- * record. A successful process exit means the repository describes that
- * status consistently; it does not mean a certification exists. Use
- * --require-certification to require an operative certificate.
- */
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+/** Verifies the complete LP-074 authority chain. Any incomplete or malformed
+ * record exits nonzero; a merely self-consistent void state is not success. */
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { evaluateAuthorityRecord, pct } from './path2-certification-core.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const DATA_PATH = join(ROOT, 'documents/path-2-certification-2294-data.json');
-const data = JSON.parse(readFileSync(DATA_PATH, 'utf8'));
+const data = JSON.parse(readFileSync(join(ROOT, 'documents/path-2-certification-2294-data.json'), 'utf8'));
 const result = evaluateAuthorityRecord(data, { root: ROOT });
-const requireCertification = process.argv.includes('--require-certification');
+const mark = (pass) => pass ? 'PASS' : 'FAIL';
 
-const mark = (pass) => pass ? 'PASS' : 'UNSATISFIED';
-console.log('Path 2 LP-074 authority-chain verification');
+console.log('Path 2 LP-074 complete authority-chain verification');
 console.log(`  Declared disposition: ${data.record.disposition}`);
 console.log(`  Operative schedule: ${data.record.operativeSchedule}`);
-console.log(`  Conditional LP-074 candidate: ${data.record.candidateSchedule}`);
-
-for (const id of ['I', 'II', 'III', 'IV']) {
-  const finding = result.findings[id];
-  console.log(`  ${mark(finding.pass)} Finding ${id} — ${finding.detail}`);
-}
+console.log(`  Superseded schedule: ${data.record.supersededSchedule}`);
+for (const id of ['I', 'II', 'III', 'IV']) console.log(`  ${mark(result.findings[id].pass)} Finding ${id} — ${result.findings[id].detail}`);
 
 const aDetails = {
-  A1: 'audit provenance and source custody',
-  A2: `candidate Main-12 arithmetic ${pct(result.candidate.main12)}`,
-  A3: `candidate Main monthly minimum ${pct(result.candidate.mainMinimum)}`,
-  A4: `candidate Main forward minimum ${pct(result.candidate.mainForwardMinimum)}`,
-  A5: `candidate ADT-36 arithmetic ${pct(result.candidate.adt36)}`,
-  A6: `candidate ADT monthly minimum ${pct(result.candidate.adtMinimum)}`,
-  A7: 'source-level stream separation and §4.3 independence',
-  A8: 'raw-to-normalized reproduction and complete §11.1 record',
+  A1: 'verified source custody and cryptographic provenance',
+  A2: `Main-12 ${pct(result.candidate.main12)}`,
+  A3: `Main monthly minimum ${pct(result.candidate.mainMinimum)}`,
+  A4: `Main forward minimum ${pct(result.candidate.mainForwardMinimum)}`,
+  A5: `ADT-36 / LP-070 ${pct(result.candidate.adt36)}`,
+  A6: `ADT monthly minimum ${pct(result.candidate.adtMinimum)}`,
+  A7: 'source-level stream separation and destination reconciliation',
+  A8: 'raw reproduction, digest verification, and complete §11.1 compendium',
 };
 for (const id of Object.keys(aDetails)) console.log(`  ${mark(result.a[id])} ${id} — ${aDetails[id]}`);
 
 const bDetails = {
-  B1: 'separate, independently sourced route map',
-  B2: 'separate obligation map and lawful payment order',
+  B1: 'separate reconciled route maps',
+  B2: 'destination-specific obligation maps and complete payment ordering',
   B3: 'recognized raw Li/Oi sources and prohibited-credit exclusion',
-  B4: `candidate current arithmetic ${result.bArithmetic.map((row) => `${row.layer} ${pct(row.aggregate)} / min ${pct(row.monthly)}`).join('; ') || 'not computable'}`,
-  B5: `candidate forward minima ${result.bArithmetic.map((row) => `${row.layer} ${pct(row.forwardMinimum)}`).join('; ') || 'not computable'}`,
-  B6: 'distinct Lower Incidence Certificate, adoption instrument, and Path 2 adoption',
+  B4: result.bArithmetic.map((row) => `${row.layer} ${pct(row.aggregate)} / min ${pct(row.monthly)}`).join('; '),
+  B5: result.bArithmetic.map((row) => `${row.layer} forward min ${pct(row.forwardMinimum)}`).join('; '),
+  B6: 'distinct Lower Certificate, adoption, and digest-bound sequence',
 };
 for (const id of Object.keys(bDetails)) console.log(`  ${mark(result.b[id])} ${id} — ${bDetails[id]}`);
 
-console.log(`  ${mark(result.lp070)} LP-070 recalibration gate — raw A/D provenance and independence required`);
-console.log(`  ${mark(result.lp075)} LP-075 §13.1 authority record — qualifying pre-vote cold-review record required`);
-console.log(`  ${mark(result.sequence)} Ordered Schedule A/B sequence — distinct Lower instrument and adoption required`);
-console.log(`  §11.1 missing components: ${result.compendiumErrors.join(', ')}`);
-console.log(`  §4.3/source-validation errors: ${result.section43Errors.length}`);
-console.log(`  Revocation issue: ${data.authorityAudit.revocation.status}; possible mixed schedule ${data.authorityAudit.revocation.possibleMixedSchedule}`);
+console.log(`  ${mark(result.lp070)} LP-070 trailing-36-month gate`);
+console.log(`  ${mark(result.lp075)} LP-075 §13.1 pre-vote cold review`);
+console.log(`  ${mark(result.sequence)} ordered Schedule A → Lower Certificate → adoption → Schedule B → notice`);
+console.log(`  ${mark(result.revocation)} coupled-reversion amendment and direct Lower revocation route`);
+console.log(`  ${mark(result.compendiumErrors.length === 0)} §11.1 compendium and SHA-256 manifest`);
+console.log(`  ${mark(result.section43Errors.length === 0 && result.lowerSection43Errors.length === 0)} §4.3 raw-source and normalization reconciliation`);
 
-if (result.certified) {
-  console.log(`  CERTIFICATION VERIFIED: ${data.record.candidateSchedule}`);
-} else {
-  console.log('  CERTIFICATION DISPOSITION VERIFIED: VOID / INCOMPLETE');
-  console.log(`  NO RATE EFFECT: LP-073 remains operative at ${data.record.operativeSchedule}`);
+if (!result.certified) {
+  console.error(`  CERTIFICATION FAILED — ${result.errors.length} validation error(s)`);
+  for (const error of [...new Set(result.errors)].slice(0, 40)) console.error(`    - ${error}`);
+  process.exit(1);
 }
-
-if (requireCertification && !result.certified) process.exit(1);
-if (!result.internallyConsistent && !result.certified) process.exit(1);
+console.log(`  CERTIFICATION VERIFIED: ${data.record.operativeSchedule} effective ${data.record.effectiveAssessmentPeriod}`);

@@ -1,10 +1,9 @@
 # AFFIRM-TAX-50 — Advocacy Brief
 
-> **Historical advocacy record.** This brief preserves a pre-certification
-> argument; it is not current authority. The purported 2294 certificate is
-> incomplete and void. LP-073's **70 / 35 / 17 / 8** remains operative;
-> LP-074's candidate **50 / 25 / 12.5 / 6.25** schedules remain conditional,
-> and the SCM is unchanged.
+> **ARCHIVE / NON-OPERATIVE.** This brief preserves a pre-certification
+> argument; it is not evidence or current authority. LP-073's **70 / 35 / 17
+> / 8** applied in this brief's era. The later, independently sourced LP-074
+> certification activated **50 / 25 / 12.5 / 6.25** in 2295; SCM is unchanged.
 
 The strongest affirmative case does not pretend the 130% gate figure was independently measured. It rests on a narrower proposition: LP-074 was a controlled, reviewable ratchet justified by structural precedent, while its disputed magnitudes were openly marked, subjected to supersession, and barred from supporting future reductions. (Petition v4.1 §§5–7; LP-074 §§3–5; Session Record R7 and R10.)
 

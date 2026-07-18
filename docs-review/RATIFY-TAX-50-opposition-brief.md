@@ -1,10 +1,10 @@
 # RATIFY-TAX-50 — Opposition Brief (publishes alongside the ballot)
 
-> **Archival / pre-certification brief.** This is the failed RATIFY-TAX-50
-> record, preserved below rather than current authority. The purported 2294
-> certificate is incomplete and void. LP-073's 70 / 35 / 17 / 8 remains
-> operative; LP-074's 50 / 25 / 12.5 / 6.25 schedules remain conditional,
-> and SCM is unchanged.
+> **ARCHIVE / NON-OPERATIVE.** This is the failed RATIFY-TAX-50 record,
+> preserved below rather than current authority. Its authored figures never
+> activated law. LP-073's 70 / 35 / 17 / 8 applied in this record's era; the
+> later independent LP-074 certification activated 50 / 25 / 12.5 / 6.25 in
+> 2295. SCM is unchanged.
 
 Status: in-world document. Per ruling R9, adversarial-review findings
 with no drafting cure attach VERBATIM to the gauntlet ballot as the

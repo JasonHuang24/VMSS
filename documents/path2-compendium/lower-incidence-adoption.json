@@ -1,0 +1,15 @@
+{
+  "artifactType": "LOWER_INCIDENCE_ADOPTION",
+  "adoptedAt": "2294-02-20T14:00:00Z",
+  "lowerCertificatePath": "documents/path2-compendium/lower-incidence-certificate.json",
+  "lowerCertificateDigest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf",
+  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
+  "body": "Path 2 standing audit",
+  "vote": {
+    "AsterVale": "ADOPT",
+    "MiraQuen": "ADOPT",
+    "TalRen": "ADOPT"
+  },
+  "result": "ADOPTED",
+  "artifactDigest": "f3cee0f57a21e2129d2e3270a91a8c5e58825e75a7ff5b5e9ebfd68fbde63aa8"
+}
