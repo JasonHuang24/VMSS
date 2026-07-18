@@ -2,8 +2,8 @@
   "artifactType": "LOWER_INCIDENCE_CERTIFICATE",
   "publishedAt": "2294-01-25T10:00:00Z",
   "scheduleACertificatePath": "documents/path2-compendium/schedule-a-final-certificate.json",
-  "scheduleACertificateDigest": "cfbc6610ca42cab7688128db727b5459084ae04f091d7afbe21f528dcba691fb",
-  "registrarExecutionDigest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27",
+  "scheduleACertificateDigest": "5439354d4479028ac49ead83e1c56adb86808aea80cb90f7eecce5c6a5392acf",
+  "registrarExecutionDigest": "fb29d39cbf4752ee76f2f190b19e034ba41a1e87b4a6beb6dab62ca56cfa6e7c",
   "layers": [
     {
       "layer": "-1",
@@ -40,5 +40,5 @@
     "SCM recycle",
     "cyclical backfill"
   ],
-  "artifactDigest": "9953aa97c2646a03822a79a6bdb5d1e68d08a76dcb891c674b3457c75abec4e2"
+  "artifactDigest": "b97d27256650fa69254359ae2f9452e3e6866be6e22b7501fbddf6d3936f011a"
 }

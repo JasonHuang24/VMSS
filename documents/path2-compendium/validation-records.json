@@ -116,14 +116,14 @@
       "fitted": {
         "receipts": {
           "model": "linear",
-          "intercept": 1184.8739583333333,
-          "slope": 18.162053571428572,
+          "intercept": 1184.8739583333,
+          "slope": 18.1620535714,
           "origin": 2272
         },
         "obligations": {
           "model": "linear",
-          "intercept": 1082.2393519333332,
-          "slope": 16.41924602857143,
+          "intercept": 1082.2393519333,
+          "slope": 16.4192460286,
           "origin": 2272
         }
       }
@@ -243,14 +243,14 @@
       "fitted": {
         "receipts": {
           "model": "linear",
-          "intercept": 1184.8739583333333,
-          "slope": 18.162053571428572,
+          "intercept": 1184.8739583333,
+          "slope": 18.1620535714,
           "origin": 2272
         },
         "obligations": {
           "model": "linear",
-          "intercept": 1082.2393519333332,
-          "slope": 16.41924602857143,
+          "intercept": 1082.2393519333,
+          "slope": 16.4192460286,
           "origin": 2272
         }
       }
@@ -370,13 +370,13 @@
       "fitted": {
         "receipts": {
           "model": "constant",
-          "intercept": 1312.0083333333334,
+          "intercept": 1312.0083333333,
           "slope": 0,
           "origin": 2272
         },
         "obligations": {
           "model": "constant",
-          "intercept": 1197.1740741333333,
+          "intercept": 1197.1740741333,
           "slope": 0,
           "origin": 2272
         }
@@ -462,8 +462,8 @@
       "fitted": {
         "realDividendPerResident": {
           "model": "linear",
-          "intercept": 97.11553706666668,
-          "slope": 0.24432540000000005,
+          "intercept": 97.1155370667,
+          "slope": 0.2443254,
           "origin": 2272
         }
       }
@@ -548,8 +548,8 @@
       "fitted": {
         "realDividendPerResident": {
           "model": "linear",
-          "intercept": 97.11553706666668,
-          "slope": 0.24432540000000005,
+          "intercept": 97.1155370667,
+          "slope": 0.2443254,
           "origin": 2272
         }
       }
@@ -634,7 +634,7 @@
       "fitted": {
         "realDividendPerResident": {
           "model": "constant",
-          "intercept": 98.82581486666668,
+          "intercept": 98.8258148667,
           "slope": 0,
           "origin": 2272
         }
@@ -755,14 +755,14 @@
       "fitted": {
         "annualScmActivations": {
           "model": "linear",
-          "intercept": 7.583590083333332,
-          "slope": 0.052288692857142854,
+          "intercept": 7.5835900833,
+          "slope": 0.0522886929,
           "origin": 2272
         },
         "flowTestMargin": {
           "model": "linear",
           "intercept": 0.914661075,
-          "slope": -0.0062023821428571465,
+          "slope": -0.0062023821,
           "origin": 2272
         }
       }
@@ -882,14 +882,14 @@
       "fitted": {
         "annualScmActivations": {
           "model": "linear",
-          "intercept": 7.583590083333332,
-          "slope": 0.052288692857142854,
+          "intercept": 7.5835900833,
+          "slope": 0.0522886929,
           "origin": 2272
         },
         "flowTestMargin": {
           "model": "linear",
           "intercept": 0.914661075,
-          "slope": -0.0062023821428571465,
+          "slope": -0.0062023821,
           "origin": 2272
         }
       }
@@ -1009,7 +1009,7 @@
       "fitted": {
         "annualScmActivations": {
           "model": "constant",
-          "intercept": 7.949610933333332,
+          "intercept": 7.9496109333,
           "slope": 0,
           "origin": 2272
         },
@@ -1451,68 +1451,68 @@
       "fitted": {
         "privateConsumerSurplus": {
           "model": "linear",
-          "intercept": 0.43139833333333333,
-          "slope": 0.007939285714285716,
+          "intercept": 0.4313983333,
+          "slope": 0.0079392857,
           "origin": 2272
         },
         "privateProducerSurplus": {
           "model": "linear",
-          "intercept": 0.31039142499999994,
-          "slope": 0.006031510714285712,
+          "intercept": 0.310391425,
+          "slope": 0.0060315107,
           "origin": 2272
         },
         "qualityAdjustment": {
           "model": "linear",
-          "intercept": 0.08199999999999999,
-          "slope": 0.0012000000000000003,
+          "intercept": 0.082,
+          "slope": 0.0012,
           "origin": 2272
         },
         "publicConsumerSurplus": {
           "model": "linear",
-          "intercept": 0.26033154166666667,
-          "slope": 0.004826646428571432,
+          "intercept": 0.2603315417,
+          "slope": 0.0048266464,
           "origin": 2272
         },
         "publicProducerSurplus": {
           "model": "linear",
-          "intercept": 0.1909987666666667,
-          "slope": 0.003556642857142856,
+          "intercept": 0.1909987667,
+          "slope": 0.0035566429,
           "origin": 2272
         },
         "publicQualityAdjustment": {
           "model": "linear",
           "intercept": 0.051,
-          "slope": 0.0008000000000000001,
+          "slope": 0.0008,
           "origin": 2272
         },
         "displacementCost": {
           "model": "linear",
-          "intercept": 0.04699999999999999,
+          "intercept": 0.047,
           "slope": 0.00035,
           "origin": 2272
         },
         "externalCost": {
           "model": "linear",
           "intercept": 0.029,
-          "slope": 0.0002199999999999999,
+          "slope": 0.00022,
           "origin": 2272
         },
         "beyondHorizonValue": {
           "model": "linear",
           "intercept": 0.012,
-          "slope": 0.00009999999999999999,
+          "slope": 0.0001,
           "origin": 2272
         },
         "publicCaptureSurplus": {
           "model": "linear",
           "intercept": 0.46,
-          "slope": 0.007999999999999998,
+          "slope": 0.008,
           "origin": 2272
         },
         "canonicalConsumptionLevel": {
           "model": "linear",
-          "intercept": 52.40861666666667,
-          "slope": 0.37069285714285727,
+          "intercept": 52.4086166667,
+          "slope": 0.3706928571,
           "origin": 2272
         }
       }
@@ -1947,68 +1947,68 @@
       "fitted": {
         "privateConsumerSurplus": {
           "model": "linear",
-          "intercept": 0.43139833333333333,
-          "slope": 0.007939285714285716,
+          "intercept": 0.4313983333,
+          "slope": 0.0079392857,
           "origin": 2272
         },
         "privateProducerSurplus": {
           "model": "linear",
-          "intercept": 0.31039142499999994,
-          "slope": 0.006031510714285712,
+          "intercept": 0.310391425,
+          "slope": 0.0060315107,
           "origin": 2272
         },
         "qualityAdjustment": {
           "model": "linear",
-          "intercept": 0.08199999999999999,
-          "slope": 0.0012000000000000003,
+          "intercept": 0.082,
+          "slope": 0.0012,
           "origin": 2272
         },
         "publicConsumerSurplus": {
           "model": "linear",
-          "intercept": 0.26033154166666667,
-          "slope": 0.004826646428571432,
+          "intercept": 0.2603315417,
+          "slope": 0.0048266464,
           "origin": 2272
         },
         "publicProducerSurplus": {
           "model": "linear",
-          "intercept": 0.1909987666666667,
-          "slope": 0.003556642857142856,
+          "intercept": 0.1909987667,
+          "slope": 0.0035566429,
           "origin": 2272
         },
         "publicQualityAdjustment": {
           "model": "linear",
           "intercept": 0.051,
-          "slope": 0.0008000000000000001,
+          "slope": 0.0008,
           "origin": 2272
         },
         "displacementCost": {
           "model": "linear",
-          "intercept": 0.04699999999999999,
+          "intercept": 0.047,
           "slope": 0.00035,
           "origin": 2272
         },
         "externalCost": {
           "model": "linear",
           "intercept": 0.029,
-          "slope": 0.0002199999999999999,
+          "slope": 0.00022,
           "origin": 2272
         },
         "beyondHorizonValue": {
           "model": "linear",
           "intercept": 0.012,
-          "slope": 0.00009999999999999999,
+          "slope": 0.0001,
           "origin": 2272
         },
         "publicCaptureSurplus": {
           "model": "linear",
           "intercept": 0.46,
-          "slope": 0.007999999999999998,
+          "slope": 0.008,
           "origin": 2272
         },
         "canonicalConsumptionLevel": {
           "model": "linear",
-          "intercept": 52.40861666666667,
-          "slope": 0.37069285714285727,
+          "intercept": 52.4086166667,
+          "slope": 0.3706928571,
           "origin": 2272
         }
       }
@@ -2443,13 +2443,13 @@
       "fitted": {
         "privateConsumerSurplus": {
           "model": "constant",
-          "intercept": 0.4869733333333333,
+          "intercept": 0.4869733333,
           "slope": 0,
           "origin": 2272
         },
         "privateProducerSurplus": {
           "model": "constant",
-          "intercept": 0.3526119999999999,
+          "intercept": 0.352612,
           "slope": 0,
           "origin": 2272
         },
@@ -2461,13 +2461,13 @@
         },
         "publicConsumerSurplus": {
           "model": "constant",
-          "intercept": 0.2941180666666667,
+          "intercept": 0.2941180667,
           "slope": 0,
           "origin": 2272
         },
         "publicProducerSurplus": {
           "model": "constant",
-          "intercept": 0.2158952666666667,
+          "intercept": 0.2158952667,
           "slope": 0,
           "origin": 2272
         },
@@ -2479,7 +2479,7 @@
         },
         "displacementCost": {
           "model": "constant",
-          "intercept": 0.049449999999999994,
+          "intercept": 0.04945,
           "slope": 0,
           "origin": 2272
         },
@@ -2503,7 +2503,7 @@
         },
         "canonicalConsumptionLevel": {
           "model": "constant",
-          "intercept": 55.00346666666667,
+          "intercept": 55.0034666667,
           "slope": 0,
           "origin": 2272
         }
@@ -2630,13 +2630,13 @@
         "fitted": {
           "receipts": {
             "model": "constant",
-            "intercept": 1312.0083333333334,
+            "intercept": 1312.0083333333,
             "slope": 0,
             "origin": 2272
           },
           "obligations": {
             "model": "constant",
-            "intercept": 1197.1740741333333,
+            "intercept": 1197.1740741333,
             "slope": 0,
             "origin": 2272
           }
@@ -2727,7 +2727,7 @@
         "fitted": {
           "realDividendPerResident": {
             "model": "constant",
-            "intercept": 98.82581486666668,
+            "intercept": 98.8258148667,
             "slope": 0,
             "origin": 2272
           }
@@ -2853,7 +2853,7 @@
         "fitted": {
           "annualScmActivations": {
             "model": "constant",
-            "intercept": 7.949610933333332,
+            "intercept": 7.9496109333,
             "slope": 0,
             "origin": 2272
           },
@@ -3300,13 +3300,13 @@
         "fitted": {
           "privateConsumerSurplus": {
             "model": "constant",
-            "intercept": 0.4869733333333333,
+            "intercept": 0.4869733333,
             "slope": 0,
             "origin": 2272
           },
           "privateProducerSurplus": {
             "model": "constant",
-            "intercept": 0.3526119999999999,
+            "intercept": 0.352612,
             "slope": 0,
             "origin": 2272
           },
@@ -3318,13 +3318,13 @@
           },
           "publicConsumerSurplus": {
             "model": "constant",
-            "intercept": 0.2941180666666667,
+            "intercept": 0.2941180667,
             "slope": 0,
             "origin": 2272
           },
           "publicProducerSurplus": {
             "model": "constant",
-            "intercept": 0.2158952666666667,
+            "intercept": 0.2158952667,
             "slope": 0,
             "origin": 2272
           },
@@ -3336,7 +3336,7 @@
           },
           "displacementCost": {
             "model": "constant",
-            "intercept": 0.049449999999999994,
+            "intercept": 0.04945,
             "slope": 0,
             "origin": 2272
           },
@@ -3360,7 +3360,7 @@
           },
           "canonicalConsumptionLevel": {
             "model": "constant",
-            "intercept": 55.00346666666667,
+            "intercept": 55.0034666667,
             "slope": 0,
             "origin": 2272
           }

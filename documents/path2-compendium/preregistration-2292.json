@@ -473,7 +473,7 @@
       },
       {
         "path": "tools/path2-execution-engine.mjs",
-        "digest": "a42cd9f3313a6f27b7edc9a0e2d3fda80029473d7f97f2abf49bd6d8fdf05447"
+        "digest": "326dd70a9a33b1976f663e03d1b39cd5ea4bc45fbf74e3f0bbba9ad0b44e0e2a"
       },
       {
         "path": "tools/path2-certification-core.mjs",
@@ -573,5 +573,5 @@
     "amendmentDigest": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a",
     "scope": "Measurement-only clarification of Charter §5.3; substantive Finding II zero-impairment and Finding IV positive-OM thresholds are unchanged."
   },
-  "artifactDigest": "e39edaf8fa48d9803a0788b23a0cff6c87f05a8ee5da69718dd5de6a5b324a2e"
+  "artifactDigest": "b7ff672d9c2b463ec8fe142e5832e469cd4167b3c829c6df4ea85f56da31fcec"
 }

@@ -80,17 +80,17 @@
     {
       "id": "COMPENDIUM-preregistration",
       "path": "documents/path2-compendium/preregistration-2292.json",
-      "digest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228"
+      "digest": "d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a"
     },
     {
       "id": "COMPENDIUM-preregistration-lock-certificate",
       "path": "documents/path2-compendium/preregistration-lock-certificate.json",
-      "digest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936"
+      "digest": "fcfe918e4baaefe513139de8dca07dea17e9216b425efc2ba8b0201a81c30aba"
     },
     {
       "id": "COMPENDIUM-public-chambers-lock-record",
       "path": "documents/path2-compendium/public-chambers-lock-record.json",
-      "digest": "1aa3caabd94347f97fa64cbb0ecd6d545c2adaeaf40a7eabad1c312a6fd0fb93"
+      "digest": "fdffbc5f84cc4f06fb9ecdb91a363090887f8382bd3dc87c0fa8b4510ec25d7c"
     },
     {
       "id": "COMPENDIUM-analytic-data",
@@ -100,17 +100,17 @@
     {
       "id": "COMPENDIUM-executed-calculation-output",
       "path": "documents/path2-compendium/execution-output.json",
-      "digest": "1b1afab011f110bf09e179cf2a101dc57c8662016a385bf409614a4d8229c093"
+      "digest": "09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8"
     },
     {
       "id": "COMPENDIUM-calculation-code",
       "path": "documents/path2-compendium/calculation-code-manifest.json",
-      "digest": "2ddd51e4471018b9ce0b37d9c08a7af5927767ef4cf2d2aff394281963ad3e10"
+      "digest": "c5dc87d179a4a17351cdb3b4a66be052bc1194b59bc641b85e40bd3c44f36deb"
     },
     {
       "id": "COMPENDIUM-environment-manifest",
       "path": "documents/path2-compendium/environment-manifest.json",
-      "digest": "41dbf5ced6125c4e7aef58482249edaedbd53af1b7d26471f1d6c0870678a073"
+      "digest": "7262c53b5c7db1830a3a6a684d3a2a9b9b480c6589bb8226b7a47f4e959d5d49"
     },
     {
       "id": "COMPENDIUM-source-provenance",
@@ -130,17 +130,17 @@
     {
       "id": "COMPENDIUM-execution-logs",
       "path": "documents/path2-compendium/execution-log.txt",
-      "digest": "39534a2d9b09aea4e760c4e10b5097db372e26d030cc175989533058d544ed9f"
+      "digest": "eff41c904e23660f44a22e3b5281632bbee137f1d13032160d1131a58ba5cb4d"
     },
     {
       "id": "COMPENDIUM-section-4-3-validation-records",
       "path": "documents/path2-compendium/validation-records.json",
-      "digest": "a71948faa0511a102d8c9b49388c567f36bb23c721322d5dcf7b40d75a4ea525"
+      "digest": "cef4bff4dba2c0f26904cef260feae8c7ce0e8ff6d3bc9f626838517b1d70a10"
     },
     {
       "id": "COMPENDIUM-union-estimates-and-intervals",
       "path": "documents/path2-compendium/union-estimates.json",
-      "digest": "dacb7c37684b59393cd92ba33464f45bb4e512e6a70afc755ec0e9dfa1cc5118"
+      "digest": "9605c734a19a3ec8f0cb93d27ac7153633b1414c1d01dd82b075a92146b36bf5"
     },
     {
       "id": "COMPENDIUM-finding-iv-member-derivations",
@@ -170,17 +170,17 @@
     {
       "id": "COMPENDIUM-registrar-certifications",
       "path": "documents/path2-compendium/registrar-certification.json",
-      "digest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27"
+      "digest": "fb29d39cbf4752ee76f2f190b19e034ba41a1e87b4a6beb6dab62ca56cfa6e7c"
     },
     {
       "id": "COMPENDIUM-lower-incidence-certificate",
       "path": "documents/path2-compendium/lower-incidence-certificate.json",
-      "digest": "91bf9602dbc46d5c39dbd05d8fcff41d93bc4becd8464847d32624771865d009"
+      "digest": "475e00dc5b79f9bbcb45cb3514a13afda94c8db35b9ace3a5dd3d9631d27647c"
     },
     {
       "id": "COMPENDIUM-lower-incidence-adoption",
       "path": "documents/path2-compendium/lower-incidence-adoption.json",
-      "digest": "2a38cf26ecbe5172e270b136228eb668ec656ec6ca8b8542b56f2c454aea3c55"
+      "digest": "50f93118c822b05c11806dc753c97b819359a538e6718b70cf3ebdff58a948c2"
     },
     {
       "id": "LP075-REVIEW",
@@ -195,17 +195,17 @@
     {
       "id": "SCHEDULE-A-CERTIFICATE",
       "path": "documents/path2-compendium/schedule-a-final-certificate.json",
-      "digest": "cfbc6610ca42cab7688128db727b5459084ae04f091d7afbe21f528dcba691fb"
+      "digest": "5439354d4479028ac49ead83e1c56adb86808aea80cb90f7eecce5c6a5392acf"
     },
     {
       "id": "SCHEDULE-B-CERTIFICATE",
       "path": "documents/path2-compendium/schedule-b-final-certificate.json",
-      "digest": "5ebec192e0d96e1a69cca7c201dd66fc42933a3f9d487601a66a01012ded0c89"
+      "digest": "b3650bedd0a623af792ca4409b341b5c746d4f7a6ba4dcae3366f73bd1ccda20"
     },
     {
       "id": "EFFECTIVE-NOTICE",
       "path": "documents/path2-compendium/effective-notice-2295.json",
-      "digest": "f4cd473fb6d21a7303da71af1f5415b6430b9b61793c0ad326340314f5e966a4"
+      "digest": "2a231ddba21ec3c9e15a42adc40677075c09e841a3ecd5ae1544af1db999ac8f"
     }
   ]
 }

@@ -11,6 +11,21 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const round = (value, places = 8) => Number(Number(value).toFixed(places));
+// The deposited execution record is a byte-bound legal artifact. Normalize
+// intermediate floating-point values as well as published bounds so that an
+// otherwise identical run has the same bytes across supported Node runtimes.
+// Ten decimal places is finer than every filed threshold and reported result.
+function canonicalizeExecutionValue(value) {
+  if (typeof value === 'number') {
+    if (!Number.isFinite(value)) throw new Error('execution output contains a non-finite number');
+    return Number(value.toFixed(10));
+  }
+  if (Array.isArray(value)) return value.map(canonicalizeExecutionValue);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, canonicalizeExecutionValue(nested)]));
+  }
+  return value;
+}
 const sum = (values) => values.reduce((total, value) => total + Number(value), 0);
 const mean = (values) => sum(values) / values.length;
 const variance = (values) => {
@@ -394,8 +409,8 @@ export function executeLockedAnalysis({ root, preregistration }) {
   };
   const diagnostics = [...membersI, ...membersII, ...membersIII, ...membersIV].map((member) => diagnosticsFor(member, leastIII));
   const findingIvDerivations = membersIV.map((member) => derivationFor(member, raw.IV.mapping.sourceId));
-  return {
+  return canonicalizeExecutionValue({
     schemaVersion: '2.0', executionEntryPoint: 'tools/path2-execution-engine.mjs#executeLockedAnalysis', window: { observation: [2272, 2291], training: [2272, 2286], heldOutValidation: [2287, 2291], thresholdBaseline: [2282, 2291], projection: [2295, 2324] },
     sourceDigests: Object.fromEntries(Object.values(raw).map((entry) => [entry.mapping.sourceId, entry.mapping.digest])), validationRecords, excludedMembers, precisionCalculations: precision, findings, diagnostics, findingIvDerivations,
-  };
+  });
 }

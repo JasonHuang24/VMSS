@@ -2,7 +2,7 @@
   "reference": "PCR-2292-046-PATH2-LOCK-01",
   "publishedAt": "2292-02-15T12:00:00Z",
   "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
-  "digest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228",
+  "digest": "d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a",
   "signatures": [
     {
       "signer": "Ilex Public Reproduction Office / Registrar Sen Vale",
@@ -16,5 +16,5 @@
     }
   ],
   "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
-  "lockCertificateDigest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936"
+  "lockCertificateDigest": "fcfe918e4baaefe513139de8dca07dea17e9216b425efc2ba8b0201a81c30aba"
 }

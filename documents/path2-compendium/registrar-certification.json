@@ -3,13 +3,13 @@
   "registrar": "Ilex Public Reproduction Office / Registrar Sen Vale",
   "completedAt": "2294-01-10T18:00:00Z",
   "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
-  "preregistrationDigest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228",
+  "preregistrationDigest": "d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a",
   "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
-  "lockCertificateDigest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936",
+  "lockCertificateDigest": "fcfe918e4baaefe513139de8dca07dea17e9216b425efc2ba8b0201a81c30aba",
   "codeManifestPath": "documents/path2-compendium/calculation-code-manifest.json",
-  "codeManifestDigest": "2ddd51e4471018b9ce0b37d9c08a7af5927767ef4cf2d2aff394281963ad3e10",
+  "codeManifestDigest": "c5dc87d179a4a17351cdb3b4a66be052bc1194b59bc641b85e40bd3c44f36deb",
   "executionOutputPath": "documents/path2-compendium/execution-output.json",
-  "executionOutputDigest": "1b1afab011f110bf09e179cf2a101dc57c8662016a385bf409614a4d8229c093",
+  "executionOutputDigest": "09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8",
   "sourceDigests": {
     "FINDING-I-OBSERVATIONS-2294": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
     "FINDING-II-OBSERVATIONS-2294": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
@@ -30,5 +30,5 @@
   "section114Disposition": "EXECUTED_AND_MATCHED_BEFORE_ISSUANCE",
   "signature": "REG-SEN-VALE-EXEC-2294-010",
   "dissent": null,
-  "artifactDigest": "f649c930a2ab12d996cc6e6c31f0f129c074c4345a3450851668c806bfc863ed"
+  "artifactDigest": "c2a18010aa7d17ea80817b82a604f0dbed743c1490c69ef863b19644837e2df9"
 }
