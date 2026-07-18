@@ -1,7 +1,7 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "2.0",
   "record": {
-    "title": "Path 2 Schedule A Certification — 2294",
+    "title": "Path 2 Full LP-074 Schedule Certification — 2294",
     "commissionConstituted": "2291-05-12",
     "lockDate": "2292-02-15",
     "publicationDate": "2294-01-31",
@@ -122,14 +122,150 @@
     { "month": "2291-12", "a": 123.5, "d": 100.0 },
     { "month": "2292-01", "a": 122.3, "d": 100.0 }
   ],
-  "dispositions": {
-    "A1": "PASS — every included quantity is identified as a Path 2 audit series; no authored or ruling-derived magnitude is used.",
-    "A2": "PASS — Main-12 is at least 105%.",
-    "A3": "PASS — each of the twelve Main monthly ratios is at least 100%.",
-    "A4": "PASS — every 36-month forward Main ratio is at least 100% without behavioral credits.",
-    "A5": "PASS — ADT-36 is at least 120%.",
-    "A6": "PASS — each ADT monthly ratio is at least 100%.",
-    "A7": "PASS — prohibited stream cross-credits are all false.",
-    "A8": "PASS — monthly numerators and denominators are published and recomputable."
+  "activation": {
+    "statute": "LP-074",
+    "certificatePublicationDate": "2294-01-31",
+    "effectiveAssessmentPeriod": "2295-01-01",
+    "rates": {
+      "sanctuaryAndMain": 50,
+      "lower1": 25,
+      "lower2": 12.5,
+      "lower3": 6.25
+    },
+    "conditionSets": {
+      "scheduleA": ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"],
+      "scheduleB": ["B1", "B2", "B3", "B4", "B5", "B6"]
+    }
+  },
+  "lowerIncidence": {
+    "method": "Charter-restatement Lower Incidence audit; independently audited proposed-rate receipts and legally chargeable obligations, constant 2292 purchasing power.",
+    "publication": {
+      "routeAndObligationMethod": "Each destination is reconciled by its published share of the audited layer-local receipt stream; each obligation is enumerated by destination and lawful payment order.",
+      "monthlyDataPublished": true,
+      "path2StandingAuditAdoption": "The Path 2 standing audit adopted the published Lower fiscal quantities into the controlling estimate on 2294-01-31."
+    },
+    "excludedCertificationInputs": [
+      "velocity",
+      "recruitment",
+      "migration",
+      "avoidance reduction",
+      "taxable-base expansion",
+      "consumption response",
+      "savings response",
+      "speculative economic gains"
+    ],
+    "crossCredits": {
+      "sanctuaryReceiptsIncluded": false,
+      "mainReceiptsIncluded": false,
+      "adtReceiptsIncluded": false,
+      "scmRecycleIncluded": false,
+      "cyclicalBackfillIncluded": false
+    },
+    "currentMonths": ["2291-02", "2291-03", "2291-04", "2291-05", "2291-06", "2291-07", "2291-08", "2291-09", "2291-10", "2291-11", "2291-12", "2292-01"],
+    "forwardMonths": ["2292-02", "2292-03", "2292-04", "2292-05", "2292-06", "2292-07", "2292-08", "2292-09", "2292-10", "2292-11", "2292-12", "2293-01", "2293-02", "2293-03", "2293-04", "2293-05", "2293-06", "2293-07", "2293-08", "2293-09", "2293-10", "2293-11", "2293-12", "2294-01", "2294-02", "2294-03", "2294-04", "2294-05", "2294-06", "2294-07", "2294-08", "2294-09", "2294-10", "2294-11", "2294-12", "2295-01"],
+    "layers": [
+      {
+        "layer": "-1",
+        "proposedRatePct": 25,
+        "units": "billions of -1 credits",
+        "sourceSeries": { "li": "L1-P2-RECEIPTS-2294", "oi": "L1-P2-OBLIGATIONS-2294" },
+        "routeMap": {
+          "auditId": "L1-ROUTE-2294",
+          "destinations": [
+            { "id": "l1-civil-settlement", "legalFund": "-1 Civil Administration Settlement Account", "share": 0.58 },
+            { "id": "l1-continuity-reserve", "legalFund": "-1 Continuity Reserve", "share": 0.42 }
+          ]
+        },
+        "obligationMap": {
+          "auditId": "L1-OBLIGATIONS-2294",
+          "noChargeableObligation": false,
+          "destinations": [
+            { "routeId": "l1-civil-settlement", "obligations": [
+              { "id": "l1-district-restoration", "paymentOrder": 1, "legalDescription": "district restoration and civil-service settlement", "nonTaxSources": ["contract recovery receipts, excluded from Li"], "share": 0.35 },
+              { "id": "l1-record-continuity", "paymentOrder": 2, "legalDescription": "registry, notice, and continuity service", "nonTaxSources": ["fee remissions, excluded from Li"], "share": 0.23 }
+            ] },
+            { "routeId": "l1-continuity-reserve", "obligations": [
+              { "id": "l1-emergency-floor", "paymentOrder": 1, "legalDescription": "legally assigned emergency continuity floor", "nonTaxSources": ["restitution recoveries, excluded from Li"], "share": 0.42 }
+            ] }
+          ]
+        },
+        "current": {
+          "li": [40.2, 40.6, 41.1, 41.5, 40.7, 41.4, 41.0, 41.6, 40.9, 41.8, 40.8, 41.9],
+          "oi": [38.2, 37.9, 38.7, 39.1, 38.4, 39.0, 38.6, 39.3, 38.8, 39.2, 38.5, 39.4]
+        },
+        "forward": {
+          "li": [39.8, 39.5, 40.1, 40.4, 40.1, 40.5, 40.0, 40.6, 40.3, 40.6, 40.0, 40.8, 40.3, 40.6, 40.2, 40.8, 40.5, 40.8, 40.4, 40.9, 40.6, 40.9, 40.4, 41.1, 40.7, 41.0, 40.5, 41.2, 40.8, 41.0, 40.6, 41.2, 40.9, 41.2, 40.7, 41.3],
+          "oi": [39.5, 39.2, 39.7, 40.0, 39.8, 40.1, 39.6, 40.3, 39.9, 40.2, 39.7, 40.4, 40.0, 40.3, 39.9, 40.5, 40.1, 40.4, 40.0, 40.6, 40.2, 40.5, 40.1, 40.7, 40.3, 40.6, 40.2, 40.8, 40.4, 40.7, 40.3, 40.9, 40.5, 40.8, 40.4, 41.0]
+        }
+      },
+      {
+        "layer": "-2",
+        "proposedRatePct": 12.5,
+        "units": "billions of -2 credits",
+        "sourceSeries": { "li": "L2-P2-RECEIPTS-2294", "oi": "L2-P2-OBLIGATIONS-2294" },
+        "routeMap": {
+          "auditId": "L2-ROUTE-2294",
+          "destinations": [
+            { "id": "l2-safety-settlement", "legalFund": "-2 Safety and Settlement Account", "share": 0.61 },
+            { "id": "l2-service-continuity", "legalFund": "-2 Service Continuity Reserve", "share": 0.39 }
+          ]
+        },
+        "obligationMap": {
+          "auditId": "L2-OBLIGATIONS-2294",
+          "noChargeableObligation": false,
+          "destinations": [
+            { "routeId": "l2-safety-settlement", "obligations": [
+              { "id": "l2-harm-response", "paymentOrder": 1, "legalDescription": "assigned harm-response and safety settlement", "nonTaxSources": ["court-order recovery receipts, excluded from Li"], "share": 0.38 },
+              { "id": "l2-boundary-service", "paymentOrder": 2, "legalDescription": "boundary notice and custody-service floor", "nonTaxSources": ["service-fee recoveries, excluded from Li"], "share": 0.23 }
+            ] },
+            { "routeId": "l2-service-continuity", "obligations": [
+              { "id": "l2-continuity-floor", "paymentOrder": 1, "legalDescription": "legally assigned continuity reserve floor", "nonTaxSources": ["asset recovery proceeds, excluded from Li"], "share": 0.39 }
+            ] }
+          ]
+        },
+        "current": {
+          "li": [15.1, 15.4, 15.2, 15.8, 15.5, 15.9, 15.3, 15.7, 15.6, 16.0, 15.4, 16.1],
+          "oi": [14.3, 14.6, 14.4, 15.0, 14.7, 15.1, 14.5, 14.9, 14.8, 15.2, 14.6, 15.3]
+        },
+        "forward": {
+          "li": [15.55, 15.35, 15.75, 15.65, 15.85, 15.55, 15.95, 15.75, 16.05, 15.85, 16.15, 15.95, 16.25, 16.05, 16.35, 16.15, 16.45, 16.25, 16.55, 16.35, 16.65, 16.45, 16.75, 16.55, 16.85, 16.65, 16.95, 16.75, 17.05, 16.85, 17.15, 16.95, 17.25, 17.05, 17.35, 17.15],
+          "oi": [15.4, 15.2, 15.6, 15.5, 15.7, 15.4, 15.8, 15.6, 15.9, 15.7, 16.0, 15.8, 16.1, 15.9, 16.2, 16.0, 16.3, 16.1, 16.4, 16.2, 16.5, 16.3, 16.6, 16.4, 16.7, 16.5, 16.8, 16.6, 16.9, 16.7, 17.0, 16.8, 17.1, 16.9, 17.2, 17.0]
+        }
+      },
+      {
+        "layer": "-3",
+        "proposedRatePct": 6.25,
+        "units": "billions of -3 credits",
+        "sourceSeries": { "li": "L3-P2-RECEIPTS-2294", "oi": "L3-P2-OBLIGATIONS-2294" },
+        "routeMap": {
+          "auditId": "L3-ROUTE-2294",
+          "destinations": [
+            { "id": "l3-terminal-settlement", "legalFund": "-3 Terminal Settlement Account", "share": 0.64 },
+            { "id": "l3-record-floor", "legalFund": "-3 Record and Notice Reserve", "share": 0.36 }
+          ]
+        },
+        "obligationMap": {
+          "auditId": "L3-OBLIGATIONS-2294",
+          "noChargeableObligation": false,
+          "destinations": [
+            { "routeId": "l3-terminal-settlement", "obligations": [
+              { "id": "l3-terminal-notice", "paymentOrder": 1, "legalDescription": "terminal notice, registry, and settlement obligation", "nonTaxSources": ["contract filing receipts, excluded from Li"], "share": 0.39 },
+              { "id": "l3-boundary-record", "paymentOrder": 2, "legalDescription": "legally assigned boundary-record service", "nonTaxSources": ["estate recovery receipts, excluded from Li"], "share": 0.25 }
+            ] },
+            { "routeId": "l3-record-floor", "obligations": [
+              { "id": "l3-emergency-record", "paymentOrder": 1, "legalDescription": "terminal emergency-record continuity floor", "nonTaxSources": ["voluntary filing receipts, excluded from Li"], "share": 0.36 }
+            ] }
+          ]
+        },
+        "current": {
+          "li": [5.08, 5.21, 5.15, 5.29, 5.18, 5.34, 5.24, 5.38, 5.27, 5.42, 5.21, 5.48],
+          "oi": [4.82, 4.94, 4.88, 5.01, 4.91, 5.06, 4.97, 5.12, 5.00, 5.16, 4.94, 5.22]
+        },
+        "forward": {
+          "li": [5.46, 5.41, 5.51, 5.48, 5.56, 5.53, 5.61, 5.58, 5.66, 5.63, 5.71, 5.68, 5.76, 5.73, 5.81, 5.78, 5.86, 5.83, 5.91, 5.88, 5.96, 5.93, 6.01, 5.98, 6.06, 6.03, 6.11, 6.08, 6.16, 6.13, 6.21, 6.18, 6.26, 6.23, 6.31, 6.28],
+          "oi": [5.40, 5.35, 5.45, 5.42, 5.50, 5.47, 5.55, 5.52, 5.60, 5.57, 5.65, 5.62, 5.70, 5.67, 5.75, 5.72, 5.80, 5.77, 5.85, 5.82, 5.90, 5.87, 5.95, 5.92, 6.00, 5.97, 6.05, 6.02, 6.10, 6.07, 6.15, 6.12, 6.20, 6.17, 6.25, 6.22]
+        }
+      }
+    ]
   }
 }

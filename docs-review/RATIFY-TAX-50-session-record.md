@@ -2,9 +2,10 @@
 
 > **Process-record status — historical entries preserved.** This is the
 > drafting archive of rulings through the pre-certificate phases; its dated
-> entries are not rewritten. The current fiscal state after the 2294
-> certificate is **50 / 35 / 17 / 8** from 2295: Schedule A is active,
-> Schedule B remains pending, and the SCM is unchanged.
+> entries are not rewritten. The current fiscal state after the 2294 Path 2
+> certificate is the complete **50 / 25 / 12.5 / 6.25** LP-074 cascade from
+> 2295: Schedules A and B are both active, LP-073 is superseded as operative
+> rate law, LP-075 is procedural only, and the SCM is unchanged.
 
 ## Founder rulings of record (each shipped by this archival pass)
 - R1: Repair path for the pass-three kill is PATH 3 (rate

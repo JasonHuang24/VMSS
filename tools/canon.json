@@ -4,10 +4,13 @@
   "charterLatestArticle": "XXVIII",
   "currencyZones": 4,
   "taxCanon": {
-    "composite": "50 / 35 / 17 / 8",
+    "composite": "50 / 25 / 12.5 / 6.25",
     "effectiveYear": 2295,
     "scheduleA": "active",
-    "scheduleB": "pending",
+    "scheduleB": "active",
+    "threshold": "$10 million",
+    "lp073": "superseded",
+    "lp075": "procedural",
     "scm": "unchanged"
   }
 }

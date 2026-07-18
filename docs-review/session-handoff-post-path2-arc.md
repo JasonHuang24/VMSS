@@ -7,9 +7,10 @@ handoff remains binding EXCEPT where superseded below.
 
 > **Historical handoff status — superseded for fiscal state.** This handoff
 > closes at the 2279 adoption phase and preserves that phase's language. The
-> current fiscal state, after the 2294 certificate, is **50 / 35 / 17 / 8**
-> from 2295: Schedule A is active for Sanctuary/Main, Schedule B remains
-> pending, and the Savings Circulation Mandate (SCM) is unchanged.
+> current fiscal state, after the 2294 Path 2 certificate, is the complete
+> **50 / 25 / 12.5 / 6.25** LP-074 exact cascade from 2295: Schedules A and B
+> are both active, LP-073 is superseded as operative rate law, LP-075 is
+> procedural only, and the Savings Circulation Mandate (SCM) is unchanged.
 
 STATE OF THE REPO — verify before trusting (fresh clone, always)
 Expected: canon v22.5.1 (+possible trailing chore commits, e.g. tailwind

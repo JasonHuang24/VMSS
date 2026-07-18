@@ -3,9 +3,10 @@
 
 > **Historical review frame.** This prompt concerns the 2279–2281
 > illustrative chronicle and preserves its then-live rate references. It is
-> not a statement of current law: after the 2294 certificate, the active
-> composite from 2295 is **50 / 35 / 17 / 8**; Schedule A is active, Schedule
-> B remains pending, and the SCM is unchanged.
+> not a statement of current law: after the 2294 Path 2 certificate, the
+> complete **50 / 25 / 12.5 / 6.25** LP-074 cascade is active from 2295;
+> Schedules A and B are both active, LP-073 is superseded as operative rate
+> law, LP-075 is procedural only, and the SCM is unchanged.
 
 ---
 
@@ -52,7 +53,8 @@ consistent with, but not drawn from, register data.
 - Anchor facts for the 2279–2281 chronicle: the then-live rates were
   70/35/17/8 under LP-073; instrument adopted 2279; certification window open
   through 2288; Finding IV undecided. Current law is the 2295
-  50/35/17/8 composite described in the archive-status note above.
+  50/25/12.5/6.25 LP-074 exact cascade described in the archive-status note
+  above; both schedules independently certified in 2294.
 
 ## REVIEW DIMENSIONS
 

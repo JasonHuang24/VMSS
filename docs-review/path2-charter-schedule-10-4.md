@@ -6,9 +6,10 @@
 
 > **Historical source status.** This is the terminal Schedule record from the
 > original 2279–2288 window. Its pre-certification language is preserved, but
-> is not current fiscal law. The 2294 certificate made **50 / 35 / 17 / 8**
-> active from 2295: Schedule A is active, Schedule B remains pending, and the
-> SCM is unchanged.
+> is not current fiscal law. The 2294 Path 2 certificate made the full
+> **50 / 25 / 12.5 / 6.25** LP-074 exact cascade active from 2295: Schedules
+> A and B are both active, LP-073 is superseded as operative rate law,
+> LP-075 is procedural only, and the SCM is unchanged.
 
 ---
 
@@ -243,5 +244,5 @@ control.
 ---
 
 *Historical status: during the first 2279–2288 window, the then-live rates
-were 70/35/17/8 under LP-073. Following the 2294 Schedule A certificate, the
-active composite from 2295 is 50/35/17/8; Schedule B remains pending.*
+were 70/35/17/8 under LP-073. Following the 2294 certificate clearing both
+LP-074 schedules, the active exact cascade from 2295 is 50/25/12.5/6.25.*

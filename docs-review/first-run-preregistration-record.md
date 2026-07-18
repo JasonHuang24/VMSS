@@ -3,9 +3,10 @@
 
 > **Historical review frame.** This pre-registration record concerns the
 > original 2279–2288 window. Its then-live 70/35/17/8 references do not state
-> current law. After the 2294 certificate, the active composite from 2295 is
-> **50 / 35 / 17 / 8**: Schedule A is active, Schedule B remains pending, and
-> the SCM is unchanged.
+> current law. After the 2294 Path 2 certificate, the full LP-074 exact
+> cascade is active from 2295: **50 / 25 / 12.5 / 6.25**. Schedules A and B
+> are both active; LP-073 is superseded as operative rate law, LP-075 is
+> procedural only, and the SCM is unchanged.
 
 Artifact of record: `the-first-run-simulation-v1.md`
 (sha256 `41c3021837da5a9a07de016c3e62d41f4ff654f6891b6958d2288a6ae4dfa1a5`, 8252 bytes — verified against the post-Path-2-arc handoff).
@@ -79,9 +80,10 @@ CALIBRATION DIMENSION: canon cross-reference diligence.
   RR-9 ("Ledger coverage") = the "ninth engraving": confirmed against live
   path-2-risk-register.html.
 - Then-live rates for the 2279–2288 chronicle were 70/35/17/8 under LP-073;
-  the chronicle left them untouched. Current law is the 2295 50/35/17/8
-  composite identified in the archive-status note above; tier disclaimer
-  present head and foot.
+  the chronicle left them untouched. Current law is the 2295 LP-074
+  50/25/12.5/6.25 exact cascade identified in the archive-status note above;
+  both schedules independently certified in 2294, with tier disclaimer present
+  head and foot.
 
 SEAL: sha256 hashes of this record, the review copy, and the prompt are read
 into the session record at generation time, before the pass runs.

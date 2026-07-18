@@ -2,8 +2,9 @@
 
 > **Archival / pre-certificate brief.** This is the failed RATIFY-TAX-50
 > record, preserved verbatim below rather than current authority. From 2295,
-> the active composite is **50 / 35 / 17 / 8**: LP-074 Schedule A is active,
-> Schedule B remains pending, and the SCM is unchanged.
+> LP-074 Schedules A and B are both active: 50 / 25 / 12.5 / 6.25, and the
+> 2294 Path 2 certificate independently cleared each schedule; LP-073 is
+> superseded as operative rate law, LP-075 is procedural only, and SCM is unchanged.
 
 Status: in-world document. Per ruling R9, adversarial-review findings
 with no drafting cure attach VERBATIM to the gauntlet ballot as the

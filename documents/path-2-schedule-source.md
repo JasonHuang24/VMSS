@@ -238,7 +238,8 @@ control.
 
 *Adopted with the Charter. During the first 2279–2288 window, the then-live
 70/35/17/8 schedule held under LP-073 because no commencement duty existed.
-Following the 2294 Schedule A certification, the active composite is
-50/35/17/8: LP-074 governs the certified Main rate and LP-073 remains
-authority for the lower rates. Schedule B remains pending its separate
-certificate.*
+The final 2294 certificate independently cleared Schedule A's A1–A8
+findings and Schedule B's B1–B6 Lower Incidence findings. From 2295,
+LP-074's complete exact halving cascade is active: 50/25/12.5/6.25.
+LP-073 is preserved as the historical rate law; LP-075 compelled the
+run but neither selected a rate nor supplied certification evidence.*

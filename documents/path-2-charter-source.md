@@ -649,7 +649,9 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 ---
 
 *Historical note: the first 2279–2288 window closed without a run under
-the original no-duty rule. LP-075 compelled the remedial run. Schedule A
-certified in 2294 and takes effect in 2295: Sanctuary/Main are 50%; the
-35/17/8 lower rates remain under LP-073 pending Schedule B. Rates fall
-when shown, and hold when merely told.*
+the original no-duty rule. LP-075 compelled the remedial run but selected
+no rate. The final 2294 certificate independently cleared Schedule A's
+A1–A8 findings and Schedule B's B1–B6 findings. From 2295, LP-074's
+complete exact halving cascade is active: Sanctuary/Main 50%, −1 25%, −2
+12.5%, and −3 6.25%. LP-073's 70/35/17/8 schedule is preserved as
+historical law and is fully superseded as an operative rate schedule.*

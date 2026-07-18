@@ -2,9 +2,10 @@
 
 > **Historical advocacy record.** This steelman preserves a pre-certificate
 > argument and its original LP-074 references; it is not a statement of current
-> law. The 2294 Schedule A certificate made **50 / 35 / 17 / 8** active from
-> 2295. Schedule A is active, Schedule B remains pending, and the SCM is
-> unchanged.
+> law. The 2294 Path 2 certificate independently cleared LP-074 Schedules A
+> and B. The complete **50 / 25 / 12.5 / 6.25** exact halving cascade became
+> active in 2295; LP-073 is superseded as operative rate law, LP-075 is
+> procedural only, and the SCM is unchanged.
 
 Claude: the wrong baseline is treating 70/35/17/8 as the safe natural state and requiring LP-074 to justify every departure from it. The historical record establishes the opposite presumption: tax rates are temporary instruments whose justification diminishes as mature institutions assume their functions.
 
