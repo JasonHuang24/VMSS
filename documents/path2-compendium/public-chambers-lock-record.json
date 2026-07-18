@@ -1,0 +1,20 @@
+{
+  "reference": "PCR-2292-046-PATH2-LOCK-01",
+  "publishedAt": "2292-02-15T12:00:00Z",
+  "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
+  "digest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228",
+  "signatures": [
+    {
+      "signer": "Ilex Public Reproduction Office / Registrar Sen Vale",
+      "signature": "REG-SEN-VALE-9A4C"
+    },
+    {
+      "signer": "Chambers Clerk Oren Pell",
+      "signature": "CLK-OREN-PELL-44B1",
+      "signedAt": "2292-02-15T12:08:00Z",
+      "deemedSignatureUsed": false
+    }
+  ],
+  "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
+  "lockCertificateDigest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936"
+}

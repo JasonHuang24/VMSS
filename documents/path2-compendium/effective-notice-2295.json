@@ -1,11 +1,12 @@
 {
   "artifactType": "LP074_UNIFIED_EFFECTIVE_NOTICE",
-  "publishedAt": "2294-02-22T12:00:00Z",
+  "publishedAt": "2294-02-10T12:00:00Z",
   "effectiveAt": "2295-01-01T00:00:00Z",
-  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
-  "lowerCertificateDigest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf",
-  "lowerAdoptionDigest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d",
-  "scheduleBCertificateDigest": "d67d819b7816bf6d121b5c80894a3f2736dadf64450d94f1cecef98a4f334160",
+  "scheduleACertificateDigest": "cfbc6610ca42cab7688128db727b5459084ae04f091d7afbe21f528dcba691fb",
+  "lowerCertificateDigest": "91bf9602dbc46d5c39dbd05d8fcff41d93bc4becd8464847d32624771865d009",
+  "lowerAdoptionDigest": "2a38cf26ecbe5172e270b136228eb668ec656ec6ca8b8542b56f2c454aea3c55",
+  "scheduleBCertificateDigest": "5ebec192e0d96e1a69cca7c201dd66fc42933a3f9d487601a66a01012ded0c89",
+  "registrarExecutionDigest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27",
   "rates": {
     "sanctuaryAndMain": 50,
     "lower1": 25,
@@ -15,5 +16,5 @@
   "threshold": "$10 million",
   "scm": "unchanged in parameters and layered scope",
   "lp073": "superseded as operative rate law; preserved historically",
-  "artifactDigest": "6efdd2493bc011c240cb7e74c6b724eb5cfbc7828dfb37fe95fc3666d5d87715"
+  "artifactDigest": "9e899b6664a036f0d84356ee8bd7865879145fb704763a72e34cda1059a3c9f1"
 }

@@ -45,6 +45,22 @@ console.log(`  ${mark(result.sequence)} ordered Schedule A → Lower Certificate
 console.log(`  ${mark(result.revocation)} coupled-reversion amendment and direct Lower revocation route`);
 console.log(`  ${mark(result.compendiumErrors.length === 0)} §11.1 compendium and SHA-256 manifest`);
 console.log(`  ${mark(result.section43Errors.length === 0 && result.lowerSection43Errors.length === 0)} §4.3 raw-source and normalization reconciliation`);
+const locked = result.lockedExecution;
+console.log(`  ${mark(locked.pass)} §9 lock — ${locked.lock.preregistrationByteDigest} at ${locked.lock.canonicalTimestamp}`);
+console.log(`    signers: ${locked.lock.registrarSignature.signer}; ${locked.lock.clerkSignature.signer}`);
+console.log(`    public record: ${locked.lock.publicChambersRecordReference}; checklist ${Object.values(locked.lock.section91Checklist).filter(Boolean).length}/${Object.keys(locked.lock.section91Checklist).length}`);
+console.log(`  ${mark(locked.pass)} windows — observations ${locked.depositedOutput.window.observation.join('–')}; training ${locked.depositedOutput.window.training.join('–')}; held out ${locked.depositedOutput.window.heldOutValidation.join('–')}; baseline ${locked.depositedOutput.window.thresholdBaseline.join('–')}`);
+for (const record of locked.depositedOutput.validationRecords) console.log(`    ${record.survived ? 'ADMIT' : 'EXCLUDE'} ${record.memberId}: RMSE ${record.validationError.toFixed(6)} vs persistence ${record.persistenceError.toFixed(6)} (${record.rowLevel.length} held-out rows)`);
+for (const [id, precision] of Object.entries(locked.depositedOutput.precisionCalculations)) console.log(`    §5.3 ${id}: |${precision.baselineObservedMean} - ${precision.passThreshold}| = ${precision.ceiling}`);
+for (const finding of Object.values(locked.depositedOutput.findings)) for (const member of finding.members) {
+  const method = member.interval.methodRecord;
+  const mechanics = member.interval.family === 'B-1' ? `seed ${method.seed}, auto block ${method.blockLength}, ${method.replications} reps` : member.interval.family === 'B-2' ? `Bartlett HAC bandwidth ${method.bandwidth}, max-t ${method.critical.toFixed(6)}` : `Bartlett HAC bandwidth ${method.bandwidth}, identified-region width ${method.identificationRegionWidth}`;
+  console.log(`    ${member.id}: ${member.interval.family}; ${mechanics}; width ${member.interval.width} <= ceiling ${member.interval.precisionFloor}`);
+}
+console.log(`  ${mark(locked.depositedOutput.findingIvDerivations.length === locked.depositedOutput.findings.IV.members.length)} Schedule A.4 derivations — ${locked.depositedOutput.findingIvDerivations.length}/${locked.depositedOutput.findings.IV.members.length} IV members`);
+console.log(`  ${mark(locked.depositedOutput.diagnostics.length === Object.values(locked.depositedOutput.findings).flatMap((finding) => finding.members).length)} D-1–D-5 diagnostics — ${locked.depositedOutput.diagnostics.length} union members`);
+console.log(`  ${mark(Date.parse(locked.registrar.completedAt) < Date.parse(JSON.parse(readFileSync(join(ROOT, data.authorityAudit.scheduleSequence.artifacts.scheduleA), 'utf8')).publishedAt))} §11.4 execution ${locked.registrar.completedAt} precedes Schedule A`);
+console.log(`    execution output: ${locked.registrar.executionOutputDigest}; code manifest: ${locked.registrar.codeManifestDigest}`);
 
 if (!result.certified) {
   console.error(`  CERTIFICATION FAILED — ${result.errors.length} validation error(s)`);

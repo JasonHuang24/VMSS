@@ -1,9 +1,10 @@
 {
   "artifactType": "LOWER_INCIDENCE_ADOPTION",
-  "adoptedAt": "2294-02-20T14:00:00Z",
+  "adoptedAt": "2294-02-01T14:00:00Z",
   "lowerCertificatePath": "documents/path2-compendium/lower-incidence-certificate.json",
-  "lowerCertificateDigest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf",
-  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
+  "lowerCertificateDigest": "91bf9602dbc46d5c39dbd05d8fcff41d93bc4becd8464847d32624771865d009",
+  "scheduleACertificateDigest": "cfbc6610ca42cab7688128db727b5459084ae04f091d7afbe21f528dcba691fb",
+  "registrarExecutionDigest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27",
   "body": "Path 2 standing audit",
   "vote": {
     "AsterVale": "ADOPT",
@@ -11,5 +12,5 @@
     "TalRen": "ADOPT"
   },
   "result": "ADOPTED",
-  "artifactDigest": "f3cee0f57a21e2129d2e3270a91a8c5e58825e75a7ff5b5e9ebfd68fbde63aa8"
+  "artifactDigest": "82f48f239ddb80244dfd774b2c657c5c61a9d0d46ac47bbfcb591705eeff4eab"
 }

@@ -1,0 +1,3371 @@
+{
+  "schemaVersion": "2.0",
+  "records": [
+    {
+      "memberId": "I-certification-linear-b1",
+      "finding": "I",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "receipts": {
+              "actual": 1460.25,
+              "memberPrediction": 1457.3047619,
+              "persistencePrediction": 1437.4875,
+              "memberError": -2.9452381,
+              "persistenceError": -22.7625
+            },
+            "obligations": {
+              "actual": 1327.333333,
+              "memberPrediction": 1328.52804236,
+              "persistencePrediction": 1313.322222,
+              "memberError": 1.19470936,
+              "persistenceError": -14.011111
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "receipts": {
+              "actual": 1473.1375,
+              "memberPrediction": 1475.46681548,
+              "persistencePrediction": 1460.25,
+              "memberError": 2.32931548,
+              "persistenceError": -12.8875
+            },
+            "obligations": {
+              "actual": 1346.788889,
+              "memberPrediction": 1344.94728839,
+              "persistencePrediction": 1327.333333,
+              "memberError": -1.84160061,
+              "persistenceError": -19.455556
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "receipts": {
+              "actual": 1494.4625,
+              "memberPrediction": 1493.62886905,
+              "persistencePrediction": 1473.1375,
+              "memberError": -0.83363095,
+              "persistenceError": -21.325
+            },
+            "obligations": {
+              "actual": 1358.855556,
+              "memberPrediction": 1361.36653442,
+              "persistencePrediction": 1346.788889,
+              "memberError": 2.51097842,
+              "persistenceError": -12.066667
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "receipts": {
+              "actual": 1515.4125,
+              "memberPrediction": 1511.79092262,
+              "persistencePrediction": 1494.4625,
+              "memberError": -3.62157738,
+              "persistenceError": -20.95
+            },
+            "obligations": {
+              "actual": 1377.588889,
+              "memberPrediction": 1377.78578045,
+              "persistencePrediction": 1358.855556,
+              "memberError": 0.19689145,
+              "persistenceError": -18.733333
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "receipts": {
+              "actual": 1529.05,
+              "memberPrediction": 1529.95297619,
+              "persistencePrediction": 1515.4125,
+              "memberError": 0.90297619,
+              "persistenceError": -13.6375
+            },
+            "obligations": {
+              "actual": 1395.155556,
+              "memberPrediction": 1394.20502648,
+              "persistencePrediction": 1377.588889,
+              "memberError": -0.95052952,
+              "persistenceError": -17.566667
+            }
+          }
+        }
+      ],
+      "validationError": 2.01971225,
+      "persistenceError": 17.73081637,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "receipts": {
+          "model": "linear",
+          "intercept": 1184.8739583333333,
+          "slope": 18.162053571428572,
+          "origin": 2272
+        },
+        "obligations": {
+          "model": "linear",
+          "intercept": 1082.2393519333332,
+          "slope": 16.41924602857143,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "I-refusal-linear-b2",
+      "finding": "I",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "receipts": {
+              "actual": 1460.25,
+              "memberPrediction": 1457.3047619,
+              "persistencePrediction": 1437.4875,
+              "memberError": -2.9452381,
+              "persistenceError": -22.7625
+            },
+            "obligations": {
+              "actual": 1327.333333,
+              "memberPrediction": 1328.52804236,
+              "persistencePrediction": 1313.322222,
+              "memberError": 1.19470936,
+              "persistenceError": -14.011111
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "receipts": {
+              "actual": 1473.1375,
+              "memberPrediction": 1475.46681548,
+              "persistencePrediction": 1460.25,
+              "memberError": 2.32931548,
+              "persistenceError": -12.8875
+            },
+            "obligations": {
+              "actual": 1346.788889,
+              "memberPrediction": 1344.94728839,
+              "persistencePrediction": 1327.333333,
+              "memberError": -1.84160061,
+              "persistenceError": -19.455556
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "receipts": {
+              "actual": 1494.4625,
+              "memberPrediction": 1493.62886905,
+              "persistencePrediction": 1473.1375,
+              "memberError": -0.83363095,
+              "persistenceError": -21.325
+            },
+            "obligations": {
+              "actual": 1358.855556,
+              "memberPrediction": 1361.36653442,
+              "persistencePrediction": 1346.788889,
+              "memberError": 2.51097842,
+              "persistenceError": -12.066667
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "receipts": {
+              "actual": 1515.4125,
+              "memberPrediction": 1511.79092262,
+              "persistencePrediction": 1494.4625,
+              "memberError": -3.62157738,
+              "persistenceError": -20.95
+            },
+            "obligations": {
+              "actual": 1377.588889,
+              "memberPrediction": 1377.78578045,
+              "persistencePrediction": 1358.855556,
+              "memberError": 0.19689145,
+              "persistenceError": -18.733333
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "receipts": {
+              "actual": 1529.05,
+              "memberPrediction": 1529.95297619,
+              "persistencePrediction": 1515.4125,
+              "memberError": 0.90297619,
+              "persistenceError": -13.6375
+            },
+            "obligations": {
+              "actual": 1395.155556,
+              "memberPrediction": 1394.20502648,
+              "persistencePrediction": 1377.588889,
+              "memberError": -0.95052952,
+              "persistenceError": -17.566667
+            }
+          }
+        }
+      ],
+      "validationError": 2.01971225,
+      "persistenceError": 17.73081637,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "receipts": {
+          "model": "linear",
+          "intercept": 1184.8739583333333,
+          "slope": 18.162053571428572,
+          "origin": 2272
+        },
+        "obligations": {
+          "model": "linear",
+          "intercept": 1082.2393519333332,
+          "slope": 16.41924602857143,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "I-certification-constant-failed",
+      "finding": "I",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "receipts": {
+              "actual": 1460.25,
+              "memberPrediction": 1312.00833333,
+              "persistencePrediction": 1437.4875,
+              "memberError": -148.24166667,
+              "persistenceError": -22.7625
+            },
+            "obligations": {
+              "actual": 1327.333333,
+              "memberPrediction": 1197.17407413,
+              "persistencePrediction": 1313.322222,
+              "memberError": -130.15925887,
+              "persistenceError": -14.011111
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "receipts": {
+              "actual": 1473.1375,
+              "memberPrediction": 1312.00833333,
+              "persistencePrediction": 1460.25,
+              "memberError": -161.12916667,
+              "persistenceError": -12.8875
+            },
+            "obligations": {
+              "actual": 1346.788889,
+              "memberPrediction": 1197.17407413,
+              "persistencePrediction": 1327.333333,
+              "memberError": -149.61481487,
+              "persistenceError": -19.455556
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "receipts": {
+              "actual": 1494.4625,
+              "memberPrediction": 1312.00833333,
+              "persistencePrediction": 1473.1375,
+              "memberError": -182.45416667,
+              "persistenceError": -21.325
+            },
+            "obligations": {
+              "actual": 1358.855556,
+              "memberPrediction": 1197.17407413,
+              "persistencePrediction": 1346.788889,
+              "memberError": -161.68148187,
+              "persistenceError": -12.066667
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "receipts": {
+              "actual": 1515.4125,
+              "memberPrediction": 1312.00833333,
+              "persistencePrediction": 1494.4625,
+              "memberError": -203.40416667,
+              "persistenceError": -20.95
+            },
+            "obligations": {
+              "actual": 1377.588889,
+              "memberPrediction": 1197.17407413,
+              "persistencePrediction": 1358.855556,
+              "memberError": -180.41481487,
+              "persistenceError": -18.733333
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "receipts": {
+              "actual": 1529.05,
+              "memberPrediction": 1312.00833333,
+              "persistencePrediction": 1515.4125,
+              "memberError": -217.04166667,
+              "persistenceError": -13.6375
+            },
+            "obligations": {
+              "actual": 1395.155556,
+              "memberPrediction": 1197.17407413,
+              "persistencePrediction": 1377.588889,
+              "memberError": -197.98148187,
+              "persistenceError": -17.566667
+            }
+          }
+        }
+      ],
+      "validationError": 175.19165585,
+      "persistenceError": 17.73081637,
+      "survived": false,
+      "disposition": "EXCLUDED_SECTION_4_3",
+      "fitted": {
+        "receipts": {
+          "model": "constant",
+          "intercept": 1312.0083333333334,
+          "slope": 0,
+          "origin": 2272
+        },
+        "obligations": {
+          "model": "constant",
+          "intercept": 1197.1740741333333,
+          "slope": 0,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "II-certification-linear-b1",
+      "finding": "II",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 100.832778,
+              "memberPrediction": 100.78041807,
+              "persistencePrediction": 100.506667,
+              "memberError": -0.05235993,
+              "persistenceError": -0.326111
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 100.983333,
+              "memberPrediction": 101.02474347,
+              "persistencePrediction": 100.832778,
+              "memberError": 0.04141047,
+              "persistenceError": -0.150555
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.283889,
+              "memberPrediction": 101.26906887,
+              "persistencePrediction": 100.983333,
+              "memberError": -0.01482013,
+              "persistenceError": -0.300556
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.577778,
+              "memberPrediction": 101.51339427,
+              "persistencePrediction": 101.283889,
+              "memberError": -0.06438373,
+              "persistenceError": -0.293889
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.741667,
+              "memberPrediction": 101.75771967,
+              "persistencePrediction": 101.577778,
+              "memberError": 0.01605267,
+              "persistenceError": -0.163889
+            }
+          }
+        }
+      ],
+      "validationError": 0.04261215,
+      "persistenceError": 0.25790675,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "realDividendPerResident": {
+          "model": "linear",
+          "intercept": 97.11553706666668,
+          "slope": 0.24432540000000005,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "II-refusal-linear-b2",
+      "finding": "II",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 100.832778,
+              "memberPrediction": 100.78041807,
+              "persistencePrediction": 100.506667,
+              "memberError": -0.05235993,
+              "persistenceError": -0.326111
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 100.983333,
+              "memberPrediction": 101.02474347,
+              "persistencePrediction": 100.832778,
+              "memberError": 0.04141047,
+              "persistenceError": -0.150555
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.283889,
+              "memberPrediction": 101.26906887,
+              "persistencePrediction": 100.983333,
+              "memberError": -0.01482013,
+              "persistenceError": -0.300556
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.577778,
+              "memberPrediction": 101.51339427,
+              "persistencePrediction": 101.283889,
+              "memberError": -0.06438373,
+              "persistenceError": -0.293889
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.741667,
+              "memberPrediction": 101.75771967,
+              "persistencePrediction": 101.577778,
+              "memberError": 0.01605267,
+              "persistenceError": -0.163889
+            }
+          }
+        }
+      ],
+      "validationError": 0.04261215,
+      "persistenceError": 0.25790675,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "realDividendPerResident": {
+          "model": "linear",
+          "intercept": 97.11553706666668,
+          "slope": 0.24432540000000005,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "II-refusal-constant-failed",
+      "finding": "II",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 100.832778,
+              "memberPrediction": 98.82581487,
+              "persistencePrediction": 100.506667,
+              "memberError": -2.00696313,
+              "persistenceError": -0.326111
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 100.983333,
+              "memberPrediction": 98.82581487,
+              "persistencePrediction": 100.832778,
+              "memberError": -2.15751813,
+              "persistenceError": -0.150555
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.283889,
+              "memberPrediction": 98.82581487,
+              "persistencePrediction": 100.983333,
+              "memberError": -2.45807413,
+              "persistenceError": -0.300556
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.577778,
+              "memberPrediction": 98.82581487,
+              "persistencePrediction": 101.283889,
+              "memberError": -2.75196313,
+              "persistenceError": -0.293889
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "realDividendPerResident": {
+              "actual": 101.741667,
+              "memberPrediction": 98.82581487,
+              "persistencePrediction": 101.577778,
+              "memberError": -2.91585213,
+              "persistenceError": -0.163889
+            }
+          }
+        }
+      ],
+      "validationError": 2.48195119,
+      "persistenceError": 0.25790675,
+      "survived": false,
+      "disposition": "EXCLUDED_SECTION_4_3",
+      "fitted": {
+        "realDividendPerResident": {
+          "model": "constant",
+          "intercept": 98.82581486666668,
+          "slope": 0,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "III-certification-linear-b1",
+      "finding": "III",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.35,
+              "memberPrediction": 8.36792048,
+              "persistencePrediction": 8.333833,
+              "memberError": 0.01792048,
+              "persistenceError": -0.016167
+            },
+            "flowTestMargin": {
+              "actual": 0.837333,
+              "memberPrediction": 0.82162534,
+              "persistencePrediction": 0.819,
+              "memberError": -0.01570766,
+              "persistenceError": -0.018333
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.447833,
+              "memberPrediction": 8.42020917,
+              "persistencePrediction": 8.35,
+              "memberError": -0.02762383,
+              "persistenceError": -0.097833
+            },
+            "flowTestMargin": {
+              "actual": 0.803,
+              "memberPrediction": 0.81542296,
+              "persistencePrediction": 0.837333,
+              "memberError": 0.01242296,
+              "persistenceError": 0.034333
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.434833,
+              "memberPrediction": 8.47249786,
+              "persistencePrediction": 8.447833,
+              "memberError": 0.03766486,
+              "persistenceError": 0.013
+            },
+            "flowTestMargin": {
+              "actual": 0.813667,
+              "memberPrediction": 0.80922058,
+              "persistencePrediction": 0.803,
+              "memberError": -0.00444642,
+              "persistenceError": -0.010667
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.521833,
+              "memberPrediction": 8.52478655,
+              "persistencePrediction": 8.434833,
+              "memberError": 0.00295355,
+              "persistenceError": -0.087
+            },
+            "flowTestMargin": {
+              "actual": 0.822333,
+              "memberPrediction": 0.8030182,
+              "persistencePrediction": 0.813667,
+              "memberError": -0.0193148,
+              "persistenceError": -0.008666
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.591333,
+              "memberPrediction": 8.57707525,
+              "persistencePrediction": 8.521833,
+              "memberError": -0.01425775,
+              "persistenceError": -0.0695
+            },
+            "flowTestMargin": {
+              "actual": 0.792,
+              "memberPrediction": 0.79681581,
+              "persistencePrediction": 0.822333,
+              "memberError": 0.00481581,
+              "persistenceError": 0.030333
+            }
+          }
+        }
+      ],
+      "validationError": 0.01879349,
+      "persistenceError": 0.05002474,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "annualScmActivations": {
+          "model": "linear",
+          "intercept": 7.583590083333332,
+          "slope": 0.052288692857142854,
+          "origin": 2272
+        },
+        "flowTestMargin": {
+          "model": "linear",
+          "intercept": 0.914661075,
+          "slope": -0.0062023821428571465,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "III-refusal-linear-b2",
+      "finding": "III",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.35,
+              "memberPrediction": 8.36792048,
+              "persistencePrediction": 8.333833,
+              "memberError": 0.01792048,
+              "persistenceError": -0.016167
+            },
+            "flowTestMargin": {
+              "actual": 0.837333,
+              "memberPrediction": 0.82162534,
+              "persistencePrediction": 0.819,
+              "memberError": -0.01570766,
+              "persistenceError": -0.018333
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.447833,
+              "memberPrediction": 8.42020917,
+              "persistencePrediction": 8.35,
+              "memberError": -0.02762383,
+              "persistenceError": -0.097833
+            },
+            "flowTestMargin": {
+              "actual": 0.803,
+              "memberPrediction": 0.81542296,
+              "persistencePrediction": 0.837333,
+              "memberError": 0.01242296,
+              "persistenceError": 0.034333
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.434833,
+              "memberPrediction": 8.47249786,
+              "persistencePrediction": 8.447833,
+              "memberError": 0.03766486,
+              "persistenceError": 0.013
+            },
+            "flowTestMargin": {
+              "actual": 0.813667,
+              "memberPrediction": 0.80922058,
+              "persistencePrediction": 0.803,
+              "memberError": -0.00444642,
+              "persistenceError": -0.010667
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.521833,
+              "memberPrediction": 8.52478655,
+              "persistencePrediction": 8.434833,
+              "memberError": 0.00295355,
+              "persistenceError": -0.087
+            },
+            "flowTestMargin": {
+              "actual": 0.822333,
+              "memberPrediction": 0.8030182,
+              "persistencePrediction": 0.813667,
+              "memberError": -0.0193148,
+              "persistenceError": -0.008666
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.591333,
+              "memberPrediction": 8.57707525,
+              "persistencePrediction": 8.521833,
+              "memberError": -0.01425775,
+              "persistenceError": -0.0695
+            },
+            "flowTestMargin": {
+              "actual": 0.792,
+              "memberPrediction": 0.79681581,
+              "persistencePrediction": 0.822333,
+              "memberError": 0.00481581,
+              "persistenceError": 0.030333
+            }
+          }
+        }
+      ],
+      "validationError": 0.01879349,
+      "persistenceError": 0.05002474,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "annualScmActivations": {
+          "model": "linear",
+          "intercept": 7.583590083333332,
+          "slope": 0.052288692857142854,
+          "origin": 2272
+        },
+        "flowTestMargin": {
+          "model": "linear",
+          "intercept": 0.914661075,
+          "slope": -0.0062023821428571465,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "III-refusal-constant-failed",
+      "finding": "III",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.35,
+              "memberPrediction": 7.94961093,
+              "persistencePrediction": 8.333833,
+              "memberError": -0.40038907,
+              "persistenceError": -0.016167
+            },
+            "flowTestMargin": {
+              "actual": 0.837333,
+              "memberPrediction": 0.8712444,
+              "persistencePrediction": 0.819,
+              "memberError": 0.0339114,
+              "persistenceError": -0.018333
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.447833,
+              "memberPrediction": 7.94961093,
+              "persistencePrediction": 8.35,
+              "memberError": -0.49822207,
+              "persistenceError": -0.097833
+            },
+            "flowTestMargin": {
+              "actual": 0.803,
+              "memberPrediction": 0.8712444,
+              "persistencePrediction": 0.837333,
+              "memberError": 0.0682444,
+              "persistenceError": 0.034333
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.434833,
+              "memberPrediction": 7.94961093,
+              "persistencePrediction": 8.447833,
+              "memberError": -0.48522207,
+              "persistenceError": 0.013
+            },
+            "flowTestMargin": {
+              "actual": 0.813667,
+              "memberPrediction": 0.8712444,
+              "persistencePrediction": 0.803,
+              "memberError": 0.0575774,
+              "persistenceError": -0.010667
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.521833,
+              "memberPrediction": 7.94961093,
+              "persistencePrediction": 8.434833,
+              "memberError": -0.57222207,
+              "persistenceError": -0.087
+            },
+            "flowTestMargin": {
+              "actual": 0.822333,
+              "memberPrediction": 0.8712444,
+              "persistencePrediction": 0.813667,
+              "memberError": 0.0489114,
+              "persistenceError": -0.008666
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "annualScmActivations": {
+              "actual": 8.591333,
+              "memberPrediction": 7.94961093,
+              "persistencePrediction": 8.521833,
+              "memberError": -0.64172207,
+              "persistenceError": -0.0695
+            },
+            "flowTestMargin": {
+              "actual": 0.792,
+              "memberPrediction": 0.8712444,
+              "persistencePrediction": 0.822333,
+              "memberError": 0.0792444,
+              "persistenceError": 0.030333
+            }
+          }
+        }
+      ],
+      "validationError": 0.3743016,
+      "persistenceError": 0.05002474,
+      "survived": false,
+      "disposition": "EXCLUDED_SECTION_4_3",
+      "fitted": {
+        "annualScmActivations": {
+          "model": "constant",
+          "intercept": 7.949610933333332,
+          "slope": 0,
+          "origin": 2272
+        },
+        "flowTestMargin": {
+          "model": "constant",
+          "intercept": 0.8712444,
+          "slope": 0,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "IV-certification-linear-b1",
+      "finding": "IV",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5552,
+              "memberPrediction": 0.55048762,
+              "persistencePrediction": 0.5399,
+              "memberError": -0.00471238,
+              "persistenceError": -0.0153
+            },
+            "privateProducerSurplus": {
+              "actual": 0.398909,
+              "memberPrediction": 0.40086409,
+              "persistencePrediction": 0.396818,
+              "memberError": 0.00195509,
+              "persistenceError": -0.002091
+            },
+            "qualityAdjustment": {
+              "actual": 0.1,
+              "memberPrediction": 0.1,
+              "persistencePrediction": 0.0988,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.331077,
+              "memberPrediction": 0.33273124,
+              "persistencePrediction": 0.329585,
+              "memberError": 0.00165424,
+              "persistenceError": -0.001492
+            },
+            "publicProducerSurplus": {
+              "actual": 0.247714,
+              "memberPrediction": 0.24434841,
+              "persistencePrediction": 0.2389,
+              "memberError": -0.00336559,
+              "persistenceError": -0.008814
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.063,
+              "memberPrediction": 0.063,
+              "persistencePrediction": 0.0622,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05225,
+              "memberPrediction": 0.05225,
+              "persistencePrediction": 0.0519,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.0323,
+              "memberPrediction": 0.0323,
+              "persistencePrediction": 0.03208,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0135,
+              "memberPrediction": 0.0135,
+              "persistencePrediction": 0.0134,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.58,
+              "memberPrediction": 0.58,
+              "persistencePrediction": 0.572,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 57.926,
+              "memberPrediction": 57.96900952,
+              "persistencePrediction": 57.642,
+              "memberError": 0.04300952,
+              "persistenceError": -0.284
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5547,
+              "memberPrediction": 0.5584269,
+              "persistencePrediction": 0.5552,
+              "memberError": 0.0037269,
+              "persistenceError": 0.0005
+            },
+            "privateProducerSurplus": {
+              "actual": 0.409909,
+              "memberPrediction": 0.4068956,
+              "persistencePrediction": 0.398909,
+              "memberError": -0.0030134,
+              "persistenceError": -0.011
+            },
+            "qualityAdjustment": {
+              "actual": 0.1012,
+              "memberPrediction": 0.1012,
+              "persistencePrediction": 0.1,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.340108,
+              "memberPrediction": 0.33755788,
+              "persistencePrediction": 0.331077,
+              "memberError": -0.00255012,
+              "persistenceError": -0.009031
+            },
+            "publicProducerSurplus": {
+              "actual": 0.245243,
+              "memberPrediction": 0.24790505,
+              "persistencePrediction": 0.247714,
+              "memberError": 0.00266205,
+              "persistenceError": 0.002471
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0638,
+              "memberPrediction": 0.0638,
+              "persistencePrediction": 0.063,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.0526,
+              "memberPrediction": 0.0526,
+              "persistencePrediction": 0.05225,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03252,
+              "memberPrediction": 0.03252,
+              "persistencePrediction": 0.0323,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0136,
+              "memberPrediction": 0.0136,
+              "persistencePrediction": 0.0135,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.588,
+              "memberPrediction": 0.588,
+              "persistencePrediction": 0.58,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 58.406,
+              "memberPrediction": 58.33970238,
+              "persistencePrediction": 57.926,
+              "memberError": -0.06629762,
+              "persistenceError": -0.48
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5677,
+              "memberPrediction": 0.56636619,
+              "persistencePrediction": 0.5547,
+              "memberError": -0.00133381,
+              "persistenceError": -0.013
+            },
+            "privateProducerSurplus": {
+              "actual": 0.408818,
+              "memberPrediction": 0.41292711,
+              "persistencePrediction": 0.409909,
+              "memberError": 0.00410911,
+              "persistenceError": 0.001091
+            },
+            "qualityAdjustment": {
+              "actual": 0.1024,
+              "memberPrediction": 0.1024,
+              "persistencePrediction": 0.1012,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.338908,
+              "memberPrediction": 0.34238453,
+              "persistencePrediction": 0.340108,
+              "memberError": 0.00347653,
+              "persistenceError": 0.0012
+            },
+            "publicProducerSurplus": {
+              "actual": 0.252414,
+              "memberPrediction": 0.2514617,
+              "persistencePrediction": 0.245243,
+              "memberError": -0.0009523,
+              "persistenceError": -0.007171
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0646,
+              "memberPrediction": 0.0646,
+              "persistencePrediction": 0.0638,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05295,
+              "memberPrediction": 0.05295,
+              "persistencePrediction": 0.0526,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03274,
+              "memberPrediction": 0.03274,
+              "persistencePrediction": 0.03252,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0137,
+              "memberPrediction": 0.0137,
+              "persistencePrediction": 0.0136,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.596,
+              "memberPrediction": 0.596,
+              "persistencePrediction": 0.588,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 58.62,
+              "memberPrediction": 58.71039524,
+              "persistencePrediction": 58.406,
+              "memberError": 0.09039524,
+              "persistenceError": -0.214
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5801,
+              "memberPrediction": 0.57430548,
+              "persistencePrediction": 0.5677,
+              "memberError": -0.00579452,
+              "persistenceError": -0.0124
+            },
+            "privateProducerSurplus": {
+              "actual": 0.418636,
+              "memberPrediction": 0.41895862,
+              "persistencePrediction": 0.408818,
+              "memberError": 0.00032262,
+              "persistenceError": -0.009818
+            },
+            "qualityAdjustment": {
+              "actual": 0.1036,
+              "memberPrediction": 0.1036,
+              "persistencePrediction": 0.1024,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.346938,
+              "memberPrediction": 0.34721118,
+              "persistencePrediction": 0.338908,
+              "memberError": 0.00027318,
+              "persistenceError": -0.00803
+            },
+            "publicProducerSurplus": {
+              "actual": 0.259157,
+              "memberPrediction": 0.25501834,
+              "persistencePrediction": 0.252414,
+              "memberError": -0.00413866,
+              "persistenceError": -0.006743
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0654,
+              "memberPrediction": 0.0654,
+              "persistencePrediction": 0.0646,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.0533,
+              "memberPrediction": 0.0533,
+              "persistencePrediction": 0.05295,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03296,
+              "memberPrediction": 0.03296,
+              "persistencePrediction": 0.03274,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0138,
+              "memberPrediction": 0.0138,
+              "persistencePrediction": 0.0137,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.604,
+              "memberPrediction": 0.604,
+              "persistencePrediction": 0.596,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 59.074,
+              "memberPrediction": 59.0810881,
+              "persistencePrediction": 58.62,
+              "memberError": 0.0070881,
+              "persistenceError": -0.454
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5808,
+              "memberPrediction": 0.58224476,
+              "persistencePrediction": 0.5801,
+              "memberError": 0.00144476,
+              "persistenceError": -0.0007
+            },
+            "privateProducerSurplus": {
+              "actual": 0.426545,
+              "memberPrediction": 0.42499013,
+              "persistencePrediction": 0.418636,
+              "memberError": -0.00155487,
+              "persistenceError": -0.007909
+            },
+            "qualityAdjustment": {
+              "actual": 0.1048,
+              "memberPrediction": 0.1048,
+              "persistencePrediction": 0.1036,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.353354,
+              "memberPrediction": 0.35203782,
+              "persistencePrediction": 0.346938,
+              "memberError": -0.00131618,
+              "persistenceError": -0.006416
+            },
+            "publicProducerSurplus": {
+              "actual": 0.257543,
+              "memberPrediction": 0.25857498,
+              "persistencePrediction": 0.259157,
+              "memberError": 0.00103198,
+              "persistenceError": 0.001614
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0662,
+              "memberPrediction": 0.0662,
+              "persistencePrediction": 0.0654,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05365,
+              "memberPrediction": 0.05365,
+              "persistencePrediction": 0.0533,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03318,
+              "memberPrediction": 0.03318,
+              "persistencePrediction": 0.03296,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0139,
+              "memberPrediction": 0.0139,
+              "persistencePrediction": 0.0138,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.612,
+              "memberPrediction": 0.612,
+              "persistencePrediction": 0.604,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 59.486,
+              "memberPrediction": 59.45178095,
+              "persistencePrediction": 59.074,
+              "memberError": -0.03421905,
+              "persistenceError": -0.412
+            }
+          }
+        }
+      ],
+      "validationError": 0.01695136,
+      "persistenceError": 0.11554303,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "privateConsumerSurplus": {
+          "model": "linear",
+          "intercept": 0.43139833333333333,
+          "slope": 0.007939285714285716,
+          "origin": 2272
+        },
+        "privateProducerSurplus": {
+          "model": "linear",
+          "intercept": 0.31039142499999994,
+          "slope": 0.006031510714285712,
+          "origin": 2272
+        },
+        "qualityAdjustment": {
+          "model": "linear",
+          "intercept": 0.08199999999999999,
+          "slope": 0.0012000000000000003,
+          "origin": 2272
+        },
+        "publicConsumerSurplus": {
+          "model": "linear",
+          "intercept": 0.26033154166666667,
+          "slope": 0.004826646428571432,
+          "origin": 2272
+        },
+        "publicProducerSurplus": {
+          "model": "linear",
+          "intercept": 0.1909987666666667,
+          "slope": 0.003556642857142856,
+          "origin": 2272
+        },
+        "publicQualityAdjustment": {
+          "model": "linear",
+          "intercept": 0.051,
+          "slope": 0.0008000000000000001,
+          "origin": 2272
+        },
+        "displacementCost": {
+          "model": "linear",
+          "intercept": 0.04699999999999999,
+          "slope": 0.00035,
+          "origin": 2272
+        },
+        "externalCost": {
+          "model": "linear",
+          "intercept": 0.029,
+          "slope": 0.0002199999999999999,
+          "origin": 2272
+        },
+        "beyondHorizonValue": {
+          "model": "linear",
+          "intercept": 0.012,
+          "slope": 0.00009999999999999999,
+          "origin": 2272
+        },
+        "publicCaptureSurplus": {
+          "model": "linear",
+          "intercept": 0.46,
+          "slope": 0.007999999999999998,
+          "origin": 2272
+        },
+        "canonicalConsumptionLevel": {
+          "model": "linear",
+          "intercept": 52.40861666666667,
+          "slope": 0.37069285714285727,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "IV-refusal-partial-id-b4",
+      "finding": "IV",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5552,
+              "memberPrediction": 0.55048762,
+              "persistencePrediction": 0.5399,
+              "memberError": -0.00471238,
+              "persistenceError": -0.0153
+            },
+            "privateProducerSurplus": {
+              "actual": 0.398909,
+              "memberPrediction": 0.40086409,
+              "persistencePrediction": 0.396818,
+              "memberError": 0.00195509,
+              "persistenceError": -0.002091
+            },
+            "qualityAdjustment": {
+              "actual": 0.1,
+              "memberPrediction": 0.1,
+              "persistencePrediction": 0.0988,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.331077,
+              "memberPrediction": 0.33273124,
+              "persistencePrediction": 0.329585,
+              "memberError": 0.00165424,
+              "persistenceError": -0.001492
+            },
+            "publicProducerSurplus": {
+              "actual": 0.247714,
+              "memberPrediction": 0.24434841,
+              "persistencePrediction": 0.2389,
+              "memberError": -0.00336559,
+              "persistenceError": -0.008814
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.063,
+              "memberPrediction": 0.063,
+              "persistencePrediction": 0.0622,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05225,
+              "memberPrediction": 0.05225,
+              "persistencePrediction": 0.0519,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.0323,
+              "memberPrediction": 0.0323,
+              "persistencePrediction": 0.03208,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0135,
+              "memberPrediction": 0.0135,
+              "persistencePrediction": 0.0134,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.58,
+              "memberPrediction": 0.58,
+              "persistencePrediction": 0.572,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 57.926,
+              "memberPrediction": 57.96900952,
+              "persistencePrediction": 57.642,
+              "memberError": 0.04300952,
+              "persistenceError": -0.284
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5547,
+              "memberPrediction": 0.5584269,
+              "persistencePrediction": 0.5552,
+              "memberError": 0.0037269,
+              "persistenceError": 0.0005
+            },
+            "privateProducerSurplus": {
+              "actual": 0.409909,
+              "memberPrediction": 0.4068956,
+              "persistencePrediction": 0.398909,
+              "memberError": -0.0030134,
+              "persistenceError": -0.011
+            },
+            "qualityAdjustment": {
+              "actual": 0.1012,
+              "memberPrediction": 0.1012,
+              "persistencePrediction": 0.1,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.340108,
+              "memberPrediction": 0.33755788,
+              "persistencePrediction": 0.331077,
+              "memberError": -0.00255012,
+              "persistenceError": -0.009031
+            },
+            "publicProducerSurplus": {
+              "actual": 0.245243,
+              "memberPrediction": 0.24790505,
+              "persistencePrediction": 0.247714,
+              "memberError": 0.00266205,
+              "persistenceError": 0.002471
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0638,
+              "memberPrediction": 0.0638,
+              "persistencePrediction": 0.063,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.0526,
+              "memberPrediction": 0.0526,
+              "persistencePrediction": 0.05225,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03252,
+              "memberPrediction": 0.03252,
+              "persistencePrediction": 0.0323,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0136,
+              "memberPrediction": 0.0136,
+              "persistencePrediction": 0.0135,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.588,
+              "memberPrediction": 0.588,
+              "persistencePrediction": 0.58,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 58.406,
+              "memberPrediction": 58.33970238,
+              "persistencePrediction": 57.926,
+              "memberError": -0.06629762,
+              "persistenceError": -0.48
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5677,
+              "memberPrediction": 0.56636619,
+              "persistencePrediction": 0.5547,
+              "memberError": -0.00133381,
+              "persistenceError": -0.013
+            },
+            "privateProducerSurplus": {
+              "actual": 0.408818,
+              "memberPrediction": 0.41292711,
+              "persistencePrediction": 0.409909,
+              "memberError": 0.00410911,
+              "persistenceError": 0.001091
+            },
+            "qualityAdjustment": {
+              "actual": 0.1024,
+              "memberPrediction": 0.1024,
+              "persistencePrediction": 0.1012,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.338908,
+              "memberPrediction": 0.34238453,
+              "persistencePrediction": 0.340108,
+              "memberError": 0.00347653,
+              "persistenceError": 0.0012
+            },
+            "publicProducerSurplus": {
+              "actual": 0.252414,
+              "memberPrediction": 0.2514617,
+              "persistencePrediction": 0.245243,
+              "memberError": -0.0009523,
+              "persistenceError": -0.007171
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0646,
+              "memberPrediction": 0.0646,
+              "persistencePrediction": 0.0638,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05295,
+              "memberPrediction": 0.05295,
+              "persistencePrediction": 0.0526,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03274,
+              "memberPrediction": 0.03274,
+              "persistencePrediction": 0.03252,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0137,
+              "memberPrediction": 0.0137,
+              "persistencePrediction": 0.0136,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.596,
+              "memberPrediction": 0.596,
+              "persistencePrediction": 0.588,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 58.62,
+              "memberPrediction": 58.71039524,
+              "persistencePrediction": 58.406,
+              "memberError": 0.09039524,
+              "persistenceError": -0.214
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5801,
+              "memberPrediction": 0.57430548,
+              "persistencePrediction": 0.5677,
+              "memberError": -0.00579452,
+              "persistenceError": -0.0124
+            },
+            "privateProducerSurplus": {
+              "actual": 0.418636,
+              "memberPrediction": 0.41895862,
+              "persistencePrediction": 0.408818,
+              "memberError": 0.00032262,
+              "persistenceError": -0.009818
+            },
+            "qualityAdjustment": {
+              "actual": 0.1036,
+              "memberPrediction": 0.1036,
+              "persistencePrediction": 0.1024,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.346938,
+              "memberPrediction": 0.34721118,
+              "persistencePrediction": 0.338908,
+              "memberError": 0.00027318,
+              "persistenceError": -0.00803
+            },
+            "publicProducerSurplus": {
+              "actual": 0.259157,
+              "memberPrediction": 0.25501834,
+              "persistencePrediction": 0.252414,
+              "memberError": -0.00413866,
+              "persistenceError": -0.006743
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0654,
+              "memberPrediction": 0.0654,
+              "persistencePrediction": 0.0646,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.0533,
+              "memberPrediction": 0.0533,
+              "persistencePrediction": 0.05295,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03296,
+              "memberPrediction": 0.03296,
+              "persistencePrediction": 0.03274,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0138,
+              "memberPrediction": 0.0138,
+              "persistencePrediction": 0.0137,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.604,
+              "memberPrediction": 0.604,
+              "persistencePrediction": 0.596,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 59.074,
+              "memberPrediction": 59.0810881,
+              "persistencePrediction": 58.62,
+              "memberError": 0.0070881,
+              "persistenceError": -0.454
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5808,
+              "memberPrediction": 0.58224476,
+              "persistencePrediction": 0.5801,
+              "memberError": 0.00144476,
+              "persistenceError": -0.0007
+            },
+            "privateProducerSurplus": {
+              "actual": 0.426545,
+              "memberPrediction": 0.42499013,
+              "persistencePrediction": 0.418636,
+              "memberError": -0.00155487,
+              "persistenceError": -0.007909
+            },
+            "qualityAdjustment": {
+              "actual": 0.1048,
+              "memberPrediction": 0.1048,
+              "persistencePrediction": 0.1036,
+              "memberError": 0,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.353354,
+              "memberPrediction": 0.35203782,
+              "persistencePrediction": 0.346938,
+              "memberError": -0.00131618,
+              "persistenceError": -0.006416
+            },
+            "publicProducerSurplus": {
+              "actual": 0.257543,
+              "memberPrediction": 0.25857498,
+              "persistencePrediction": 0.259157,
+              "memberError": 0.00103198,
+              "persistenceError": 0.001614
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0662,
+              "memberPrediction": 0.0662,
+              "persistencePrediction": 0.0654,
+              "memberError": 0,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05365,
+              "memberPrediction": 0.05365,
+              "persistencePrediction": 0.0533,
+              "memberError": 0,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03318,
+              "memberPrediction": 0.03318,
+              "persistencePrediction": 0.03296,
+              "memberError": 0,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0139,
+              "memberPrediction": 0.0139,
+              "persistencePrediction": 0.0138,
+              "memberError": 0,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.612,
+              "memberPrediction": 0.612,
+              "persistencePrediction": 0.604,
+              "memberError": 0,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 59.486,
+              "memberPrediction": 59.45178095,
+              "persistencePrediction": 59.074,
+              "memberError": -0.03421905,
+              "persistenceError": -0.412
+            }
+          }
+        }
+      ],
+      "validationError": 0.01695136,
+      "persistenceError": 0.11554303,
+      "survived": true,
+      "disposition": "ADMITTED",
+      "fitted": {
+        "privateConsumerSurplus": {
+          "model": "linear",
+          "intercept": 0.43139833333333333,
+          "slope": 0.007939285714285716,
+          "origin": 2272
+        },
+        "privateProducerSurplus": {
+          "model": "linear",
+          "intercept": 0.31039142499999994,
+          "slope": 0.006031510714285712,
+          "origin": 2272
+        },
+        "qualityAdjustment": {
+          "model": "linear",
+          "intercept": 0.08199999999999999,
+          "slope": 0.0012000000000000003,
+          "origin": 2272
+        },
+        "publicConsumerSurplus": {
+          "model": "linear",
+          "intercept": 0.26033154166666667,
+          "slope": 0.004826646428571432,
+          "origin": 2272
+        },
+        "publicProducerSurplus": {
+          "model": "linear",
+          "intercept": 0.1909987666666667,
+          "slope": 0.003556642857142856,
+          "origin": 2272
+        },
+        "publicQualityAdjustment": {
+          "model": "linear",
+          "intercept": 0.051,
+          "slope": 0.0008000000000000001,
+          "origin": 2272
+        },
+        "displacementCost": {
+          "model": "linear",
+          "intercept": 0.04699999999999999,
+          "slope": 0.00035,
+          "origin": 2272
+        },
+        "externalCost": {
+          "model": "linear",
+          "intercept": 0.029,
+          "slope": 0.0002199999999999999,
+          "origin": 2272
+        },
+        "beyondHorizonValue": {
+          "model": "linear",
+          "intercept": 0.012,
+          "slope": 0.00009999999999999999,
+          "origin": 2272
+        },
+        "publicCaptureSurplus": {
+          "model": "linear",
+          "intercept": 0.46,
+          "slope": 0.007999999999999998,
+          "origin": 2272
+        },
+        "canonicalConsumptionLevel": {
+          "model": "linear",
+          "intercept": 52.40861666666667,
+          "slope": 0.37069285714285727,
+          "origin": 2272
+        }
+      }
+    },
+    {
+      "memberId": "IV-certification-constant-failed",
+      "finding": "IV",
+      "trainingYears": [
+        2272,
+        2286
+      ],
+      "heldOutYears": [
+        2287,
+        2291
+      ],
+      "rowLevel": [
+        {
+          "year": 2287,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5552,
+              "memberPrediction": 0.48697333,
+              "persistencePrediction": 0.5399,
+              "memberError": -0.06822667,
+              "persistenceError": -0.0153
+            },
+            "privateProducerSurplus": {
+              "actual": 0.398909,
+              "memberPrediction": 0.352612,
+              "persistencePrediction": 0.396818,
+              "memberError": -0.046297,
+              "persistenceError": -0.002091
+            },
+            "qualityAdjustment": {
+              "actual": 0.1,
+              "memberPrediction": 0.0904,
+              "persistencePrediction": 0.0988,
+              "memberError": -0.0096,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.331077,
+              "memberPrediction": 0.29411807,
+              "persistencePrediction": 0.329585,
+              "memberError": -0.03695893,
+              "persistenceError": -0.001492
+            },
+            "publicProducerSurplus": {
+              "actual": 0.247714,
+              "memberPrediction": 0.21589527,
+              "persistencePrediction": 0.2389,
+              "memberError": -0.03181873,
+              "persistenceError": -0.008814
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.063,
+              "memberPrediction": 0.0566,
+              "persistencePrediction": 0.0622,
+              "memberError": -0.0064,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05225,
+              "memberPrediction": 0.04945,
+              "persistencePrediction": 0.0519,
+              "memberError": -0.0028,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.0323,
+              "memberPrediction": 0.03054,
+              "persistencePrediction": 0.03208,
+              "memberError": -0.00176,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0135,
+              "memberPrediction": 0.0127,
+              "persistencePrediction": 0.0134,
+              "memberError": -0.0008,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.58,
+              "memberPrediction": 0.516,
+              "persistencePrediction": 0.572,
+              "memberError": -0.064,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 57.926,
+              "memberPrediction": 55.00346667,
+              "persistencePrediction": 57.642,
+              "memberError": -2.92253333,
+              "persistenceError": -0.284
+            }
+          }
+        },
+        {
+          "year": 2288,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5547,
+              "memberPrediction": 0.48697333,
+              "persistencePrediction": 0.5552,
+              "memberError": -0.06772667,
+              "persistenceError": 0.0005
+            },
+            "privateProducerSurplus": {
+              "actual": 0.409909,
+              "memberPrediction": 0.352612,
+              "persistencePrediction": 0.398909,
+              "memberError": -0.057297,
+              "persistenceError": -0.011
+            },
+            "qualityAdjustment": {
+              "actual": 0.1012,
+              "memberPrediction": 0.0904,
+              "persistencePrediction": 0.1,
+              "memberError": -0.0108,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.340108,
+              "memberPrediction": 0.29411807,
+              "persistencePrediction": 0.331077,
+              "memberError": -0.04598993,
+              "persistenceError": -0.009031
+            },
+            "publicProducerSurplus": {
+              "actual": 0.245243,
+              "memberPrediction": 0.21589527,
+              "persistencePrediction": 0.247714,
+              "memberError": -0.02934773,
+              "persistenceError": 0.002471
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0638,
+              "memberPrediction": 0.0566,
+              "persistencePrediction": 0.063,
+              "memberError": -0.0072,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.0526,
+              "memberPrediction": 0.04945,
+              "persistencePrediction": 0.05225,
+              "memberError": -0.00315,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03252,
+              "memberPrediction": 0.03054,
+              "persistencePrediction": 0.0323,
+              "memberError": -0.00198,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0136,
+              "memberPrediction": 0.0127,
+              "persistencePrediction": 0.0135,
+              "memberError": -0.0009,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.588,
+              "memberPrediction": 0.516,
+              "persistencePrediction": 0.58,
+              "memberError": -0.072,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 58.406,
+              "memberPrediction": 55.00346667,
+              "persistencePrediction": 57.926,
+              "memberError": -3.40253333,
+              "persistenceError": -0.48
+            }
+          }
+        },
+        {
+          "year": 2289,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5677,
+              "memberPrediction": 0.48697333,
+              "persistencePrediction": 0.5547,
+              "memberError": -0.08072667,
+              "persistenceError": -0.013
+            },
+            "privateProducerSurplus": {
+              "actual": 0.408818,
+              "memberPrediction": 0.352612,
+              "persistencePrediction": 0.409909,
+              "memberError": -0.056206,
+              "persistenceError": 0.001091
+            },
+            "qualityAdjustment": {
+              "actual": 0.1024,
+              "memberPrediction": 0.0904,
+              "persistencePrediction": 0.1012,
+              "memberError": -0.012,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.338908,
+              "memberPrediction": 0.29411807,
+              "persistencePrediction": 0.340108,
+              "memberError": -0.04478993,
+              "persistenceError": 0.0012
+            },
+            "publicProducerSurplus": {
+              "actual": 0.252414,
+              "memberPrediction": 0.21589527,
+              "persistencePrediction": 0.245243,
+              "memberError": -0.03651873,
+              "persistenceError": -0.007171
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0646,
+              "memberPrediction": 0.0566,
+              "persistencePrediction": 0.0638,
+              "memberError": -0.008,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05295,
+              "memberPrediction": 0.04945,
+              "persistencePrediction": 0.0526,
+              "memberError": -0.0035,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03274,
+              "memberPrediction": 0.03054,
+              "persistencePrediction": 0.03252,
+              "memberError": -0.0022,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0137,
+              "memberPrediction": 0.0127,
+              "persistencePrediction": 0.0136,
+              "memberError": -0.001,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.596,
+              "memberPrediction": 0.516,
+              "persistencePrediction": 0.588,
+              "memberError": -0.08,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 58.62,
+              "memberPrediction": 55.00346667,
+              "persistencePrediction": 58.406,
+              "memberError": -3.61653333,
+              "persistenceError": -0.214
+            }
+          }
+        },
+        {
+          "year": 2290,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5801,
+              "memberPrediction": 0.48697333,
+              "persistencePrediction": 0.5677,
+              "memberError": -0.09312667,
+              "persistenceError": -0.0124
+            },
+            "privateProducerSurplus": {
+              "actual": 0.418636,
+              "memberPrediction": 0.352612,
+              "persistencePrediction": 0.408818,
+              "memberError": -0.066024,
+              "persistenceError": -0.009818
+            },
+            "qualityAdjustment": {
+              "actual": 0.1036,
+              "memberPrediction": 0.0904,
+              "persistencePrediction": 0.1024,
+              "memberError": -0.0132,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.346938,
+              "memberPrediction": 0.29411807,
+              "persistencePrediction": 0.338908,
+              "memberError": -0.05281993,
+              "persistenceError": -0.00803
+            },
+            "publicProducerSurplus": {
+              "actual": 0.259157,
+              "memberPrediction": 0.21589527,
+              "persistencePrediction": 0.252414,
+              "memberError": -0.04326173,
+              "persistenceError": -0.006743
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0654,
+              "memberPrediction": 0.0566,
+              "persistencePrediction": 0.0646,
+              "memberError": -0.0088,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.0533,
+              "memberPrediction": 0.04945,
+              "persistencePrediction": 0.05295,
+              "memberError": -0.00385,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03296,
+              "memberPrediction": 0.03054,
+              "persistencePrediction": 0.03274,
+              "memberError": -0.00242,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0138,
+              "memberPrediction": 0.0127,
+              "persistencePrediction": 0.0137,
+              "memberError": -0.0011,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.604,
+              "memberPrediction": 0.516,
+              "persistencePrediction": 0.596,
+              "memberError": -0.088,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 59.074,
+              "memberPrediction": 55.00346667,
+              "persistencePrediction": 58.62,
+              "memberError": -4.07053333,
+              "persistenceError": -0.454
+            }
+          }
+        },
+        {
+          "year": 2291,
+          "outcomes": {
+            "privateConsumerSurplus": {
+              "actual": 0.5808,
+              "memberPrediction": 0.48697333,
+              "persistencePrediction": 0.5801,
+              "memberError": -0.09382667,
+              "persistenceError": -0.0007
+            },
+            "privateProducerSurplus": {
+              "actual": 0.426545,
+              "memberPrediction": 0.352612,
+              "persistencePrediction": 0.418636,
+              "memberError": -0.073933,
+              "persistenceError": -0.007909
+            },
+            "qualityAdjustment": {
+              "actual": 0.1048,
+              "memberPrediction": 0.0904,
+              "persistencePrediction": 0.1036,
+              "memberError": -0.0144,
+              "persistenceError": -0.0012
+            },
+            "publicConsumerSurplus": {
+              "actual": 0.353354,
+              "memberPrediction": 0.29411807,
+              "persistencePrediction": 0.346938,
+              "memberError": -0.05923593,
+              "persistenceError": -0.006416
+            },
+            "publicProducerSurplus": {
+              "actual": 0.257543,
+              "memberPrediction": 0.21589527,
+              "persistencePrediction": 0.259157,
+              "memberError": -0.04164773,
+              "persistenceError": 0.001614
+            },
+            "publicQualityAdjustment": {
+              "actual": 0.0662,
+              "memberPrediction": 0.0566,
+              "persistencePrediction": 0.0654,
+              "memberError": -0.0096,
+              "persistenceError": -0.0008
+            },
+            "displacementCost": {
+              "actual": 0.05365,
+              "memberPrediction": 0.04945,
+              "persistencePrediction": 0.0533,
+              "memberError": -0.0042,
+              "persistenceError": -0.00035
+            },
+            "externalCost": {
+              "actual": 0.03318,
+              "memberPrediction": 0.03054,
+              "persistencePrediction": 0.03296,
+              "memberError": -0.00264,
+              "persistenceError": -0.00022
+            },
+            "beyondHorizonValue": {
+              "actual": 0.0139,
+              "memberPrediction": 0.0127,
+              "persistencePrediction": 0.0138,
+              "memberError": -0.0012,
+              "persistenceError": -0.0001
+            },
+            "publicCaptureSurplus": {
+              "actual": 0.612,
+              "memberPrediction": 0.516,
+              "persistencePrediction": 0.604,
+              "memberError": -0.096,
+              "persistenceError": -0.008
+            },
+            "canonicalConsumptionLevel": {
+              "actual": 59.486,
+              "memberPrediction": 55.00346667,
+              "persistencePrediction": 59.074,
+              "memberError": -4.48253333,
+              "persistenceError": -0.412
+            }
+          }
+        }
+      ],
+      "validationError": 1.12786308,
+      "persistenceError": 0.11554303,
+      "survived": false,
+      "disposition": "EXCLUDED_SECTION_4_3",
+      "fitted": {
+        "privateConsumerSurplus": {
+          "model": "constant",
+          "intercept": 0.4869733333333333,
+          "slope": 0,
+          "origin": 2272
+        },
+        "privateProducerSurplus": {
+          "model": "constant",
+          "intercept": 0.3526119999999999,
+          "slope": 0,
+          "origin": 2272
+        },
+        "qualityAdjustment": {
+          "model": "constant",
+          "intercept": 0.0904,
+          "slope": 0,
+          "origin": 2272
+        },
+        "publicConsumerSurplus": {
+          "model": "constant",
+          "intercept": 0.2941180666666667,
+          "slope": 0,
+          "origin": 2272
+        },
+        "publicProducerSurplus": {
+          "model": "constant",
+          "intercept": 0.2158952666666667,
+          "slope": 0,
+          "origin": 2272
+        },
+        "publicQualityAdjustment": {
+          "model": "constant",
+          "intercept": 0.0566,
+          "slope": 0,
+          "origin": 2272
+        },
+        "displacementCost": {
+          "model": "constant",
+          "intercept": 0.049449999999999994,
+          "slope": 0,
+          "origin": 2272
+        },
+        "externalCost": {
+          "model": "constant",
+          "intercept": 0.03054,
+          "slope": 0,
+          "origin": 2272
+        },
+        "beyondHorizonValue": {
+          "model": "constant",
+          "intercept": 0.0127,
+          "slope": 0,
+          "origin": 2272
+        },
+        "publicCaptureSurplus": {
+          "model": "constant",
+          "intercept": 0.516,
+          "slope": 0,
+          "origin": 2272
+        },
+        "canonicalConsumptionLevel": {
+          "model": "constant",
+          "intercept": 55.00346666666667,
+          "slope": 0,
+          "origin": 2272
+        }
+      }
+    }
+  ],
+  "excludedMembers": [
+    {
+      "memberId": "I-certification-constant-failed",
+      "finding": "I",
+      "reason": "Held-out member RMSE exceeded naive persistence RMSE",
+      "validationRecord": {
+        "memberId": "I-certification-constant-failed",
+        "finding": "I",
+        "trainingYears": [
+          2272,
+          2286
+        ],
+        "heldOutYears": [
+          2287,
+          2291
+        ],
+        "rowLevel": [
+          {
+            "year": 2287,
+            "outcomes": {
+              "receipts": {
+                "actual": 1460.25,
+                "memberPrediction": 1312.00833333,
+                "persistencePrediction": 1437.4875,
+                "memberError": -148.24166667,
+                "persistenceError": -22.7625
+              },
+              "obligations": {
+                "actual": 1327.333333,
+                "memberPrediction": 1197.17407413,
+                "persistencePrediction": 1313.322222,
+                "memberError": -130.15925887,
+                "persistenceError": -14.011111
+              }
+            }
+          },
+          {
+            "year": 2288,
+            "outcomes": {
+              "receipts": {
+                "actual": 1473.1375,
+                "memberPrediction": 1312.00833333,
+                "persistencePrediction": 1460.25,
+                "memberError": -161.12916667,
+                "persistenceError": -12.8875
+              },
+              "obligations": {
+                "actual": 1346.788889,
+                "memberPrediction": 1197.17407413,
+                "persistencePrediction": 1327.333333,
+                "memberError": -149.61481487,
+                "persistenceError": -19.455556
+              }
+            }
+          },
+          {
+            "year": 2289,
+            "outcomes": {
+              "receipts": {
+                "actual": 1494.4625,
+                "memberPrediction": 1312.00833333,
+                "persistencePrediction": 1473.1375,
+                "memberError": -182.45416667,
+                "persistenceError": -21.325
+              },
+              "obligations": {
+                "actual": 1358.855556,
+                "memberPrediction": 1197.17407413,
+                "persistencePrediction": 1346.788889,
+                "memberError": -161.68148187,
+                "persistenceError": -12.066667
+              }
+            }
+          },
+          {
+            "year": 2290,
+            "outcomes": {
+              "receipts": {
+                "actual": 1515.4125,
+                "memberPrediction": 1312.00833333,
+                "persistencePrediction": 1494.4625,
+                "memberError": -203.40416667,
+                "persistenceError": -20.95
+              },
+              "obligations": {
+                "actual": 1377.588889,
+                "memberPrediction": 1197.17407413,
+                "persistencePrediction": 1358.855556,
+                "memberError": -180.41481487,
+                "persistenceError": -18.733333
+              }
+            }
+          },
+          {
+            "year": 2291,
+            "outcomes": {
+              "receipts": {
+                "actual": 1529.05,
+                "memberPrediction": 1312.00833333,
+                "persistencePrediction": 1515.4125,
+                "memberError": -217.04166667,
+                "persistenceError": -13.6375
+              },
+              "obligations": {
+                "actual": 1395.155556,
+                "memberPrediction": 1197.17407413,
+                "persistencePrediction": 1377.588889,
+                "memberError": -197.98148187,
+                "persistenceError": -17.566667
+              }
+            }
+          }
+        ],
+        "validationError": 175.19165585,
+        "persistenceError": 17.73081637,
+        "survived": false,
+        "disposition": "EXCLUDED_SECTION_4_3",
+        "fitted": {
+          "receipts": {
+            "model": "constant",
+            "intercept": 1312.0083333333334,
+            "slope": 0,
+            "origin": 2272
+          },
+          "obligations": {
+            "model": "constant",
+            "intercept": 1197.1740741333333,
+            "slope": 0,
+            "origin": 2272
+          }
+        }
+      }
+    },
+    {
+      "memberId": "II-refusal-constant-failed",
+      "finding": "II",
+      "reason": "Held-out member RMSE exceeded naive persistence RMSE",
+      "validationRecord": {
+        "memberId": "II-refusal-constant-failed",
+        "finding": "II",
+        "trainingYears": [
+          2272,
+          2286
+        ],
+        "heldOutYears": [
+          2287,
+          2291
+        ],
+        "rowLevel": [
+          {
+            "year": 2287,
+            "outcomes": {
+              "realDividendPerResident": {
+                "actual": 100.832778,
+                "memberPrediction": 98.82581487,
+                "persistencePrediction": 100.506667,
+                "memberError": -2.00696313,
+                "persistenceError": -0.326111
+              }
+            }
+          },
+          {
+            "year": 2288,
+            "outcomes": {
+              "realDividendPerResident": {
+                "actual": 100.983333,
+                "memberPrediction": 98.82581487,
+                "persistencePrediction": 100.832778,
+                "memberError": -2.15751813,
+                "persistenceError": -0.150555
+              }
+            }
+          },
+          {
+            "year": 2289,
+            "outcomes": {
+              "realDividendPerResident": {
+                "actual": 101.283889,
+                "memberPrediction": 98.82581487,
+                "persistencePrediction": 100.983333,
+                "memberError": -2.45807413,
+                "persistenceError": -0.300556
+              }
+            }
+          },
+          {
+            "year": 2290,
+            "outcomes": {
+              "realDividendPerResident": {
+                "actual": 101.577778,
+                "memberPrediction": 98.82581487,
+                "persistencePrediction": 101.283889,
+                "memberError": -2.75196313,
+                "persistenceError": -0.293889
+              }
+            }
+          },
+          {
+            "year": 2291,
+            "outcomes": {
+              "realDividendPerResident": {
+                "actual": 101.741667,
+                "memberPrediction": 98.82581487,
+                "persistencePrediction": 101.577778,
+                "memberError": -2.91585213,
+                "persistenceError": -0.163889
+              }
+            }
+          }
+        ],
+        "validationError": 2.48195119,
+        "persistenceError": 0.25790675,
+        "survived": false,
+        "disposition": "EXCLUDED_SECTION_4_3",
+        "fitted": {
+          "realDividendPerResident": {
+            "model": "constant",
+            "intercept": 98.82581486666668,
+            "slope": 0,
+            "origin": 2272
+          }
+        }
+      }
+    },
+    {
+      "memberId": "III-refusal-constant-failed",
+      "finding": "III",
+      "reason": "Held-out member RMSE exceeded naive persistence RMSE",
+      "validationRecord": {
+        "memberId": "III-refusal-constant-failed",
+        "finding": "III",
+        "trainingYears": [
+          2272,
+          2286
+        ],
+        "heldOutYears": [
+          2287,
+          2291
+        ],
+        "rowLevel": [
+          {
+            "year": 2287,
+            "outcomes": {
+              "annualScmActivations": {
+                "actual": 8.35,
+                "memberPrediction": 7.94961093,
+                "persistencePrediction": 8.333833,
+                "memberError": -0.40038907,
+                "persistenceError": -0.016167
+              },
+              "flowTestMargin": {
+                "actual": 0.837333,
+                "memberPrediction": 0.8712444,
+                "persistencePrediction": 0.819,
+                "memberError": 0.0339114,
+                "persistenceError": -0.018333
+              }
+            }
+          },
+          {
+            "year": 2288,
+            "outcomes": {
+              "annualScmActivations": {
+                "actual": 8.447833,
+                "memberPrediction": 7.94961093,
+                "persistencePrediction": 8.35,
+                "memberError": -0.49822207,
+                "persistenceError": -0.097833
+              },
+              "flowTestMargin": {
+                "actual": 0.803,
+                "memberPrediction": 0.8712444,
+                "persistencePrediction": 0.837333,
+                "memberError": 0.0682444,
+                "persistenceError": 0.034333
+              }
+            }
+          },
+          {
+            "year": 2289,
+            "outcomes": {
+              "annualScmActivations": {
+                "actual": 8.434833,
+                "memberPrediction": 7.94961093,
+                "persistencePrediction": 8.447833,
+                "memberError": -0.48522207,
+                "persistenceError": 0.013
+              },
+              "flowTestMargin": {
+                "actual": 0.813667,
+                "memberPrediction": 0.8712444,
+                "persistencePrediction": 0.803,
+                "memberError": 0.0575774,
+                "persistenceError": -0.010667
+              }
+            }
+          },
+          {
+            "year": 2290,
+            "outcomes": {
+              "annualScmActivations": {
+                "actual": 8.521833,
+                "memberPrediction": 7.94961093,
+                "persistencePrediction": 8.434833,
+                "memberError": -0.57222207,
+                "persistenceError": -0.087
+              },
+              "flowTestMargin": {
+                "actual": 0.822333,
+                "memberPrediction": 0.8712444,
+                "persistencePrediction": 0.813667,
+                "memberError": 0.0489114,
+                "persistenceError": -0.008666
+              }
+            }
+          },
+          {
+            "year": 2291,
+            "outcomes": {
+              "annualScmActivations": {
+                "actual": 8.591333,
+                "memberPrediction": 7.94961093,
+                "persistencePrediction": 8.521833,
+                "memberError": -0.64172207,
+                "persistenceError": -0.0695
+              },
+              "flowTestMargin": {
+                "actual": 0.792,
+                "memberPrediction": 0.8712444,
+                "persistencePrediction": 0.822333,
+                "memberError": 0.0792444,
+                "persistenceError": 0.030333
+              }
+            }
+          }
+        ],
+        "validationError": 0.3743016,
+        "persistenceError": 0.05002474,
+        "survived": false,
+        "disposition": "EXCLUDED_SECTION_4_3",
+        "fitted": {
+          "annualScmActivations": {
+            "model": "constant",
+            "intercept": 7.949610933333332,
+            "slope": 0,
+            "origin": 2272
+          },
+          "flowTestMargin": {
+            "model": "constant",
+            "intercept": 0.8712444,
+            "slope": 0,
+            "origin": 2272
+          }
+        }
+      }
+    },
+    {
+      "memberId": "IV-certification-constant-failed",
+      "finding": "IV",
+      "reason": "Held-out member RMSE exceeded naive persistence RMSE",
+      "validationRecord": {
+        "memberId": "IV-certification-constant-failed",
+        "finding": "IV",
+        "trainingYears": [
+          2272,
+          2286
+        ],
+        "heldOutYears": [
+          2287,
+          2291
+        ],
+        "rowLevel": [
+          {
+            "year": 2287,
+            "outcomes": {
+              "privateConsumerSurplus": {
+                "actual": 0.5552,
+                "memberPrediction": 0.48697333,
+                "persistencePrediction": 0.5399,
+                "memberError": -0.06822667,
+                "persistenceError": -0.0153
+              },
+              "privateProducerSurplus": {
+                "actual": 0.398909,
+                "memberPrediction": 0.352612,
+                "persistencePrediction": 0.396818,
+                "memberError": -0.046297,
+                "persistenceError": -0.002091
+              },
+              "qualityAdjustment": {
+                "actual": 0.1,
+                "memberPrediction": 0.0904,
+                "persistencePrediction": 0.0988,
+                "memberError": -0.0096,
+                "persistenceError": -0.0012
+              },
+              "publicConsumerSurplus": {
+                "actual": 0.331077,
+                "memberPrediction": 0.29411807,
+                "persistencePrediction": 0.329585,
+                "memberError": -0.03695893,
+                "persistenceError": -0.001492
+              },
+              "publicProducerSurplus": {
+                "actual": 0.247714,
+                "memberPrediction": 0.21589527,
+                "persistencePrediction": 0.2389,
+                "memberError": -0.03181873,
+                "persistenceError": -0.008814
+              },
+              "publicQualityAdjustment": {
+                "actual": 0.063,
+                "memberPrediction": 0.0566,
+                "persistencePrediction": 0.0622,
+                "memberError": -0.0064,
+                "persistenceError": -0.0008
+              },
+              "displacementCost": {
+                "actual": 0.05225,
+                "memberPrediction": 0.04945,
+                "persistencePrediction": 0.0519,
+                "memberError": -0.0028,
+                "persistenceError": -0.00035
+              },
+              "externalCost": {
+                "actual": 0.0323,
+                "memberPrediction": 0.03054,
+                "persistencePrediction": 0.03208,
+                "memberError": -0.00176,
+                "persistenceError": -0.00022
+              },
+              "beyondHorizonValue": {
+                "actual": 0.0135,
+                "memberPrediction": 0.0127,
+                "persistencePrediction": 0.0134,
+                "memberError": -0.0008,
+                "persistenceError": -0.0001
+              },
+              "publicCaptureSurplus": {
+                "actual": 0.58,
+                "memberPrediction": 0.516,
+                "persistencePrediction": 0.572,
+                "memberError": -0.064,
+                "persistenceError": -0.008
+              },
+              "canonicalConsumptionLevel": {
+                "actual": 57.926,
+                "memberPrediction": 55.00346667,
+                "persistencePrediction": 57.642,
+                "memberError": -2.92253333,
+                "persistenceError": -0.284
+              }
+            }
+          },
+          {
+            "year": 2288,
+            "outcomes": {
+              "privateConsumerSurplus": {
+                "actual": 0.5547,
+                "memberPrediction": 0.48697333,
+                "persistencePrediction": 0.5552,
+                "memberError": -0.06772667,
+                "persistenceError": 0.0005
+              },
+              "privateProducerSurplus": {
+                "actual": 0.409909,
+                "memberPrediction": 0.352612,
+                "persistencePrediction": 0.398909,
+                "memberError": -0.057297,
+                "persistenceError": -0.011
+              },
+              "qualityAdjustment": {
+                "actual": 0.1012,
+                "memberPrediction": 0.0904,
+                "persistencePrediction": 0.1,
+                "memberError": -0.0108,
+                "persistenceError": -0.0012
+              },
+              "publicConsumerSurplus": {
+                "actual": 0.340108,
+                "memberPrediction": 0.29411807,
+                "persistencePrediction": 0.331077,
+                "memberError": -0.04598993,
+                "persistenceError": -0.009031
+              },
+              "publicProducerSurplus": {
+                "actual": 0.245243,
+                "memberPrediction": 0.21589527,
+                "persistencePrediction": 0.247714,
+                "memberError": -0.02934773,
+                "persistenceError": 0.002471
+              },
+              "publicQualityAdjustment": {
+                "actual": 0.0638,
+                "memberPrediction": 0.0566,
+                "persistencePrediction": 0.063,
+                "memberError": -0.0072,
+                "persistenceError": -0.0008
+              },
+              "displacementCost": {
+                "actual": 0.0526,
+                "memberPrediction": 0.04945,
+                "persistencePrediction": 0.05225,
+                "memberError": -0.00315,
+                "persistenceError": -0.00035
+              },
+              "externalCost": {
+                "actual": 0.03252,
+                "memberPrediction": 0.03054,
+                "persistencePrediction": 0.0323,
+                "memberError": -0.00198,
+                "persistenceError": -0.00022
+              },
+              "beyondHorizonValue": {
+                "actual": 0.0136,
+                "memberPrediction": 0.0127,
+                "persistencePrediction": 0.0135,
+                "memberError": -0.0009,
+                "persistenceError": -0.0001
+              },
+              "publicCaptureSurplus": {
+                "actual": 0.588,
+                "memberPrediction": 0.516,
+                "persistencePrediction": 0.58,
+                "memberError": -0.072,
+                "persistenceError": -0.008
+              },
+              "canonicalConsumptionLevel": {
+                "actual": 58.406,
+                "memberPrediction": 55.00346667,
+                "persistencePrediction": 57.926,
+                "memberError": -3.40253333,
+                "persistenceError": -0.48
+              }
+            }
+          },
+          {
+            "year": 2289,
+            "outcomes": {
+              "privateConsumerSurplus": {
+                "actual": 0.5677,
+                "memberPrediction": 0.48697333,
+                "persistencePrediction": 0.5547,
+                "memberError": -0.08072667,
+                "persistenceError": -0.013
+              },
+              "privateProducerSurplus": {
+                "actual": 0.408818,
+                "memberPrediction": 0.352612,
+                "persistencePrediction": 0.409909,
+                "memberError": -0.056206,
+                "persistenceError": 0.001091
+              },
+              "qualityAdjustment": {
+                "actual": 0.1024,
+                "memberPrediction": 0.0904,
+                "persistencePrediction": 0.1012,
+                "memberError": -0.012,
+                "persistenceError": -0.0012
+              },
+              "publicConsumerSurplus": {
+                "actual": 0.338908,
+                "memberPrediction": 0.29411807,
+                "persistencePrediction": 0.340108,
+                "memberError": -0.04478993,
+                "persistenceError": 0.0012
+              },
+              "publicProducerSurplus": {
+                "actual": 0.252414,
+                "memberPrediction": 0.21589527,
+                "persistencePrediction": 0.245243,
+                "memberError": -0.03651873,
+                "persistenceError": -0.007171
+              },
+              "publicQualityAdjustment": {
+                "actual": 0.0646,
+                "memberPrediction": 0.0566,
+                "persistencePrediction": 0.0638,
+                "memberError": -0.008,
+                "persistenceError": -0.0008
+              },
+              "displacementCost": {
+                "actual": 0.05295,
+                "memberPrediction": 0.04945,
+                "persistencePrediction": 0.0526,
+                "memberError": -0.0035,
+                "persistenceError": -0.00035
+              },
+              "externalCost": {
+                "actual": 0.03274,
+                "memberPrediction": 0.03054,
+                "persistencePrediction": 0.03252,
+                "memberError": -0.0022,
+                "persistenceError": -0.00022
+              },
+              "beyondHorizonValue": {
+                "actual": 0.0137,
+                "memberPrediction": 0.0127,
+                "persistencePrediction": 0.0136,
+                "memberError": -0.001,
+                "persistenceError": -0.0001
+              },
+              "publicCaptureSurplus": {
+                "actual": 0.596,
+                "memberPrediction": 0.516,
+                "persistencePrediction": 0.588,
+                "memberError": -0.08,
+                "persistenceError": -0.008
+              },
+              "canonicalConsumptionLevel": {
+                "actual": 58.62,
+                "memberPrediction": 55.00346667,
+                "persistencePrediction": 58.406,
+                "memberError": -3.61653333,
+                "persistenceError": -0.214
+              }
+            }
+          },
+          {
+            "year": 2290,
+            "outcomes": {
+              "privateConsumerSurplus": {
+                "actual": 0.5801,
+                "memberPrediction": 0.48697333,
+                "persistencePrediction": 0.5677,
+                "memberError": -0.09312667,
+                "persistenceError": -0.0124
+              },
+              "privateProducerSurplus": {
+                "actual": 0.418636,
+                "memberPrediction": 0.352612,
+                "persistencePrediction": 0.408818,
+                "memberError": -0.066024,
+                "persistenceError": -0.009818
+              },
+              "qualityAdjustment": {
+                "actual": 0.1036,
+                "memberPrediction": 0.0904,
+                "persistencePrediction": 0.1024,
+                "memberError": -0.0132,
+                "persistenceError": -0.0012
+              },
+              "publicConsumerSurplus": {
+                "actual": 0.346938,
+                "memberPrediction": 0.29411807,
+                "persistencePrediction": 0.338908,
+                "memberError": -0.05281993,
+                "persistenceError": -0.00803
+              },
+              "publicProducerSurplus": {
+                "actual": 0.259157,
+                "memberPrediction": 0.21589527,
+                "persistencePrediction": 0.252414,
+                "memberError": -0.04326173,
+                "persistenceError": -0.006743
+              },
+              "publicQualityAdjustment": {
+                "actual": 0.0654,
+                "memberPrediction": 0.0566,
+                "persistencePrediction": 0.0646,
+                "memberError": -0.0088,
+                "persistenceError": -0.0008
+              },
+              "displacementCost": {
+                "actual": 0.0533,
+                "memberPrediction": 0.04945,
+                "persistencePrediction": 0.05295,
+                "memberError": -0.00385,
+                "persistenceError": -0.00035
+              },
+              "externalCost": {
+                "actual": 0.03296,
+                "memberPrediction": 0.03054,
+                "persistencePrediction": 0.03274,
+                "memberError": -0.00242,
+                "persistenceError": -0.00022
+              },
+              "beyondHorizonValue": {
+                "actual": 0.0138,
+                "memberPrediction": 0.0127,
+                "persistencePrediction": 0.0137,
+                "memberError": -0.0011,
+                "persistenceError": -0.0001
+              },
+              "publicCaptureSurplus": {
+                "actual": 0.604,
+                "memberPrediction": 0.516,
+                "persistencePrediction": 0.596,
+                "memberError": -0.088,
+                "persistenceError": -0.008
+              },
+              "canonicalConsumptionLevel": {
+                "actual": 59.074,
+                "memberPrediction": 55.00346667,
+                "persistencePrediction": 58.62,
+                "memberError": -4.07053333,
+                "persistenceError": -0.454
+              }
+            }
+          },
+          {
+            "year": 2291,
+            "outcomes": {
+              "privateConsumerSurplus": {
+                "actual": 0.5808,
+                "memberPrediction": 0.48697333,
+                "persistencePrediction": 0.5801,
+                "memberError": -0.09382667,
+                "persistenceError": -0.0007
+              },
+              "privateProducerSurplus": {
+                "actual": 0.426545,
+                "memberPrediction": 0.352612,
+                "persistencePrediction": 0.418636,
+                "memberError": -0.073933,
+                "persistenceError": -0.007909
+              },
+              "qualityAdjustment": {
+                "actual": 0.1048,
+                "memberPrediction": 0.0904,
+                "persistencePrediction": 0.1036,
+                "memberError": -0.0144,
+                "persistenceError": -0.0012
+              },
+              "publicConsumerSurplus": {
+                "actual": 0.353354,
+                "memberPrediction": 0.29411807,
+                "persistencePrediction": 0.346938,
+                "memberError": -0.05923593,
+                "persistenceError": -0.006416
+              },
+              "publicProducerSurplus": {
+                "actual": 0.257543,
+                "memberPrediction": 0.21589527,
+                "persistencePrediction": 0.259157,
+                "memberError": -0.04164773,
+                "persistenceError": 0.001614
+              },
+              "publicQualityAdjustment": {
+                "actual": 0.0662,
+                "memberPrediction": 0.0566,
+                "persistencePrediction": 0.0654,
+                "memberError": -0.0096,
+                "persistenceError": -0.0008
+              },
+              "displacementCost": {
+                "actual": 0.05365,
+                "memberPrediction": 0.04945,
+                "persistencePrediction": 0.0533,
+                "memberError": -0.0042,
+                "persistenceError": -0.00035
+              },
+              "externalCost": {
+                "actual": 0.03318,
+                "memberPrediction": 0.03054,
+                "persistencePrediction": 0.03296,
+                "memberError": -0.00264,
+                "persistenceError": -0.00022
+              },
+              "beyondHorizonValue": {
+                "actual": 0.0139,
+                "memberPrediction": 0.0127,
+                "persistencePrediction": 0.0138,
+                "memberError": -0.0012,
+                "persistenceError": -0.0001
+              },
+              "publicCaptureSurplus": {
+                "actual": 0.612,
+                "memberPrediction": 0.516,
+                "persistencePrediction": 0.604,
+                "memberError": -0.096,
+                "persistenceError": -0.008
+              },
+              "canonicalConsumptionLevel": {
+                "actual": 59.486,
+                "memberPrediction": 55.00346667,
+                "persistencePrediction": 59.074,
+                "memberError": -4.48253333,
+                "persistenceError": -0.412
+              }
+            }
+          }
+        ],
+        "validationError": 1.12786308,
+        "persistenceError": 0.11554303,
+        "survived": false,
+        "disposition": "EXCLUDED_SECTION_4_3",
+        "fitted": {
+          "privateConsumerSurplus": {
+            "model": "constant",
+            "intercept": 0.4869733333333333,
+            "slope": 0,
+            "origin": 2272
+          },
+          "privateProducerSurplus": {
+            "model": "constant",
+            "intercept": 0.3526119999999999,
+            "slope": 0,
+            "origin": 2272
+          },
+          "qualityAdjustment": {
+            "model": "constant",
+            "intercept": 0.0904,
+            "slope": 0,
+            "origin": 2272
+          },
+          "publicConsumerSurplus": {
+            "model": "constant",
+            "intercept": 0.2941180666666667,
+            "slope": 0,
+            "origin": 2272
+          },
+          "publicProducerSurplus": {
+            "model": "constant",
+            "intercept": 0.2158952666666667,
+            "slope": 0,
+            "origin": 2272
+          },
+          "publicQualityAdjustment": {
+            "model": "constant",
+            "intercept": 0.0566,
+            "slope": 0,
+            "origin": 2272
+          },
+          "displacementCost": {
+            "model": "constant",
+            "intercept": 0.049449999999999994,
+            "slope": 0,
+            "origin": 2272
+          },
+          "externalCost": {
+            "model": "constant",
+            "intercept": 0.03054,
+            "slope": 0,
+            "origin": 2272
+          },
+          "beyondHorizonValue": {
+            "model": "constant",
+            "intercept": 0.0127,
+            "slope": 0,
+            "origin": 2272
+          },
+          "publicCaptureSurplus": {
+            "model": "constant",
+            "intercept": 0.516,
+            "slope": 0,
+            "origin": 2272
+          },
+          "canonicalConsumptionLevel": {
+            "model": "constant",
+            "intercept": 55.00346666666667,
+            "slope": 0,
+            "origin": 2272
+          }
+        }
+      }
+    }
+  ]
+}

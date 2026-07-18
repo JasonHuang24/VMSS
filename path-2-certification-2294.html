@@ -26,11 +26,13 @@
     <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings - Path 2 - final certificate</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-4">LP-074 final certification - 2294</h1>
     <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Generated from the same machine-readable record and SHA-256-bound compendium independently executed by the verifier.</p>
-    <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>CERTIFIED / COMPLETE.</strong> Schedule A certified first on 2294-01-31. The separate Lower Incidence Certificate then issued, was adopted, and supported Schedule B. The complete <strong>50 / 25 / 12.5 / 6.25</strong> schedule took effect on <strong>2295-01-01</strong>. The $10 million threshold and SCM architecture did not change.</p></div>
+    <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>CERTIFIED / COMPLETE.</strong> The Registrar independently executed the locked code and data on 2294-01-10. Schedule A issued on 2294-01-20; the separate Lower Incidence Certificate then issued, was adopted, and supported Schedule B on 2294-02-05. The complete <strong>50 / 25 / 12.5 / 6.25</strong> schedule took effect on <strong>2295-01-01</strong>. The $10 million threshold and SCM architecture did not change.</p></div>
     <div class="cert-links">
       <a href="documents/path-2-certification-2294-authority.md"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Authority matrix</a>
       <a href="documents/path-2-certification-2294-data.json"><i class="fas fa-database" aria-hidden="true"></i> Machine-readable record</a>
       <a href="documents/path2-compendium/digest-manifest.json"><i class="fas fa-fingerprint" aria-hidden="true"></i> Digest manifest</a>
+      <a href="documents/path2-compendium/preregistration-lock-certificate.json"><i class="fas fa-lock" aria-hidden="true"></i> Lock certificate</a>
+      <a href="documents/path2-compendium/execution-output.json"><i class="fas fa-gears" aria-hidden="true"></i> Executed output</a>
       <a href="tools/verify-path2-certification-2294.mjs"><i class="fas fa-code" aria-hidden="true"></i> Verifier</a>
       <a href="tools/test-path2-certification-mutations.mjs"><i class="fas fa-vial" aria-hidden="true"></i> Mutation suite</a>
     </div>
@@ -38,13 +40,21 @@
     <div class="cert-grid">
       <div class="cert-card"><span class="label">Commission constituted</span><span class="value">2291-05-12</span><p class="mt-2 text-sm">Three-seat competence coverage and exposure declarations deposited.</p></div>
       <div class="cert-card"><span class="label">Preregistration locked</span><span class="value">2292-02-15</span><p class="mt-2 text-sm">Union, cutoff, vintage, treatments, and code identity fixed.</p></div>
-      <div class="cert-card"><span class="label">Schedule A certificate</span><span class="value">2294-01-31</span><p class="mt-2 text-sm">Findings I-IV and A1-A8 passed.</p></div>
-      <div class="cert-card"><span class="label">Schedule B certificate</span><span class="value">2294-02-21</span><p class="mt-2 text-sm">Issued after separate Lower certification and adoption.</p></div>
+      <div class="cert-card"><span class="label">Registrar execution</span><span class="value">2294-01-10</span><p class="mt-2 text-sm">Locked code and data independently recomputed before issuance.</p></div>
+      <div class="cert-card"><span class="label">Schedule A certificate</span><span class="value">2294-01-20</span><p class="mt-2 text-sm">Findings I-IV and A1-A8 passed.</p></div>
+      <div class="cert-card"><span class="label">Schedule B certificate</span><span class="value">2294-02-05</span><p class="mt-2 text-sm">Issued after separate Lower certification and adoption.</p></div>
     </div>
-    <h2 id="findings" class="text-2xl font-bold mt-12 mb-4">Mandatory Charter Findings I-IV</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Finding</th><th>Controlling adverse result</th><th>Status</th></tr></thead><tbody><tr><td>Finding I</td><td>least-favorable worst-year coverage 101.54% (I-refusal-stress)</td><td class="cert-pass">PASS</td></tr>
-<tr><td>Finding II</td><td>least-favorable impairment years 0 (II-refusal-attribution)</td><td class="cert-pass">PASS</td></tr>
-<tr><td>Finding III</td><td>worst activation 10.2650 below 10.3458; Flow margin 0.2475 (III-refusal-tail)</td><td class="cert-pass">PASS</td></tr>
-<tr><td>Finding IV</td><td>least-favorable OM 0.4114; concentration events 0 (IV-refusal-partial-id)</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
+    <h2 id="execution" class="text-2xl font-bold mt-12 mb-4">Lock and independent execution</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Requirement</th><th>Executed record</th><th>Status</th></tr></thead><tbody><tr><td>§9.2 lock</td><td>640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228 at 2292-02-15T12:00:00Z; PCR-2292-046-PATH2-LOCK-01; Registrar and clerk signed.</td><td class="cert-pass">PASS</td></tr>
+<tr><td>Observation and validation windows</td><td>Observations 2272–2291; training 2272–2286; held-out validation 2287–2291; threshold baseline 2282–2291; projections 2295–2324.</td><td class="cert-pass">PASS</td></tr>
+<tr><td>§4.3 validation</td><td>8 members admitted and 4 failed members retained with row-level predictions and residuals.</td><td class="cert-pass">PASS</td></tr>
+<tr><td>§10.4 execution</td><td>B-1 studentized residual block bootstrap uses published seeds and automatic block lengths; B-2 uses automatic Bartlett HAC and simultaneous max-t; B-4 adds the adverse identified-region endpoint.</td><td class="cert-pass">PASS</td></tr>
+<tr><td>§5.3 precision</td><td>I: |1.09746428 − 1| = 0.09746428; II: |100.6687223 − 0| = 100.6687223; III: |8.3390831 − 10.42385387| = 2.08477077; IV: |7.2617618 − 0| = 7.2617618</td><td class="cert-pass">PASS</td></tr>
+<tr><td>Schedule A.4 and A.6</td><td>2 member derivations and D-1–D-5 diagnostics for all 8 admitted union members.</td><td class="cert-pass">PASS</td></tr>
+<tr><td>§11.4 independent execution</td><td>2294-01-10T18:00:00Z, before every instrument; output 1b1afab011f110bf… bound to code manifest 2ddd51e4471018b9….</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
+    <h2 id="findings" class="text-2xl font-bold mt-12 mb-4">Mandatory Charter Findings I-IV</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Finding</th><th>Controlling adverse result</th><th>Status</th></tr></thead><tbody><tr><td>Finding I</td><td>least-favorable worst-year coverage 109.65% (I-refusal-linear-b2)</td><td class="cert-pass">PASS</td></tr>
+<tr><td>Finding II</td><td>least-favorable impairment years 0 (II-refusal-linear-b2)</td><td class="cert-pass">PASS</td></tr>
+<tr><td>Finding III</td><td>worst activation 10.3457 below 10.4239; Flow margin 0.5775 (III-refusal-linear-b2)</td><td class="cert-pass">PASS</td></tr>
+<tr><td>Finding IV</td><td>least-favorable OM 9.7920; concentration events 0 (IV-refusal-partial-id-b4)</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
     <h2 id="schedule-a" class="text-2xl font-bold mt-12 mb-4">LP-074 Schedule A conditions</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Condition</th><th>Executed result</th><th>Status</th></tr></thead><tbody><tr><td>A1 - Provenance</td><td>Fourteen unique source artifacts verify against their SHA-256 registry entries.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>A2 - Main current coverage</td><td>Main-12 is 106.75% (threshold 105%).</td><td class="cert-pass">PASS</td></tr>
 <tr><td>A3 - Main monthly floor</td><td>Worst current month is 105.87% (threshold 100%).</td><td class="cert-pass">PASS</td></tr>
@@ -52,7 +62,7 @@
 <tr><td>A5 - Dividend aggregate / LP-070</td><td>ADT-36 is 123.08% (threshold 120%).</td><td class="cert-pass">PASS</td></tr>
 <tr><td>A6 - Dividend monthly floor</td><td>Worst ADT month is 122.39% (threshold 100%).</td><td class="cert-pass">PASS</td></tr>
 <tr><td>A7 - Stream separation</td><td>Main, ADT, Lower, SCM recycle, and cyclical backfill streams reconcile without cross-credit.</td><td class="cert-pass">PASS</td></tr>
-<tr><td>A8 - Reproducibility</td><td>Raw ledgers, normalization fields, code, environment, logs, votes, and Registrar execution are deposited.</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
+<tr><td>A8 - Reproducibility</td><td>The byte-locked preregistration, complete 2272–2291 observations, executable source manifest, §4.3 rows, deterministic seeds, diagnostics, derivations, logs, and pre-issuance Registrar execution are deposited.</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
     <h2 id="schedule-b" class="text-2xl font-bold mt-12 mb-4">LP-074 Schedule B conditions</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Condition</th><th>Executed result</th><th>Status</th></tr></thead><tbody><tr><td>B1 - Complete route maps</td><td>Every Lower receipt route reconciles per destination and month.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>B2 - Complete obligation maps</td><td>Every destination has enumerated obligations and a complete, unique lawful payment order.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>B3 - Proposed-rate quantities</td><td>Raw Li/Oi ledgers verify independently with all prohibited credits excluded.</td><td class="cert-pass">PASS</td></tr>
@@ -61,20 +71,28 @@
 <tr><td>B6 - Reproduction and adoption</td><td>Separate Lower Certificate issued after A, then adopted before the final Schedule B certificate.</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
     <h2 id="revocation" class="text-2xl font-bold mt-12 mb-4">Revocation states</h2>
     <div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>State</th><th>Operative schedule</th></tr></thead><tbody><tr><td>A and B active</td><td>50 / 25 / 12.5 / 6.25</td></tr><tr><td>A active, B revoked</td><td>50 / 35 / 17 / 8</td></tr><tr><td>A revoked</td><td>70 / 35 / 17 / 8; B automatically suspended</td></tr></tbody></table></div>
-    <h2 id="compendium" class="text-2xl font-bold mt-12 mb-4">Charter §11.1 compendium</h2><ul class="cert-list"><li><a href="documents/path2-compendium/raw-data-index.json"><code>raw-data</code></a> - SHA-256 <code>19465916d51a0540...</code></li>
-<li><a href="documents/path2-compendium/analytic-results.json"><code>analytic-data</code></a> - SHA-256 <code>c382786df6eeca01...</code></li>
-<li><a href="tools/path2-certification-core.mjs"><code>calculation-code</code></a> - SHA-256 <code>f51c301395158260...</code></li>
-<li><a href="documents/path2-compendium/environment-manifest.json"><code>environment-manifest</code></a> - SHA-256 <code>e3f8062b509f7c37...</code></li>
-<li><a href="documents/path2-compendium/source-registry.json"><code>source-provenance</code></a> - SHA-256 <code>4c77549a6489ddba...</code></li>
-<li><a href="documents/path2-compendium/transformations.md"><code>transformation-rules</code></a> - SHA-256 <code>48bb4a761798223f...</code></li>
-<li><a href="documents/path2-compendium/seeds.md"><code>seeds</code></a> - SHA-256 <code>79c6fc05bc0d5473...</code></li>
-<li><a href="documents/path2-compendium/execution-log.txt"><code>execution-logs</code></a> - SHA-256 <code>f7d03ed68a7878b4...</code></li>
-<li><a href="documents/path2-compendium/union-estimates.json"><code>union-estimates-and-intervals</code></a> - SHA-256 <code>b7c7f4f9ffa2bb8b...</code></li>
-<li><a href="documents/path2-compendium/run-cold-review.json"><code>cold-review-record</code></a> - SHA-256 <code>8e9d0fc4200db2ca...</code></li>
+    <h2 id="compendium" class="text-2xl font-bold mt-12 mb-4">Charter §11.1 compendium</h2><ul class="cert-list"><li><a href="documents/path2-compendium/raw-data-index.json"><code>raw-data</code></a> - SHA-256 <code>884c98a3001cdd19...</code></li>
+<li><a href="documents/path2-compendium/preregistration-2292.json"><code>preregistration</code></a> - SHA-256 <code>640e557cd4b8e122...</code></li>
+<li><a href="documents/path2-compendium/preregistration-lock-certificate.json"><code>preregistration-lock-certificate</code></a> - SHA-256 <code>cccf1b83d77db3aa...</code></li>
+<li><a href="documents/path2-compendium/public-chambers-lock-record.json"><code>public-chambers-lock-record</code></a> - SHA-256 <code>1aa3caabd94347f9...</code></li>
+<li><a href="documents/path2-compendium/analytic-results.json"><code>analytic-data</code></a> - SHA-256 <code>05aec60bce1541ae...</code></li>
+<li><a href="documents/path2-compendium/execution-output.json"><code>executed-calculation-output</code></a> - SHA-256 <code>1b1afab011f110bf...</code></li>
+<li><a href="documents/path2-compendium/calculation-code-manifest.json"><code>calculation-code</code></a> - SHA-256 <code>2ddd51e4471018b9...</code></li>
+<li><a href="documents/path2-compendium/environment-manifest.json"><code>environment-manifest</code></a> - SHA-256 <code>41dbf5ced6125c4e...</code></li>
+<li><a href="documents/path2-compendium/source-registry.json"><code>source-provenance</code></a> - SHA-256 <code>fb3d2c98b48eca6a...</code></li>
+<li><a href="documents/path2-compendium/transformations.md"><code>transformation-rules</code></a> - SHA-256 <code>8af5cf8554e08b5d...</code></li>
+<li><a href="documents/path2-compendium/seeds.md"><code>seeds</code></a> - SHA-256 <code>0f119a281be82df7...</code></li>
+<li><a href="documents/path2-compendium/execution-log.txt"><code>execution-logs</code></a> - SHA-256 <code>39534a2d9b09aea4...</code></li>
+<li><a href="documents/path2-compendium/validation-records.json"><code>section-4-3-validation-records</code></a> - SHA-256 <code>a71948faa0511a10...</code></li>
+<li><a href="documents/path2-compendium/union-estimates.json"><code>union-estimates-and-intervals</code></a> - SHA-256 <code>dacb7c37684b5939...</code></li>
+<li><a href="documents/path2-compendium/finding-iv-member-derivations.json"><code>finding-iv-member-derivations</code></a> - SHA-256 <code>587c82fe92217d6f...</code></li>
+<li><a href="documents/path2-compendium/mandatory-diagnostics.json"><code>mandatory-d1-d5-diagnostics</code></a> - SHA-256 <code>81a9749030f02a06...</code></li>
+<li><a href="documents/path2-compendium/precision-measurement-amendment-2291.json"><code>precision-measurement-amendment</code></a> - SHA-256 <code>95f53b2c1dfb9880...</code></li>
+<li><a href="documents/path2-compendium/run-cold-review.json"><code>cold-review-record</code></a> - SHA-256 <code>339a74eccbd8796b...</code></li>
 <li><a href="documents/path2-compendium/commission-record.json"><code>commission-votes-dissents-declarations</code></a> - SHA-256 <code>27757b5452282a16...</code></li>
-<li><a href="documents/path2-compendium/registrar-certification.json"><code>registrar-certifications</code></a> - SHA-256 <code>19ea023ece6bc7e0...</code></li>
-<li><a href="documents/path2-compendium/lower-incidence-certificate.json"><code>lower-incidence-certificate</code></a> - SHA-256 <code>cafb6df2470771cb...</code></li>
-<li><a href="documents/path2-compendium/lower-incidence-adoption.json"><code>lower-incidence-adoption</code></a> - SHA-256 <code>d8a7ca8fd6bd0dac...</code></li></ul>
+<li><a href="documents/path2-compendium/registrar-certification.json"><code>registrar-certifications</code></a> - SHA-256 <code>d20581a4cc90ba57...</code></li>
+<li><a href="documents/path2-compendium/lower-incidence-certificate.json"><code>lower-incidence-certificate</code></a> - SHA-256 <code>91bf9602dbc46d5c...</code></li>
+<li><a href="documents/path2-compendium/lower-incidence-adoption.json"><code>lower-incidence-adoption</code></a> - SHA-256 <code>2a38cf26ecbe5172...</code></li></ul>
     <p class="text-[var(--text-secondary)] leading-relaxed mt-8">Economic interpretation: the rate reduction expands private first-allocation capacity and upper-layer velocity while SCM retains the anti-hoarding boundary. No Earth-style speculative shelter assumption enters any certification estimate.</p>
   </div></section></main><script src="script.js" defer></script><div id="footer-placeholder"></div>
 </body></html>

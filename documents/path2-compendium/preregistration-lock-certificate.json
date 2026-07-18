@@ -1,0 +1,43 @@
+{
+  "artifactType": "PATH2_PREREGISTRATION_LOCK_CERTIFICATE",
+  "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
+  "preregistrationByteDigest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228",
+  "algorithm": "SHA-256",
+  "canonicalTimestamp": "2292-02-15T12:00:00Z",
+  "canonicalTimeAuthority": "Civilization Standard Time Authority receipt CST-2292-046-120000",
+  "acceptanceDisposition": "ACCEPTED_WITHIN_90_DAYS",
+  "registrarSignature": {
+    "signer": "Ilex Public Reproduction Office / Registrar Sen Vale",
+    "signature": "REG-SEN-VALE-9A4C"
+  },
+  "clerkSignature": {
+    "signer": "Chambers Clerk Oren Pell",
+    "signature": "CLK-OREN-PELL-44B1",
+    "signedAt": "2292-02-15T12:08:00Z",
+    "deemedSignatureUsed": false
+  },
+  "publicChambersRecordReference": "PCR-2292-046-PATH2-LOCK-01",
+  "section91Checklist": {
+    "admissibleSet": true,
+    "exclusions": true,
+    "panelAdditions": true,
+    "equivalenceClasses": true,
+    "functionalAndIdentificationAssumptions": true,
+    "dependenceAndClustering": true,
+    "section104Selections": true,
+    "preprocessing": true,
+    "intercurrentTreatments": true,
+    "computedWindowCutoffVintage": true,
+    "executableAppendixA": true,
+    "codeAndDataMappings": true,
+    "seeds": true
+  },
+  "executabilityChecklist": {
+    "passed": true,
+    "classRepresentativesRunnable": true,
+    "section114CompletableBeforeDeadline": true,
+    "measuredWorstCaseMinutes": 3,
+    "publicationDeadline": "2294-02-15T12:00:00Z"
+  },
+  "artifactDigest": "1d0786e2d6251a0c16c6eb94f99bb8bf714a8637f752245adde9c84d60660aee"
+}

@@ -21,7 +21,7 @@ const aRows = [
   row('A5 - Dividend aggregate / LP-070', `ADT-36 is ${pct(result.candidate.adt36)} (threshold 120%).`),
   row('A6 - Dividend monthly floor', `Worst ADT month is ${pct(result.candidate.adtMinimum)} (threshold 100%).`),
   row('A7 - Stream separation', 'Main, ADT, Lower, SCM recycle, and cyclical backfill streams reconcile without cross-credit.'),
-  row('A8 - Reproducibility', 'Raw ledgers, normalization fields, code, environment, logs, votes, and Registrar execution are deposited.'),
+  row('A8 - Reproducibility', 'The byte-locked preregistration, complete 2272–2291 observations, executable source manifest, §4.3 rows, deterministic seeds, diagnostics, derivations, logs, and pre-issuance Registrar execution are deposited.'),
 ].join('\n');
 const bRows = [
   row('B1 - Complete route maps', 'Every Lower receipt route reconciles per destination and month.'),
@@ -32,6 +32,16 @@ const bRows = [
   row('B6 - Reproduction and adoption', 'Separate Lower Certificate issued after A, then adopted before the final Schedule B certificate.'),
 ].join('\n');
 const compendiumRows = data.authorityAudit.compendium.inventory.map((item) => `<li><a href="${esc(item.path)}"><code>${esc(item.id)}</code></a> - SHA-256 <code>${esc(item.digest.slice(0, 16))}...</code></li>`).join('\n');
+const locked = result.lockedExecution;
+const executionRows = [
+  row('§9.2 lock', `${locked.lock.preregistrationByteDigest} at ${locked.lock.canonicalTimestamp}; ${locked.lock.publicChambersRecordReference}; Registrar and clerk signed.`),
+  row('Observation and validation windows', 'Observations 2272–2291; training 2272–2286; held-out validation 2287–2291; threshold baseline 2282–2291; projections 2295–2324.'),
+  row('§4.3 validation', `${locked.depositedOutput.validationRecords.filter((entry) => entry.survived).length} members admitted and ${locked.depositedOutput.excludedMembers.length} failed members retained with row-level predictions and residuals.`),
+  row('§10.4 execution', 'B-1 studentized residual block bootstrap uses published seeds and automatic block lengths; B-2 uses automatic Bartlett HAC and simultaneous max-t; B-4 adds the adverse identified-region endpoint.'),
+  row('§5.3 precision', Object.entries(locked.depositedOutput.precisionCalculations).map(([id, value]) => `${id}: |${value.baselineObservedMean} − ${value.passThreshold}| = ${value.ceiling}`).join('; ')),
+  row('Schedule A.4 and A.6', `${locked.depositedOutput.findingIvDerivations.length} member derivations and D-1–D-5 diagnostics for all ${locked.depositedOutput.diagnostics.length} admitted union members.`),
+  row('§11.4 independent execution', `${locked.registrar.completedAt}, before every instrument; output ${locked.registrar.executionOutputDigest.slice(0, 16)}… bound to code manifest ${locked.registrar.codeManifestDigest.slice(0, 16)}….`),
+].join('\n');
 
 const html = `<!DOCTYPE html>
 <html data-theme="dark" lang="en">
@@ -61,11 +71,13 @@ const html = `<!DOCTYPE html>
     <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings - Path 2 - final certificate</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-4">LP-074 final certification - 2294</h1>
     <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Generated from the same machine-readable record and SHA-256-bound compendium independently executed by the verifier.</p>
-    <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>CERTIFIED / COMPLETE.</strong> Schedule A certified first on 2294-01-31. The separate Lower Incidence Certificate then issued, was adopted, and supported Schedule B. The complete <strong>${esc(data.record.operativeSchedule)}</strong> schedule took effect on <strong>${esc(data.record.effectiveAssessmentPeriod)}</strong>. The $10 million threshold and SCM architecture did not change.</p></div>
+    <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>CERTIFIED / COMPLETE.</strong> The Registrar independently executed the locked code and data on 2294-01-10. Schedule A issued on 2294-01-20; the separate Lower Incidence Certificate then issued, was adopted, and supported Schedule B on 2294-02-05. The complete <strong>${esc(data.record.operativeSchedule)}</strong> schedule took effect on <strong>${esc(data.record.effectiveAssessmentPeriod)}</strong>. The $10 million threshold and SCM architecture did not change.</p></div>
     <div class="cert-links">
       <a href="documents/path-2-certification-2294-authority.md"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Authority matrix</a>
       <a href="${DATA_FILE}"><i class="fas fa-database" aria-hidden="true"></i> Machine-readable record</a>
       <a href="documents/path2-compendium/digest-manifest.json"><i class="fas fa-fingerprint" aria-hidden="true"></i> Digest manifest</a>
+      <a href="documents/path2-compendium/preregistration-lock-certificate.json"><i class="fas fa-lock" aria-hidden="true"></i> Lock certificate</a>
+      <a href="documents/path2-compendium/execution-output.json"><i class="fas fa-gears" aria-hidden="true"></i> Executed output</a>
       <a href="tools/verify-path2-certification-2294.mjs"><i class="fas fa-code" aria-hidden="true"></i> Verifier</a>
       <a href="tools/test-path2-certification-mutations.mjs"><i class="fas fa-vial" aria-hidden="true"></i> Mutation suite</a>
     </div>
@@ -73,9 +85,11 @@ const html = `<!DOCTYPE html>
     <div class="cert-grid">
       <div class="cert-card"><span class="label">Commission constituted</span><span class="value">2291-05-12</span><p class="mt-2 text-sm">Three-seat competence coverage and exposure declarations deposited.</p></div>
       <div class="cert-card"><span class="label">Preregistration locked</span><span class="value">2292-02-15</span><p class="mt-2 text-sm">Union, cutoff, vintage, treatments, and code identity fixed.</p></div>
-      <div class="cert-card"><span class="label">Schedule A certificate</span><span class="value">2294-01-31</span><p class="mt-2 text-sm">Findings I-IV and A1-A8 passed.</p></div>
-      <div class="cert-card"><span class="label">Schedule B certificate</span><span class="value">2294-02-21</span><p class="mt-2 text-sm">Issued after separate Lower certification and adoption.</p></div>
+      <div class="cert-card"><span class="label">Registrar execution</span><span class="value">2294-01-10</span><p class="mt-2 text-sm">Locked code and data independently recomputed before issuance.</p></div>
+      <div class="cert-card"><span class="label">Schedule A certificate</span><span class="value">2294-01-20</span><p class="mt-2 text-sm">Findings I-IV and A1-A8 passed.</p></div>
+      <div class="cert-card"><span class="label">Schedule B certificate</span><span class="value">2294-02-05</span><p class="mt-2 text-sm">Issued after separate Lower certification and adoption.</p></div>
     </div>
+    <h2 id="execution" class="text-2xl font-bold mt-12 mb-4">Lock and independent execution</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Requirement</th><th>Executed record</th><th>Status</th></tr></thead><tbody>${executionRows}</tbody></table></div>
     <h2 id="findings" class="text-2xl font-bold mt-12 mb-4">Mandatory Charter Findings I-IV</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Finding</th><th>Controlling adverse result</th><th>Status</th></tr></thead><tbody>${findingRows}</tbody></table></div>
     <h2 id="schedule-a" class="text-2xl font-bold mt-12 mb-4">LP-074 Schedule A conditions</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Condition</th><th>Executed result</th><th>Status</th></tr></thead><tbody>${aRows}</tbody></table></div>
     <h2 id="schedule-b" class="text-2xl font-bold mt-12 mb-4">LP-074 Schedule B conditions</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Condition</th><th>Executed result</th><th>Status</th></tr></thead><tbody>${bRows}</tbody></table></div>

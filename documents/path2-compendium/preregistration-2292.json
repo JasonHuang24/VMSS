@@ -1,78 +1,577 @@
 {
   "artifactType": "PATH2_PREREGISTRATION",
-  "lockedAt": "2292-02-15T12:00:00Z",
-  "cutoff": "2292-01",
-  "vintage": "2292-02-15",
-  "observationWindow": "2272-02 through 2292-01",
-  "maximumReportingLagMonths": 1,
-  "panels": {
-    "certification": "Lumen Fiscal Methods Collective",
-    "refusal": "Cairn Adverse Inference Bench"
-  },
-  "admissibleMembers": {
-    "I": [
-      {
-        "id": "I-certification-panel",
-        "panel": "certification",
-        "equivalenceClass": "I-ec-dynamic",
-        "family": "B-1 block bootstrap"
-      },
-      {
-        "id": "I-refusal-stress",
-        "panel": "refusal",
-        "equivalenceClass": "I-ec-local-trend",
-        "family": "B-2 analytic max-t"
-      }
+  "schemaVersion": "2.0",
+  "preparedAt": "2291-12-01T12:00:00Z",
+  "admissibleSpecificationSet": [
+    {
+      "finding": "I",
+      "id": "I-certification-linear-b1",
+      "panel": "certification",
+      "equivalenceClass": "I-ec-dynamic",
+      "functionalClass": "linear receipts and obligations projection",
+      "identificationAssumptions": [
+        "canonical demographic path",
+        "no behavioral uplift"
+      ],
+      "sourceId": "FINDING-I-OBSERVATIONS-2294",
+      "intervalFamily": "B-1",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": null,
+      "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
+      "seed": 74001,
+      "replications": 399
+    },
+    {
+      "finding": "I",
+      "id": "I-refusal-linear-b2",
+      "panel": "refusal",
+      "equivalenceClass": "I-ec-analytic",
+      "functionalClass": "HAC adverse receipts-obligations projection",
+      "identificationAssumptions": [
+        "upper obligation sampling uncertainty",
+        "zero velocity credit"
+      ],
+      "sourceId": "FINDING-I-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    },
+    {
+      "finding": "I",
+      "id": "I-certification-constant-failed",
+      "panel": "certification",
+      "equivalenceClass": "I-ec-constant",
+      "functionalClass": "constant-level coverage projection",
+      "identificationAssumptions": [
+        "no trend"
+      ],
+      "sourceId": "FINDING-I-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "constant",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    },
+    {
+      "finding": "II",
+      "id": "II-certification-linear-b1",
+      "panel": "certification",
+      "equivalenceClass": "II-ec-dynamic",
+      "functionalClass": "linear dividend projection",
+      "identificationAssumptions": [
+        "ADT-only funding",
+        "no cross-credit"
+      ],
+      "sourceId": "FINDING-II-OBSERVATIONS-2294",
+      "intervalFamily": "B-1",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": null,
+      "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
+      "seed": 74002,
+      "replications": 399
+    },
+    {
+      "finding": "II",
+      "id": "II-refusal-linear-b2",
+      "panel": "refusal",
+      "equivalenceClass": "II-ec-analytic",
+      "functionalClass": "HAC adverse dividend projection",
+      "identificationAssumptions": [
+        "maximum admissible schedule attribution",
+        "no cross-credit"
+      ],
+      "sourceId": "FINDING-II-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    },
+    {
+      "finding": "II",
+      "id": "II-refusal-constant-failed",
+      "panel": "refusal",
+      "equivalenceClass": "II-ec-constant",
+      "functionalClass": "constant dividend projection",
+      "identificationAssumptions": [
+        "no trend"
+      ],
+      "sourceId": "FINDING-II-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "constant",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    },
+    {
+      "finding": "III",
+      "id": "III-certification-linear-b1",
+      "panel": "certification",
+      "equivalenceClass": "III-ec-dynamic",
+      "functionalClass": "joint linear SCM/Flow projection",
+      "identificationAssumptions": [
+        "SCM parameters fixed",
+        "serial dependence"
+      ],
+      "sourceId": "FINDING-III-OBSERVATIONS-2294",
+      "intervalFamily": "B-1",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": null,
+      "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
+      "seed": 74003,
+      "replications": 399
+    },
+    {
+      "finding": "III",
+      "id": "III-refusal-linear-b2",
+      "panel": "refusal",
+      "equivalenceClass": "III-ec-analytic",
+      "functionalClass": "joint HAC SCM/Flow projection",
+      "identificationAssumptions": [
+        "maximum admissible liquidity response",
+        "serial dependence"
+      ],
+      "sourceId": "FINDING-III-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    },
+    {
+      "finding": "III",
+      "id": "III-refusal-constant-failed",
+      "panel": "refusal",
+      "equivalenceClass": "III-ec-constant",
+      "functionalClass": "constant SCM/Flow projection",
+      "identificationAssumptions": [
+        "no trend"
+      ],
+      "sourceId": "FINDING-III-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "constant",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    },
+    {
+      "finding": "IV",
+      "id": "IV-certification-linear-b1",
+      "panel": "certification",
+      "equivalenceClass": "IV-ec-demand",
+      "functionalClass": "componentwise linear Marshallian OM projection",
+      "identificationAssumptions": [
+        "ledger-traced ventures only",
+        "realized public allocation counterfactual"
+      ],
+      "sourceId": "FINDING-IV-OBSERVATIONS-2294",
+      "intervalFamily": "B-1",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": null,
+      "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
+      "seed": 74004,
+      "replications": 399
+    },
+    {
+      "finding": "IV",
+      "id": "IV-refusal-partial-id-b4",
+      "panel": "refusal",
+      "equivalenceClass": "IV-ec-partial-id",
+      "functionalClass": "componentwise partial-identification OM lower bound",
+      "identificationAssumptions": [
+        "ledger-traced ventures only",
+        "adverse displacement and external-cost region"
+      ],
+      "sourceId": "FINDING-IV-OBSERVATIONS-2294",
+      "intervalFamily": "B-4",
+      "model": "linear",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null,
+      "identifiedRegionAdverseShare": 0.04
+    },
+    {
+      "finding": "IV",
+      "id": "IV-certification-constant-failed",
+      "panel": "certification",
+      "equivalenceClass": "IV-ec-constant",
+      "functionalClass": "constant component OM projection",
+      "identificationAssumptions": [
+        "no trend"
+      ],
+      "sourceId": "FINDING-IV-OBSERVATIONS-2294",
+      "intervalFamily": "B-2",
+      "model": "constant",
+      "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
+      "dependenceStructure": "annual serial dependence",
+      "clusteringUnit": "civilization-year",
+      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
+      "blockLengthRule": null,
+      "seed": null,
+      "replications": null
+    }
+  ],
+  "exclusionReasons": [
+    {
+      "category": "non-enumerated method",
+      "reason": "Any method outside Schedule §10.4 is inadmissible"
+    },
+    {
+      "category": "unsecured data",
+      "reason": "Any series lacking deposit and publication custody is inadmissible"
+    }
+  ],
+  "panelAdditions": {
+    "certification": [
+      "I-certification-linear-b1",
+      "I-certification-constant-failed",
+      "II-certification-linear-b1",
+      "III-certification-linear-b1",
+      "IV-certification-linear-b1",
+      "IV-certification-constant-failed"
     ],
-    "II": [
-      {
-        "id": "II-certification-panel",
-        "panel": "certification",
-        "equivalenceClass": "II-ec-state-space",
-        "family": "B-1 block bootstrap"
-      },
-      {
-        "id": "II-refusal-attribution",
-        "panel": "refusal",
-        "equivalenceClass": "II-ec-local-level",
-        "family": "B-2 analytic max-t"
-      }
-    ],
-    "III": [
-      {
-        "id": "III-certification-panel",
-        "panel": "certification",
-        "equivalenceClass": "III-ec-count-panel",
-        "family": "B-1 block bootstrap"
-      },
-      {
-        "id": "III-refusal-tail",
-        "panel": "refusal",
-        "equivalenceClass": "III-ec-threshold-hazard",
-        "family": "B-2 analytic max-t"
-      }
-    ],
-    "IV": [
-      {
-        "id": "IV-certification-panel",
-        "panel": "certification",
-        "equivalenceClass": "IV-ec-demand-system",
-        "family": "B-1 block bootstrap"
-      },
-      {
-        "id": "IV-refusal-partial-id",
-        "panel": "refusal",
-        "equivalenceClass": "IV-ec-partial-id",
-        "family": "B-4 identification-region bound"
-      }
+    "refusal": [
+      "I-refusal-linear-b2",
+      "II-refusal-linear-b2",
+      "II-refusal-constant-failed",
+      "III-refusal-linear-b2",
+      "III-refusal-constant-failed",
+      "IV-refusal-partial-id-b4"
     ]
   },
-  "intercurrentTreatments": [
-    "obligation-law change",
-    "ADT structural change",
-    "SCM doctrine change",
-    "demographic regime change"
+  "equivalenceClasses": {
+    "I-certification-linear-b1": {
+      "class": "I-ec-dynamic",
+      "functionalClass": "linear receipts and obligations projection",
+      "identificationAssumptions": [
+        "canonical demographic path",
+        "no behavioral uplift"
+      ]
+    },
+    "I-refusal-linear-b2": {
+      "class": "I-ec-analytic",
+      "functionalClass": "HAC adverse receipts-obligations projection",
+      "identificationAssumptions": [
+        "upper obligation sampling uncertainty",
+        "zero velocity credit"
+      ]
+    },
+    "I-certification-constant-failed": {
+      "class": "I-ec-constant",
+      "functionalClass": "constant-level coverage projection",
+      "identificationAssumptions": [
+        "no trend"
+      ]
+    },
+    "II-certification-linear-b1": {
+      "class": "II-ec-dynamic",
+      "functionalClass": "linear dividend projection",
+      "identificationAssumptions": [
+        "ADT-only funding",
+        "no cross-credit"
+      ]
+    },
+    "II-refusal-linear-b2": {
+      "class": "II-ec-analytic",
+      "functionalClass": "HAC adverse dividend projection",
+      "identificationAssumptions": [
+        "maximum admissible schedule attribution",
+        "no cross-credit"
+      ]
+    },
+    "II-refusal-constant-failed": {
+      "class": "II-ec-constant",
+      "functionalClass": "constant dividend projection",
+      "identificationAssumptions": [
+        "no trend"
+      ]
+    },
+    "III-certification-linear-b1": {
+      "class": "III-ec-dynamic",
+      "functionalClass": "joint linear SCM/Flow projection",
+      "identificationAssumptions": [
+        "SCM parameters fixed",
+        "serial dependence"
+      ]
+    },
+    "III-refusal-linear-b2": {
+      "class": "III-ec-analytic",
+      "functionalClass": "joint HAC SCM/Flow projection",
+      "identificationAssumptions": [
+        "maximum admissible liquidity response",
+        "serial dependence"
+      ]
+    },
+    "III-refusal-constant-failed": {
+      "class": "III-ec-constant",
+      "functionalClass": "constant SCM/Flow projection",
+      "identificationAssumptions": [
+        "no trend"
+      ]
+    },
+    "IV-certification-linear-b1": {
+      "class": "IV-ec-demand",
+      "functionalClass": "componentwise linear Marshallian OM projection",
+      "identificationAssumptions": [
+        "ledger-traced ventures only",
+        "realized public allocation counterfactual"
+      ]
+    },
+    "IV-refusal-partial-id-b4": {
+      "class": "IV-ec-partial-id",
+      "functionalClass": "componentwise partial-identification OM lower bound",
+      "identificationAssumptions": [
+        "ledger-traced ventures only",
+        "adverse displacement and external-cost region"
+      ]
+    },
+    "IV-certification-constant-failed": {
+      "class": "IV-ec-constant",
+      "functionalClass": "constant component OM projection",
+      "identificationAssumptions": [
+        "no trend"
+      ]
+    }
+  },
+  "dependenceDesign": {
+    "structure": "annual serial dependence preserved",
+    "clusteringUnit": "civilization-year",
+    "B1": "studentized circular block bootstrap with automatic block length and simultaneous maximum studentized deviation",
+    "B2": "Bartlett HAC with automatic bandwidth and one-sided Bonferroni max-t simultaneous fallback",
+    "B4": "adverse endpoint of declared displacement/external-cost identified region plus one-sided HAC confidence width"
+  },
+  "preprocessingSelections": [
+    "identity transform",
+    "chronological order",
+    "no imputation",
+    "no outlier removal",
+    "no behavioral adjustment"
   ],
-  "codeEntryPoint": "tools/verify-path2-certification-2294.mjs",
-  "seeds": "not applicable; analytic and deterministic interval inputs are deposited, with no stochastic recomputation step"
+  "intercurrentEventTreatments": [
+    {
+      "event": "obligation-law change",
+      "treatment": "publish and classify under §8; covered event retains observations"
+    },
+    {
+      "event": "ADT structural change",
+      "treatment": "publish and classify under §8"
+    },
+    {
+      "event": "SCM doctrine change",
+      "treatment": "freeze lock-date parameters"
+    },
+    {
+      "event": "demographic regime change",
+      "treatment": "retain observed series; no post-lock model change"
+    }
+  ],
+  "computedWindow": {
+    "enactmentAnchor": 2278,
+    "requiredMinimumYears": 20,
+    "completedCyclesRequireLonger": false,
+    "start": 2272,
+    "end": 2291,
+    "arithmetic": "2291 - 20 + 1 = 2272"
+  },
+  "computedCutoff": {
+    "lockDate": "2292-02-15",
+    "maximumReportingLagMonths": 1,
+    "result": "2292-01-15",
+    "includedThroughYear": 2291
+  },
+  "vintage": {
+    "canonicalAt": "2292-02-15T12:00:00Z",
+    "rule": "all secured series as available at lock; no later revision admitted"
+  },
+  "validation": {
+    "trainingYears": [
+      2272,
+      2286
+    ],
+    "heldOutYears": [
+      2287,
+      2288,
+      2289,
+      2290,
+      2291
+    ],
+    "benchmark": "naive one-year persistence on identical held-out rows",
+    "survivalRule": "member RMSE must be no worse than persistence RMSE"
+  },
+  "appendixA": {
+    "executableProcedure": [
+      "read each byte-locked raw observation artifact",
+      "verify exact 2272-2291 coverage",
+      "fit on 2272-2286 only",
+      "validate on 2287-2291 and retain failures",
+      "refit surviving member on all 20 observations",
+      "project 2295-2324",
+      "construct selected B-1/B-2/B-4 bound",
+      "apply §5.3 precision ceiling",
+      "select least-favorable representative and dispose each Finding"
+    ],
+    "treatmentCounterfactual": "retained tranche versus matched realized public first allocation",
+    "discountRate": 0.02,
+    "concentrationEventRule": "zero admitted concentration events required",
+    "diagnosticProcedures": {
+      "D1": "set all 30 discount factors to one and sum net OM",
+      "D2": "apply logarithmic marginal-consumption weights: baseline mean canonical consumption / projected canonical consumption",
+      "D3": "discounted deposited beyond-horizon value divided by absolute OM plus that value",
+      "D4": "publish discounted public-capture surplus numerator and discounted gross private Marshallian-surplus denominator as a pair, without quotient",
+      "D5": "pair each member adverse bound with the executed Finding III frequency upper bound"
+    }
+  },
+  "codeEntryPoints": {
+    "artifactType": "PATH2_COMPLETE_CALCULATION_CODE_MANIFEST",
+    "runtime": "Node.js >=20",
+    "sources": [
+      {
+        "path": "tools/build-path2-certification-record.mjs",
+        "digest": "2f1afb0cf7c31fec8b5107a6f42e6312bf0e17d6841b3d62da2ff759f49586a9"
+      },
+      {
+        "path": "tools/path2-execution-engine.mjs",
+        "digest": "a42cd9f3313a6f27b7edc9a0e2d3fda80029473d7f97f2abf49bd6d8fdf05447"
+      },
+      {
+        "path": "tools/path2-certification-core.mjs",
+        "digest": "f4e5bd1927e81d34afd63339e0b6c77ffec2c98a57edb3bd1c0d879b1165d0f1"
+      },
+      {
+        "path": "tools/verify-path2-certification-2294.mjs",
+        "digest": "43a48599a042df6232de001c08f3e6ff31c8f2deec0af425d5321e9de8a27915"
+      },
+      {
+        "path": "tools/build-path2-certification-page.mjs",
+        "digest": "92edeabe5f4b4f39a05798a0c9dbad027ba60eed845fb26e00c9843f348f316b"
+      },
+      {
+        "path": "package-lock.json",
+        "digest": "dfb60ba19003d43035fb020f93d38bcb77abb2979206fedb6058379b3b22de0a"
+      }
+    ],
+    "executionEntryPoint": "tools/path2-execution-engine.mjs#executeLockedAnalysis",
+    "buildEntryPoint": "tools/build-path2-certification-record.mjs",
+    "verificationEntryPoint": "tools/verify-path2-certification-2294.mjs"
+  },
+  "dataSourceMappings": [
+    {
+      "finding": "I",
+      "sourceId": "FINDING-I-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-i-observations.json",
+      "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
+      "fields": [
+        "year",
+        "receipts",
+        "obligations"
+      ],
+      "transform": "identity; numeric fields in deposited constant-2292 units",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+    },
+    {
+      "finding": "II",
+      "sourceId": "FINDING-II-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-ii-observations.json",
+      "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
+      "fields": [
+        "year",
+        "realDividendPerResident"
+      ],
+      "transform": "identity; numeric fields in deposited constant-2292 units",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+    },
+    {
+      "finding": "III",
+      "sourceId": "FINDING-III-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-iii-observations.json",
+      "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a",
+      "fields": [
+        "year",
+        "annualScmActivations",
+        "flowTestMargin"
+      ],
+      "transform": "identity; numeric fields in deposited constant-2292 units",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+    },
+    {
+      "finding": "IV",
+      "sourceId": "FINDING-IV-OBSERVATIONS-2294",
+      "path": "documents/path2-compendium/raw/finding-iv-observations.json",
+      "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f",
+      "fields": [
+        "year",
+        "privateConsumerSurplus",
+        "privateProducerSurplus",
+        "qualityAdjustment",
+        "publicConsumerSurplus",
+        "publicProducerSurplus",
+        "publicQualityAdjustment",
+        "displacementCost",
+        "externalCost",
+        "beyondHorizonValue",
+        "publicCaptureSurplus",
+        "canonicalConsumptionLevel"
+      ],
+      "transform": "identity; numeric fields in deposited constant-2292 units",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+    }
+  ],
+  "randomSeedProcedure": {
+    "generator": "32-bit LCG (1664525*x + 1013904223 mod 2^32)",
+    "seeds": {
+      "I-certification-linear-b1": 74001,
+      "II-certification-linear-b1": 74002,
+      "III-certification-linear-b1": 74003,
+      "IV-certification-linear-b1": 74004
+    },
+    "repetitions": 399
+  },
+  "precisionClarification": {
+    "amendmentPath": "documents/path2-compendium/precision-measurement-amendment-2291.json",
+    "amendmentDigest": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a",
+    "scope": "Measurement-only clarification of Charter §5.3; substantive Finding II zero-impairment and Finding IV positive-OM thresholds are unchanged."
+  },
+  "artifactDigest": "e39edaf8fa48d9803a0788b23a0cff6c87f05a8ee5da69718dd5de6a5b324a2e"
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Permanent negative tests. Fixtures mutate the committed fictional record;
  * no fixture is canon or evidence. */
+import { createHash } from 'node:crypto';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -14,6 +15,7 @@ import {
   sha256File,
   validateCertificationSequence,
   validateLp075Review,
+  validateLockedExecution,
   validateMonthlyRows,
   validateSequenceDocuments,
   validateSourceRegistry,
@@ -29,6 +31,25 @@ const rows = data.mainCurrent;
 const knownSources = data.provenance.sourceRegistry;
 const validate = (candidate, overrides = {}) => validateMonthlyRows(candidate, { label: 'mutation fixture', expectedCount: 12, cutoffMonth: '2292-01', placement: 'trailing', knownSources, requireSection43: true, ...overrides });
 const redigest = (document) => { document.artifactDigest = payloadDigest(document); return document; };
+const jsonByteDigest = (value) => createHash('sha256').update(`${JSON.stringify(value, null, 2)}\n`).digest('hex');
+const preregistration = JSON.parse(readFileSync(join(ROOT, data.authorityAudit.preregistrationLock.preregistrationPath), 'utf8'));
+const lockCertificate = JSON.parse(readFileSync(join(ROOT, data.authorityAudit.preregistrationLock.lockCertificatePath), 'utf8'));
+const registrarExecution = JSON.parse(readFileSync(join(ROOT, data.authorityAudit.registrarExecution.artifactPath), 'utf8'));
+const executionOutput = JSON.parse(readFileSync(join(ROOT, data.authorityAudit.registrarExecution.outputPath), 'utf8'));
+const diagnostics = JSON.parse(readFileSync(join(ROOT, 'documents/path2-compendium/mandatory-diagnostics.json'), 'utf8'));
+const derivations = JSON.parse(readFileSync(join(ROOT, 'documents/path2-compendium/finding-iv-member-derivations.json'), 'utf8'));
+const codeManifest = JSON.parse(readFileSync(join(ROOT, 'documents/path2-compendium/calculation-code-manifest.json'), 'utf8'));
+const precisionAmendment = JSON.parse(readFileSync(join(ROOT, preregistration.precisionClarification.amendmentPath), 'utf8'));
+const lockedErrors = (overrides = {}) => validateLockedExecution(data, ROOT, overrides).errors;
+const mutatePreregistration = (mutator) => {
+  const candidate = clone(preregistration);
+  mutator(candidate);
+  redigest(candidate);
+  const lock = clone(lockCertificate);
+  lock.preregistrationByteDigest = jsonByteDigest(candidate);
+  redigest(lock);
+  return { preregistration: candidate, lock };
+};
 
 test('complete committed authority record certifies', () => evaluateAuthorityRecord(data, { root: ROOT }).certified === true);
 test('valid monthly shape is accepted', () => validate(rows).length === 0);
@@ -101,6 +122,43 @@ test('committed LP-075 review verifies', () => validateLp075Review(lp075).length
 test('LP-075 review dated after vote is rejected', () => { const value = clone(lp075); value.reviewCompletedAt = '2291-02-01T00:00:00Z'; redigest(value); return validateLp075Review(value).some((error) => error.includes('before vote')); });
 test('LP-075 payload with stale artifact digest is rejected', () => { const value = clone(lp075); value.findings[0].finding = 'tampered'; return validateLp075Review(value).some((error) => error.includes('payload digest')); });
 test('LP-075 missing reviewer reply is rejected', () => { const value = clone(lp075); value.findings[0].reviewerReply = ''; redigest(value); return validateLp075Review(value).some((error) => error.includes('reviewerReply')); });
+
+// §9 lock, §4.3 execution, §5.3 precision, Schedule A.4/A.6, and §11.4
+// issuance-order mutations. These guard against a merely self-consistent
+// certificate assembled from authored output scalars.
+test('Registrar execution after Schedule A is rejected', () => { const value = clone(registrarExecution); value.completedAt = '2294-01-21T00:00:00Z'; redigest(value); return lockedErrors({ registrar: value }).some((error) => error.includes('did not precede instrument issuance')); });
+test('unsigned Registrar execution is rejected', () => { const value = clone(registrarExecution); value.signature = ''; redigest(value); return lockedErrors({ registrar: value }).some((error) => error.includes('signed §11.4 disposition')); });
+test('Registrar artifact with stale self-digest is rejected', () => { const value = clone(registrarExecution); value.completedAt = '2294-01-09T00:00:00Z'; return lockedErrors({ registrar: value }).some((error) => error.includes('artifact payload digest mismatch')); });
+test('unsigned preregistration lock is rejected', () => { const value = clone(lockCertificate); value.registrarSignature.signature = ''; redigest(value); return lockedErrors({ lock: value }).some((error) => error.includes('Registrar signature missing')); });
+test('lock without clerk or deemed signature is rejected', () => { const value = clone(lockCertificate); value.clerkSignature.signature = ''; value.clerkSignature.deemedSignatureUsed = false; redigest(value); return lockedErrors({ lock: value }).some((error) => error.includes('clerk signature')); });
+test('unregistered preregistration byte digest is rejected', () => { const value = clone(lockCertificate); value.preregistrationByteDigest = '0'.repeat(64); redigest(value); return lockedErrors({ lock: value }).some((error) => error.includes('byte digest mismatch')); });
+test('mismatched public chambers lock record is rejected', () => { const value = JSON.parse(readFileSync(join(ROOT, data.authorityAudit.preregistrationLock.publicRecordPath), 'utf8')); value.reference = 'UNREGISTERED'; return lockedErrors({ publicRecord: value }).some((error) => error.includes('public chambers lock record')); });
+test('missing §9.1 admissible set is rejected', () => { const values = mutatePreregistration((value) => { delete value.admissibleSpecificationSet; }); return lockedErrors(values).some((error) => error.includes('§9.1 field missing')); });
+test('incomplete locked observation-window computation is rejected', () => { const values = mutatePreregistration((value) => { value.computedWindow.start = 2282; }); return lockedErrors(values).some((error) => error.includes('window, training segment')); });
+test('missing locked raw artifact is rejected', () => { const values = mutatePreregistration((value) => { value.dataSourceMappings[0].path = 'documents/path2-compendium/raw/not-present.json'; }); return lockedErrors(values).some((error) => error.includes('locked raw-source digest mismatch')); });
+test('changed raw-source digest is rejected', () => { const values = mutatePreregistration((value) => { value.dataSourceMappings[1].digest = 'f'.repeat(64); }); return lockedErrors(values).some((error) => error.includes('locked raw-source digest mismatch')); });
+test('changed bootstrap seed without regenerated output is rejected', () => { const values = mutatePreregistration((value) => { value.admissibleSpecificationSet.find((member) => member.id === 'I-certification-linear-b1').seed += 1; }); return lockedErrors(values).some((error) => error.includes('independent recomputation')); });
+test('changed model selection without regenerated output is rejected', () => { const values = mutatePreregistration((value) => { value.admissibleSpecificationSet.find((member) => member.id === 'II-certification-linear-b1').model = 'constant'; }); return lockedErrors(values).some((error) => error.includes('independent recomputation')); });
+test('changed HAC bandwidth rule is rejected', () => { const values = mutatePreregistration((value) => { value.admissibleSpecificationSet.find((member) => member.intervalFamily === 'B-2').bandwidthRule = 'fixed 1'; }); return lockedErrors(values).some((error) => error.includes('automatic HAC bandwidth')); });
+test('changed block-length rule is rejected', () => { const values = mutatePreregistration((value) => { value.admissibleSpecificationSet.find((member) => member.intervalFamily === 'B-1').blockLengthRule = 'fixed 2'; }); return lockedErrors(values).some((error) => error.includes('automatic block-length')); });
+test('changed preprocessing rule is rejected', () => { const values = mutatePreregistration((value) => { value.admissibleSpecificationSet[0].preprocessing = 'winsorize'; }); return lockedErrors(values).some((error) => error.includes('preprocessing')); });
+test('missing B-1 seed is rejected', () => { const values = mutatePreregistration((value) => { value.admissibleSpecificationSet.find((member) => member.intervalFamily === 'B-1').seed = null; }); return lockedErrors(values).some((error) => error.includes('B-1 seed')); });
+test('missing §4.3 row-level validation record is rejected', () => { const value = clone(executionOutput); value.validationRecords.pop(); return lockedErrors({ executionOutput: value }).some((error) => error.includes('§4.3 row-level')); });
+test('authored validation scalar without matching rows is rejected', () => { const value = clone(executionOutput); value.validationRecords[0].validationError = 0; return lockedErrors({ executionOutput: value }).some((error) => error.includes('independent recomputation')); });
+test('failed §4.3 member removal is rejected', () => { const value = clone(executionOutput); value.excludedMembers = []; return lockedErrors({ executionOutput: value }).some((error) => error.includes('failed-member retention')); });
+test('authored horizon bound without recomputation is rejected', () => { const value = clone(executionOutput); value.findings.I.members[0].horizon[0].coverageLowerBound += 0.01; return lockedErrors({ executionOutput: value }).some((error) => error.includes('independent recomputation')); });
+test('arbitrary deposited precision ceiling is rejected', () => { const value = clone(data); value.path2Findings.I.members[0].interval.precisionFloor = 999; return evaluateAuthorityRecord(value, { root: ROOT }).certified === false; });
+test('missing union-member diagnostic is rejected', () => { const value = clone(diagnostics); value.diagnostics.pop(); return lockedErrors({ diagnostics: value }).some((error) => error.includes('D-1–D-5')); });
+test('missing D-1 diagnostic is rejected', () => { const value = clone(diagnostics); delete value.diagnostics[0].D1; return lockedErrors({ diagnostics: value }).some((error) => error.includes('D-1–D-5')); });
+test('undefined diagnostic without arithmetic explanation is rejected', () => { const value = clone(diagnostics); value.diagnostics[0].D2 = { status: 'NOT_APPLICABLE' }; return lockedErrors({ diagnostics: value }).some((error) => error.includes('D-1–D-5')); });
+test('missing Finding IV member derivation is rejected', () => { const value = clone(derivations); value.derivations.pop(); return lockedErrors({ derivations: value }).some((error) => error.includes('Schedule A.4')); });
+test('Finding IV derivation without source binding is rejected', () => { const value = clone(derivations); value.derivations[0].sourceBindings = []; return lockedErrors({ derivations: value }).some((error) => error.includes('Schedule A.4')); });
+test('modified digest-bound calculation source is rejected', () => { const value = clone(codeManifest); value.sources[0].digest = '0'.repeat(64); return lockedErrors({ codeManifest: value }).some((error) => error.includes('calculation source digest mismatch')); });
+test('incomplete calculation-code manifest is rejected', () => { const value = clone(codeManifest); value.sources = value.sources.slice(0, 2); return lockedErrors({ codeManifest: value }).some((error) => error.includes('code manifest is incomplete')); });
+test('precision amendment with stale digest is rejected', () => { const value = clone(precisionAmendment); value.scope = 'tampered'; return lockedErrors({ precisionAmendment: value }).some((error) => error.includes('artifact payload digest mismatch')); });
+test('post-lock precision amendment is rejected', () => { const value = clone(precisionAmendment); value.publishedAt = '2292-03-01T00:00:00Z'; redigest(value); return lockedErrors({ precisionAmendment: value }).some((error) => error.includes('pre-lock chronology')); });
+test('Registrar execution-output digest mismatch is rejected', () => { const value = clone(registrarExecution); value.executionOutputDigest = '0'.repeat(64); redigest(value); return lockedErrors({ registrar: value }).some((error) => error.includes('artifact bindings')); });
+test('failed lock executability checklist is rejected', () => { const value = clone(lockCertificate); value.executabilityChecklist.passed = false; redigest(value); return lockedErrors({ lock: value }).some((error) => error.includes('executability checklist')); });
 
 let failed = 0;
 for (const entry of tests) {

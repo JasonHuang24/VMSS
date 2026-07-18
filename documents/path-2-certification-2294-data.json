@@ -3,10 +3,11 @@
   "record": {
     "title": "Path 2 LP-074 Final Certification Record — 2294",
     "disposition": "CERTIFIED_COMPLETE",
-    "dispositionReason": "Every mandatory Finding, A condition, B condition, LP-070 gate, §13.1 review, compendium component, and ordered instrument validates from committed artifacts.",
+    "dispositionReason": "Every mandatory Finding, A condition, B condition, LP-070 gate, §13.1 review, compendium component, and ordered instrument validates from locked raw artifacts and prior Registrar execution.",
     "commissionConstituted": "2291-05-12",
     "lockDate": "2292-02-15",
-    "publicationDate": "2294-02-22",
+    "registrarExecutionDate": "2294-01-10",
+    "publicationDate": "2294-02-10",
     "effectiveAssessmentPeriod": "2295-01-01",
     "operativeSchedule": "50 / 25 / 12.5 / 6.25",
     "supersededSchedule": "70 / 35 / 17 / 8",
@@ -27,70 +28,126 @@
           "required": true,
           "path": "documents/path2-compendium/raw-data-index.json",
           "complete": true,
-          "digest": "19465916d51a0540334ea49d029cfb2656351b2068205cf34e7192630d9ac5ac"
+          "digest": "884c98a3001cdd19183f3643fa8efde7be8e798624fb95145e30bbbe2c396190"
+        },
+        {
+          "id": "preregistration",
+          "required": true,
+          "path": "documents/path2-compendium/preregistration-2292.json",
+          "complete": true,
+          "digest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228"
+        },
+        {
+          "id": "preregistration-lock-certificate",
+          "required": true,
+          "path": "documents/path2-compendium/preregistration-lock-certificate.json",
+          "complete": true,
+          "digest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936"
+        },
+        {
+          "id": "public-chambers-lock-record",
+          "required": true,
+          "path": "documents/path2-compendium/public-chambers-lock-record.json",
+          "complete": true,
+          "digest": "1aa3caabd94347f97fa64cbb0ecd6d545c2adaeaf40a7eabad1c312a6fd0fb93"
         },
         {
           "id": "analytic-data",
           "required": true,
           "path": "documents/path2-compendium/analytic-results.json",
           "complete": true,
-          "digest": "c382786df6eeca0162c45c7ef91c5745cdfda5ee874b5e14bd3cc12a015dcda9"
+          "digest": "05aec60bce1541ae85fa9f8fea9d43b9f2d33c9e064c72dbab1a492ac07b9ba8"
+        },
+        {
+          "id": "executed-calculation-output",
+          "required": true,
+          "path": "documents/path2-compendium/execution-output.json",
+          "complete": true,
+          "digest": "1b1afab011f110bf09e179cf2a101dc57c8662016a385bf409614a4d8229c093"
         },
         {
           "id": "calculation-code",
           "required": true,
-          "path": "tools/path2-certification-core.mjs",
+          "path": "documents/path2-compendium/calculation-code-manifest.json",
           "complete": true,
-          "digest": "f51c3013951582605ad9a5ccf5cf8fcc1d1093ddb66b5cb2bd1b9646d04cf37c"
+          "digest": "2ddd51e4471018b9ce0b37d9c08a7af5927767ef4cf2d2aff394281963ad3e10"
         },
         {
           "id": "environment-manifest",
           "required": true,
           "path": "documents/path2-compendium/environment-manifest.json",
           "complete": true,
-          "digest": "e3f8062b509f7c37335c926a1adb9f0f694f26e9f959250b13aff089a7eddf17"
+          "digest": "41dbf5ced6125c4e7aef58482249edaedbd53af1b7d26471f1d6c0870678a073"
         },
         {
           "id": "source-provenance",
           "required": true,
           "path": "documents/path2-compendium/source-registry.json",
           "complete": true,
-          "digest": "4c77549a6489ddba0ff23cfacd286bd9f70bd34c14fa7bf2033690e27b188aa3"
+          "digest": "fb3d2c98b48eca6a53b6eaa6f5e42df64bbe48d86d823c6b93a59fd3b044704c"
         },
         {
           "id": "transformation-rules",
           "required": true,
           "path": "documents/path2-compendium/transformations.md",
           "complete": true,
-          "digest": "48bb4a761798223f79716c4a633caf9c3aa6a893b235727b29901559f62d1fd8"
+          "digest": "8af5cf8554e08b5d75ace689c75d10d626641b2dbfcb05247837e0bdf7adbc98"
         },
         {
           "id": "seeds",
           "required": true,
           "path": "documents/path2-compendium/seeds.md",
           "complete": true,
-          "digest": "79c6fc05bc0d547394b867b4db0ea2a8e6c51bb98207c2c1b77152397692f77f"
+          "digest": "0f119a281be82df7d77e2bbf04ef504d1953d5a4e6f1f9ceb52e23d2ae014518"
         },
         {
           "id": "execution-logs",
           "required": true,
           "path": "documents/path2-compendium/execution-log.txt",
           "complete": true,
-          "digest": "f7d03ed68a7878b4614223ae97d191ebe645dfb3cc60e5229c5fbaab26e50a0f"
+          "digest": "39534a2d9b09aea4e760c4e10b5097db372e26d030cc175989533058d544ed9f"
+        },
+        {
+          "id": "section-4-3-validation-records",
+          "required": true,
+          "path": "documents/path2-compendium/validation-records.json",
+          "complete": true,
+          "digest": "a71948faa0511a102d8c9b49388c567f36bb23c721322d5dcf7b40d75a4ea525"
         },
         {
           "id": "union-estimates-and-intervals",
           "required": true,
           "path": "documents/path2-compendium/union-estimates.json",
           "complete": true,
-          "digest": "b7c7f4f9ffa2bb8ba021e70357c70e7732fa26277189642231b28a918e37fc60"
+          "digest": "dacb7c37684b59393cd92ba33464f45bb4e512e6a70afc755ec0e9dfa1cc5118"
+        },
+        {
+          "id": "finding-iv-member-derivations",
+          "required": true,
+          "path": "documents/path2-compendium/finding-iv-member-derivations.json",
+          "complete": true,
+          "digest": "587c82fe92217d6f136d8f23cbc8e60aa6889848aaf9ddb0f3c11fee2e99a900"
+        },
+        {
+          "id": "mandatory-d1-d5-diagnostics",
+          "required": true,
+          "path": "documents/path2-compendium/mandatory-diagnostics.json",
+          "complete": true,
+          "digest": "81a9749030f02a0654191595fcb614629e046ffb5ccc51558aaebeb3c0a77f64"
+        },
+        {
+          "id": "precision-measurement-amendment",
+          "required": true,
+          "path": "documents/path2-compendium/precision-measurement-amendment-2291.json",
+          "complete": true,
+          "digest": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a"
         },
         {
           "id": "cold-review-record",
           "required": true,
           "path": "documents/path2-compendium/run-cold-review.json",
           "complete": true,
-          "digest": "8e9d0fc4200db2cae340f097f47ff876739d72f26d521040f06d7f1c021be8bc"
+          "digest": "339a74eccbd8796bf6f23f98419f2badc7d811103a09a3f2ea7d1201155b6f23"
         },
         {
           "id": "commission-votes-dissents-declarations",
@@ -104,21 +161,21 @@
           "required": true,
           "path": "documents/path2-compendium/registrar-certification.json",
           "complete": true,
-          "digest": "19ea023ece6bc7e0f72d101d2e8c13a4c7769b52e69d17461c78dacca90a028f"
+          "digest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27"
         },
         {
           "id": "lower-incidence-certificate",
           "required": true,
           "path": "documents/path2-compendium/lower-incidence-certificate.json",
           "complete": true,
-          "digest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf"
+          "digest": "91bf9602dbc46d5c39dbd05d8fcff41d93bc4becd8464847d32624771865d009"
         },
         {
           "id": "lower-incidence-adoption",
           "required": true,
           "path": "documents/path2-compendium/lower-incidence-adoption.json",
           "complete": true,
-          "digest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d"
+          "digest": "2a38cf26ecbe5172e270b136228eb668ec656ec6ca8b8542b56f2c454aea3c55"
         }
       ]
     },
@@ -131,9 +188,25 @@
       "status": "COMPLETE",
       "reviewPath": "documents/path2-compendium/lp-075-section-13-1-review.json"
     },
+    "preregistrationLock": {
+      "status": "LOCKED",
+      "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
+      "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
+      "publicRecordPath": "documents/path2-compendium/public-chambers-lock-record.json"
+    },
+    "registrarExecution": {
+      "status": "EXECUTED_BEFORE_ISSUANCE",
+      "artifactPath": "documents/path2-compendium/registrar-certification.json",
+      "outputPath": "documents/path2-compendium/execution-output.json"
+    },
+    "precisionClarification": {
+      "status": "ADOPTED_PRE_LOCK",
+      "amendmentPath": "documents/path2-compendium/precision-measurement-amendment-2291.json"
+    },
     "scheduleSequence": {
       "status": "COMPLETE",
       "artifacts": {
+        "registrarExecution": "documents/path2-compendium/registrar-certification.json",
         "scheduleA": "documents/path2-compendium/schedule-a-final-certificate.json",
         "lowerCertificate": "documents/path2-compendium/lower-incidence-certificate.json",
         "lowerAdoption": "documents/path2-compendium/lower-incidence-adoption.json",
@@ -232,28 +305,28 @@
       {
         "id": "FINDING-I-OBSERVATIONS-2294",
         "path": "documents/path2-compendium/raw/finding-i-observations.json",
-        "digest": "15b9a8a45a5c661fb1e15545320d3477ddb14c99fe315fc662bbabe8aa173756",
+        "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
         "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
         "description": "Institutional receipts and obligation observation-window summary"
       },
       {
         "id": "FINDING-II-OBSERVATIONS-2294",
         "path": "documents/path2-compendium/raw/finding-ii-observations.json",
-        "digest": "b3691bfa3f10dc105acb02cf6bb19dd60cefe01b3c3e2b94dbcd1d4caa84b446",
+        "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
         "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
         "description": "Real dividend disbursement and attribution observation-window summary"
       },
       {
         "id": "FINDING-III-OBSERVATIONS-2294",
         "path": "documents/path2-compendium/raw/finding-iii-observations.json",
-        "digest": "71ee87a907cfde0b1aabb1ca5ef7088a7e4070be3989b87e3dd9762f9c2a822a",
+        "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a",
         "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
         "description": "SCM activation-frequency and Flow Test observation-window summary"
       },
       {
         "id": "FINDING-IV-OBSERVATIONS-2294",
         "path": "documents/path2-compendium/raw/finding-iv-observations.json",
-        "digest": "ed3c1a69e9b0f32aca07146f3f860f3456c3fb4baf63d4f5bc2ae68e537967a4",
+        "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f",
         "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
         "description": "Retained-capital and realized public-deployment welfare observation-window summary"
       }
@@ -305,472 +378,555 @@
   "path2Findings": {
     "I": {
       "threshold": 1,
-      "baselineMean": 1.0864,
-      "leastFavorableMember": "I-refusal-stress",
+      "baselineMean": 1.09746428,
+      "leastFavorableMember": "I-refusal-linear-b2",
       "members": [
         {
-          "id": "I-certification-panel",
+          "id": "I-certification-linear-b1",
           "panel": "certification",
           "equivalenceClass": "I-ec-dynamic",
-          "functionalClass": "dynamic receipts-obligations projection",
+          "functionalClass": "linear receipts and obligations projection",
           "identificationAssumptions": [
             "canonical demographic path",
-            "no behavioral tax-base uplift"
+            "no behavioral uplift"
           ],
           "sourceId": "FINDING-I-OBSERVATIONS-2294",
-          "validationError": 0.0182,
-          "persistenceError": 0.0267,
+          "validationError": 2.01971225,
+          "persistenceError": 17.73081637,
+          "validationRecordId": "I-certification-linear-b1",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-1 block bootstrap",
+            "family": "B-1",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 0.0251,
-            "precisionFloor": 0.0864
+            "width": 0.00270619,
+            "precisionFloor": 0.09746428,
+            "methodRecord": {
+              "points": [
+                1.0984485484361206,
+                1.0985710173504903,
+                1.098690793203896,
+                1.0988079638598993,
+                1.0989226134010117,
+                1.099034822329916,
+                1.0991446677579755,
+                1.0992522235819555,
+                1.0993575606498054,
+                1.0994607469162898,
+                1.099561847589178,
+                1.0996609252666631,
+                1.099758040066609,
+                1.0998532497481939,
+                1.0999466098264643,
+                1.1000381736802745,
+                1.1001279926540595,
+                1.1002161161538395,
+                1.1003025917378433,
+                1.1003874652020917,
+                1.1004707806612681,
+                1.1005525806251788,
+                1.1006329060710738,
+                1.1007117965120956,
+                1.1007892900620913,
+                1.1008654234970086,
+                1.1009402323130935,
+                1.10101375078207,
+                1.101086012003493,
+                1.1011570479544377
+              ],
+              "standardErrors": [
+                0.0006051691684600284,
+                0.0006359682700600729,
+                0.0006664512392959543,
+                0.0006965717375656934,
+                0.0007262963999218202,
+                0.0007556016800943568,
+                0.000784471510833176,
+                0.0008128955534115142,
+                0.0008408678765353079,
+                0.0008683859510345721,
+                0.0008954498788754143,
+                0.0009220617975884092,
+                0.000948225417142385,
+                0.0009739456576406879,
+                0.0009992283643657437,
+                0.001024080082599855,
+                0.001048507878961779,
+                0.0010725191991743073,
+                0.0010961217545359778,
+                0.0011193234311353347,
+                0.0011421322171766568,
+                0.0011645561447976393,
+                0.0011866032435321157,
+                0.0012082815031670203,
+                0.0012295988442035286,
+                0.0012505630944927388,
+                0.0012711819708976545,
+                0.001291463065055944,
+                0.0013114138324943408,
+                0.0013310415844853085
+              ],
+              "critical": 2.033135938561129,
+              "blockLength": 4,
+              "replications": 399,
+              "seed": 74001
+            }
           },
           "horizon": [
             {
               "year": 2295,
-              "receiptsPoint": 1518,
-              "obligationsPoint": 1450,
-              "coveragePoint": 1.046897,
-              "coverageLowerBound": 1.0287
+              "receiptsPoint": 1603.40878759,
+              "obligationsPoint": 1459.703133,
+              "coveragePoint": 1.09844855,
+              "coverageLowerBound": 1.09721816
             },
             {
               "year": 2296,
-              "receiptsPoint": 1540.9,
-              "obligationsPoint": 1472.1,
-              "coveragePoint": 1.046736,
-              "coverageLowerBound": 1.02902
+              "receiptsPoint": 1621.61522556,
+              "obligationsPoint": 1476.11324161,
+              "coveragePoint": 1.09857102,
+              "coverageLowerBound": 1.09727801
             },
             {
               "year": 2297,
-              "receiptsPoint": 1563.8,
-              "obligationsPoint": 1494.2,
-              "coveragePoint": 1.04658,
-              "coverageLowerBound": 1.02934
+              "receiptsPoint": 1639.82166353,
+              "obligationsPoint": 1492.52335022,
+              "coveragePoint": 1.09869079,
+              "coverageLowerBound": 1.09733581
             },
             {
               "year": 2298,
-              "receiptsPoint": 1586.7,
-              "obligationsPoint": 1516.3,
-              "coveragePoint": 1.046429,
-              "coverageLowerBound": 1.02966
+              "receiptsPoint": 1658.0281015,
+              "obligationsPoint": 1508.93345884,
+              "coveragePoint": 1.09880796,
+              "coverageLowerBound": 1.09739174
             },
             {
               "year": 2299,
-              "receiptsPoint": 1609.6,
-              "obligationsPoint": 1538.4,
-              "coveragePoint": 1.046282,
-              "coverageLowerBound": 1.02798
+              "receiptsPoint": 1676.23453947,
+              "obligationsPoint": 1525.34356745,
+              "coveragePoint": 1.09892261,
+              "coverageLowerBound": 1.09744595
             },
             {
               "year": 2300,
-              "receiptsPoint": 1632.5,
-              "obligationsPoint": 1560.5,
-              "coveragePoint": 1.046139,
-              "coverageLowerBound": 1.0283
+              "receiptsPoint": 1694.44097744,
+              "obligationsPoint": 1541.75367606,
+              "coveragePoint": 1.09903482,
+              "coverageLowerBound": 1.09749858
             },
             {
               "year": 2301,
-              "receiptsPoint": 1655.4,
-              "obligationsPoint": 1582.6,
-              "coveragePoint": 1.046,
-              "coverageLowerBound": 1.02862
+              "receiptsPoint": 1712.64741541,
+              "obligationsPoint": 1558.16378467,
+              "coveragePoint": 1.09914467,
+              "coverageLowerBound": 1.09754973
             },
             {
               "year": 2302,
-              "receiptsPoint": 1678.3,
-              "obligationsPoint": 1604.7,
-              "coveragePoint": 1.045865,
-              "coverageLowerBound": 1.02894
+              "receiptsPoint": 1730.85385338,
+              "obligationsPoint": 1574.57389328,
+              "coveragePoint": 1.09925222,
+              "coverageLowerBound": 1.0975995
             },
             {
               "year": 2303,
-              "receiptsPoint": 1701.2,
-              "obligationsPoint": 1626.8,
-              "coveragePoint": 1.045734,
-              "coverageLowerBound": 1.02726
+              "receiptsPoint": 1749.06029135,
+              "obligationsPoint": 1590.98400189,
+              "coveragePoint": 1.09935756,
+              "coverageLowerBound": 1.09764796
             },
             {
               "year": 2304,
-              "receiptsPoint": 1724.1,
-              "obligationsPoint": 1648.9,
-              "coveragePoint": 1.045606,
-              "coverageLowerBound": 1.02758
+              "receiptsPoint": 1767.26672932,
+              "obligationsPoint": 1607.3941105,
+              "coveragePoint": 1.09946075,
+              "coverageLowerBound": 1.0976952
             },
             {
               "year": 2305,
-              "receiptsPoint": 1747,
-              "obligationsPoint": 1671,
-              "coveragePoint": 1.045482,
-              "coverageLowerBound": 1.0279
+              "receiptsPoint": 1785.47316729,
+              "obligationsPoint": 1623.80421912,
+              "coveragePoint": 1.09956185,
+              "coverageLowerBound": 1.09774128
             },
             {
               "year": 2306,
-              "receiptsPoint": 1769.9,
-              "obligationsPoint": 1693.1,
-              "coveragePoint": 1.045361,
-              "coverageLowerBound": 1.02822
+              "receiptsPoint": 1803.67960526,
+              "obligationsPoint": 1640.21432773,
+              "coveragePoint": 1.09966093,
+              "coverageLowerBound": 1.09778625
             },
             {
               "year": 2307,
-              "receiptsPoint": 1792.8,
-              "obligationsPoint": 1715.2,
-              "coveragePoint": 1.045243,
-              "coverageLowerBound": 1.02654
+              "receiptsPoint": 1821.88604323,
+              "obligationsPoint": 1656.62443634,
+              "coveragePoint": 1.09975804,
+              "coverageLowerBound": 1.09783017
             },
             {
               "year": 2308,
-              "receiptsPoint": 1815.7,
-              "obligationsPoint": 1737.3,
-              "coveragePoint": 1.045127,
-              "coverageLowerBound": 1.02686
+              "receiptsPoint": 1840.0924812,
+              "obligationsPoint": 1673.03454495,
+              "coveragePoint": 1.09985325,
+              "coverageLowerBound": 1.09787309
             },
             {
               "year": 2309,
-              "receiptsPoint": 1838.6,
-              "obligationsPoint": 1759.4,
-              "coveragePoint": 1.045015,
-              "coverageLowerBound": 1.02718
+              "receiptsPoint": 1858.29891917,
+              "obligationsPoint": 1689.44465356,
+              "coveragePoint": 1.09994661,
+              "coverageLowerBound": 1.09791504
             },
             {
               "year": 2310,
-              "receiptsPoint": 1861.5,
-              "obligationsPoint": 1781.5,
-              "coveragePoint": 1.044906,
-              "coverageLowerBound": 1.0275
+              "receiptsPoint": 1876.50535714,
+              "obligationsPoint": 1705.85476217,
+              "coveragePoint": 1.10003817,
+              "coverageLowerBound": 1.09795608
             },
             {
               "year": 2311,
-              "receiptsPoint": 1884.4,
-              "obligationsPoint": 1803.6,
-              "coveragePoint": 1.044799,
-              "coverageLowerBound": 1.02582
+              "receiptsPoint": 1894.71179511,
+              "obligationsPoint": 1722.26487078,
+              "coveragePoint": 1.10012799,
+              "coverageLowerBound": 1.09799623
             },
             {
               "year": 2312,
-              "receiptsPoint": 1907.3,
-              "obligationsPoint": 1825.7,
-              "coveragePoint": 1.044695,
-              "coverageLowerBound": 1.02614
+              "receiptsPoint": 1912.91823308,
+              "obligationsPoint": 1738.67497939,
+              "coveragePoint": 1.10021612,
+              "coverageLowerBound": 1.09803554
             },
             {
               "year": 2313,
-              "receiptsPoint": 1930.2,
-              "obligationsPoint": 1847.8,
-              "coveragePoint": 1.044594,
-              "coverageLowerBound": 1.02646
+              "receiptsPoint": 1931.12467105,
+              "obligationsPoint": 1755.08508801,
+              "coveragePoint": 1.10030259,
+              "coverageLowerBound": 1.09807403
             },
             {
               "year": 2314,
-              "receiptsPoint": 1953.1,
-              "obligationsPoint": 1869.9,
-              "coveragePoint": 1.044494,
-              "coverageLowerBound": 1.02678
+              "receiptsPoint": 1949.33110902,
+              "obligationsPoint": 1771.49519662,
+              "coveragePoint": 1.10038747,
+              "coverageLowerBound": 1.09811173
             },
             {
               "year": 2315,
-              "receiptsPoint": 1976,
-              "obligationsPoint": 1892,
-              "coveragePoint": 1.044397,
-              "coverageLowerBound": 1.0251
+              "receiptsPoint": 1967.53754699,
+              "obligationsPoint": 1787.90530523,
+              "coveragePoint": 1.10047078,
+              "coverageLowerBound": 1.09814867
             },
             {
               "year": 2316,
-              "receiptsPoint": 1998.9,
-              "obligationsPoint": 1914.1,
-              "coveragePoint": 1.044303,
-              "coverageLowerBound": 1.02542
+              "receiptsPoint": 1985.74398496,
+              "obligationsPoint": 1804.31541384,
+              "coveragePoint": 1.10055258,
+              "coverageLowerBound": 1.09818488
             },
             {
               "year": 2317,
-              "receiptsPoint": 2021.8,
-              "obligationsPoint": 1936.2,
-              "coveragePoint": 1.04421,
-              "coverageLowerBound": 1.02574
+              "receiptsPoint": 2003.95042293,
+              "obligationsPoint": 1820.72552245,
+              "coveragePoint": 1.10063291,
+              "coverageLowerBound": 1.09822038
             },
             {
               "year": 2318,
-              "receiptsPoint": 2044.7,
-              "obligationsPoint": 1958.3,
-              "coveragePoint": 1.04412,
-              "coverageLowerBound": 1.02606
+              "receiptsPoint": 2022.1568609,
+              "obligationsPoint": 1837.13563106,
+              "coveragePoint": 1.1007118,
+              "coverageLowerBound": 1.0982552
             },
             {
               "year": 2319,
-              "receiptsPoint": 2067.6,
-              "obligationsPoint": 1980.4,
-              "coveragePoint": 1.044032,
-              "coverageLowerBound": 1.02438
+              "receiptsPoint": 2040.36329887,
+              "obligationsPoint": 1853.54573967,
+              "coveragePoint": 1.10078929,
+              "coverageLowerBound": 1.09828935
             },
             {
               "year": 2320,
-              "receiptsPoint": 2090.5,
-              "obligationsPoint": 2002.5,
-              "coveragePoint": 1.043945,
-              "coverageLowerBound": 1.0247
+              "receiptsPoint": 2058.56973684,
+              "obligationsPoint": 1869.95584828,
+              "coveragePoint": 1.10086542,
+              "coverageLowerBound": 1.09832286
             },
             {
               "year": 2321,
-              "receiptsPoint": 2113.4,
-              "obligationsPoint": 2024.6,
-              "coveragePoint": 1.043861,
-              "coverageLowerBound": 1.02502
+              "receiptsPoint": 2076.77617481,
+              "obligationsPoint": 1886.3659569,
+              "coveragePoint": 1.10094023,
+              "coverageLowerBound": 1.09835575
             },
             {
               "year": 2322,
-              "receiptsPoint": 2136.3,
-              "obligationsPoint": 2046.7,
-              "coveragePoint": 1.043778,
-              "coverageLowerBound": 1.02534
+              "receiptsPoint": 2094.98261278,
+              "obligationsPoint": 1902.77606551,
+              "coveragePoint": 1.10101375,
+              "coverageLowerBound": 1.09838803
             },
             {
               "year": 2323,
-              "receiptsPoint": 2159.2,
-              "obligationsPoint": 2068.8,
-              "coveragePoint": 1.043697,
-              "coverageLowerBound": 1.02366
+              "receiptsPoint": 2113.18905075,
+              "obligationsPoint": 1919.18617412,
+              "coveragePoint": 1.10108601,
+              "coverageLowerBound": 1.09841973
             },
             {
               "year": 2324,
-              "receiptsPoint": 2182.1,
-              "obligationsPoint": 2090.9,
-              "coveragePoint": 1.043618,
-              "coverageLowerBound": 1.02398
+              "receiptsPoint": 2131.39548872,
+              "obligationsPoint": 1935.59628273,
+              "coveragePoint": 1.10115705,
+              "coverageLowerBound": 1.09845086
             }
           ]
         },
         {
-          "id": "I-refusal-stress",
+          "id": "I-refusal-linear-b2",
           "panel": "refusal",
-          "equivalenceClass": "I-ec-local-trend",
-          "functionalClass": "local-trend adverse obligation projection",
+          "equivalenceClass": "I-ec-analytic",
+          "functionalClass": "HAC adverse receipts-obligations projection",
           "identificationAssumptions": [
-            "upper demographic obligation path",
+            "upper obligation sampling uncertainty",
             "zero velocity credit"
           ],
           "sourceId": "FINDING-I-OBSERVATIONS-2294",
-          "validationError": 0.0204,
-          "persistenceError": 0.0267,
+          "validationError": 2.01971225,
+          "persistenceError": 17.73081637,
+          "validationRecordId": "I-refusal-linear-b2",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-2 analytic max-t",
+            "family": "B-2",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 0.0294,
-            "precisionFloor": 0.0864
+            "width": 0.00438187,
+            "precisionFloor": 0.09746428,
+            "methodRecord": {
+              "bandwidth": 2,
+              "critical": 2.9351994692171153,
+              "longRunVariances": {
+                "receipts": 0.9854495378074964,
+                "obligations": 0.46101985231612624
+              },
+              "simultaneousMethod": "one-sided Bonferroni max-t fallback"
+            }
           },
           "horizon": [
             {
               "year": 2295,
-              "receiptsPoint": 1509,
-              "obligationsPoint": 1454,
-              "coveragePoint": 1.037827,
-              "coverageLowerBound": 1.0209
+              "receiptsPoint": 1603.40878759,
+              "obligationsPoint": 1459.703133,
+              "coveragePoint": 1.09844855,
+              "coverageLowerBound": 1.09646003
             },
             {
               "year": 2296,
-              "receiptsPoint": 1531.2,
-              "obligationsPoint": 1476,
-              "coveragePoint": 1.037398,
-              "coverageLowerBound": 1.02103
+              "receiptsPoint": 1621.61522556,
+              "obligationsPoint": 1476.11324161,
+              "coveragePoint": 1.09857102,
+              "coverageLowerBound": 1.09648074
             },
             {
               "year": 2297,
-              "receiptsPoint": 1553.4,
-              "obligationsPoint": 1498,
-              "coveragePoint": 1.036983,
-              "coverageLowerBound": 1.02116
+              "receiptsPoint": 1639.82166353,
+              "obligationsPoint": 1492.52335022,
+              "coveragePoint": 1.09869079,
+              "coverageLowerBound": 1.09649983
             },
             {
               "year": 2298,
-              "receiptsPoint": 1575.6,
-              "obligationsPoint": 1520,
-              "coveragePoint": 1.036579,
-              "coverageLowerBound": 1.02129
+              "receiptsPoint": 1658.0281015,
+              "obligationsPoint": 1508.93345884,
+              "coveragePoint": 1.09880796,
+              "coverageLowerBound": 1.09651754
             },
             {
               "year": 2299,
-              "receiptsPoint": 1597.8,
-              "obligationsPoint": 1542,
-              "coveragePoint": 1.036187,
-              "coverageLowerBound": 1.02142
+              "receiptsPoint": 1676.23453947,
+              "obligationsPoint": 1525.34356745,
+              "coveragePoint": 1.09892261,
+              "coverageLowerBound": 1.09653406
             },
             {
               "year": 2300,
-              "receiptsPoint": 1620,
-              "obligationsPoint": 1564,
-              "coveragePoint": 1.035806,
-              "coverageLowerBound": 1.0198
+              "receiptsPoint": 1694.44097744,
+              "obligationsPoint": 1541.75367606,
+              "coveragePoint": 1.09903482,
+              "coverageLowerBound": 1.09654954
             },
             {
               "year": 2301,
-              "receiptsPoint": 1642.2,
-              "obligationsPoint": 1586,
-              "coveragePoint": 1.035435,
-              "coverageLowerBound": 1.01993
+              "receiptsPoint": 1712.64741541,
+              "obligationsPoint": 1558.16378467,
+              "coveragePoint": 1.09914467,
+              "coverageLowerBound": 1.09656411
             },
             {
               "year": 2302,
-              "receiptsPoint": 1664.4,
-              "obligationsPoint": 1608,
-              "coveragePoint": 1.035075,
-              "coverageLowerBound": 1.02006
+              "receiptsPoint": 1730.85385338,
+              "obligationsPoint": 1574.57389328,
+              "coveragePoint": 1.09925222,
+              "coverageLowerBound": 1.09657788
             },
             {
               "year": 2303,
-              "receiptsPoint": 1686.6,
-              "obligationsPoint": 1630,
-              "coveragePoint": 1.034724,
-              "coverageLowerBound": 1.02019
+              "receiptsPoint": 1749.06029135,
+              "obligationsPoint": 1590.98400189,
+              "coveragePoint": 1.09935756,
+              "coverageLowerBound": 1.09659094
             },
             {
               "year": 2304,
-              "receiptsPoint": 1708.8,
-              "obligationsPoint": 1652,
-              "coveragePoint": 1.034383,
-              "coverageLowerBound": 1.02032
+              "receiptsPoint": 1767.26672932,
+              "obligationsPoint": 1607.3941105,
+              "coveragePoint": 1.09946075,
+              "coverageLowerBound": 1.09660336
             },
             {
               "year": 2305,
-              "receiptsPoint": 1731,
-              "obligationsPoint": 1674,
-              "coveragePoint": 1.03405,
-              "coverageLowerBound": 1.0187
+              "receiptsPoint": 1785.47316729,
+              "obligationsPoint": 1623.80421912,
+              "coveragePoint": 1.09956185,
+              "coverageLowerBound": 1.09661521
             },
             {
               "year": 2306,
-              "receiptsPoint": 1753.2,
-              "obligationsPoint": 1696,
-              "coveragePoint": 1.033726,
-              "coverageLowerBound": 1.01883
+              "receiptsPoint": 1803.67960526,
+              "obligationsPoint": 1640.21432773,
+              "coveragePoint": 1.09966093,
+              "coverageLowerBound": 1.09662653
             },
             {
               "year": 2307,
-              "receiptsPoint": 1775.4,
-              "obligationsPoint": 1718,
-              "coveragePoint": 1.033411,
-              "coverageLowerBound": 1.01896
+              "receiptsPoint": 1821.88604323,
+              "obligationsPoint": 1656.62443634,
+              "coveragePoint": 1.09975804,
+              "coverageLowerBound": 1.09663738
             },
             {
               "year": 2308,
-              "receiptsPoint": 1797.6,
-              "obligationsPoint": 1740,
-              "coveragePoint": 1.033103,
-              "coverageLowerBound": 1.01909
+              "receiptsPoint": 1840.0924812,
+              "obligationsPoint": 1673.03454495,
+              "coveragePoint": 1.09985325,
+              "coverageLowerBound": 1.0966478
             },
             {
               "year": 2309,
-              "receiptsPoint": 1819.8,
-              "obligationsPoint": 1762,
-              "coveragePoint": 1.032804,
-              "coverageLowerBound": 1.01922
+              "receiptsPoint": 1858.29891917,
+              "obligationsPoint": 1689.44465356,
+              "coveragePoint": 1.09994661,
+              "coverageLowerBound": 1.09665782
             },
             {
               "year": 2310,
-              "receiptsPoint": 1842,
-              "obligationsPoint": 1784,
-              "coveragePoint": 1.032511,
-              "coverageLowerBound": 1.0176
+              "receiptsPoint": 1876.50535714,
+              "obligationsPoint": 1705.85476217,
+              "coveragePoint": 1.10003817,
+              "coverageLowerBound": 1.09666747
             },
             {
               "year": 2311,
-              "receiptsPoint": 1864.2,
-              "obligationsPoint": 1806,
-              "coveragePoint": 1.032226,
-              "coverageLowerBound": 1.01773
+              "receiptsPoint": 1894.71179511,
+              "obligationsPoint": 1722.26487078,
+              "coveragePoint": 1.10012799,
+              "coverageLowerBound": 1.09667678
             },
             {
               "year": 2312,
-              "receiptsPoint": 1886.4,
-              "obligationsPoint": 1828,
-              "coveragePoint": 1.031947,
-              "coverageLowerBound": 1.01786
+              "receiptsPoint": 1912.91823308,
+              "obligationsPoint": 1738.67497939,
+              "coveragePoint": 1.10021612,
+              "coverageLowerBound": 1.09668577
             },
             {
               "year": 2313,
-              "receiptsPoint": 1908.6,
-              "obligationsPoint": 1850,
-              "coveragePoint": 1.031676,
-              "coverageLowerBound": 1.01799
+              "receiptsPoint": 1931.12467105,
+              "obligationsPoint": 1755.08508801,
+              "coveragePoint": 1.10030259,
+              "coverageLowerBound": 1.09669448
             },
             {
               "year": 2314,
-              "receiptsPoint": 1930.8,
-              "obligationsPoint": 1872,
-              "coveragePoint": 1.03141,
-              "coverageLowerBound": 1.01812
+              "receiptsPoint": 1949.33110902,
+              "obligationsPoint": 1771.49519662,
+              "coveragePoint": 1.10038747,
+              "coverageLowerBound": 1.0967029
             },
             {
               "year": 2315,
-              "receiptsPoint": 1953,
-              "obligationsPoint": 1894,
-              "coveragePoint": 1.031151,
-              "coverageLowerBound": 1.0165
+              "receiptsPoint": 1967.53754699,
+              "obligationsPoint": 1787.90530523,
+              "coveragePoint": 1.10047078,
+              "coverageLowerBound": 1.09671107
             },
             {
               "year": 2316,
-              "receiptsPoint": 1975.2,
-              "obligationsPoint": 1916,
-              "coveragePoint": 1.030898,
-              "coverageLowerBound": 1.01663
+              "receiptsPoint": 1985.74398496,
+              "obligationsPoint": 1804.31541384,
+              "coveragePoint": 1.10055258,
+              "coverageLowerBound": 1.096719
             },
             {
               "year": 2317,
-              "receiptsPoint": 1997.4,
-              "obligationsPoint": 1938,
-              "coveragePoint": 1.03065,
-              "coverageLowerBound": 1.01676
+              "receiptsPoint": 2003.95042293,
+              "obligationsPoint": 1820.72552245,
+              "coveragePoint": 1.10063291,
+              "coverageLowerBound": 1.0967267
             },
             {
               "year": 2318,
-              "receiptsPoint": 2019.6,
-              "obligationsPoint": 1960,
-              "coveragePoint": 1.030408,
-              "coverageLowerBound": 1.01689
+              "receiptsPoint": 2022.1568609,
+              "obligationsPoint": 1837.13563106,
+              "coveragePoint": 1.1007118,
+              "coverageLowerBound": 1.09673419
             },
             {
               "year": 2319,
-              "receiptsPoint": 2041.8,
-              "obligationsPoint": 1982,
-              "coveragePoint": 1.030172,
-              "coverageLowerBound": 1.01702
+              "receiptsPoint": 2040.36329887,
+              "obligationsPoint": 1853.54573967,
+              "coveragePoint": 1.10078929,
+              "coverageLowerBound": 1.09674147
             },
             {
               "year": 2320,
-              "receiptsPoint": 2064,
-              "obligationsPoint": 2004,
-              "coveragePoint": 1.02994,
-              "coverageLowerBound": 1.0154
+              "receiptsPoint": 2058.56973684,
+              "obligationsPoint": 1869.95584828,
+              "coveragePoint": 1.10086542,
+              "coverageLowerBound": 1.09674856
             },
             {
               "year": 2321,
-              "receiptsPoint": 2086.2,
-              "obligationsPoint": 2026,
-              "coveragePoint": 1.029714,
-              "coverageLowerBound": 1.01553
+              "receiptsPoint": 2076.77617481,
+              "obligationsPoint": 1886.3659569,
+              "coveragePoint": 1.10094023,
+              "coverageLowerBound": 1.09675547
             },
             {
               "year": 2322,
-              "receiptsPoint": 2108.4,
-              "obligationsPoint": 2048,
-              "coveragePoint": 1.029492,
-              "coverageLowerBound": 1.01566
+              "receiptsPoint": 2094.98261278,
+              "obligationsPoint": 1902.77606551,
+              "coveragePoint": 1.10101375,
+              "coverageLowerBound": 1.0967622
             },
             {
               "year": 2323,
-              "receiptsPoint": 2130.6,
-              "obligationsPoint": 2070,
-              "coveragePoint": 1.029275,
-              "coverageLowerBound": 1.01579
+              "receiptsPoint": 2113.18905075,
+              "obligationsPoint": 1919.18617412,
+              "coveragePoint": 1.10108601,
+              "coverageLowerBound": 1.09676877
             },
             {
               "year": 2324,
-              "receiptsPoint": 2152.8,
-              "obligationsPoint": 2092,
-              "coveragePoint": 1.029063,
-              "coverageLowerBound": 1.01592
+              "receiptsPoint": 2131.39548872,
+              "obligationsPoint": 1935.59628273,
+              "coveragePoint": 1.10115705,
+              "coverageLowerBound": 1.09677518
             }
           ]
         }
@@ -790,517 +946,603 @@
         }
       ],
       "disposition": "PASS",
-      "precisionFloorCalculation": "locked observed coverage mean 1.0864 minus the operative 1.0000 boundary = 0.0864"
+      "precisionFloorCalculation": {
+        "summaryMeasure": "baseline annual institutional coverage",
+        "baselineObservedMean": 1.09746428,
+        "passThreshold": 1,
+        "ceiling": 0.09746428,
+        "authority": "Charter §3.1 and §5.3"
+      }
     },
     "II": {
       "baseline": [
         {
           "year": 2282,
-          "realDividendPerResident": 99.42
+          "realDividendPerResident": 99.587778
         },
         {
           "year": 2283,
-          "realDividendPerResident": 99.577
+          "realDividendPerResident": 99.805
         },
         {
           "year": 2284,
-          "realDividendPerResident": 99.635
+          "realDividendPerResident": 100.04
         },
         {
           "year": 2285,
-          "realDividendPerResident": 99.826
+          "realDividendPerResident": 100.328333
         },
         {
           "year": 2286,
-          "realDividendPerResident": 99.859
+          "realDividendPerResident": 100.506667
         },
         {
           "year": 2287,
-          "realDividendPerResident": 100.027
+          "realDividendPerResident": 100.832778
         },
         {
           "year": 2288,
-          "realDividendPerResident": 100.189
+          "realDividendPerResident": 100.983333
         },
         {
           "year": 2289,
-          "realDividendPerResident": 100.234
+          "realDividendPerResident": 101.283889
         },
         {
           "year": 2290,
-          "realDividendPerResident": 100.39
+          "realDividendPerResident": 101.577778
         },
         {
           "year": 2291,
-          "realDividendPerResident": 100.438
+          "realDividendPerResident": 101.741667
         }
       ],
-      "baselineMean": 99.9595,
-      "leastFavorableMember": "II-refusal-attribution",
+      "baselineMean": 100.6687223,
+      "leastFavorableMember": "II-refusal-linear-b2",
       "members": [
         {
-          "id": "II-certification-panel",
+          "id": "II-certification-linear-b1",
           "panel": "certification",
-          "equivalenceClass": "II-ec-state-space",
-          "functionalClass": "state-space dividend projection",
+          "equivalenceClass": "II-ec-dynamic",
+          "functionalClass": "linear dividend projection",
           "identificationAssumptions": [
             "ADT-only funding",
-            "schedule attribution through prohibited-credit exclusion"
+            "no cross-credit"
           ],
           "sourceId": "FINDING-II-OBSERVATIONS-2294",
-          "validationError": 0.0141,
-          "persistenceError": 0.0216,
+          "validationError": 0.04261215,
+          "persistenceError": 0.25790675,
+          "validationRecordId": "II-certification-linear-b1",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-1 block bootstrap",
+            "family": "B-1",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 1.5,
-            "precisionFloor": 1.84
+            "width": 0.06118989,
+            "precisionFloor": 100.6687223,
+            "methodRecord": {
+              "points": [
+                102.74937859172934,
+                102.99449305037597,
+                103.23960750902258,
+                103.4847219676692,
+                103.72983642631581,
+                103.97495088496242,
+                104.22006534360905,
+                104.46517980225566,
+                104.71029426090227,
+                104.9554087195489,
+                105.20052317819551,
+                105.44563763684212,
+                105.69075209548875,
+                105.93586655413536,
+                106.18098101278198,
+                106.4260954714286,
+                106.67120993007521,
+                106.91632438872183,
+                107.16143884736844,
+                107.40655330601507,
+                107.65166776466168,
+                107.89678222330829,
+                108.14189668195492,
+                108.38701114060153,
+                108.63212559924814,
+                108.87724005789477,
+                109.12235451654138,
+                109.36746897518799,
+                109.61258343383462,
+                109.85769789248123
+              ],
+              "standardErrors": [
+                0.010814597336031474,
+                0.011499110955776671,
+                0.012189122992927591,
+                0.012883750045343003,
+                0.013582284066228235,
+                0.014284151882812117,
+                0.014988885178608172,
+                0.015696097990087587,
+                0.016405469656857057,
+                0.017116731771584716,
+                0.017829658094013146,
+                0.018544056683722582,
+                0.019259763709857013,
+                0.019976638540070632,
+                0.020694559813932544,
+                0.021413422280311085,
+                0.022133134232370386,
+                0.022853615413583946,
+                0.023574795297660205,
+                0.02429661166730615,
+                0.025019009433385503,
+                0.025741939648645348,
+                0.026465358679826433,
+                0.027189227509437152,
+                0.027913511144222875,
+                0.028638178111886365,
+                0.0293632000311317,
+                0.030088551242940968,
+                0.030814208493171368,
+                0.03154015065837283
+              ],
+              "critical": 1.9400634713399385,
+              "blockLength": 4,
+              "replications": 399,
+              "seed": 74002
+            }
           },
           "horizon": [
             {
               "year": 2295,
-              "disbursementPoint": 101.14,
-              "disbursementLowerBound": 100.34,
+              "disbursementPoint": 102.74937859,
+              "disbursementLowerBound": 102.72839759,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2296,
-              "disbursementPoint": 101.245,
-              "disbursementLowerBound": 100.412,
+              "disbursementPoint": 102.99449305,
+              "disbursementLowerBound": 102.97218405,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2297,
-              "disbursementPoint": 101.35,
-              "disbursementLowerBound": 100.484,
+              "disbursementPoint": 103.23960751,
+              "disbursementLowerBound": 103.21595984,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2298,
-              "disbursementPoint": 101.455,
-              "disbursementLowerBound": 100.556,
+              "disbursementPoint": 103.48472197,
+              "disbursementLowerBound": 103.45972667,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2299,
-              "disbursementPoint": 101.44,
-              "disbursementLowerBound": 100.548,
+              "disbursementPoint": 103.72983643,
+              "disbursementLowerBound": 103.70348593,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2300,
-              "disbursementPoint": 101.545,
-              "disbursementLowerBound": 100.62,
+              "disbursementPoint": 103.97495088,
+              "disbursementLowerBound": 103.94723872,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2301,
-              "disbursementPoint": 101.65,
-              "disbursementLowerBound": 100.692,
+              "disbursementPoint": 104.22006534,
+              "disbursementLowerBound": 104.19098595,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2302,
-              "disbursementPoint": 101.755,
-              "disbursementLowerBound": 100.764,
+              "disbursementPoint": 104.4651798,
+              "disbursementLowerBound": 104.43472838,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2303,
-              "disbursementPoint": 101.74,
-              "disbursementLowerBound": 100.756,
+              "disbursementPoint": 104.71029426,
+              "disbursementLowerBound": 104.67846661,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2304,
-              "disbursementPoint": 101.845,
-              "disbursementLowerBound": 100.828,
+              "disbursementPoint": 104.95540872,
+              "disbursementLowerBound": 104.92220117,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2305,
-              "disbursementPoint": 101.95,
-              "disbursementLowerBound": 100.9,
+              "disbursementPoint": 105.20052318,
+              "disbursementLowerBound": 105.16593251,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2306,
-              "disbursementPoint": 102.055,
-              "disbursementLowerBound": 100.972,
+              "disbursementPoint": 105.44563764,
+              "disbursementLowerBound": 105.40966099,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2307,
-              "disbursementPoint": 102.04,
-              "disbursementLowerBound": 100.964,
+              "disbursementPoint": 105.6907521,
+              "disbursementLowerBound": 105.65338693,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2308,
-              "disbursementPoint": 102.145,
-              "disbursementLowerBound": 101.036,
+              "disbursementPoint": 105.93586655,
+              "disbursementLowerBound": 105.89711061,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2309,
-              "disbursementPoint": 102.25,
-              "disbursementLowerBound": 101.108,
+              "disbursementPoint": 106.18098101,
+              "disbursementLowerBound": 106.14083225,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2310,
-              "disbursementPoint": 102.355,
-              "disbursementLowerBound": 101.18,
+              "disbursementPoint": 106.42609547,
+              "disbursementLowerBound": 106.38455207,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2311,
-              "disbursementPoint": 102.34,
-              "disbursementLowerBound": 101.172,
+              "disbursementPoint": 106.67120993,
+              "disbursementLowerBound": 106.62827024,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2312,
-              "disbursementPoint": 102.445,
-              "disbursementLowerBound": 101.244,
+              "disbursementPoint": 106.91632439,
+              "disbursementLowerBound": 106.87198692,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2313,
-              "disbursementPoint": 102.55,
-              "disbursementLowerBound": 101.316,
+              "disbursementPoint": 107.16143885,
+              "disbursementLowerBound": 107.11570225,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2314,
-              "disbursementPoint": 102.655,
-              "disbursementLowerBound": 101.388,
+              "disbursementPoint": 107.40655331,
+              "disbursementLowerBound": 107.35941634,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2315,
-              "disbursementPoint": 102.64,
-              "disbursementLowerBound": 101.38,
+              "disbursementPoint": 107.65166776,
+              "disbursementLowerBound": 107.6031293,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2316,
-              "disbursementPoint": 102.745,
-              "disbursementLowerBound": 101.452,
+              "disbursementPoint": 107.89678222,
+              "disbursementLowerBound": 107.84684123,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2317,
-              "disbursementPoint": 102.85,
-              "disbursementLowerBound": 101.524,
+              "disbursementPoint": 108.14189668,
+              "disbursementLowerBound": 108.09055221,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2318,
-              "disbursementPoint": 102.955,
-              "disbursementLowerBound": 101.596,
+              "disbursementPoint": 108.38701114,
+              "disbursementLowerBound": 108.33426231,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2319,
-              "disbursementPoint": 102.94,
-              "disbursementLowerBound": 101.588,
+              "disbursementPoint": 108.6321256,
+              "disbursementLowerBound": 108.57797162,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2320,
-              "disbursementPoint": 103.045,
-              "disbursementLowerBound": 101.66,
+              "disbursementPoint": 108.87724006,
+              "disbursementLowerBound": 108.82168017,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2321,
-              "disbursementPoint": 103.15,
-              "disbursementLowerBound": 101.732,
+              "disbursementPoint": 109.12235452,
+              "disbursementLowerBound": 109.06538804,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2322,
-              "disbursementPoint": 103.255,
-              "disbursementLowerBound": 101.804,
+              "disbursementPoint": 109.36746898,
+              "disbursementLowerBound": 109.30909528,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2323,
-              "disbursementPoint": 103.24,
-              "disbursementLowerBound": 101.796,
+              "disbursementPoint": 109.61258343,
+              "disbursementLowerBound": 109.55280191,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2324,
-              "disbursementPoint": 103.345,
-              "disbursementLowerBound": 101.868,
+              "disbursementPoint": 109.85769789,
+              "disbursementLowerBound": 109.796508,
               "attributableToSchedule": false,
-              "attributionDisposition": "No schedule-attributable impairment under the adverse identification member"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             }
           ]
         },
         {
-          "id": "II-refusal-attribution",
+          "id": "II-refusal-linear-b2",
           "panel": "refusal",
-          "equivalenceClass": "II-ec-local-level",
-          "functionalClass": "local-level adverse dividend projection",
+          "equivalenceClass": "II-ec-analytic",
+          "functionalClass": "HAC adverse dividend projection",
           "identificationAssumptions": [
-            "ADT-only funding",
-            "maximum admissible adverse schedule attribution"
+            "maximum admissible schedule attribution",
+            "no cross-credit"
           ],
           "sourceId": "FINDING-II-OBSERVATIONS-2294",
-          "validationError": 0.0168,
-          "persistenceError": 0.0216,
+          "validationError": 0.04261215,
+          "persistenceError": 0.25790675,
+          "validationRecordId": "II-refusal-linear-b2",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-2 analytic max-t",
+            "family": "B-2",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 1.4,
-            "precisionFloor": 1.84
+            "width": 0.08615332,
+            "precisionFloor": 100.6687223,
+            "methodRecord": {
+              "bandwidth": 2,
+              "critical": 2.9351994692171153,
+              "longRunVariance": 0.00031145164334256224,
+              "simultaneousMethod": "one-sided Bonferroni max-t fallback"
+            }
           },
           "horizon": [
             {
               "year": 2295,
-              "disbursementPoint": 100.91,
-              "disbursementLowerBound": 100.12,
+              "disbursementPoint": 102.74937859,
+              "disbursementLowerBound": 102.71989056,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2296,
-              "disbursementPoint": 100.991,
-              "disbursementLowerBound": 100.176,
+              "disbursementPoint": 102.99449305,
+              "disbursementLowerBound": 102.96314781,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2297,
-              "disbursementPoint": 101.072,
-              "disbursementLowerBound": 100.232,
+              "disbursementPoint": 103.23960751,
+              "disbursementLowerBound": 103.20638742,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2298,
-              "disbursementPoint": 101.093,
-              "disbursementLowerBound": 100.243,
+              "disbursementPoint": 103.48472197,
+              "disbursementLowerBound": 103.44961222,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2299,
-              "disbursementPoint": 101.174,
-              "disbursementLowerBound": 100.299,
+              "disbursementPoint": 103.72983643,
+              "disbursementLowerBound": 103.69282447,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2300,
-              "disbursementPoint": 101.255,
-              "disbursementLowerBound": 100.355,
+              "disbursementPoint": 103.97495088,
+              "disbursementLowerBound": 103.93602602,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2301,
-              "disbursementPoint": 101.276,
-              "disbursementLowerBound": 100.366,
+              "disbursementPoint": 104.22006534,
+              "disbursementLowerBound": 104.17921837,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2302,
-              "disbursementPoint": 101.357,
-              "disbursementLowerBound": 100.422,
+              "disbursementPoint": 104.4651798,
+              "disbursementLowerBound": 104.42240276,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2303,
-              "disbursementPoint": 101.438,
-              "disbursementLowerBound": 100.478,
+              "disbursementPoint": 104.71029426,
+              "disbursementLowerBound": 104.66558022,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2304,
-              "disbursementPoint": 101.459,
-              "disbursementLowerBound": 100.489,
+              "disbursementPoint": 104.95540872,
+              "disbursementLowerBound": 104.90875161,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2305,
-              "disbursementPoint": 101.54,
-              "disbursementLowerBound": 100.545,
+              "disbursementPoint": 105.20052318,
+              "disbursementLowerBound": 105.15191766,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2306,
-              "disbursementPoint": 101.621,
-              "disbursementLowerBound": 100.601,
+              "disbursementPoint": 105.44563764,
+              "disbursementLowerBound": 105.39507899,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2307,
-              "disbursementPoint": 101.642,
-              "disbursementLowerBound": 100.612,
+              "disbursementPoint": 105.6907521,
+              "disbursementLowerBound": 105.63823613,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2308,
-              "disbursementPoint": 101.723,
-              "disbursementLowerBound": 100.668,
+              "disbursementPoint": 105.93586655,
+              "disbursementLowerBound": 105.88138952,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2309,
-              "disbursementPoint": 101.804,
-              "disbursementLowerBound": 100.724,
+              "disbursementPoint": 106.18098101,
+              "disbursementLowerBound": 106.12453956,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2310,
-              "disbursementPoint": 101.825,
-              "disbursementLowerBound": 100.735,
+              "disbursementPoint": 106.42609547,
+              "disbursementLowerBound": 106.36768659,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2311,
-              "disbursementPoint": 101.906,
-              "disbursementLowerBound": 100.791,
+              "disbursementPoint": 106.67120993,
+              "disbursementLowerBound": 106.61083089,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2312,
-              "disbursementPoint": 101.987,
-              "disbursementLowerBound": 100.847,
+              "disbursementPoint": 106.91632439,
+              "disbursementLowerBound": 106.85397274,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2313,
-              "disbursementPoint": 102.008,
-              "disbursementLowerBound": 100.858,
+              "disbursementPoint": 107.16143885,
+              "disbursementLowerBound": 107.09711234,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2314,
-              "disbursementPoint": 102.089,
-              "disbursementLowerBound": 100.914,
+              "disbursementPoint": 107.40655331,
+              "disbursementLowerBound": 107.34024992,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2315,
-              "disbursementPoint": 102.17,
-              "disbursementLowerBound": 100.97,
+              "disbursementPoint": 107.65166776,
+              "disbursementLowerBound": 107.58338563,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2316,
-              "disbursementPoint": 102.191,
-              "disbursementLowerBound": 100.981,
+              "disbursementPoint": 107.89678222,
+              "disbursementLowerBound": 107.82651964,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2317,
-              "disbursementPoint": 102.272,
-              "disbursementLowerBound": 101.037,
+              "disbursementPoint": 108.14189668,
+              "disbursementLowerBound": 108.06965209,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2318,
-              "disbursementPoint": 102.353,
-              "disbursementLowerBound": 101.093,
+              "disbursementPoint": 108.38701114,
+              "disbursementLowerBound": 108.31278311,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2319,
-              "disbursementPoint": 102.374,
-              "disbursementLowerBound": 101.104,
+              "disbursementPoint": 108.6321256,
+              "disbursementLowerBound": 108.55591279,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2320,
-              "disbursementPoint": 102.455,
-              "disbursementLowerBound": 101.16,
+              "disbursementPoint": 108.87724006,
+              "disbursementLowerBound": 108.79904126,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2321,
-              "disbursementPoint": 102.536,
-              "disbursementLowerBound": 101.216,
+              "disbursementPoint": 109.12235452,
+              "disbursementLowerBound": 109.04216859,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2322,
-              "disbursementPoint": 102.557,
-              "disbursementLowerBound": 101.227,
+              "disbursementPoint": 109.36746898,
+              "disbursementLowerBound": 109.28529487,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2323,
-              "disbursementPoint": 102.638,
-              "disbursementLowerBound": 101.283,
+              "disbursementPoint": 109.61258343,
+              "disbursementLowerBound": 109.52842018,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             },
             {
               "year": 2324,
-              "disbursementPoint": 102.719,
-              "disbursementLowerBound": 101.339,
+              "disbursementPoint": 109.85769789,
+              "disbursementLowerBound": 109.77154457,
               "attributableToSchedule": false,
-              "attributionDisposition": "Lower bound remains above the observed baseline; attributable impairment count is zero"
+              "attributionDisposition": "Executed lower bound is not below the locked baseline mean; schedule-attributable impairment count is zero"
             }
           ]
         }
@@ -1320,527 +1562,676 @@
         }
       ],
       "disposition": "PASS",
-      "precisionFloorCalculation": "minimum finite baseline-to-impairment attribution margin fixed at 1.84 real dividend credits per resident"
+      "precisionFloorCalculation": {
+        "summaryMeasure": "real annual dividend disbursement level (precision-only continuous counterpart)",
+        "baselineObservedMean": 100.6687223,
+        "passThreshold": 0,
+        "ceiling": 100.6687223,
+        "authority": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a"
+      }
     },
     "III": {
       "baseline": [
         {
           "year": 2282,
-          "annualScmActivations": 8.058,
-          "flowTestMargin": 0.72
+          "annualScmActivations": 8.093333,
+          "flowTestMargin": 0.861333
         },
         {
           "year": 2283,
-          "annualScmActivations": 8.065,
-          "flowTestMargin": 0.75
+          "annualScmActivations": 8.1645,
+          "flowTestMargin": 0.847
         },
         {
           "year": 2284,
-          "annualScmActivations": 8.173,
-          "flowTestMargin": 0.78
+          "annualScmActivations": 8.219,
+          "flowTestMargin": 0.838
         },
         {
           "year": 2285,
-          "annualScmActivations": 8.181,
-          "flowTestMargin": 0.81
+          "annualScmActivations": 8.234333,
+          "flowTestMargin": 0.845
         },
         {
           "year": 2286,
-          "annualScmActivations": 8.287,
-          "flowTestMargin": 0.72
+          "annualScmActivations": 8.333833,
+          "flowTestMargin": 0.819
         },
         {
           "year": 2287,
-          "annualScmActivations": 8.26,
-          "flowTestMargin": 0.75
+          "annualScmActivations": 8.35,
+          "flowTestMargin": 0.837333
         },
         {
           "year": 2288,
-          "annualScmActivations": 8.353,
-          "flowTestMargin": 0.78
+          "annualScmActivations": 8.447833,
+          "flowTestMargin": 0.803
         },
         {
           "year": 2289,
-          "annualScmActivations": 8.425,
-          "flowTestMargin": 0.81
+          "annualScmActivations": 8.434833,
+          "flowTestMargin": 0.813667
         },
         {
           "year": 2290,
-          "annualScmActivations": 8.429,
-          "flowTestMargin": 0.72
+          "annualScmActivations": 8.521833,
+          "flowTestMargin": 0.822333
         },
         {
           "year": 2291,
-          "annualScmActivations": 8.535,
-          "flowTestMargin": 0.75
+          "annualScmActivations": 8.591333,
+          "flowTestMargin": 0.792
         }
       ],
-      "baselineActivationMean": 8.2766,
-      "leastFavorableMember": "III-refusal-tail",
+      "baselineActivationMean": 8.3390831,
+      "leastFavorableMember": "III-refusal-linear-b2",
       "members": [
         {
-          "id": "III-certification-panel",
+          "id": "III-certification-linear-b1",
           "panel": "certification",
-          "equivalenceClass": "III-ec-count-panel",
-          "functionalClass": "count-panel activation model",
+          "equivalenceClass": "III-ec-dynamic",
+          "functionalClass": "joint linear SCM/Flow projection",
           "identificationAssumptions": [
             "SCM parameters fixed",
-            "simultaneous upper frequency path"
+            "serial dependence"
           ],
           "sourceId": "FINDING-III-OBSERVATIONS-2294",
-          "validationError": 0.031,
-          "persistenceError": 0.044,
+          "validationError": 0.01879349,
+          "persistenceError": 0.05002474,
+          "validationRecordId": "III-certification-linear-b1",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-1 block bootstrap",
+            "family": "B-1",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 0.82,
-            "precisionFloor": 2.06915
+            "width": 0.03217872,
+            "precisionFloor": 2.08477077,
+            "methodRecord": {
+              "points": [
+                8.783546724812027,
+                8.835698348872178,
+                8.887849972932328,
+                8.940001596992479,
+                8.992153221052629,
+                9.04430484511278,
+                9.09645646917293,
+                9.14860809323308,
+                9.20075971729323,
+                9.25291134135338,
+                9.305062965413532,
+                9.357214589473681,
+                9.409366213533833,
+                9.461517837593982,
+                9.513669461654132,
+                9.565821085714283,
+                9.617972709774435,
+                9.670124333834584,
+                9.722275957894734,
+                9.774427581954885,
+                9.826579206015035,
+                9.878730830075185,
+                9.930882454135336,
+                9.983034078195487,
+                10.035185702255637,
+                10.087337326315787,
+                10.139488950375938,
+                10.191640574436088,
+                10.243792198496237,
+                10.295943822556389,
+                0.7763134669172935,
+                0.7703478015037597,
+                0.7643821360902259,
+                0.758416470676692,
+                0.7524508052631581,
+                0.7464851398496243,
+                0.7405194744360905,
+                0.7345538090225566,
+                0.7285881436090228,
+                0.722622478195489,
+                0.7166568127819551,
+                0.7106911473684213,
+                0.7047254819548875,
+                0.6987598165413537,
+                0.6927941511278198,
+                0.6868284857142859,
+                0.6808628203007521,
+                0.6748971548872182,
+                0.6689314894736844,
+                0.6629658240601506,
+                0.6570001586466168,
+                0.6510344932330829,
+                0.6450688278195491,
+                0.6391031624060153,
+                0.6331374969924815,
+                0.6271718315789476,
+                0.6212061661654138,
+                0.61524050075188,
+                0.6092748353383461,
+                0.6033091699248123
+              ],
+              "standardErrors": [
+                0.00508760795113136,
+                0.005415609717903953,
+                0.005746196193557558,
+                0.006078945706207036,
+                0.006413521593409436,
+                0.006749652264021011,
+                0.007087116498776967,
+                0.007425732487453957,
+                0.007765349561299814,
+                0.008105841891443902,
+                0.008447103637043507,
+                0.008789045173781948,
+                0.009131590135598727,
+                0.009474673074481571,
+                0.009818237594293974,
+                0.010162234851333926,
+                0.010506622340946854,
+                0.010851362909001867,
+                0.011196423941437557,
+                0.011541776695807669,
+                0.01188739574681271,
+                0.012233258523907347,
+                0.012579344923727887,
+                0.01292563698366338,
+                0.013272118605660953,
+                0.013618775321517626,
+                0.013965594092596952,
+                0.014312563138248219,
+                0.01465967178825846,
+                0.015006910355517539,
+                0.003096325128737968,
+                0.003295935016751786,
+                0.003497348077207366,
+                0.0037002698710148878,
+                0.00390446517083122,
+                0.004109744156127804,
+                0.004315952200166051,
+                0.004522962233548805,
+                0.004730668974341623,
+                0.004938984524189875,
+                0.0051478349742658585,
+                0.0053571577651830935,
+                0.005566899615274851,
+                0.0057770148812974365,
+                0.005987464251051182,
+                0.006198213692927888,
+                0.006409233605937659,
+                0.006620498127366366,
+                0.006831984565273948,
+                0.007043672930546994,
+                0.00725554554886112,
+                0.007467586737184609,
+                0.007679782532718717,
+                0.007892120464680371,
+                0.008104589361275548,
+                0.008317179185726005,
+                0.008529880896398613,
+                0.008742686327023137,
+                0.008955588083726694,
+                0.009168579456205679
+              ],
+              "critical": 2.1442598161476187,
+              "blockLength": 4,
+              "replications": 399,
+              "seed": 74003
+            }
           },
           "horizon": [
             {
               "year": 2295,
-              "activationFrequencyPoint": 8.74,
-              "activationFrequencyUpperBound": 9.44,
-              "flowMarginPoint": 0.69,
-              "flowMarginLowerBound": 0.39
+              "activationFrequencyPoint": 8.78354672,
+              "activationFrequencyUpperBound": 8.79445588,
+              "flowMarginPoint": 0.77631347,
+              "flowMarginLowerBound": 0.76967414
             },
             {
               "year": 2296,
-              "activationFrequencyPoint": 8.801,
-              "activationFrequencyUpperBound": 9.494,
-              "flowMarginPoint": 0.695,
-              "flowMarginLowerBound": 0.394
+              "activationFrequencyPoint": 8.83569835,
+              "activationFrequencyUpperBound": 8.84731082,
+              "flowMarginPoint": 0.7703478,
+              "flowMarginLowerBound": 0.76328046
             },
             {
               "year": 2297,
-              "activationFrequencyPoint": 8.862,
-              "activationFrequencyUpperBound": 9.548,
-              "flowMarginPoint": 0.7,
-              "flowMarginLowerBound": 0.398
+              "activationFrequencyPoint": 8.88784997,
+              "activationFrequencyUpperBound": 8.90017131,
+              "flowMarginPoint": 0.76438214,
+              "flowMarginLowerBound": 0.75688291
             },
             {
               "year": 2298,
-              "activationFrequencyPoint": 8.923,
-              "activationFrequencyUpperBound": 9.602,
-              "flowMarginPoint": 0.705,
-              "flowMarginLowerBound": 0.402
+              "activationFrequencyPoint": 8.9400016,
+              "activationFrequencyUpperBound": 8.95303644,
+              "flowMarginPoint": 0.75841647,
+              "flowMarginLowerBound": 0.75048213
             },
             {
               "year": 2299,
-              "activationFrequencyPoint": 8.824,
-              "activationFrequencyUpperBound": 9.516,
-              "flowMarginPoint": 0.71,
-              "flowMarginLowerBound": 0.406
+              "activationFrequencyPoint": 8.99215322,
+              "activationFrequencyUpperBound": 9.00590548,
+              "flowMarginPoint": 0.75245081,
+              "flowMarginLowerBound": 0.74407862
             },
             {
               "year": 2300,
-              "activationFrequencyPoint": 8.885,
-              "activationFrequencyUpperBound": 9.57,
-              "flowMarginPoint": 0.675,
-              "flowMarginLowerBound": 0.38
+              "activationFrequencyPoint": 9.04430485,
+              "activationFrequencyUpperBound": 9.05877785,
+              "flowMarginPoint": 0.74648514,
+              "flowMarginLowerBound": 0.73767278
             },
             {
               "year": 2301,
-              "activationFrequencyPoint": 8.946,
-              "activationFrequencyUpperBound": 9.624,
-              "flowMarginPoint": 0.68,
-              "flowMarginLowerBound": 0.384
+              "activationFrequencyPoint": 9.09645647,
+              "activationFrequencyUpperBound": 9.11165309,
+              "flowMarginPoint": 0.74051947,
+              "flowMarginLowerBound": 0.73126495
             },
             {
               "year": 2302,
-              "activationFrequencyPoint": 9.007,
-              "activationFrequencyUpperBound": 9.678,
-              "flowMarginPoint": 0.685,
-              "flowMarginLowerBound": 0.388
+              "activationFrequencyPoint": 9.14860809,
+              "activationFrequencyUpperBound": 9.16453079,
+              "flowMarginPoint": 0.73455381,
+              "flowMarginLowerBound": 0.7248554
             },
             {
               "year": 2303,
-              "activationFrequencyPoint": 8.908,
-              "activationFrequencyUpperBound": 9.592,
-              "flowMarginPoint": 0.69,
-              "flowMarginLowerBound": 0.392
+              "activationFrequencyPoint": 9.20075972,
+              "activationFrequencyUpperBound": 9.21741064,
+              "flowMarginPoint": 0.72858814,
+              "flowMarginLowerBound": 0.71844436
             },
             {
               "year": 2304,
-              "activationFrequencyPoint": 8.969,
-              "activationFrequencyUpperBound": 9.646,
-              "flowMarginPoint": 0.695,
-              "flowMarginLowerBound": 0.396
+              "activationFrequencyPoint": 9.25291134,
+              "activationFrequencyUpperBound": 9.27029237,
+              "flowMarginPoint": 0.72262248,
+              "flowMarginLowerBound": 0.71203201
             },
             {
               "year": 2305,
-              "activationFrequencyPoint": 9.03,
-              "activationFrequencyUpperBound": 9.7,
-              "flowMarginPoint": 0.66,
-              "flowMarginLowerBound": 0.37
+              "activationFrequencyPoint": 9.30506297,
+              "activationFrequencyUpperBound": 9.32317575,
+              "flowMarginPoint": 0.71665681,
+              "flowMarginLowerBound": 0.70561852
             },
             {
               "year": 2306,
-              "activationFrequencyPoint": 9.091,
-              "activationFrequencyUpperBound": 9.754,
-              "flowMarginPoint": 0.665,
-              "flowMarginLowerBound": 0.374
+              "activationFrequencyPoint": 9.35721459,
+              "activationFrequencyUpperBound": 9.37606059,
+              "flowMarginPoint": 0.71069115,
+              "flowMarginLowerBound": 0.69920401
             },
             {
               "year": 2307,
-              "activationFrequencyPoint": 8.992,
-              "activationFrequencyUpperBound": 9.668,
-              "flowMarginPoint": 0.67,
-              "flowMarginLowerBound": 0.378
+              "activationFrequencyPoint": 9.40936621,
+              "activationFrequencyUpperBound": 9.42894672,
+              "flowMarginPoint": 0.70472548,
+              "flowMarginLowerBound": 0.6927886
             },
             {
               "year": 2308,
-              "activationFrequencyPoint": 9.053,
-              "activationFrequencyUpperBound": 9.722,
-              "flowMarginPoint": 0.675,
-              "flowMarginLowerBound": 0.382
+              "activationFrequencyPoint": 9.46151784,
+              "activationFrequencyUpperBound": 9.481834,
+              "flowMarginPoint": 0.69875982,
+              "flowMarginLowerBound": 0.6863724
             },
             {
               "year": 2309,
-              "activationFrequencyPoint": 9.114,
-              "activationFrequencyUpperBound": 9.776,
-              "flowMarginPoint": 0.68,
-              "flowMarginLowerBound": 0.386
+              "activationFrequencyPoint": 9.51366946,
+              "activationFrequencyUpperBound": 9.53472231,
+              "flowMarginPoint": 0.69279415,
+              "flowMarginLowerBound": 0.67995547
             },
             {
               "year": 2310,
-              "activationFrequencyPoint": 9.175,
-              "activationFrequencyUpperBound": 9.83,
-              "flowMarginPoint": 0.645,
-              "flowMarginLowerBound": 0.36
+              "activationFrequencyPoint": 9.56582109,
+              "activationFrequencyUpperBound": 9.58761156,
+              "flowMarginPoint": 0.68682849,
+              "flowMarginLowerBound": 0.67353791
             },
             {
               "year": 2311,
-              "activationFrequencyPoint": 9.076,
-              "activationFrequencyUpperBound": 9.744,
-              "flowMarginPoint": 0.65,
-              "flowMarginLowerBound": 0.364
+              "activationFrequencyPoint": 9.61797271,
+              "activationFrequencyUpperBound": 9.64050164,
+              "flowMarginPoint": 0.68086282,
+              "flowMarginLowerBound": 0.66711976
             },
             {
               "year": 2312,
-              "activationFrequencyPoint": 9.137,
-              "activationFrequencyUpperBound": 9.798,
-              "flowMarginPoint": 0.655,
-              "flowMarginLowerBound": 0.368
+              "activationFrequencyPoint": 9.67012433,
+              "activationFrequencyUpperBound": 9.69339248,
+              "flowMarginPoint": 0.67489715,
+              "flowMarginLowerBound": 0.66070109
             },
             {
               "year": 2313,
-              "activationFrequencyPoint": 9.198,
-              "activationFrequencyUpperBound": 9.852,
-              "flowMarginPoint": 0.66,
-              "flowMarginLowerBound": 0.372
+              "activationFrequencyPoint": 9.72227596,
+              "activationFrequencyUpperBound": 9.746284,
+              "flowMarginPoint": 0.66893149,
+              "flowMarginLowerBound": 0.65428194
             },
             {
               "year": 2314,
-              "activationFrequencyPoint": 9.259,
-              "activationFrequencyUpperBound": 9.906,
-              "flowMarginPoint": 0.665,
-              "flowMarginLowerBound": 0.376
+              "activationFrequencyPoint": 9.77442758,
+              "activationFrequencyUpperBound": 9.79917615,
+              "flowMarginPoint": 0.66296582,
+              "flowMarginLowerBound": 0.64786236
             },
             {
               "year": 2315,
-              "activationFrequencyPoint": 9.16,
-              "activationFrequencyUpperBound": 9.82,
-              "flowMarginPoint": 0.63,
-              "flowMarginLowerBound": 0.35
+              "activationFrequencyPoint": 9.82657921,
+              "activationFrequencyUpperBound": 9.85206887,
+              "flowMarginPoint": 0.65700016,
+              "flowMarginLowerBound": 0.64144238
             },
             {
               "year": 2316,
-              "activationFrequencyPoint": 9.221,
-              "activationFrequencyUpperBound": 9.874,
-              "flowMarginPoint": 0.635,
-              "flowMarginLowerBound": 0.354
+              "activationFrequencyPoint": 9.87873083,
+              "activationFrequencyUpperBound": 9.90496211,
+              "flowMarginPoint": 0.65103449,
+              "flowMarginLowerBound": 0.63502205
             },
             {
               "year": 2317,
-              "activationFrequencyPoint": 9.282,
-              "activationFrequencyUpperBound": 9.928,
-              "flowMarginPoint": 0.64,
-              "flowMarginLowerBound": 0.358
+              "activationFrequencyPoint": 9.93088245,
+              "activationFrequencyUpperBound": 9.95785584,
+              "flowMarginPoint": 0.64506883,
+              "flowMarginLowerBound": 0.62860138
             },
             {
               "year": 2318,
-              "activationFrequencyPoint": 9.343,
-              "activationFrequencyUpperBound": 9.982,
-              "flowMarginPoint": 0.645,
-              "flowMarginLowerBound": 0.362
+              "activationFrequencyPoint": 9.98303408,
+              "activationFrequencyUpperBound": 10.01075,
+              "flowMarginPoint": 0.63910316,
+              "flowMarginLowerBound": 0.62218041
             },
             {
               "year": 2319,
-              "activationFrequencyPoint": 9.244,
-              "activationFrequencyUpperBound": 9.896,
-              "flowMarginPoint": 0.65,
-              "flowMarginLowerBound": 0.366
+              "activationFrequencyPoint": 10.0351857,
+              "activationFrequencyUpperBound": 10.06364457,
+              "flowMarginPoint": 0.6331375,
+              "flowMarginLowerBound": 0.61575915
             },
             {
               "year": 2320,
-              "activationFrequencyPoint": 9.305,
-              "activationFrequencyUpperBound": 9.95,
-              "flowMarginPoint": 0.615,
-              "flowMarginLowerBound": 0.34
+              "activationFrequencyPoint": 10.08733733,
+              "activationFrequencyUpperBound": 10.11653952,
+              "flowMarginPoint": 0.62717183,
+              "flowMarginLowerBound": 0.60933764
             },
             {
               "year": 2321,
-              "activationFrequencyPoint": 9.366,
-              "activationFrequencyUpperBound": 10.004,
-              "flowMarginPoint": 0.62,
-              "flowMarginLowerBound": 0.344
+              "activationFrequencyPoint": 10.13948895,
+              "activationFrequencyUpperBound": 10.16943481,
+              "flowMarginPoint": 0.62120617,
+              "flowMarginLowerBound": 0.60291589
             },
             {
               "year": 2322,
-              "activationFrequencyPoint": 9.427,
-              "activationFrequencyUpperBound": 10.058,
-              "flowMarginPoint": 0.625,
-              "flowMarginLowerBound": 0.348
+              "activationFrequencyPoint": 10.19164057,
+              "activationFrequencyUpperBound": 10.22233043,
+              "flowMarginPoint": 0.6152405,
+              "flowMarginLowerBound": 0.59649391
             },
             {
               "year": 2323,
-              "activationFrequencyPoint": 9.328,
-              "activationFrequencyUpperBound": 9.972,
-              "flowMarginPoint": 0.63,
-              "flowMarginLowerBound": 0.352
+              "activationFrequencyPoint": 10.2437922,
+              "activationFrequencyUpperBound": 10.27522634,
+              "flowMarginPoint": 0.60927484,
+              "flowMarginLowerBound": 0.59007173
             },
             {
               "year": 2324,
-              "activationFrequencyPoint": 9.389,
-              "activationFrequencyUpperBound": 10.026,
-              "flowMarginPoint": 0.635,
-              "flowMarginLowerBound": 0.356
+              "activationFrequencyPoint": 10.29594382,
+              "activationFrequencyUpperBound": 10.32812254,
+              "flowMarginPoint": 0.60330917,
+              "flowMarginLowerBound": 0.58364935
             }
           ]
         },
         {
-          "id": "III-refusal-tail",
+          "id": "III-refusal-linear-b2",
           "panel": "refusal",
-          "equivalenceClass": "III-ec-threshold-hazard",
-          "functionalClass": "threshold-hazard activation model",
+          "equivalenceClass": "III-ec-analytic",
+          "functionalClass": "joint HAC SCM/Flow projection",
           "identificationAssumptions": [
-            "SCM parameters fixed",
-            "maximum admissible liquidity response"
+            "maximum admissible liquidity response",
+            "serial dependence"
           ],
           "sourceId": "FINDING-III-OBSERVATIONS-2294",
-          "validationError": 0.036,
-          "persistenceError": 0.044,
+          "validationError": 0.01879349,
+          "persistenceError": 0.05002474,
+          "validationRecordId": "III-refusal-linear-b2",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-2 analytic max-t",
+            "family": "B-2",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 0.98,
-            "precisionFloor": 2.06915
+            "width": 0.0497198,
+            "precisionFloor": 2.08477077,
+            "methodRecord": {
+              "bandwidth": 2,
+              "critical": 2.9351994692171153,
+              "longRunVariances": {
+                "activation": 0.00010373020469623355,
+                "flow": 0.000028030916017667166
+              },
+              "simultaneousMethod": "one-sided Bonferroni max-t fallback"
+            }
           },
           "horizon": [
             {
               "year": 2295,
-              "activationFrequencyPoint": 8.88,
-              "activationFrequencyUpperBound": 9.62,
-              "flowMarginPoint": 0.63,
-              "flowMarginLowerBound": 0.31
+              "activationFrequencyPoint": 8.78354672,
+              "activationFrequencyUpperBound": 8.80056451,
+              "flowMarginPoint": 0.77631347,
+              "flowMarginLowerBound": 0.76746702
             },
             {
               "year": 2296,
-              "activationFrequencyPoint": 8.943,
-              "activationFrequencyUpperBound": 9.675,
-              "flowMarginPoint": 0.6328,
-              "flowMarginLowerBound": 0.3115
+              "activationFrequencyPoint": 8.83569835,
+              "activationFrequencyUpperBound": 8.85378795,
+              "flowMarginPoint": 0.7703478,
+              "flowMarginLowerBound": 0.76094418
             },
             {
               "year": 2297,
-              "activationFrequencyPoint": 9.006,
-              "activationFrequencyUpperBound": 9.73,
-              "flowMarginPoint": 0.6356,
-              "flowMarginLowerBound": 0.313
+              "activationFrequencyPoint": 8.88784997,
+              "activationFrequencyUpperBound": 8.90702156,
+              "flowMarginPoint": 0.76438214,
+              "flowMarginLowerBound": 0.75441606
             },
             {
               "year": 2298,
-              "activationFrequencyPoint": 9.069,
-              "activationFrequencyUpperBound": 9.785,
-              "flowMarginPoint": 0.6384,
-              "flowMarginLowerBound": 0.3145
+              "activationFrequencyPoint": 8.9400016,
+              "activationFrequencyUpperBound": 8.96026372,
+              "flowMarginPoint": 0.75841647,
+              "flowMarginLowerBound": 0.7478835
             },
             {
               "year": 2299,
-              "activationFrequencyPoint": 8.972,
-              "activationFrequencyUpperBound": 9.7,
-              "flowMarginPoint": 0.6412,
-              "flowMarginLowerBound": 0.316
+              "activationFrequencyPoint": 8.99215322,
+              "activationFrequencyUpperBound": 9.01351313,
+              "flowMarginPoint": 0.75245081,
+              "flowMarginLowerBound": 0.74134717
             },
             {
               "year": 2300,
-              "activationFrequencyPoint": 9.035,
-              "activationFrequencyUpperBound": 9.755,
-              "flowMarginPoint": 0.614,
-              "flowMarginLowerBound": 0.2975
+              "activationFrequencyPoint": 9.04430485,
+              "activationFrequencyUpperBound": 9.06676871,
+              "flowMarginPoint": 0.74648514,
+              "flowMarginLowerBound": 0.73480763
             },
             {
               "year": 2301,
-              "activationFrequencyPoint": 9.098,
-              "activationFrequencyUpperBound": 9.81,
-              "flowMarginPoint": 0.6168,
-              "flowMarginLowerBound": 0.299
+              "activationFrequencyPoint": 9.09645647,
+              "activationFrequencyUpperBound": 9.12002959,
+              "flowMarginPoint": 0.74051947,
+              "flowMarginLowerBound": 0.72826532
             },
             {
               "year": 2302,
-              "activationFrequencyPoint": 9.161,
-              "activationFrequencyUpperBound": 9.865,
-              "flowMarginPoint": 0.6196,
-              "flowMarginLowerBound": 0.3005
+              "activationFrequencyPoint": 9.14860809,
+              "activationFrequencyUpperBound": 9.17329508,
+              "flowMarginPoint": 0.73455381,
+              "flowMarginLowerBound": 0.72172063
             },
             {
               "year": 2303,
-              "activationFrequencyPoint": 9.064,
-              "activationFrequencyUpperBound": 9.78,
-              "flowMarginPoint": 0.6224,
-              "flowMarginLowerBound": 0.302
+              "activationFrequencyPoint": 9.20075972,
+              "activationFrequencyUpperBound": 9.22656456,
+              "flowMarginPoint": 0.72858814,
+              "flowMarginLowerBound": 0.71517387
             },
             {
               "year": 2304,
-              "activationFrequencyPoint": 9.127,
-              "activationFrequencyUpperBound": 9.835,
-              "flowMarginPoint": 0.6252,
-              "flowMarginLowerBound": 0.3035
+              "activationFrequencyPoint": 9.25291134,
+              "activationFrequencyUpperBound": 9.27983755,
+              "flowMarginPoint": 0.72262248,
+              "flowMarginLowerBound": 0.70862528
             },
             {
               "year": 2305,
-              "activationFrequencyPoint": 9.19,
-              "activationFrequencyUpperBound": 9.89,
-              "flowMarginPoint": 0.598,
-              "flowMarginLowerBound": 0.285
+              "activationFrequencyPoint": 9.30506297,
+              "activationFrequencyUpperBound": 9.33311361,
+              "flowMarginPoint": 0.71665681,
+              "flowMarginLowerBound": 0.70207509
             },
             {
               "year": 2306,
-              "activationFrequencyPoint": 9.253,
-              "activationFrequencyUpperBound": 9.945,
-              "flowMarginPoint": 0.6008,
-              "flowMarginLowerBound": 0.2865
+              "activationFrequencyPoint": 9.35721459,
+              "activationFrequencyUpperBound": 9.3863924,
+              "flowMarginPoint": 0.71069115,
+              "flowMarginLowerBound": 0.69552348
             },
             {
               "year": 2307,
-              "activationFrequencyPoint": 9.156,
-              "activationFrequencyUpperBound": 9.86,
-              "flowMarginPoint": 0.6036,
-              "flowMarginLowerBound": 0.288
+              "activationFrequencyPoint": 9.40936621,
+              "activationFrequencyUpperBound": 9.43967361,
+              "flowMarginPoint": 0.70472548,
+              "flowMarginLowerBound": 0.68897062
             },
             {
               "year": 2308,
-              "activationFrequencyPoint": 9.219,
-              "activationFrequencyUpperBound": 9.915,
-              "flowMarginPoint": 0.6064,
-              "flowMarginLowerBound": 0.2895
+              "activationFrequencyPoint": 9.46151784,
+              "activationFrequencyUpperBound": 9.49295698,
+              "flowMarginPoint": 0.69875982,
+              "flowMarginLowerBound": 0.68241663
             },
             {
               "year": 2309,
-              "activationFrequencyPoint": 9.282,
-              "activationFrequencyUpperBound": 9.97,
-              "flowMarginPoint": 0.6092,
-              "flowMarginLowerBound": 0.291
+              "activationFrequencyPoint": 9.51366946,
+              "activationFrequencyUpperBound": 9.54624229,
+              "flowMarginPoint": 0.69279415,
+              "flowMarginLowerBound": 0.67586163
             },
             {
               "year": 2310,
-              "activationFrequencyPoint": 9.345,
-              "activationFrequencyUpperBound": 10.025,
-              "flowMarginPoint": 0.582,
-              "flowMarginLowerBound": 0.2725
+              "activationFrequencyPoint": 9.56582109,
+              "activationFrequencyUpperBound": 9.59952934,
+              "flowMarginPoint": 0.68682849,
+              "flowMarginLowerBound": 0.66930574
             },
             {
               "year": 2311,
-              "activationFrequencyPoint": 9.248,
-              "activationFrequencyUpperBound": 9.94,
-              "flowMarginPoint": 0.5848,
-              "flowMarginLowerBound": 0.274
+              "activationFrequencyPoint": 9.61797271,
+              "activationFrequencyUpperBound": 9.65281795,
+              "flowMarginPoint": 0.68086282,
+              "flowMarginLowerBound": 0.66274902
             },
             {
               "year": 2312,
-              "activationFrequencyPoint": 9.311,
-              "activationFrequencyUpperBound": 9.995,
-              "flowMarginPoint": 0.5876,
-              "flowMarginLowerBound": 0.2755
+              "activationFrequencyPoint": 9.67012433,
+              "activationFrequencyUpperBound": 9.70610799,
+              "flowMarginPoint": 0.67489715,
+              "flowMarginLowerBound": 0.65619157
             },
             {
               "year": 2313,
-              "activationFrequencyPoint": 9.374,
-              "activationFrequencyUpperBound": 10.05,
-              "flowMarginPoint": 0.5904,
-              "flowMarginLowerBound": 0.277
+              "activationFrequencyPoint": 9.72227596,
+              "activationFrequencyUpperBound": 9.75939932,
+              "flowMarginPoint": 0.66893149,
+              "flowMarginLowerBound": 0.64963345
             },
             {
               "year": 2314,
-              "activationFrequencyPoint": 9.437,
-              "activationFrequencyUpperBound": 10.105,
-              "flowMarginPoint": 0.5932,
-              "flowMarginLowerBound": 0.2785
+              "activationFrequencyPoint": 9.77442758,
+              "activationFrequencyUpperBound": 9.81269182,
+              "flowMarginPoint": 0.66296582,
+              "flowMarginLowerBound": 0.64307471
             },
             {
               "year": 2315,
-              "activationFrequencyPoint": 9.34,
-              "activationFrequencyUpperBound": 10.02,
-              "flowMarginPoint": 0.566,
-              "flowMarginLowerBound": 0.26
+              "activationFrequencyPoint": 9.82657921,
+              "activationFrequencyUpperBound": 9.86598539,
+              "flowMarginPoint": 0.65700016,
+              "flowMarginLowerBound": 0.63651542
             },
             {
               "year": 2316,
-              "activationFrequencyPoint": 9.403,
-              "activationFrequencyUpperBound": 10.075,
-              "flowMarginPoint": 0.5688,
-              "flowMarginLowerBound": 0.2615
+              "activationFrequencyPoint": 9.87873083,
+              "activationFrequencyUpperBound": 9.91927995,
+              "flowMarginPoint": 0.65103449,
+              "flowMarginLowerBound": 0.62995562
             },
             {
               "year": 2317,
-              "activationFrequencyPoint": 9.466,
-              "activationFrequencyUpperBound": 10.13,
-              "flowMarginPoint": 0.5716,
-              "flowMarginLowerBound": 0.263
+              "activationFrequencyPoint": 9.93088245,
+              "activationFrequencyUpperBound": 9.9725754,
+              "flowMarginPoint": 0.64506883,
+              "flowMarginLowerBound": 0.62339535
             },
             {
               "year": 2318,
-              "activationFrequencyPoint": 9.529,
-              "activationFrequencyUpperBound": 10.185,
-              "flowMarginPoint": 0.5744,
-              "flowMarginLowerBound": 0.2645
+              "activationFrequencyPoint": 9.98303408,
+              "activationFrequencyUpperBound": 10.02587169,
+              "flowMarginPoint": 0.63910316,
+              "flowMarginLowerBound": 0.61683465
             },
             {
               "year": 2319,
-              "activationFrequencyPoint": 9.432,
-              "activationFrequencyUpperBound": 10.1,
-              "flowMarginPoint": 0.5772,
-              "flowMarginLowerBound": 0.266
+              "activationFrequencyPoint": 10.0351857,
+              "activationFrequencyUpperBound": 10.07916874,
+              "flowMarginPoint": 0.6331375,
+              "flowMarginLowerBound": 0.61027355
             },
             {
               "year": 2320,
-              "activationFrequencyPoint": 9.495,
-              "activationFrequencyUpperBound": 10.155,
-              "flowMarginPoint": 0.55,
-              "flowMarginLowerBound": 0.2475
+              "activationFrequencyPoint": 10.08733733,
+              "activationFrequencyUpperBound": 10.1324665,
+              "flowMarginPoint": 0.62717183,
+              "flowMarginLowerBound": 0.60371208
             },
             {
               "year": 2321,
-              "activationFrequencyPoint": 9.558,
-              "activationFrequencyUpperBound": 10.21,
-              "flowMarginPoint": 0.5528,
-              "flowMarginLowerBound": 0.249
+              "activationFrequencyPoint": 10.13948895,
+              "activationFrequencyUpperBound": 10.18576491,
+              "flowMarginPoint": 0.62120617,
+              "flowMarginLowerBound": 0.59715027
             },
             {
               "year": 2322,
-              "activationFrequencyPoint": 9.621,
-              "activationFrequencyUpperBound": 10.265,
-              "flowMarginPoint": 0.5556,
-              "flowMarginLowerBound": 0.2505
+              "activationFrequencyPoint": 10.19164057,
+              "activationFrequencyUpperBound": 10.23906393,
+              "flowMarginPoint": 0.6152405,
+              "flowMarginLowerBound": 0.59058815
             },
             {
               "year": 2323,
-              "activationFrequencyPoint": 9.524,
-              "activationFrequencyUpperBound": 10.18,
-              "flowMarginPoint": 0.5584,
-              "flowMarginLowerBound": 0.252
+              "activationFrequencyPoint": 10.2437922,
+              "activationFrequencyUpperBound": 10.29236351,
+              "flowMarginPoint": 0.60927484,
+              "flowMarginLowerBound": 0.58402574
             },
             {
               "year": 2324,
-              "activationFrequencyPoint": 9.587,
-              "activationFrequencyUpperBound": 10.235,
-              "flowMarginPoint": 0.5612,
-              "flowMarginLowerBound": 0.2535
+              "activationFrequencyPoint": 10.29594382,
+              "activationFrequencyUpperBound": 10.34566362,
+              "flowMarginPoint": 0.60330917,
+              "flowMarginLowerBound": 0.57746305
             }
           ]
         }
@@ -1860,602 +2251,1291 @@
         }
       ],
       "disposition": "PASS",
-      "precisionFloorCalculation": "125% forbidden boundary minus the locked baseline mean = 25% of 8.2766, or 2.06915"
+      "precisionFloorCalculation": {
+        "summaryMeasure": "annual SCM activation frequency",
+        "baselineObservedMean": 8.3390831,
+        "passThreshold": 10.42385387,
+        "ceiling": 2.08477077,
+        "authority": "Charter §3.3 and §5.3"
+      }
     },
     "IV": {
-      "baselinePublicDeploymentMean": 43.18,
-      "leastFavorableMember": "IV-refusal-partial-id",
+      "baselinePublicDeploymentMean": 0.6359123,
+      "leastFavorableMember": "IV-refusal-partial-id-b4",
       "retainedCapitalQuantity": 214.7,
       "retainedCapitalUnits": "billion constant-2292 Main credits attributable to 70-to-50 over the first assessment year",
-      "publicCounterfactual": "realized 2282-2291 public first-allocation portfolio, same traced venture classes",
+      "publicCounterfactual": "realized 2272-2291 public first-allocation portfolio, same traced venture classes",
       "members": [
         {
-          "id": "IV-certification-panel",
+          "id": "IV-certification-linear-b1",
           "panel": "certification",
-          "equivalenceClass": "IV-ec-demand-system",
-          "functionalClass": "venture-level demand-system OM",
+          "equivalenceClass": "IV-ec-demand",
+          "functionalClass": "componentwise linear Marshallian OM projection",
           "identificationAssumptions": [
             "ledger-traced ventures only",
             "realized public allocation counterfactual"
           ],
           "sourceId": "FINDING-IV-OBSERVATIONS-2294",
-          "validationError": 0.022,
-          "persistenceError": 0.031,
+          "validationError": 0.01695136,
+          "persistenceError": 0.11554303,
+          "validationRecordId": "IV-certification-linear-b1",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-1 block bootstrap",
+            "family": "B-1",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 1.04,
-            "precisionFloor": 43.18
+            "width": 0.0168994,
+            "precisionFloor": 7.2617618,
+            "methodRecord": {
+              "points": [
+                9.880960569768574
+              ],
+              "standardErrors": [
+                0.008523484267619001
+              ],
+              "critical": 1.9826871239210766,
+              "blockLength": 4,
+              "replications": 399,
+              "seed": 74004
+            }
           },
-          "omPoint": 3.40651135,
-          "omLowerBound": 2.36651135,
+          "omPoint": 9.88096057,
+          "omLowerBound": 9.86406117,
           "horizon": [
             {
               "year": 2295,
-              "privateMarginalValue": 0.41,
-              "publicCounterfactualMarginalValue": 0.31,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.1,
+              "privateConsumerSurplus": 0.61529406,
+              "privateProducerSurplus": 0.44882315,
+              "qualityAdjustment": 0.1096,
+              "displacementCost": 0.05505,
+              "externalCost": 0.03406,
+              "publicConsumerSurplus": 0.3710967,
+              "publicProducerSurplus": 0.27372431,
+              "publicQualityAdjustment": 0.0694,
+              "beyondHorizonValue": 0.0143,
+              "publicCaptureSurplus": 0.644,
+              "canonicalConsumptionLevel": 60.92811278,
+              "privateMarginalValue": 1.08460721,
+              "publicCounterfactualMarginalValue": 0.71422101,
+              "netMarginalValue": 0.3703862,
               "discountFactor": 0.9803921569,
-              "discountedNetMarginalValue": 0.09803922
+              "discountedNetMarginalValue": 0.36312372,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2296,
-              "privateMarginalValue": 0.428,
-              "publicCounterfactualMarginalValue": 0.324,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.104,
+              "privateConsumerSurplus": 0.62330436,
+              "privateProducerSurplus": 0.45483969,
+              "qualityAdjustment": 0.1108,
+              "displacementCost": 0.0554,
+              "externalCost": 0.03428,
+              "publicConsumerSurplus": 0.37591069,
+              "publicProducerSurplus": 0.27733167,
+              "publicQualityAdjustment": 0.0702,
+              "beyondHorizonValue": 0.0144,
+              "publicCaptureSurplus": 0.652,
+              "canonicalConsumptionLevel": 61.29847669,
+              "privateMarginalValue": 1.09926405,
+              "publicCounterfactualMarginalValue": 0.72344236,
+              "netMarginalValue": 0.37582169,
               "discountFactor": 0.9611687812,
-              "discountedNetMarginalValue": 0.09996155
+              "discountedNetMarginalValue": 0.36122808,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2297,
-              "privateMarginalValue": 0.446,
-              "publicCounterfactualMarginalValue": 0.338,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.108,
+              "privateConsumerSurplus": 0.63131466,
+              "privateProducerSurplus": 0.46085623,
+              "qualityAdjustment": 0.112,
+              "displacementCost": 0.05575,
+              "externalCost": 0.0345,
+              "publicConsumerSurplus": 0.38072468,
+              "publicProducerSurplus": 0.28093902,
+              "publicQualityAdjustment": 0.071,
+              "beyondHorizonValue": 0.0145,
+              "publicCaptureSurplus": 0.66,
+              "canonicalConsumptionLevel": 61.6688406,
+              "privateMarginalValue": 1.11392089,
+              "publicCounterfactualMarginalValue": 0.73266371,
+              "netMarginalValue": 0.38125718,
               "discountFactor": 0.9423223345,
-              "discountedNetMarginalValue": 0.10177081
+              "discountedNetMarginalValue": 0.35926716,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2298,
-              "privateMarginalValue": 0.464,
-              "publicCounterfactualMarginalValue": 0.352,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.112,
+              "privateConsumerSurplus": 0.63932496,
+              "privateProducerSurplus": 0.46687277,
+              "qualityAdjustment": 0.1132,
+              "displacementCost": 0.0561,
+              "externalCost": 0.03472,
+              "publicConsumerSurplus": 0.38553868,
+              "publicProducerSurplus": 0.28454638,
+              "publicQualityAdjustment": 0.0718,
+              "beyondHorizonValue": 0.0146,
+              "publicCaptureSurplus": 0.668,
+              "canonicalConsumptionLevel": 62.03920451,
+              "privateMarginalValue": 1.12857773,
+              "publicCounterfactualMarginalValue": 0.74188506,
+              "netMarginalValue": 0.38669268,
               "discountFactor": 0.923845426,
-              "discountedNetMarginalValue": 0.10347069
+              "discountedNetMarginalValue": 0.35724426,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2299,
-              "privateMarginalValue": 0.482,
-              "publicCounterfactualMarginalValue": 0.366,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.116,
+              "privateConsumerSurplus": 0.64733526,
+              "privateProducerSurplus": 0.47288931,
+              "qualityAdjustment": 0.1144,
+              "displacementCost": 0.05645,
+              "externalCost": 0.03494,
+              "publicConsumerSurplus": 0.39035267,
+              "publicProducerSurplus": 0.28815374,
+              "publicQualityAdjustment": 0.0726,
+              "beyondHorizonValue": 0.0147,
+              "publicCaptureSurplus": 0.676,
+              "canonicalConsumptionLevel": 62.40956842,
+              "privateMarginalValue": 1.14323457,
+              "publicCounterfactualMarginalValue": 0.75110641,
+              "netMarginalValue": 0.39212817,
               "discountFactor": 0.9057308098,
-              "discountedNetMarginalValue": 0.10506477
+              "discountedNetMarginalValue": 0.35516256,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2300,
-              "privateMarginalValue": 0.5,
-              "publicCounterfactualMarginalValue": 0.38,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.12,
+              "privateConsumerSurplus": 0.65534556,
+              "privateProducerSurplus": 0.47890585,
+              "qualityAdjustment": 0.1156,
+              "displacementCost": 0.0568,
+              "externalCost": 0.03516,
+              "publicConsumerSurplus": 0.39516666,
+              "publicProducerSurplus": 0.29176109,
+              "publicQualityAdjustment": 0.0734,
+              "beyondHorizonValue": 0.0148,
+              "publicCaptureSurplus": 0.684,
+              "canonicalConsumptionLevel": 62.77993233,
+              "privateMarginalValue": 1.15789142,
+              "publicCounterfactualMarginalValue": 0.76032775,
+              "netMarginalValue": 0.39756366,
               "discountFactor": 0.8879713822,
-              "discountedNetMarginalValue": 0.10655657
+              "discountedNetMarginalValue": 0.35302515,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2301,
-              "privateMarginalValue": 0.518,
-              "publicCounterfactualMarginalValue": 0.394,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.124,
+              "privateConsumerSurplus": 0.66335586,
+              "privateProducerSurplus": 0.48492239,
+              "qualityAdjustment": 0.1168,
+              "displacementCost": 0.05715,
+              "externalCost": 0.03538,
+              "publicConsumerSurplus": 0.39998065,
+              "publicProducerSurplus": 0.29536845,
+              "publicQualityAdjustment": 0.0742,
+              "beyondHorizonValue": 0.0149,
+              "publicCaptureSurplus": 0.692,
+              "canonicalConsumptionLevel": 63.15029624,
+              "privateMarginalValue": 1.17254826,
+              "publicCounterfactualMarginalValue": 0.7695491,
+              "netMarginalValue": 0.40299915,
               "discountFactor": 0.8705601786,
-              "discountedNetMarginalValue": 0.10794946
+              "discountedNetMarginalValue": 0.35083501,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2302,
-              "privateMarginalValue": 0.536,
-              "publicCounterfactualMarginalValue": 0.408,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.128,
+              "privateConsumerSurplus": 0.67136617,
+              "privateProducerSurplus": 0.49093893,
+              "qualityAdjustment": 0.118,
+              "displacementCost": 0.0575,
+              "externalCost": 0.0356,
+              "publicConsumerSurplus": 0.40479465,
+              "publicProducerSurplus": 0.29897581,
+              "publicQualityAdjustment": 0.075,
+              "beyondHorizonValue": 0.015,
+              "publicCaptureSurplus": 0.7,
+              "canonicalConsumptionLevel": 63.52066015,
+              "privateMarginalValue": 1.1872051,
+              "publicCounterfactualMarginalValue": 0.77877045,
+              "netMarginalValue": 0.40843465,
               "discountFactor": 0.8534903712,
-              "discountedNetMarginalValue": 0.10924677
+              "discountedNetMarginalValue": 0.34859504,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2303,
-              "privateMarginalValue": 0.554,
-              "publicCounterfactualMarginalValue": 0.422,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.132,
+              "privateConsumerSurplus": 0.67937647,
+              "privateProducerSurplus": 0.49695547,
+              "qualityAdjustment": 0.1192,
+              "displacementCost": 0.05785,
+              "externalCost": 0.03582,
+              "publicConsumerSurplus": 0.40960864,
+              "publicProducerSurplus": 0.30258316,
+              "publicQualityAdjustment": 0.0758,
+              "beyondHorizonValue": 0.0151,
+              "publicCaptureSurplus": 0.708,
+              "canonicalConsumptionLevel": 63.89102406,
+              "privateMarginalValue": 1.20186194,
+              "publicCounterfactualMarginalValue": 0.7879918,
+              "netMarginalValue": 0.41387014,
               "discountFactor": 0.8367552659,
-              "discountedNetMarginalValue": 0.1104517
+              "discountedNetMarginalValue": 0.34630802,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2304,
-              "privateMarginalValue": 0.572,
-              "publicCounterfactualMarginalValue": 0.436,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.136,
+              "privateConsumerSurplus": 0.68738677,
+              "privateProducerSurplus": 0.50297201,
+              "qualityAdjustment": 0.1204,
+              "displacementCost": 0.0582,
+              "externalCost": 0.03604,
+              "publicConsumerSurplus": 0.41442263,
+              "publicProducerSurplus": 0.30619052,
+              "publicQualityAdjustment": 0.0766,
+              "beyondHorizonValue": 0.0152,
+              "publicCaptureSurplus": 0.716,
+              "canonicalConsumptionLevel": 64.26138797,
+              "privateMarginalValue": 1.21651878,
+              "publicCounterfactualMarginalValue": 0.79721315,
+              "netMarginalValue": 0.41930563,
               "discountFactor": 0.8203482999,
-              "discountedNetMarginalValue": 0.11156737
+              "discountedNetMarginalValue": 0.34397666,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2305,
-              "privateMarginalValue": 0.59,
-              "publicCounterfactualMarginalValue": 0.45,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.14,
+              "privateConsumerSurplus": 0.69539707,
+              "privateProducerSurplus": 0.50898855,
+              "qualityAdjustment": 0.1216,
+              "displacementCost": 0.05855,
+              "externalCost": 0.03626,
+              "publicConsumerSurplus": 0.41923662,
+              "publicProducerSurplus": 0.30979788,
+              "publicQualityAdjustment": 0.0774,
+              "beyondHorizonValue": 0.0153,
+              "publicCaptureSurplus": 0.724,
+              "canonicalConsumptionLevel": 64.63175188,
+              "privateMarginalValue": 1.23117562,
+              "publicCounterfactualMarginalValue": 0.8064345,
+              "netMarginalValue": 0.42474112,
               "discountFactor": 0.8042630391,
-              "discountedNetMarginalValue": 0.11259683
+              "discountedNetMarginalValue": 0.34160359,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2306,
-              "privateMarginalValue": 0.608,
-              "publicCounterfactualMarginalValue": 0.464,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.144,
+              "privateConsumerSurplus": 0.70340737,
+              "privateProducerSurplus": 0.51500509,
+              "qualityAdjustment": 0.1228,
+              "displacementCost": 0.0589,
+              "externalCost": 0.03648,
+              "publicConsumerSurplus": 0.42405062,
+              "publicProducerSurplus": 0.31340523,
+              "publicQualityAdjustment": 0.0782,
+              "beyondHorizonValue": 0.0154,
+              "publicCaptureSurplus": 0.732,
+              "canonicalConsumptionLevel": 65.00211579,
+              "privateMarginalValue": 1.24583246,
+              "publicCounterfactualMarginalValue": 0.81565585,
+              "netMarginalValue": 0.43017662,
               "discountFactor": 0.7884931756,
-              "discountedNetMarginalValue": 0.11354302
+              "discountedNetMarginalValue": 0.33919133,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2307,
-              "privateMarginalValue": 0.626,
-              "publicCounterfactualMarginalValue": 0.478,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.148,
+              "privateConsumerSurplus": 0.71141767,
+              "privateProducerSurplus": 0.52102164,
+              "qualityAdjustment": 0.124,
+              "displacementCost": 0.05925,
+              "externalCost": 0.0367,
+              "publicConsumerSurplus": 0.42886461,
+              "publicProducerSurplus": 0.31701259,
+              "publicQualityAdjustment": 0.079,
+              "beyondHorizonValue": 0.0155,
+              "publicCaptureSurplus": 0.74,
+              "canonicalConsumptionLevel": 65.3724797,
+              "privateMarginalValue": 1.2604893,
+              "publicCounterfactualMarginalValue": 0.8248772,
+              "netMarginalValue": 0.43561211,
               "discountFactor": 0.7730325251,
-              "discountedNetMarginalValue": 0.11440881
+              "discountedNetMarginalValue": 0.33674233,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2308,
-              "privateMarginalValue": 0.644,
-              "publicCounterfactualMarginalValue": 0.492,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.152,
+              "privateConsumerSurplus": 0.71942797,
+              "privateProducerSurplus": 0.52703818,
+              "qualityAdjustment": 0.1252,
+              "displacementCost": 0.0596,
+              "externalCost": 0.03692,
+              "publicConsumerSurplus": 0.4336786,
+              "publicProducerSurplus": 0.32061994,
+              "publicQualityAdjustment": 0.0798,
+              "beyondHorizonValue": 0.0156,
+              "publicCaptureSurplus": 0.748,
+              "canonicalConsumptionLevel": 65.74284361,
+              "privateMarginalValue": 1.27514615,
+              "publicCounterfactualMarginalValue": 0.83409855,
+              "netMarginalValue": 0.4410476,
               "discountFactor": 0.7578750246,
-              "discountedNetMarginalValue": 0.115197
+              "discountedNetMarginalValue": 0.33425896,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2309,
-              "privateMarginalValue": 0.662,
-              "publicCounterfactualMarginalValue": 0.506,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.156,
+              "privateConsumerSurplus": 0.72743827,
+              "privateProducerSurplus": 0.53305472,
+              "qualityAdjustment": 0.1264,
+              "displacementCost": 0.05995,
+              "externalCost": 0.03714,
+              "publicConsumerSurplus": 0.43849259,
+              "publicProducerSurplus": 0.3242273,
+              "publicQualityAdjustment": 0.0806,
+              "beyondHorizonValue": 0.0157,
+              "publicCaptureSurplus": 0.756,
+              "canonicalConsumptionLevel": 66.11320752,
+              "privateMarginalValue": 1.28980299,
+              "publicCounterfactualMarginalValue": 0.84331989,
+              "netMarginalValue": 0.44648309,
               "discountFactor": 0.74301473,
-              "discountedNetMarginalValue": 0.1159103
+              "discountedNetMarginalValue": 0.33174351,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2310,
-              "privateMarginalValue": 0.68,
-              "publicCounterfactualMarginalValue": 0.52,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.16,
+              "privateConsumerSurplus": 0.73544857,
+              "privateProducerSurplus": 0.53907126,
+              "qualityAdjustment": 0.1276,
+              "displacementCost": 0.0603,
+              "externalCost": 0.03736,
+              "publicConsumerSurplus": 0.44330659,
+              "publicProducerSurplus": 0.32783466,
+              "publicQualityAdjustment": 0.0814,
+              "beyondHorizonValue": 0.0158,
+              "publicCaptureSurplus": 0.764,
+              "canonicalConsumptionLevel": 66.48357143,
+              "privateMarginalValue": 1.30445983,
+              "publicCounterfactualMarginalValue": 0.85254124,
+              "netMarginalValue": 0.45191859,
               "discountFactor": 0.7284458137,
-              "discountedNetMarginalValue": 0.11655133
+              "discountedNetMarginalValue": 0.3291982,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2311,
-              "privateMarginalValue": 0.698,
-              "publicCounterfactualMarginalValue": 0.534,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.164,
+              "privateConsumerSurplus": 0.74345887,
+              "privateProducerSurplus": 0.5450878,
+              "qualityAdjustment": 0.1288,
+              "displacementCost": 0.06065,
+              "externalCost": 0.03758,
+              "publicConsumerSurplus": 0.44812058,
+              "publicProducerSurplus": 0.33144201,
+              "publicQualityAdjustment": 0.0822,
+              "beyondHorizonValue": 0.0159,
+              "publicCaptureSurplus": 0.772,
+              "canonicalConsumptionLevel": 66.85393534,
+              "privateMarginalValue": 1.31911667,
+              "publicCounterfactualMarginalValue": 0.86176259,
+              "netMarginalValue": 0.45735408,
               "discountFactor": 0.7141625625,
-              "discountedNetMarginalValue": 0.11712266
+              "discountedNetMarginalValue": 0.32662516,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2312,
-              "privateMarginalValue": 0.716,
-              "publicCounterfactualMarginalValue": 0.548,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.168,
+              "privateConsumerSurplus": 0.75146917,
+              "privateProducerSurplus": 0.55110434,
+              "qualityAdjustment": 0.13,
+              "displacementCost": 0.061,
+              "externalCost": 0.0378,
+              "publicConsumerSurplus": 0.45293457,
+              "publicProducerSurplus": 0.33504937,
+              "publicQualityAdjustment": 0.083,
+              "beyondHorizonValue": 0.016,
+              "publicCaptureSurplus": 0.78,
+              "canonicalConsumptionLevel": 67.22429925,
+              "privateMarginalValue": 1.33377351,
+              "publicCounterfactualMarginalValue": 0.87098394,
+              "netMarginalValue": 0.46278957,
               "discountFactor": 0.700159375,
-              "discountedNetMarginalValue": 0.11762678
+              "discountedNetMarginalValue": 0.32402646,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2313,
-              "privateMarginalValue": 0.734,
-              "publicCounterfactualMarginalValue": 0.562,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.172,
+              "privateConsumerSurplus": 0.75947947,
+              "privateProducerSurplus": 0.55712088,
+              "qualityAdjustment": 0.1312,
+              "displacementCost": 0.06135,
+              "externalCost": 0.03802,
+              "publicConsumerSurplus": 0.45774856,
+              "publicProducerSurplus": 0.33865673,
+              "publicQualityAdjustment": 0.0838,
+              "beyondHorizonValue": 0.0161,
+              "publicCaptureSurplus": 0.788,
+              "canonicalConsumptionLevel": 67.59466316,
+              "privateMarginalValue": 1.34843035,
+              "publicCounterfactualMarginalValue": 0.88020529,
+              "netMarginalValue": 0.46822506,
               "discountFactor": 0.6864307598,
-              "discountedNetMarginalValue": 0.11806609
+              "discountedNetMarginalValue": 0.32140409,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2314,
-              "privateMarginalValue": 0.752,
-              "publicCounterfactualMarginalValue": 0.576,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.176,
+              "privateConsumerSurplus": 0.76748977,
+              "privateProducerSurplus": 0.56313742,
+              "qualityAdjustment": 0.1324,
+              "displacementCost": 0.0617,
+              "externalCost": 0.03824,
+              "publicConsumerSurplus": 0.46256256,
+              "publicProducerSurplus": 0.34226408,
+              "publicQualityAdjustment": 0.0846,
+              "beyondHorizonValue": 0.0162,
+              "publicCaptureSurplus": 0.796,
+              "canonicalConsumptionLevel": 67.96502707,
+              "privateMarginalValue": 1.36308719,
+              "publicCounterfactualMarginalValue": 0.88942664,
+              "netMarginalValue": 0.47366056,
               "discountFactor": 0.6729713331,
-              "discountedNetMarginalValue": 0.11844295
+              "discountedNetMarginalValue": 0.31875998,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2315,
-              "privateMarginalValue": 0.77,
-              "publicCounterfactualMarginalValue": 0.59,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.18,
+              "privateConsumerSurplus": 0.77550008,
+              "privateProducerSurplus": 0.56915396,
+              "qualityAdjustment": 0.1336,
+              "displacementCost": 0.06205,
+              "externalCost": 0.03846,
+              "publicConsumerSurplus": 0.46737655,
+              "publicProducerSurplus": 0.34587144,
+              "publicQualityAdjustment": 0.0854,
+              "beyondHorizonValue": 0.0163,
+              "publicCaptureSurplus": 0.804,
+              "canonicalConsumptionLevel": 68.33539098,
+              "privateMarginalValue": 1.37774404,
+              "publicCounterfactualMarginalValue": 0.89864799,
+              "netMarginalValue": 0.47909605,
               "discountFactor": 0.6597758168,
-              "discountedNetMarginalValue": 0.11875965
+              "discountedNetMarginalValue": 0.31609599,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2316,
-              "privateMarginalValue": 0.788,
-              "publicCounterfactualMarginalValue": 0.604,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.184,
+              "privateConsumerSurplus": 0.78351038,
+              "privateProducerSurplus": 0.5751705,
+              "qualityAdjustment": 0.1348,
+              "displacementCost": 0.0624,
+              "externalCost": 0.03868,
+              "publicConsumerSurplus": 0.47219054,
+              "publicProducerSurplus": 0.3494788,
+              "publicQualityAdjustment": 0.0862,
+              "beyondHorizonValue": 0.0164,
+              "publicCaptureSurplus": 0.812,
+              "canonicalConsumptionLevel": 68.70575489,
+              "privateMarginalValue": 1.39240088,
+              "publicCounterfactualMarginalValue": 0.90786934,
+              "netMarginalValue": 0.48453154,
               "discountFactor": 0.6468390361,
-              "discountedNetMarginalValue": 0.11901838
+              "discountedNetMarginalValue": 0.31341391,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2317,
-              "privateMarginalValue": 0.806,
-              "publicCounterfactualMarginalValue": 0.618,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.188,
+              "privateConsumerSurplus": 0.79152068,
+              "privateProducerSurplus": 0.58118704,
+              "qualityAdjustment": 0.136,
+              "displacementCost": 0.06275,
+              "externalCost": 0.0389,
+              "publicConsumerSurplus": 0.47700453,
+              "publicProducerSurplus": 0.35308615,
+              "publicQualityAdjustment": 0.087,
+              "beyondHorizonValue": 0.0165,
+              "publicCaptureSurplus": 0.82,
+              "canonicalConsumptionLevel": 69.0761188,
+              "privateMarginalValue": 1.40705772,
+              "publicCounterfactualMarginalValue": 0.91709068,
+              "netMarginalValue": 0.48996703,
               "discountFactor": 0.6341559177,
-              "discountedNetMarginalValue": 0.11922131
+              "discountedNetMarginalValue": 0.31071549,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2318,
-              "privateMarginalValue": 0.824,
-              "publicCounterfactualMarginalValue": 0.632,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.192,
+              "privateConsumerSurplus": 0.79953098,
+              "privateProducerSurplus": 0.58720358,
+              "qualityAdjustment": 0.1372,
+              "displacementCost": 0.0631,
+              "externalCost": 0.03912,
+              "publicConsumerSurplus": 0.48181853,
+              "publicProducerSurplus": 0.35669351,
+              "publicQualityAdjustment": 0.0878,
+              "beyondHorizonValue": 0.0166,
+              "publicCaptureSurplus": 0.828,
+              "canonicalConsumptionLevel": 69.44648271,
+              "privateMarginalValue": 1.42171456,
+              "publicCounterfactualMarginalValue": 0.92631203,
+              "netMarginalValue": 0.49540253,
               "discountFactor": 0.6217214879,
-              "discountedNetMarginalValue": 0.11937053
+              "discountedNetMarginalValue": 0.3080024,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2319,
-              "privateMarginalValue": 0.842,
-              "publicCounterfactualMarginalValue": 0.646,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.196,
+              "privateConsumerSurplus": 0.80754128,
+              "privateProducerSurplus": 0.59322012,
+              "qualityAdjustment": 0.1384,
+              "displacementCost": 0.06345,
+              "externalCost": 0.03934,
+              "publicConsumerSurplus": 0.48663252,
+              "publicProducerSurplus": 0.36030086,
+              "publicQualityAdjustment": 0.0886,
+              "beyondHorizonValue": 0.0167,
+              "publicCaptureSurplus": 0.836,
+              "canonicalConsumptionLevel": 69.81684662,
+              "privateMarginalValue": 1.4363714,
+              "publicCounterfactualMarginalValue": 0.93553338,
+              "netMarginalValue": 0.50083802,
               "discountFactor": 0.6095308705,
-              "discountedNetMarginalValue": 0.11946805
+              "discountedNetMarginalValue": 0.30527623,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2320,
-              "privateMarginalValue": 0.86,
-              "publicCounterfactualMarginalValue": 0.66,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.2,
+              "privateConsumerSurplus": 0.81555158,
+              "privateProducerSurplus": 0.59923666,
+              "qualityAdjustment": 0.1396,
+              "displacementCost": 0.0638,
+              "externalCost": 0.03956,
+              "publicConsumerSurplus": 0.49144651,
+              "publicProducerSurplus": 0.36390822,
+              "publicQualityAdjustment": 0.0894,
+              "beyondHorizonValue": 0.0168,
+              "publicCaptureSurplus": 0.844,
+              "canonicalConsumptionLevel": 70.18721053,
+              "privateMarginalValue": 1.45102824,
+              "publicCounterfactualMarginalValue": 0.94475473,
+              "netMarginalValue": 0.50627351,
               "discountFactor": 0.5975792848,
-              "discountedNetMarginalValue": 0.11951586
+              "discountedNetMarginalValue": 0.30253856,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2321,
-              "privateMarginalValue": 0.878,
-              "publicCounterfactualMarginalValue": 0.674,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.204,
+              "privateConsumerSurplus": 0.82356188,
+              "privateProducerSurplus": 0.6052532,
+              "qualityAdjustment": 0.1408,
+              "displacementCost": 0.06415,
+              "externalCost": 0.03978,
+              "publicConsumerSurplus": 0.4962605,
+              "publicProducerSurplus": 0.36751558,
+              "publicQualityAdjustment": 0.0902,
+              "beyondHorizonValue": 0.0169,
+              "publicCaptureSurplus": 0.852,
+              "canonicalConsumptionLevel": 70.55757444,
+              "privateMarginalValue": 1.46568508,
+              "publicCounterfactualMarginalValue": 0.95397608,
+              "netMarginalValue": 0.511709,
               "discountFactor": 0.585862044,
-              "discountedNetMarginalValue": 0.11951586
+              "discountedNetMarginalValue": 0.29979088,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2322,
-              "privateMarginalValue": 0.896,
-              "publicCounterfactualMarginalValue": 0.688,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.208,
+              "privateConsumerSurplus": 0.83157218,
+              "privateProducerSurplus": 0.61126974,
+              "qualityAdjustment": 0.142,
+              "displacementCost": 0.0645,
+              "externalCost": 0.04,
+              "publicConsumerSurplus": 0.5010745,
+              "publicProducerSurplus": 0.37112293,
+              "publicQualityAdjustment": 0.091,
+              "beyondHorizonValue": 0.017,
+              "publicCaptureSurplus": 0.86,
+              "canonicalConsumptionLevel": 70.92793835,
+              "privateMarginalValue": 1.48034192,
+              "publicCounterfactualMarginalValue": 0.96319743,
+              "netMarginalValue": 0.5171445,
               "discountFactor": 0.5743745529,
-              "discountedNetMarginalValue": 0.11946991
+              "discountedNetMarginalValue": 0.29703464,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2323,
-              "privateMarginalValue": 0.914,
-              "publicCounterfactualMarginalValue": 0.702,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.212,
+              "privateConsumerSurplus": 0.83958248,
+              "privateProducerSurplus": 0.61728628,
+              "qualityAdjustment": 0.1432,
+              "displacementCost": 0.06485,
+              "externalCost": 0.04022,
+              "publicConsumerSurplus": 0.50588849,
+              "publicProducerSurplus": 0.37473029,
+              "publicQualityAdjustment": 0.0918,
+              "beyondHorizonValue": 0.0171,
+              "publicCaptureSurplus": 0.868,
+              "canonicalConsumptionLevel": 71.29830226,
+              "privateMarginalValue": 1.49499877,
+              "publicCounterfactualMarginalValue": 0.97241878,
+              "netMarginalValue": 0.52257999,
               "discountFactor": 0.5631123068,
-              "discountedNetMarginalValue": 0.11937981
+              "discountedNetMarginalValue": 0.29427122,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2324,
-              "privateMarginalValue": 0.932,
-              "publicCounterfactualMarginalValue": 0.716,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.216,
+              "privateConsumerSurplus": 0.84759278,
+              "privateProducerSurplus": 0.62330283,
+              "qualityAdjustment": 0.1444,
+              "displacementCost": 0.0652,
+              "externalCost": 0.04044,
+              "publicConsumerSurplus": 0.51070248,
+              "publicProducerSurplus": 0.37833765,
+              "publicQualityAdjustment": 0.0926,
+              "beyondHorizonValue": 0.0172,
+              "publicCaptureSurplus": 0.876,
+              "canonicalConsumptionLevel": 71.66866617,
+              "privateMarginalValue": 1.50965561,
+              "publicCounterfactualMarginalValue": 0.98164013,
+              "netMarginalValue": 0.52801548,
               "discountFactor": 0.552070889,
-              "discountedNetMarginalValue": 0.11924731
+              "discountedNetMarginalValue": 0.29150198,
+              "concentrationEventsUpperBound": 0
             }
           ]
         },
         {
-          "id": "IV-refusal-partial-id",
+          "id": "IV-refusal-partial-id-b4",
           "panel": "refusal",
           "equivalenceClass": "IV-ec-partial-id",
-          "functionalClass": "partial-identification OM bound",
+          "functionalClass": "componentwise partial-identification OM lower bound",
           "identificationAssumptions": [
             "ledger-traced ventures only",
-            "adverse displacement and external-cost bounds"
+            "adverse displacement and external-cost region"
           ],
           "sourceId": "FINDING-IV-OBSERVATIONS-2294",
-          "validationError": 0.026,
-          "persistenceError": 0.031,
+          "validationError": 0.01695136,
+          "persistenceError": 0.11554303,
+          "validationRecordId": "IV-refusal-partial-id-b4",
+          "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
           "interval": {
-            "family": "B-4 identification-region bound",
+            "family": "B-4",
             "oneSidedLevel": 0.95,
             "orientation": "against-activation",
             "simultaneous": true,
-            "width": 1.37,
-            "precisionFloor": 43.18
+            "width": 0.08894714,
+            "precisionFloor": 7.2617618,
+            "methodRecord": {
+              "bandwidth": 2,
+              "oneSidedCritical": 1.6448536251331622,
+              "samplingWidth": 0.00246608,
+              "identificationRegionWidth": 0.08648106,
+              "construction": "B-4 lower confidence bound over the adverse endpoint of the declared displacement/external-cost identified region"
+            }
           },
-          "omPoint": 1.781362,
-          "omLowerBound": 0.411362,
+          "omPoint": 9.88096057,
+          "omLowerBound": 9.79201343,
           "horizon": [
             {
               "year": 2295,
-              "privateMarginalValue": 0.36,
-              "publicCounterfactualMarginalValue": 0.3,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.06,
+              "privateConsumerSurplus": 0.61529406,
+              "privateProducerSurplus": 0.44882315,
+              "qualityAdjustment": 0.1096,
+              "displacementCost": 0.05505,
+              "externalCost": 0.03406,
+              "publicConsumerSurplus": 0.3710967,
+              "publicProducerSurplus": 0.27372431,
+              "publicQualityAdjustment": 0.0694,
+              "beyondHorizonValue": 0.0143,
+              "publicCaptureSurplus": 0.644,
+              "canonicalConsumptionLevel": 60.92811278,
+              "privateMarginalValue": 1.08460721,
+              "publicCounterfactualMarginalValue": 0.71422101,
+              "netMarginalValue": 0.3703862,
               "discountFactor": 0.9803921569,
-              "discountedNetMarginalValue": 0.05882353
+              "discountedNetMarginalValue": 0.36312372,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2296,
-              "privateMarginalValue": 0.376,
-              "publicCounterfactualMarginalValue": 0.3145,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0615,
+              "privateConsumerSurplus": 0.62330436,
+              "privateProducerSurplus": 0.45483969,
+              "qualityAdjustment": 0.1108,
+              "displacementCost": 0.0554,
+              "externalCost": 0.03428,
+              "publicConsumerSurplus": 0.37591069,
+              "publicProducerSurplus": 0.27733167,
+              "publicQualityAdjustment": 0.0702,
+              "beyondHorizonValue": 0.0144,
+              "publicCaptureSurplus": 0.652,
+              "canonicalConsumptionLevel": 61.29847669,
+              "privateMarginalValue": 1.09926405,
+              "publicCounterfactualMarginalValue": 0.72344236,
+              "netMarginalValue": 0.37582169,
               "discountFactor": 0.9611687812,
-              "discountedNetMarginalValue": 0.05911188
+              "discountedNetMarginalValue": 0.36122808,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2297,
-              "privateMarginalValue": 0.392,
-              "publicCounterfactualMarginalValue": 0.329,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.063,
+              "privateConsumerSurplus": 0.63131466,
+              "privateProducerSurplus": 0.46085623,
+              "qualityAdjustment": 0.112,
+              "displacementCost": 0.05575,
+              "externalCost": 0.0345,
+              "publicConsumerSurplus": 0.38072468,
+              "publicProducerSurplus": 0.28093902,
+              "publicQualityAdjustment": 0.071,
+              "beyondHorizonValue": 0.0145,
+              "publicCaptureSurplus": 0.66,
+              "canonicalConsumptionLevel": 61.6688406,
+              "privateMarginalValue": 1.11392089,
+              "publicCounterfactualMarginalValue": 0.73266371,
+              "netMarginalValue": 0.38125718,
               "discountFactor": 0.9423223345,
-              "discountedNetMarginalValue": 0.05936631
+              "discountedNetMarginalValue": 0.35926716,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2298,
-              "privateMarginalValue": 0.408,
-              "publicCounterfactualMarginalValue": 0.3435,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0645,
+              "privateConsumerSurplus": 0.63932496,
+              "privateProducerSurplus": 0.46687277,
+              "qualityAdjustment": 0.1132,
+              "displacementCost": 0.0561,
+              "externalCost": 0.03472,
+              "publicConsumerSurplus": 0.38553868,
+              "publicProducerSurplus": 0.28454638,
+              "publicQualityAdjustment": 0.0718,
+              "beyondHorizonValue": 0.0146,
+              "publicCaptureSurplus": 0.668,
+              "canonicalConsumptionLevel": 62.03920451,
+              "privateMarginalValue": 1.12857773,
+              "publicCounterfactualMarginalValue": 0.74188506,
+              "netMarginalValue": 0.38669268,
               "discountFactor": 0.923845426,
-              "discountedNetMarginalValue": 0.05958803
+              "discountedNetMarginalValue": 0.35724426,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2299,
-              "privateMarginalValue": 0.424,
-              "publicCounterfactualMarginalValue": 0.358,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.066,
+              "privateConsumerSurplus": 0.64733526,
+              "privateProducerSurplus": 0.47288931,
+              "qualityAdjustment": 0.1144,
+              "displacementCost": 0.05645,
+              "externalCost": 0.03494,
+              "publicConsumerSurplus": 0.39035267,
+              "publicProducerSurplus": 0.28815374,
+              "publicQualityAdjustment": 0.0726,
+              "beyondHorizonValue": 0.0147,
+              "publicCaptureSurplus": 0.676,
+              "canonicalConsumptionLevel": 62.40956842,
+              "privateMarginalValue": 1.14323457,
+              "publicCounterfactualMarginalValue": 0.75110641,
+              "netMarginalValue": 0.39212817,
               "discountFactor": 0.9057308098,
-              "discountedNetMarginalValue": 0.05977823
+              "discountedNetMarginalValue": 0.35516256,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2300,
-              "privateMarginalValue": 0.44,
-              "publicCounterfactualMarginalValue": 0.3725,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0675,
+              "privateConsumerSurplus": 0.65534556,
+              "privateProducerSurplus": 0.47890585,
+              "qualityAdjustment": 0.1156,
+              "displacementCost": 0.0568,
+              "externalCost": 0.03516,
+              "publicConsumerSurplus": 0.39516666,
+              "publicProducerSurplus": 0.29176109,
+              "publicQualityAdjustment": 0.0734,
+              "beyondHorizonValue": 0.0148,
+              "publicCaptureSurplus": 0.684,
+              "canonicalConsumptionLevel": 62.77993233,
+              "privateMarginalValue": 1.15789142,
+              "publicCounterfactualMarginalValue": 0.76032775,
+              "netMarginalValue": 0.39756366,
               "discountFactor": 0.8879713822,
-              "discountedNetMarginalValue": 0.05993807
+              "discountedNetMarginalValue": 0.35302515,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2301,
-              "privateMarginalValue": 0.456,
-              "publicCounterfactualMarginalValue": 0.387,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.069,
+              "privateConsumerSurplus": 0.66335586,
+              "privateProducerSurplus": 0.48492239,
+              "qualityAdjustment": 0.1168,
+              "displacementCost": 0.05715,
+              "externalCost": 0.03538,
+              "publicConsumerSurplus": 0.39998065,
+              "publicProducerSurplus": 0.29536845,
+              "publicQualityAdjustment": 0.0742,
+              "beyondHorizonValue": 0.0149,
+              "publicCaptureSurplus": 0.692,
+              "canonicalConsumptionLevel": 63.15029624,
+              "privateMarginalValue": 1.17254826,
+              "publicCounterfactualMarginalValue": 0.7695491,
+              "netMarginalValue": 0.40299915,
               "discountFactor": 0.8705601786,
-              "discountedNetMarginalValue": 0.06006865
+              "discountedNetMarginalValue": 0.35083501,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2302,
-              "privateMarginalValue": 0.472,
-              "publicCounterfactualMarginalValue": 0.4015,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0705,
+              "privateConsumerSurplus": 0.67136617,
+              "privateProducerSurplus": 0.49093893,
+              "qualityAdjustment": 0.118,
+              "displacementCost": 0.0575,
+              "externalCost": 0.0356,
+              "publicConsumerSurplus": 0.40479465,
+              "publicProducerSurplus": 0.29897581,
+              "publicQualityAdjustment": 0.075,
+              "beyondHorizonValue": 0.015,
+              "publicCaptureSurplus": 0.7,
+              "canonicalConsumptionLevel": 63.52066015,
+              "privateMarginalValue": 1.1872051,
+              "publicCounterfactualMarginalValue": 0.77877045,
+              "netMarginalValue": 0.40843465,
               "discountFactor": 0.8534903712,
-              "discountedNetMarginalValue": 0.06017107
+              "discountedNetMarginalValue": 0.34859504,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2303,
-              "privateMarginalValue": 0.488,
-              "publicCounterfactualMarginalValue": 0.416,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.072,
+              "privateConsumerSurplus": 0.67937647,
+              "privateProducerSurplus": 0.49695547,
+              "qualityAdjustment": 0.1192,
+              "displacementCost": 0.05785,
+              "externalCost": 0.03582,
+              "publicConsumerSurplus": 0.40960864,
+              "publicProducerSurplus": 0.30258316,
+              "publicQualityAdjustment": 0.0758,
+              "beyondHorizonValue": 0.0151,
+              "publicCaptureSurplus": 0.708,
+              "canonicalConsumptionLevel": 63.89102406,
+              "privateMarginalValue": 1.20186194,
+              "publicCounterfactualMarginalValue": 0.7879918,
+              "netMarginalValue": 0.41387014,
               "discountFactor": 0.8367552659,
-              "discountedNetMarginalValue": 0.06024638
+              "discountedNetMarginalValue": 0.34630802,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2304,
-              "privateMarginalValue": 0.504,
-              "publicCounterfactualMarginalValue": 0.4305,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0735,
+              "privateConsumerSurplus": 0.68738677,
+              "privateProducerSurplus": 0.50297201,
+              "qualityAdjustment": 0.1204,
+              "displacementCost": 0.0582,
+              "externalCost": 0.03604,
+              "publicConsumerSurplus": 0.41442263,
+              "publicProducerSurplus": 0.30619052,
+              "publicQualityAdjustment": 0.0766,
+              "beyondHorizonValue": 0.0152,
+              "publicCaptureSurplus": 0.716,
+              "canonicalConsumptionLevel": 64.26138797,
+              "privateMarginalValue": 1.21651878,
+              "publicCounterfactualMarginalValue": 0.79721315,
+              "netMarginalValue": 0.41930563,
               "discountFactor": 0.8203482999,
-              "discountedNetMarginalValue": 0.0602956
+              "discountedNetMarginalValue": 0.34397666,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2305,
-              "privateMarginalValue": 0.52,
-              "publicCounterfactualMarginalValue": 0.445,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.075,
+              "privateConsumerSurplus": 0.69539707,
+              "privateProducerSurplus": 0.50898855,
+              "qualityAdjustment": 0.1216,
+              "displacementCost": 0.05855,
+              "externalCost": 0.03626,
+              "publicConsumerSurplus": 0.41923662,
+              "publicProducerSurplus": 0.30979788,
+              "publicQualityAdjustment": 0.0774,
+              "beyondHorizonValue": 0.0153,
+              "publicCaptureSurplus": 0.724,
+              "canonicalConsumptionLevel": 64.63175188,
+              "privateMarginalValue": 1.23117562,
+              "publicCounterfactualMarginalValue": 0.8064345,
+              "netMarginalValue": 0.42474112,
               "discountFactor": 0.8042630391,
-              "discountedNetMarginalValue": 0.06031973
+              "discountedNetMarginalValue": 0.34160359,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2306,
-              "privateMarginalValue": 0.536,
-              "publicCounterfactualMarginalValue": 0.4595,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0765,
+              "privateConsumerSurplus": 0.70340737,
+              "privateProducerSurplus": 0.51500509,
+              "qualityAdjustment": 0.1228,
+              "displacementCost": 0.0589,
+              "externalCost": 0.03648,
+              "publicConsumerSurplus": 0.42405062,
+              "publicProducerSurplus": 0.31340523,
+              "publicQualityAdjustment": 0.0782,
+              "beyondHorizonValue": 0.0154,
+              "publicCaptureSurplus": 0.732,
+              "canonicalConsumptionLevel": 65.00211579,
+              "privateMarginalValue": 1.24583246,
+              "publicCounterfactualMarginalValue": 0.81565585,
+              "netMarginalValue": 0.43017662,
               "discountFactor": 0.7884931756,
-              "discountedNetMarginalValue": 0.06031973
+              "discountedNetMarginalValue": 0.33919133,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2307,
-              "privateMarginalValue": 0.552,
-              "publicCounterfactualMarginalValue": 0.474,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.078,
+              "privateConsumerSurplus": 0.71141767,
+              "privateProducerSurplus": 0.52102164,
+              "qualityAdjustment": 0.124,
+              "displacementCost": 0.05925,
+              "externalCost": 0.0367,
+              "publicConsumerSurplus": 0.42886461,
+              "publicProducerSurplus": 0.31701259,
+              "publicQualityAdjustment": 0.079,
+              "beyondHorizonValue": 0.0155,
+              "publicCaptureSurplus": 0.74,
+              "canonicalConsumptionLevel": 65.3724797,
+              "privateMarginalValue": 1.2604893,
+              "publicCounterfactualMarginalValue": 0.8248772,
+              "netMarginalValue": 0.43561211,
               "discountFactor": 0.7730325251,
-              "discountedNetMarginalValue": 0.06029654
+              "discountedNetMarginalValue": 0.33674233,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2308,
-              "privateMarginalValue": 0.568,
-              "publicCounterfactualMarginalValue": 0.4885,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0795,
+              "privateConsumerSurplus": 0.71942797,
+              "privateProducerSurplus": 0.52703818,
+              "qualityAdjustment": 0.1252,
+              "displacementCost": 0.0596,
+              "externalCost": 0.03692,
+              "publicConsumerSurplus": 0.4336786,
+              "publicProducerSurplus": 0.32061994,
+              "publicQualityAdjustment": 0.0798,
+              "beyondHorizonValue": 0.0156,
+              "publicCaptureSurplus": 0.748,
+              "canonicalConsumptionLevel": 65.74284361,
+              "privateMarginalValue": 1.27514615,
+              "publicCounterfactualMarginalValue": 0.83409855,
+              "netMarginalValue": 0.4410476,
               "discountFactor": 0.7578750246,
-              "discountedNetMarginalValue": 0.06025106
+              "discountedNetMarginalValue": 0.33425896,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2309,
-              "privateMarginalValue": 0.584,
-              "publicCounterfactualMarginalValue": 0.503,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.081,
+              "privateConsumerSurplus": 0.72743827,
+              "privateProducerSurplus": 0.53305472,
+              "qualityAdjustment": 0.1264,
+              "displacementCost": 0.05995,
+              "externalCost": 0.03714,
+              "publicConsumerSurplus": 0.43849259,
+              "publicProducerSurplus": 0.3242273,
+              "publicQualityAdjustment": 0.0806,
+              "beyondHorizonValue": 0.0157,
+              "publicCaptureSurplus": 0.756,
+              "canonicalConsumptionLevel": 66.11320752,
+              "privateMarginalValue": 1.28980299,
+              "publicCounterfactualMarginalValue": 0.84331989,
+              "netMarginalValue": 0.44648309,
               "discountFactor": 0.74301473,
-              "discountedNetMarginalValue": 0.06018419
+              "discountedNetMarginalValue": 0.33174351,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2310,
-              "privateMarginalValue": 0.6,
-              "publicCounterfactualMarginalValue": 0.5175,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0825,
+              "privateConsumerSurplus": 0.73544857,
+              "privateProducerSurplus": 0.53907126,
+              "qualityAdjustment": 0.1276,
+              "displacementCost": 0.0603,
+              "externalCost": 0.03736,
+              "publicConsumerSurplus": 0.44330659,
+              "publicProducerSurplus": 0.32783466,
+              "publicQualityAdjustment": 0.0814,
+              "beyondHorizonValue": 0.0158,
+              "publicCaptureSurplus": 0.764,
+              "canonicalConsumptionLevel": 66.48357143,
+              "privateMarginalValue": 1.30445983,
+              "publicCounterfactualMarginalValue": 0.85254124,
+              "netMarginalValue": 0.45191859,
               "discountFactor": 0.7284458137,
-              "discountedNetMarginalValue": 0.06009678
+              "discountedNetMarginalValue": 0.3291982,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2311,
-              "privateMarginalValue": 0.616,
-              "publicCounterfactualMarginalValue": 0.532,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.084,
+              "privateConsumerSurplus": 0.74345887,
+              "privateProducerSurplus": 0.5450878,
+              "qualityAdjustment": 0.1288,
+              "displacementCost": 0.06065,
+              "externalCost": 0.03758,
+              "publicConsumerSurplus": 0.44812058,
+              "publicProducerSurplus": 0.33144201,
+              "publicQualityAdjustment": 0.0822,
+              "beyondHorizonValue": 0.0159,
+              "publicCaptureSurplus": 0.772,
+              "canonicalConsumptionLevel": 66.85393534,
+              "privateMarginalValue": 1.31911667,
+              "publicCounterfactualMarginalValue": 0.86176259,
+              "netMarginalValue": 0.45735408,
               "discountFactor": 0.7141625625,
-              "discountedNetMarginalValue": 0.05998966
+              "discountedNetMarginalValue": 0.32662516,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2312,
-              "privateMarginalValue": 0.632,
-              "publicCounterfactualMarginalValue": 0.5465,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0855,
+              "privateConsumerSurplus": 0.75146917,
+              "privateProducerSurplus": 0.55110434,
+              "qualityAdjustment": 0.13,
+              "displacementCost": 0.061,
+              "externalCost": 0.0378,
+              "publicConsumerSurplus": 0.45293457,
+              "publicProducerSurplus": 0.33504937,
+              "publicQualityAdjustment": 0.083,
+              "beyondHorizonValue": 0.016,
+              "publicCaptureSurplus": 0.78,
+              "canonicalConsumptionLevel": 67.22429925,
+              "privateMarginalValue": 1.33377351,
+              "publicCounterfactualMarginalValue": 0.87098394,
+              "netMarginalValue": 0.46278957,
               "discountFactor": 0.700159375,
-              "discountedNetMarginalValue": 0.05986363
+              "discountedNetMarginalValue": 0.32402646,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2313,
-              "privateMarginalValue": 0.648,
-              "publicCounterfactualMarginalValue": 0.561,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.087,
+              "privateConsumerSurplus": 0.75947947,
+              "privateProducerSurplus": 0.55712088,
+              "qualityAdjustment": 0.1312,
+              "displacementCost": 0.06135,
+              "externalCost": 0.03802,
+              "publicConsumerSurplus": 0.45774856,
+              "publicProducerSurplus": 0.33865673,
+              "publicQualityAdjustment": 0.0838,
+              "beyondHorizonValue": 0.0161,
+              "publicCaptureSurplus": 0.788,
+              "canonicalConsumptionLevel": 67.59466316,
+              "privateMarginalValue": 1.34843035,
+              "publicCounterfactualMarginalValue": 0.88020529,
+              "netMarginalValue": 0.46822506,
               "discountFactor": 0.6864307598,
-              "discountedNetMarginalValue": 0.05971948
+              "discountedNetMarginalValue": 0.32140409,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2314,
-              "privateMarginalValue": 0.664,
-              "publicCounterfactualMarginalValue": 0.5755,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0885,
+              "privateConsumerSurplus": 0.76748977,
+              "privateProducerSurplus": 0.56313742,
+              "qualityAdjustment": 0.1324,
+              "displacementCost": 0.0617,
+              "externalCost": 0.03824,
+              "publicConsumerSurplus": 0.46256256,
+              "publicProducerSurplus": 0.34226408,
+              "publicQualityAdjustment": 0.0846,
+              "beyondHorizonValue": 0.0162,
+              "publicCaptureSurplus": 0.796,
+              "canonicalConsumptionLevel": 67.96502707,
+              "privateMarginalValue": 1.36308719,
+              "publicCounterfactualMarginalValue": 0.88942664,
+              "netMarginalValue": 0.47366056,
               "discountFactor": 0.6729713331,
-              "discountedNetMarginalValue": 0.05955796
+              "discountedNetMarginalValue": 0.31875998,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2315,
-              "privateMarginalValue": 0.68,
-              "publicCounterfactualMarginalValue": 0.59,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.09,
+              "privateConsumerSurplus": 0.77550008,
+              "privateProducerSurplus": 0.56915396,
+              "qualityAdjustment": 0.1336,
+              "displacementCost": 0.06205,
+              "externalCost": 0.03846,
+              "publicConsumerSurplus": 0.46737655,
+              "publicProducerSurplus": 0.34587144,
+              "publicQualityAdjustment": 0.0854,
+              "beyondHorizonValue": 0.0163,
+              "publicCaptureSurplus": 0.804,
+              "canonicalConsumptionLevel": 68.33539098,
+              "privateMarginalValue": 1.37774404,
+              "publicCounterfactualMarginalValue": 0.89864799,
+              "netMarginalValue": 0.47909605,
               "discountFactor": 0.6597758168,
-              "discountedNetMarginalValue": 0.05937982
+              "discountedNetMarginalValue": 0.31609599,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2316,
-              "privateMarginalValue": 0.696,
-              "publicCounterfactualMarginalValue": 0.6045,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0915,
+              "privateConsumerSurplus": 0.78351038,
+              "privateProducerSurplus": 0.5751705,
+              "qualityAdjustment": 0.1348,
+              "displacementCost": 0.0624,
+              "externalCost": 0.03868,
+              "publicConsumerSurplus": 0.47219054,
+              "publicProducerSurplus": 0.3494788,
+              "publicQualityAdjustment": 0.0862,
+              "beyondHorizonValue": 0.0164,
+              "publicCaptureSurplus": 0.812,
+              "canonicalConsumptionLevel": 68.70575489,
+              "privateMarginalValue": 1.39240088,
+              "publicCounterfactualMarginalValue": 0.90786934,
+              "netMarginalValue": 0.48453154,
               "discountFactor": 0.6468390361,
-              "discountedNetMarginalValue": 0.05918577
+              "discountedNetMarginalValue": 0.31341391,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2317,
-              "privateMarginalValue": 0.712,
-              "publicCounterfactualMarginalValue": 0.619,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.093,
+              "privateConsumerSurplus": 0.79152068,
+              "privateProducerSurplus": 0.58118704,
+              "qualityAdjustment": 0.136,
+              "displacementCost": 0.06275,
+              "externalCost": 0.0389,
+              "publicConsumerSurplus": 0.47700453,
+              "publicProducerSurplus": 0.35308615,
+              "publicQualityAdjustment": 0.087,
+              "beyondHorizonValue": 0.0165,
+              "publicCaptureSurplus": 0.82,
+              "canonicalConsumptionLevel": 69.0761188,
+              "privateMarginalValue": 1.40705772,
+              "publicCounterfactualMarginalValue": 0.91709068,
+              "netMarginalValue": 0.48996703,
               "discountFactor": 0.6341559177,
-              "discountedNetMarginalValue": 0.0589765
+              "discountedNetMarginalValue": 0.31071549,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2318,
-              "privateMarginalValue": 0.728,
-              "publicCounterfactualMarginalValue": 0.6335,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0945,
+              "privateConsumerSurplus": 0.79953098,
+              "privateProducerSurplus": 0.58720358,
+              "qualityAdjustment": 0.1372,
+              "displacementCost": 0.0631,
+              "externalCost": 0.03912,
+              "publicConsumerSurplus": 0.48181853,
+              "publicProducerSurplus": 0.35669351,
+              "publicQualityAdjustment": 0.0878,
+              "beyondHorizonValue": 0.0166,
+              "publicCaptureSurplus": 0.828,
+              "canonicalConsumptionLevel": 69.44648271,
+              "privateMarginalValue": 1.42171456,
+              "publicCounterfactualMarginalValue": 0.92631203,
+              "netMarginalValue": 0.49540253,
               "discountFactor": 0.6217214879,
-              "discountedNetMarginalValue": 0.05875268
+              "discountedNetMarginalValue": 0.3080024,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2319,
-              "privateMarginalValue": 0.744,
-              "publicCounterfactualMarginalValue": 0.648,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.096,
+              "privateConsumerSurplus": 0.80754128,
+              "privateProducerSurplus": 0.59322012,
+              "qualityAdjustment": 0.1384,
+              "displacementCost": 0.06345,
+              "externalCost": 0.03934,
+              "publicConsumerSurplus": 0.48663252,
+              "publicProducerSurplus": 0.36030086,
+              "publicQualityAdjustment": 0.0886,
+              "beyondHorizonValue": 0.0167,
+              "publicCaptureSurplus": 0.836,
+              "canonicalConsumptionLevel": 69.81684662,
+              "privateMarginalValue": 1.4363714,
+              "publicCounterfactualMarginalValue": 0.93553338,
+              "netMarginalValue": 0.50083802,
               "discountFactor": 0.6095308705,
-              "discountedNetMarginalValue": 0.05851496
+              "discountedNetMarginalValue": 0.30527623,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2320,
-              "privateMarginalValue": 0.76,
-              "publicCounterfactualMarginalValue": 0.6625,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.0975,
+              "privateConsumerSurplus": 0.81555158,
+              "privateProducerSurplus": 0.59923666,
+              "qualityAdjustment": 0.1396,
+              "displacementCost": 0.0638,
+              "externalCost": 0.03956,
+              "publicConsumerSurplus": 0.49144651,
+              "publicProducerSurplus": 0.36390822,
+              "publicQualityAdjustment": 0.0894,
+              "beyondHorizonValue": 0.0168,
+              "publicCaptureSurplus": 0.844,
+              "canonicalConsumptionLevel": 70.18721053,
+              "privateMarginalValue": 1.45102824,
+              "publicCounterfactualMarginalValue": 0.94475473,
+              "netMarginalValue": 0.50627351,
               "discountFactor": 0.5975792848,
-              "discountedNetMarginalValue": 0.05826398
+              "discountedNetMarginalValue": 0.30253856,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2321,
-              "privateMarginalValue": 0.776,
-              "publicCounterfactualMarginalValue": 0.677,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.099,
+              "privateConsumerSurplus": 0.82356188,
+              "privateProducerSurplus": 0.6052532,
+              "qualityAdjustment": 0.1408,
+              "displacementCost": 0.06415,
+              "externalCost": 0.03978,
+              "publicConsumerSurplus": 0.4962605,
+              "publicProducerSurplus": 0.36751558,
+              "publicQualityAdjustment": 0.0902,
+              "beyondHorizonValue": 0.0169,
+              "publicCaptureSurplus": 0.852,
+              "canonicalConsumptionLevel": 70.55757444,
+              "privateMarginalValue": 1.46568508,
+              "publicCounterfactualMarginalValue": 0.95397608,
+              "netMarginalValue": 0.511709,
               "discountFactor": 0.585862044,
-              "discountedNetMarginalValue": 0.05800034
+              "discountedNetMarginalValue": 0.29979088,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2322,
-              "privateMarginalValue": 0.792,
-              "publicCounterfactualMarginalValue": 0.6915,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.1005,
+              "privateConsumerSurplus": 0.83157218,
+              "privateProducerSurplus": 0.61126974,
+              "qualityAdjustment": 0.142,
+              "displacementCost": 0.0645,
+              "externalCost": 0.04,
+              "publicConsumerSurplus": 0.5010745,
+              "publicProducerSurplus": 0.37112293,
+              "publicQualityAdjustment": 0.091,
+              "beyondHorizonValue": 0.017,
+              "publicCaptureSurplus": 0.86,
+              "canonicalConsumptionLevel": 70.92793835,
+              "privateMarginalValue": 1.48034192,
+              "publicCounterfactualMarginalValue": 0.96319743,
+              "netMarginalValue": 0.5171445,
               "discountFactor": 0.5743745529,
-              "discountedNetMarginalValue": 0.05772464
+              "discountedNetMarginalValue": 0.29703464,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2323,
-              "privateMarginalValue": 0.808,
-              "publicCounterfactualMarginalValue": 0.706,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.102,
+              "privateConsumerSurplus": 0.83958248,
+              "privateProducerSurplus": 0.61728628,
+              "qualityAdjustment": 0.1432,
+              "displacementCost": 0.06485,
+              "externalCost": 0.04022,
+              "publicConsumerSurplus": 0.50588849,
+              "publicProducerSurplus": 0.37473029,
+              "publicQualityAdjustment": 0.0918,
+              "beyondHorizonValue": 0.0171,
+              "publicCaptureSurplus": 0.868,
+              "canonicalConsumptionLevel": 71.29830226,
+              "privateMarginalValue": 1.49499877,
+              "publicCounterfactualMarginalValue": 0.97241878,
+              "netMarginalValue": 0.52257999,
               "discountFactor": 0.5631123068,
-              "discountedNetMarginalValue": 0.05743746
+              "discountedNetMarginalValue": 0.29427122,
+              "concentrationEventsUpperBound": 0
             },
             {
               "year": 2324,
-              "privateMarginalValue": 0.824,
-              "publicCounterfactualMarginalValue": 0.7205,
-              "concentrationEventsUpperBound": 0,
-              "netMarginalValue": 0.1035,
+              "privateConsumerSurplus": 0.84759278,
+              "privateProducerSurplus": 0.62330283,
+              "qualityAdjustment": 0.1444,
+              "displacementCost": 0.0652,
+              "externalCost": 0.04044,
+              "publicConsumerSurplus": 0.51070248,
+              "publicProducerSurplus": 0.37833765,
+              "publicQualityAdjustment": 0.0926,
+              "beyondHorizonValue": 0.0172,
+              "publicCaptureSurplus": 0.876,
+              "canonicalConsumptionLevel": 71.66866617,
+              "privateMarginalValue": 1.50965561,
+              "publicCounterfactualMarginalValue": 0.98164013,
+              "netMarginalValue": 0.52801548,
               "discountFactor": 0.552070889,
-              "discountedNetMarginalValue": 0.05713934
+              "discountedNetMarginalValue": 0.29150198,
+              "concentrationEventsUpperBound": 0
             }
           ]
         }
@@ -2475,7 +3555,13 @@
         }
       ],
       "disposition": "PASS",
-      "precisionFloorCalculation": "locked realized public-deployment baseline mean, 43.18 welfare-credit equivalents, is the conservative identification scale"
+      "precisionFloorCalculation": {
+        "summaryMeasure": "30-year-equivalent discounted OM differential",
+        "baselineObservedMean": 7.2617618,
+        "passThreshold": 0,
+        "ceiling": 7.2617618,
+        "authority": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a"
+      }
     }
   },
   "mainCurrent": [
@@ -4168,7 +5254,7 @@
     "status": "ACTIVE",
     "legallyEffective": true,
     "statute": "LP-074",
-    "certificatePublicationDate": "2294-02-22",
+    "certificatePublicationDate": "2294-02-10",
     "effectiveAssessmentPeriod": "2295-01-01",
     "rates": {
       "sanctuaryAndMain": 50,
@@ -4204,8 +5290,8 @@
       "routeAndObligationMethod": "Every route and obligation share reconciles per destination and month.",
       "monthlyDataPublished": true,
       "path2StandingAuditAdoption": {
-        "date": "2294-02-20",
-        "instrumentDigest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d"
+        "date": "2294-02-01",
+        "instrumentDigest": "2a38cf26ecbe5172e270b136228eb668ec656ec6ca8b8542b56f2c454aea3c55"
       },
       "separateCertificatePath": "documents/path2-compendium/lower-incidence-certificate.json",
       "adoptionInstrumentPath": "documents/path2-compendium/lower-incidence-adoption.json"

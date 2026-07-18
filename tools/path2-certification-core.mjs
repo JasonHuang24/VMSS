@@ -1,12 +1,15 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { executeLockedAnalysis } from './path2-execution-engine.mjs';
 
 const EPSILON = 1e-5;
 const REQUIRED_COMPENDIUM = [
-  'raw-data', 'analytic-data', 'calculation-code', 'environment-manifest',
+  'raw-data', 'preregistration', 'preregistration-lock-certificate', 'public-chambers-lock-record',
+  'analytic-data', 'executed-calculation-output', 'calculation-code', 'environment-manifest',
   'source-provenance', 'transformation-rules', 'seeds', 'execution-logs',
-  'union-estimates-and-intervals', 'cold-review-record',
+  'section-4-3-validation-records', 'union-estimates-and-intervals',
+  'finding-iv-member-derivations', 'mandatory-d1-d5-diagnostics', 'precision-measurement-amendment', 'cold-review-record',
   'commission-votes-dissents-declarations', 'registrar-certifications',
   'lower-incidence-certificate', 'lower-incidence-adoption',
 ];
@@ -19,6 +22,7 @@ export const payloadDigest = (value) => {
   delete payload.artifactDigest;
   return createHash('sha256').update(JSON.stringify(payload)).digest('hex');
 };
+const jsonByteDigest = (value) => createHash('sha256').update(`${JSON.stringify(value, null, 2)}\n`).digest('hex');
 
 export function prohibitedCreditsExcluded(record, requiredKeys) {
   return Array.isArray(requiredKeys) && requiredKeys.length > 0
@@ -411,21 +415,24 @@ export function validateRevocationAmendment(amendment, root = process.cwd()) {
 
 export function validateSequenceDocuments(documents, digests = {}) {
   const errors = [];
-  const { scheduleA, lowerCertificate, lowerAdoption, scheduleB, effectiveNotice } = documents || {};
-  for (const [label, document] of Object.entries({ scheduleA, lowerCertificate, lowerAdoption, scheduleB, effectiveNotice })) errors.push(...validateSelfDigest(document, label));
-  const times = [Date.parse(scheduleA?.publishedAt), Date.parse(lowerCertificate?.publishedAt), Date.parse(lowerAdoption?.adoptedAt), Date.parse(scheduleB?.publishedAt), Date.parse(effectiveNotice?.publishedAt)];
-  if (!times.every(Number.isFinite) || times.some((time, index) => index > 0 && time <= times[index - 1])) errors.push('certification instruments are not strictly ordered A → Lower → adoption → B → notice');
+  const { registrarExecution, scheduleA, lowerCertificate, lowerAdoption, scheduleB, effectiveNotice } = documents || {};
+  for (const [label, document] of Object.entries({ registrarExecution, scheduleA, lowerCertificate, lowerAdoption, scheduleB, effectiveNotice })) errors.push(...validateSelfDigest(document, label));
+  const times = [Date.parse(registrarExecution?.completedAt), Date.parse(scheduleA?.publishedAt), Date.parse(lowerCertificate?.publishedAt), Date.parse(lowerAdoption?.adoptedAt), Date.parse(scheduleB?.publishedAt), Date.parse(effectiveNotice?.publishedAt)];
+  if (!times.every(Number.isFinite) || times.some((time, index) => index > 0 && time <= times[index - 1])) errors.push('certification instruments are not strictly ordered Registrar execution → A → Lower → adoption → B → notice');
+  if (times.at(-1) > Date.parse('2294-02-15T12:00:00Z')) errors.push('certification publication exceeds the two-year lock deadline');
+  if (scheduleA?.registrarExecutionDigest !== digests.registrarExecution) errors.push('Schedule A does not bind prior Registrar execution');
   if (lowerCertificate?.scheduleACertificateDigest !== digests.scheduleA) errors.push('Lower certificate does not bind the Schedule A artifact digest');
   if (lowerAdoption?.lowerCertificateDigest !== digests.lowerCertificate || lowerAdoption?.scheduleACertificateDigest !== digests.scheduleA) errors.push('Lower adoption does not bind prior certificate digests');
   if (scheduleB?.scheduleACertificateDigest !== digests.scheduleA || scheduleB?.lowerCertificateDigest !== digests.lowerCertificate || scheduleB?.lowerAdoptionDigest !== digests.lowerAdoption) errors.push('Schedule B does not bind prior instrument digests');
   if (effectiveNotice?.scheduleACertificateDigest !== digests.scheduleA || effectiveNotice?.lowerCertificateDigest !== digests.lowerCertificate || effectiveNotice?.lowerAdoptionDigest !== digests.lowerAdoption || effectiveNotice?.scheduleBCertificateDigest !== digests.scheduleB) errors.push('effective notice does not bind complete certification chain');
+  for (const [label, document] of Object.entries({ lowerCertificate, lowerAdoption, scheduleB, effectiveNotice })) if (document?.registrarExecutionDigest !== digests.registrarExecution) errors.push(`${label} does not bind prior Registrar execution`);
   if (Number(effectiveNotice?.effectiveAt?.slice?.(0, 4)) !== 2295 || effectiveNotice?.rates?.sanctuaryAndMain !== 50 || effectiveNotice?.rates?.lower1 !== 25 || effectiveNotice?.rates?.lower2 !== 12.5 || effectiveNotice?.rates?.lower3 !== 6.25) errors.push('2295 effective notice rates invalid');
   return errors;
 }
 
 export function validateCertificationSequence(sequence, root) {
   const artifacts = sequence?.artifacts || {};
-  const paths = { scheduleA: artifacts.scheduleA, lowerCertificate: artifacts.lowerCertificate, lowerAdoption: artifacts.lowerAdoption, scheduleB: artifacts.scheduleB, effectiveNotice: artifacts.effectiveNotice };
+  const paths = { registrarExecution: artifacts.registrarExecution, scheduleA: artifacts.scheduleA, lowerCertificate: artifacts.lowerCertificate, lowerAdoption: artifacts.lowerAdoption, scheduleB: artifacts.scheduleB, effectiveNotice: artifacts.effectiveNotice };
   const documents = Object.fromEntries(Object.entries(paths).map(([key, path]) => [key, readJson(root, path)]));
   const digests = Object.fromEntries(Object.entries(paths).map(([key, path]) => [key, path && existsSync(join(root, path)) ? sha256File(join(root, path)) : null]));
   return validateSequenceDocuments(documents, digests);
@@ -435,6 +442,100 @@ export function hasDistinctLowerCertificate(publication, root) {
   return Boolean(publication?.separateCertificatePath && existsSync(join(root, publication.separateCertificatePath))
     && publication?.adoptionInstrumentPath && existsSync(join(root, publication.adoptionInstrumentPath))
     && publication?.path2StandingAuditAdoption?.date && /^[a-f0-9]{64}$/.test(String(publication?.path2StandingAuditAdoption?.instrumentDigest)));
+}
+
+const sameJson = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+
+/** Validate the §9 lock and independently recompute every deposited Finding. */
+export function validateLockedExecution(data, root = process.cwd(), overrides = {}) {
+  const errors = [];
+  const audit = data?.authorityAudit || {};
+  const readOverride = (name, path) => overrides[name] ?? readJson(root, path);
+  const preregPath = audit?.preregistrationLock?.preregistrationPath;
+  const lockPath = audit?.preregistrationLock?.lockCertificatePath;
+  const publicPath = audit?.preregistrationLock?.publicRecordPath;
+  const registrarPath = audit?.registrarExecution?.artifactPath;
+  const outputPath = audit?.registrarExecution?.outputPath;
+  const preregistration = readOverride('preregistration', preregPath);
+  const lock = readOverride('lock', lockPath);
+  const publicRecord = readOverride('publicRecord', publicPath);
+  const registrar = readOverride('registrar', registrarPath);
+  const depositedOutput = readOverride('executionOutput', outputPath);
+
+  errors.push(...validateSelfDigest(preregistration, 'preregistration'));
+  errors.push(...validateSelfDigest(lock, 'preregistration lock'));
+  errors.push(...validateSelfDigest(registrar, 'Registrar execution'));
+  const requiredPrereg = ['admissibleSpecificationSet', 'exclusionReasons', 'panelAdditions', 'equivalenceClasses', 'dependenceDesign', 'preprocessingSelections', 'intercurrentEventTreatments', 'computedWindow', 'computedCutoff', 'vintage', 'validation', 'appendixA', 'codeEntryPoints', 'dataSourceMappings', 'randomSeedProcedure', 'precisionClarification'];
+  for (const field of requiredPrereg) if (preregistration?.[field] == null || (Array.isArray(preregistration[field]) && preregistration[field].length === 0)) errors.push(`preregistration §9.1 field missing: ${field}`);
+  if (!Array.isArray(preregistration?.admissibleSpecificationSet) || preregistration.admissibleSpecificationSet.some((member) => !member?.id || !member?.finding || !member?.panel || !member?.equivalenceClass || !member?.functionalClass || !Array.isArray(member?.identificationAssumptions) || !member?.dependenceStructure || !member?.clusteringUnit || !member?.intervalFamily || !member?.preprocessing || !member?.model)) errors.push('preregistration admissible member is incomplete');
+  const b1Members = (preregistration?.admissibleSpecificationSet || []).filter((member) => member.intervalFamily === 'B-1');
+  if (b1Members.some((member) => !Number.isInteger(member.seed) || !Number.isInteger(member.replications) || !member.blockLengthRule)) errors.push('preregistration B-1 seed, replications, or block-length rule missing');
+  if (b1Members.some((member) => member.blockLengthRule !== 'round(1.5*cuberoot(n)), minimum 2')) errors.push('preregistration B-1 automatic block-length rule is not executable');
+  if ((preregistration?.admissibleSpecificationSet || []).filter((member) => ['B-2', 'B-4'].includes(member.intervalFamily)).some((member) => member.bandwidthRule !== 'floor(4*(n/100)^(2/9)), minimum 1')) errors.push('preregistration automatic HAC bandwidth rule is not executable');
+  if ((preregistration?.admissibleSpecificationSet || []).filter((member) => member.intervalFamily === 'B-4').some((member) => !(member.identifiedRegionAdverseShare > 0 && member.identifiedRegionAdverseShare < 1))) errors.push('preregistration B-4 identified-region endpoint is missing');
+  if ((preregistration?.admissibleSpecificationSet || []).some((member) => member.preprocessing !== 'identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal')) errors.push('preregistration member preprocessing does not match executable Appendix A');
+  if (preregistration?.computedWindow?.start !== 2272 || preregistration?.computedWindow?.end !== 2291 || preregistration?.validation?.trainingYears?.[0] !== 2272 || preregistration?.validation?.trainingYears?.[1] !== 2286 || !sameJson(preregistration?.validation?.heldOutYears, [2287, 2288, 2289, 2290, 2291])) errors.push('preregistration window, training segment, or held-out segment invalid');
+
+  const serializedPreregDigest = preregistration ? jsonByteDigest(preregistration) : null;
+  if (lock?.preregistrationPath !== preregPath || lock?.preregistrationByteDigest !== serializedPreregDigest) errors.push('lock preregistration path or byte digest mismatch');
+  if (lock?.acceptanceDisposition !== 'ACCEPTED_WITHIN_90_DAYS' || !lock?.canonicalTimestamp || !lock?.canonicalTimeAuthority || !lock?.registrarSignature?.signature) errors.push('lock acceptance, canonical timestamp, or Registrar signature missing');
+  if (!(lock?.clerkSignature?.signature || lock?.clerkSignature?.deemedSignatureUsed === true)) errors.push('lock clerk signature or lawful deemed-signature missing');
+  if (!lock?.publicChambersRecordReference || !lock?.executabilityChecklist?.passed || !lock?.executabilityChecklist?.section114CompletableBeforeDeadline || Object.values(lock?.section91Checklist || {}).some((value) => value !== true) || Object.keys(lock?.section91Checklist || {}).length < 13) errors.push('lock §9.1 executability checklist incomplete');
+  if (publicRecord?.reference !== lock?.publicChambersRecordReference || publicRecord?.digest !== lock?.preregistrationByteDigest || !Array.isArray(publicRecord?.signatures) || publicRecord.signatures.length !== 2) errors.push('public chambers lock record does not reproduce lock publication');
+
+  for (const mapping of preregistration?.dataSourceMappings || []) {
+    const path = mapping?.path ? join(root, mapping.path) : null;
+    if (!path || !existsSync(path) || mapping.digest !== sha256File(path)) errors.push(`locked raw-source digest mismatch: ${mapping?.sourceId || '(missing)'}`);
+    else {
+      const raw = readJson(root, mapping.path);
+      const years = raw?.observations?.map((row) => Number(row.year));
+      if (!Array.isArray(years) || years.length !== 20 || years.some((year, index) => year !== 2272 + index)) errors.push(`locked raw-source observation window incomplete: ${mapping.sourceId}`);
+    }
+  }
+
+  const codeManifestPath = 'documents/path2-compendium/calculation-code-manifest.json';
+  const codeManifest = readOverride('codeManifest', codeManifestPath);
+  if (!sameJson(codeManifest, preregistration?.codeEntryPoints)) errors.push('locked code manifest does not match preregistration');
+  if (!Array.isArray(codeManifest?.sources) || codeManifest.sources.length < 6) errors.push('calculation code manifest is incomplete');
+  for (const source of codeManifest?.sources || []) {
+    const path = source?.path ? join(root, source.path) : null;
+    if (!path || !existsSync(path) || source.digest !== sha256File(path)) errors.push(`locked calculation source digest mismatch: ${source?.path || '(missing)'}`);
+  }
+
+  const amendmentPath = preregistration?.precisionClarification?.amendmentPath;
+  const amendment = readOverride('precisionAmendment', amendmentPath);
+  errors.push(...validateSelfDigest(amendment, 'precision measurement amendment'));
+  if (!amendmentPath || !existsSync(join(root, amendmentPath)) || preregistration?.precisionClarification?.amendmentDigest !== (amendmentPath && existsSync(join(root, amendmentPath)) ? sha256File(join(root, amendmentPath)) : null)) errors.push('precision clarification digest binding invalid');
+  const amendmentTimes = [Date.parse(amendment?.reviewCompletedAt), Date.parse(amendment?.reviewerRepliesPublishedAt), Date.parse(amendment?.chambersAdoptedAt), Date.parse(amendment?.publishedAt), Date.parse(lock?.canonicalTimestamp)];
+  if (!amendmentTimes.every(Number.isFinite) || amendmentTimes.some((time, index) => index > 0 && time <= amendmentTimes[index - 1]) || amendment?.unresolvedHighestSeverity !== false || Object.values(amendment?.vote || {}).some((vote) => vote !== 'PASS') || amendment?.findings?.some((finding) => !finding.reviewerReply || finding.presidentialFlag !== false)) errors.push('precision clarification §13.1 review, adoption, or pre-lock chronology invalid');
+
+  let recomputed = null;
+  try { recomputed = executeLockedAnalysis({ root, preregistration }); } catch (error) { errors.push(`locked execution is not reproducible: ${error.message}`); }
+  if (!sameJson(recomputed, depositedOutput)) errors.push('independent recomputation does not match deposited execution output');
+  if (!sameJson(depositedOutput?.findings, data?.path2Findings)) errors.push('published Findings do not match deposited execution output');
+  const allMemberIds = (preregistration?.admissibleSpecificationSet || []).map((member) => member.id);
+  if (!Array.isArray(depositedOutput?.validationRecords) || depositedOutput.validationRecords.length !== allMemberIds.length || depositedOutput.validationRecords.some((record) => !allMemberIds.includes(record.memberId) || record?.rowLevel?.length !== 5 || !Number.isFinite(record.validationError) || !Number.isFinite(record.persistenceError))) errors.push('§4.3 row-level validation record is incomplete');
+  const failedIds = (depositedOutput?.validationRecords || []).filter((record) => !record.survived).map((record) => record.memberId);
+  if (failedIds.length === 0 || failedIds.some((id) => !depositedOutput?.excludedMembers?.some((entry) => entry.memberId === id))) errors.push('§4.3 failed-member retention record is incomplete');
+
+  const admittedIds = Object.values(depositedOutput?.findings || {}).flatMap((finding) => (finding.members || []).map((member) => member.id));
+  const diagnosticsFile = readOverride('diagnostics', 'documents/path2-compendium/mandatory-diagnostics.json');
+  if (!sameJson(diagnosticsFile?.diagnostics, depositedOutput?.diagnostics) || admittedIds.some((id) => !diagnosticsFile?.diagnostics?.some((entry) => entry.memberId === id && ['D1', 'D2', 'D3', 'D4', 'D5'].every((key) => entry[key]?.status && (entry[key].status === 'COMPUTED' || entry[key]?.arithmeticExplanation))))) errors.push('mandatory D-1–D-5 diagnostics missing or incomplete');
+  const derivationsFile = readOverride('derivations', 'documents/path2-compendium/finding-iv-member-derivations.json');
+  const ivIds = (depositedOutput?.findings?.IV?.members || []).map((member) => member.id);
+  if (!sameJson(derivationsFile?.derivations, depositedOutput?.findingIvDerivations) || ivIds.some((id) => !derivationsFile?.derivations?.some((entry) => entry.memberId === id && entry.treatment && entry.counterfactual && entry.marshallianSurplusConvention && entry.ventureIdentity && entry.displacementNetting && entry.externalCostNetting && entry.accountingIdentity?.reconciles === true && Array.isArray(entry.sourceBindings) && entry.sourceBindings.length))) errors.push('Finding IV Schedule A.4 member derivation missing or invalid');
+  for (const derivation of derivationsFile?.derivations || []) for (const row of derivation?.rows || []) {
+    const privateValue = Number(row.privateConsumerSurplus) + Number(row.privateProducerSurplus) + Number(row.qualityAdjustment) - Number(row.displacementCost) - Number(row.externalCost);
+    const publicValue = Number(row.publicConsumerSurplus) + Number(row.publicProducerSurplus) + Number(row.publicQualityAdjustment);
+    const contribution = (privateValue - publicValue) * Number(row.discountFactor);
+    if (![privateValue, publicValue, contribution].every(Number.isFinite) || Math.abs(privateValue - Number(row.private)) > 0.00000005 || Math.abs(publicValue - Number(row.publicCounterfactual)) > 0.00000005 || Math.abs(contribution - Number(row.identityContribution)) > 0.00000005) errors.push(`Finding IV Schedule A.4 arithmetic mismatch: ${derivation.memberId} ${row.year}`);
+  }
+
+  const registrarTime = Date.parse(registrar?.completedAt);
+  const firstInstrumentTime = Date.parse(readJson(root, data?.authorityAudit?.scheduleSequence?.artifacts?.scheduleA)?.publishedAt);
+  if (!Number.isFinite(registrarTime) || !Number.isFinite(firstInstrumentTime) || registrarTime >= firstInstrumentTime || registrarTime > Date.parse(lock?.executabilityChecklist?.publicationDeadline)) errors.push('Registrar §11.4 execution did not precede instrument issuance within deadline');
+  if (registrar?.preregistrationDigest !== serializedPreregDigest || registrar?.lockCertificateDigest !== (lockPath && existsSync(join(root, lockPath)) ? sha256File(join(root, lockPath)) : null) || registrar?.codeManifestDigest !== (existsSync(join(root, codeManifestPath)) ? sha256File(join(root, codeManifestPath)) : null) || registrar?.executionOutputDigest !== (outputPath && existsSync(join(root, outputPath)) ? sha256File(join(root, outputPath)) : null) || registrar?.section114Disposition !== 'EXECUTED_AND_MATCHED_BEFORE_ISSUANCE' || !registrar?.signature) errors.push('Registrar execution artifact bindings or signed §11.4 disposition invalid');
+  return { errors, preregistration, lock, registrar, depositedOutput, recomputed, pass: errors.length === 0 };
 }
 
 function basicSeries(rows, numerator, denominator, expected, label) {
@@ -506,6 +607,7 @@ export function evaluateAuthorityRecord(data, options = {}) {
     bArithmetic.push({ layer: layer.layer, aggregate, monthly, forwardMinimum });
   }
   const sequenceErrors = validateCertificationSequence(data?.authorityAudit?.scheduleSequence, root);
+  const lockedExecution = validateLockedExecution(data, root, options.lockOverrides || {});
   const lp075Errors = validateLp075Review(data?.authorityAudit?.lp075?.reviewPath, root);
   const revocationErrors = validateRevocationAmendment(data?.authorityAudit?.revocation?.amendmentPath, root);
   const sourceRegistryComplete = hasVerifiedProvenance(data?.provenance, root);
@@ -533,12 +635,12 @@ export function evaluateAuthorityRecord(data, options = {}) {
   const sequence = sequenceErrors.length === 0;
   const revocation = revocationErrors.length === 0;
   const path2Pass = Object.values(findings).every((result) => result.pass);
-  const certified = path2Pass && Object.values(a).every(Boolean) && Object.values(b).every(Boolean) && compendiumErrors.length === 0 && lp070 && lp075 && sequence && revocation
+  const certified = path2Pass && Object.values(a).every(Boolean) && Object.values(b).every(Boolean) && compendiumErrors.length === 0 && lockedExecution.pass && lp070 && lp075 && sequence && revocation
     && data?.record?.disposition === 'CERTIFIED_COMPLETE' && data?.activation?.legallyEffective === true && data?.record?.operativeSchedule === '50 / 25 / 12.5 / 6.25';
   const errors = [
     ...candidate.errors, ...registryErrors, ...compendiumErrors, ...section43Errors, ...reconciliationErrors,
-    ...traceErrors, ...lowerSection43Errors, ...sequenceErrors, ...lp075Errors, ...revocationErrors,
+    ...traceErrors, ...lowerSection43Errors, ...sequenceErrors, ...lockedExecution.errors, ...lp075Errors, ...revocationErrors,
     ...Object.values(findings).flatMap((result) => result.errors || []),
   ];
-  return { candidate, findings, compendiumErrors, registryErrors, section43Errors, reconciliationErrors, traceErrors, lowerSection43Errors, sequenceErrors, lp075Errors, revocationErrors, a, b, bArithmetic, lp070, lp075, sequence, revocation, certified, errors };
+  return { candidate, findings, lockedExecution, compendiumErrors, registryErrors, section43Errors, reconciliationErrors, traceErrors, lowerSection43Errors, sequenceErrors, lp075Errors, revocationErrors, a, b, bArithmetic, lp070, lp075, sequence, revocation, certified, errors };
 }

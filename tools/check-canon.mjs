@@ -313,6 +313,7 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   const certPage = read(CERTIFICATION_PAGE);
   const certSource = read('tools/build-path2-certification-page.mjs');
   const coreSource = read('tools/path2-certification-core.mjs');
+  const executionSource = read('tools/path2-execution-engine.mjs');
   const mutationSource = read('tools/test-path2-certification-mutations.mjs');
   const currentPages = {
     'systems.html': read('systems.html'),
@@ -363,16 +364,22 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   check(data.authorityAudit?.lp075?.status === 'COMPLETE',
     'certificate data: LP-075 §13.1 cold-review record complete');
   check(data.authorityAudit?.scheduleSequence?.status === 'COMPLETE',
-    'certificate data: Schedule A → separate Lower Certificate → adoption → Schedule B sequence complete');
+    'certificate data: Registrar execution → Schedule A → separate Lower Certificate → adoption → Schedule B sequence complete');
+  check(data.authorityAudit?.preregistrationLock?.status === 'LOCKED' && data.authorityAudit?.registrarExecution?.status === 'EXECUTED_BEFORE_ISSUANCE',
+    'certificate data: valid lock and pre-instrument §11.4 execution recorded');
+  check(data.authorityAudit?.precisionClarification?.status === 'ADOPTED_PRE_LOCK',
+    'certificate data: narrow Findings II/IV precision clarification predates lock');
   check(data.authorityAudit?.revocation?.status === 'RESOLVED_COUPLED_REVERSION' &&
         data.authorityAudit?.revocation?.states?.scheduleARevoked === '70 / 35 / 17 / 8',
     'certificate data: coupled-reversion state table resolved');
 
   const compendium = data.authorityAudit?.compendium?.inventory || [];
   const requiredCompendium = [
-    'raw-data', 'analytic-data', 'calculation-code', 'environment-manifest',
+    'raw-data', 'preregistration', 'preregistration-lock-certificate', 'public-chambers-lock-record',
+    'analytic-data', 'executed-calculation-output', 'calculation-code', 'environment-manifest',
     'source-provenance', 'transformation-rules', 'seeds', 'execution-logs',
-    'union-estimates-and-intervals', 'cold-review-record',
+    'section-4-3-validation-records', 'union-estimates-and-intervals',
+    'finding-iv-member-derivations', 'mandatory-d1-d5-diagnostics', 'precision-measurement-amendment', 'cold-review-record',
     'commission-votes-dissents-declarations', 'registrar-certifications',
     'lower-incidence-certificate', 'lower-incidence-adoption',
   ];
@@ -381,11 +388,41 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   check(data.authorityAudit?.findingsIThroughIV?.status === 'COMPLETE_PASS' &&
         data.authorityAudit?.findingsIThroughIV?.requiredHorizonYears === 30,
     'controlling Findings I–IV explicitly complete');
+  {
+    const executed = JSON.parse(read('documents/path2-compendium/execution-output.json'));
+    const prereg = JSON.parse(read('documents/path2-compendium/preregistration-2292.json'));
+    const lock = JSON.parse(read('documents/path2-compendium/preregistration-lock-certificate.json'));
+    const registrar = JSON.parse(read('documents/path2-compendium/registrar-certification.json'));
+    const scheduleA = JSON.parse(read(data.authorityAudit.scheduleSequence.artifacts.scheduleA));
+    const codeManifest = JSON.parse(read('documents/path2-compendium/calculation-code-manifest.json'));
+    check(JSON.stringify(executed.window) === JSON.stringify({ observation: [2272, 2291], training: [2272, 2286], heldOutValidation: [2287, 2291], thresholdBaseline: [2282, 2291], projection: [2295, 2324] }),
+      'locked execution: observation, training, validation, baseline, and projection windows distinct');
+    check(executed.validationRecords.length === prereg.admissibleSpecificationSet.length && executed.validationRecords.every((record) => record.rowLevel.length === 5) && executed.excludedMembers.length === 4,
+      '§4.3 execution: every member has five held-out rows and failures remain published');
+    check(Object.values(executed.findings).flatMap((finding) => finding.members).some((member) => member.interval.family === 'B-1' && Number.isInteger(member.interval.methodRecord.seed) && Number.isInteger(member.interval.methodRecord.blockLength)) &&
+          Object.values(executed.findings).flatMap((finding) => finding.members).some((member) => member.interval.family === 'B-2' && Number.isInteger(member.interval.methodRecord.bandwidth)) &&
+          executed.findings.IV.members.some((member) => member.interval.family === 'B-4' && member.interval.methodRecord.identificationRegionWidth > 0),
+      '§10.4 execution: B-1 seed/block, B-2 HAC bandwidth, and B-4 identified region computed');
+    check(Object.values(executed.precisionCalculations).every((item) => Math.abs(Math.abs(item.baselineObservedMean - item.passThreshold) - item.ceiling) < 1e-7) && Object.values(executed.findings).flatMap((finding) => finding.members).every((member) => member.interval.width <= member.interval.precisionFloor),
+      '§5.3 execution: every precision ceiling recomputed and every interval fits');
+    check(executed.findingIvDerivations.length === executed.findings.IV.members.length && executed.findingIvDerivations.every((item) => item.accountingIdentity.reconciles),
+      'Schedule A.4: every admitted Finding IV member has a reconciled derivation');
+    check(executed.diagnostics.length === Object.values(executed.findings).flatMap((finding) => finding.members).length && executed.diagnostics.every((item) => ['D1', 'D2', 'D3', 'D4', 'D5'].every((key) => item[key])),
+      'Schedule A.6: D-1–D-5 present for every admitted union member');
+    check(lock.registrarSignature.signature && lock.clerkSignature.signature && lock.publicChambersRecordReference && Object.values(lock.section91Checklist).every(Boolean),
+      '§9.2 lock: signatures, public record, digest, and executability checklist complete');
+    check(Date.parse(registrar.completedAt) < Date.parse(scheduleA.publishedAt) && Date.parse(scheduleA.publishedAt) < Date.parse('2294-02-15T12:00:00Z'),
+      '§11.4 execution: Registrar completed before Schedule A and within two-year deadline');
+    check(codeManifest.sources.length >= 6 && codeManifest.sources.some((source) => source.path === 'tools/path2-execution-engine.mjs') && codeManifest.sources.some((source) => source.path === 'package-lock.json'),
+      '§11.1 calculation code: execution engine, builders, verifier, core, and dependency lock digested');
+    check(executionSource.includes('blockBootstrap') && executionSource.includes('hacForecastSe') && executionSource.includes('executeLockedAnalysis'),
+      'calculation engine contains fitted execution, B-1 bootstrap, and B-2/B-4 analytic paths');
+  }
   check(authority.includes('LP-070') && authority.includes('Charter §11.1') && authority.includes('ACTIVE 2295'),
     'authority matrix maps every activation authority to committed evidence');
   check(lp075Gap.includes('previously reported repository gap is closed') && lp075Gap.includes('2300-07-18'),
     'LP-075 recovery notice distinguishes event and repository-publication dates');
-  check(certPage.includes('CERTIFIED / COMPLETE') && certPage.includes('50 / 25 / 12.5 / 6.25'),
+  check(certPage.includes('CERTIFIED / COMPLETE') && certPage.includes('50 / 25 / 12.5 / 6.25') && certPage.includes('2294-01-10') && certPage.includes('Lock and independent execution'),
     'generated certificate page states complete certification and operative LP-074 schedule');
   check(certSource.includes('evaluateAuthorityRecord') && coreSource.includes('validateMonthlyRows'),
     'certificate generator uses shared authority and row validators');
@@ -443,7 +480,7 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
   }
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
-    check(/52 passed, 0 failed/.test(out), 'malformed-record mutation suite', out.trim().split('\n').at(-1));
+    check(/85 passed, 0 failed/.test(out), 'malformed-record mutation suite', out.trim().split('\n').at(-1));
   } catch (error) {
     check(false, 'malformed-record mutation suite', String(error.stdout || error.message));
   }

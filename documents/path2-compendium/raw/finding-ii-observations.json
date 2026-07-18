@@ -1,45 +1,89 @@
 {
   "units": "constant-2292 dividend credits per resident",
-  "baseline": [
+  "observationWindow": [
+    2272,
+    2291
+  ],
+  "observations": [
+    {
+      "year": 2272,
+      "realDividendPerResident": 97.1
+    },
+    {
+      "year": 2273,
+      "realDividendPerResident": 97.388333
+    },
+    {
+      "year": 2274,
+      "realDividendPerResident": 97.566667
+    },
+    {
+      "year": 2275,
+      "realDividendPerResident": 97.892778
+    },
+    {
+      "year": 2276,
+      "realDividendPerResident": 98.043333
+    },
+    {
+      "year": 2277,
+      "realDividendPerResident": 98.343889
+    },
+    {
+      "year": 2278,
+      "realDividendPerResident": 98.637778
+    },
+    {
+      "year": 2279,
+      "realDividendPerResident": 98.801667
+    },
+    {
+      "year": 2280,
+      "realDividendPerResident": 99.088889
+    },
+    {
+      "year": 2281,
+      "realDividendPerResident": 99.256111
+    },
     {
       "year": 2282,
-      "realDividendPerResident": 99.42
+      "realDividendPerResident": 99.587778
     },
     {
       "year": 2283,
-      "realDividendPerResident": 99.577
+      "realDividendPerResident": 99.805
     },
     {
       "year": 2284,
-      "realDividendPerResident": 99.635
+      "realDividendPerResident": 100.04
     },
     {
       "year": 2285,
-      "realDividendPerResident": 99.826
+      "realDividendPerResident": 100.328333
     },
     {
       "year": 2286,
-      "realDividendPerResident": 99.859
+      "realDividendPerResident": 100.506667
     },
     {
       "year": 2287,
-      "realDividendPerResident": 100.027
+      "realDividendPerResident": 100.832778
     },
     {
       "year": 2288,
-      "realDividendPerResident": 100.189
+      "realDividendPerResident": 100.983333
     },
     {
       "year": 2289,
-      "realDividendPerResident": 100.234
+      "realDividendPerResident": 101.283889
     },
     {
       "year": 2290,
-      "realDividendPerResident": 100.39
+      "realDividendPerResident": 101.577778
     },
     {
       "year": 2291,
-      "realDividendPerResident": 100.438
+      "realDividendPerResident": 101.741667
     }
   ]
 }

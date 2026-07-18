@@ -1,12 +1,42 @@
 {
   "runtime": "Node.js",
   "minimumVersion": "20.0.0",
-  "dependencies": [],
+  "dependencyLock": "package-lock.json",
   "locale": "en-US",
   "timezone": "UTC",
   "deterministic": true,
-  "entryPoints": [
-    "tools/build-path2-certification-record.mjs",
-    "tools/verify-path2-certification-2294.mjs"
-  ]
+  "entryPoints": {
+    "artifactType": "PATH2_COMPLETE_CALCULATION_CODE_MANIFEST",
+    "runtime": "Node.js >=20",
+    "sources": [
+      {
+        "path": "tools/build-path2-certification-record.mjs",
+        "digest": "2f1afb0cf7c31fec8b5107a6f42e6312bf0e17d6841b3d62da2ff759f49586a9"
+      },
+      {
+        "path": "tools/path2-execution-engine.mjs",
+        "digest": "a42cd9f3313a6f27b7edc9a0e2d3fda80029473d7f97f2abf49bd6d8fdf05447"
+      },
+      {
+        "path": "tools/path2-certification-core.mjs",
+        "digest": "f4e5bd1927e81d34afd63339e0b6c77ffec2c98a57edb3bd1c0d879b1165d0f1"
+      },
+      {
+        "path": "tools/verify-path2-certification-2294.mjs",
+        "digest": "43a48599a042df6232de001c08f3e6ff31c8f2deec0af425d5321e9de8a27915"
+      },
+      {
+        "path": "tools/build-path2-certification-page.mjs",
+        "digest": "92edeabe5f4b4f39a05798a0c9dbad027ba60eed845fb26e00c9843f348f316b"
+      },
+      {
+        "path": "package-lock.json",
+        "digest": "dfb60ba19003d43035fb020f93d38bcb77abb2979206fedb6058379b3b22de0a"
+      }
+    ],
+    "executionEntryPoint": "tools/path2-execution-engine.mjs#executeLockedAnalysis",
+    "buildEntryPoint": "tools/build-path2-certification-record.mjs",
+    "verificationEntryPoint": "tools/verify-path2-certification-2294.mjs"
+  },
+  "requiredCommand": "node tools/verify-path2-certification-2294.mjs"
 }

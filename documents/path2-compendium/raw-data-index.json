@@ -76,28 +76,28 @@
     {
       "id": "FINDING-I-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-i-observations.json",
-      "digest": "15b9a8a45a5c661fb1e15545320d3477ddb14c99fe315fc662bbabe8aa173756",
+      "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
       "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
       "description": "Institutional receipts and obligation observation-window summary"
     },
     {
       "id": "FINDING-II-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-ii-observations.json",
-      "digest": "b3691bfa3f10dc105acb02cf6bb19dd60cefe01b3c3e2b94dbcd1d4caa84b446",
+      "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
       "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
       "description": "Real dividend disbursement and attribution observation-window summary"
     },
     {
       "id": "FINDING-III-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iii-observations.json",
-      "digest": "71ee87a907cfde0b1aabb1ca5ef7088a7e4070be3989b87e3dd9762f9c2a822a",
+      "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a",
       "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
       "description": "SCM activation-frequency and Flow Test observation-window summary"
     },
     {
       "id": "FINDING-IV-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iv-observations.json",
-      "digest": "ed3c1a69e9b0f32aca07146f3f860f3456c3fb4baf63d4f5bc2ae68e537967a4",
+      "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f",
       "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
       "description": "Retained-capital and realized public-deployment welfare observation-window summary"
     }

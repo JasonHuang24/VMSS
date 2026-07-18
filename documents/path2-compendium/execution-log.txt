@@ -1,13 +1,16 @@
 PATH 2 INDEPENDENT EXECUTION LOG
-run: LP074-2294-REMEDIAL
-lock: 2292-02-15T12:00:00Z
-execution completed: 2294-02-21T18:00:00Z
-Main-12: 106.7451%
-Main minimum: 105.8736%
-Main forward minimum: 105.5422%
-ADT-36: 123.0809%
-ADT minimum: 122.3854%
-Findings I-IV: PASS
+run: LP074-2294-LOCKED
+lock certificate: cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936
+preregistration: 640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228
+code manifest: 2ddd51e4471018b9ce0b37d9c08a7af5927767ef4cf2d2aff394281963ad3e10
+execution output: 1b1afab011f110bf09e179cf2a101dc57c8662016a385bf409614a4d8229c093
+exact command: node tools/verify-path2-certification-2294.mjs --registrar-recompute
+execution completed: 2294-01-10T18:00:00Z
+observation window: 2272-2291
+validation holdout: 2287-2291
+threshold baseline: 2282-2291
+B-1 seeds: I-certification-linear-b1=74001, II-certification-linear-b1=74002, III-certification-linear-b1=74003, IV-certification-linear-b1=74004
+Findings I-IV: PASS/PASS/PASS/PASS
 A1-A8: PASS
 B1-B6: PASS
-result: CERTIFIED
+result: CERTIFIED FOR SUBSEQUENT INSTRUMENT ISSUANCE

@@ -1,55 +1,109 @@
 {
   "units": "annual district-equivalent SCM pulses and dimensionless Flow Test margin",
-  "baseline": [
+  "observationWindow": [
+    2272,
+    2291
+  ],
+  "observations": [
+    {
+      "year": 2272,
+      "annualScmActivations": 7.595,
+      "flowTestMargin": 0.91
+    },
+    {
+      "year": 2273,
+      "annualScmActivations": 7.610333,
+      "flowTestMargin": 0.917
+    },
+    {
+      "year": 2274,
+      "annualScmActivations": 7.709833,
+      "flowTestMargin": 0.891
+    },
+    {
+      "year": 2275,
+      "annualScmActivations": 7.726,
+      "flowTestMargin": 0.909333
+    },
+    {
+      "year": 2276,
+      "annualScmActivations": 7.823833,
+      "flowTestMargin": 0.875
+    },
+    {
+      "year": 2277,
+      "annualScmActivations": 7.810833,
+      "flowTestMargin": 0.885667
+    },
+    {
+      "year": 2278,
+      "annualScmActivations": 7.897833,
+      "flowTestMargin": 0.894333
+    },
+    {
+      "year": 2279,
+      "annualScmActivations": 7.967333,
+      "flowTestMargin": 0.864
+    },
+    {
+      "year": 2280,
+      "annualScmActivations": 7.980167,
+      "flowTestMargin": 0.870667
+    },
+    {
+      "year": 2281,
+      "annualScmActivations": 8.078,
+      "flowTestMargin": 0.841333
+    },
     {
       "year": 2282,
-      "annualScmActivations": 8.058,
-      "flowTestMargin": 0.72
+      "annualScmActivations": 8.093333,
+      "flowTestMargin": 0.861333
     },
     {
       "year": 2283,
-      "annualScmActivations": 8.065,
-      "flowTestMargin": 0.75
+      "annualScmActivations": 8.1645,
+      "flowTestMargin": 0.847
     },
     {
       "year": 2284,
-      "annualScmActivations": 8.173,
-      "flowTestMargin": 0.78
+      "annualScmActivations": 8.219,
+      "flowTestMargin": 0.838
     },
     {
       "year": 2285,
-      "annualScmActivations": 8.181,
-      "flowTestMargin": 0.81
+      "annualScmActivations": 8.234333,
+      "flowTestMargin": 0.845
     },
     {
       "year": 2286,
-      "annualScmActivations": 8.287,
-      "flowTestMargin": 0.72
+      "annualScmActivations": 8.333833,
+      "flowTestMargin": 0.819
     },
     {
       "year": 2287,
-      "annualScmActivations": 8.26,
-      "flowTestMargin": 0.75
+      "annualScmActivations": 8.35,
+      "flowTestMargin": 0.837333
     },
     {
       "year": 2288,
-      "annualScmActivations": 8.353,
-      "flowTestMargin": 0.78
+      "annualScmActivations": 8.447833,
+      "flowTestMargin": 0.803
     },
     {
       "year": 2289,
-      "annualScmActivations": 8.425,
-      "flowTestMargin": 0.81
+      "annualScmActivations": 8.434833,
+      "flowTestMargin": 0.813667
     },
     {
       "year": 2290,
-      "annualScmActivations": 8.429,
-      "flowTestMargin": 0.72
+      "annualScmActivations": 8.521833,
+      "flowTestMargin": 0.822333
     },
     {
       "year": 2291,
-      "annualScmActivations": 8.535,
-      "flowTestMargin": 0.75
+      "annualScmActivations": 8.591333,
+      "flowTestMargin": 0.792
     }
   ]
 }

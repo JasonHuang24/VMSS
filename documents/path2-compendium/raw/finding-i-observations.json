@@ -1,105 +1,109 @@
 {
   "units": "billion constant-2292 Main credits",
-  "observedYears": [
+  "observationWindow": [
+    2272,
+    2291
+  ],
+  "observations": [
     {
       "year": 2272,
       "receipts": 1184,
-      "obligations": 1097.8
+      "obligations": 1083
     },
     {
       "year": 2273,
-      "receipts": 1205.2,
-      "obligations": 1110.2
+      "receipts": 1204.6375,
+      "obligations": 1096.955556
     },
     {
       "year": 2274,
-      "receipts": 1216.5,
-      "obligations": 1132.7
+      "receipts": 1219.0875,
+      "obligations": 1116.522222
     },
     {
       "year": 2275,
-      "receipts": 1241.1,
-      "obligations": 1145.2
+      "receipts": 1241.85,
+      "obligations": 1130.533333
     },
     {
       "year": 2276,
-      "receipts": 1249.9,
-      "obligations": 1167.5
+      "receipts": 1254.7375,
+      "obligations": 1149.988889
     },
     {
       "year": 2277,
-      "receipts": 1272.2,
-      "obligations": 1176.5
+      "receipts": 1276.0625,
+      "obligations": 1162.055556
     },
     {
       "year": 2278,
-      "receipts": 1293.9,
-      "obligations": 1197.5
+      "receipts": 1297.0125,
+      "obligations": 1180.788889
     },
     {
       "year": 2279,
-      "receipts": 1303.9,
-      "obligations": 1216.4
+      "receipts": 1310.65,
+      "obligations": 1198.355556
     },
     {
       "year": 2280,
-      "receipts": 1325,
-      "obligations": 1228.5
+      "receipts": 1331.225,
+      "obligations": 1212.144444
     },
     {
       "year": 2281,
-      "receipts": 1335.3,
-      "obligations": 1250.8
+      "receipts": 1345.05,
+      "obligations": 1231.6
     },
     {
       "year": 2282,
-      "receipts": 1360.4,
-      "obligations": 1263.2
+      "receipts": 1368.125,
+      "obligations": 1245.555556
     },
     {
       "year": 2283,
-      "receipts": 1375.2,
-      "obligations": 1282.3
+      "receipts": 1384.7625,
+      "obligations": 1263.233333
     },
     {
       "year": 2284,
-      "receipts": 1391.6,
-      "obligations": 1299.4
+      "receipts": 1402.4,
+      "obligations": 1279.8
     },
     {
       "year": 2285,
-      "receipts": 1412.8,
-      "obligations": 1311.8
+      "receipts": 1423.0375,
+      "obligations": 1293.755556
     },
     {
       "year": 2286,
-      "receipts": 1424.1,
-      "obligations": 1334.3
+      "receipts": 1437.4875,
+      "obligations": 1313.322222
     },
     {
       "year": 2287,
-      "receipts": 1448.7,
-      "obligations": 1346.8
+      "receipts": 1460.25,
+      "obligations": 1327.333333
     },
     {
       "year": 2288,
-      "receipts": 1457.5,
-      "obligations": 1369.1
+      "receipts": 1473.1375,
+      "obligations": 1346.788889
     },
     {
       "year": 2289,
-      "receipts": 1479.8,
-      "obligations": 1378.1
+      "receipts": 1494.4625,
+      "obligations": 1358.855556
     },
     {
       "year": 2290,
-      "receipts": 1501.5,
-      "obligations": 1399.1
+      "receipts": 1515.4125,
+      "obligations": 1377.588889
     },
     {
       "year": 2291,
-      "receipts": 1511.5,
-      "obligations": 1418
+      "receipts": 1529.05,
+      "obligations": 1395.155556
     }
   ]
 }

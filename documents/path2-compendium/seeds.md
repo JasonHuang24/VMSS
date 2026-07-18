@@ -1,3 +1,8 @@
 # Seed record
 
-No pseudorandom seed is applicable. The published interval inputs and every verification calculation are deterministic. The original in-world resampling execution is represented by its deposited member bounds; repository reproduction validates those deposited calculations without rerunning stochastic sampling.
+Generator: 32-bit LCG, x[n+1] = 1664525*x[n] + 1013904223 modulo 2^32. Replications: 399.
+
+- I-certification-linear-b1: 74001
+- II-certification-linear-b1: 74002
+- III-certification-linear-b1: 74003
+- IV-certification-linear-b1: 74004

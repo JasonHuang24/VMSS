@@ -1,0 +1,40 @@
+{
+  "artifactType": "PATH2_SECTION_13_1_PRECISION_MEASUREMENT_CLARIFICATION",
+  "filedAt": "2291-05-20T09:00:00Z",
+  "coldReviewer": "Solace Measurement Review Guild",
+  "reviewerSelection": "highest-ranked eligible measurement-methodology entity after mechanical quarantine",
+  "reviewCompletedAt": "2291-07-02T16:00:00Z",
+  "reviewerRepliesPublishedAt": "2291-07-19T12:00:00Z",
+  "chambersAdoptedAt": "2291-08-04T14:00:00Z",
+  "publishedAt": "2291-08-05T09:00:00Z",
+  "scope": "Measurement-only clarification of Charter §5.3; substantive Finding II zero-impairment and Finding IV positive-OM thresholds are unchanged.",
+  "rule": {
+    "findingII": "For §5.3 precision only, the continuous counterpart of the impairment-count summary is real annual dividend disbursement and its zero-real-disbursement boundary; the success comparison remains zero schedule-attributable impairment years.",
+    "findingIV": "For §5.3, apply the operative 30-year discount operator to the baseline-period observed mean annual net OM differential and compare that like-scaled summary with the zero OM boundary."
+  },
+  "findings": [
+    {
+      "id": "PC-1",
+      "finding": "The count summary otherwise yields a zero-width ceiling.",
+      "disposition": "Accepted with the narrow continuous-counterpart rule.",
+      "reviewerReply": "Resolved without changing the zero-impairment threshold.",
+      "presidentialFlag": false
+    },
+    {
+      "id": "PC-2",
+      "finding": "The OM baseline must use the same horizon and discount scale as the operative summary.",
+      "disposition": "Accepted with the like-scaled 30-year operator.",
+      "reviewerReply": "Resolved without changing the positive-OM threshold.",
+      "presidentialFlag": false
+    }
+  ],
+  "vote": {
+    "Sanctuary": "PASS",
+    "Main": "PASS",
+    "Lower": "PASS",
+    "Court": "PASS",
+    "Meritboard": "PASS"
+  },
+  "unresolvedHighestSeverity": false,
+  "artifactDigest": "fb13959ed3580232e5f5e193d2169b7851d15000981d0c38e8aeb3cdefa4e290"
+}

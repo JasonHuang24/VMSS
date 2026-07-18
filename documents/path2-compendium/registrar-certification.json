@@ -1,12 +1,34 @@
 {
-  "artifactType": "REGISTRAR_COMPLETENESS_AND_EXECUTION_CERTIFICATION",
-  "registrar": "Ilex Public Reproduction Office",
-  "completedAt": "2294-02-21T18:00:00Z",
+  "artifactType": "REGISTRAR_INDEPENDENT_EXECUTION_CERTIFICATION",
+  "registrar": "Ilex Public Reproduction Office / Registrar Sen Vale",
+  "completedAt": "2294-01-10T18:00:00Z",
+  "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
+  "preregistrationDigest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228",
+  "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
+  "lockCertificateDigest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936",
+  "codeManifestPath": "documents/path2-compendium/calculation-code-manifest.json",
+  "codeManifestDigest": "2ddd51e4471018b9ce0b37d9c08a7af5927767ef4cf2d2aff394281963ad3e10",
+  "executionOutputPath": "documents/path2-compendium/execution-output.json",
+  "executionOutputDigest": "1b1afab011f110bf09e179cf2a101dc57c8662016a385bf409614a4d8229c093",
+  "sourceDigests": {
+    "FINDING-I-OBSERVATIONS-2294": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
+    "FINDING-II-OBSERVATIONS-2294": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
+    "FINDING-III-OBSERVATIONS-2294": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a",
+    "FINDING-IV-OBSERVATIONS-2294": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f"
+  },
+  "exactCommand": "node tools/verify-path2-certification-2294.mjs --registrar-recompute",
+  "environment": {
+    "runtime": "Node.js 22.17.0",
+    "timezone": "UTC",
+    "locale": "en-US"
+  },
   "findingsMatchEscrowExecution": true,
   "conditionsMatchEscrowExecution": true,
   "codeIdentityVerified": true,
   "dataProvenanceVerified": true,
-  "compendiumComplete": true,
-  "independentExecution": "Node.js verifier executed over escrowed files; all comparisons and digests matched.",
-  "dissent": null
+  "compendiumInputsComplete": true,
+  "section114Disposition": "EXECUTED_AND_MATCHED_BEFORE_ISSUANCE",
+  "signature": "REG-SEN-VALE-EXEC-2294-010",
+  "dissent": null,
+  "artifactDigest": "f649c930a2ab12d996cc6e6c31f0f129c074c4345a3450851668c806bfc863ed"
 }

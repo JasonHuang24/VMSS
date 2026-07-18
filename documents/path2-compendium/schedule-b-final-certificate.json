@@ -1,9 +1,10 @@
 {
   "artifactType": "LP074_SCHEDULE_B_FINAL_CERTIFICATE",
-  "publishedAt": "2294-02-21T09:30:00Z",
-  "scheduleACertificateDigest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4",
-  "lowerCertificateDigest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf",
-  "lowerAdoptionDigest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d",
+  "publishedAt": "2294-02-05T09:30:00Z",
+  "scheduleACertificateDigest": "cfbc6610ca42cab7688128db727b5459084ae04f091d7afbe21f528dcba691fb",
+  "lowerCertificateDigest": "91bf9602dbc46d5c39dbd05d8fcff41d93bc4becd8464847d32624771865d009",
+  "lowerAdoptionDigest": "2a38cf26ecbe5172e270b136228eb668ec656ec6ca8b8542b56f2c454aea3c55",
+  "registrarExecutionDigest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27",
   "conditions": {
     "B1": "PASS",
     "B2": "PASS",
@@ -14,5 +15,5 @@
   },
   "schedule": "50 / 25 / 12.5 / 6.25",
   "effectiveAssessmentYear": 2295,
-  "artifactDigest": "1431329655bef61b504261af1abe36fa04df4febc5e943bcb96589dffd5e063b"
+  "artifactDigest": "48d225ae4629e5b3eda65274f4d00020e432c487f9a344e016f020e785805b7d"
 }

@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generatedAt": "2294-02-22T12:00:00Z",
+  "generatedAt": "2294-02-10T12:00:00Z",
   "entries": [
     {
       "id": "MAIN-T50-LEDGER-2294",
@@ -55,72 +55,112 @@
     {
       "id": "FINDING-I-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-i-observations.json",
-      "digest": "15b9a8a45a5c661fb1e15545320d3477ddb14c99fe315fc662bbabe8aa173756"
+      "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14"
     },
     {
       "id": "FINDING-II-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-ii-observations.json",
-      "digest": "b3691bfa3f10dc105acb02cf6bb19dd60cefe01b3c3e2b94dbcd1d4caa84b446"
+      "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821"
     },
     {
       "id": "FINDING-III-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iii-observations.json",
-      "digest": "71ee87a907cfde0b1aabb1ca5ef7088a7e4070be3989b87e3dd9762f9c2a822a"
+      "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a"
     },
     {
       "id": "FINDING-IV-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iv-observations.json",
-      "digest": "ed3c1a69e9b0f32aca07146f3f860f3456c3fb4baf63d4f5bc2ae68e537967a4"
+      "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f"
     },
     {
       "id": "COMPENDIUM-raw-data",
       "path": "documents/path2-compendium/raw-data-index.json",
-      "digest": "19465916d51a0540334ea49d029cfb2656351b2068205cf34e7192630d9ac5ac"
+      "digest": "884c98a3001cdd19183f3643fa8efde7be8e798624fb95145e30bbbe2c396190"
+    },
+    {
+      "id": "COMPENDIUM-preregistration",
+      "path": "documents/path2-compendium/preregistration-2292.json",
+      "digest": "640e557cd4b8e122945fc99d64ea2ed7b320bd143f0047f50be3679b55362228"
+    },
+    {
+      "id": "COMPENDIUM-preregistration-lock-certificate",
+      "path": "documents/path2-compendium/preregistration-lock-certificate.json",
+      "digest": "cccf1b83d77db3aab3d226244f7d30e7afd37f2d46c3c91061b46de59b436936"
+    },
+    {
+      "id": "COMPENDIUM-public-chambers-lock-record",
+      "path": "documents/path2-compendium/public-chambers-lock-record.json",
+      "digest": "1aa3caabd94347f97fa64cbb0ecd6d545c2adaeaf40a7eabad1c312a6fd0fb93"
     },
     {
       "id": "COMPENDIUM-analytic-data",
       "path": "documents/path2-compendium/analytic-results.json",
-      "digest": "c382786df6eeca0162c45c7ef91c5745cdfda5ee874b5e14bd3cc12a015dcda9"
+      "digest": "05aec60bce1541ae85fa9f8fea9d43b9f2d33c9e064c72dbab1a492ac07b9ba8"
+    },
+    {
+      "id": "COMPENDIUM-executed-calculation-output",
+      "path": "documents/path2-compendium/execution-output.json",
+      "digest": "1b1afab011f110bf09e179cf2a101dc57c8662016a385bf409614a4d8229c093"
     },
     {
       "id": "COMPENDIUM-calculation-code",
-      "path": "tools/path2-certification-core.mjs",
-      "digest": "f51c3013951582605ad9a5ccf5cf8fcc1d1093ddb66b5cb2bd1b9646d04cf37c"
+      "path": "documents/path2-compendium/calculation-code-manifest.json",
+      "digest": "2ddd51e4471018b9ce0b37d9c08a7af5927767ef4cf2d2aff394281963ad3e10"
     },
     {
       "id": "COMPENDIUM-environment-manifest",
       "path": "documents/path2-compendium/environment-manifest.json",
-      "digest": "e3f8062b509f7c37335c926a1adb9f0f694f26e9f959250b13aff089a7eddf17"
+      "digest": "41dbf5ced6125c4e7aef58482249edaedbd53af1b7d26471f1d6c0870678a073"
     },
     {
       "id": "COMPENDIUM-source-provenance",
       "path": "documents/path2-compendium/source-registry.json",
-      "digest": "4c77549a6489ddba0ff23cfacd286bd9f70bd34c14fa7bf2033690e27b188aa3"
+      "digest": "fb3d2c98b48eca6a53b6eaa6f5e42df64bbe48d86d823c6b93a59fd3b044704c"
     },
     {
       "id": "COMPENDIUM-transformation-rules",
       "path": "documents/path2-compendium/transformations.md",
-      "digest": "48bb4a761798223f79716c4a633caf9c3aa6a893b235727b29901559f62d1fd8"
+      "digest": "8af5cf8554e08b5d75ace689c75d10d626641b2dbfcb05247837e0bdf7adbc98"
     },
     {
       "id": "COMPENDIUM-seeds",
       "path": "documents/path2-compendium/seeds.md",
-      "digest": "79c6fc05bc0d547394b867b4db0ea2a8e6c51bb98207c2c1b77152397692f77f"
+      "digest": "0f119a281be82df7d77e2bbf04ef504d1953d5a4e6f1f9ceb52e23d2ae014518"
     },
     {
       "id": "COMPENDIUM-execution-logs",
       "path": "documents/path2-compendium/execution-log.txt",
-      "digest": "f7d03ed68a7878b4614223ae97d191ebe645dfb3cc60e5229c5fbaab26e50a0f"
+      "digest": "39534a2d9b09aea4e760c4e10b5097db372e26d030cc175989533058d544ed9f"
+    },
+    {
+      "id": "COMPENDIUM-section-4-3-validation-records",
+      "path": "documents/path2-compendium/validation-records.json",
+      "digest": "a71948faa0511a102d8c9b49388c567f36bb23c721322d5dcf7b40d75a4ea525"
     },
     {
       "id": "COMPENDIUM-union-estimates-and-intervals",
       "path": "documents/path2-compendium/union-estimates.json",
-      "digest": "b7c7f4f9ffa2bb8ba021e70357c70e7732fa26277189642231b28a918e37fc60"
+      "digest": "dacb7c37684b59393cd92ba33464f45bb4e512e6a70afc755ec0e9dfa1cc5118"
+    },
+    {
+      "id": "COMPENDIUM-finding-iv-member-derivations",
+      "path": "documents/path2-compendium/finding-iv-member-derivations.json",
+      "digest": "587c82fe92217d6f136d8f23cbc8e60aa6889848aaf9ddb0f3c11fee2e99a900"
+    },
+    {
+      "id": "COMPENDIUM-mandatory-d1-d5-diagnostics",
+      "path": "documents/path2-compendium/mandatory-diagnostics.json",
+      "digest": "81a9749030f02a0654191595fcb614629e046ffb5ccc51558aaebeb3c0a77f64"
+    },
+    {
+      "id": "COMPENDIUM-precision-measurement-amendment",
+      "path": "documents/path2-compendium/precision-measurement-amendment-2291.json",
+      "digest": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a"
     },
     {
       "id": "COMPENDIUM-cold-review-record",
       "path": "documents/path2-compendium/run-cold-review.json",
-      "digest": "8e9d0fc4200db2cae340f097f47ff876739d72f26d521040f06d7f1c021be8bc"
+      "digest": "339a74eccbd8796bf6f23f98419f2badc7d811103a09a3f2ea7d1201155b6f23"
     },
     {
       "id": "COMPENDIUM-commission-votes-dissents-declarations",
@@ -130,17 +170,17 @@
     {
       "id": "COMPENDIUM-registrar-certifications",
       "path": "documents/path2-compendium/registrar-certification.json",
-      "digest": "19ea023ece6bc7e0f72d101d2e8c13a4c7769b52e69d17461c78dacca90a028f"
+      "digest": "d20581a4cc90ba5773f10490080ebeea17b5555036df8b655c75fad7cc41ab27"
     },
     {
       "id": "COMPENDIUM-lower-incidence-certificate",
       "path": "documents/path2-compendium/lower-incidence-certificate.json",
-      "digest": "cafb6df2470771cb5b4f34971d2e356683c37dfd9d1ad522a6da86d9089295bf"
+      "digest": "91bf9602dbc46d5c39dbd05d8fcff41d93bc4becd8464847d32624771865d009"
     },
     {
       "id": "COMPENDIUM-lower-incidence-adoption",
       "path": "documents/path2-compendium/lower-incidence-adoption.json",
-      "digest": "d8a7ca8fd6bd0dacaba62b81e732975850d604e0c8df7859acd3ff6b3963c88d"
+      "digest": "2a38cf26ecbe5172e270b136228eb668ec656ec6ca8b8542b56f2c454aea3c55"
     },
     {
       "id": "LP075-REVIEW",
@@ -155,17 +195,17 @@
     {
       "id": "SCHEDULE-A-CERTIFICATE",
       "path": "documents/path2-compendium/schedule-a-final-certificate.json",
-      "digest": "6931527f9bfb5b7a29bb9f97f897a829b904776a3374cf247c570e7005992df4"
+      "digest": "cfbc6610ca42cab7688128db727b5459084ae04f091d7afbe21f528dcba691fb"
     },
     {
       "id": "SCHEDULE-B-CERTIFICATE",
       "path": "documents/path2-compendium/schedule-b-final-certificate.json",
-      "digest": "d67d819b7816bf6d121b5c80894a3f2736dadf64450d94f1cecef98a4f334160"
+      "digest": "5ebec192e0d96e1a69cca7c201dd66fc42933a3f9d487601a66a01012ded0c89"
     },
     {
       "id": "EFFECTIVE-NOTICE",
       "path": "documents/path2-compendium/effective-notice-2295.json",
-      "digest": "a707b80b5f2d6b4e4d6fc9bdde63e59354667e798fe5399eb9b26211c0cc1920"
+      "digest": "f4cd473fb6d21a7303da71af1f5415b6430b9b61793c0ad326340314f5e966a4"
     }
   ]
 }
