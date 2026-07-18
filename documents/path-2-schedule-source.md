@@ -239,8 +239,8 @@ control.
 *Adopted with the Charter. During the first 2279–2288 window, the 70/35/17/8
 schedule held under LP-073 because no commencement duty existed. LP-075
 later compelled a process but selected no rate. The remedial run locked in
-2292 and applied this Schedule in the complete 2294 Schedule A certificate.
-A separate Lower Incidence Certificate subsequently issued and was adopted
-before Schedule B certified. LP-074's full 50/25/12.5/6.25 cascade became
-operative for the 2295 assessment year; this Schedule's methods, not the
-failed original petition's authored evidence, produced that result.*
+2292 and applied this Schedule to the corrected 2294 Path 2 execution.
+Findings I, II, and IV passed, but Finding III failed because the refusal-side
+SCM activation upper bound exceeded the 125% ceiling. Schedule A was therefore
+refused; no Lower Incidence Certificate or Schedule B certificate issued.
+LP-073's 70/35/17/8 schedule remains operative.*

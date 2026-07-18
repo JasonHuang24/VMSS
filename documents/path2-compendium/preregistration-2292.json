@@ -8,249 +8,454 @@
       "id": "I-certification-linear-b1",
       "panel": "certification",
       "equivalenceClass": "I-ec-dynamic",
-      "functionalClass": "linear receipts and obligations projection",
+      "functionalClass": "shared-path linear 50/70 receipts and obligations projection",
       "identificationAssumptions": [
-        "canonical demographic path",
         "no behavioral uplift"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "no behavioral uplift",
+          "type": "behavioral-uplift-share",
+          "value": 0,
+          "operation": "multiply projected 50-schedule receipts by 1 + locked share"
+        }
       ],
       "sourceId": "FINDING-I-OBSERVATIONS-2294",
       "intervalFamily": "B-1",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": null,
       "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
       "seed": 74001,
-      "replications": 399
+      "outerReplications": 999,
+      "innerReplications": 199,
+      "studentization": "nested-bootstrap-t-replication-specific",
+      "scalarReplications": null
     },
     {
       "finding": "I",
       "id": "I-refusal-linear-b2",
       "panel": "refusal",
       "equivalenceClass": "I-ec-analytic",
-      "functionalClass": "HAC adverse receipts-obligations projection",
+      "functionalClass": "shared-path linear 50/70 receipts and obligations with analytic adverse bounds",
       "identificationAssumptions": [
-        "upper obligation sampling uncertainty",
         "zero velocity credit"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "zero velocity credit",
+          "type": "velocity-credit-share",
+          "value": 0,
+          "operation": "multiply projected 50-schedule receipts by 1 + locked velocity-credit share"
+        }
       ],
       "sourceId": "FINDING-I-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     },
     {
       "finding": "I",
       "id": "I-certification-constant-failed",
       "panel": "certification",
       "equivalenceClass": "I-ec-constant",
-      "functionalClass": "constant-level coverage projection",
+      "functionalClass": "shared-path constant 50/70 receipts and obligations projection",
       "identificationAssumptions": [
-        "no trend"
+        "no behavioral uplift"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "no behavioral uplift",
+          "type": "behavioral-uplift-share",
+          "value": 0,
+          "operation": "multiply projected 50-schedule receipts by 1 + locked share"
+        }
       ],
       "sourceId": "FINDING-I-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "constant",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     },
     {
       "finding": "II",
       "id": "II-certification-linear-b1",
       "panel": "certification",
       "equivalenceClass": "II-ec-dynamic",
-      "functionalClass": "linear dividend projection",
+      "functionalClass": "shared-path linear treatment/counterfactual dividend contrast",
       "identificationAssumptions": [
-        "ADT-only funding",
+        "direct schedule attribution",
         "no cross-credit"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "direct schedule attribution",
+          "type": "schedule-attribution-share",
+          "value": 0.65,
+          "operation": "counterfactual + locked share x (50 outcome - 70 outcome)"
+        },
+        {
+          "assumption": "no cross-credit",
+          "type": "cross-credit-share",
+          "value": 0,
+          "operation": "add locked share x enacted-70 dividend; locked at zero"
+        }
       ],
       "sourceId": "FINDING-II-OBSERVATIONS-2294",
       "intervalFamily": "B-1",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": null,
       "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
       "seed": 74002,
-      "replications": 399
+      "outerReplications": 999,
+      "innerReplications": 199,
+      "studentization": "nested-bootstrap-t-replication-specific",
+      "scalarReplications": null
     },
     {
       "finding": "II",
       "id": "II-refusal-linear-b2",
       "panel": "refusal",
       "equivalenceClass": "II-ec-analytic",
-      "functionalClass": "HAC adverse dividend projection",
+      "functionalClass": "shared-path linear maximum-attribution dividend contrast",
       "identificationAssumptions": [
         "maximum admissible schedule attribution",
         "no cross-credit"
       ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible schedule attribution",
+          "type": "schedule-attribution-share",
+          "value": 1,
+          "operation": "counterfactual + locked share x (50 outcome - 70 outcome)"
+        },
+        {
+          "assumption": "no cross-credit",
+          "type": "cross-credit-share",
+          "value": 0,
+          "operation": "add locked share x enacted-70 dividend; locked at zero"
+        }
+      ],
       "sourceId": "FINDING-II-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     },
     {
       "finding": "II",
       "id": "II-refusal-constant-failed",
       "panel": "refusal",
       "equivalenceClass": "II-ec-constant",
-      "functionalClass": "constant dividend projection",
+      "functionalClass": "shared-path constant maximum-attribution dividend contrast",
       "identificationAssumptions": [
-        "no trend"
+        "maximum admissible schedule attribution",
+        "no cross-credit"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible schedule attribution",
+          "type": "schedule-attribution-share",
+          "value": 1,
+          "operation": "counterfactual + locked share x (50 outcome - 70 outcome)"
+        },
+        {
+          "assumption": "no cross-credit",
+          "type": "cross-credit-share",
+          "value": 0,
+          "operation": "add locked share x enacted-70 dividend; locked at zero"
+        }
       ],
       "sourceId": "FINDING-II-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "constant",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     },
     {
       "finding": "III",
       "id": "III-certification-linear-b1",
       "panel": "certification",
       "equivalenceClass": "III-ec-dynamic",
-      "functionalClass": "joint linear SCM/Flow projection",
+      "functionalClass": "shared-path joint linear 50/70 SCM and Flow contrast",
       "identificationAssumptions": [
-        "SCM parameters fixed",
-        "serial dependence"
+        "bounded liquidity response",
+        "SCM parameters fixed"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "bounded liquidity response",
+          "type": "liquidity-response-share",
+          "value": 0.65,
+          "operation": "counterfactual + locked response share x observed 50-minus-70 contrast"
+        },
+        {
+          "assumption": "SCM parameters fixed",
+          "type": "scm-parameter-multiplier",
+          "value": 1,
+          "operation": "multiply the attributed SCM contrast by the locked parameter multiplier"
+        }
       ],
       "sourceId": "FINDING-III-OBSERVATIONS-2294",
       "intervalFamily": "B-1",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": null,
       "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
       "seed": 74003,
-      "replications": 399
+      "outerReplications": 999,
+      "innerReplications": 199,
+      "studentization": "nested-bootstrap-t-replication-specific",
+      "scalarReplications": null
     },
     {
       "finding": "III",
       "id": "III-refusal-linear-b2",
       "panel": "refusal",
       "equivalenceClass": "III-ec-analytic",
-      "functionalClass": "joint HAC SCM/Flow projection",
+      "functionalClass": "shared-path joint maximum-response 50/70 SCM and Flow contrast",
       "identificationAssumptions": [
         "maximum admissible liquidity response",
-        "serial dependence"
+        "SCM parameters fixed"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible liquidity response",
+          "type": "liquidity-response-share",
+          "value": 1,
+          "operation": "counterfactual + locked response share x observed 50-minus-70 contrast"
+        },
+        {
+          "assumption": "SCM parameters fixed",
+          "type": "scm-parameter-multiplier",
+          "value": 1,
+          "operation": "multiply the attributed SCM contrast by the locked parameter multiplier"
+        }
       ],
       "sourceId": "FINDING-III-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     },
     {
       "finding": "III",
       "id": "III-refusal-constant-failed",
       "panel": "refusal",
       "equivalenceClass": "III-ec-constant",
-      "functionalClass": "constant SCM/Flow projection",
+      "functionalClass": "shared-path constant maximum-response SCM and Flow contrast",
       "identificationAssumptions": [
-        "no trend"
+        "maximum admissible liquidity response",
+        "SCM parameters fixed"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible liquidity response",
+          "type": "liquidity-response-share",
+          "value": 1,
+          "operation": "counterfactual + locked response share x observed 50-minus-70 contrast"
+        },
+        {
+          "assumption": "SCM parameters fixed",
+          "type": "scm-parameter-multiplier",
+          "value": 1,
+          "operation": "multiply the attributed SCM contrast by the locked parameter multiplier"
+        }
       ],
       "sourceId": "FINDING-III-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "constant",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     },
     {
       "finding": "IV",
       "id": "IV-certification-linear-b1",
       "panel": "certification",
       "equivalenceClass": "IV-ec-demand",
-      "functionalClass": "componentwise linear Marshallian OM projection",
+      "functionalClass": "componentwise shared-exposure linear Marshallian OM scalar",
       "identificationAssumptions": [
         "ledger-traced ventures only",
         "realized public allocation counterfactual"
       ],
+      "identificationRules": [
+        {
+          "assumption": "ledger-traced ventures only",
+          "type": "traceable-capital-share",
+          "value": 1,
+          "operation": "multiply private/public welfare contrast by traceable retained-capital share"
+        },
+        {
+          "assumption": "realized public allocation counterfactual",
+          "type": "realized-public-allocation-share",
+          "value": 1,
+          "operation": "multiply realized public first-allocation surplus path by locked share"
+        }
+      ],
       "sourceId": "FINDING-IV-OBSERVATIONS-2294",
       "intervalFamily": "B-1",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": null,
       "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
       "seed": 74004,
-      "replications": 399
+      "outerReplications": 999,
+      "innerReplications": 199,
+      "studentization": "nested-bootstrap-t-replication-specific",
+      "scalarReplications": null
     },
     {
       "finding": "IV",
       "id": "IV-refusal-partial-id-b4",
       "panel": "refusal",
       "equivalenceClass": "IV-ec-partial-id",
-      "functionalClass": "componentwise partial-identification OM lower bound",
+      "functionalClass": "joint-resampled scalar partial-identification OM lower bound",
       "identificationAssumptions": [
         "ledger-traced ventures only",
+        "realized public allocation counterfactual",
         "adverse displacement and external-cost region"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "ledger-traced ventures only",
+          "type": "traceable-capital-share",
+          "value": 1,
+          "operation": "multiply private/public welfare contrast by traceable retained-capital share"
+        },
+        {
+          "assumption": "realized public allocation counterfactual",
+          "type": "realized-public-allocation-share",
+          "value": 1,
+          "operation": "multiply realized public first-allocation surplus path by locked share"
+        },
+        {
+          "assumption": "adverse displacement and external-cost region",
+          "type": "adverse-cost-share",
+          "value": 0.04,
+          "operation": "subtract locked share of projected displacement plus external costs after scalar sampling uncertainty"
+        }
       ],
       "sourceId": "FINDING-IV-OBSERVATIONS-2294",
       "intervalFamily": "B-4",
       "model": "linear",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
-      "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
-      "blockLengthRule": null,
-      "seed": null,
-      "replications": null,
-      "identifiedRegionAdverseShare": 0.04
+      "bandwidthRule": null,
+      "blockLengthRule": "round(1.5*cuberoot(n)), minimum 2",
+      "seed": 74005,
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": 1999
     },
     {
       "finding": "IV",
       "id": "IV-certification-constant-failed",
       "panel": "certification",
       "equivalenceClass": "IV-ec-constant",
-      "functionalClass": "constant component OM projection",
+      "functionalClass": "componentwise shared-exposure constant Marshallian OM scalar",
       "identificationAssumptions": [
-        "no trend"
+        "ledger-traced ventures only",
+        "realized public allocation counterfactual"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "ledger-traced ventures only",
+          "type": "traceable-capital-share",
+          "value": 1,
+          "operation": "multiply private/public welfare contrast by traceable retained-capital share"
+        },
+        {
+          "assumption": "realized public allocation counterfactual",
+          "type": "realized-public-allocation-share",
+          "value": 1,
+          "operation": "multiply realized public first-allocation surplus path by locked share"
+        }
       ],
       "sourceId": "FINDING-IV-OBSERVATIONS-2294",
       "intervalFamily": "B-2",
       "model": "constant",
+      "sharedExogenousElasticity": 1,
       "preprocessing": "identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal",
       "dependenceStructure": "annual serial dependence",
       "clusteringUnit": "civilization-year",
       "bandwidthRule": "floor(4*(n/100)^(2/9)), minimum 1",
       "blockLengthRule": null,
       "seed": null,
-      "replications": null
+      "outerReplications": null,
+      "innerReplications": null,
+      "studentization": null,
+      "scalarReplications": null
     }
   ],
   "exclusionReasons": [
@@ -284,103 +489,273 @@
   "equivalenceClasses": {
     "I-certification-linear-b1": {
       "class": "I-ec-dynamic",
-      "functionalClass": "linear receipts and obligations projection",
+      "functionalClass": "shared-path linear 50/70 receipts and obligations projection",
       "identificationAssumptions": [
-        "canonical demographic path",
         "no behavioral uplift"
-      ]
+      ],
+      "identificationRules": [
+        {
+          "assumption": "no behavioral uplift",
+          "type": "behavioral-uplift-share",
+          "value": 0,
+          "operation": "multiply projected 50-schedule receipts by 1 + locked share"
+        }
+      ],
+      "intervalFamily": "B-1"
     },
     "I-refusal-linear-b2": {
       "class": "I-ec-analytic",
-      "functionalClass": "HAC adverse receipts-obligations projection",
+      "functionalClass": "shared-path linear 50/70 receipts and obligations with analytic adverse bounds",
       "identificationAssumptions": [
-        "upper obligation sampling uncertainty",
         "zero velocity credit"
-      ]
+      ],
+      "identificationRules": [
+        {
+          "assumption": "zero velocity credit",
+          "type": "velocity-credit-share",
+          "value": 0,
+          "operation": "multiply projected 50-schedule receipts by 1 + locked velocity-credit share"
+        }
+      ],
+      "intervalFamily": "B-2"
     },
     "I-certification-constant-failed": {
       "class": "I-ec-constant",
-      "functionalClass": "constant-level coverage projection",
+      "functionalClass": "shared-path constant 50/70 receipts and obligations projection",
       "identificationAssumptions": [
-        "no trend"
-      ]
+        "no behavioral uplift"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "no behavioral uplift",
+          "type": "behavioral-uplift-share",
+          "value": 0,
+          "operation": "multiply projected 50-schedule receipts by 1 + locked share"
+        }
+      ],
+      "intervalFamily": "B-2"
     },
     "II-certification-linear-b1": {
       "class": "II-ec-dynamic",
-      "functionalClass": "linear dividend projection",
+      "functionalClass": "shared-path linear treatment/counterfactual dividend contrast",
       "identificationAssumptions": [
-        "ADT-only funding",
+        "direct schedule attribution",
         "no cross-credit"
-      ]
+      ],
+      "identificationRules": [
+        {
+          "assumption": "direct schedule attribution",
+          "type": "schedule-attribution-share",
+          "value": 0.65,
+          "operation": "counterfactual + locked share x (50 outcome - 70 outcome)"
+        },
+        {
+          "assumption": "no cross-credit",
+          "type": "cross-credit-share",
+          "value": 0,
+          "operation": "add locked share x enacted-70 dividend; locked at zero"
+        }
+      ],
+      "intervalFamily": "B-1"
     },
     "II-refusal-linear-b2": {
       "class": "II-ec-analytic",
-      "functionalClass": "HAC adverse dividend projection",
+      "functionalClass": "shared-path linear maximum-attribution dividend contrast",
       "identificationAssumptions": [
         "maximum admissible schedule attribution",
         "no cross-credit"
-      ]
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible schedule attribution",
+          "type": "schedule-attribution-share",
+          "value": 1,
+          "operation": "counterfactual + locked share x (50 outcome - 70 outcome)"
+        },
+        {
+          "assumption": "no cross-credit",
+          "type": "cross-credit-share",
+          "value": 0,
+          "operation": "add locked share x enacted-70 dividend; locked at zero"
+        }
+      ],
+      "intervalFamily": "B-2"
     },
     "II-refusal-constant-failed": {
       "class": "II-ec-constant",
-      "functionalClass": "constant dividend projection",
+      "functionalClass": "shared-path constant maximum-attribution dividend contrast",
       "identificationAssumptions": [
-        "no trend"
-      ]
+        "maximum admissible schedule attribution",
+        "no cross-credit"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible schedule attribution",
+          "type": "schedule-attribution-share",
+          "value": 1,
+          "operation": "counterfactual + locked share x (50 outcome - 70 outcome)"
+        },
+        {
+          "assumption": "no cross-credit",
+          "type": "cross-credit-share",
+          "value": 0,
+          "operation": "add locked share x enacted-70 dividend; locked at zero"
+        }
+      ],
+      "intervalFamily": "B-2"
     },
     "III-certification-linear-b1": {
       "class": "III-ec-dynamic",
-      "functionalClass": "joint linear SCM/Flow projection",
+      "functionalClass": "shared-path joint linear 50/70 SCM and Flow contrast",
       "identificationAssumptions": [
-        "SCM parameters fixed",
-        "serial dependence"
-      ]
+        "bounded liquidity response",
+        "SCM parameters fixed"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "bounded liquidity response",
+          "type": "liquidity-response-share",
+          "value": 0.65,
+          "operation": "counterfactual + locked response share x observed 50-minus-70 contrast"
+        },
+        {
+          "assumption": "SCM parameters fixed",
+          "type": "scm-parameter-multiplier",
+          "value": 1,
+          "operation": "multiply the attributed SCM contrast by the locked parameter multiplier"
+        }
+      ],
+      "intervalFamily": "B-1"
     },
     "III-refusal-linear-b2": {
       "class": "III-ec-analytic",
-      "functionalClass": "joint HAC SCM/Flow projection",
+      "functionalClass": "shared-path joint maximum-response 50/70 SCM and Flow contrast",
       "identificationAssumptions": [
         "maximum admissible liquidity response",
-        "serial dependence"
-      ]
+        "SCM parameters fixed"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible liquidity response",
+          "type": "liquidity-response-share",
+          "value": 1,
+          "operation": "counterfactual + locked response share x observed 50-minus-70 contrast"
+        },
+        {
+          "assumption": "SCM parameters fixed",
+          "type": "scm-parameter-multiplier",
+          "value": 1,
+          "operation": "multiply the attributed SCM contrast by the locked parameter multiplier"
+        }
+      ],
+      "intervalFamily": "B-2"
     },
     "III-refusal-constant-failed": {
       "class": "III-ec-constant",
-      "functionalClass": "constant SCM/Flow projection",
+      "functionalClass": "shared-path constant maximum-response SCM and Flow contrast",
       "identificationAssumptions": [
-        "no trend"
-      ]
+        "maximum admissible liquidity response",
+        "SCM parameters fixed"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "maximum admissible liquidity response",
+          "type": "liquidity-response-share",
+          "value": 1,
+          "operation": "counterfactual + locked response share x observed 50-minus-70 contrast"
+        },
+        {
+          "assumption": "SCM parameters fixed",
+          "type": "scm-parameter-multiplier",
+          "value": 1,
+          "operation": "multiply the attributed SCM contrast by the locked parameter multiplier"
+        }
+      ],
+      "intervalFamily": "B-2"
     },
     "IV-certification-linear-b1": {
       "class": "IV-ec-demand",
-      "functionalClass": "componentwise linear Marshallian OM projection",
+      "functionalClass": "componentwise shared-exposure linear Marshallian OM scalar",
       "identificationAssumptions": [
         "ledger-traced ventures only",
         "realized public allocation counterfactual"
-      ]
+      ],
+      "identificationRules": [
+        {
+          "assumption": "ledger-traced ventures only",
+          "type": "traceable-capital-share",
+          "value": 1,
+          "operation": "multiply private/public welfare contrast by traceable retained-capital share"
+        },
+        {
+          "assumption": "realized public allocation counterfactual",
+          "type": "realized-public-allocation-share",
+          "value": 1,
+          "operation": "multiply realized public first-allocation surplus path by locked share"
+        }
+      ],
+      "intervalFamily": "B-1"
     },
     "IV-refusal-partial-id-b4": {
       "class": "IV-ec-partial-id",
-      "functionalClass": "componentwise partial-identification OM lower bound",
+      "functionalClass": "joint-resampled scalar partial-identification OM lower bound",
       "identificationAssumptions": [
         "ledger-traced ventures only",
+        "realized public allocation counterfactual",
         "adverse displacement and external-cost region"
-      ]
+      ],
+      "identificationRules": [
+        {
+          "assumption": "ledger-traced ventures only",
+          "type": "traceable-capital-share",
+          "value": 1,
+          "operation": "multiply private/public welfare contrast by traceable retained-capital share"
+        },
+        {
+          "assumption": "realized public allocation counterfactual",
+          "type": "realized-public-allocation-share",
+          "value": 1,
+          "operation": "multiply realized public first-allocation surplus path by locked share"
+        },
+        {
+          "assumption": "adverse displacement and external-cost region",
+          "type": "adverse-cost-share",
+          "value": 0.04,
+          "operation": "subtract locked share of projected displacement plus external costs after scalar sampling uncertainty"
+        }
+      ],
+      "intervalFamily": "B-4"
     },
     "IV-certification-constant-failed": {
       "class": "IV-ec-constant",
-      "functionalClass": "constant component OM projection",
+      "functionalClass": "componentwise shared-exposure constant Marshallian OM scalar",
       "identificationAssumptions": [
-        "no trend"
-      ]
+        "ledger-traced ventures only",
+        "realized public allocation counterfactual"
+      ],
+      "identificationRules": [
+        {
+          "assumption": "ledger-traced ventures only",
+          "type": "traceable-capital-share",
+          "value": 1,
+          "operation": "multiply private/public welfare contrast by traceable retained-capital share"
+        },
+        {
+          "assumption": "realized public allocation counterfactual",
+          "type": "realized-public-allocation-share",
+          "value": 1,
+          "operation": "multiply realized public first-allocation surplus path by locked share"
+        }
+      ],
+      "intervalFamily": "B-2"
     }
   },
   "dependenceDesign": {
     "structure": "annual serial dependence preserved",
     "clusteringUnit": "civilization-year",
-    "B1": "studentized circular block bootstrap with automatic block length and simultaneous maximum studentized deviation",
-    "B2": "Bartlett HAC with automatic bandwidth and one-sided Bonferroni max-t simultaneous fallback",
-    "B4": "adverse endpoint of declared displacement/external-cost identified region plus one-sided HAC confidence width"
+    "B1": "nested bootstrap-t circular block construction: 999 outer replications, 199 inner replications per outer draw, replication-specific inner standard errors, automatic block length, and maximum one-sided adverse studentized statistic",
+    "B2": "Bartlett HAC with automatic bandwidth and one-sided Bonferroni simultaneous fallback; no max-t distribution is estimated",
+    "B4": "1,999-draw joint circular residual-block bootstrap of the discounted thirty-year OM scalar, followed separately by the adverse displacement/external-cost identified-region endpoint"
   },
   "preprocessingSelections": [
     "identity transform",
@@ -437,22 +812,56 @@
       2290,
       2291
     ],
-    "benchmark": "naive one-year persistence on identical held-out rows",
-    "survivalRule": "member RMSE must be no worse than persistence RMSE"
+    "benchmark": "naive one-year persistence on the identical held-out outcome",
+    "survivalRule": "every preregistered legally operative outcome is tested separately; a member survives only if each outcome-specific RMSE is no worse than its matching persistence RMSE; the maximum RMSE ratio controls",
+    "outcomes": {
+      "I": [
+        "50 receipts",
+        "70 receipts",
+        "obligations",
+        "receipt contrast",
+        "50 coverage",
+        "70 coverage"
+      ],
+      "II": [
+        "50 dividend",
+        "70 dividend",
+        "raw schedule effect",
+        "attributed effect",
+        "attributed treatment dividend"
+      ],
+      "III": [
+        "50 and 70 SCM",
+        "SCM contrast and attributed SCM",
+        "50 and 70 Flow",
+        "Flow contrast and attributed Flow"
+      ],
+      "IV": [
+        "private marginal value",
+        "realized-public counterfactual marginal value",
+        "net marginal value"
+      ]
+    }
   },
   "appendixA": {
     "executableProcedure": [
-      "read each byte-locked raw observation artifact",
-      "verify exact 2272-2291 coverage",
-      "fit on 2272-2286 only",
-      "validate on 2287-2291 and retain failures",
+      "read each byte-locked raw contrast artifact",
+      "verify exact 2272-2291 coverage and explicit 50/70 fields",
+      "consume and validate every identification rule",
+      "fit on 2272-2286 only under the shared exogenous path",
+      "validate every legally operative outcome separately on 2287-2291 and retain failures",
       "refit surviving member on all 20 observations",
-      "project 2295-2324",
-      "construct selected B-1/B-2/B-4 bound",
-      "apply §5.3 precision ceiling",
-      "select least-favorable representative and dispose each Finding"
+      "project both schedules over 2295-2324",
+      "construct the selected B-1/B-2/B-4 bound",
+      "apply outcome-aligned §5.3 precision ceilings",
+      "select the least-activation-favorable surviving equivalence class and dispose each Finding"
     ],
-    "treatmentCounterfactual": "retained tranche versus matched realized public first allocation",
+    "treatmentCounterfactual": {
+      "I": "50-schedule receipts versus enacted-70 receipts with common obligations and demographic path",
+      "II": "50-schedule dividend versus enacted-70 dividend under a numerical schedule-attribution share",
+      "III": "50-schedule versus enacted-70 SCM activation and Flow paths under a numerical liquidity-response share",
+      "IV": "retained tranche through traced private ventures versus the same tranche through realized public first allocation"
+    },
     "discountRate": 0.02,
     "concentrationEventRule": "zero admitted concentration events required",
     "diagnosticProcedures": {
@@ -469,23 +878,31 @@
     "sources": [
       {
         "path": "tools/build-path2-certification-record.mjs",
-        "digest": "2f1afb0cf7c31fec8b5107a6f42e6312bf0e17d6841b3d62da2ff759f49586a9"
+        "digest": "d1f24bd9baa00ff917b52f3ee50f5a49c05614e9b58ab57af21131525ac3f387"
       },
       {
         "path": "tools/path2-execution-engine.mjs",
-        "digest": "326dd70a9a33b1976f663e03d1b39cd5ea4bc45fbf74e3f0bbba9ad0b44e0e2a"
+        "digest": "4a345b839633767af58dec7ba37693f9ae4e1a3fc17c0e8928e8ebb940bd63df"
       },
       {
         "path": "tools/path2-certification-core.mjs",
-        "digest": "f4e5bd1927e81d34afd63339e0b6c77ffec2c98a57edb3bd1c0d879b1165d0f1"
+        "digest": "d445035924cf709ccfbe314c35a728675da9c96fce0ef4bc27f247d6be096ce9"
       },
       {
         "path": "tools/verify-path2-certification-2294.mjs",
-        "digest": "43a48599a042df6232de001c08f3e6ff31c8f2deec0af425d5321e9de8a27915"
+        "digest": "173056d1297c89a58473a9b3e2df9cd524ffa3227fa17707b017f49978e7b82d"
+      },
+      {
+        "path": "tools/test-path2-methodology.mjs",
+        "digest": "4141b8746013049f2e6a2bda5b9b621406d28c24c64963114cbb8cbd649db236"
+      },
+      {
+        "path": "tools/test-path2-certification-mutations.mjs",
+        "digest": "bf0fcb0fe4247f3f416d218466ac17c8e85725a1e19a595a0a8b3c9ae01cd07b"
       },
       {
         "path": "tools/build-path2-certification-page.mjs",
-        "digest": "02f110bcbae1ffbafc392848263f0970e0d36a549fda6ab045747a0707173c24"
+        "digest": "5955d22e05c6fcc208b172c316820bf179f3527246df7a98870c717f9d265f9c"
       },
       {
         "path": "package-lock.json",
@@ -501,47 +918,79 @@
       "finding": "I",
       "sourceId": "FINDING-I-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-i-observations.json",
-      "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
+      "digest": "8005a0764dcd209afb102e197979d66165b63650d72eb8c73e16edf9ed515837",
       "fields": [
         "year",
-        "receipts",
+        "sharedDemographicIndex",
+        "treatmentReceipts50",
+        "counterfactualReceipts70",
         "obligations"
       ],
-      "transform": "identity; numeric fields in deposited constant-2292 units",
-      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+      "transform": "shared-exposure normalization followed by the locked functional class; no cross-credit or behavioral adjustment except an executed locked rule",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
+      "treatmentQuantity": "annual real receipts under the proposed 50 percent schedule",
+      "counterfactualQuantity": "annual real receipts under the enacted 70 percent schedule; obligations are common",
+      "observedOrEstimatedSources": [
+        "separately administered matched 50-schedule receipt series",
+        "enacted-70 receipt ledger",
+        "enumerated obligation ledger"
+      ],
+      "sharedExogenousInput": "sharedDemographicIndex, projected once and applied identically to both schedules",
+      "uncertaintyConstruction": "joint B-1 bootstrap-t or B-2 Bonferroni HAC construction over coverage and receipt contrast"
     },
     {
       "finding": "II",
       "sourceId": "FINDING-II-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-ii-observations.json",
-      "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
+      "digest": "cf276a94c1839bb1d5ba9a6955ca37bf889a19599db9f41bb6028547b0099eaa",
       "fields": [
         "year",
-        "realDividendPerResident"
+        "sharedResidentDemandIndex",
+        "treatmentDividend50",
+        "counterfactualDividend70"
       ],
-      "transform": "identity; numeric fields in deposited constant-2292 units",
-      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+      "transform": "shared-exposure normalization followed by the locked functional class; no cross-credit or behavioral adjustment except an executed locked rule",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
+      "treatmentQuantity": "real per-resident dividend under the proposed 50 schedule",
+      "counterfactualQuantity": "real per-resident dividend under enacted 70",
+      "observedOrEstimatedSources": [
+        "matched 50-schedule ADT/dividend series",
+        "enacted-70 ADT/dividend series"
+      ],
+      "sharedExogenousInput": "sharedResidentDemandIndex",
+      "uncertaintyConstruction": "simultaneous bounds for attributed treatment dividend and the numerical schedule effect"
     },
     {
       "finding": "III",
       "sourceId": "FINDING-III-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iii-observations.json",
-      "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a",
+      "digest": "423a2053c944dc205e16fb25f8b94fefe1dfa52930ed71b4ea2a0ba5116bf001",
       "fields": [
         "year",
-        "annualScmActivations",
-        "flowTestMargin"
+        "sharedLiquidityIndex",
+        "treatmentScmActivations50",
+        "counterfactualScmActivations70",
+        "treatmentFlowMargin50",
+        "counterfactualFlowMargin70"
       ],
-      "transform": "identity; numeric fields in deposited constant-2292 units",
-      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+      "transform": "shared-exposure normalization followed by the locked functional class; no cross-credit or behavioral adjustment except an executed locked rule",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
+      "treatmentQuantity": "SCM activation frequency and Flow margin under proposed 50",
+      "counterfactualQuantity": "the same outcomes under enacted 70",
+      "observedOrEstimatedSources": [
+        "matched schedule-subject holding panels under 50 and 70"
+      ],
+      "sharedExogenousInput": "sharedLiquidityIndex",
+      "uncertaintyConstruction": "joint simultaneous bounds for both outcome paths and both schedule contrasts"
     },
     {
       "finding": "IV",
       "sourceId": "FINDING-IV-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iv-observations.json",
-      "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f",
+      "digest": "1d66ca0bef59bba82f935f0c6f4682e90756401ed0969960fed56a9fa8cb6aa4",
       "fields": [
         "year",
+        "sharedVentureExposureIndex",
         "privateConsumerSurplus",
         "privateProducerSurplus",
         "qualityAdjustment",
@@ -554,24 +1003,43 @@
         "publicCaptureSurplus",
         "canonicalConsumptionLevel"
       ],
-      "transform": "identity; numeric fields in deposited constant-2292 units",
-      "custodian": "Canonical Statistical Authority, Path 2 escrow desk"
+      "transform": "shared-exposure normalization followed by the locked functional class; no cross-credit or behavioral adjustment except an executed locked rule",
+      "custodian": "Canonical Statistical Authority, Path 2 escrow desk",
+      "treatmentQuantity": "welfare from ledger-traced private deployment of the retained 70-to-50 tranche",
+      "counterfactualQuantity": "welfare from the same tranche under realized public first allocation",
+      "observedOrEstimatedSources": [
+        "venture ledger private surplus/cost series",
+        "realized public allocation surplus series"
+      ],
+      "sharedExogenousInput": "sharedVentureExposureIndex",
+      "uncertaintyConstruction": "B-1 bootstrap-t or B-4 direct joint block bootstrap of the discounted scalar, with the identified-region endpoint added separately"
     }
   ],
   "randomSeedProcedure": {
     "generator": "32-bit LCG (1664525*x + 1013904223 mod 2^32)",
+    "subSeedDerivation": "mix32(baseSeed XOR ((outer+1)*0x9e3779b1) XOR ((inner+1)*0x85ebca6b)); inner zero reserved for outer draw",
+    "B1": {
+      "outerReplications": 999,
+      "innerReplications": 199,
+      "failureHandling": "discard zero/nonfinite inner-SE outer replicate; abort below 90 percent valid; abort on zero original-estimate SE",
+      "quantileConvention": "Hyndman-Fan type 7 at 0.95"
+    },
+    "B4": {
+      "scalarReplications": 1999,
+      "target": "discounted thirty-year net OM scalar"
+    },
     "seeds": {
       "I-certification-linear-b1": 74001,
       "II-certification-linear-b1": 74002,
       "III-certification-linear-b1": 74003,
-      "IV-certification-linear-b1": 74004
-    },
-    "repetitions": 399
+      "IV-certification-linear-b1": 74004,
+      "IV-refusal-partial-id-b4": 74005
+    }
   },
   "precisionClarification": {
     "amendmentPath": "documents/path2-compendium/precision-measurement-amendment-2291.json",
-    "amendmentDigest": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a",
+    "amendmentDigest": "291068f1918602932b1fb3f5cfa79456b7d5b58d1f5ea74e90d25072e14399f6",
     "scope": "Measurement-only clarification of Charter §5.3; substantive Finding II zero-impairment and Finding IV positive-OM thresholds are unchanged."
   },
-  "artifactDigest": "04ca12ebd040a4681ce247b932d733d647af9fbdf341c2637a7bb0087371dec7"
+  "artifactDigest": "d94336dfa242fc594cf51610b368e0695e4a6f32e47c2715e265bfaf7d61e90a"
 }

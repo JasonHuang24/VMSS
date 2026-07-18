@@ -1,16 +1,16 @@
 PATH 2 INDEPENDENT EXECUTION LOG
 run: LP074-2294-LOCKED
-lock certificate: 830e594b9b6b1eaf0dc8012cda6ee33660f4ba384977d6463b1e854aaf469493
-preregistration: 5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0
-code manifest: b1c1000753613129451b8efc1b9ef1bc9bf3e99ed24365929b626e02f174700e
-execution output: 09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8
+lock certificate: 2c7e6eb359e5c5329991a47592752ebc688ecb7c80ad1a21f4245c0b704762ad
+preregistration: d4f38d203bd13d8a214fafaf4232799e1ba44ceb8bbcdd90de647939b56af00c
+code manifest: fe79bed98662b4dc33c9af54fcdbb6dd3afd9e7a2df084c32f78da492149227d
+execution output: 6c4d3332423f3f23577f0276258257367986647d069d345498c03f5f79b2842e
 exact command: node tools/verify-path2-certification-2294.mjs --registrar-recompute
 execution completed: 2294-01-10T18:00:00Z
 observation window: 2272-2291
 validation holdout: 2287-2291
 threshold baseline: 2282-2291
 B-1 seeds: I-certification-linear-b1=74001, II-certification-linear-b1=74002, III-certification-linear-b1=74003, IV-certification-linear-b1=74004
-Findings I-IV: PASS/PASS/PASS/PASS
-A1-A8: PASS
-B1-B6: PASS
-result: CERTIFIED FOR SUBSEQUENT INSTRUMENT ISSUANCE
+Findings I-IV: PASS/PASS/FAIL/PASS
+A1-A8: PASS/PASS/PASS/PASS/PASS/PASS/PASS/PASS
+B1-B6: PASS/PASS/PASS/PASS/PASS/PASS
+result: CERTIFICATION REFUSED; LP-073 REMAINS OPERATIVE

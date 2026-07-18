@@ -4,106 +4,167 @@
     2272,
     2291
   ],
+  "contrastDesign": "matched 50-schedule and enacted-70 SCM/Flow outcomes under one liquidity index",
   "observations": [
     {
       "year": 2272,
-      "annualScmActivations": 7.595,
-      "flowTestMargin": 0.91
+      "sharedLiquidityIndex": 1,
+      "treatmentScmActivations50": 7.595,
+      "counterfactualScmActivations70": 7.355,
+      "treatmentFlowMargin50": 0.91,
+      "counterfactualFlowMargin70": 0.95175
     },
     {
       "year": 2273,
-      "annualScmActivations": 7.610333,
-      "flowTestMargin": 0.917
+      "sharedLiquidityIndex": 1.0059375,
+      "treatmentScmActivations50": 7.610333,
+      "counterfactualScmActivations70": 7.366976,
+      "treatmentFlowMargin50": 0.917,
+      "counterfactualFlowMargin70": 0.957117
     },
     {
       "year": 2274,
-      "annualScmActivations": 7.709833,
-      "flowTestMargin": 0.891
+      "sharedLiquidityIndex": 1.0056875,
+      "treatmentScmActivations50": 7.709833,
+      "counterfactualScmActivations70": 7.467833,
+      "treatmentFlowMargin50": 0.891,
+      "counterfactualFlowMargin70": 0.933692
     },
     {
       "year": 2275,
-      "annualScmActivations": 7.726,
-      "flowTestMargin": 0.909333
+      "sharedLiquidityIndex": 1.01375,
+      "treatmentScmActivations50": 7.726,
+      "counterfactualScmActivations70": 7.479024,
+      "treatmentFlowMargin50": 0.909333,
+      "counterfactualFlowMargin70": 0.950433
     },
     {
       "year": 2276,
-      "annualScmActivations": 7.823833,
-      "flowTestMargin": 0.875
+      "sharedLiquidityIndex": 1.0119375,
+      "treatmentScmActivations50": 7.823833,
+      "counterfactualScmActivations70": 7.579404,
+      "treatmentFlowMargin50": 0.875,
+      "counterfactualFlowMargin70": 0.918592
     },
     {
       "year": 2277,
-      "annualScmActivations": 7.810833,
-      "flowTestMargin": 0.885667
+      "sharedLiquidityIndex": 1.0185625,
+      "treatmentScmActivations50": 7.810833,
+      "counterfactualScmActivations70": 7.562523,
+      "treatmentFlowMargin50": 0.885667,
+      "counterfactualFlowMargin70": 0.926209
     },
     {
       "year": 2278,
-      "annualScmActivations": 7.897833,
-      "flowTestMargin": 0.894333
+      "sharedLiquidityIndex": 1.0248125,
+      "treatmentScmActivations50": 7.897833,
+      "counterfactualScmActivations70": 7.645928,
+      "treatmentFlowMargin50": 0.894333,
+      "counterfactualFlowMargin70": 0.936825
     },
     {
       "year": 2279,
-      "annualScmActivations": 7.967333,
-      "flowTestMargin": 0.864
+      "sharedLiquidityIndex": 1.02375,
+      "treatmentScmActivations50": 7.967333,
+      "counterfactualScmActivations70": 7.717404,
+      "treatmentFlowMargin50": 0.864,
+      "counterfactualFlowMargin70": 0.907567
     },
     {
       "year": 2280,
-      "annualScmActivations": 7.980167,
-      "flowTestMargin": 0.870667
+      "sharedLiquidityIndex": 1.029625,
+      "treatmentScmActivations50": 7.980167,
+      "counterfactualScmActivations70": 7.726929,
+      "treatmentFlowMargin50": 0.870667,
+      "counterfactualFlowMargin70": 0.912475
     },
     {
       "year": 2281,
-      "annualScmActivations": 8.078,
-      "flowTestMargin": 0.841333
+      "sharedLiquidityIndex": 1.02875,
+      "treatmentScmActivations50": 8.078,
+      "counterfactualScmActivations70": 7.826595,
+      "treatmentFlowMargin50": 0.841333,
+      "counterfactualFlowMargin70": 0.885633
     },
     {
       "year": 2282,
-      "annualScmActivations": 8.093333,
-      "flowTestMargin": 0.861333
+      "sharedLiquidityIndex": 1.037125,
+      "treatmentScmActivations50": 8.093333,
+      "counterfactualScmActivations70": 7.836714,
+      "treatmentFlowMargin50": 0.861333,
+      "counterfactualFlowMargin70": 0.904
     },
     {
       "year": 2283,
-      "annualScmActivations": 8.1645,
-      "flowTestMargin": 0.847
+      "sharedLiquidityIndex": 1.0390625,
+      "treatmentScmActivations50": 8.1645,
+      "counterfactualScmActivations70": 7.907571,
+      "treatmentFlowMargin50": 0.847,
+      "counterfactualFlowMargin70": 0.890825
     },
     {
       "year": 2284,
-      "annualScmActivations": 8.219,
-      "flowTestMargin": 0.838
+      "sharedLiquidityIndex": 1.042,
+      "treatmentScmActivations50": 8.219,
+      "counterfactualScmActivations70": 7.961,
+      "treatmentFlowMargin50": 0.838,
+      "counterfactualFlowMargin70": 0.88215
     },
     {
       "year": 2285,
-      "annualScmActivations": 8.234333,
-      "flowTestMargin": 0.845
+      "sharedLiquidityIndex": 1.0479375,
+      "treatmentScmActivations50": 8.234333,
+      "counterfactualScmActivations70": 7.972976,
+      "treatmentFlowMargin50": 0.845,
+      "counterfactualFlowMargin70": 0.887517
     },
     {
       "year": 2286,
-      "annualScmActivations": 8.333833,
-      "flowTestMargin": 0.819
+      "sharedLiquidityIndex": 1.0476875,
+      "treatmentScmActivations50": 8.333833,
+      "counterfactualScmActivations70": 8.073833,
+      "treatmentFlowMargin50": 0.819,
+      "counterfactualFlowMargin70": 0.864092
     },
     {
       "year": 2287,
-      "annualScmActivations": 8.35,
-      "flowTestMargin": 0.837333
+      "sharedLiquidityIndex": 1.05575,
+      "treatmentScmActivations50": 8.35,
+      "counterfactualScmActivations70": 8.085024,
+      "treatmentFlowMargin50": 0.837333,
+      "counterfactualFlowMargin70": 0.880833
     },
     {
       "year": 2288,
-      "annualScmActivations": 8.447833,
-      "flowTestMargin": 0.803
+      "sharedLiquidityIndex": 1.0539375,
+      "treatmentScmActivations50": 8.447833,
+      "counterfactualScmActivations70": 8.185404,
+      "treatmentFlowMargin50": 0.803,
+      "counterfactualFlowMargin70": 0.848992
     },
     {
       "year": 2289,
-      "annualScmActivations": 8.434833,
-      "flowTestMargin": 0.813667
+      "sharedLiquidityIndex": 1.0605625,
+      "treatmentScmActivations50": 8.434833,
+      "counterfactualScmActivations70": 8.168523,
+      "treatmentFlowMargin50": 0.813667,
+      "counterfactualFlowMargin70": 0.856609
     },
     {
       "year": 2290,
-      "annualScmActivations": 8.521833,
-      "flowTestMargin": 0.822333
+      "sharedLiquidityIndex": 1.0668125,
+      "treatmentScmActivations50": 8.521833,
+      "counterfactualScmActivations70": 8.251928,
+      "treatmentFlowMargin50": 0.822333,
+      "counterfactualFlowMargin70": 0.867225
     },
     {
       "year": 2291,
-      "annualScmActivations": 8.591333,
-      "flowTestMargin": 0.792
+      "sharedLiquidityIndex": 1.06575,
+      "treatmentScmActivations50": 8.591333,
+      "counterfactualScmActivations70": 8.323404,
+      "treatmentFlowMargin50": 0.792,
+      "counterfactualFlowMargin70": 0.837967
     }
   ]
 }

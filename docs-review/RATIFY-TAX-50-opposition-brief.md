@@ -2,9 +2,9 @@
 
 > **ARCHIVE / NON-OPERATIVE.** This is the failed RATIFY-TAX-50 record,
 > preserved below rather than current authority. Its authored figures never
-> activated law. LP-073's 70 / 35 / 17 / 8 applied in this record's era; the
-> later independent LP-074 certification activated 50 / 25 / 12.5 / 6.25 in
-> 2295. SCM is unchanged.
+> activated law. The later independent LP-074 execution also changed no rate:
+> corrected Finding III failed and Schedule A was refused. LP-073's 70 / 35 /
+> 17 / 8 remains operative; SCM is unchanged.
 
 Status: in-world document. Per ruling R9, adversarial-review findings
 with no drafting cure attach VERBATIM to the gauntlet ballot as the

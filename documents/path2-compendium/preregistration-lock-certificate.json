@@ -1,7 +1,7 @@
 {
   "artifactType": "PATH2_PREREGISTRATION_LOCK_CERTIFICATE",
   "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
-  "preregistrationByteDigest": "5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0",
+  "preregistrationByteDigest": "d4f38d203bd13d8a214fafaf4232799e1ba44ceb8bbcdd90de647939b56af00c",
   "algorithm": "SHA-256",
   "canonicalTimestamp": "2292-02-15T12:00:00Z",
   "canonicalTimeAuthority": "Civilization Standard Time Authority receipt CST-2292-046-120000",
@@ -39,5 +39,5 @@
     "measuredWorstCaseMinutes": 3,
     "publicationDeadline": "2294-02-15T12:00:00Z"
   },
-  "artifactDigest": "8ce05604028914d83cf3de3e9eaedaa57c58e3f0c0d9889e03708ac8caf55601"
+  "artifactDigest": "b822c9d08363ec2012c7ca4fdf716ce15dc8a7822f02ba83637bad1025e9fc3b"
 }

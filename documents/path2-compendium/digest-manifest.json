@@ -55,107 +55,107 @@
     {
       "id": "FINDING-I-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-i-observations.json",
-      "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14"
+      "digest": "8005a0764dcd209afb102e197979d66165b63650d72eb8c73e16edf9ed515837"
     },
     {
       "id": "FINDING-II-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-ii-observations.json",
-      "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821"
+      "digest": "cf276a94c1839bb1d5ba9a6955ca37bf889a19599db9f41bb6028547b0099eaa"
     },
     {
       "id": "FINDING-III-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iii-observations.json",
-      "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a"
+      "digest": "423a2053c944dc205e16fb25f8b94fefe1dfa52930ed71b4ea2a0ba5116bf001"
     },
     {
       "id": "FINDING-IV-OBSERVATIONS-2294",
       "path": "documents/path2-compendium/raw/finding-iv-observations.json",
-      "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f"
+      "digest": "1d66ca0bef59bba82f935f0c6f4682e90756401ed0969960fed56a9fa8cb6aa4"
     },
     {
       "id": "COMPENDIUM-raw-data",
       "path": "documents/path2-compendium/raw-data-index.json",
-      "digest": "884c98a3001cdd19183f3643fa8efde7be8e798624fb95145e30bbbe2c396190"
+      "digest": "a3143f35e02df8e4c0f8ef427576941fbe06c3a62f875ba1bddc10bc606de9b4"
     },
     {
       "id": "COMPENDIUM-preregistration",
       "path": "documents/path2-compendium/preregistration-2292.json",
-      "digest": "5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0"
+      "digest": "d4f38d203bd13d8a214fafaf4232799e1ba44ceb8bbcdd90de647939b56af00c"
     },
     {
       "id": "COMPENDIUM-preregistration-lock-certificate",
       "path": "documents/path2-compendium/preregistration-lock-certificate.json",
-      "digest": "830e594b9b6b1eaf0dc8012cda6ee33660f4ba384977d6463b1e854aaf469493"
+      "digest": "2c7e6eb359e5c5329991a47592752ebc688ecb7c80ad1a21f4245c0b704762ad"
     },
     {
       "id": "COMPENDIUM-public-chambers-lock-record",
       "path": "documents/path2-compendium/public-chambers-lock-record.json",
-      "digest": "ad9b3b292a9551fc11dcfe38584af170e3bc90e935b66858394a2f6a1d8f8a86"
+      "digest": "3ef4b983d1c460b05140b64e5bb64fe4e8ee412feb88ca12dc5e1ca59c0fdcef"
     },
     {
       "id": "COMPENDIUM-analytic-data",
       "path": "documents/path2-compendium/analytic-results.json",
-      "digest": "05aec60bce1541ae85fa9f8fea9d43b9f2d33c9e064c72dbab1a492ac07b9ba8"
+      "digest": "e9003c0b7a150e1f5837cfc74d96c222eb7722c3e176a5bb9b58ec3f827c54f9"
     },
     {
       "id": "COMPENDIUM-executed-calculation-output",
       "path": "documents/path2-compendium/execution-output.json",
-      "digest": "09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8"
+      "digest": "6c4d3332423f3f23577f0276258257367986647d069d345498c03f5f79b2842e"
     },
     {
       "id": "COMPENDIUM-calculation-code",
       "path": "documents/path2-compendium/calculation-code-manifest.json",
-      "digest": "b1c1000753613129451b8efc1b9ef1bc9bf3e99ed24365929b626e02f174700e"
+      "digest": "fe79bed98662b4dc33c9af54fcdbb6dd3afd9e7a2df084c32f78da492149227d"
     },
     {
       "id": "COMPENDIUM-environment-manifest",
       "path": "documents/path2-compendium/environment-manifest.json",
-      "digest": "854be9b3c7d45335a010b16d45d73bf0db24e7654c211c0b625aa0e49a38f9c9"
+      "digest": "9fb92fcb93a1a986aee312e8b67e1ae8e0fc0a9d96536348d67edafe0cd94b9f"
     },
     {
       "id": "COMPENDIUM-source-provenance",
       "path": "documents/path2-compendium/source-registry.json",
-      "digest": "fb3d2c98b48eca6a53b6eaa6f5e42df64bbe48d86d823c6b93a59fd3b044704c"
+      "digest": "6aa3323c7d4bbcf4fa873cf508fafdc5903d36e19e29bf2f1546800a757306f1"
     },
     {
       "id": "COMPENDIUM-transformation-rules",
       "path": "documents/path2-compendium/transformations.md",
-      "digest": "8af5cf8554e08b5d75ace689c75d10d626641b2dbfcb05247837e0bdf7adbc98"
+      "digest": "5b08f7361fae1e88f9479b23f7832925e9c74117e0d76647ecd0526c89109f54"
     },
     {
       "id": "COMPENDIUM-seeds",
       "path": "documents/path2-compendium/seeds.md",
-      "digest": "0f119a281be82df7d77e2bbf04ef504d1953d5a4e6f1f9ceb52e23d2ae014518"
+      "digest": "bf632becf58f14933697c943e272f693de2531379d76a8eddbb631168439fc0a"
     },
     {
       "id": "COMPENDIUM-execution-logs",
       "path": "documents/path2-compendium/execution-log.txt",
-      "digest": "d7e9a3d18b9541c95594ca2b2f65e6097054bf604a93e015b48c38d4ebc22e9f"
+      "digest": "f4f97964273db242ac68962e5cc5f84f401df81ffd11b7a0f7daabbe923b44ef"
     },
     {
       "id": "COMPENDIUM-section-4-3-validation-records",
       "path": "documents/path2-compendium/validation-records.json",
-      "digest": "cef4bff4dba2c0f26904cef260feae8c7ce0e8ff6d3bc9f626838517b1d70a10"
+      "digest": "d5d1db59529941258d928ac5313d4ec6b067ca58364f5ebf3d541a1c1ad514cc"
     },
     {
       "id": "COMPENDIUM-union-estimates-and-intervals",
       "path": "documents/path2-compendium/union-estimates.json",
-      "digest": "9605c734a19a3ec8f0cb93d27ac7153633b1414c1d01dd82b075a92146b36bf5"
+      "digest": "541429eea4d2eed5ef52088c26dd003323cc5b67a3db6c0f514201ddca001579"
     },
     {
       "id": "COMPENDIUM-finding-iv-member-derivations",
       "path": "documents/path2-compendium/finding-iv-member-derivations.json",
-      "digest": "587c82fe92217d6f136d8f23cbc8e60aa6889848aaf9ddb0f3c11fee2e99a900"
+      "digest": "352be61b2af00daa335351f88482b1a6d455527c9a203f5b3abc40307a9121d3"
     },
     {
       "id": "COMPENDIUM-mandatory-d1-d5-diagnostics",
       "path": "documents/path2-compendium/mandatory-diagnostics.json",
-      "digest": "81a9749030f02a0654191595fcb614629e046ffb5ccc51558aaebeb3c0a77f64"
+      "digest": "e86cc988cea94df6930f41322ff63cc08856fb044792c8473b6db9247f3595e6"
     },
     {
       "id": "COMPENDIUM-precision-measurement-amendment",
       "path": "documents/path2-compendium/precision-measurement-amendment-2291.json",
-      "digest": "95f53b2c1dfb9880fe2e48bed3d3153114ffe964a14f3b9d933b795ee411243a"
+      "digest": "291068f1918602932b1fb3f5cfa79456b7d5b58d1f5ea74e90d25072e14399f6"
     },
     {
       "id": "COMPENDIUM-cold-review-record",
@@ -165,22 +165,22 @@
     {
       "id": "COMPENDIUM-commission-votes-dissents-declarations",
       "path": "documents/path2-compendium/commission-record.json",
-      "digest": "27757b5452282a16dbbf4ec8b4ed403e286c8f197e3652269261a2c5e3739914"
+      "digest": "8bb09ee9318a631e0599159a002df0d1c101b709d6cf5b395c5f8595a692fc3b"
     },
     {
       "id": "COMPENDIUM-registrar-certifications",
       "path": "documents/path2-compendium/registrar-certification.json",
-      "digest": "79a4a10ec2ef40786398e9435cc872824fd4eab68b6c1ae18268b431a40d74dd"
+      "digest": "f193efdfd1bbd1855bb445bccaa73905aa1fb4ae9ca4069d725553e3233b2166"
     },
     {
       "id": "COMPENDIUM-lower-incidence-certificate",
       "path": "documents/path2-compendium/lower-incidence-certificate.json",
-      "digest": "331b215d9249e764273ec5c2a309e4d4fe0ebb3959ef42dd39ed4b97010373a2"
+      "digest": "96ebb833f5f7db2ed307d18f44b8e493e3b8104bfee1b6c7bcd45541cba1e73a"
     },
     {
       "id": "COMPENDIUM-lower-incidence-adoption",
       "path": "documents/path2-compendium/lower-incidence-adoption.json",
-      "digest": "cf0aa92f2a049e9a9b0f700381be8f4e32fa674a27e533be224af112a58a62d8"
+      "digest": "62c9e3019be8964573a054b6f7782f77a3fbc1df0b5bed425b8dd933600f8a1d"
     },
     {
       "id": "LP075-REVIEW",
@@ -195,17 +195,17 @@
     {
       "id": "SCHEDULE-A-CERTIFICATE",
       "path": "documents/path2-compendium/schedule-a-final-certificate.json",
-      "digest": "f6d9fafd259b2fbbdbdd10c06f4d0501aeaedefb7abe20b2a65665b812782b57"
+      "digest": "ad5bbfc810244745665cf57383fdc6ecc7a7ad27fe1451d1e06be0cd712e2b6d"
     },
     {
       "id": "SCHEDULE-B-CERTIFICATE",
       "path": "documents/path2-compendium/schedule-b-final-certificate.json",
-      "digest": "992e9f3f23a764b6d288a2fab94621557a0979ecd346d9f773a0934458a7d798"
+      "digest": "82ceb87a697e49c8b835ffde64ef14ab269d476ba62917aa8517a9d32e2ffc6b"
     },
     {
       "id": "EFFECTIVE-NOTICE",
       "path": "documents/path2-compendium/effective-notice-2295.json",
-      "digest": "22c599f2131d79cbc6b23e1265ba6f2fcbd849a2fb739a27446832cf8d397063"
+      "digest": "4fbcbdf726434ceef1eba231eac6df691df317ce2fab2631fbc83b20fce8145a"
     }
   ]
 }

@@ -2,9 +2,9 @@
 
 > **ARCHIVE / NON-OPERATIVE — historical entries preserved.** This is the
 > drafting archive through the pre-certification phases; dated entries are not
-> rewritten. LP-073's **70 / 35 / 17 / 8** applied in those phases. The later
-> independent 2294 certificates activated both LP-074 schedules in 2295. SCM
-> is unchanged.
+> rewritten. The later independent 2294 execution refused LP-074 Schedule A
+> after Finding III failed, so Schedule B was not reached. LP-073's **70 / 35 /
+> 17 / 8** remains operative; SCM is unchanged.
 
 ## Founder rulings of record (each shipped by this archival pass)
 - R1: Repair path for the pass-three kill is PATH 3 (rate

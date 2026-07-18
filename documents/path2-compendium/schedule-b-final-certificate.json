@@ -1,10 +1,10 @@
 {
-  "artifactType": "LP074_SCHEDULE_B_FINAL_CERTIFICATE",
+  "artifactType": "LP074_SCHEDULE_B_FINAL_DISPOSITION",
   "publishedAt": "2294-02-05T09:30:00Z",
-  "scheduleACertificateDigest": "f6d9fafd259b2fbbdbdd10c06f4d0501aeaedefb7abe20b2a65665b812782b57",
-  "lowerCertificateDigest": "331b215d9249e764273ec5c2a309e4d4fe0ebb3959ef42dd39ed4b97010373a2",
-  "lowerAdoptionDigest": "cf0aa92f2a049e9a9b0f700381be8f4e32fa674a27e533be224af112a58a62d8",
-  "registrarExecutionDigest": "79a4a10ec2ef40786398e9435cc872824fd4eab68b6c1ae18268b431a40d74dd",
+  "scheduleACertificateDigest": "ad5bbfc810244745665cf57383fdc6ecc7a7ad27fe1451d1e06be0cd712e2b6d",
+  "lowerCertificateDigest": "96ebb833f5f7db2ed307d18f44b8e493e3b8104bfee1b6c7bcd45541cba1e73a",
+  "lowerAdoptionDigest": "62c9e3019be8964573a054b6f7782f77a3fbc1df0b5bed425b8dd933600f8a1d",
+  "registrarExecutionDigest": "f193efdfd1bbd1855bb445bccaa73905aa1fb4ae9ca4069d725553e3233b2166",
   "conditions": {
     "B1": "PASS",
     "B2": "PASS",
@@ -13,7 +13,8 @@
     "B5": "PASS",
     "B6": "PASS"
   },
-  "schedule": "50 / 25 / 12.5 / 6.25",
-  "effectiveAssessmentYear": 2295,
-  "artifactDigest": "9ed5367172abbeaf53462e16c508b718a7d9ab2df74825759de08f9eaa12add2"
+  "result": "NOT_ISSUED_SCHEDULE_A_REFUSED",
+  "schedule": "70 / 35 / 17 / 8 remains operative",
+  "effectiveAssessmentYear": null,
+  "artifactDigest": "e6899b0c64fcbf53cd523b0d821f8580407f91ebc8f16eb01eb585969a588e06"
 }

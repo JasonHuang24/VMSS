@@ -5,25 +5,25 @@
       "memberId": "I-certification-linear-b1",
       "D1": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member; no discount operator enters its estimate."
+        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member."
       },
       "D2": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member has no Marshallian welfare vector to which distribution weights can apply."
+        "arithmeticExplanation": "The member has no Marshallian welfare vector."
       },
       "D3": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member estimates a complete statutory 30-year path, not an OM tail share."
+        "arithmeticExplanation": "The member estimates a complete statutory path, not an OM tail share."
       },
       "D4": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus numerator-denominator pair."
+        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus pair."
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "memberAdverseBound": 1.09721816
+          "findingIIIActivationUpper": 10.55860956,
+          "memberAdverseBound": 1.09675405
         },
         "arithmetic": "executed concentration-shadow frequency paired with this member adverse bound"
       }
@@ -32,25 +32,25 @@
       "memberId": "I-refusal-linear-b2",
       "D1": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member; no discount operator enters its estimate."
+        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member."
       },
       "D2": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member has no Marshallian welfare vector to which distribution weights can apply."
+        "arithmeticExplanation": "The member has no Marshallian welfare vector."
       },
       "D3": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member estimates a complete statutory 30-year path, not an OM tail share."
+        "arithmeticExplanation": "The member estimates a complete statutory path, not an OM tail share."
       },
       "D4": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus numerator-denominator pair."
+        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus pair."
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "memberAdverseBound": 1.09646003
+          "findingIIIActivationUpper": 10.55860956,
+          "memberAdverseBound": 1.0807628
         },
         "arithmetic": "executed concentration-shadow frequency paired with this member adverse bound"
       }
@@ -59,25 +59,25 @@
       "memberId": "II-certification-linear-b1",
       "D1": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member; no discount operator enters its estimate."
+        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member."
       },
       "D2": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member has no Marshallian welfare vector to which distribution weights can apply."
+        "arithmeticExplanation": "The member has no Marshallian welfare vector."
       },
       "D3": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member estimates a complete statutory 30-year path, not an OM tail share."
+        "arithmeticExplanation": "The member estimates a complete statutory path, not an OM tail share."
       },
       "D4": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus numerator-denominator pair."
+        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus pair."
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "memberAdverseBound": 102.72839759
+          "findingIIIActivationUpper": 10.55860956,
+          "memberAdverseBound": 102.68613668
         },
         "arithmetic": "executed concentration-shadow frequency paired with this member adverse bound"
       }
@@ -86,25 +86,25 @@
       "memberId": "II-refusal-linear-b2",
       "D1": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member; no discount operator enters its estimate."
+        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member."
       },
       "D2": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member has no Marshallian welfare vector to which distribution weights can apply."
+        "arithmeticExplanation": "The member has no Marshallian welfare vector."
       },
       "D3": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member estimates a complete statutory 30-year path, not an OM tail share."
+        "arithmeticExplanation": "The member estimates a complete statutory path, not an OM tail share."
       },
       "D4": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus numerator-denominator pair."
+        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus pair."
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "memberAdverseBound": 102.71989056
+          "findingIIIActivationUpper": 10.55860956,
+          "memberAdverseBound": 102.4307808
         },
         "arithmetic": "executed concentration-shadow frequency paired with this member adverse bound"
       }
@@ -113,25 +113,25 @@
       "memberId": "III-certification-linear-b1",
       "D1": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member; no discount operator enters its estimate."
+        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member."
       },
       "D2": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member has no Marshallian welfare vector to which distribution weights can apply."
+        "arithmeticExplanation": "The member has no Marshallian welfare vector."
       },
       "D3": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member estimates a complete statutory 30-year path, not an OM tail share."
+        "arithmeticExplanation": "The member estimates a complete statutory path, not an OM tail share."
       },
       "D4": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus numerator-denominator pair."
+        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus pair."
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "memberAdverseBound": 10.32812254
+          "findingIIIActivationUpper": 10.55860956,
+          "memberAdverseBound": 10.37647629
         },
         "arithmetic": "executed concentration-shadow frequency paired with this member adverse bound"
       }
@@ -140,25 +140,25 @@
       "memberId": "III-refusal-linear-b2",
       "D1": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member; no discount operator enters its estimate."
+        "arithmeticExplanation": "The member is not a Finding IV welfare-discount member."
       },
       "D2": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member has no Marshallian welfare vector to which distribution weights can apply."
+        "arithmeticExplanation": "The member has no Marshallian welfare vector."
       },
       "D3": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member estimates a complete statutory 30-year path, not an OM tail share."
+        "arithmeticExplanation": "The member estimates a complete statutory path, not an OM tail share."
       },
       "D4": {
         "status": "NOT_APPLICABLE",
-        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus numerator-denominator pair."
+        "arithmeticExplanation": "The member contains no private/public Marshallian-surplus pair."
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "memberAdverseBound": 10.34566362
+          "findingIIIActivationUpper": 10.55860956,
+          "memberAdverseBound": 10.55860956
         },
         "arithmetic": "executed concentration-shadow frequency paired with this member adverse bound"
       }
@@ -167,33 +167,33 @@
       "memberId": "IV-certification-linear-b1",
       "D1": {
         "status": "COMPUTED",
-        "zeroDiscountOm": 13.4760252,
+        "zeroDiscountOm": 14.00670232,
         "arithmetic": "sum(private marginal value - public counterfactual marginal value), discount factor fixed to one"
       },
       "D2": {
         "status": "COMPUTED",
-        "distributionWeightedOm": 9.93557886,
-        "baselineConsumption": 66.29838947,
-        "arithmetic": "sum(discounted net marginal value × baseline mean canonical consumption / projected canonical consumption), the logarithmic marginal-consumption weight"
+        "distributionWeightedOm": 10.28859516,
+        "baselineConsumption": 66.54827347,
+        "arithmetic": "sum(discounted net marginal value x baseline mean canonical consumption / projected canonical consumption)"
       },
       "D3": {
         "status": "COMPUTED",
-        "beyondHorizonShare": 0.03415711,
-        "numerator": 0.34944096,
-        "denominator": 10.23040153,
+        "beyondHorizonShare": 0.03323585,
+        "numerator": 0.35196676,
+        "denominator": 10.58997277,
         "arithmetic": "discounted deposited beyond-horizon value / (absolute controlling OM + discounted beyond-horizon value)"
       },
       "D4": {
         "status": "COMPUTED",
-        "publicCaptureNumerator": 16.75704893,
-        "privateSurplusDenominator": 30.72902529,
-        "arithmetic": "published as the required numerator/denominator pair; no quotient is computed"
+        "publicCaptureNumerator": 17.22940099,
+        "privateSurplusDenominator": 31.65544614,
+        "arithmetic": "required numerator/denominator pair; no quotient"
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "omLowerBound": 9.86406117
+          "findingIIIActivationUpper": 10.55860956,
+          "omLowerBound": 10.15565042
         },
         "arithmetic": "paired executed Finding III frequency upper bound and this member OM lower bound"
       }
@@ -202,33 +202,33 @@
       "memberId": "IV-refusal-partial-id-b4",
       "D1": {
         "status": "COMPUTED",
-        "zeroDiscountOm": 13.4760252,
+        "zeroDiscountOm": 14.00670232,
         "arithmetic": "sum(private marginal value - public counterfactual marginal value), discount factor fixed to one"
       },
       "D2": {
         "status": "COMPUTED",
-        "distributionWeightedOm": 9.93557886,
-        "baselineConsumption": 66.29838947,
-        "arithmetic": "sum(discounted net marginal value × baseline mean canonical consumption / projected canonical consumption), the logarithmic marginal-consumption weight"
+        "distributionWeightedOm": 10.28859516,
+        "baselineConsumption": 66.54827347,
+        "arithmetic": "sum(discounted net marginal value x baseline mean canonical consumption / projected canonical consumption)"
       },
       "D3": {
         "status": "COMPUTED",
-        "beyondHorizonShare": 0.03415711,
-        "numerator": 0.34944096,
-        "denominator": 10.23040153,
+        "beyondHorizonShare": 0.03323585,
+        "numerator": 0.35196676,
+        "denominator": 10.58997277,
         "arithmetic": "discounted deposited beyond-horizon value / (absolute controlling OM + discounted beyond-horizon value)"
       },
       "D4": {
         "status": "COMPUTED",
-        "publicCaptureNumerator": 16.75704893,
-        "privateSurplusDenominator": 30.72902529,
-        "arithmetic": "published as the required numerator/denominator pair; no quotient is computed"
+        "publicCaptureNumerator": 17.22940099,
+        "privateSurplusDenominator": 31.65544614,
+        "arithmetic": "required numerator/denominator pair; no quotient"
       },
       "D5": {
         "status": "COMPUTED",
         "concentrationShadowPair": {
-          "findingIIIActivationUpper": 10.34566362,
-          "omLowerBound": 9.79201343
+          "findingIIIActivationUpper": 10.55860956,
+          "omLowerBound": 10.0989928
         },
         "arithmetic": "paired executed Finding III frequency upper bound and this member OM lower bound"
       }

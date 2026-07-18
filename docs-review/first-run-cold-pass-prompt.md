@@ -3,8 +3,9 @@
 
 > **ARCHIVE / NON-OPERATIVE.** This prompt concerns an illustrative,
 > counterfactual chronicle, not a completed run or current authority. The real
-> first window closed without a run. The later remedial record validly
-> activated LP-074's **50 / 25 / 12.5 / 6.25** schedules in 2295.
+> first window closed without a run. The later remedial record validly refused
+> LP-074 Schedule A after corrected Finding III failed; LP-073's **70 / 35 /
+> 17 / 8** remains operative.
 
 ---
 
@@ -50,8 +51,8 @@ consistent with, but not drawn from, register data.
   Residual-Risk Register: engravings RR-1 through RR-12.
 - Anchor facts inside the illustrative 2279–2281 chronicle: the rates were
   70/35/17/8 under LP-073; instrument adopted 2279; certification window open
-  through 2288; Finding IV undecided. Those are not present-tense claims. The
-  actual remedial certificates later activated LP-074 in 2295.
+  through 2288; Finding IV undecided. The corrected remedial execution later
+  refused LP-074 Schedule A at Finding III, so LP-073 remains operative.
 
 ## REVIEW DIMENSIONS
 

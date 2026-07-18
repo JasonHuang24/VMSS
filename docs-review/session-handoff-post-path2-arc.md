@@ -6,9 +6,9 @@ founder; his rulings are canon. All protocol from the post-TAX-50
 handoff remains binding EXCEPT where superseded below.
 
 > **ARCHIVE / NON-OPERATIVE HANDOFF.** This handoff closes at the 2279 adoption
-> phase and preserves that phase's language. LP-073's **70 / 35 / 17 / 8**
-> applied then. The later complete 2294 certificates activated LP-074 in 2295;
-> LP-075 remains procedural and SCM remains unchanged.
+> phase and preserves that phase's language. The corrected 2294 execution later
+> refused LP-074 Schedule A at Finding III, so LP-073's **70 / 35 / 17 / 8**
+> remains operative; LP-075 remains procedural and SCM remains unchanged.
 
 STATE OF THE REPO — verify before trusting (fresh clone, always)
 Expected: canon v22.5.1 (+possible trailing chore commits, e.g. tailwind

@@ -3,18 +3,18 @@
   "registrar": "Ilex Public Reproduction Office / Registrar Sen Vale",
   "completedAt": "2294-01-10T18:00:00Z",
   "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
-  "preregistrationDigest": "5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0",
+  "preregistrationDigest": "d4f38d203bd13d8a214fafaf4232799e1ba44ceb8bbcdd90de647939b56af00c",
   "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
-  "lockCertificateDigest": "830e594b9b6b1eaf0dc8012cda6ee33660f4ba384977d6463b1e854aaf469493",
+  "lockCertificateDigest": "2c7e6eb359e5c5329991a47592752ebc688ecb7c80ad1a21f4245c0b704762ad",
   "codeManifestPath": "documents/path2-compendium/calculation-code-manifest.json",
-  "codeManifestDigest": "b1c1000753613129451b8efc1b9ef1bc9bf3e99ed24365929b626e02f174700e",
+  "codeManifestDigest": "fe79bed98662b4dc33c9af54fcdbb6dd3afd9e7a2df084c32f78da492149227d",
   "executionOutputPath": "documents/path2-compendium/execution-output.json",
-  "executionOutputDigest": "09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8",
+  "executionOutputDigest": "6c4d3332423f3f23577f0276258257367986647d069d345498c03f5f79b2842e",
   "sourceDigests": {
-    "FINDING-I-OBSERVATIONS-2294": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14",
-    "FINDING-II-OBSERVATIONS-2294": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821",
-    "FINDING-III-OBSERVATIONS-2294": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a",
-    "FINDING-IV-OBSERVATIONS-2294": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f"
+    "FINDING-I-OBSERVATIONS-2294": "8005a0764dcd209afb102e197979d66165b63650d72eb8c73e16edf9ed515837",
+    "FINDING-II-OBSERVATIONS-2294": "cf276a94c1839bb1d5ba9a6955ca37bf889a19599db9f41bb6028547b0099eaa",
+    "FINDING-III-OBSERVATIONS-2294": "423a2053c944dc205e16fb25f8b94fefe1dfa52930ed71b4ea2a0ba5116bf001",
+    "FINDING-IV-OBSERVATIONS-2294": "1d66ca0bef59bba82f935f0c6f4682e90756401ed0969960fed56a9fa8cb6aa4"
   },
   "exactCommand": "node tools/verify-path2-certification-2294.mjs --registrar-recompute",
   "environment": {
@@ -23,12 +23,20 @@
     "locale": "en-US"
   },
   "findingsMatchEscrowExecution": true,
+  "computedFindingDispositions": {
+    "I": "PASS",
+    "II": "PASS",
+    "III": "FAIL",
+    "IV": "PASS"
+  },
+  "computedRunDisposition": "FAILED_FINDING_III",
+  "activationSupported": false,
   "conditionsMatchEscrowExecution": true,
   "codeIdentityVerified": true,
   "dataProvenanceVerified": true,
   "compendiumInputsComplete": true,
   "section114Disposition": "EXECUTED_AND_MATCHED_BEFORE_ISSUANCE",
   "signature": "REG-SEN-VALE-EXEC-2294-010",
-  "dissent": null,
-  "artifactDigest": "cfdd7b04ed21cdee395aaced9d8d443fb177136a12986b034a8cd2db7a18e398"
+  "dissent": "The locked evidence does not authorize Schedule A; no downstream rate change may issue.",
+  "artifactDigest": "a2fc1349d9479f26c2ca468db436b78e694084006de7e32c947e4115226d6723"
 }

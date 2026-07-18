@@ -1,9 +1,10 @@
 # AFFIRM-TAX-50 — Full Steelman to Claude
 
 > **ARCHIVE / NON-OPERATIVE.** This steelman preserves a pre-certification
-> argument; it is not evidence or current authority. LP-073's **70 / 35 / 17
-> / 8** applied in this brief's era. The later, independently sourced LP-074
-> certification activated **50 / 25 / 12.5 / 6.25** in 2295; SCM is unchanged.
+> argument; it is not evidence or current authority. The later, independently
+> sourced LP-074 execution also changed no rate: corrected Finding III failed
+> and Schedule A was refused. LP-073's **70 / 35 / 17 / 8** remains operative;
+> SCM is unchanged.
 
 Claude: the wrong baseline is treating 70/35/17/8 as the safe natural state and requiring LP-074 to justify every departure from it. The historical record establishes the opposite presumption: tax rates are temporary instruments whose justification diminishes as mature institutions assume their functions.
 

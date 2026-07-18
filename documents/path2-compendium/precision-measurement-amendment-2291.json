@@ -9,15 +9,15 @@
   "publishedAt": "2291-08-05T09:00:00Z",
   "scope": "Measurement-only clarification of Charter §5.3; substantive Finding II zero-impairment and Finding IV positive-OM thresholds are unchanged.",
   "rule": {
-    "findingII": "For §5.3 precision only, the continuous counterpart of the impairment-count summary is real annual dividend disbursement and its zero-real-disbursement boundary; the success comparison remains zero schedule-attributable impairment years.",
+    "findingII": "For Finding II only, uncertainty is measured on the annual schedule-attributable impairment margin. Its maximum width is the sample standard deviation of the ten enacted-70 baseline dividend observations. The operative threshold remains zero schedule-attributable impairment years and an adverse year still requires both a below-baseline dividend bound and a negative schedule-effect bound.",
     "findingIV": "For §5.3, apply the operative 30-year discount operator to the baseline-period observed mean annual net OM differential and compare that like-scaled summary with the zero OM boundary."
   },
   "findings": [
     {
       "id": "PC-1",
-      "finding": "The count summary otherwise yields a zero-width ceiling.",
-      "disposition": "Accepted with the narrow continuous-counterpart rule.",
-      "reviewerReply": "Resolved without changing the zero-impairment threshold.",
+      "finding": "The count summary has no coherent baseline-period observed mean, while the former dividend-level-to-extinction comparison would make precision nonbinding.",
+      "disposition": "Accepted. Width is now limited by baseline dividend dispersion on the threshold-aligned annual impairment margin.",
+      "reviewerReply": "Resolved: the ceiling is observable, finite, materially smaller than the dividend level, and the zero-impairment threshold is unchanged.",
       "presidentialFlag": false
     },
     {
@@ -36,5 +36,5 @@
     "Meritboard": "PASS"
   },
   "unresolvedHighestSeverity": false,
-  "artifactDigest": "fb13959ed3580232e5f5e193d2169b7851d15000981d0c38e8aeb3cdefa4e290"
+  "artifactDigest": "af92743fa2a7daf2d6df15541e0800ee9600c705c1ef37f0e4d965d9040a0f9d"
 }

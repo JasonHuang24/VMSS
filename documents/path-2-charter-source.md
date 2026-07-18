@@ -575,6 +575,20 @@ LP-075 cleared this procedure in 2291. It amended cadence only: it did
 not alter a Finding, threshold, estimand, evidentiary quarantine, or
 Schedule B's distinct incidence standard.
 
+**Finding II precision amendment — adopted 2291 after §13.1 cold
+review.** Filed 2291-05-20; independent review completed 2291-07-02;
+reviewer replies published 2291-07-19; adopted by every chamber
+2291-08-04; published 2291-08-05, before the 2292 lock. Because the
+impairment-count summary has no coherent baseline-period observed mean,
+Finding II uncertainty is measured on the annual schedule-attributable
+impairment margin. Its maximum width is the sample standard deviation
+of the ten enacted-70 baseline dividend observations. An adverse year
+still requires both a below-baseline dividend bound and a negative
+schedule-effect bound. The substantive threshold remains zero
+schedule-attributable impairment years. The filed cold review, replies,
+zero-fail vote, rule, and digest publish as
+`precision-measurement-amendment-2291.json`.
+
 **§13.2 Revocation.** A certification is revocable only by a
 revocation run: same Findings, thresholds, controlling-estimate rule,
 and the certifying run's locked instrument — definitions, union,
@@ -661,10 +675,10 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 
 ---
 
-*Certification history note: the first 2279–2288 window closed without a
+*Disposition history note: the first 2279–2288 window closed without a
 run under the original no-duty rule. LP-075 compelled a remedial process
-without selecting a rate. The valid 2292 lock produced the complete 2294
-Schedule A certificate; a separately produced Lower Incidence Certificate
-then issued, was adopted, and supported Schedule B. Both schedules took
-effect for the 2295 assessment year. LP-074's 50/25/12.5/6.25 cascade is
-operative; LP-073's 70/35/17/8 values remain the preserved prior law.*
+without selecting a rate. The valid 2292 lock produced a complete 2294
+record, but the corrected execution refused Schedule A at Finding III's
+least-activation-favorable SCM bound. No Lower adoption or Schedule B
+certificate could follow. LP-074's proposed 50/25/12.5/6.25 cascade did
+not activate; LP-073's 70/35/17/8 schedule remains operative.*

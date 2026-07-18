@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { executeLockedAnalysis } from './path2-execution-engine.mjs';
 
 const EPSILON = 1e-5;
+const executionCache = new Map();
 const REQUIRED_COMPENDIUM = [
   'raw-data', 'preregistration', 'preregistration-lock-certificate', 'public-chambers-lock-record',
   'analytic-data', 'executed-calculation-output', 'calculation-code', 'environment-manifest',
@@ -253,14 +254,15 @@ function validateHorizonMembers(finding, kind, knownSourceIds = []) {
     if (!member?.id || !member?.equivalenceClass || !member?.sourceId || !member?.functionalClass || !Array.isArray(member?.identificationAssumptions)) errors.push(`Finding ${kind}: incomplete member trace`);
     if (!['certification', 'refusal'].includes(member?.panel)) errors.push(`Finding ${kind}: invalid panel identity`); else panels.add(member.panel);
     if (classes.has(member?.equivalenceClass)) errors.push(`Finding ${kind}: duplicate equivalence class`); else classes.add(member?.equivalenceClass);
-    const signature = `${member?.functionalClass}|${[...(member?.identificationAssumptions || [])].sort().join('|')}`;
+    const signature = `${member?.functionalClass}|${JSON.stringify(member?.identificationRules || [])}`;
     if (signatures.has(signature)) errors.push(`Finding ${kind}: equivalence-class padding`); else signatures.add(signature);
     if (known.size && !known.has(member?.sourceId)) errors.push(`Finding ${kind}: unrecognized member source`);
     const interval = member?.interval || {};
-    if (interval.oneSidedLevel !== 0.95 || interval.orientation !== 'against-activation' || interval.simultaneous !== true) errors.push(`Finding ${kind}: invalid uncertainty interval`);
+    if (interval.oneSidedLevel !== 0.95 || interval.orientation !== 'against-activation' || (kind === 'IV' ? interval.simultaneous !== false : interval.simultaneous !== true)) errors.push(`Finding ${kind}: invalid uncertainty interval`);
     requiredFinite(interval.width, `Finding ${kind}: nonfinite interval width`, errors);
     requiredFinite(interval.precisionFloor, `Finding ${kind}: nonfinite precision floor`, errors);
-    if (Number(interval.width) <= 0 || Number(interval.precisionFloor) <= 0 || Number(interval.width) > Number(interval.precisionFloor)) errors.push(`Finding ${kind}: interval exceeds precision floor`);
+    if (Number(interval.width) <= 0 || Number(interval.precisionFloor) <= 0 || !Array.isArray(interval.precisionChecks) || !interval.precisionChecks.length || interval.precisionChecks.some((check) => !Number.isFinite(Number(check.width)) || !Number.isFinite(Number(check.ceiling)) || check.width <= 0 || check.ceiling <= 0 || check.passed !== (Number(check.width) <= Number(check.ceiling) + EPSILON)) || interval.precisionSatisfied !== interval.precisionChecks.every((check) => check.passed)) errors.push(`Finding ${kind}: interval exceeds or misstates an outcome-specific precision floor`);
+    if (!Array.isArray(member?.identificationRules) || !member?.identificationExecution?.everyDeclaredAssumptionConsumed || member.identificationExecution.consumedAssumptions?.length !== member.identificationAssumptions.length) errors.push(`Finding ${kind}: identification assumption is not consumed`);
     requiredFinite(member?.validationError, `Finding ${kind}: nonfinite validation error`, errors);
     requiredFinite(member?.persistenceError, `Finding ${kind}: nonfinite persistence error`, errors);
     if (Number(member?.validationError) > Number(member?.persistenceError)) errors.push(`Finding ${kind}: §4.3 validation floor not met`);
@@ -278,26 +280,25 @@ export function evaluatePath2Findings(path2Findings, knownSourceIds = []) {
     const finding = path2Findings?.[id];
     const checked = validateHorizonMembers(finding, id, knownSourceIds);
     const errors = [...checked.errors];
-    if (checked.errors.length === 0) {
-      if (!Array.isArray(finding?.votes) || finding.votes.length !== 3 || finding.votes.some((vote) => vote?.vote !== 'CERTIFY')) errors.push(`Finding ${id}: invalid Commission vote record`);
-      if (finding?.disposition !== 'PASS') errors.push(`Finding ${id}: disposition does not match certification`);
-    }
+    if (checked.errors.length === 0 && (!Array.isArray(finding?.votes) || finding.votes.length !== 3)) errors.push(`Finding ${id}: invalid Commission vote record`);
     let controllingMember = null;
     let pass = false;
     let detail = errors.join('; ');
     if (errors.length === 0 && id === 'I') {
       for (const member of checked.members) for (const row of member.horizon) {
-        requiredFinite(row?.receiptsPoint, 'Finding I: nonfinite receipts', errors);
+        requiredFinite(row?.treatmentReceipts50Point, 'Finding I: nonfinite 50-schedule receipts', errors);
+        requiredFinite(row?.counterfactualReceipts70Point, 'Finding I: nonfinite 70-schedule receipts', errors);
+        requiredFinite(row?.scheduleReceiptsContrastPoint, 'Finding I: nonfinite receipts contrast', errors);
         requiredFinite(row?.obligationsPoint, 'Finding I: nonfinite obligations', errors);
-        requiredFinite(row?.coveragePoint, 'Finding I: nonfinite coverage point', errors);
-        requiredFinite(row?.coverageLowerBound, 'Finding I: nonfinite coverage bound', errors);
-        const ratio = Number(row.receiptsPoint) / Number(row.obligationsPoint);
-        if (!(Number(row.receiptsPoint) > 0 && Number(row.obligationsPoint) > 0) || Math.abs(Number(row.coveragePoint) - ratio) > 0.000002) errors.push('Finding I: coverage point does not reconcile to receipts and obligations');
-        if (Number(row.coverageLowerBound) > Number(row.coveragePoint) || Number(row.coveragePoint) - Number(row.coverageLowerBound) > Number(member.interval.width) + EPSILON) errors.push('Finding I: adverse coverage interval does not reconcile');
+        requiredFinite(row?.treatmentCoveragePoint, 'Finding I: nonfinite coverage point', errors);
+        requiredFinite(row?.treatmentCoverageLowerBound, 'Finding I: nonfinite coverage bound', errors);
+        const ratio = Number(row.treatmentReceipts50Point) / Number(row.obligationsPoint);
+        if (!(Number(row.treatmentReceipts50Point) > 0 && Number(row.counterfactualReceipts70Point) > 0 && Number(row.obligationsPoint) > 0) || Math.abs(Number(row.treatmentCoveragePoint) - ratio) > 0.000002 || Math.abs(Number(row.scheduleReceiptsContrastPoint) - (Number(row.treatmentReceipts50Point) - Number(row.counterfactualReceipts70Point))) > 0.000002) errors.push('Finding I: treatment, counterfactual, or coverage does not reconcile');
+        if (Number(row.treatmentCoverageLowerBound) > Number(row.treatmentCoveragePoint) || Number(row.treatmentCoveragePoint) - Number(row.treatmentCoverageLowerBound) > Number(member.interval.width) + EPSILON) errors.push('Finding I: adverse coverage interval does not reconcile');
       }
-      controllingMember = checked.members.reduce((worst, member) => Math.min(...member.horizon.map((row) => Number(row.coverageLowerBound))) < Math.min(...worst.horizon.map((row) => Number(row.coverageLowerBound))) ? member : worst);
-      const bound = Math.min(...controllingMember.horizon.map((row) => Number(row.coverageLowerBound)));
-      pass = errors.length === 0 && bound > Number(finding.threshold);
+      controllingMember = checked.members.reduce((worst, member) => Math.min(...member.horizon.map((row) => Number(row.treatmentCoverageLowerBound))) < Math.min(...worst.horizon.map((row) => Number(row.treatmentCoverageLowerBound))) ? member : worst);
+      const bound = Math.min(...controllingMember.horizon.map((row) => Number(row.treatmentCoverageLowerBound)));
+      pass = errors.length === 0 && checked.members.every((member) => member.interval.precisionSatisfied) && bound > Number(finding.threshold);
       detail = `least-favorable worst-year coverage ${pct(bound)} (${controllingMember.id})`;
     } else if (errors.length === 0 && id === 'II') {
       requiredFinite(finding?.baselineMean, 'Finding II: missing or nonfinite baseline mean', errors);
@@ -307,14 +308,13 @@ export function evaluatePath2Findings(path2Findings, knownSourceIds = []) {
         if (baselineValues.some((value) => !Number.isFinite(value)) || Math.abs(Number(finding.baselineMean) - baselineValues.reduce((total, value) => total + value, 0) / baselineValues.length) > 0.00000002) errors.push('Finding II: baseline mean does not reconcile');
       }
       for (const member of checked.members) for (const row of member.horizon) {
-        requiredFinite(row?.disbursementPoint, 'Finding II: nonfinite disbursement point', errors);
-        requiredFinite(row?.disbursementLowerBound, 'Finding II: missing or nonfinite disbursement bound', errors);
+        for (const [field, label] of [['treatmentDividend50Point', '50-schedule dividend'], ['counterfactualDividend70Point', '70-schedule dividend'], ['rawScheduleEffectPoint', 'raw schedule effect'], ['attributedScheduleEffectPoint', 'attributed schedule effect'], ['attributedScheduleEffectLowerBound', 'attributed effect bound'], ['attributedTreatmentDividendPoint', 'attributed treatment dividend'], ['attributedTreatmentDividendLowerBound', 'attributed dividend bound']]) requiredFinite(row?.[field], `Finding II: missing or nonfinite ${label}`, errors);
         if (typeof row?.attributableToSchedule !== 'boolean' || typeof row?.attributionDisposition !== 'string' || !row.attributionDisposition.trim()) errors.push('Finding II: missing attribution disposition');
-        if (Number(row.disbursementLowerBound) > Number(row.disbursementPoint) || Number(row.disbursementPoint) - Number(row.disbursementLowerBound) > Number(member.interval.width) + EPSILON) errors.push('Finding II: adverse disbursement interval does not reconcile');
+        if (Number(row.attributedTreatmentDividendLowerBound) > Number(row.attributedTreatmentDividendPoint) || Number(row.attributedTreatmentDividendPoint) - Number(row.attributedTreatmentDividendLowerBound) > Number(member.interval.width) + EPSILON || Math.abs(Number(row.rawScheduleEffectPoint) - (Number(row.treatmentDividend50Point) - Number(row.counterfactualDividend70Point))) > 0.000002) errors.push('Finding II: treatment/counterfactual contrast or adverse interval does not reconcile');
       }
-      controllingMember = checked.members.reduce((worst, member) => Math.min(...member.horizon.map((row) => Number(row.disbursementLowerBound))) < Math.min(...worst.horizon.map((row) => Number(row.disbursementLowerBound))) ? member : worst);
-      const impairment = Math.max(...checked.members.map((member) => member.horizon.filter((row) => Number(row.disbursementLowerBound) < Number(finding.baselineMean) && row.attributableToSchedule === true).length));
-      pass = errors.length === 0 && impairment === 0;
+      controllingMember = checked.members.reduce((worst, member) => Math.min(...member.horizon.map((row) => Number(row.attributedTreatmentDividendLowerBound))) < Math.min(...worst.horizon.map((row) => Number(row.attributedTreatmentDividendLowerBound))) ? member : worst);
+      const impairment = Math.max(...checked.members.map((member) => member.horizon.filter((row) => Number(row.attributedTreatmentDividendLowerBound) < Number(finding.baselineMean) && Number(row.attributedScheduleEffectLowerBound) < 0 && row.attributableToSchedule === true).length));
+      pass = errors.length === 0 && checked.members.every((member) => member.interval.precisionSatisfied) && impairment === 0;
       detail = `least-favorable impairment years ${impairment} (${controllingMember.id})`;
     } else if (errors.length === 0 && id === 'III') {
       requiredFinite(finding?.baselineActivationMean, 'Finding III: nonfinite baseline mean', errors);
@@ -334,8 +334,8 @@ export function evaluatePath2Findings(path2Findings, knownSourceIds = []) {
       controllingMember = checked.members.reduce((worst, member) => Math.max(...member.horizon.map((row) => Number(row.activationFrequencyUpperBound))) > Math.max(...worst.horizon.map((row) => Number(row.activationFrequencyUpperBound))) ? member : worst);
       const activation = Math.max(...checked.members.flatMap((member) => member.horizon.map((row) => Number(row.activationFrequencyUpperBound))));
       const flow = Math.min(...checked.members.flatMap((member) => member.horizon.map((row) => Number(row.flowMarginLowerBound))));
-      pass = errors.length === 0 && activation < Number(finding.baselineActivationMean) * 1.25 && flow > 0;
-      detail = `worst activation ${activation.toFixed(4)} below ${(Number(finding.baselineActivationMean) * 1.25).toFixed(4)}; Flow margin ${flow.toFixed(4)} (${controllingMember.id})`;
+      pass = errors.length === 0 && checked.members.every((member) => member.interval.precisionSatisfied) && activation < Number(finding.baselineActivationMean) * 1.25 && flow > 0;
+      detail = `worst activation ${activation.toFixed(4)} against ${(Number(finding.baselineActivationMean) * 1.25).toFixed(4)}; Flow margin ${flow.toFixed(4)} (${controllingMember.id})`;
     } else if (errors.length === 0 && id === 'IV') {
       requiredFinite(finding?.retainedCapitalQuantity, 'Finding IV: nonfinite retained capital', errors);
       if (typeof finding?.publicCounterfactual !== 'string' || !finding.publicCounterfactual.trim()) errors.push('Finding IV: public counterfactual absent');
@@ -357,10 +357,14 @@ export function evaluatePath2Findings(path2Findings, knownSourceIds = []) {
       controllingMember = checked.members.reduce((worst, member) => Number(member.omLowerBound) < Number(worst.omLowerBound) ? member : worst);
       const om = Math.min(...checked.members.map((member) => Number(member.omLowerBound)));
       const events = Math.max(...checked.members.flatMap((member) => member.horizon.map((row) => Number(row.concentrationEventsUpperBound))));
-      pass = errors.length === 0 && om > 0 && events === 0;
+      pass = errors.length === 0 && checked.members.every((member) => member.interval.precisionSatisfied) && om > 0 && events === 0;
       detail = `least-favorable OM ${om.toFixed(4)}; concentration events ${events} (${controllingMember.id})`;
     }
     if (controllingMember && finding?.leastFavorableMember !== controllingMember.id) errors.push(`Finding ${id}: declared least-favorable member is incorrect`);
+    const precisionVoid = checked.members.some((member) => member?.interval?.precisionSatisfied === false);
+    const expectedDisposition = precisionVoid ? 'VOID_INDECISION' : pass && errors.length === 0 ? 'PASS' : 'FAIL';
+    const expectedVote = expectedDisposition === 'PASS' ? 'CERTIFY' : expectedDisposition === 'VOID_INDECISION' ? 'VOID' : 'REFUSE';
+    if (finding?.disposition !== expectedDisposition || finding?.votes?.some((vote) => vote?.vote !== expectedVote)) errors.push(`Finding ${id}: disposition or Commission votes do not match executed result`);
     if (errors.length) { pass = false; detail = errors.join('; '); }
     results[id] = { pass, detail, errors, controllingMember: controllingMember?.id || null };
   }
@@ -426,7 +430,12 @@ export function validateSequenceDocuments(documents, digests = {}) {
   if (scheduleB?.scheduleACertificateDigest !== digests.scheduleA || scheduleB?.lowerCertificateDigest !== digests.lowerCertificate || scheduleB?.lowerAdoptionDigest !== digests.lowerAdoption) errors.push('Schedule B does not bind prior instrument digests');
   if (effectiveNotice?.scheduleACertificateDigest !== digests.scheduleA || effectiveNotice?.lowerCertificateDigest !== digests.lowerCertificate || effectiveNotice?.lowerAdoptionDigest !== digests.lowerAdoption || effectiveNotice?.scheduleBCertificateDigest !== digests.scheduleB) errors.push('effective notice does not bind complete certification chain');
   for (const [label, document] of Object.entries({ lowerCertificate, lowerAdoption, scheduleB, effectiveNotice })) if (document?.registrarExecutionDigest !== digests.registrarExecution) errors.push(`${label} does not bind prior Registrar execution`);
-  if (Number(effectiveNotice?.effectiveAt?.slice?.(0, 4)) !== 2295 || effectiveNotice?.rates?.sanctuaryAndMain !== 50 || effectiveNotice?.rates?.lower1 !== 25 || effectiveNotice?.rates?.lower2 !== 12.5 || effectiveNotice?.rates?.lower3 !== 6.25) errors.push('2295 effective notice rates invalid');
+  const activated = scheduleA?.result === 'CERTIFIED' && lowerAdoption?.result === 'ADOPTED' && scheduleB?.result === 'CERTIFIED';
+  if (activated) {
+    if (Number(effectiveNotice?.effectiveAt?.slice?.(0, 4)) !== 2295 || effectiveNotice?.rates?.sanctuaryAndMain !== 50 || effectiveNotice?.rates?.lower1 !== 25 || effectiveNotice?.rates?.lower2 !== 12.5 || effectiveNotice?.rates?.lower3 !== 6.25) errors.push('2295 effective notice rates invalid');
+  } else if (scheduleA?.result !== 'REFUSED' || lowerCertificate?.status !== 'NOT_ISSUED_SCHEDULE_A_REFUSED' || lowerAdoption?.result !== 'NOT_ADOPTED_SCHEDULE_A_REFUSED' || scheduleB?.result !== 'NOT_ISSUED_SCHEDULE_A_REFUSED' || effectiveNotice?.effectiveAt !== null || effectiveNotice?.rates?.sanctuaryAndMain !== 70 || effectiveNotice?.rates?.lower1 !== 35 || effectiveNotice?.rates?.lower2 !== 17 || effectiveNotice?.rates?.lower3 !== 8) {
+    errors.push('non-activation sequence does not preserve LP-073 after Schedule A refusal');
+  }
   return errors;
 }
 
@@ -467,12 +476,12 @@ export function validateLockedExecution(data, root = process.cwd(), overrides = 
   errors.push(...validateSelfDigest(registrar, 'Registrar execution'));
   const requiredPrereg = ['admissibleSpecificationSet', 'exclusionReasons', 'panelAdditions', 'equivalenceClasses', 'dependenceDesign', 'preprocessingSelections', 'intercurrentEventTreatments', 'computedWindow', 'computedCutoff', 'vintage', 'validation', 'appendixA', 'codeEntryPoints', 'dataSourceMappings', 'randomSeedProcedure', 'precisionClarification'];
   for (const field of requiredPrereg) if (preregistration?.[field] == null || (Array.isArray(preregistration[field]) && preregistration[field].length === 0)) errors.push(`preregistration §9.1 field missing: ${field}`);
-  if (!Array.isArray(preregistration?.admissibleSpecificationSet) || preregistration.admissibleSpecificationSet.some((member) => !member?.id || !member?.finding || !member?.panel || !member?.equivalenceClass || !member?.functionalClass || !Array.isArray(member?.identificationAssumptions) || !member?.dependenceStructure || !member?.clusteringUnit || !member?.intervalFamily || !member?.preprocessing || !member?.model)) errors.push('preregistration admissible member is incomplete');
+  if (!Array.isArray(preregistration?.admissibleSpecificationSet) || preregistration.admissibleSpecificationSet.some((member) => !member?.id || !member?.finding || !member?.panel || !member?.equivalenceClass || !member?.functionalClass || !Array.isArray(member?.identificationAssumptions) || !Array.isArray(member?.identificationRules) || member.identificationRules.length !== member.identificationAssumptions.length || !Number.isFinite(Number(member?.sharedExogenousElasticity)) || !member?.dependenceStructure || !member?.clusteringUnit || !member?.intervalFamily || !member?.preprocessing || !member?.model)) errors.push('preregistration admissible member is incomplete');
   const b1Members = (preregistration?.admissibleSpecificationSet || []).filter((member) => member.intervalFamily === 'B-1');
-  if (b1Members.some((member) => !Number.isInteger(member.seed) || !Number.isInteger(member.replications) || !member.blockLengthRule)) errors.push('preregistration B-1 seed, replications, or block-length rule missing');
+  if (b1Members.some((member) => !Number.isInteger(member.seed) || member.outerReplications !== 999 || member.innerReplications !== 199 || member.studentization !== 'nested-bootstrap-t-replication-specific' || !member.blockLengthRule)) errors.push('preregistration B-1 seed, nested replications, replication-specific studentization, or block-length rule missing');
   if (b1Members.some((member) => member.blockLengthRule !== 'round(1.5*cuberoot(n)), minimum 2')) errors.push('preregistration B-1 automatic block-length rule is not executable');
-  if ((preregistration?.admissibleSpecificationSet || []).filter((member) => ['B-2', 'B-4'].includes(member.intervalFamily)).some((member) => member.bandwidthRule !== 'floor(4*(n/100)^(2/9)), minimum 1')) errors.push('preregistration automatic HAC bandwidth rule is not executable');
-  if ((preregistration?.admissibleSpecificationSet || []).filter((member) => member.intervalFamily === 'B-4').some((member) => !(member.identifiedRegionAdverseShare > 0 && member.identifiedRegionAdverseShare < 1))) errors.push('preregistration B-4 identified-region endpoint is missing');
+  if ((preregistration?.admissibleSpecificationSet || []).filter((member) => member.intervalFamily === 'B-2').some((member) => member.bandwidthRule !== 'floor(4*(n/100)^(2/9)), minimum 1')) errors.push('preregistration automatic HAC bandwidth rule is not executable');
+  if ((preregistration?.admissibleSpecificationSet || []).filter((member) => member.intervalFamily === 'B-4').some((member) => !Number.isInteger(member.seed) || member.scalarReplications !== 1999 || member.blockLengthRule !== 'round(1.5*cuberoot(n)), minimum 2' || !member.identificationRules.some((rule) => rule.type === 'adverse-cost-share' && rule.value > 0 && rule.value < 1))) errors.push('preregistration B-4 direct scalar resampling or identified-region endpoint is missing');
   if ((preregistration?.admissibleSpecificationSet || []).some((member) => member.preprocessing !== 'identity transform; chronological order; no deletion, imputation, winsorization, or outlier removal')) errors.push('preregistration member preprocessing does not match executable Appendix A');
   if (preregistration?.computedWindow?.start !== 2272 || preregistration?.computedWindow?.end !== 2291 || preregistration?.validation?.trainingYears?.[0] !== 2272 || preregistration?.validation?.trainingYears?.[1] !== 2286 || !sameJson(preregistration?.validation?.heldOutYears, [2287, 2288, 2289, 2290, 2291])) errors.push('preregistration window, training segment, or held-out segment invalid');
 
@@ -510,11 +519,17 @@ export function validateLockedExecution(data, root = process.cwd(), overrides = 
   if (!amendmentTimes.every(Number.isFinite) || amendmentTimes.some((time, index) => index > 0 && time <= amendmentTimes[index - 1]) || amendment?.unresolvedHighestSeverity !== false || Object.values(amendment?.vote || {}).some((vote) => vote !== 'PASS') || amendment?.findings?.some((finding) => !finding.reviewerReply || finding.presidentialFlag !== false)) errors.push('precision clarification §13.1 review, adoption, or pre-lock chronology invalid');
 
   let recomputed = null;
-  try { recomputed = executeLockedAnalysis({ root, preregistration }); } catch (error) { errors.push(`locked execution is not reproducible: ${error.message}`); }
+  if (errors.length === 0) {
+    try {
+      const cacheKey = `${root}:${serializedPreregDigest}`;
+      if (!executionCache.has(cacheKey)) executionCache.set(cacheKey, executeLockedAnalysis({ root, preregistration }));
+      recomputed = executionCache.get(cacheKey);
+    } catch (error) { errors.push(`locked execution is not reproducible: ${error.message}`); }
+  }
   if (!sameJson(recomputed, depositedOutput)) errors.push('independent recomputation does not match deposited execution output');
   if (!sameJson(depositedOutput?.findings, data?.path2Findings)) errors.push('published Findings do not match deposited execution output');
   const allMemberIds = (preregistration?.admissibleSpecificationSet || []).map((member) => member.id);
-  if (!Array.isArray(depositedOutput?.validationRecords) || depositedOutput.validationRecords.length !== allMemberIds.length || depositedOutput.validationRecords.some((record) => !allMemberIds.includes(record.memberId) || record?.rowLevel?.length !== 5 || !Number.isFinite(record.validationError) || !Number.isFinite(record.persistenceError))) errors.push('§4.3 row-level validation record is incomplete');
+  if (!Array.isArray(depositedOutput?.validationRecords) || depositedOutput.validationRecords.length !== allMemberIds.length || depositedOutput.validationRecords.some((record) => !allMemberIds.includes(record.memberId) || record?.rowLevel?.length !== 5 || !record?.outcomeComparisons || Object.values(record.outcomeComparisons).some((outcome) => !Number.isFinite(outcome.memberRmse) || !Number.isFinite(outcome.persistenceRmse) || !Number.isFinite(outcome.errorRatio) || outcome.survived !== (outcome.memberRmse <= outcome.persistenceRmse + EPSILON)) || !Number.isFinite(record.validationError) || record.persistenceError !== 1 || record.survived !== Object.values(record.outcomeComparisons).every((outcome) => outcome.survived))) errors.push('§4.3 outcome-specific row-level validation record is incomplete');
   const failedIds = (depositedOutput?.validationRecords || []).filter((record) => !record.survived).map((record) => record.memberId);
   if (failedIds.length === 0 || failedIds.some((id) => !depositedOutput?.excludedMembers?.some((entry) => entry.memberId === id))) errors.push('§4.3 failed-member retention record is incomplete');
 
@@ -637,10 +652,14 @@ export function evaluateAuthorityRecord(data, options = {}) {
   const path2Pass = Object.values(findings).every((result) => result.pass);
   const certified = path2Pass && Object.values(a).every(Boolean) && Object.values(b).every(Boolean) && compendiumErrors.length === 0 && lockedExecution.pass && lp070 && lp075 && sequence && revocation
     && data?.record?.disposition === 'CERTIFIED_COMPLETE' && data?.activation?.legallyEffective === true && data?.record?.operativeSchedule === '50 / 25 / 12.5 / 6.25';
+  const lawfulFailure = !path2Pass && compendiumErrors.length === 0 && lockedExecution.pass && lp070 && lp075 && sequence && revocation
+    && String(data?.record?.disposition || '').startsWith('FAILED_') && data?.activation?.legallyEffective === false && data?.activation?.status === 'NOT_ACTIVATED'
+    && data?.record?.operativeSchedule === '70 / 35 / 17 / 8' && data?.record?.proposedSchedule === '50 / 25 / 12.5 / 6.25';
+  const valid = certified || lawfulFailure;
   const errors = [
     ...candidate.errors, ...registryErrors, ...compendiumErrors, ...section43Errors, ...reconciliationErrors,
     ...traceErrors, ...lowerSection43Errors, ...sequenceErrors, ...lockedExecution.errors, ...lp075Errors, ...revocationErrors,
     ...Object.values(findings).flatMap((result) => result.errors || []),
   ];
-  return { candidate, findings, lockedExecution, compendiumErrors, registryErrors, section43Errors, reconciliationErrors, traceErrors, lowerSection43Errors, sequenceErrors, lp075Errors, revocationErrors, a, b, bArithmetic, lp070, lp075, sequence, revocation, certified, errors };
+  return { candidate, findings, lockedExecution, compendiumErrors, registryErrors, section43Errors, reconciliationErrors, traceErrors, lowerSection43Errors, sequenceErrors, lp075Errors, revocationErrors, a, b, bArithmetic, lp070, lp075, sequence, revocation, certified, lawfulFailure, valid, errors };
 }

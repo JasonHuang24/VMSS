@@ -6,9 +6,9 @@
 ### which is part of the adoption record
 
 > **ARCHIVE / NON-OPERATIVE DRAFT.** This fourth-draft record preserves the
-> 2279 adoption arc; the published Charter controls. LP-073's **70 / 35 / 17 /
-> 8** applied during the first window. The later complete 2294 record activated
-> LP-074's **50 / 25 / 12.5 / 6.25** in 2295; SCM is unchanged.
+> 2279 adoption arc; the published Charter controls. The corrected 2294 record
+> refused LP-074 Schedule A after Finding III failed. LP-073's **70 / 35 / 17 /
+> 8** therefore remains operative; SCM is unchanged.
 
 ---
 
@@ -599,5 +599,5 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 ---
 
 *Historical draft status: certification was pending and 70/35/17/8 held under
-LP-073 in the period described. The later complete 2294 record showed every
-required condition and activated 50/25/12.5/6.25 in 2295.*
+LP-073 in the period described. The corrected 2294 record later refused LP-074
+Schedule A at Finding III, so LP-073's 70/35/17/8 schedule remains operative.*

@@ -6,8 +6,8 @@
 
 > **ARCHIVE / NON-OPERATIVE SOURCE.** This is the Schedule record from the
 > original 2279–2288 window. Its conditional language is preserved; the
-> published Schedule controls. LP-073's **70 / 35 / 17 / 8** applied during
-> that window. The complete 2294 record later activated LP-074 in 2295.
+> published Schedule controls. The corrected 2294 record later refused LP-074
+> Schedule A at Finding III, so LP-073's **70 / 35 / 17 / 8** remains operative.
 
 ---
 
@@ -242,5 +242,5 @@ control.
 ---
 
 *Historical status: during the first 2279–2288 window, rates were 70/35/17/8
-under LP-073. The later complete 2294 certificates activated
-50/25/12.5/6.25 in 2295.*
+under LP-073. The corrected 2294 execution later refused LP-074 Schedule A at
+Finding III, so LP-073's 70/35/17/8 schedule remains operative.*

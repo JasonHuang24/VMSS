@@ -4,23 +4,31 @@
   "sources": [
     {
       "path": "tools/build-path2-certification-record.mjs",
-      "digest": "2f1afb0cf7c31fec8b5107a6f42e6312bf0e17d6841b3d62da2ff759f49586a9"
+      "digest": "d1f24bd9baa00ff917b52f3ee50f5a49c05614e9b58ab57af21131525ac3f387"
     },
     {
       "path": "tools/path2-execution-engine.mjs",
-      "digest": "326dd70a9a33b1976f663e03d1b39cd5ea4bc45fbf74e3f0bbba9ad0b44e0e2a"
+      "digest": "4a345b839633767af58dec7ba37693f9ae4e1a3fc17c0e8928e8ebb940bd63df"
     },
     {
       "path": "tools/path2-certification-core.mjs",
-      "digest": "f4e5bd1927e81d34afd63339e0b6c77ffec2c98a57edb3bd1c0d879b1165d0f1"
+      "digest": "d445035924cf709ccfbe314c35a728675da9c96fce0ef4bc27f247d6be096ce9"
     },
     {
       "path": "tools/verify-path2-certification-2294.mjs",
-      "digest": "43a48599a042df6232de001c08f3e6ff31c8f2deec0af425d5321e9de8a27915"
+      "digest": "173056d1297c89a58473a9b3e2df9cd524ffa3227fa17707b017f49978e7b82d"
+    },
+    {
+      "path": "tools/test-path2-methodology.mjs",
+      "digest": "4141b8746013049f2e6a2bda5b9b621406d28c24c64963114cbb8cbd649db236"
+    },
+    {
+      "path": "tools/test-path2-certification-mutations.mjs",
+      "digest": "bf0fcb0fe4247f3f416d218466ac17c8e85725a1e19a595a0a8b3c9ae01cd07b"
     },
     {
       "path": "tools/build-path2-certification-page.mjs",
-      "digest": "02f110bcbae1ffbafc392848263f0970e0d36a549fda6ab045747a0707173c24"
+      "digest": "5955d22e05c6fcc208b172c316820bf179f3527246df7a98870c717f9d265f9c"
     },
     {
       "path": "package-lock.json",

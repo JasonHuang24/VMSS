@@ -4,105 +4,146 @@
     2272,
     2291
   ],
+  "contrastDesign": "separately administered 50-schedule matched-receipt series and enacted-70 receipt series under one demographic index",
   "observations": [
     {
       "year": 2272,
-      "receipts": 1184,
+      "sharedDemographicIndex": 1.0018,
+      "treatmentReceipts50": 1184,
+      "counterfactualReceipts70": 1562.017143,
       "obligations": 1083
     },
     {
       "year": 2273,
-      "receipts": 1204.6375,
+      "sharedDemographicIndex": 1.0049,
+      "treatmentReceipts50": 1204.6375,
+      "counterfactualReceipts70": 1587.060217,
       "obligations": 1096.955556
     },
     {
       "year": 2274,
-      "receipts": 1219.0875,
+      "sharedDemographicIndex": 1.0181,
+      "treatmentReceipts50": 1219.0875,
+      "counterfactualReceipts70": 1608.776253,
       "obligations": 1116.522222
     },
     {
       "year": 2275,
-      "receipts": 1241.85,
+      "sharedDemographicIndex": 1.0213,
+      "treatmentReceipts50": 1241.85,
+      "counterfactualReceipts70": 1636.661321,
       "obligations": 1130.533333
     },
     {
       "year": 2276,
-      "receipts": 1254.7375,
+      "sharedDemographicIndex": 1.0343,
+      "treatmentReceipts50": 1254.7375,
+      "counterfactualReceipts70": 1656.227432,
       "obligations": 1149.988889
     },
     {
       "year": 2277,
-      "receipts": 1276.0625,
+      "sharedDemographicIndex": 1.034,
+      "treatmentReceipts50": 1276.0625,
+      "counterfactualReceipts70": 1680.555521,
       "obligations": 1162.055556
     },
     {
       "year": 2278,
-      "receipts": 1297.0125,
+      "sharedDemographicIndex": 1.0457,
+      "treatmentReceipts50": 1297.0125,
+      "counterfactualReceipts70": 1710.104771,
       "obligations": 1180.788889
     },
     {
       "year": 2279,
-      "receipts": 1310.65,
+      "sharedDemographicIndex": 1.0553,
+      "treatmentReceipts50": 1310.65,
+      "counterfactualReceipts70": 1729.038083,
       "obligations": 1198.355556
     },
     {
       "year": 2280,
-      "receipts": 1331.225,
+      "sharedDemographicIndex": 1.0581,
+      "treatmentReceipts50": 1331.225,
+      "counterfactualReceipts70": 1753.856113,
       "obligations": 1212.144444
     },
     {
       "year": 2281,
-      "receipts": 1345.05,
+      "sharedDemographicIndex": 1.0711,
+      "treatmentReceipts50": 1345.05,
+      "counterfactualReceipts70": 1774.655036,
       "obligations": 1231.6
     },
     {
       "year": 2282,
-      "receipts": 1368.125,
+      "sharedDemographicIndex": 1.0742,
+      "treatmentReceipts50": 1368.125,
+      "counterfactualReceipts70": 1802.903423,
       "obligations": 1245.555556
     },
     {
       "year": 2283,
-      "receipts": 1384.7625,
+      "sharedDemographicIndex": 1.084,
+      "treatmentReceipts50": 1384.7625,
+      "counterfactualReceipts70": 1825.876973,
       "obligations": 1263.233333
     },
     {
       "year": 2284,
-      "receipts": 1402.4,
+      "sharedDemographicIndex": 1.0918,
+      "treatmentReceipts50": 1402.4,
+      "counterfactualReceipts70": 1849.213143,
       "obligations": 1279.8
     },
     {
       "year": 2285,
-      "receipts": 1423.0375,
+      "sharedDemographicIndex": 1.0949,
+      "treatmentReceipts50": 1423.0375,
+      "counterfactualReceipts70": 1874.256217,
       "obligations": 1293.755556
     },
     {
       "year": 2286,
-      "receipts": 1437.4875,
+      "sharedDemographicIndex": 1.1081,
+      "treatmentReceipts50": 1437.4875,
+      "counterfactualReceipts70": 1895.972253,
       "obligations": 1313.322222
     },
     {
       "year": 2287,
-      "receipts": 1460.25,
+      "sharedDemographicIndex": 1.1113,
+      "treatmentReceipts50": 1460.25,
+      "counterfactualReceipts70": 1923.857321,
       "obligations": 1327.333333
     },
     {
       "year": 2288,
-      "receipts": 1473.1375,
+      "sharedDemographicIndex": 1.1243,
+      "treatmentReceipts50": 1473.1375,
+      "counterfactualReceipts70": 1943.423432,
       "obligations": 1346.788889
     },
     {
       "year": 2289,
-      "receipts": 1494.4625,
+      "sharedDemographicIndex": 1.124,
+      "treatmentReceipts50": 1494.4625,
+      "counterfactualReceipts70": 1967.751521,
       "obligations": 1358.855556
     },
     {
       "year": 2290,
-      "receipts": 1515.4125,
+      "sharedDemographicIndex": 1.1357,
+      "treatmentReceipts50": 1515.4125,
+      "counterfactualReceipts70": 1997.300771,
       "obligations": 1377.588889
     },
     {
       "year": 2291,
-      "receipts": 1529.05,
+      "sharedDemographicIndex": 1.1453,
+      "treatmentReceipts50": 1529.05,
+      "counterfactualReceipts70": 2016.234083,
       "obligations": 1395.155556
     }
   ]

@@ -4,7 +4,8 @@
 > **ARCHIVE / NON-OPERATIVE.** This scaffolding is an illustrative fixture
 > about the original 2279–2288 window and is not evidence of a completed run.
 > The actual first window closed without a run. A distinct remedial record
-> later validly activated LP-074's **50 / 25 / 12.5 / 6.25** in 2295.
+> later refused LP-074 Schedule A after corrected Finding III failed; LP-073's
+> **70 / 35 / 17 / 8** remains operative.
 
 Artifact of record: `the-first-run-simulation-v1.md`
 (sha256 `41c3021837da5a9a07de016c3e62d41f4ff654f6891b6958d2288a6ae4dfa1a5`, 8252 bytes — verified against the post-Path-2-arc handoff).
@@ -78,8 +79,8 @@ CALIBRATION DIMENSION: canon cross-reference diligence.
   RR-9 ("Ledger coverage") = the "ninth engraving": confirmed against live
   path-2-risk-register.html.
 - Rates inside the 2279–2288 illustrative chronicle were 70/35/17/8 under
-  LP-073. This fixture makes no present-tense rate claim. The actual remedial
-  certificates later activated LP-074 in 2295.
+  LP-073. The corrected remedial execution later refused LP-074 Schedule A at
+  Finding III, so the same LP-073 schedule remains operative.
 
 SEAL: sha256 hashes of this record, the review copy, and the prompt are read
 into the session record at generation time, before the pass runs.

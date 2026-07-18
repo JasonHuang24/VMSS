@@ -42,19 +42,19 @@
     },
     {
       "id": "FINDING-I-OBSERVATIONS-2294",
-      "digest": "3efbe83978fc357c619afa993a3dbac3c3acb11e6c676c7166e987f26a6d5d14"
+      "digest": "8005a0764dcd209afb102e197979d66165b63650d72eb8c73e16edf9ed515837"
     },
     {
       "id": "FINDING-II-OBSERVATIONS-2294",
-      "digest": "78ec2ba0ebb54065c604a054925e5d790edd1b2cd9d01a09e1284aa18b040821"
+      "digest": "cf276a94c1839bb1d5ba9a6955ca37bf889a19599db9f41bb6028547b0099eaa"
     },
     {
       "id": "FINDING-III-OBSERVATIONS-2294",
-      "digest": "5b9a8312abd2e0b655ff22bcbd66c3f431d1e13906335d9bc5b90838819e4e3a"
+      "digest": "423a2053c944dc205e16fb25f8b94fefe1dfa52930ed71b4ea2a0ba5116bf001"
     },
     {
       "id": "FINDING-IV-OBSERVATIONS-2294",
-      "digest": "62a9ec010bce99d28288962ac0e917414f99efabc44079d15778df46b7d71f9f"
+      "digest": "1d66ca0bef59bba82f935f0c6f4682e90756401ed0969960fed56a9fa8cb6aa4"
     }
   ],
   "scheduleA": {
@@ -95,7 +95,7 @@
     },
     "III": {
       "leastFavorableMember": "III-refusal-linear-b2",
-      "disposition": "PASS"
+      "disposition": "FAIL"
     },
     "IV": {
       "leastFavorableMember": "IV-refusal-partial-id-b4",

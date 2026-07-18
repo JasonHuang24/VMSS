@@ -48,15 +48,15 @@
     "III": [
       {
         "commissioner": "Aster Vale",
-        "vote": "CERTIFY"
+        "vote": "REFUSE"
       },
       {
         "commissioner": "Mira Quen",
-        "vote": "CERTIFY"
+        "vote": "REFUSE"
       },
       {
         "commissioner": "Tal Ren",
-        "vote": "CERTIFY"
+        "vote": "REFUSE"
       }
     ],
     "IV": [

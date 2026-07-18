@@ -1,20 +1,21 @@
 {
-  "artifactType": "LP074_UNIFIED_EFFECTIVE_NOTICE",
+  "artifactType": "LP074_NON_ACTIVATION_NOTICE",
   "publishedAt": "2294-02-10T12:00:00Z",
-  "effectiveAt": "2295-01-01T00:00:00Z",
-  "scheduleACertificateDigest": "f6d9fafd259b2fbbdbdd10c06f4d0501aeaedefb7abe20b2a65665b812782b57",
-  "lowerCertificateDigest": "331b215d9249e764273ec5c2a309e4d4fe0ebb3959ef42dd39ed4b97010373a2",
-  "lowerAdoptionDigest": "cf0aa92f2a049e9a9b0f700381be8f4e32fa674a27e533be224af112a58a62d8",
-  "scheduleBCertificateDigest": "992e9f3f23a764b6d288a2fab94621557a0979ecd346d9f773a0934458a7d798",
-  "registrarExecutionDigest": "79a4a10ec2ef40786398e9435cc872824fd4eab68b6c1ae18268b431a40d74dd",
+  "effectiveAt": null,
+  "scheduleACertificateDigest": "ad5bbfc810244745665cf57383fdc6ecc7a7ad27fe1451d1e06be0cd712e2b6d",
+  "lowerCertificateDigest": "96ebb833f5f7db2ed307d18f44b8e493e3b8104bfee1b6c7bcd45541cba1e73a",
+  "lowerAdoptionDigest": "62c9e3019be8964573a054b6f7782f77a3fbc1df0b5bed425b8dd933600f8a1d",
+  "scheduleBCertificateDigest": "82ceb87a697e49c8b835ffde64ef14ab269d476ba62917aa8517a9d32e2ffc6b",
+  "registrarExecutionDigest": "f193efdfd1bbd1855bb445bccaa73905aa1fb4ae9ca4069d725553e3233b2166",
+  "disposition": "FAILED_FINDING_III",
   "rates": {
-    "sanctuaryAndMain": 50,
-    "lower1": 25,
-    "lower2": 12.5,
-    "lower3": 6.25
+    "sanctuaryAndMain": 70,
+    "lower1": 35,
+    "lower2": 17,
+    "lower3": 8
   },
   "threshold": "$10 million",
   "scm": "unchanged in parameters and layered scope",
-  "lp073": "superseded as operative rate law; preserved historically",
-  "artifactDigest": "b1718f4cb80aae6c889776adc4471e23fc95a5354ab262d53fbc5e383c6783eb"
+  "lp073": "remains operative because LP-074 Schedule A was refused",
+  "artifactDigest": "cbf86f8dcc6a601f65910f4698f2d77297d4905dad002a9251c0767ae85d01ff"
 }
