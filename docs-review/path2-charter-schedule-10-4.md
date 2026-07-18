@@ -4,6 +4,12 @@
 ## per §13.1 · 2279 (Y178) · Amended after cold methodological review;
 ## residues engraved at Register entries RR-9 through RR-12
 
+> **Historical source status.** This is the terminal Schedule record from the
+> original 2279–2288 window. Its pre-certification language is preserved, but
+> is not current fiscal law. The 2294 certificate made **50 / 35 / 17 / 8**
+> active from 2295: Schedule A is active, Schedule B remains pending, and the
+> SCM is unchanged.
+
 ---
 
 ## Preliminary ruling of construction
@@ -236,9 +242,6 @@ control.
 
 ---
 
-*Adopted with the Charter. During the first 2279–2288 window, the then-live
-70/35/17/8 schedule held under LP-073 because no commencement duty existed.
-Following the 2294 Schedule A certification, the active composite is
-50/35/17/8: LP-074 governs the certified Main rate and LP-073 remains
-authority for the lower rates. Schedule B remains pending its separate
-certificate.*
+*Historical status: during the first 2279–2288 window, the then-live rates
+were 70/35/17/8 under LP-073. Following the 2294 Schedule A certificate, the
+active composite from 2295 is 50/35/17/8; Schedule B remains pending.*

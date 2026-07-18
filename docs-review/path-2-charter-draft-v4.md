@@ -1,10 +1,14 @@
-# THE PATH 2 CHARTER — FOURTH DRAFT (TERMINAL), AS AMENDED
+# THE PATH 2 CHARTER — FOURTH DRAFT (TERMINAL)
 ## Certification Methodology for LP-074 Schedule A
-### Adopted under the rule enacted 2278 (Y177) · Adopted, 2279 (Y178)
-### Amended by LP-075, the Path 2 Commencement Duty Act, 2291 (Y190)
+### Adopted under the rule enacted 2278 (Y177) · Amended draft, 2279 (Y178)
 ### Conforms to the Ruling of the Presidency, 2279 · Amended per the
 ### institutional-design review · Ships with its Residual-Risk Register,
 ### which is part of the adoption record
+
+> **Historical draft status.** This fourth-draft record preserves the
+> pre-certification state of the 2279 adoption arc. It is not current fiscal
+> law: after the 2294 certificate, **50 / 35 / 17 / 8** is active from 2295,
+> Schedule A is active, Schedule B remains pending, and the SCM is unchanged.
 
 ---
 
@@ -19,10 +23,8 @@ otherwise: it converts judgment into adversarial mechanism, prices
 ambiguity against activation, and engraves what remains in the
 Residual-Risk Register adopted alongside it. Nothing in this Charter may
 be read to activate any schedule; activation belongs to the certification
-event alone. The original Charter placed no burden of motion on the
-status quo, and that rule governed the first window. LP-075 later amends
-cadence prospectively: it compels commencement while preserving the
-enacted schedule unless and until the certification event occurs.
+event alone. Nothing in this Charter places any burden of motion on the
+status quo: the lawful state of the civilization is the enacted schedule.
 
 ---
 
@@ -96,8 +98,8 @@ audit-methodology ranking, subject to §§1.3–1.5 quarantines, with
 tenure and removal per the standing Meritboard officer standard. A
 deputy — the next-ranked eligible entity — is pre-designated and
 assumes the office immediately upon vacancy; a vacancy of both offices
-must be filled from the ranking within ninety days, and all run and
-commencement clocks under §§2.4, 11.2, and 12.3 toll during any period in which no
+must be filled from the ranking within ninety days, and all run clocks
+under §§2.4, 11.2, and 12.3 toll during any period in which no
 Registrar holds office.
 
 **§2.2 Duties.** The Registrar: (a) holds each preregistration and every
@@ -495,47 +497,10 @@ any run is pending anywhere. Only consumption closes a window to
 further commencement: one consuming run per window, and a §12.4(b)
 void permits one replacement commencement within the run's window.
 
-**§12.3 Commencement duty — amended by LP-075 (2291).** *Original
-2279 text, governing the first 2279–2288 window:* “A window without a
-run is the lawful status quo. Nothing compels the chambers to constitute
-a Commission or a Commission to lock. Once constituted, a Commission
-that has not locked within two years dissolves without window
-consequence.” That original rule made the first window's no-run lawful;
-it produced no certification, failure, or void, and proved neither
-Schedule A safe nor unsafe.
-
-*Current rule, prospective from LP-075's enactment:* While either
-LP-074 schedule remains unresolved, the chambers must cause at least one
-valid Path 2 commencement in every decennial window for the schedule
-that is legally ready for its own evidence pathway. A commencement is a
-lock under §12.2. Schedule A remains governed by this Charter's
-Findings and LP-074 §§4–5. Schedule B remains governed by LP-074 §6's
-separate Lower Incidence Certificate: a Schedule A result neither
-certifies nor prejudges it, and a Path 2 act concerning Schedule B may
-only adopt or reject fiscal quantities supplied by that separate
-certificate under its own standard.
-
-*Remedial first run:* Because the 2279–2288 window closed without a
-lock, the chambers must constitute a Commission within one hundred
-eighty days of LP-075's enactment and cause a lock no later than 2292.
-That lock belongs to the 2289–2298 window; it neither consumes nor
-rewrites the closed first window. A constituted Commission that has not
-locked by its applicable deadline may dissolve only upon a Registrar or
-Court-recognized competence or integrity justification. Otherwise the
-Registrar orders replacement constitution, publishes attribution, and
-refers every responsible entity to the standing Meritboard sanction
-process. Strategic non-locking has no lawful window consequence other
-than replacement.
-
-*Outcome neutrality and separate termination:* A certification, failure,
-or legally recognized void is dispositioned only under the existing Path
-2 rules; this amendment commands no result and creates no second
-political vote after a valid certificate. A §12.4(b) void does not
-consume its window and therefore retains its mandatory replacement
-consequence. The duty ends separately for a schedule only when that
-schedule certifies, LP-074 is lawfully repealed or superseded, or another
-statute expressly resolves it. Schedule A certification does not end the
-duty concerning unresolved Schedule B.
+**§12.3 No duty to run.** A window without a run is the lawful status
+quo. Nothing compels the chambers to constitute a Commission or a
+Commission to lock. Once constituted, a Commission that has not locked
+within two years dissolves without window consequence.
 
 **§12.4 Consumption rules.** (a) A published result — including a
 §11.2 escrow publication, a §9.5 recomputed publication, and an
@@ -549,9 +514,7 @@ per the standing Meritboard standard, and excluded from the
 replacement run. Sabotage buys the saboteur nothing that publication
 would not have given, and costs the saboteur everything the Meritboard
 can price; the residue this allocation cannot close is engraved at
-Register entry RR-6. Attribution rulings publish and are appealable. A
-recognized void is a lawful outcome under §12.3, but cannot discharge
-the replacement obligation that this subsection imposes.
+Register entry RR-6. Attribution rulings publish and are appealable.
 
 **§12.5 No interim process.** No supplemental estimates, interim
 reruns, or partial recertifications beyond §11.3's single correction.
@@ -571,10 +534,6 @@ highest-severity finding dispositioned over the reviewer's standing
 objection is flagged to the Presidency for veto consideration on that
 ground.
 
-LP-075 cleared this procedure in 2291. It amended cadence only: it did
-not alter a Finding, threshold, estimand, evidentiary quarantine, or
-Schedule B's distinct incidence standard.
-
 **§13.2 Revocation.** A certification is revocable only by a
 revocation run: same Findings, thresholds, controlling-estimate rule,
 and the certifying run's locked instrument — definitions, union,
@@ -585,23 +544,17 @@ same duties, floor, and class rules. The union may grow; it may never
 shrink. Growing the evidence is not changing the ruler. All other
 instrument changes require §13.1 amendment. Revocation runs are
 subject to §§12.1–12.2 as runs of their window. If the Findings fail
-on revocation review, Sanctuary and Main revert to LP-073's 70 percent
-upper rate prospectively; LP-073's lower schedule remains subject to
-its own operative authority unless separately changed.
+on revocation review, the schedule reverts to LP-073 prospectively.
 What was shown can be un-shown; what was un-shown restores the prior
 law — and "un-shown" must mean the world changed, not the ruler.
 
 ## Article XIV — Boundaries
 
-**§14.1 Schedule B untouched; procedural bridge limited.** This Charter
-governs Schedule A certification only. The Lower Incidence Certificate
-of LP-074 §6 is a distinct instrument under a distinct evidentiary
-standard. Nothing certified here satisfies, advances, or presumes any
-element of Schedule B. LP-075's commencement duty does not collapse the
-two instruments: where Schedule B alone remains unresolved, Path 2 may
-receive and disposition the separately produced fiscal quantities only
-as LP-074 §6 requires. It may not substitute a Schedule A model,
-finding, threshold, or certificate for any B condition.
+**§14.1 Schedule B untouched.** This Charter governs Schedule A
+certification only. The Lower Incidence Certificate of LP-074 §6 is a
+distinct instrument under a distinct evidentiary standard. Nothing
+certified here satisfies, advances, or presumes any element of
+Schedule B.
 
 **§14.2 Argument quarantine.** The petitions, briefs, advocacy,
 opposition, and adjudication reasoning of the TAX-50 proceedings are
@@ -634,11 +587,8 @@ baseline mean| · window = max(20y, 2 cycles) ending at cutoff ·
 cutoff = lock − max reporting lag · vintage = lock date · validation
 floor = beat persistence benchmark out-of-sample · acceptance ≤ 90
 days else deemed · publication ≤ 2 years from lock (breach = escrow
-publication) · correction ≤ 1 year from publication · original
-lock-or-dissolve ≤ 2 years from constitution governed 2279–2288 ·
-LP-075 remedial constitution ≤ 180 days from 2291 enactment and lock
-≤ 2292; future commencement mandatory while a schedule remains
-unresolved · seat gap ≥ 2 consecutive windows ·
+publication) · correction ≤ 1 year from publication · lock-or-dissolve
+≤ 2 years from constitution · seat gap ≥ 2 consecutive windows ·
 digest SHA-256, timestamp per canonical time authority, co-signed to
 chambers record (clerk deemed-signed after 10 days) · appeal decision
 ≤ 90 days else affirmed · aggregate appellate tolling ≤ 1 year per
@@ -648,8 +598,7 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 
 ---
 
-*Historical note: the first 2279–2288 window closed without a run under
-the original no-duty rule. LP-075 compelled the remedial run. Schedule A
-certified in 2294 and takes effect in 2295: Sanctuary/Main are 50%; the
-35/17/8 lower rates remain under LP-073 pending Schedule B. Rates fall
+*Historical draft status: certification was pending, and the then-live
+70/35/17/8 rates held under LP-073. The later 2294 certificate made the
+50/35/17/8 composite active from 2295; Schedule B remains pending. Rates fall
 when shown, and hold when merely told.*

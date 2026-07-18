@@ -1,5 +1,11 @@
 # RATIFY-TAX-50 — Session record (post-v21.9.2 doctrine session)
 
+> **Process-record status — historical entries preserved.** This is the
+> drafting archive of rulings through the pre-certificate phases; its dated
+> entries are not rewritten. The current fiscal state after the 2294
+> certificate is **50 / 35 / 17 / 8** from 2295: Schedule A is active,
+> Schedule B remains pending, and the SCM is unchanged.
+
 ## Founder rulings of record (each shipped by this archival pass)
 - R1: Repair path for the pass-three kill is PATH 3 (rate
   recalibration at source). Paths 1 and 2 are NOT bundled.

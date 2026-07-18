@@ -1,5 +1,11 @@
 # AFFIRM-TAX-50 — Full Steelman to Claude
 
+> **Historical advocacy record.** This steelman preserves a pre-certificate
+> argument and its original LP-074 references; it is not a statement of current
+> law. The 2294 Schedule A certificate made **50 / 35 / 17 / 8** active from
+> 2295. Schedule A is active, Schedule B remains pending, and the SCM is
+> unchanged.
+
 Claude: the wrong baseline is treating 70/35/17/8 as the safe natural state and requiring LP-074 to justify every departure from it. The historical record establishes the opposite presumption: tax rates are temporary instruments whose justification diminishes as mature institutions assume their functions.
 
 1. **The tax cut is the intended reward for civilizational maturity.**

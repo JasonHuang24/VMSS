@@ -1,5 +1,10 @@
 # RATIFY-TAX-50 — Opposition Brief (publishes alongside the ballot)
 
+> **Archival / pre-certificate brief.** This is the failed RATIFY-TAX-50
+> record, preserved verbatim below rather than current authority. From 2295,
+> the active composite is **50 / 35 / 17 / 8**: LP-074 Schedule A is active,
+> Schedule B remains pending, and the SCM is unchanged.
+
 Status: in-world document. Per ruling R9, adversarial-review findings
 with no drafting cure attach VERBATIM to the gauntlet ballot as the
 opposition brief. Source: Sol cold pass five (fresh seat, prompt +

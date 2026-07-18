@@ -1,5 +1,11 @@
 # AFFIRM-TAX-50 — Advocacy Brief
 
+> **Historical advocacy record.** This brief preserves the pre-certificate
+> argument and its original LP-074 references; it is not a statement of current
+> law. The 2294 Schedule A certificate made **50 / 35 / 17 / 8** active from
+> 2295. Schedule A is active, Schedule B remains pending, and the SCM is
+> unchanged.
+
 The strongest affirmative case does not pretend the 130% gate figure was independently measured. It rests on a narrower proposition: LP-074 was a controlled, reviewable ratchet justified by structural precedent, while its disputed magnitudes were openly marked, subjected to supersession, and barred from supporting future reductions. (Petition v4.1 §§5–7; LP-074 §§3–5; Session Record R7 and R10.)
 
 1. **Gate circularity defeats the claimed measurement—not the structural case for enactment.**

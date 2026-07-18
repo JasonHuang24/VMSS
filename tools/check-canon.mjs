@@ -16,6 +16,7 @@
  *
  * Run:  node tools/check-canon.mjs   (exit 0 = consistent, 1 = drift)
  */
+import { execFileSync } from 'child_process';
 import { readFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -109,6 +110,13 @@ for (const stub of ['simulations-world.html', 'simulations-residents.html']) {
 const sitemap = read('sitemap.xml');
 check(!sitemap.includes('simulations-world.html') && !sitemap.includes('simulations-residents.html'),
   'sitemap drops retired dossier urls');
+const path2NoindexPages = [
+  'path-2-charter.html', 'path-2-schedule.html', 'path-2-risk-register.html',
+  'path-2-certification-2294.html', 'path-2-commencement-duty-act.html',
+];
+const indexedPath2 = path2NoindexPages.filter((f) => sitemap.includes(f));
+check(indexedPath2.length === 0, 'sitemap omits Path 2 noindex pages',
+  indexedPath2.length ? `indexed: ${indexedPath2.join(', ')}` : `${path2NoindexPages.length} pages omitted`);
 
 /* ---- 3. Academy / Resources totals vs hub cards ---- */
 check(academy.includes(`${cards} stamped simulations`), 'academy-source stamped count', `expects "${cards} stamped simulations"`);
@@ -179,55 +187,35 @@ check(Number(countLine) === entries, 'filter count line = entries',
   check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
 }
 
-/* Supersession chain (v22.0.1; re-anchored v22.1; closed v22.2): the excavated
-   rate-history statutes form a single chain LP-071 → LP-072 → LP-073. Every
-   link but the last is a superseded statute; exactly one — the tail — is the
-   active schedule in force. Guards the record class against a second "active"
-   schedule, a broken chain, or a renumbering that leaves the trajectory without
-   a live terminus.
-
-   The chain is now three links and ends there. From v22.0 to v22.1 it appeared
-   to terminate at the drafting designation LP-074; R13 (v22.2) established that
-   this was drafting history rather than world canon — the schedule never carried
-   a chamber vote — and both designations were deregistered to the Process record.
-   (The register's own LP-074, since R15, is RATIFY-TAX-50-II: a different
-   instrument that changes no rate. See guard (a).) The guards below replace the
-   old per-statute status assertions: they hold the register's numbering honest,
-   hold the designation texts preserved verbatim off-register, hold the principle
-   in doctrine, and hold the tier boundary itself. */
+/* Fiscal authority after the 2294 Schedule A certificate. The excavated
+   LP-071 → LP-073 history remains, but LP-073 now supplies only the lower
+   residual points. LP-074 supplies the active 50% Sanctuary/Main point, and
+   LP-075 supplies procedure only. This positive guard makes the split authority
+   legible rather than treating a historical status as the live schedule. */
 const statusOfLp = (id) => {
   const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
   return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
 };
 {
-  const CHAIN = ['lp-071', 'lp-072', 'lp-073'];
-  const chainStatuses = CHAIN.map(statusOfLp);
-  const missing = CHAIN.filter((_, i) => chainStatuses[i] === null);
-  const active = chainStatuses.filter((s) => s === 'status-active').length;
-  const superseded = chainStatuses.filter((s) => s === 'status-superseded').length;
-  const tailActive = chainStatuses[CHAIN.length - 1] === 'status-active';
-  const ok = missing.length === 0 && active === 1 && superseded === CHAIN.length - 1 && tailActive;
-  check(ok, 'rate-history supersession chain (LP-071→072→073, exactly one active)',
-    missing.length ? `missing: ${missing.join(', ')}`
-      : `active=${active} superseded=${superseded} tail=${chainStatuses[CHAIN.length - 1]}`);
-}
-/* (a) Register numbering is in-world numbering (R15, superseding the v22.2
-   retired-numbers note). R13 had retired 074/075 permanently; R15 rescinds that
-   as out-of-world history leaking into in-world numbering. The register never
-   contained an LP-074 in world, so the R14 law takes the next true number and
-   RATIFY-TAX-50-II renumbers LP-076 -> LP-074. What the earlier guard protected
-   — the register must not assert a statute that never registered — is now
-   protected by the facts themselves: LP-074 *is* a registered statute, and the
-   drafting designations live off-register, labeled as designations (guard (b2)).
-
-   (a1) The register's LP-074 is RATIFY-TAX-50-II, not a restored drafting text.
-   (a2) The old number is fully retired from the tree: a stale #lp-076 would be a
-        link into a slot the register no longer has. */
-{
-  const entry = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
-  check(entry.includes('RATIFY-TAX-50-II'),
-    "register's LP-074 is RATIFY-TAX-50-II (R15: the R14 law takes the next true number)",
-    entry ? 'entry present, titled RATIFY-TAX-50-II' : 'no lp-074 entry');
+  const lp073 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-073"')) || '';
+  const lp074Entry = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
+  const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-075"')) || '';
+  const need = [
+    ['LP-071 remains superseded', statusOfLp('lp-071') === 'status-superseded'],
+    ['LP-072 remains superseded', statusOfLp('lp-072') === 'status-superseded'],
+    ['LP-073 is partially superseded', statusOfLp('lp-073') === 'status-superseded'],
+    ['LP-073 declares residual lower-rate authority', lp073.includes('lower schedule remains operative')],
+    ['LP-074 is enacted', statusOfLp('lp-074') === 'status-enacted'],
+    ['LP-074 is RATIFY-TAX-50-II', lp074Entry.includes('RATIFY-TAX-50-II')],
+    ['LP-074 states Schedule A active', lp074Entry.includes('Schedule A Active')],
+    ['LP-074 states Schedule B pending', lp074Entry.includes('Schedule B Pending')],
+    ['LP-074 states the 50/35/17/8 composite', lp074Entry.includes('50% / 35% / 17% / 8%')],
+    ['LP-075 is enacted', statusOfLp('lp-075') === 'status-enacted'],
+    ['LP-075 is the Path 2 Commencement Duty Act', lp075.includes('Path 2 Commencement Duty Act')],
+  ];
+  const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
+  check(missing.length === 0, 'post-certification fiscal authority is split correctly (LP-074 / LP-073 / LP-075)',
+    missing.length ? `missing: ${missing.join('; ')}` : '50% Schedule A + lower LP-073 residual + procedural LP-075');
 
   const stale = [...law.matchAll(/\blp-076\b/gi)].map((m) => m[0]);
   check(stale.length === 0, 'register carries no LP-076 (R15 renumber complete)',
@@ -246,18 +234,19 @@ const statusOfLp = (id) => {
   check(missing.length === 0, 'deregistered-statutes.html preserves both §1 texts verbatim',
     missing.length ? `missing: ${missing.join(', ')}` : 'both present');
 
-  /* (b2) …and are labeled as designations, not statutes (R15 §1). The register's
-     LP-074 is now a live law, so these texts must say what they are on their face:
-     a reader arriving at either one must not read it as the register's LP-074. */
+  /* (b2) …and are labeled as drafting designations, not the later official
+     statutes. A reader arriving here must be able to distinguish both official
+     register issuances from their similarly numbered process texts. */
   const labels = [
     ['LP-074 designation label', /Drafting designation LP-074 \(process record — never registered in-world\)/],
     ['LP-075 designation label', /Drafting designation LP-075 \(process record — never registered in-world\)/],
     ['disambiguation header', /The register’s LP-074 is (<[^>]+>)*RATIFY-TAX-50-II/],
+    ['LP-075 official-law disambiguation', /its LP-075 is the <a [^>]*>Path 2 Commencement Duty Act/],
   ];
   const unlabeled = labels.filter(([, re]) => !re.test(dereg)).map(([k]) => k);
   check(unlabeled.length === 0,
-    'deregistered-statutes.html labels both texts as drafting designations (R15 §1)',
-    unlabeled.length ? `missing: ${unlabeled.join(', ')}` : 'both labeled + header');
+    'deregistered-statutes.html distinguishes both drafting designations from official laws',
+    unlabeled.length ? `missing: ${unlabeled.join(', ')}` : 'both labels + official LP-074/075 disambiguation');
 }
 
 /* (c) The principle survives as doctrine, in the whitepaper, in R13's wording. */
@@ -311,29 +300,32 @@ const statusOfLp = (id) => {
 }
 
 const STATUTE_PAGE = 'pending-ratify-tax-50-ii-statute.html';
+const CERTIFICATION_PAGE = 'path-2-certification-2294.html';
+const COMMENCEMENT_ACT_PAGE = 'path-2-commencement-duty-act.html';
+const CERTIFICATION_DATA = 'documents/path-2-certification-2294-data.json';
+const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
 
-/* (e) LP-074 is registered, and registered as an uncommenced law (v22.4; the
-   evidence re-pointed at R16's house-style entry). The entry's whole legal
-   character is that it is in force as a rule while both its rate schedules are
-   inactive. Until R16 a dedicated commencement line said so; the rewritten
-   entry says it in the status line and in its opening paragraph instead. Either
-   way the reader must learn it before reaching the schedules — an entry that
-   lost the qualifier would read as a 50-schedule enactment, which is exactly
-   the drift v22.2 spent a version correcting. */
+/* (e) LP-074 is a conditional statute whose Schedule A is now certified and
+   active, while Schedule B remains separately pending. The register must make
+   that split, the date of legal effect, and the statute-page trail visible. */
 const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
 {
   const need = [
     ['entry present', !!lp074],
     ['title', lp074.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
     ['enacted badge', /class="status-badge status-enacted"/.test(lp074)],
-    ['status qualifier', /status-enacted">Enacted &middot; Conditional &mdash; schedules not in force</.test(lp074)],
-    ['changes no rate on passage', lp074.includes('it changes no rate on the day of its passage')],
-    ['live rates named', lp074.includes('The 70/35/17/8 schedule remains in force until certification')],
-    ['anchors the full statute', lp074.includes(`<a href="${STATUTE_PAGE}">Ratification Record</a>`)],
+    ['Schedule A active', lp074.includes('Schedule A Active')],
+    ['Schedule B pending', lp074.includes('Schedule B Pending')],
+    ['historical no-rate-on-passage distinction', lp074.includes('it changed no rate on passage')],
+    ['2294 certification link', lp074.includes('path-2-certification-2294.html')],
+    ['2295 legal effect', lp074.includes('effective in the first 2295 assessment period')],
+    ['active composite named', lp074.includes('50% / 35% / 17% / 8%')],
+    ['separate Lower Incidence Certificate', lp074.includes('Lower Incidence Certificate')],
+    ['anchors the full statute', lp074.includes(STATUTE_PAGE)],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
-  check(missing.length === 0, 'LP-074 registered as an uncommenced law (enacted, schedules not in force)',
-    missing.length ? `missing: ${missing.join(', ')}` : 'entry + badge + qualifier + live rates + statute anchor');
+  check(missing.length === 0, 'LP-074 register entry records active Schedule A and pending Schedule B',
+    missing.length ? `missing: ${missing.join(', ')}` : 'entry + certificate + 2295 effect + split authority + statute anchor');
 }
 
 /* (e2) HOUSE-STYLE GUARD (R16, v22.4.1). Register entries are editorial
@@ -386,45 +378,201 @@ const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     ['citation apparatus retained', (src.match(/class="ls-cite"/g) || []).length >= 125],
     ['not a register entry', !src.includes('<article class="law-entry')],
     ['links back to LP-074', src.includes('law-polling.html#lp-074')],
+    ['current wrapper: A active from 2295', src.includes('Schedule A was certified in 2294 and is active from 2295')],
+    ['current wrapper: B pending', src.includes('Schedule B remains pending')],
+    ['current wrapper links final certificate', src.includes('path-2-certification-2294.html')],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
   check(missing.length === 0, `full conditional statute published at ${STATUTE_PAGE} (R16)`,
     missing.length ? `missing: ${missing.join(', ')}` : 'instrument + conditions + apparatus + backlink');
 }
 
-/* (f) SCHEDULE-INACTIVITY GUARD (v22.3). Two halves, both load-bearing.
-
-   The live schedule is 70/35/17/8 and nothing registered at v22.3 changes it:
-   LP-074 registers a rule, not a rate. So every canon rate surface must still
-   state the live schedule, and the 50-schedule must not appear anywhere on the
-   World tier except inside the LP-074 entry, where it is quoted petition text
-   describing what *would* take force on a certification that has not happened.
-
-   The v22.2 World-tier numeral restriction therefore continues, with the
-   register entry as its single sanctioned exception. 6.25 is the signature: it
-   is the cascade's terminal rate, it appears in no other canon context, and it
-   stood at zero across the World tier before this entry existed. (12.5 is not
-   usable — the whitepaper numbers a section §12.5.) */
+/* (f) ACTIVE-TAX-CANON GUARD. The previous guard was only positive: a page
+   could name 50/35/17/8 somewhere while still presenting 70% as live elsewhere
+   (the Systems regression). These assertions make the active state explicit,
+   reject unlabelled 70-tax claims on current doctrine surfaces, and separately
+   retain the properly labeled historical/process record. */
 {
-  const RATE = '70 / 35 / 17 / 8';
-  const rateSurfaces = ['law-polling.html', 'rate-history.html'];
-  const silent = rateSurfaces.filter((f) => !read(f).includes(RATE));
-  check(silent.length === 0, `schedule-inactivity: rate surfaces still state ${RATE} (LP-073 in force)`,
+  const TAX = manifest.taxCanon || {};
+  const RATE = TAX.composite;
+  const text = (src) => stripComments(src)
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(nbsp|#160);/gi, ' ')
+    .replace(/\s+/g, ' ');
+  const hasComposite = (src) => /50%?[\s\S]{0,1000}35%?[\s\S]{0,1000}17%?[\s\S]{0,1000}8%?/.test(src);
+
+  const manifestOk = RATE === '50 / 35 / 17 / 8'
+    && TAX.effectiveYear === 2295
+    && TAX.scheduleA === 'active'
+    && TAX.scheduleB === 'pending'
+    && TAX.scm === 'unchanged';
+  check(manifestOk, 'tax canon manifest locks 50/35/17/8, 2295, A active, B pending, SCM unchanged',
+    manifestOk ? RATE : JSON.stringify(TAX));
+
+  const rateSurfaces = [
+    'law-polling.html', 'rate-history.html', 'whitepaper.html', 'systems.html',
+    'charter.html', 'faq.html', 'why-vmss.html', 'path-2-certification-2294.html',
+    'path-2-charter.html', 'path-2-schedule.html', 'pending-ratification.html',
+    STATUTE_PAGE,
+  ];
+  const silent = rateSurfaces.filter((f) => !hasComposite(read(f)));
+  check(silent.length === 0, `current fiscal surfaces state the ${RATE} composite`,
     silent.length ? `missing the live schedule: ${silent.join(', ')}` : rateSurfaces.join(', '));
 
-  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
-  const CASCADE = /6\.25/g;
-  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
-  const leaks = [];
-  for (const f of worldPages) {
-    const src = stripComments(read(f));
-    const outside = f === 'law-polling.html' ? src.split(lp074).join(' ') : src;
-    const n = (outside.match(CASCADE) || []).length;
-    if (n) leaks.push(`${f} (${n})`);
+  const authorityNeed = [
+    ['law-polling.html', [
+      ['Schedule A active', /Schedule A Active/],
+      ['Schedule B pending', /Schedule B Pending/],
+      ['2295 effect', /effective in the first 2295 assessment period/],
+      ['SCM unchanged', /all SCM parameters[\s\S]{0,260}unchanged/],
+    ]],
+    ['path-2-certification-2294.html', [
+      ['Schedule A activation', /Schedule A[\s\S]{0,180}(activates|activation)/i],
+      ['Schedule B pending', /Schedule B remains pending/],
+      ['2295 effect', /first assessment period on 1 January 2295/],
+      ['SCM unchanged', /No Savings Circulation Mandate parameter[\s\S]{0,260}changed/],
+    ]],
+    ['systems.html', [
+      ['Schedule A active', /Schedule A is active/],
+      ['Schedule B pending', /Schedule B remains pending/],
+      ['2295 effect', /from 2295/],
+      ['SCM unchanged', /SCM\) parameter remains unchanged/],
+    ]],
+  ];
+  const authorityMissing = [];
+  for (const [file, needs] of authorityNeed) {
+    const src = read(file);
+    for (const [label, re] of needs) if (!re.test(src)) authorityMissing.push(`${file}: ${label}`);
   }
-  check(leaks.length === 0,
-    'schedule-inactivity: 50-schedule confined to the LP-074 entry, stated nowhere as in force',
-    leaks.length ? `50-schedule outside LP-074: ${leaks.join(', ')}` : `${worldPages.length} World pages clear`);
+  check(authorityMissing.length === 0, 'authoritative tax surfaces state activation, split status, 2295 effect, and unchanged SCM',
+    authorityMissing.length ? authorityMissing.join('; ') : 'register + certificate + Systems agree');
+
+  const staleBStatus = rateSurfaces.filter((file) =>
+    /\bSchedule B\b[\s\S]{0,160}\b(?:inactive|not active|not in force)\b/i.test(text(read(file))));
+  check(staleBStatus.length === 0, 'current fiscal surfaces describe Schedule B as pending, not inactive',
+    staleBStatus.length ? staleBStatus.join(', ') : 'all current Schedule-B references retain pending status');
+
+  /* Current World-tier explanation pages may mention 70 only as explicitly
+     historical contrast. A raw 70% tax table/claim here is a regression even
+     if an unrelated paragraph happens to contain the new composite. */
+  const currentOnlySurfaces = ['systems.html', 'charter.html', 'faq.html', 'why-vmss.html', 'whitepaper.html'];
+  const legacyTaxClaims = (file) => {
+    const src = text(read(file));
+    const needles = [/\b70\s*%/gi, /\b70\s*\/\s*35\s*\/\s*17\s*\/\s*8\b/gi];
+    const offenders = [];
+    for (const re of needles) {
+      for (const m of src.matchAll(re)) {
+        const sentenceStart = src.lastIndexOf('.', m.index) + 1;
+        const sentenceEnd = src.indexOf('.', m.index + m[0].length);
+        const sentence = src.slice(sentenceStart, sentenceEnd === -1 ? src.length : sentenceEnd + 1);
+        const taxRelated = /\b(tax|taxation|marginal|income|schedule)\b/i.test(sentence);
+        const historic = /\b(historical|former|prior|then-live|pre-certification|through 2294|before 2295|at the time|contrast|from 70 to 50)\b/i.test(sentence);
+        if (taxRelated && !historic) offenders.push(sentence.trim().slice(0, 180));
+      }
+    }
+    return offenders;
+  };
+  const unlabelledLegacy = currentOnlySurfaces.flatMap((f) => legacyTaxClaims(f).map((excerpt) => `${f}: ${excerpt}`));
+  check(unlabelledLegacy.length === 0, 'current doctrine surfaces contain no unlabelled live 70-tax claim',
+    unlabelledLegacy.length ? unlabelledLegacy.slice(0, 3).join('; ') : '70 appears only as labeled history where applicable');
+
+  /* Search descriptions, Open Graph, and Twitter metadata separately: their
+     stale content is invisible to the body-text checks above. */
+  const metadataOffenders = [];
+  for (const file of readdirSync(ROOT).filter((f) => f.endsWith('.html'))) {
+    const metas = read(file).match(/<meta\b[^>]*>/gi) || [];
+    for (const tag of metas) {
+      if (!/(?:name|property)=["'](?:description|og:description|twitter:description)["']/i.test(tag)) continue;
+      const content = (tag.match(/\bcontent=(["'])([\s\S]*?)\1/i) || [])[2] || '';
+      const hasLegacyTax = /\b70\s*%(?:[^.]{0,120})\b(?:tax|marginal|rate|schedule)\b|\b(?:tax|marginal|rate|schedule)\b[^.]{0,120}\b70\s*%|\b70\s*\/\s*35\s*\/\s*17\s*\/\s*8\b/i.test(content);
+      const historic = /\bhistorical\b|\bformer\b|\bthrough 2294\b/i.test(content);
+      if (hasLegacyTax && !historic) metadataOffenders.push(`${file}: ${content}`);
+    }
+  }
+  check(metadataOffenders.length === 0, 'page descriptions and social metadata carry no stale current 70-tax claim',
+    metadataOffenders.length ? metadataOffenders.join('; ') : 'all description/OG/Twitter fields clean');
+
+  const metadataNeed = [
+    ['rate-history metadata labels historical 70 and active 50 composite',
+      read('rate-history.html').includes('historical 70/35/17/8') && read('rate-history.html').includes('active 50/35/17/8')],
+    ['certificate metadata gives 2295 effect and B pending',
+      read('path-2-certification-2294.html').includes('first 2295 assessment period') && read('path-2-certification-2294.html').includes('Schedule B remains pending')],
+    ['statute metadata gives A 2294/2295 status and B pending',
+      read(STATUTE_PAGE).includes('Schedule A certified in 2294 and is effective in 2295') && read(STATUTE_PAGE).includes('Schedule B remains pending')],
+  ];
+  const metadataMissing = metadataNeed.filter(([, ok]) => !ok).map(([label]) => label);
+  check(metadataMissing.length === 0, 'tax-bearing metadata identifies the current state or labels history',
+    metadataMissing.length ? metadataMissing.join('; ') : 'rate history + certificate + statute metadata aligned');
+
+  /* Raw source and process records retain original historical language. Their
+     wrappers must survive so a repository grep cannot turn record text into a
+     present-tense claim. */
+  const archiveLabels = [
+    ['docs-review/session-handoff-post-path2-arc.md', 'Historical handoff status'],
+    ['docs-review/first-run-cold-pass-prompt.md', 'Historical review frame'],
+    ['docs-review/first-run-preregistration-record.md', 'Historical review frame'],
+    ['docs-review/path2-charter-schedule-10-4.md', 'Historical source status'],
+    ['docs-review/path-2-charter-draft-v4.md', 'Historical draft status'],
+    ['docs-review/RATIFY-TAX-50-session-record.md', 'Process-record status'],
+    ['docs-review/RATIFY-TAX-50-opposition-brief.md', 'Archival / pre-certificate brief'],
+    ['docs-review/AFFIRM-TAX-50-advocacy-brief.md', 'Historical advocacy record'],
+    ['docs-review/AFFIRM-TAX-50-supplemental-brief.md', 'Historical advocacy record'],
+    ['docs-review/RATIFY-TAX-50-II-petition.md', 'Historical filed/enacted conditional instrument'],
+  ];
+  const unframedArchives = archiveLabels.filter(([file, label]) => !read(file).includes(label)).map(([file]) => file);
+  check(unframedArchives.length === 0, 'historical/process sources frame their retained 70-era language',
+    unframedArchives.length ? `missing archive frame: ${unframedArchives.join(', ')}` : `${archiveLabels.length} retained records framed`);
+}
+
+/* (f2) The 2294 certification is a public, reproducible activation record,
+   not merely prose. Its data and offline verifier must travel with the
+   certificate, and the 2291 Act must remain narrow procedural law. */
+{
+  const optionalRead = (f) => { try { return read(f); } catch { return ''; } };
+  const cert = optionalRead(CERTIFICATION_PAGE);
+  const act = optionalRead(COMMENCEMENT_ACT_PAGE);
+  const data = optionalRead(CERTIFICATION_DATA);
+  const certNeed = [
+    ['certificate page exists', !!cert],
+    ['certificate is noindex', /name="robots" content="noindex, follow"/.test(cert)],
+    ['certificate records A1–A8', cert.includes('A1 — Provenance') && cert.includes('A8 — Reproducibility')],
+    ['certificate links public JSON', cert.includes(CERTIFICATION_DATA)],
+    ['certificate links deterministic verifier', cert.includes(CERTIFICATION_VERIFIER)],
+    ['certificate sets 2295 effect', cert.includes('first assessment period on 1 January 2295')],
+    ['certificate keeps Schedule B pending', cert.includes('Schedule B remains pending')],
+    ['certificate does not activate Schedule B rates', cert.includes('does not activate 25% / 12.5% / 6.25%')],
+    ['public appendix exists', !!data],
+    ['public appendix has all monthly series', data.includes('"mainCurrent"') && data.includes('"mainForward"') && data.includes('"adtTrailing"')],
+  ];
+  const certMissing = certNeed.filter(([, ok]) => !ok).map(([k]) => k);
+  check(certMissing.length === 0, '2294 Schedule A certificate is public, reproducible, and Schedule-B-limited',
+    certMissing.length ? `missing: ${certMissing.join('; ')}` : 'page + A1–A8 + data + verifier + 2295 effect');
+
+  const actNeed = [
+    ['Act page exists', !!act],
+    ['Act is noindex', /name="robots" content="noindex, follow"/.test(act)],
+    ['Act identifies LP-075 and 2291', act.includes('LP-075 — Path 2 Commencement Duty Act') && act.includes('2291 (Y190)')],
+    ['Act preserves A1–A8 and B1–B6', act.includes('A1–A8') && act.includes('B1–B6')],
+    ['Act requires 180-day remedial constitution', act.includes('within 180 days')],
+    ['Act preserves the 2292 lock', act.includes('lock in 2292')],
+    ['Act makes no direct rate change', act.includes('No rate changes directly through LP-075.')],
+    ['Act keeps the Schedule B duty separate', act.includes('Schedule A’s certification does not terminate the unresolved Schedule B duty.')],
+  ];
+  const actMissing = actNeed.filter(([, ok]) => !ok).map(([k]) => k);
+  check(actMissing.length === 0, 'LP-075 remains a noindex procedural commencement Act',
+    actMissing.length ? `missing: ${actMissing.join('; ')}` : '2291 + cadence + lock + unchanged gates + separate B duty');
+
+  let verifierOutput = '';
+  let verifierOk = false;
+  try {
+    verifierOutput = execFileSync(process.execPath, [join(ROOT, CERTIFICATION_VERIFIER)], { encoding: 'utf8' });
+    verifierOk = /\bPASS\b/.test(verifierOutput);
+  } catch (error) {
+    verifierOutput = String(error?.stderr || error?.message || error);
+  }
+  check(verifierOk, '2294 deterministic certification verifier passes',
+    verifierOk ? 'A1–A8 reproduce from the public appendix' : verifierOutput.trim().slice(0, 240));
 }
 
 /* (g) PATH 2 CHARTER PAGES (R17–R20, v22.5). The certification methodology
@@ -453,15 +601,19 @@ const REGISTER_PAGE = 'path-2-risk-register.html';
     ['charter is the instrument (THE PATH 2 CHARTER)', charterSrc.includes('THE PATH 2 CHARTER')],
     ['charter carries Articles I–XIV anchors (art-1 … art-14, contiguous)', artsItoXIV],
     ['charter links the register entry (law-polling.html#lp-074)', charterSrc.includes('law-polling.html#lp-074')],
+    ['charter links LP-075', charterSrc.includes('law-polling.html#lp-075')],
+    ['charter links 2294 certificate', charterSrc.includes(CERTIFICATION_PAGE)],
     ['charter links the Schedule', charterSrc.includes(SCHEDULE_PAGE)],
     ['schedule page exists', !!scheduleSrc],
     ['schedule is the instrument (Operative Measure)', scheduleSrc.includes('Operative Measure')],
     ['schedule carries Part D', /part d/i.test(scheduleSrc)],
     ['schedule links the Charter', scheduleSrc.includes(CHARTER_PAGE)],
+    ['schedule links 2294 certificate', scheduleSrc.includes(CERTIFICATION_PAGE)],
     ['register page exists', !!registerSrc],
     ['register engraves through RR-12', registerSrc.includes('RR-12')],
     ['register links the Charter', registerSrc.includes(CHARTER_PAGE)],
     ['register links the Schedule', registerSrc.includes(SCHEDULE_PAGE)],
+    ['register links 2294 certificate', registerSrc.includes(CERTIFICATION_PAGE)],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
   check(missing.length === 0, 'Path 2 Charter pages published + cross-linked (R17–R20)',
@@ -508,7 +660,8 @@ for (const p of pages) {
 
 /* ---- 8. Duplicate DOM ids per page ---- */
 for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'charter.html',
-  'systems.html', 'technologies.html', 'faq.html', 'why-vmss.html']) {
+  'systems.html', 'technologies.html', 'faq.html', 'why-vmss.html',
+  'path-2-certification-2294.html', 'path-2-commencement-duty-act.html']) {
   const ids = [...stripComments(read(p)).matchAll(/ id="([^"]+)"/g)].map((m) => m[1]);
   const dupes = [...new Set(ids.filter((id, i) => ids.indexOf(id) !== i))];
   check(dupes.length === 0, `${p}: no duplicate ids`, dupes.length ? `dupes: ${dupes.join(', ')}` : `${ids.length} ids`);
@@ -523,8 +676,9 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
    pending-ratification.html#path-2, a section that existed with no id on it;
    every one of them silently landed the reader on the page top.
 
-   Scope is every World-tier page (R15 §5), and targets may be any file, since
-   the World tier cites the Process record. Two exemptions, both narrow:
+   Scope is every published root HTML page, including the Process record: an
+   archive may preserve historic wording, but it may not leave a reader at the
+   top of an unrelated page. Two exemptions, both narrow:
      - href="#" on a [data-toc-page] control. These are the whitepaper/world
        paginated-ToC buttons: the click handler calls preventDefault() and swaps
        the page in JS, so "#" is an inert fallback, not a citation. They promise
@@ -532,8 +686,7 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
        still fails.
      - mailto:/http(s):/external hrefs, which this guard does not own. */
 {
-  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
-  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
+  const sitePages = readdirSync(ROOT).filter((f) => f.endsWith('.html'));
   const idCache = new Map();
   const idsIn = (f) => {
     if (!idCache.has(f)) {
@@ -544,7 +697,7 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
   };
   const dead = [];
   let checked = 0;
-  for (const f of worldPages) {
+  for (const f of sitePages) {
     const src = stripComments(read(f));
     // cross-file: page.html#fragment
     for (const m of src.matchAll(/href="([A-Za-z0-9._/-]+\.html)#([^"]+)"/g)) {
@@ -572,7 +725,7 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
     }
   }
   check(dead.length === 0,
-    `link integrity: every internal fragment href on the World tier resolves (${worldPages.length} pages, ${checked} links)`,
+    `link integrity: every internal fragment href on published pages resolves (${sitePages.length} pages, ${checked} links)`,
     dead.length ? `dead: ${[...new Set(dead)].slice(0, 8).join('; ')}` : 'no page-top fallbacks, no dead fragments');
 }
 

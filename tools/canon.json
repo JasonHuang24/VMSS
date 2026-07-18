@@ -2,5 +2,12 @@
   "comment": "Canonical constants that cannot be derived from the pages themselves. Everything derivable (simulation counts, LP section counts, badge totals) is computed live by check-canon.mjs and cross-checked against every advertised number.",
   "pillarFederalLaws": 7,
   "charterLatestArticle": "XXVIII",
-  "currencyZones": 4
+  "currencyZones": 4,
+  "taxCanon": {
+    "composite": "50 / 35 / 17 / 8",
+    "effectiveYear": 2295,
+    "scheduleA": "active",
+    "scheduleB": "pending",
+    "scm": "unchanged"
+  }
 }

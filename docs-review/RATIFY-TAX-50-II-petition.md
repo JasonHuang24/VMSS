@@ -1,5 +1,10 @@
 # RATIFY-TAX-50-II — Conditional Successor Petition
 
+> **Historical filed/enacted conditional instrument.** This source preserves
+> the petition and its pre-certification clauses verbatim. The final Schedule A
+> certificate issued in 2294 and made **50 / 35 / 17 / 8** active from 2295;
+> Schedule B remains pending and the SCM is unchanged.
+
 **Filed:** approximately Y175, under the Trajectory Doctrine. This is a new
 petition line filed approximately sixty-three years after the Y112 failure of
 RATIFY-TAX-50; it neither reopens nor revises that closed line. The Path 2
