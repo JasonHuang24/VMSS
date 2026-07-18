@@ -59,6 +59,7 @@ const html = `<!DOCTYPE html>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" crossorigin>
   <link href="favicon.ico" rel="icon" type="image/x-icon"/>
   <style>
+    .cert-shell{min-width:0;width:100%}
     .cert-banner{border:1px solid var(--border-strong);border-left:4px solid #34d399;border-radius:14px;background:var(--bg-secondary);padding:1.1rem 1.35rem}.cert-banner p{color:var(--text-secondary);line-height:1.65}.cert-banner strong{color:var(--text-primary)}
     .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:1rem;margin:1.5rem 0 2.25rem}.cert-card{padding:1rem;border:1px solid var(--border);border-radius:12px;background:var(--bg-secondary);color:var(--text-secondary)}.cert-card .label{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.35rem}.cert-card .value{color:var(--text-primary);font-size:1.15rem;font-weight:700}
     .cert-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin:1rem 0 1.75rem}.cert-table{width:100%;border-collapse:collapse;min-width:680px;color:var(--text-secondary);font-size:.92rem}.cert-table th,.cert-table td{padding:.72rem .85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}.cert-table th{background:var(--bg-tertiary);color:var(--text-primary)}.cert-table tr:last-child td{border-bottom:0}.cert-pass{color:#34d399;font-weight:700;white-space:nowrap}
@@ -67,7 +68,7 @@ const html = `<!DOCTYPE html>
   </style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
-  <div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-28"><div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
+  <div id="navbar-placeholder"></div><main id="main-content" class="flex-1 cert-shell"><section class="pt-32 pb-28"><div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
     <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings - Path 2 - final certificate</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-4">LP-074 final certification - 2294</h1>
     <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Generated from the same machine-readable record and SHA-256-bound compendium independently executed by the verifier.</p>

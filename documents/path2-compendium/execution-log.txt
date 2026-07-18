@@ -1,8 +1,8 @@
 PATH 2 INDEPENDENT EXECUTION LOG
 run: LP074-2294-LOCKED
-lock certificate: fcfe918e4baaefe513139de8dca07dea17e9216b425efc2ba8b0201a81c30aba
-preregistration: d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a
-code manifest: c5dc87d179a4a17351cdb3b4a66be052bc1194b59bc641b85e40bd3c44f36deb
+lock certificate: 830e594b9b6b1eaf0dc8012cda6ee33660f4ba384977d6463b1e854aaf469493
+preregistration: 5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0
+code manifest: b1c1000753613129451b8efc1b9ef1bc9bf3e99ed24365929b626e02f174700e
 execution output: 09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8
 exact command: node tools/verify-path2-certification-2294.mjs --registrar-recompute
 execution completed: 2294-01-10T18:00:00Z

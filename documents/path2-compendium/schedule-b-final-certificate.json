@@ -1,10 +1,10 @@
 {
   "artifactType": "LP074_SCHEDULE_B_FINAL_CERTIFICATE",
   "publishedAt": "2294-02-05T09:30:00Z",
-  "scheduleACertificateDigest": "5439354d4479028ac49ead83e1c56adb86808aea80cb90f7eecce5c6a5392acf",
-  "lowerCertificateDigest": "475e00dc5b79f9bbcb45cb3514a13afda94c8db35b9ace3a5dd3d9631d27647c",
-  "lowerAdoptionDigest": "50f93118c822b05c11806dc753c97b819359a538e6718b70cf3ebdff58a948c2",
-  "registrarExecutionDigest": "fb29d39cbf4752ee76f2f190b19e034ba41a1e87b4a6beb6dab62ca56cfa6e7c",
+  "scheduleACertificateDigest": "f6d9fafd259b2fbbdbdd10c06f4d0501aeaedefb7abe20b2a65665b812782b57",
+  "lowerCertificateDigest": "331b215d9249e764273ec5c2a309e4d4fe0ebb3959ef42dd39ed4b97010373a2",
+  "lowerAdoptionDigest": "cf0aa92f2a049e9a9b0f700381be8f4e32fa674a27e533be224af112a58a62d8",
+  "registrarExecutionDigest": "79a4a10ec2ef40786398e9435cc872824fd4eab68b6c1ae18268b431a40d74dd",
   "conditions": {
     "B1": "PASS",
     "B2": "PASS",
@@ -15,5 +15,5 @@
   },
   "schedule": "50 / 25 / 12.5 / 6.25",
   "effectiveAssessmentYear": 2295,
-  "artifactDigest": "37960305664a1711bf25b15d0de46e2b6eb890b5d2299c2870efb051264eb522"
+  "artifactDigest": "9ed5367172abbeaf53462e16c508b718a7d9ab2df74825759de08f9eaa12add2"
 }

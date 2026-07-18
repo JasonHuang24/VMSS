@@ -3,11 +3,11 @@
   "registrar": "Ilex Public Reproduction Office / Registrar Sen Vale",
   "completedAt": "2294-01-10T18:00:00Z",
   "preregistrationPath": "documents/path2-compendium/preregistration-2292.json",
-  "preregistrationDigest": "d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a",
+  "preregistrationDigest": "5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0",
   "lockCertificatePath": "documents/path2-compendium/preregistration-lock-certificate.json",
-  "lockCertificateDigest": "fcfe918e4baaefe513139de8dca07dea17e9216b425efc2ba8b0201a81c30aba",
+  "lockCertificateDigest": "830e594b9b6b1eaf0dc8012cda6ee33660f4ba384977d6463b1e854aaf469493",
   "codeManifestPath": "documents/path2-compendium/calculation-code-manifest.json",
-  "codeManifestDigest": "c5dc87d179a4a17351cdb3b4a66be052bc1194b59bc641b85e40bd3c44f36deb",
+  "codeManifestDigest": "b1c1000753613129451b8efc1b9ef1bc9bf3e99ed24365929b626e02f174700e",
   "executionOutputPath": "documents/path2-compendium/execution-output.json",
   "executionOutputDigest": "09e75bd72693c60cc59a14ea36e9838cdfd7bd1bc8ea51d8de41002ba3ae1aa8",
   "sourceDigests": {
@@ -30,5 +30,5 @@
   "section114Disposition": "EXECUTED_AND_MATCHED_BEFORE_ISSUANCE",
   "signature": "REG-SEN-VALE-EXEC-2294-010",
   "dissent": null,
-  "artifactDigest": "c2a18010aa7d17ea80817b82a604f0dbed743c1490c69ef863b19644837e2df9"
+  "artifactDigest": "cfdd7b04ed21cdee395aaced9d8d443fb177136a12986b034a8cd2db7a18e398"
 }

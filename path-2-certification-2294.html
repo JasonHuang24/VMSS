@@ -14,6 +14,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" crossorigin>
   <link href="favicon.ico" rel="icon" type="image/x-icon"/>
   <style>
+    .cert-shell{min-width:0;width:100%}
     .cert-banner{border:1px solid var(--border-strong);border-left:4px solid #34d399;border-radius:14px;background:var(--bg-secondary);padding:1.1rem 1.35rem}.cert-banner p{color:var(--text-secondary);line-height:1.65}.cert-banner strong{color:var(--text-primary)}
     .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:1rem;margin:1.5rem 0 2.25rem}.cert-card{padding:1rem;border:1px solid var(--border);border-radius:12px;background:var(--bg-secondary);color:var(--text-secondary)}.cert-card .label{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.35rem}.cert-card .value{color:var(--text-primary);font-size:1.15rem;font-weight:700}
     .cert-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin:1rem 0 1.75rem}.cert-table{width:100%;border-collapse:collapse;min-width:680px;color:var(--text-secondary);font-size:.92rem}.cert-table th,.cert-table td{padding:.72rem .85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}.cert-table th{background:var(--bg-tertiary);color:var(--text-primary)}.cert-table tr:last-child td{border-bottom:0}.cert-pass{color:#34d399;font-weight:700;white-space:nowrap}
@@ -22,7 +23,7 @@
   </style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
-  <div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-28"><div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
+  <div id="navbar-placeholder"></div><main id="main-content" class="flex-1 cert-shell"><section class="pt-32 pb-28"><div class="lg:max-w-[70%] mx-auto px-6 max-w-4xl">
     <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings - Path 2 - final certificate</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-4">LP-074 final certification - 2294</h1>
     <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">Generated from the same machine-readable record and SHA-256-bound compendium independently executed by the verifier.</p>
@@ -44,13 +45,13 @@
       <div class="cert-card"><span class="label">Schedule A certificate</span><span class="value">2294-01-20</span><p class="mt-2 text-sm">Findings I-IV and A1-A8 passed.</p></div>
       <div class="cert-card"><span class="label">Schedule B certificate</span><span class="value">2294-02-05</span><p class="mt-2 text-sm">Issued after separate Lower certification and adoption.</p></div>
     </div>
-    <h2 id="execution" class="text-2xl font-bold mt-12 mb-4">Lock and independent execution</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Requirement</th><th>Executed record</th><th>Status</th></tr></thead><tbody><tr><td>§9.2 lock</td><td>d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a at 2292-02-15T12:00:00Z; PCR-2292-046-PATH2-LOCK-01; Registrar and clerk signed.</td><td class="cert-pass">PASS</td></tr>
+    <h2 id="execution" class="text-2xl font-bold mt-12 mb-4">Lock and independent execution</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Requirement</th><th>Executed record</th><th>Status</th></tr></thead><tbody><tr><td>§9.2 lock</td><td>5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0 at 2292-02-15T12:00:00Z; PCR-2292-046-PATH2-LOCK-01; Registrar and clerk signed.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>Observation and validation windows</td><td>Observations 2272–2291; training 2272–2286; held-out validation 2287–2291; threshold baseline 2282–2291; projections 2295–2324.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>§4.3 validation</td><td>8 members admitted and 4 failed members retained with row-level predictions and residuals.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>§10.4 execution</td><td>B-1 studentized residual block bootstrap uses published seeds and automatic block lengths; B-2 uses automatic Bartlett HAC and simultaneous max-t; B-4 adds the adverse identified-region endpoint.</td><td class="cert-pass">PASS</td></tr>
 <tr><td>§5.3 precision</td><td>I: |1.09746428 − 1| = 0.09746428; II: |100.6687223 − 0| = 100.6687223; III: |8.3390831 − 10.42385387| = 2.08477077; IV: |7.2617618 − 0| = 7.2617618</td><td class="cert-pass">PASS</td></tr>
 <tr><td>Schedule A.4 and A.6</td><td>2 member derivations and D-1–D-5 diagnostics for all 8 admitted union members.</td><td class="cert-pass">PASS</td></tr>
-<tr><td>§11.4 independent execution</td><td>2294-01-10T18:00:00Z, before every instrument; output 09e75bd72693c60c… bound to code manifest c5dc87d179a4a173….</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
+<tr><td>§11.4 independent execution</td><td>2294-01-10T18:00:00Z, before every instrument; output 09e75bd72693c60c… bound to code manifest b1c1000753613129….</td><td class="cert-pass">PASS</td></tr></tbody></table></div>
     <h2 id="findings" class="text-2xl font-bold mt-12 mb-4">Mandatory Charter Findings I-IV</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Finding</th><th>Controlling adverse result</th><th>Status</th></tr></thead><tbody><tr><td>Finding I</td><td>least-favorable worst-year coverage 109.65% (I-refusal-linear-b2)</td><td class="cert-pass">PASS</td></tr>
 <tr><td>Finding II</td><td>least-favorable impairment years 0 (II-refusal-linear-b2)</td><td class="cert-pass">PASS</td></tr>
 <tr><td>Finding III</td><td>worst activation 10.3457 below 10.4239; Flow margin 0.5775 (III-refusal-linear-b2)</td><td class="cert-pass">PASS</td></tr>
@@ -72,17 +73,17 @@
     <h2 id="revocation" class="text-2xl font-bold mt-12 mb-4">Revocation states</h2>
     <div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>State</th><th>Operative schedule</th></tr></thead><tbody><tr><td>A and B active</td><td>50 / 25 / 12.5 / 6.25</td></tr><tr><td>A active, B revoked</td><td>50 / 35 / 17 / 8</td></tr><tr><td>A revoked</td><td>70 / 35 / 17 / 8; B automatically suspended</td></tr></tbody></table></div>
     <h2 id="compendium" class="text-2xl font-bold mt-12 mb-4">Charter §11.1 compendium</h2><ul class="cert-list"><li><a href="documents/path2-compendium/raw-data-index.json"><code>raw-data</code></a> - SHA-256 <code>884c98a3001cdd19...</code></li>
-<li><a href="documents/path2-compendium/preregistration-2292.json"><code>preregistration</code></a> - SHA-256 <code>d0ce70dd934e03f2...</code></li>
-<li><a href="documents/path2-compendium/preregistration-lock-certificate.json"><code>preregistration-lock-certificate</code></a> - SHA-256 <code>fcfe918e4baaefe5...</code></li>
-<li><a href="documents/path2-compendium/public-chambers-lock-record.json"><code>public-chambers-lock-record</code></a> - SHA-256 <code>fdffbc5f84cc4f06...</code></li>
+<li><a href="documents/path2-compendium/preregistration-2292.json"><code>preregistration</code></a> - SHA-256 <code>5657fb422f21449a...</code></li>
+<li><a href="documents/path2-compendium/preregistration-lock-certificate.json"><code>preregistration-lock-certificate</code></a> - SHA-256 <code>830e594b9b6b1eaf...</code></li>
+<li><a href="documents/path2-compendium/public-chambers-lock-record.json"><code>public-chambers-lock-record</code></a> - SHA-256 <code>ad9b3b292a9551fc...</code></li>
 <li><a href="documents/path2-compendium/analytic-results.json"><code>analytic-data</code></a> - SHA-256 <code>05aec60bce1541ae...</code></li>
 <li><a href="documents/path2-compendium/execution-output.json"><code>executed-calculation-output</code></a> - SHA-256 <code>09e75bd72693c60c...</code></li>
-<li><a href="documents/path2-compendium/calculation-code-manifest.json"><code>calculation-code</code></a> - SHA-256 <code>c5dc87d179a4a173...</code></li>
-<li><a href="documents/path2-compendium/environment-manifest.json"><code>environment-manifest</code></a> - SHA-256 <code>7262c53b5c7db183...</code></li>
+<li><a href="documents/path2-compendium/calculation-code-manifest.json"><code>calculation-code</code></a> - SHA-256 <code>b1c1000753613129...</code></li>
+<li><a href="documents/path2-compendium/environment-manifest.json"><code>environment-manifest</code></a> - SHA-256 <code>854be9b3c7d45335...</code></li>
 <li><a href="documents/path2-compendium/source-registry.json"><code>source-provenance</code></a> - SHA-256 <code>fb3d2c98b48eca6a...</code></li>
 <li><a href="documents/path2-compendium/transformations.md"><code>transformation-rules</code></a> - SHA-256 <code>8af5cf8554e08b5d...</code></li>
 <li><a href="documents/path2-compendium/seeds.md"><code>seeds</code></a> - SHA-256 <code>0f119a281be82df7...</code></li>
-<li><a href="documents/path2-compendium/execution-log.txt"><code>execution-logs</code></a> - SHA-256 <code>eff41c904e23660f...</code></li>
+<li><a href="documents/path2-compendium/execution-log.txt"><code>execution-logs</code></a> - SHA-256 <code>d7e9a3d18b9541c9...</code></li>
 <li><a href="documents/path2-compendium/validation-records.json"><code>section-4-3-validation-records</code></a> - SHA-256 <code>cef4bff4dba2c0f2...</code></li>
 <li><a href="documents/path2-compendium/union-estimates.json"><code>union-estimates-and-intervals</code></a> - SHA-256 <code>9605c734a19a3ec8...</code></li>
 <li><a href="documents/path2-compendium/finding-iv-member-derivations.json"><code>finding-iv-member-derivations</code></a> - SHA-256 <code>587c82fe92217d6f...</code></li>
@@ -90,9 +91,9 @@
 <li><a href="documents/path2-compendium/precision-measurement-amendment-2291.json"><code>precision-measurement-amendment</code></a> - SHA-256 <code>95f53b2c1dfb9880...</code></li>
 <li><a href="documents/path2-compendium/run-cold-review.json"><code>cold-review-record</code></a> - SHA-256 <code>339a74eccbd8796b...</code></li>
 <li><a href="documents/path2-compendium/commission-record.json"><code>commission-votes-dissents-declarations</code></a> - SHA-256 <code>27757b5452282a16...</code></li>
-<li><a href="documents/path2-compendium/registrar-certification.json"><code>registrar-certifications</code></a> - SHA-256 <code>fb29d39cbf4752ee...</code></li>
-<li><a href="documents/path2-compendium/lower-incidence-certificate.json"><code>lower-incidence-certificate</code></a> - SHA-256 <code>475e00dc5b79f9bb...</code></li>
-<li><a href="documents/path2-compendium/lower-incidence-adoption.json"><code>lower-incidence-adoption</code></a> - SHA-256 <code>50f93118c822b05c...</code></li></ul>
+<li><a href="documents/path2-compendium/registrar-certification.json"><code>registrar-certifications</code></a> - SHA-256 <code>79a4a10ec2ef4078...</code></li>
+<li><a href="documents/path2-compendium/lower-incidence-certificate.json"><code>lower-incidence-certificate</code></a> - SHA-256 <code>331b215d9249e764...</code></li>
+<li><a href="documents/path2-compendium/lower-incidence-adoption.json"><code>lower-incidence-adoption</code></a> - SHA-256 <code>cf0aa92f2a049e9a...</code></li></ul>
     <p class="text-[var(--text-secondary)] leading-relaxed mt-8">Economic interpretation: the rate reduction expands private first-allocation capacity and upper-layer velocity while SCM retains the anti-hoarding boundary. No Earth-style speculative shelter assumption enters any certification estimate.</p>
   </div></section></main><script src="script.js" defer></script><div id="footer-placeholder"></div>
 </body></html>

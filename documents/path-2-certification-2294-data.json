@@ -35,21 +35,21 @@
           "required": true,
           "path": "documents/path2-compendium/preregistration-2292.json",
           "complete": true,
-          "digest": "d0ce70dd934e03f2f43b21d83f201c4133ef25889553dbb0abf88eaf197ffb0a"
+          "digest": "5657fb422f21449a75ab6868326554eea9c79693e24007edc7c71f8d2c1a36e0"
         },
         {
           "id": "preregistration-lock-certificate",
           "required": true,
           "path": "documents/path2-compendium/preregistration-lock-certificate.json",
           "complete": true,
-          "digest": "fcfe918e4baaefe513139de8dca07dea17e9216b425efc2ba8b0201a81c30aba"
+          "digest": "830e594b9b6b1eaf0dc8012cda6ee33660f4ba384977d6463b1e854aaf469493"
         },
         {
           "id": "public-chambers-lock-record",
           "required": true,
           "path": "documents/path2-compendium/public-chambers-lock-record.json",
           "complete": true,
-          "digest": "fdffbc5f84cc4f06fb9ecdb91a363090887f8382bd3dc87c0fa8b4510ec25d7c"
+          "digest": "ad9b3b292a9551fc11dcfe38584af170e3bc90e935b66858394a2f6a1d8f8a86"
         },
         {
           "id": "analytic-data",
@@ -70,14 +70,14 @@
           "required": true,
           "path": "documents/path2-compendium/calculation-code-manifest.json",
           "complete": true,
-          "digest": "c5dc87d179a4a17351cdb3b4a66be052bc1194b59bc641b85e40bd3c44f36deb"
+          "digest": "b1c1000753613129451b8efc1b9ef1bc9bf3e99ed24365929b626e02f174700e"
         },
         {
           "id": "environment-manifest",
           "required": true,
           "path": "documents/path2-compendium/environment-manifest.json",
           "complete": true,
-          "digest": "7262c53b5c7db1830a3a6a684d3a2a9b9b480c6589bb8226b7a47f4e959d5d49"
+          "digest": "854be9b3c7d45335a010b16d45d73bf0db24e7654c211c0b625aa0e49a38f9c9"
         },
         {
           "id": "source-provenance",
@@ -105,7 +105,7 @@
           "required": true,
           "path": "documents/path2-compendium/execution-log.txt",
           "complete": true,
-          "digest": "eff41c904e23660f44a22e3b5281632bbee137f1d13032160d1131a58ba5cb4d"
+          "digest": "d7e9a3d18b9541c95594ca2b2f65e6097054bf604a93e015b48c38d4ebc22e9f"
         },
         {
           "id": "section-4-3-validation-records",
@@ -161,21 +161,21 @@
           "required": true,
           "path": "documents/path2-compendium/registrar-certification.json",
           "complete": true,
-          "digest": "fb29d39cbf4752ee76f2f190b19e034ba41a1e87b4a6beb6dab62ca56cfa6e7c"
+          "digest": "79a4a10ec2ef40786398e9435cc872824fd4eab68b6c1ae18268b431a40d74dd"
         },
         {
           "id": "lower-incidence-certificate",
           "required": true,
           "path": "documents/path2-compendium/lower-incidence-certificate.json",
           "complete": true,
-          "digest": "475e00dc5b79f9bbcb45cb3514a13afda94c8db35b9ace3a5dd3d9631d27647c"
+          "digest": "331b215d9249e764273ec5c2a309e4d4fe0ebb3959ef42dd39ed4b97010373a2"
         },
         {
           "id": "lower-incidence-adoption",
           "required": true,
           "path": "documents/path2-compendium/lower-incidence-adoption.json",
           "complete": true,
-          "digest": "50f93118c822b05c11806dc753c97b819359a538e6718b70cf3ebdff58a948c2"
+          "digest": "cf0aa92f2a049e9a9b0f700381be8f4e32fa674a27e533be224af112a58a62d8"
         }
       ]
     },
@@ -5291,7 +5291,7 @@
       "monthlyDataPublished": true,
       "path2StandingAuditAdoption": {
         "date": "2294-02-01",
-        "instrumentDigest": "50f93118c822b05c11806dc753c97b819359a538e6718b70cf3ebdff58a948c2"
+        "instrumentDigest": "cf0aa92f2a049e9a9b0f700381be8f4e32fa674a27e533be224af112a58a62d8"
       },
       "separateCertificatePath": "documents/path2-compendium/lower-incidence-certificate.json",
       "adoptionInstrumentPath": "documents/path2-compendium/lower-incidence-adoption.json"
