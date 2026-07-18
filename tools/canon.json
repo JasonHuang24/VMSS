@@ -4,13 +4,15 @@
   "charterLatestArticle": "XXVIII",
   "currencyZones": 4,
   "taxCanon": {
-    "composite": "50 / 25 / 12.5 / 6.25",
-    "effectiveYear": 2295,
-    "scheduleA": "active",
-    "scheduleB": "active",
+    "composite": "70 / 35 / 17 / 8",
+    "candidateComposite": "50 / 25 / 12.5 / 6.25",
+    "effectiveYear": 2148,
+    "scheduleA": "conditional",
+    "scheduleB": "conditional",
     "threshold": "$10 million",
-    "lp073": "superseded",
-    "lp075": "procedural",
+    "lp073": "active",
+    "lp075": "enacted-procedural-record-gap",
+    "purported2294Certificate": "void-incomplete",
     "scm": "unchanged"
   }
 }

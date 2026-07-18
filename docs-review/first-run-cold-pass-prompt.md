@@ -1,12 +1,10 @@
 # COLD PASS — THE FIRST RUN (illustrative-tier chronicle, in-flight)
 ## Adversarial review prompt. Paste whole into the reviewing seat with the review copy attached.
 
-> **Historical review frame.** This prompt concerns the 2279–2281
-> illustrative chronicle and preserves its then-live rate references. It is
-> not a statement of current law: after the 2294 Path 2 certificate, the
-> complete **50 / 25 / 12.5 / 6.25** LP-074 cascade is active from 2295;
-> Schedules A and B are both active, LP-073 is superseded as operative rate
-> law, LP-075 is procedural only, and the SCM is unchanged.
+> **Historical review frame.** This prompt concerns an illustrative chronicle,
+> not a completed run or current authority. The purported 2294 certificate is
+> incomplete and void. LP-073's **70 / 35 / 17 / 8** remains operative;
+> LP-074's candidate schedules remain conditional, and the SCM is unchanged.
 
 ---
 
@@ -50,11 +48,10 @@ consistent with, but not drawn from, register data.
   identity, B-4 partial identification, Findings I–IV.
 - https://jasonhchronicles.com/VMSS/path-2-risk-register.html — the
   Residual-Risk Register: engravings RR-1 through RR-12.
-- Anchor facts for the 2279–2281 chronicle: the then-live rates were
-  70/35/17/8 under LP-073; instrument adopted 2279; certification window open
-  through 2288; Finding IV undecided. Current law is the 2295
-  50/25/12.5/6.25 LP-074 exact cascade described in the archive-status note
-  above; both schedules independently certified in 2294.
+- Anchor facts for the 2279–2281 chronicle: the rates were 70/35/17/8 under
+  LP-073; instrument adopted 2279; certification window open through 2288;
+  Finding IV undecided. LP-073 remains operative. LP-074's candidate cascade
+  remains conditional because the purported 2294 certificate is void.
 
 ## REVIEW DIMENSIONS
 

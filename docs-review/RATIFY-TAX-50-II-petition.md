@@ -1,10 +1,10 @@
 # RATIFY-TAX-50-II — Conditional Successor Petition
 
 > **Historical filed/enacted conditional instrument.** This source preserves
-> the petition and its pre-certification clauses verbatim. The 2294 Path 2
-> certificate independently cleared LP-074 Schedules A and B, making the full
-> **50 / 25 / 12.5 / 6.25** exact halving cascade active from 2295. LP-073 is
-> superseded as operative rate law, LP-075 is procedural only, and SCM is unchanged.
+> the petition and its conditional clauses verbatim. The purported 2294 Path 2
+> certificate is incomplete and void. LP-073's **70 / 35 / 17 / 8** remains
+> operative; LP-074's candidate **50 / 25 / 12.5 / 6.25** schedules remain
+> conditional, and SCM is unchanged.
 
 **Filed:** approximately Y175, under the Trajectory Doctrine. This is a new
 petition line filed approximately sixty-three years after the Y112 failure of

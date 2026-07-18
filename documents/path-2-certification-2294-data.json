@@ -1,16 +1,109 @@
 {
-  "schemaVersion": "2.0",
+  "schemaVersion": "3.0",
   "record": {
-    "title": "Path 2 Full LP-074 Schedule Certification — 2294",
+    "title": "Path 2 LP-074 Authority Audit — Purported 2294 Certification",
+    "disposition": "VOID_INCOMPLETE",
+    "dispositionReason": "The repository does not contain the mandatory Findings I–IV record, the Charter §11.1 reproducibility compendium, independently sourced raw monthly quantities, a qualifying LP-075 §13.1 cold-review record, Registrar execution, or a separately issued and adopted Lower Incidence Certificate.",
     "commissionConstituted": "2291-05-12",
     "lockDate": "2292-02-15",
     "publicationDate": "2294-01-31",
-    "effectiveAssessmentPeriod": "2295-01-01",
+    "claimedEffectiveAssessmentPeriod": "2295-01-01",
+    "operativeSchedule": "70 / 35 / 17 / 8",
+    "candidateSchedule": "50 / 25 / 12.5 / 6.25",
     "units": "billions of Main credits, constant 2292 purchasing power"
   },
+  "authorityAudit": {
+    "findingsIThroughIV": {
+      "status": "MISSING_NOT_COMPUTABLE",
+      "requiredHorizonYears": 30,
+      "missing": [
+        "admissible estimate sets and equivalence classes",
+        "§4.3 validation-floor results",
+        "one-sided 95 percent uncertainty intervals",
+        "least-favorable controlling bounds",
+        "§5.6 simultaneous worst-year comparisons",
+        "Finding I institutional-adequacy horizon series",
+        "Finding II dividend-impairment horizon series",
+        "Finding III concentration-event and Flow Test horizon series",
+        "Finding IV private-versus-public deployment welfare record"
+      ]
+    },
+    "compendium": {
+      "status": "INCOMPLETE",
+      "requiredBy": "Path 2 Charter §11.1",
+      "inventory": [
+        { "id": "raw-data", "required": true, "path": null, "complete": false },
+        { "id": "analytic-data", "required": true, "path": "documents/path-2-certification-2294-data.json", "complete": false },
+        { "id": "calculation-code", "required": true, "path": "tools/verify-path2-certification-2294.mjs", "complete": false },
+        { "id": "environment-manifest", "required": true, "path": null, "complete": false },
+        { "id": "source-provenance", "required": true, "path": null, "complete": false },
+        { "id": "transformation-rules", "required": true, "path": null, "complete": false },
+        { "id": "seeds", "required": true, "path": null, "complete": false },
+        { "id": "execution-logs", "required": true, "path": null, "complete": false },
+        { "id": "union-estimates-and-intervals", "required": true, "path": null, "complete": false },
+        { "id": "cold-review-record", "required": true, "path": null, "complete": false },
+        { "id": "commission-votes-dissents-declarations", "required": true, "path": null, "complete": false },
+        { "id": "registrar-certifications", "required": true, "path": null, "complete": false },
+        { "id": "lower-incidence-certificate", "required": true, "path": null, "complete": false },
+        { "id": "lower-incidence-adoption", "required": true, "path": null, "complete": false }
+      ],
+      "present": [
+        "analytic normalized candidate values in this file",
+        "deterministic validation code"
+      ],
+      "missing": [
+        "raw source data in original audited units",
+        "complete analytic data and transformation record",
+        "environment and dependency manifest",
+        "source-series provenance and secured deposits",
+        "normalization, inclusion, adjustment, and weight rules",
+        "execution logs and seeds where applicable",
+        "point estimates and uncertainty bounds for every union member",
+        "cold-review materials for the 2294 run",
+        "Commission votes, dissents, and exposure declarations",
+        "Registrar completeness and independent-execution certifications"
+      ]
+    },
+    "lp070": {
+      "gate": "automation-side revenue / total dividend obligations >= 120% over the trailing 36 months, with no month below 100%",
+      "status": "UNPROVED",
+      "reason": "The normalized A/D ratios cannot satisfy LP-070 without independently sourced raw A and D series and a non-circular normalization record."
+    },
+    "lp075": {
+      "status": "PRE_ENACTMENT_COLD_REVIEW_RECORD_NOT_FOUND",
+      "reason": "No repository artifact identifies the §13.1 reviewer, pre-vote completion date, findings, drafter dispositions, replies, unresolved objections, or presidential flags for LP-075."
+    },
+    "scheduleSequence": {
+      "status": "NOT_ESTABLISHED",
+      "requiredOrder": [
+        "Schedule A certificate complete",
+        "separate Lower Incidence Certificate produced",
+        "required body adopts the Lower Incidence Certificate",
+        "B1–B6 evaluated",
+        "Schedule B certifies",
+        "candidate rates take effect in the next assessment period"
+      ],
+      "missing": [
+        "valid Schedule A certificate",
+        "separate Lower Incidence Certificate instrument",
+        "adoption instrument and dated vote for that certificate"
+      ]
+    },
+    "revocation": {
+      "status": "UNRESOLVED_POLICY_GAP",
+      "charterReading": "Charter §13.2 expressly reverts Sanctuary/Main to LP-073's 70 percent upper rate when Schedule A fails a revocation run, but LP-074 supplies no automatic Schedule B revocation rule.",
+      "possibleMixedSchedule": "70 / 25 / 12.5 / 6.25",
+      "decisionRequiredBeforeActivation": "Adopt an express amendment stating whether Schedule B follows Schedule A revocation, how Schedule B is revoked or recalibrated, and which prior lower rates revive."
+    }
+  },
   "provenance": {
+    "status": "UNVERIFIED",
     "method": "Path 2 preregistered audit; controlling estimates only",
-    "authoredOrRulingDerivedMagnitudesUsed": false,
+    "authoredOrRulingDerivedMagnitudesUsed": null,
+    "rawSourceDataPublished": false,
+    "sourceRegistry": [],
+    "normalizationRulesPublished": false,
+    "numeratorDenominatorIndependenceDemonstrated": false,
     "excludedCertificationInputs": [
       "velocity",
       "recruitment",
@@ -123,6 +216,8 @@
     { "month": "2292-01", "a": 122.3, "d": 100.0 }
   ],
   "activation": {
+    "status": "CLAIM_WITHDRAWN",
+    "legallyEffective": false,
     "statute": "LP-074",
     "certificatePublicationDate": "2294-01-31",
     "effectiveAssessmentPeriod": "2295-01-01",
@@ -138,11 +233,14 @@
     }
   },
   "lowerIncidence": {
+    "instrumentStatus": "NO_SEPARATE_CERTIFICATE_FOUND",
     "method": "Charter-restatement Lower Incidence audit; independently audited proposed-rate receipts and legally chargeable obligations, constant 2292 purchasing power.",
     "publication": {
       "routeAndObligationMethod": "Each destination is reconciled by its published share of the audited layer-local receipt stream; each obligation is enumerated by destination and lawful payment order.",
-      "monthlyDataPublished": true,
-      "path2StandingAuditAdoption": "The Path 2 standing audit adopted the published Lower fiscal quantities into the controlling estimate on 2294-01-31."
+      "monthlyDataPublished": false,
+      "path2StandingAuditAdoption": null,
+      "separateCertificatePath": null,
+      "adoptionInstrumentPath": null
     },
     "excludedCertificationInputs": [
       "velocity",

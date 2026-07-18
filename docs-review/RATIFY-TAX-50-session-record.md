@@ -1,11 +1,10 @@
 # RATIFY-TAX-50 — Session record (post-v21.9.2 doctrine session)
 
 > **Process-record status — historical entries preserved.** This is the
-> drafting archive of rulings through the pre-certificate phases; its dated
-> entries are not rewritten. The current fiscal state after the 2294 Path 2
-> certificate is the complete **50 / 25 / 12.5 / 6.25** LP-074 cascade from
-> 2295: Schedules A and B are both active, LP-073 is superseded as operative
-> rate law, LP-075 is procedural only, and the SCM is unchanged.
+> drafting archive of rulings through the pre-certification phases; dated
+> entries are not rewritten. The purported 2294 certificate is incomplete and
+> void. LP-073's **70 / 35 / 17 / 8** remains operative, both LP-074 schedules
+> remain conditional, and the SCM is unchanged.
 
 ## Founder rulings of record (each shipped by this archival pass)
 - R1: Repair path for the pass-three kill is PATH 3 (rate

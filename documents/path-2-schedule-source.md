@@ -236,10 +236,10 @@ control.
 
 ---
 
-*Adopted with the Charter. During the first 2279–2288 window, the then-live
-70/35/17/8 schedule held under LP-073 because no commencement duty existed.
-The final 2294 certificate independently cleared Schedule A's A1–A8
-findings and Schedule B's B1–B6 Lower Incidence findings. From 2295,
-LP-074's complete exact halving cascade is active: 50/25/12.5/6.25.
-LP-073 is preserved as the historical rate law; LP-075 compelled the
-run but neither selected a rate nor supplied certification evidence.*
+*Adopted with the Charter. During the first 2279–2288 window, the 70/35/17/8
+schedule held under LP-073 because no commencement duty existed. LP-075
+later compelled a process but neither selected a rate nor supplied
+certification evidence. The purported 2294 certificate is incomplete and
+void; it does not lawfully apply this Schedule or supply the separate Lower
+Incidence Certificate. LP-073 remains operative and LP-074 remains
+conditional.*

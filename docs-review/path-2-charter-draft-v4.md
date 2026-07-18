@@ -5,11 +5,10 @@
 ### institutional-design review · Ships with its Residual-Risk Register,
 ### which is part of the adoption record
 
-> **Historical draft status.** This fourth-draft record preserves the
-> pre-certification state of the 2279 adoption arc. It is not current fiscal
-> law: after the 2294 Path 2 certificate, **50 / 25 / 12.5 / 6.25** is active
-> from 2295 under LP-074 Schedules A and B; LP-073 is superseded as operative
-> rate law, LP-075 is procedural only, and the SCM is unchanged.
+> **Historical draft status.** This fourth-draft record preserves the 2279
+> adoption arc; it is not current fiscal law. The purported 2294 certificate
+> is incomplete and void. LP-073's **70 / 35 / 17 / 8** remains operative;
+> LP-074's candidate schedules remain conditional, and the SCM is unchanged.
 
 ---
 
@@ -599,7 +598,7 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 
 ---
 
-*Historical draft status: certification was pending, and the then-live
-70/35/17/8 rates held under LP-073. The later 2294 certificate independently
-cleared both LP-074 schedules and made the 50/25/12.5/6.25 exact cascade
-active from 2295. Rates fall when shown, and hold when merely told.*
+*Historical draft status: certification was pending, and 70/35/17/8 held
+under LP-073. That schedule remains operative. The purported 2294 certificate
+is incomplete and void; LP-074's 50/25/12.5/6.25 candidate remains
+conditional. Rates fall when shown, and hold when merely told.*

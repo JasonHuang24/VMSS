@@ -3,6 +3,12 @@
 ### Illustrative tier · Figures marked ~ are illustrative, not register data
 ### 2279–2281 (Y178–Y180)
 
+> **INVALID NON-CANONICAL REVIEW FIXTURE.** This copy contains two deliberate
+> preregistered mutations: incorrect §5.3 arithmetic and an incorrect §12.5
+> cross-reference. It was never the artifact of record and must not be cited as
+> law, evidence, or historical fact. The unmutated illustrative artifact is
+> `the-first-run-simulation-v1.md`.
+
 ---
 
 ## I. Constitution

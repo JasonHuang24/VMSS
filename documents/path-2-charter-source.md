@@ -648,10 +648,10 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 
 ---
 
-*Historical note: the first 2279–2288 window closed without a run under
-the original no-duty rule. LP-075 compelled the remedial run but selected
-no rate. The final 2294 certificate independently cleared Schedule A's
-A1–A8 findings and Schedule B's B1–B6 findings. From 2295, LP-074's
-complete exact halving cascade is active: Sanctuary/Main 50%, −1 25%, −2
-12.5%, and −3 6.25%. LP-073's 70/35/17/8 schedule is preserved as
-historical law and is fully superseded as an operative rate schedule.*
+*Authority audit note: the first 2279–2288 window closed without a run
+under the original no-duty rule. LP-075 compelled a remedial process but
+selected no rate. The repository's purported 2294 certificate lacks the
+controlling Findings I–IV, complete §11.1 compendium, LP-070 gate proof,
+LP-075 §13.1 cold-review record, and separate Lower Incidence Certificate.
+It is incomplete and void. LP-073's 70/35/17/8 schedule remains operative;
+both LP-074 schedules remain conditional.*
