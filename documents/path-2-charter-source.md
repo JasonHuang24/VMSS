@@ -235,11 +235,11 @@ verifying the exclusion publish in full, and the Registrar verifies by
 **§4.4 Adversarial construction.** Upon constitution of a Commission,
 the chambers seat two panels from the same rankings and quarantines as
 §§1.1–1.5 (as modified by §1.4's mandate carve-out): a
-certification-side panel and a refusal-side panel. Each panel holds a
+certification-side panel and a challenge-side panel. Each panel holds a
 MANDATE, not an interest: the certification-side panel's duty is to add
 the specification-set members, identification assumptions, and menu
 selections that make the strongest admissible case for activation; the
-refusal-side panel's duty is the strongest admissible case against.
+challenge-side panel's duty is the strongest admissible case against.
 Addition is a duty, not a permission: each panel must add, for each
 Finding, at least its strongest surviving candidate per its mandate, or
 publish a signed statement that none exists. Panel performance is
@@ -586,8 +586,8 @@ of the ten enacted-70 baseline dividend observations. An adverse year
 still requires both a below-baseline dividend bound and a negative
 schedule-effect bound. The substantive threshold remains zero
 schedule-attributable impairment years. The filed cold review, replies,
-zero-fail vote, rule, and digest publish as
-`precision-measurement-amendment-2291.json`.
+zero-fail vote, and adopted rule remain preserved in the Charter adoption
+history and are summarized by the 2294 authority map.
 
 **§13.2 Revocation.** A certification is revocable only by a
 revocation run: same Findings, thresholds, controlling-estimate rule,
@@ -615,8 +615,8 @@ LP-073 Lower rates, producing 50/35/17/8. The lawful states are therefore:
 both schedules active, 50/25/12.5/6.25; Schedule A active and Schedule B
 revoked, 50/35/17/8; Schedule A revoked, 70/35/17/8 with Schedule B
 automatically suspended. No 70/25/12.5/6.25 state is lawful. The filed
-cold review, replies, zero-fail vote, and adoption record publish in the
-2294 compendium as `revocation-amendment-2293.json`.
+cold review, replies, zero-fail vote, and adoption record remain preserved
+in the Charter adoption history.
 
 ## Article XIV — Boundaries
 
@@ -678,7 +678,7 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 *Disposition history note: the first 2279–2288 window closed without a
 run under the original no-duty rule. LP-075 compelled a remedial process
 without selecting a rate. The valid 2292 lock produced a complete 2294
-record, but the corrected execution refused Schedule A at Finding III's
-least-activation-favorable SCM bound. No Lower adoption or Schedule B
-certificate could follow. LP-074's proposed 50/25/12.5/6.25 cascade did
-not activate; LP-073's 70/35/17/8 schedule remains operative.*
+record in which Findings I–IV passed and Schedule A certified. The
+separate Lower audit then passed B1–B6 and Schedule B certified. Valid
+notice made LP-074's 50/25/12.5/6.25 cascade effective in 2295; LP-073's
+70/35/17/8 schedule is preserved as historical law.*

@@ -2,9 +2,10 @@
 
 > **ARCHIVE / NON-OPERATIVE.** This is the failed RATIFY-TAX-50 record,
 > preserved below rather than current authority. Its authored figures never
-> activated law. The later independent LP-074 execution also changed no rate:
-> corrected Finding III failed and Schedule A was refused. LP-073's 70 / 35 /
-> 17 / 8 remains operative; SCM is unchanged.
+> activated law. **Superseded implementation error — not VMSS canon.** A
+> discarded repository implementation said the later LP-074 execution failed.
+> Canon records both schedules certifying and **50 / 25 / 12.5 / 6.25** taking
+> effect in 2295. This original opposition remains historical only.
 
 Status: in-world document. Per ruling R9, adversarial-review findings
 with no drafting cure attach VERBATIM to the gauntlet ballot as the

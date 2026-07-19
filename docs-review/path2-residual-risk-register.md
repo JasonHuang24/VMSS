@@ -140,7 +140,7 @@ Accepted.
 |---:|---|---|---|
 | S-1 | 1 | CURED | A.1.1: contrast made executable — treatment traced through the standing SCM property-attribution ledger; counterfactual = public allocation function from the same ledger's trailing decade; untraceable flows generate zero margin, always in the activation-unfavorable direction. Residue (ledger coverage) → RR-9. |
 | S-2 | 1 | CURED | A.2 fixes conventions in text: Marshallian, WTP, uncompensated demand, registry market boundaries, canonical new-goods reservation-price method, taxes/transfers excluded, single deflator. |
-| S-3 | 1 | CURED | A.1.5 external-cost netting per canonical damage schedules; unscheduled demonstrated costs enter via refusal-side damage models under §4.4 with §4.5 pricing ambiguity against activation. No cost zeroed by silence. |
+| S-3 | 1 | CURED | A.1.5 external-cost netting per canonical damage schedules; unscheduled demonstrated costs enter via challenge-side damage models under §4.4 with §4.5 pricing ambiguity against activation. No cost zeroed by silence. |
 | S-4 | 1 | CURED | A.1.6 accounting identity: one venture, one appearance, one netting; verified arithmetically in §11.4 execution. |
 | S-5 | 1 | CURED | A.1.2 unified margin: existence is the continuous limit of acceleration (counterfactual arrival beyond horizon); no boundary, no cliff, no year-31 exploit. |
 | S-6 | 1 | MITIGATED | A.1.3: quality/variety only through the canonical authority's published hedonic methods at fixed registry granularity; sub-granularity differentiation is one product. Model-dependence residue → RR-10. |

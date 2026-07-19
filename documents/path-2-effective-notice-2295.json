@@ -1,0 +1,18 @@
+{
+  "artifactType": "LP074_UNIFIED_EFFECTIVE_NOTICE",
+  "publishedAt": "2294-12-01T12:00:00Z",
+  "effectiveAt": "2295-01-01T00:00:00Z",
+  "scheduleA": "CERTIFIED",
+  "scheduleB": "CERTIFIED",
+  "rates": {
+    "sanctuaryAndMain": 50,
+    "lower1": 25,
+    "lower2": 12.5,
+    "lower3": 6.25
+  },
+  "lp073": "SUPERSEDED_AS_OPERATIVE_RATE_LAW",
+  "lp075": "PROCEDURAL_COMMENCEMENT_DUTY_SATISFIED",
+  "threshold": "$10 million — unchanged",
+  "scm": "unchanged in parameters and layer-specific scope",
+  "status": "VALID"
+}

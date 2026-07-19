@@ -5,6 +5,9 @@
   "description": "The Five Rings — VMSS doctrine portal (static site). Tailwind is compiled ahead of time; run build:css after changing classes in HTML/JS.",
   "scripts": {
     "build:css": "tailwindcss -i tailwind.input.css -o assets/css/tailwind.css --minify",
+    "build:certification": "node tools/build-path2-certification-page.mjs",
+    "check:certification": "node tools/verify-path2-certification-2294.mjs",
+    "test:certification": "node tools/test-path2-certification-mutations.mjs",
     "check:canon": "node tools/check-canon.mjs"
   },
   "devDependencies": {

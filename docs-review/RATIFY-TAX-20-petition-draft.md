@@ -1,6 +1,9 @@
 > STATUS: SUPERSEDED by docs-review/RATIFY-TAX-50-petition-v4.md.
 > Retained as boundary-marker record per LP-062/LP-065 doctrine. The
 > neutrality premise in this draft is dead (Sol pass two); do not cite.
+> Its statement that 70 / 35 / 17 / 8 was live describes its historical
+> drafting moment only. Current canon is LP-074 at 50 / 25 / 12.5 / 6.25
+> from 2295 after both schedules certified.
 
 # RATIFY-TAX-20 — Top-Marginal Rate Recalibration
 

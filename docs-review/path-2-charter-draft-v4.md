@@ -6,9 +6,10 @@
 ### which is part of the adoption record
 
 > **ARCHIVE / NON-OPERATIVE DRAFT.** This fourth-draft record preserves the
-> 2279 adoption arc; the published Charter controls. The corrected 2294 record
-> refused LP-074 Schedule A after Finding III failed. LP-073's **70 / 35 / 17 /
-> 8** therefore remains operative; SCM is unchanged.
+> 2279 adoption arc; the published Charter controls. **Superseded implementation
+> error — not VMSS canon.** A discarded repository implementation later recorded
+> a refusal. Canon records both LP-074 schedules certifying in 2294 and
+> **50 / 25 / 12.5 / 6.25** taking effect in 2295.
 
 ---
 
@@ -237,11 +238,11 @@ verifying the exclusion publish in full, and the Registrar verifies by
 **§4.4 Adversarial construction.** Upon constitution of a Commission,
 the chambers seat two panels from the same rankings and quarantines as
 §§1.1–1.5 (as modified by §1.4's mandate carve-out): a
-certification-side panel and a refusal-side panel. Each panel holds a
+certification-side panel and a challenge-side panel. Each panel holds a
 MANDATE, not an interest: the certification-side panel's duty is to add
 the specification-set members, identification assumptions, and menu
 selections that make the strongest admissible case for activation; the
-refusal-side panel's duty is the strongest admissible case against.
+challenge-side panel's duty is the strongest admissible case against.
 Addition is a duty, not a permission: each panel must add, for each
 Finding, at least its strongest surviving candidate per its mandate, or
 publish a signed statement that none exists. Panel performance is
@@ -599,5 +600,6 @@ replacement commencement ≤ 1 per window · no concurrent runs.
 ---
 
 *Historical draft status: certification was pending and 70/35/17/8 held under
-LP-073 in the period described. The corrected 2294 record later refused LP-074
-Schedule A at Finding III, so LP-073's 70/35/17/8 schedule remains operative.*
+LP-073 in the period described. The 2294 record later passed Findings I–IV and
+B1–B6, certified both LP-074 schedules, and made 50/25/12.5/6.25 effective in
+2295.*

@@ -1,18 +1,23 @@
 {
-  "comment": "Canonical constants that cannot be derived from the pages themselves. Everything derivable (simulation counts, LP section counts, badge totals) is computed live by check-canon.mjs and cross-checked against every advertised number.",
+  "comment": "Canonical constants that cannot be derived from the pages themselves. Everything derivable is computed live by check-canon.mjs and cross-checked against advertised values.",
   "pillarFederalLaws": 7,
   "charterLatestArticle": "XXVIII",
   "currencyZones": 4,
   "taxCanon": {
-    "composite": "70 / 35 / 17 / 8",
-    "proposedComposite": "50 / 25 / 12.5 / 6.25",
-    "effectiveYear": 2271,
-    "scheduleA": "refused-finding-iii",
-    "scheduleB": "not-reached",
+    "activeSchedule": "50 / 25 / 12.5 / 6.25",
+    "historicalSchedule": "70 / 35 / 17 / 8",
+    "effectiveYear": 2295,
+    "findingI": "pass",
+    "findingII": "pass",
+    "findingIII": "pass",
+    "findingIV": "pass",
+    "scheduleA": "certified",
+    "scheduleB": "certified",
+    "effectiveNotice": "valid",
     "threshold": "$10 million",
-    "lp073": "operative",
-    "lp075": "procedural",
-    "certificate2294": "complete-failure-finding-iii",
+    "lp073": "superseded-in-2295",
+    "lp074": "active-substantive-rate-law",
+    "lp075": "procedural-only",
     "scm": "unchanged"
   }
 }

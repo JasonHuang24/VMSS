@@ -85,7 +85,7 @@ accounting identity of A.1.6.
 of its external costs — third-party harms, environmental costs, and
 systemic-risk contributions — valued per the civilization's
 canonical damage schedules at the lock snapshot. Where no canonical
-schedule prices a demonstrated external cost, the refusal-side panel
+schedule prices a demonstrated external cost, the challenge-side panel
 may add a damage model to the union under §4.4, and §4.5 prices the
 ambiguity against activation. No demonstrated external cost is
 valued at zero by silence.
@@ -239,8 +239,7 @@ control.
 *Adopted with the Charter. During the first 2279–2288 window, the 70/35/17/8
 schedule held under LP-073 because no commencement duty existed. LP-075
 later compelled a process but selected no rate. The remedial run locked in
-2292 and applied this Schedule to the corrected 2294 Path 2 execution.
-Findings I, II, and IV passed, but Finding III failed because the refusal-side
-SCM activation upper bound exceeded the 125% ceiling. Schedule A was therefore
-refused; no Lower Incidence Certificate or Schedule B certificate issued.
-LP-073's 70/35/17/8 schedule remains operative.*
+2292 and applied this Schedule to the 2294 Path 2 audit. Findings I–IV
+passed and Schedule A certified. The independent Lower audit passed B1–B6
+and Schedule B certified. Valid notice made 50/25/12.5/6.25 effective in
+2295; LP-073 remains preserved as historical law.*

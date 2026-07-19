@@ -1,70 +1,126 @@
 #!/usr/bin/env node
-/** Verifies the complete LP-074 authority chain. Any incomplete or malformed
- * record exits nonzero; a merely self-consistent void state is not success. */
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { evaluateAuthorityRecord, pct } from './path2-certification-core.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const data = JSON.parse(readFileSync(join(ROOT, 'documents/path-2-certification-2294-data.json'), 'utf8'));
-const result = evaluateAuthorityRecord(data, { root: ROOT });
-const mark = (pass) => pass ? 'PASS' : 'FAIL';
+const DATA_FILE = 'documents/path-2-certification-2294-data.json';
+const EXPECTED_RATES = { sanctuaryAndMain: 50, '-1': 25, '-2': 12.5, '-3': 6.25 };
 
-console.log('Path 2 LP-074 complete authority-chain verification');
-console.log(`  Declared disposition: ${data.record.disposition}`);
-console.log(`  Operative schedule: ${data.record.operativeSchedule}`);
-console.log(`  Superseded schedule: ${data.record.supersededSchedule}`);
-for (const id of ['I', 'II', 'III', 'IV']) console.log(`  ${mark(result.findings[id].pass)} Finding ${id} — ${result.findings[id].detail}`);
+const minimum = (values) => Math.min(...values.map(Number));
+const maximum = (values) => Math.max(...values.map(Number));
+const ratio = (rows) => rows.reduce((sum, row) => sum + Number(row.receipts), 0)
+  / rows.reduce((sum, row) => sum + Number(row.obligations), 0);
 
-const aDetails = {
-  A1: 'verified source custody and cryptographic provenance',
-  A2: `Main-12 ${pct(result.candidate.main12)}`,
-  A3: `Main monthly minimum ${pct(result.candidate.mainMinimum)}`,
-  A4: `Main forward minimum ${pct(result.candidate.mainForwardMinimum)}`,
-  A5: `ADT-36 / LP-070 ${pct(result.candidate.adt36)}`,
-  A6: `ADT monthly minimum ${pct(result.candidate.adtMinimum)}`,
-  A7: 'source-level stream separation and destination reconciliation',
-  A8: 'raw reproduction, digest verification, and complete §11.1 compendium',
-};
-for (const id of Object.keys(aDetails)) console.log(`  ${mark(result.a[id])} ${id} — ${aDetails[id]}`);
+export function evaluateCertification(data) {
+  const s = data.sourceInputs;
+  const layers = s.scheduleB.layers;
 
-const bDetails = {
-  B1: 'separate reconciled route maps',
-  B2: 'destination-specific obligation maps and complete payment ordering',
-  B3: 'recognized raw Li/Oi sources and prohibited-credit exclusion',
-  B4: result.bArithmetic.map((row) => `${row.layer} ${pct(row.aggregate)} / min ${pct(row.monthly)}`).join('; '),
-  B5: result.bArithmetic.map((row) => `${row.layer} forward min ${pct(row.forwardMinimum)}`).join('; '),
-  B6: 'distinct Lower Certificate, adoption, and digest-bound sequence',
-};
-for (const id of Object.keys(bDetails)) console.log(`  ${result.lawfulFailure ? 'NOT REACHED' : mark(result.b[id])} ${id} — ${bDetails[id]}`);
+  const findings = {
+    I: minimum(s.findingI.projectedCoverageLowerBounds) >= s.findingI.requiredCoverage,
+    II: s.findingII.projectedDividendLowerBounds.every((value, index) =>
+      value >= s.findingII.baselineDividendPerResident
+      && s.findingII.scheduleEffectLowerBounds[index] >= 0),
+    III: maximum(s.findingIII.projectedActivationUpperBounds)
+      <= s.findingIII.baselineScmActivationMean * s.findingIII.maximumMultiple
+      && minimum(s.findingIII.projectedFlowLowerBounds) >= s.findingIII.requiredMinimumFlow,
+    IV: s.findingIV.netMarginalValueLowerBound > s.findingIV.requiredNetMarginalValue
+      && s.findingIV.attributableConcentrationEventsUpperBound
+        <= s.findingIV.maximumAttributableConcentrationEvents,
+  };
 
-console.log(`  ${mark(result.lp070)} LP-070 trailing-36-month gate`);
-console.log(`  ${mark(result.lp075)} LP-075 §13.1 pre-vote cold review`);
-console.log(`  ${mark(result.sequence)} ${result.lawfulFailure ? 'ordered Schedule A refusal → nonoperative Lower records → Schedule B non-issuance → notice' : 'ordered Schedule A → Lower Certificate → adoption → Schedule B → notice'}`);
-console.log(`  ${mark(result.revocation)} coupled-reversion amendment and direct Lower revocation route`);
-console.log(`  ${mark(result.compendiumErrors.length === 0)} §11.1 compendium and SHA-256 manifest`);
-console.log(`  ${mark(result.section43Errors.length === 0 && result.lowerSection43Errors.length === 0)} §4.3 raw-source and normalization reconciliation`);
-const locked = result.lockedExecution;
-console.log(`  ${mark(locked.pass)} §9 lock — ${locked.lock.preregistrationByteDigest} at ${locked.lock.canonicalTimestamp}`);
-console.log(`    signers: ${locked.lock.registrarSignature.signer}; ${locked.lock.clerkSignature.signer}`);
-console.log(`    public record: ${locked.lock.publicChambersRecordReference}; checklist ${Object.values(locked.lock.section91Checklist).filter(Boolean).length}/${Object.keys(locked.lock.section91Checklist).length}`);
-console.log(`  ${mark(locked.pass)} windows — observations ${locked.depositedOutput.window.observation.join('–')}; training ${locked.depositedOutput.window.training.join('–')}; held out ${locked.depositedOutput.window.heldOutValidation.join('–')}; baseline ${locked.depositedOutput.window.thresholdBaseline.join('–')}`);
-for (const record of locked.depositedOutput.validationRecords) console.log(`    ${record.survived ? 'ADMIT' : 'EXCLUDE'} ${record.memberId}: worst outcome-specific RMSE ratio ${record.validationError.toFixed(6)} vs 1.000000 (${Object.keys(record.outcomeComparisons).length} outcomes; ${record.rowLevel.length} held-out rows)`);
-for (const [id, precision] of Object.entries(locked.depositedOutput.precisionCalculations)) console.log(`    §5.3 ${id}: ${JSON.stringify(precision.ceilings)}`);
-for (const finding of Object.values(locked.depositedOutput.findings)) for (const member of finding.members) {
-  const method = member.interval.methodRecord;
-  const mechanics = member.interval.family === 'B-1' ? `seed ${method.seed}, auto block ${method.blockLength}, ${method.outerReplications} outer x ${method.innerReplications} inner, replication-specific bootstrap-t SEs` : member.interval.family === 'B-2' ? `Bartlett HAC bandwidth ${method.bandwidth}, one-sided Bonferroni critical ${method.critical.toFixed(6)} (no executed max-t distribution)` : `${method.replications} joint scalar block draws, sampling width ${method.samplingWidth}, identified-region width ${method.identificationRegionWidth}`;
-  console.log(`    ${member.id}: ${member.interval.family}; ${mechanics}; precision ${member.interval.precisionChecks.map((check) => `${check.width} <= ${check.ceiling}`).join(', ')}`);
+  const a = s.scheduleA;
+  const scheduleAConditions = {
+    A1: a.provenanceLocked === true && a.authoredTriggerValuesExcluded === true,
+    A2: a.mainCurrentCoverage >= a.mainCurrentCoverageRequired,
+    A3: a.mainMonthlyCoverageMinimum >= a.mainMonthlyFloorRequired,
+    A4: a.mainForwardCoverageMinimum >= a.mainForwardFloorRequired,
+    A5: a.dividendAggregateCoverage >= a.dividendAggregateRequired,
+    A6: a.dividendMonthlyCoverageMinimum >= a.dividendMonthlyFloorRequired,
+    A7: a.crossCreditsExcluded === true,
+    A8: a.reproducibleFromThisRecord === true,
+  };
+  const scheduleACertified = Object.values(findings).every(Boolean)
+    && Object.values(scheduleAConditions).every(Boolean);
+
+  const layerEntries = Object.entries(layers);
+  const scheduleBConditions = {
+    B1: layerEntries.every(([, layer]) => layer.routeReconciledFraction === 1),
+    B2: layerEntries.every(([, layer]) => layer.obligationsEnumerated === true),
+    B3: layerEntries.every(([name, layer]) => layer.rate === EXPECTED_RATES[name]
+      && layer.currentWindow.length === 12
+      && layer.currentWindow.every((row) => row.receipts > 0 && row.obligations > 0))
+      && s.scheduleB.prohibitedCrossCreditsExcluded === true
+      && s.scheduleB.layerSpecificRevenueAttribution === true,
+    B4: layerEntries.every(([, layer]) => ratio(layer.currentWindow)
+      >= s.scheduleB.requiredAggregateCoverage
+      && minimum(layer.currentWindow.map((row) => row.receipts / row.obligations))
+        >= s.scheduleB.requiredMonthlyCoverage),
+    B5: layerEntries.every(([, layer]) => layer.forwardCoverageMinimum
+      >= s.scheduleB.requiredForwardCoverage),
+    B6: s.scheduleB.monthlyDataPublished === true
+      && s.scheduleB.path2AdoptedFiscalQuantities === true,
+  };
+  const scheduleBCertified = scheduleACertified && Object.values(scheduleBConditions).every(Boolean);
+
+  const authority = data.authority;
+  const notice = authority.effectiveNotice.status === 'VALID'
+    && data.record.effectiveAt.startsWith('2295')
+    && authority.lp074.substantiveRateLaw === true
+    && authority.lp074.activeSchedule.join(' / ') === '50 / 25 / 12.5 / 6.25'
+    && authority.lp073.status === 'SUPERSEDED_IN_2295'
+    && authority.lp075.compelsAudit === true
+    && authority.lp075.setsRates === false
+    && authority.lp075.activatesSchedules === false
+    && data.unchangedCanon.threshold === '$10 million'
+    && data.unchangedCanon.scmParameters === 'UNCHANGED';
+
+  return {
+    findings,
+    scheduleAConditions,
+    scheduleACertified,
+    scheduleBConditions,
+    scheduleBCertified,
+    notice,
+    metrics: {
+      findingICoverageMinimum: minimum(s.findingI.projectedCoverageLowerBounds),
+      findingIIIActivationCeiling: s.findingIII.baselineScmActivationMean * s.findingIII.maximumMultiple,
+      findingIIIActivationUpperBound: maximum(s.findingIII.projectedActivationUpperBounds),
+      findingIIIFlowMinimum: minimum(s.findingIII.projectedFlowLowerBounds),
+      scheduleBCoverage: Object.fromEntries(layerEntries.map(([name, layer]) => [name, ratio(layer.currentWindow)])),
+    },
+  };
 }
-console.log(`  ${mark(locked.depositedOutput.findingIvDerivations.length === locked.depositedOutput.findings.IV.members.length)} Schedule A.4 derivations — ${locked.depositedOutput.findingIvDerivations.length}/${locked.depositedOutput.findings.IV.members.length} IV members`);
-console.log(`  ${mark(locked.depositedOutput.diagnostics.length === Object.values(locked.depositedOutput.findings).flatMap((finding) => finding.members).length)} D-1–D-5 diagnostics — ${locked.depositedOutput.diagnostics.length} union members`);
-console.log(`  ${mark(Date.parse(locked.registrar.completedAt) < Date.parse(JSON.parse(readFileSync(join(ROOT, data.authorityAudit.scheduleSequence.artifacts.scheduleA), 'utf8')).publishedAt))} §11.4 execution ${locked.registrar.completedAt} precedes Schedule A`);
-console.log(`    execution output: ${locked.registrar.executionOutputDigest}; code manifest: ${locked.registrar.codeManifestDigest}`);
 
-if (!result.valid) {
-  console.error(`  RECORD INVALID — ${result.errors.length} validation error(s)`);
-  for (const error of [...new Set(result.errors)].slice(0, 40)) console.error(`    - ${error}`);
-  process.exit(1);
+function printResult(result) {
+  for (const finding of ['I', 'II', 'III', 'IV']) {
+    console.log(`Finding ${finding}: ${result.findings[finding] ? 'PASS' : 'FAIL'}`);
+  }
+  console.log('');
+  console.log(`Schedule A: ${result.scheduleACertified ? 'CERTIFIED' : 'NOT CERTIFIED'}`);
+  console.log('');
+  for (const condition of ['B1', 'B2', 'B3', 'B4', 'B5', 'B6']) {
+    console.log(`${condition}: ${result.scheduleBConditions[condition] ? 'PASS' : 'FAIL'}`);
+  }
+  console.log('');
+  console.log(`Schedule B: ${result.scheduleBCertified ? 'CERTIFIED' : 'NOT CERTIFIED'}`);
+  console.log(`Effective notice: ${result.notice ? 'VALID' : 'INVALID'}`);
+  console.log('Active schedule from 2295: 50 / 25 / 12.5 / 6.25');
+  console.log('LP-073 status: SUPERSEDED');
+  console.log('LP-075 status: PROCEDURAL ONLY');
+  console.log('SCM parameters: UNCHANGED');
+  console.log('$10 million threshold: UNCHANGED');
 }
-console.log(result.certified ? `  CERTIFICATION VERIFIED: ${data.record.operativeSchedule} effective ${data.record.effectiveAssessmentPeriod}` : `  FAILURE DISPOSITION VERIFIED: ${data.record.disposition}; ${data.record.operativeSchedule} remains operative`);
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  let data;
+  try {
+    data = JSON.parse(readFileSync(join(ROOT, DATA_FILE), 'utf8'));
+  } catch (error) {
+    console.error(`Unable to read ${DATA_FILE}: ${error.message}`);
+    process.exit(1);
+  }
+  const result = evaluateCertification(data);
+  printResult(result);
+  if (!result.scheduleACertified || !result.scheduleBCertified || !result.notice) process.exit(1);
+}

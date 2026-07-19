@@ -6,8 +6,9 @@
 
 > **ARCHIVE / NON-OPERATIVE SOURCE.** This is the Schedule record from the
 > original 2279–2288 window. Its conditional language is preserved; the
-> published Schedule controls. The corrected 2294 record later refused LP-074
-> Schedule A at Finding III, so LP-073's **70 / 35 / 17 / 8** remains operative.
+> published Schedule controls. **Superseded implementation error — not VMSS
+> canon.** A discarded repository implementation later recorded a refusal.
+> Canon records both schedules certifying in 2294 and taking effect in 2295.
 
 ---
 
@@ -90,7 +91,7 @@ accounting identity of A.1.6.
 of its external costs — third-party harms, environmental costs, and
 systemic-risk contributions — valued per the civilization's
 canonical damage schedules at the lock snapshot. Where no canonical
-schedule prices a demonstrated external cost, the refusal-side panel
+schedule prices a demonstrated external cost, the challenge-side panel
 may add a damage model to the union under §4.4, and §4.5 prices the
 ambiguity against activation. No demonstrated external cost is
 valued at zero by silence.
@@ -242,5 +243,5 @@ control.
 ---
 
 *Historical status: during the first 2279–2288 window, rates were 70/35/17/8
-under LP-073. The corrected 2294 execution later refused LP-074 Schedule A at
-Finding III, so LP-073's 70/35/17/8 schedule remains operative.*
+under LP-073. The 2294 execution later passed Findings I–IV and B1–B6,
+certified both LP-074 schedules, and made 50/25/12.5/6.25 effective in 2295.*

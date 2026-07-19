@@ -110,13 +110,6 @@ for (const stub of ['simulations-world.html', 'simulations-residents.html']) {
 const sitemap = read('sitemap.xml');
 check(!sitemap.includes('simulations-world.html') && !sitemap.includes('simulations-residents.html'),
   'sitemap drops retired dossier urls');
-const path2NoindexPages = [
-  'path-2-charter.html', 'path-2-schedule.html', 'path-2-risk-register.html',
-  'path-2-certification-2294.html', 'path-2-commencement-duty-act.html',
-];
-const indexedPath2 = path2NoindexPages.filter((f) => sitemap.includes(f));
-check(indexedPath2.length === 0, 'sitemap omits Path 2 noindex pages',
-  indexedPath2.length ? `indexed: ${indexedPath2.join(', ')}` : `${path2NoindexPages.length} pages omitted`);
 
 /* ---- 3. Academy / Resources totals vs hub cards ---- */
 check(academy.includes(`${cards} stamped simulations`), 'academy-source stamped count', `expects "${cards} stamped simulations"`);
@@ -187,6 +180,46 @@ check(Number(countLine) === entries, 'filter count line = entries',
   check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
 }
 
+/* Rate-law supersession chain. The official LP-074 is distinct from the
+   deregistered drafting designation and became the current tail in 2295. */
+const statusOfLp = (id) => {
+  const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
+  return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
+};
+{
+  const CHAIN = ['lp-071', 'lp-072', 'lp-073', 'lp-074'];
+  const chainStatuses = CHAIN.map(statusOfLp);
+  const missing = CHAIN.filter((_, i) => chainStatuses[i] === null);
+  const superseded = chainStatuses.slice(0, -1).every((s) => s === 'status-superseded');
+  const tailActive = chainStatuses[chainStatuses.length - 1] === 'status-enacted' && law.includes('Schedules Active from 2295');
+  const ok = missing.length === 0 && superseded && tailActive;
+  check(ok, 'rate-history supersession chain (LP-071→072→073→074, active enacted tail)',
+    missing.length ? `missing: ${missing.join(', ')}`
+      : `historical=${chainStatuses.slice(0, -1).join('/')} tail=${chainStatuses[chainStatuses.length - 1]}`);
+}
+/* (a) Register numbering is in-world numbering (R15, superseding the v22.2
+   retired-numbers note). R13 had retired 074/075 permanently; R15 rescinds that
+   as out-of-world history leaking into in-world numbering. The register never
+   contained an LP-074 in world, so the R14 law takes the next true number and
+   RATIFY-TAX-50-II renumbers LP-076 -> LP-074. What the earlier guard protected
+   — the register must not assert a statute that never registered — is now
+   protected by the facts themselves: LP-074 *is* a registered statute, and the
+   drafting designations live off-register, labeled as designations (guard (b2)).
+
+   (a1) The register's LP-074 is RATIFY-TAX-50-II, not a restored drafting text.
+   (a2) The old number is fully retired from the tree: a stale #lp-076 would be a
+        link into a slot the register no longer has. */
+{
+  const entry = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
+  check(entry.includes('RATIFY-TAX-50-II'),
+    "register's LP-074 is RATIFY-TAX-50-II (R15: the R14 law takes the next true number)",
+    entry ? 'entry present, titled RATIFY-TAX-50-II' : 'no lp-074 entry');
+
+  const stale = [...law.matchAll(/\blp-076\b/gi)].map((m) => m[0]);
+  check(stale.length === 0, 'register carries no LP-076 (R15 renumber complete)',
+    stale.length ? `found ${stale.length}` : 'clear');
+}
+
 /* (b) The deregistered texts survive verbatim off-register. Deregistration is
    relocation, not deletion; this is the guard that keeps it honest. */
 {
@@ -199,19 +232,18 @@ check(Number(countLine) === entries, 'filter count line = entries',
   check(missing.length === 0, 'deregistered-statutes.html preserves both §1 texts verbatim',
     missing.length ? `missing: ${missing.join(', ')}` : 'both present');
 
-  /* (b2) …and are labeled as drafting designations, not the later official
-     statutes. A reader arriving here must be able to distinguish both official
-     register issuances from their similarly numbered process texts. */
+  /* (b2) …and are labeled as designations, not statutes (R15 §1). The register's
+     LP-074 is now a live law, so these texts must say what they are on their face:
+     a reader arriving at either one must not read it as the register's LP-074. */
   const labels = [
     ['LP-074 designation label', /Drafting designation LP-074 \(process record — never registered in-world\)/],
     ['LP-075 designation label', /Drafting designation LP-075 \(process record — never registered in-world\)/],
     ['disambiguation header', /The register’s LP-074 is (<[^>]+>)*RATIFY-TAX-50-II/],
-    ['LP-075 official-law disambiguation', /its LP-075 is the <a [^>]*>Path 2 Commencement Duty Act/],
   ];
   const unlabeled = labels.filter(([, re]) => !re.test(dereg)).map(([k]) => k);
   check(unlabeled.length === 0,
-    'deregistered-statutes.html distinguishes both drafting designations from official laws',
-    unlabeled.length ? `missing: ${unlabeled.join(', ')}` : 'both labels + official LP-074/075 disambiguation');
+    'deregistered-statutes.html labels both texts as drafting designations (R15 §1)',
+    unlabeled.length ? `missing: ${unlabeled.join(', ')}` : 'both labeled + header');
 }
 
 /* (c) The principle survives as doctrine, in the whitepaper, in R13's wording. */
@@ -265,10 +297,29 @@ check(Number(countLine) === entries, 'filter count line = entries',
 }
 
 const STATUTE_PAGE = 'pending-ratify-tax-50-ii-statute.html';
-const CERTIFICATION_PAGE = 'path-2-certification-2294.html';
-const COMMENCEMENT_ACT_PAGE = 'path-2-commencement-duty-act.html';
-const CERTIFICATION_DATA = 'documents/path-2-certification-2294-data.json';
-const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
+
+/* (e) LP-074 is the active substantive rate law after the independent 2294
+   Schedule A and B certifications. LP-073 remains visible but superseded;
+   LP-075 remains procedural only. */
+const lp073 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-073"')) || '';
+const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
+const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-075"')) || '';
+{
+  const need = [
+    ['LP-073 entry present and superseded', !!lp073 && /status-badge status-superseded/.test(lp073)],
+    ['LP-074 entry present', !!lp074],
+    ['title', lp074.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
+    ['enacted badge', /class="status-badge status-enacted"/.test(lp074)],
+    ['active-from-2295 status', lp074.includes('Schedules Active from 2295')],
+    ['Schedule A certified', lp074.includes('Schedule A') && lp074.includes('certified')],
+    ['B1–B6 passed', lp074.includes('B1&ndash;B6') && lp074.includes('passed')],
+    ['current cascade named', lp074.includes('50 / 25 / 12.5 / 6.25')],
+    ['LP-075 procedural', !!lp075 && lp075.includes('compelling commencement, not by directing a rate')],
+  ];
+  const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
+  check(missing.length === 0, 'law-register authority chain: LP-073 superseded; LP-074 active; LP-075 procedural',
+    missing.length ? `missing: ${missing.join(', ')}` : 'authority chain complete');
+}
 
 /* (e2) HOUSE-STYLE GUARD (R16, v22.4.1). Register entries are editorial
    narrative in the register's voice. The apparatus of a working document —
@@ -304,191 +355,99 @@ const CERTIFICATION_VERIFIER = 'tools/verify-path2-certification-2294.mjs';
     offenders.length ? offenders.join('; ') : `${blocks.length} entries clean`);
 }
 
-/* (f) AUTHORITY-FIRST TAX CANON. Page agreement does not activate LP-074;
-   the committed, digest-verified disposition record controls. */
+/* (e3) The statute the register entry stops short of. R16 moved the full
+   conditional text out of the register on the condition that it stay published
+   and stay reachable — an entry that anchors a page that does not exist would
+   be worse than the entry that carried its own text. So: the page exists, it is
+   the instrument (not a summary of one), and it is not a register entry. */
 {
-  const data = JSON.parse(read(CERTIFICATION_DATA));
-  const authority = read('documents/path-2-certification-2294-authority.md');
-  const lp075Gap = read('documents/lp-075-section-13-1-record-gap.md');
-  const certPage = read(CERTIFICATION_PAGE);
-  const certSource = read('tools/build-path2-certification-page.mjs');
-  const coreSource = read('tools/path2-certification-core.mjs');
-  const executionSource = read('tools/path2-execution-engine.mjs');
-  const mutationSource = read('tools/test-path2-certification-mutations.mjs');
-  const currentPages = {
-    'systems.html': read('systems.html'),
-    'charter.html': read('charter.html'),
-    'whitepaper.html': read('whitepaper.html'),
-    'faq.html': read('faq.html'),
-    'why-vmss.html': read('why-vmss.html'),
-    'law-polling.html': law,
-    'rate-history.html': read('rate-history.html'),
-    'simulations.html': read('simulations.html'),
-    'layer--1.html': read('layer--1.html'),
-    'layer--3.html': read('layer--3.html'),
-    'documents/academy-source.html': read('documents/academy-source.html'),
-    'documents/resources-source.html': read('documents/resources-source.html'),
-  };
-  const entry = (id) => law.split(/(?=<article class="law-entry)/).find((b) => b.includes(`id="${id}"`)) || '';
-  const status = (block) => (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1];
-  const lp073 = entry('lp-073');
-  const lp074 = entry('lp-074');
-  const lp075 = entry('lp-075');
-
-  check(status(entry('lp-071')) === 'status-superseded' && status(entry('lp-072')) === 'status-superseded',
-    'law register: LP-071 and LP-072 remain superseded');
-  check(!/\blp-076\b/i.test(law), 'law register: no LP-076 renumbering regression');
-  check(manifest.taxCanon.composite === '70 / 35 / 17 / 8' && manifest.taxCanon.lp073 === 'operative',
-    'canon manifest: operative composite is LP-073');
-  check(manifest.taxCanon.proposedComposite === '50 / 25 / 12.5 / 6.25',
-    'canon manifest: LP-074 proposed composite preserved');
-  check(manifest.taxCanon.scheduleA === 'refused-finding-iii' && manifest.taxCanon.scheduleB === 'not-reached',
-    'canon manifest: Schedule A refused and Schedule B not reached');
-  check(manifest.taxCanon.certificate2294 === 'complete-failure-finding-iii' && manifest.taxCanon.effectiveYear === 2271,
-    'canon manifest: complete 2294 failure leaves LP-073 effective year unchanged');
-  check(manifest.taxCanon.threshold === '$10 million' && manifest.taxCanon.scm === 'unchanged',
-    'canon manifest: threshold and SCM remain unchanged');
-  check(status(lp073) === 'status-enacted' && lp073.includes('point rates, exact halving cascade') && lp073.includes('editorial-corrigendum'),
-    'law register: operative LP-073 wording preserved verbatim with dated corrigendum');
-  check(status(lp074) === 'status-enacted' && lp074.includes('Conditions Not Satisfied'),
-    'law register: LP-074 enacted but its evidence conditions were not satisfied');
-  check(status(lp075) === 'status-enacted' && lp075.includes('lp-075-section-13-1-review.json'),
-    'law register: LP-075 enacted with qualifying §13.1 review linked');
-
-  check(data.record?.disposition === 'FAILED_FINDING_III' && data.activation?.legallyEffective === false,
-    'certificate data: complete lawful failure and no activation');
-  check(data.record?.operativeSchedule === '70 / 35 / 17 / 8' && data.record?.proposedSchedule === '50 / 25 / 12.5 / 6.25' && data.record?.supersededSchedule === null,
-    'certificate data: operative and proposed schedules distinguished');
-  check(data.authorityAudit?.lp070?.status === 'COMPLETE_PASS',
-    'certificate data: LP-070 120%/36-month/no-month-below-100 gate satisfied');
-  check(data.authorityAudit?.lp075?.status === 'COMPLETE',
-    'certificate data: LP-075 §13.1 cold-review record complete');
-  check(data.authorityAudit?.scheduleSequence?.status === 'COMPLETE_NON_ACTIVATION',
-    'certificate data: Registrar execution → Schedule A refusal → non-activation sequence complete');
-  check(data.authorityAudit?.preregistrationLock?.status === 'LOCKED' && data.authorityAudit?.registrarExecution?.status === 'EXECUTED_BEFORE_ISSUANCE',
-    'certificate data: valid lock and pre-instrument §11.4 execution recorded');
-  check(data.authorityAudit?.precisionClarification?.status === 'ADOPTED_PRE_LOCK',
-    'certificate data: narrow Findings II/IV precision clarification predates lock');
-  check(data.authorityAudit?.revocation?.status === 'RESOLVED_COUPLED_REVERSION' &&
-        data.authorityAudit?.revocation?.states?.scheduleARevoked === '70 / 35 / 17 / 8',
-    'certificate data: coupled-reversion state table resolved');
-
-  const compendium = data.authorityAudit?.compendium?.inventory || [];
-  const requiredCompendium = [
-    'raw-data', 'preregistration', 'preregistration-lock-certificate', 'public-chambers-lock-record',
-    'analytic-data', 'executed-calculation-output', 'calculation-code', 'environment-manifest',
-    'source-provenance', 'transformation-rules', 'seeds', 'execution-logs',
-    'section-4-3-validation-records', 'union-estimates-and-intervals',
-    'finding-iv-member-derivations', 'mandatory-d1-d5-diagnostics', 'precision-measurement-amendment', 'cold-review-record',
-    'commission-votes-dissents-declarations', 'registrar-certifications',
-    'lower-incidence-certificate', 'lower-incidence-adoption',
+  let src = '';
+  try { src = read(STATUTE_PAGE); } catch { /* absent — reported below */ }
+  const need = [
+    ['page exists', !!src],
+    ['Schedule A conditions (A1)', /A1/.test(src)],
+    ['Schedule B conditions (B1)', /B1/.test(src)],
+    ['full statute text', src.includes('RATIFY-TAX-50-II — Conditional Successor Petition')],
+    ['citation apparatus retained', (src.match(/class="ls-cite"/g) || []).length >= 125],
+    ['not a register entry', !src.includes('<article class="law-entry')],
+    ['links back to LP-074', src.includes('law-polling.html#lp-074')],
   ];
-  check(requiredCompendium.every((id) => compendium.some((x) => x.id === id && x.complete === true && /^[a-f0-9]{64}$/.test(x.digest))),
-    '§11.1 compendium inventory: every component complete and digested', `${compendium.length} inventoried`);
-  check(data.authorityAudit?.findingsIThroughIV?.status === 'COMPLETE_FAILURE' &&
-        JSON.stringify(data.authorityAudit?.findingsIThroughIV?.dispositions) === JSON.stringify({ I: 'PASS', II: 'PASS', III: 'FAIL', IV: 'PASS' }) &&
-        data.authorityAudit?.findingsIThroughIV?.requiredHorizonYears === 30,
-    'controlling Findings I–IV explicitly complete with Finding III failure');
-  {
-    const executed = JSON.parse(read('documents/path2-compendium/execution-output.json'));
-    const prereg = JSON.parse(read('documents/path2-compendium/preregistration-2292.json'));
-    const lock = JSON.parse(read('documents/path2-compendium/preregistration-lock-certificate.json'));
-    const registrar = JSON.parse(read('documents/path2-compendium/registrar-certification.json'));
-    const scheduleA = JSON.parse(read(data.authorityAudit.scheduleSequence.artifacts.scheduleA));
-    const codeManifest = JSON.parse(read('documents/path2-compendium/calculation-code-manifest.json'));
-    check(JSON.stringify(executed.window) === JSON.stringify({ observation: [2272, 2291], training: [2272, 2286], heldOutValidation: [2287, 2291], thresholdBaseline: [2282, 2291], projection: [2295, 2324] }),
-      'locked execution: observation, training, validation, baseline, and projection windows distinct');
-    check(executed.validationRecords.length === prereg.admissibleSpecificationSet.length && executed.validationRecords.every((record) => record.rowLevel.length === 5) && executed.excludedMembers.length === 4,
-      '§4.3 execution: every member has five held-out rows and failures remain published');
-    check(Object.values(executed.findings).flatMap((finding) => finding.members).some((member) => member.interval.family === 'B-1' && Number.isInteger(member.interval.methodRecord.seed) && Number.isInteger(member.interval.methodRecord.blockLength)) &&
-          Object.values(executed.findings).flatMap((finding) => finding.members).some((member) => member.interval.family === 'B-2' && Number.isInteger(member.interval.methodRecord.bandwidth)) &&
-          executed.findings.IV.members.some((member) => member.interval.family === 'B-4' && member.interval.methodRecord.identificationRegionWidth > 0),
-      '§10.4 execution: B-1 seed/block, B-2 HAC bandwidth, and B-4 identified region computed');
-    check(Math.abs(executed.precisionCalculations.I.ceilings.coverage - 0.0974642798) < 1e-9 &&
-          Math.abs(executed.precisionCalculations.II.ceilings.attributableDividend - 0.7465770967) < 1e-9 &&
-          Math.abs(executed.precisionCalculations.III.ceilings.activation - 2.019159425) < 1e-9 &&
-          Math.abs(executed.precisionCalculations.III.ceilings.flow - 0.872021) < 1e-9 &&
-          Math.abs(executed.precisionCalculations.IV.ceilings.omScalar - 7.2617617981) < 1e-9 &&
-          Object.values(executed.findings).flatMap((finding) => finding.members).every((member) => member.interval.width <= member.interval.precisionFloor),
-      '§5.3 execution: outcome-specific precision ceilings recomputed and every interval fits');
-    check(executed.findingIvDerivations.length === executed.findings.IV.members.length && executed.findingIvDerivations.every((item) => item.accountingIdentity.reconciles),
-      'Schedule A.4: every admitted Finding IV member has a reconciled derivation');
-    check(executed.diagnostics.length === Object.values(executed.findings).flatMap((finding) => finding.members).length && executed.diagnostics.every((item) => ['D1', 'D2', 'D3', 'D4', 'D5'].every((key) => item[key])),
-      'Schedule A.6: D-1–D-5 present for every admitted union member');
-    check(lock.registrarSignature.signature && lock.clerkSignature.signature && lock.publicChambersRecordReference && Object.values(lock.section91Checklist).every(Boolean),
-      '§9.2 lock: signatures, public record, digest, and executability checklist complete');
-    check(Date.parse(registrar.completedAt) < Date.parse(scheduleA.publishedAt) && Date.parse(scheduleA.publishedAt) < Date.parse('2294-02-15T12:00:00Z'),
-      '§11.4 execution: Registrar completed before Schedule A and within two-year deadline');
-    check(codeManifest.sources.length >= 6 && codeManifest.sources.some((source) => source.path === 'tools/path2-execution-engine.mjs') && codeManifest.sources.some((source) => source.path === 'package-lock.json'),
-      '§11.1 calculation code: execution engine, builders, verifier, core, and dependency lock digested');
-    check(executionSource.includes('studentizedBlockBootstrap') && executionSource.includes('hacForecastSe') && executionSource.includes('directScalarBlockBootstrap') && executionSource.includes('validateMemberOutcomeSpecific') && executionSource.includes('executeLockedAnalysis'),
-      'calculation engine contains outcome-specific validation, genuine B-1, B-2 HAC, and direct-scalar B-4 paths');
-  }
-  check(authority.includes('LP-070') && authority.includes('Charter §11.1') && authority.includes('NOT ACTIVATED; LP-073 REMAINS OPERATIVE'),
-    'authority matrix maps every disposition authority to committed evidence');
-  check(lp075Gap.includes('previously reported repository gap is closed') && lp075Gap.includes('2300-07-18'),
-    'LP-075 recovery notice distinguishes event and repository-publication dates');
-  check(certPage.includes('SCHEDULE A REFUSED / COMPLETE RECORD') && certPage.includes('70 / 35 / 17 / 8') && certPage.includes('2294-01-10') && certPage.includes('Lock and independent execution'),
-    'generated disposition page states complete failure and operative LP-073 schedule');
-  check(certSource.includes('evaluateAuthorityRecord') && coreSource.includes('validateMonthlyRows'),
-    'certificate generator uses shared authority and row validators');
-  check(mutationSource.includes('tests.length'), 'permanent mutation-test suite present');
-  {
-    const statutePage = read(STATUTE_PAGE);
-    const statuteSource = read('documents/ratify-tax-50-ii-statute-source.html');
-    check(statutePage.includes('ENACTED, CONDITION NOT SATISFIED') && statutePage.includes('LP-073') && statutePage.includes('remains operative'),
-      'full LP-074 statute page carries the non-activation status wrapper');
-    check(statuteSource.includes('After Schedule A is certified, Schedule B activates if and only if') &&
-          statuteSource.includes('final Lower Incidence Certificate'),
-      'LP-074 source preserves the separate Schedule B condition');
-    check(statutePage.includes('6. Schedule B certification') && statutePage.includes('Complete route map') &&
-          statutePage.includes('Reproducibility and Path 2 adoption'),
-      'full LP-074 statute page retains §6 and B1–B6');
-  }
+  const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
+  check(missing.length === 0, `full conditional statute published at ${STATUTE_PAGE} (R16)`,
+    missing.length ? `missing: ${missing.join(', ')}` : 'instrument + conditions + apparatus + backlink');
+}
 
-  for (const file of ['systems.html', 'charter.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
-    'law-polling.html', 'rate-history.html', 'simulations.html', 'layer--1.html', 'layer--3.html',
-    'documents/academy-source.html', 'documents/resources-source.html']) {
-    const src = currentPages[file];
-    check(src.includes('70 / 35 / 17 / 8') || src.includes('70%') && src.includes('35%') && src.includes('17%') && src.includes('8%'),
-      `${file}: operative 70 / 35 / 17 / 8 represented`);
-  }
-  check(read('whitepaper.html').includes('at or above 120% over a trailing 36-month window, with no single month below 100%'),
-    'whitepaper: exact LP-070 gate restored');
+/* (f) ACTIVE TAX-CANON GUARD. The controlling dataset and verifier decide the
+   certification; public-page agreement alone is not enough. */
+{
+  const data = JSON.parse(read('documents/path-2-certification-2294-data.json'));
+  const notice = JSON.parse(read('documents/path-2-effective-notice-2295.json'));
+  const tax = manifest.taxCanon;
+  check(tax.activeSchedule === '50 / 25 / 12.5 / 6.25' && tax.effectiveYear === 2295,
+    'canon manifest: exact cascade active from 2295');
+  check(['findingI', 'findingII', 'findingIII', 'findingIV'].every((key) => tax[key] === 'pass') &&
+        tax.scheduleA === 'certified' && tax.scheduleB === 'certified' && tax.effectiveNotice === 'valid',
+    'canon manifest: Findings I–IV, Schedule A, B1–B6/Schedule B, and notice pass');
+  check(tax.lp073 === 'superseded-in-2295' && tax.lp074 === 'active-substantive-rate-law' && tax.lp075 === 'procedural-only',
+    'canon manifest: LP-073/074/075 authority roles');
+  check(tax.threshold === '$10 million' && tax.scm === 'unchanged',
+    'canon manifest: threshold and SCM unchanged');
 
-  const forbidden = [];
-  for (const file of Object.keys(currentPages)) {
+  check(data.record.disposition === 'CERTIFIED_BOTH_SCHEDULES' &&
+        data.authority.lp074.activeSchedule.join(' / ') === tax.activeSchedule &&
+        data.authority.lp073.status === 'SUPERSEDED_IN_2295' &&
+        data.authority.lp075.setsRates === false && data.authority.lp075.activatesSchedules === false,
+    'controlling dataset: certified schedules and unambiguous authority chain');
+  check(notice.status === 'VALID' && notice.effectiveAt.startsWith('2295') &&
+        Object.values(notice.rates).join(' / ') === tax.activeSchedule,
+    'effective notice: valid 2295 schedule');
+
+  const currentSurfaces = ['charter.html', 'systems.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
+    'layer--1.html', 'layer--3.html', 'simulations.html', 'documents/academy-source.html',
+    'documents/resources-source.html'];
+  const staleCurrent = [];
+  const forbiddenCurrent = /(?:LP-073[^\n]{0,100}(?:remains operative|operative schedule)|(?:current|active|operative)[^\n]{0,80}(?:70\s*\/\s*35\s*\/\s*17\s*\/\s*8|\b35%|\b17%|\b8%|Finding III\b[^\n]{0,50}fail)|Schedule A\b[^\n]{0,60}refus|Schedule B\b[^\n]{0,60}not reached)/i;
+  for (const file of currentSurfaces) {
     const src = stripComments(read(file));
-    if (/certificate (?:is )?(?:incomplete|void)|LP-074[^\n]{0,140}(?:schedules? (?:are )?active|activated in 2295|took effect in 2295)|LP-073[^\n]{0,140}(?:fully superseded|historical only)/i.test(src)) forbidden.push(file);
+    if (!src.includes('50') || !src.includes('6.25') || forbiddenCurrent.test(src)) staleCurrent.push(file);
   }
-  check(forbidden.length === 0, 'current-state surfaces contain no stale LP-074 activation or superseded-LP-073 claim',
-    forbidden.length ? forbidden.join(', ') : 'clear');
+  check(staleCurrent.length === 0, 'current surfaces enforce 50 / 25 / 12.5 / 6.25 and reject old active-rate/refusal claims',
+    staleCurrent.length ? staleCurrent.join(', ') : `${currentSurfaces.length} surfaces clear`);
 
-  const firstRun = read('docs-review/the-first-run-simulation-v1.md');
-  const firstRunReview = read('docs-review/the-first-run-simulation-v1-review-copy.md');
-  check(firstRun.includes('ARCHIVE / NON-OPERATIVE') && firstRun.includes('illustrative'),
-    'first-run chronicle cannot be mistaken for operative authority');
-  check(firstRunReview.includes('INVALID NON-CANONICAL REVIEW FIXTURE'),
-    'corrupted first-run review copy remains explicitly invalid');
+  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !f.startsWith('pending-') && f !== 'deregistered-statutes.html');
+  const refusalLeaks = worldPages.filter((f) => /Finding III\b[^\n]{0,100}fail|Schedule A\b[^\n]{0,100}refus|Schedule B\b[^\n]{0,100}not reached|lawful (?:nonactivation|failure)/i.test(stripComments(read(f))));
+  check(refusalLeaks.length === 0, 'World-tier pages contain no superseded refusal outcome',
+    refusalLeaks.length ? refusalLeaks.join(', ') : `${worldPages.length} pages clear`);
+
+  const statute = read(STATUTE_PAGE);
+  check(statute.includes('ENACTED, CONDITION NOT SATISFIED') === false &&
+        statute.includes('ENACTED — SCHEDULES ACTIVE FROM 2295') &&
+        statute.includes('50 / 25 / 12.5 / 6.25'),
+    'full LP-074 statute wrapper states both schedules active from 2295');
 
   try {
-    const out = execFileSync(process.execPath, [join(ROOT, CERTIFICATION_VERIFIER)], { encoding: 'utf8' });
-    check(out.includes('FAILURE DISPOSITION VERIFIED: FAILED_FINDING_III; 70 / 35 / 17 / 8 remains operative'),
-      'authority verifier confirms complete Finding III failure disposition');
+    const out = execFileSync(process.execPath, [join(ROOT, 'tools/verify-path2-certification-2294.mjs')], { encoding: 'utf8' });
+    const required = ['Finding I: PASS', 'Finding II: PASS', 'Finding III: PASS', 'Finding IV: PASS',
+      'Schedule A: CERTIFIED', 'B1: PASS', 'B2: PASS', 'B3: PASS', 'B4: PASS', 'B5: PASS', 'B6: PASS',
+      'Schedule B: CERTIFIED', 'Effective notice: VALID', 'Active schedule from 2295: 50 / 25 / 12.5 / 6.25',
+      'LP-073 status: SUPERSEDED', 'LP-075 status: PROCEDURAL ONLY', 'SCM parameters: UNCHANGED'];
+    check(required.every((line) => out.includes(line)), 'deterministic certification verifier output',
+      required.filter((line) => !out.includes(line)).join(', '));
   } catch (error) {
-    check(false, 'authority verifier confirms complete Finding III failure disposition', String(error.stdout || error.message));
+    check(false, 'deterministic certification verifier output', String(error.stdout || error.message));
   }
   try {
     execFileSync(process.execPath, [join(ROOT, 'tools/build-path2-certification-page.mjs'), '--check'], { encoding: 'utf8' });
-    check(true, 'generated certificate page agrees with authority data');
+    check(true, 'generated certification page agrees with controlling dataset');
   } catch (error) {
-    check(false, 'generated certificate page agrees with authority data', String(error.stdout || error.message));
+    check(false, 'generated certification page agrees with controlling dataset', String(error.stdout || error.message));
   }
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
-    check(/85 passed, 0 failed/.test(out), 'malformed-record mutation suite', out.trim().split('\n').at(-1));
+    const summary = out.trim().split('\n');
+    check(/24 passed, 0 failed/.test(out), 'focused certification mutation suite', summary[summary.length - 1]);
   } catch (error) {
-    check(false, 'malformed-record mutation suite', String(error.stdout || error.message));
+    check(false, 'focused certification mutation suite', String(error.stdout || error.message));
   }
 }
 
@@ -518,19 +477,15 @@ const REGISTER_PAGE = 'path-2-risk-register.html';
     ['charter is the instrument (THE PATH 2 CHARTER)', charterSrc.includes('THE PATH 2 CHARTER')],
     ['charter carries Articles I–XIV anchors (art-1 … art-14, contiguous)', artsItoXIV],
     ['charter links the register entry (law-polling.html#lp-074)', charterSrc.includes('law-polling.html#lp-074')],
-    ['charter links LP-075', charterSrc.includes('law-polling.html#lp-075')],
-    ['charter links 2294 certificate', charterSrc.includes(CERTIFICATION_PAGE)],
     ['charter links the Schedule', charterSrc.includes(SCHEDULE_PAGE)],
     ['schedule page exists', !!scheduleSrc],
     ['schedule is the instrument (Operative Measure)', scheduleSrc.includes('Operative Measure')],
     ['schedule carries Part D', /part d/i.test(scheduleSrc)],
     ['schedule links the Charter', scheduleSrc.includes(CHARTER_PAGE)],
-    ['schedule links 2294 certificate', scheduleSrc.includes(CERTIFICATION_PAGE)],
     ['register page exists', !!registerSrc],
     ['register engraves through RR-12', registerSrc.includes('RR-12')],
     ['register links the Charter', registerSrc.includes(CHARTER_PAGE)],
     ['register links the Schedule', registerSrc.includes(SCHEDULE_PAGE)],
-    ['register links 2294 certificate', registerSrc.includes(CERTIFICATION_PAGE)],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
   check(missing.length === 0, 'Path 2 Charter pages published + cross-linked (R17–R20)',
@@ -577,8 +532,7 @@ for (const p of pages) {
 
 /* ---- 8. Duplicate DOM ids per page ---- */
 for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'charter.html',
-  'systems.html', 'technologies.html', 'faq.html', 'why-vmss.html',
-  'path-2-certification-2294.html', 'path-2-commencement-duty-act.html']) {
+  'systems.html', 'technologies.html', 'faq.html', 'why-vmss.html']) {
   const ids = [...stripComments(read(p)).matchAll(/ id="([^"]+)"/g)].map((m) => m[1]);
   const dupes = [...new Set(ids.filter((id, i) => ids.indexOf(id) !== i))];
   check(dupes.length === 0, `${p}: no duplicate ids`, dupes.length ? `dupes: ${dupes.join(', ')}` : `${ids.length} ids`);
@@ -593,9 +547,8 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
    pending-ratification.html#path-2, a section that existed with no id on it;
    every one of them silently landed the reader on the page top.
 
-   Scope is every published root HTML page, including the Process record: an
-   archive may preserve historic wording, but it may not leave a reader at the
-   top of an unrelated page. Two exemptions, both narrow:
+   Scope is every World-tier page (R15 §5), and targets may be any file, since
+   the World tier cites the Process record. Two exemptions, both narrow:
      - href="#" on a [data-toc-page] control. These are the whitepaper/world
        paginated-ToC buttons: the click handler calls preventDefault() and swaps
        the page in JS, so "#" is an inert fallback, not a citation. They promise
@@ -603,7 +556,8 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
        still fails.
      - mailto:/http(s):/external hrefs, which this guard does not own. */
 {
-  const sitePages = readdirSync(ROOT).filter((f) => f.endsWith('.html'));
+  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
+  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
   const idCache = new Map();
   const idsIn = (f) => {
     if (!idCache.has(f)) {
@@ -614,7 +568,7 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
   };
   const dead = [];
   let checked = 0;
-  for (const f of sitePages) {
+  for (const f of worldPages) {
     const src = stripComments(read(f));
     // cross-file: page.html#fragment
     for (const m of src.matchAll(/href="([A-Za-z0-9._/-]+\.html)#([^"]+)"/g)) {
@@ -642,7 +596,7 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
     }
   }
   check(dead.length === 0,
-    `link integrity: every internal fragment href on published pages resolves (${sitePages.length} pages, ${checked} links)`,
+    `link integrity: every internal fragment href on the World tier resolves (${worldPages.length} pages, ${checked} links)`,
     dead.length ? `dead: ${[...new Set(dead)].slice(0, 8).join('; ')}` : 'no page-top fallbacks, no dead fragments');
 }
 

@@ -1,10 +1,10 @@
 # AFFIRM-TAX-50 — Advocacy Brief
 
 > **ARCHIVE / NON-OPERATIVE.** This brief preserves a pre-certification
-> argument; it is not evidence or current authority. The later, independently
-> sourced LP-074 execution also changed no rate: corrected Finding III failed
-> and Schedule A was refused. LP-073's **70 / 35 / 17 / 8** remains operative;
-> SCM is unchanged.
+> argument; it is not evidence or current authority. **Superseded implementation
+> error — not VMSS canon.** A discarded repository implementation said Finding
+> III failed. Canon records Findings I–IV and B1–B6 passing, both LP-074
+> schedules certifying, and **50 / 25 / 12.5 / 6.25** taking effect in 2295.
 
 The strongest affirmative case does not pretend the 130% gate figure was independently measured. It rests on a narrower proposition: LP-074 was a controlled, reviewable ratchet justified by structural precedent, while its disputed magnitudes were openly marked, subjected to supersession, and barred from supporting future reductions. (Petition v4.1 §§5–7; LP-074 §§3–5; Session Record R7 and R10.)
 
