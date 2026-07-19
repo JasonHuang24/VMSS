@@ -38,9 +38,9 @@ export function buildCertificationHtml(data, notice) {
   const effectiveYear = data.record.effectiveAt.slice(0, 4);
 
   const findings = [
-    row('Finding I — institutional adequacy', `Worst of ${C.annualObservations} keyed annual coverage lower bounds: ${result.metrics.findingICoverageMinimum.toFixed(3)} against ${C.findings.I.requiredCoverage.toFixed(3)}`, result.findings.I),
-    row('Finding II — ADT elasticity', `All ${C.annualObservations} keyed years pass; weakest dividend lower bound ${result.metrics.findingIIDividendMinimum.toFixed(2)} and weakest schedule-effect lower bound ${result.metrics.findingIIScheduleEffectMinimum.toFixed(2)}`, result.findings.II),
-    row('Finding III — concentration response', `SCM activation upper bound ${result.metrics.findingIIIActivationUpperBound.toFixed(2)} against ceiling ${result.metrics.findingIIIActivationCeiling.toFixed(2)}; minimum Flow ${result.metrics.findingIIIFlowMinimum.toFixed(3)} against ${C.findings.III.requiredMinimumFlow.toFixed(3)}`, result.findings.III),
+    row('Finding I — institutional adequacy', `Worst of ${C.annualObservations} keyed annual coverage lower bounds: ${result.metrics.findingICoverageMinimum.toFixed(3)} against strict floor &gt; ${C.findings.I.requiredCoverage.toFixed(3)}`, result.findings.I),
+    row('Finding II — ADT elasticity', `All ${C.annualObservations} keyed years strictly clear both bounds; weakest dividend lower bound ${result.metrics.findingIIDividendMinimum.toFixed(2)} &gt; ${C.findings.II.baselineDividendPerResident.toFixed(2)}, and weakest schedule-effect lower bound ${result.metrics.findingIIScheduleEffectMinimum.toFixed(2)} &gt; ${C.findings.II.minimumScheduleEffect.toFixed(2)}`, result.findings.II),
+    row('Finding III — concentration response', `SCM activation upper bound ${result.metrics.findingIIIActivationUpperBound.toFixed(2)} against strict ceiling &lt; ${result.metrics.findingIIIActivationCeiling.toFixed(2)}; minimum Flow ${result.metrics.findingIIIFlowMinimum.toFixed(3)} against strict floor &gt; ${C.findings.III.requiredMinimumFlow.toFixed(3)}`, result.findings.III),
     row('Finding IV — retained-capital utility', `Weakest annual net marginal-value lower bound ${result.metrics.findingIVNetMarginalValueMinimum.toFixed(2)} against strict floor &gt; ${C.findings.IV.requiredNetMarginalValue.toFixed(2)}; maximum attributable concentration events ${result.metrics.findingIVConcentrationMaximum}`, result.findings.IV),
   ].join('');
 
@@ -48,7 +48,7 @@ export function buildCertificationHtml(data, notice) {
     A1: `${designYear} registry: ${s.scheduleA.transformRegistry.length} transforms and ${s.scheduleA.provenanceRegistry.length} locked sources; all ${s.scheduleA.mainCurrentWindow.length + s.scheduleA.mainForwardWindow.length + s.scheduleA.dividendWindow.length} rows resolve to them`,
     A2: `Main-12 ${pct(a.main12)} against ${pct(C.scheduleA.currentAggregate)}`,
     A3: `Main current weakest month ${pct(a.mainCurrentMinimum)} against ${pct(C.scheduleA.currentMonthly)}`,
-    A4: `Main forward weakest of ${s.scheduleA.mainForwardWindow.length} months ${pct(a.mainForwardMinimum)} against ${pct(C.scheduleA.forwardMonthly)}`,
+    A4: `Main forward weakest of ${s.scheduleA.mainForwardWindow.length} months ${pct(a.mainForwardMinimum)} against ${pct(C.scheduleA.forwardMonthly)}; complete ordered window SHA-256-attested`,
     A5: `ADT-36 ${pct(a.adt36)} against ${pct(C.scheduleA.dividendAggregate)}`,
     A6: `Dividend weakest of ${s.scheduleA.dividendWindow.length} completed months ${pct(a.dividendMinimum)} against ${pct(C.scheduleA.dividendMonthly)}`,
     A7: `${s.scheduleA.provenanceRegistry.length} source classifications validated; prohibited cross-credit categories absent`,
@@ -72,7 +72,7 @@ export function buildCertificationHtml(data, notice) {
     B2: layerNames.map((layer) => `${layer}: ${s.scheduleB.layers[layer].obligationMap.obligations.length} ordered obligations; ${s.scheduleB.layers[layer].obligationMap.nonTaxSources.length} explicit non-tax zeros`).join(' · '),
     B3: `${C.currentMonths.length} keyed current months per layer at ${layerRateList}; every Li/Oi row resolves to an allowed layer-specific source`,
     B4: layerNames.map((layer) => `${layer}: ${pct(result.metrics.scheduleB[layer].currentAggregate, 2)} current aggregate (required ${pct(C.scheduleB.currentAggregate, 0)}), ${pct(result.metrics.scheduleB[layer].currentMinimum, 2)} current weakest (required ${pct(C.scheduleB.currentMonthly, 0)})`).join(' · '),
-    B5: layerNames.map((layer) => `${layer}: ${pct(result.metrics.scheduleB[layer].forwardMinimum, 2)} forward weakest across ${C.forwardMonths.length} months (required ${pct(C.scheduleB.forwardMonthly, 0)})`).join(' · '),
+    B5: layerNames.map((layer) => `${layer}: ${pct(result.metrics.scheduleB[layer].forwardMinimum, 2)} forward weakest across ${C.forwardMonths.length} months (required ${pct(C.scheduleB.forwardMonthly, 0)}); complete ordered window SHA-256-attested`).join(' · '),
     B6: `${esc(s.scheduleB.adoptionRecord.recordId)} adopts B1–B6 for ${s.scheduleB.adoptionRecord.layers.join(', ')}; B1–B5 and all reported metrics recomputed successfully`,
   };
   const scheduleB = Object.keys(result.scheduleBConditions)

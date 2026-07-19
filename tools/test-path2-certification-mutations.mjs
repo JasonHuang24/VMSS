@@ -69,6 +69,12 @@ for (const [finding, mutate] of Object.entries(findingFailures)) {
 hostile('Finding II', 'negative schedule effect', (candidate) => { annual(candidate)[14].scheduleEffectLowerBound = -0.01; });
 hostile('Finding III', 'Flow shortfall', (candidate) => { annual(candidate)[14].flowLowerBound = 0.499; });
 hostile('Finding IV', 'concentration event', (candidate) => { annual(candidate)[14].attributableConcentrationEventsUpperBound = 1; });
+hostile('Finding I equality', 'coverage exactly at 1.00 strict floor', (candidate) => { annual(candidate)[14].coverageLowerBound = 1; });
+hostile('Finding II equality', 'dividend exactly at baseline', (candidate) => { annual(candidate)[14].dividendPerResidentLowerBound = 100; });
+hostile('Finding II equality', 'schedule effect exactly at zero floor', (candidate) => { annual(candidate)[14].scheduleEffectLowerBound = 0; });
+hostile('Finding III equality', 'activation exactly at 1.25x ceiling', (candidate) => { annual(candidate)[14].scmActivationUpperBound = 10.1; });
+hostile('Finding III equality', 'Flow exactly at floor', (candidate) => { annual(candidate)[14].flowLowerBound = 0.5; });
+hostile('Finding IV equality', 'net marginal value exactly at strict floor', (candidate) => { annual(candidate)[14].netMarginalValueLowerBound = 0; });
 
 const a = (candidate) => candidate.data.sourceInputs.scheduleA;
 for (const [window, expected] of [['mainCurrentWindow', 12], ['mainForwardWindow', 36], ['dividendWindow', 36]]) {
@@ -87,6 +93,8 @@ hostile('Schedule A provenance', 'duplicate source ID', (candidate) => { a(candi
 hostile('Schedule A provenance', 'forbidden source class', (candidate) => { a(candidate).provenanceRegistry[0].sourceClass = 'MAIN_TAX_CROSS_CREDIT'; });
 hostile('Schedule A provenance', 'malformed lock date', (candidate) => { a(candidate).provenanceRegistry[0].lockedAt = '2292-02-30'; });
 hostile('Schedule A provenance', 'authored trigger source', (candidate) => { a(candidate).mainCurrentWindow[0].t50SourceId = 'AUTHOR-TRIGGER'; });
+hostile('Schedule A plausible field', 'small valid-looking adjustment change', (candidate) => { a(candidate).mainCurrentWindow[5].adjustment = 1.001; });
+hostile('Schedule A plausible field', 'small valid-looking weight change', (candidate) => { a(candidate).mainCurrentWindow[5].weight = 0.999; });
 hostile('Schedule A raw evidence', 'A2 aggregate shortfall', (candidate) => { a(candidate).mainCurrentWindow.forEach((row) => { row.t50 = row.m * 1.049; }); });
 hostile('Schedule A raw evidence', 'A3 current month shortfall', (candidate) => { a(candidate).mainCurrentWindow[6].t50 = 99.9; });
 hostile('Schedule A raw evidence', 'A4 forward month shortfall', (candidate) => { a(candidate).mainForwardWindow[18].t50 = 99.9; });
@@ -94,6 +102,26 @@ hostile('Schedule A raw evidence', 'A5 ADT-36 shortfall', (candidate) => { a(can
 hostile('Schedule A raw evidence', 'A6 dividend month shortfall', (candidate) => { a(candidate).dividendWindow[18].a = 99.9; });
 hostile('Schedule A recomputation', 'plausible but false Main-12', (candidate) => { a(candidate).reportedMetrics.main12 = 1.068; });
 hostile('Schedule A recomputation', 'plausible but false dividend minimum', (candidate) => { a(candidate).reportedMetrics.dividendMinimum = 1.012; });
+hostile('Main forward digest', 'in-range numerator change', (candidate) => { a(candidate).mainForwardWindow[5].t50 += 0.01; });
+hostile('Main forward digest', 'in-range denominator change', (candidate) => { a(candidate).mainForwardWindow[5].m += 0.01; });
+hostile('Main forward digest', 'non-minimum month change preserving minimum', (candidate) => { a(candidate).mainForwardWindow[20].t50 += 0.01; });
+hostile('Main forward digest', 'compensated numerator changes preserve aggregate and minimum', (candidate) => {
+  a(candidate).mainForwardWindow[1].t50 += 0.01;
+  a(candidate).mainForwardWindow[2].t50 -= 0.01;
+});
+hostile('Main forward digest', 'ordered identifiers with payloads exchanged', (candidate) => {
+  const first = a(candidate).mainForwardWindow[1].t50;
+  a(candidate).mainForwardWindow[1].t50 = a(candidate).mainForwardWindow[2].t50;
+  a(candidate).mainForwardWindow[2].t50 = first;
+});
+hostile('Main forward digest', 'reordered complete months', (candidate) => {
+  [a(candidate).mainForwardWindow[1], a(candidate).mainForwardWindow[2]]
+    = [a(candidate).mainForwardWindow[2], a(candidate).mainForwardWindow[1]];
+});
+hostile('Main forward digest', 'valid-looking source substitution', (candidate) => { a(candidate).mainForwardWindow[5].t50SourceId = 'MAIN-CURRENT-T50'; });
+hostile('Main forward digest', 'valid-looking provenance document revision', (candidate) => { a(candidate).provenanceRegistry[2].documentId = 'MAIN-PROJECTION-2295-2297-T50-REV-A'; });
+hostile('Main forward digest', 'injected valid-looking adjustment field', (candidate) => { a(candidate).mainForwardWindow[5].adjustment = 1.001; });
+hostile('Main forward digest', 'injected valid-looking weight field', (candidate) => { a(candidate).mainForwardWindow[5].weight = 0.999; });
 
 const b = (candidate) => candidate.data.sourceInputs.scheduleB;
 hostile('Schedule B schema', 'empty layer map', (candidate) => { b(candidate).layers = {}; });
@@ -105,6 +133,7 @@ hostile('Schedule B provenance', 'forbidden source class', (candidate) => { b(ca
 
 for (const layerName of ['-1', '-2', '-3']) {
   const layer = (candidate) => b(candidate).layers[layerName];
+  const forwardProvenanceIndex = { '-1': 2, '-2': 6, '-3': 10 }[layerName];
   for (const [window, expected] of [['currentWindow', 12], ['forwardWindow', 36]]) {
     hostile('Schedule B periods', `${layerName} ${window} zero rows`, (candidate) => { layer(candidate)[window] = []; });
     hostile('Schedule B periods', `${layerName} ${window} short`, (candidate) => { layer(candidate)[window].pop(); });
@@ -134,6 +163,26 @@ for (const layerName of ['-1', '-2', '-3']) {
   hostile('Schedule B B5', `${layerName} forward weakest shortfall`, (candidate) => { layer(candidate).forwardWindow[18].receipts = layer(candidate).forwardWindow[18].obligations * 0.999; });
   hostile('Schedule B recomputation', `${layerName} false aggregate metric`, (candidate) => { layer(candidate).reportedMetrics.currentAggregate += 0.001; });
   hostile('Schedule B recomputation', `${layerName} false forward metric`, (candidate) => { layer(candidate).reportedMetrics.forwardMinimum += 0.001; });
+  hostile('Lower forward digest', `${layerName} in-range numerator change`, (candidate) => { layer(candidate).forwardWindow[5].receipts += 0.01; });
+  hostile('Lower forward digest', `${layerName} in-range denominator change`, (candidate) => { layer(candidate).forwardWindow[5].obligations += 0.01; });
+  hostile('Lower forward digest', `${layerName} non-minimum month change preserving minimum`, (candidate) => { layer(candidate).forwardWindow[20].receipts += 0.01; });
+  hostile('Lower forward digest', `${layerName} compensated numerator changes preserve aggregate and minimum`, (candidate) => {
+    layer(candidate).forwardWindow[1].receipts += 0.01;
+    layer(candidate).forwardWindow[2].receipts -= 0.01;
+  });
+  hostile('Lower forward digest', `${layerName} ordered identifiers with payloads exchanged`, (candidate) => {
+    const first = layer(candidate).forwardWindow[1].receipts;
+    layer(candidate).forwardWindow[1].receipts = layer(candidate).forwardWindow[2].receipts;
+    layer(candidate).forwardWindow[2].receipts = first;
+  });
+  hostile('Lower forward digest', `${layerName} reordered complete months`, (candidate) => {
+    [layer(candidate).forwardWindow[1], layer(candidate).forwardWindow[2]]
+      = [layer(candidate).forwardWindow[2], layer(candidate).forwardWindow[1]];
+  });
+  hostile('Lower forward digest', `${layerName} valid-looking source substitution`, (candidate) => { layer(candidate).forwardWindow[5].receiptsSourceId = layer(candidate).currentWindow[5].receiptsSourceId; });
+  hostile('Lower forward digest', `${layerName} valid-looking provenance document revision`, (candidate) => { b(candidate).provenanceRegistry[forwardProvenanceIndex].documentId += '-REV-A'; });
+  hostile('Lower forward digest', `${layerName} injected valid-looking adjustment field`, (candidate) => { layer(candidate).forwardWindow[5].adjustment = 1.001; });
+  hostile('Lower forward digest', `${layerName} injected valid-looking weight field`, (candidate) => { layer(candidate).forwardWindow[5].weight = 0.999; });
 }
 
 hostile('Schedule B adoption', 'missing adoption record', (candidate) => { delete b(candidate).adoptionRecord; });
@@ -141,6 +190,16 @@ hostile('Schedule B adoption', 'partial B scope', (candidate) => { b(candidate).
 hostile('Schedule B adoption', 'wrong adopted authority', (candidate) => { b(candidate).adoptionRecord.authority = 'LP-075'; });
 hostile('Schedule B adoption', 'omitted adopted layer', (candidate) => { b(candidate).adoptionRecord.layers.pop(); });
 hostile('external notice', 'notice object emptied', ({ notice }) => { Object.keys(notice).forEach((key) => delete notice[key]); });
+hostile('plausible date', 'valid adjacent audit completion date', ({ data }) => { data.record.auditCompleted = '2294-10-16'; });
+hostile('plausible date', 'valid adjacent effective date', ({ data }) => { data.record.effectiveAt = '2295-01-02'; });
+hostile('plausible date', 'valid adjacent monthly observation date', (candidate) => { a(candidate).mainCurrentWindow[5].date = '2293-06-02'; });
+hostile('plausible date', 'valid adjacent provenance lock date', (candidate) => { a(candidate).provenanceRegistry[0].lockedAt = '2292-02-16'; });
+hostile('plausible date', 'valid adjacent notice timestamp', ({ notice }) => { notice.publishedAt = '2294-12-02T12:00:00Z'; });
+hostile('plausible authority', 'small active Main rate change', ({ data }) => { data.authority.lp074.activeSchedule[0] = 50.01; });
+hostile('plausible authority', 'small historical Main rate change', ({ data }) => { data.authority.lp073.historicalSchedule[0] = 69.99; });
+hostile('plausible authority', 'procedural status revision', ({ data }) => { data.authority.lp075.status = 'ENACTED_PROCEDURAL_DUTY_PENDING'; });
+hostile('plausible numeric', 'small current receipt change', (candidate) => { b(candidate).layers['-1'].currentWindow[5].receipts += 0.001; });
+hostile('plausible numeric', 'small route amount change', (candidate) => { b(candidate).layers['-2'].routeMap.destinations[1].amount += 0.001; });
 
 let failures = 0;
 const positiveResult = evaluateCertification(source.data, source.notice);
@@ -151,7 +210,8 @@ const positivePassed = positiveResult.certified
   && positiveHtml.includes('SCHEDULES A AND B CERTIFIED')
   && positiveHtml.includes('exactly 30 keyed annual observations')
   && positiveHtml.includes('Main-12 106.7%')
-  && positiveHtml.includes('ADT-36 122.4%');
+  && positiveHtml.includes('ADT-36 122.4%')
+  && positiveHtml.includes('complete ordered window SHA-256-attested');
 console.log(`  ${positivePassed ? 'PASS' : 'FAIL'} positive control certifies and generates complete evidence`);
 if (!positivePassed) failures += 1;
 

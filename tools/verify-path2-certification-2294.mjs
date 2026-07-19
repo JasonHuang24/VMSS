@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -49,6 +50,27 @@ export const STATUTORY_CONSTANTS = deepFreeze({
   currentMonths: monthIds(2293, 1, 12),
   forwardMonths: monthIds(2295, 1, 36),
   dividendMonths: monthIds(2291, 1, 36),
+  certifiedForwardEvidence: {
+    algorithm: 'sha256',
+    main: {
+      fields: ['month', 'date', 't50', 'm', 't50SourceId', 'mSourceId'],
+      digest: 'aed1750cbfc533d94d5285db35dedc53ebbcbb0c27579a397b1566a09d84c0d5',
+    },
+    layers: {
+      '-1': {
+        fields: ['month', 'receipts', 'obligations', 'receiptsSourceId', 'obligationsSourceId'],
+        digest: '0b07dd289c9e58c6526033bc42edf55e8c614c2fe456fac33e5330ecfbd6da37',
+      },
+      '-2': {
+        fields: ['month', 'receipts', 'obligations', 'receiptsSourceId', 'obligationsSourceId'],
+        digest: '57b92421aaae66793a4ba6a9491e040af026d0280eea2e71e9565c45bbc55712',
+      },
+      '-3': {
+        fields: ['month', 'receipts', 'obligations', 'receiptsSourceId', 'obligationsSourceId'],
+        digest: '8156d2570e8d4cf5d1fca6b2d1c36d29e42bfabcf11da07238f953aef0c85cad',
+      },
+    },
+  },
   record: {
     title: 'Path 2 LP-074 Final Certification — 2294',
     disposition: 'CERTIFIED_BOTH_SCHEDULES',
@@ -198,6 +220,11 @@ const effectiveRatio = (rows, numerator, denominator) => {
   return sum(rows.map((row) => row[numerator] * row.adjustment * row.weight))
     / sum(rows.map((row) => row[denominator] * row.adjustment * row.weight));
 };
+const orderedWindowDigest = (rows, fields) => {
+  if (!Array.isArray(rows) || !Array.isArray(fields)) return '';
+  const canonicalRows = rows.map((row) => fields.map((field) => [field, row?.[field]]));
+  return createHash('sha256').update(JSON.stringify(canonicalRows), 'utf8').digest('hex');
+};
 const sameValue = (actual, expected) => {
   if (Array.isArray(expected)) {
     return Array.isArray(actual) && actual.length === expected.length
@@ -325,12 +352,12 @@ export function evaluateCertification(data, externalNotice) {
   const annualEvidenceValid = annualRegistryValid && annualLengthValid && annualYearsValid && annualRowsValid;
 
   const findings = {
-    I: annualEvidenceValid && annualRows.every((row) => row.coverageLowerBound >= C.findings.I.requiredCoverage),
-    II: annualEvidenceValid && annualRows.every((row) => row.dividendPerResidentLowerBound >= C.findings.II.baselineDividendPerResident
-      && row.scheduleEffectLowerBound >= C.findings.II.minimumScheduleEffect),
+    I: annualEvidenceValid && annualRows.every((row) => row.coverageLowerBound > C.findings.I.requiredCoverage),
+    II: annualEvidenceValid && annualRows.every((row) => row.dividendPerResidentLowerBound > C.findings.II.baselineDividendPerResident
+      && row.scheduleEffectLowerBound > C.findings.II.minimumScheduleEffect),
     III: annualEvidenceValid && annualRows.every((row) => row.scmActivationUpperBound
-      <= C.findings.III.baselineScmActivationMean * C.findings.III.maximumMultiple
-      && row.flowLowerBound >= C.findings.III.requiredMinimumFlow),
+      < C.findings.III.baselineScmActivationMean * C.findings.III.maximumMultiple
+      && row.flowLowerBound > C.findings.III.requiredMinimumFlow),
     IV: annualEvidenceValid && annualRows.every((row) => row.netMarginalValueLowerBound > C.findings.IV.requiredNetMarginalValue
       && row.attributableConcentrationEventsUpperBound <= C.findings.IV.maximumAttributableConcentrationEvents),
   };
@@ -362,6 +389,11 @@ export function evaluateCertification(data, externalNotice) {
     dateRequired: true,
     numerator: 't50', denominator: 'm', numeratorSource: 't50SourceId', denominatorSource: 'mSourceId',
   }, ['MAIN-FORWARD-T50', 'MAIN-FORWARD-M'], 'scheduleA.mainForwardWindow');
+  const mainForwardDigest = orderedWindowDigest(scheduleA.mainForwardWindow,
+    C.certifiedForwardEvidence.main.fields);
+  const mainForwardDigestValid = pushUnless(schemaErrors,
+    mainForwardValid && mainForwardDigest === C.certifiedForwardEvidence.main.digest,
+    'scheduleA.mainForwardWindow must match the pinned ordered certified-evidence digest');
   const dividendValid = validateAWindow(schemaErrors, scheduleA.dividendWindow, {
     months: C.dividendMonths,
     keys: ['month', 'date', 'a', 'd', 'inclusionRule', 'adjustment', 'weight', 'aSourceId', 'dSourceId'],
@@ -392,10 +424,12 @@ export function evaluateCertification(data, externalNotice) {
   'scheduleA.reportedMetrics must exactly reconcile to raw evidence');
 
   const scheduleAConditions = {
-    A1: transformsValid && aProvenanceValid && mainCurrentValid && mainForwardValid && dividendValid,
+    A1: transformsValid && aProvenanceValid && mainCurrentValid && mainForwardValid
+      && mainForwardDigestValid && dividendValid,
     A2: mainCurrentValid && aMetrics.main12 >= C.scheduleA.currentAggregate,
     A3: mainCurrentValid && aMetrics.mainCurrentMinimum >= C.scheduleA.currentMonthly,
-    A4: mainForwardValid && aMetrics.mainForwardMinimum >= C.scheduleA.forwardMonthly,
+    A4: mainForwardValid && mainForwardDigestValid
+      && aMetrics.mainForwardMinimum >= C.scheduleA.forwardMonthly,
     A5: dividendValid && aMetrics.adt36 >= C.scheduleA.dividendAggregate,
     A6: dividendValid && aMetrics.dividendMinimum >= C.scheduleA.dividendMonthly,
     A7: aSourceClassValid,
@@ -435,6 +469,11 @@ export function evaluateCertification(data, externalNotice) {
       LC.currentSources, `scheduleB.layers.${name}.currentWindow`);
     const forwardValid = validateBWindow(schemaErrors, layer.forwardWindow, C.forwardMonths,
       LC.forwardSources, `scheduleB.layers.${name}.forwardWindow`);
+    const forwardDigest = orderedWindowDigest(layer.forwardWindow,
+      C.certifiedForwardEvidence.layers[name].fields);
+    const forwardDigestValid = pushUnless(schemaErrors,
+      forwardValid && forwardDigest === C.certifiedForwardEvidence.layers[name].digest,
+      `scheduleB.layers.${name}.forwardWindow must match the pinned ordered certified-evidence digest`);
 
     const currentRows = Array.isArray(layer.currentWindow) ? layer.currentWindow : [];
     const currentReceipts = sum(currentRows.map((row) => row?.receipts));
@@ -506,7 +545,8 @@ export function evaluateCertification(data, externalNotice) {
       `scheduleB.layers.${name}.reportedMetrics must reconcile to raw monthly evidence`);
 
     layerValidation[name] = {
-      rateValid, currentValid, forwardValid, routeReconciled, obligationsReconciled,
+      rateValid, currentValid, forwardValid, forwardDigestValid, forwardDigest,
+      routeReconciled, obligationsReconciled,
       reportedMetricsValid, metrics: bMetrics,
     };
   }
@@ -519,7 +559,8 @@ export function evaluateCertification(data, externalNotice) {
     B4: layerEntries.every((entry) => entry.currentValid && entry.reportedMetricsValid
       && entry.metrics.currentAggregate >= C.scheduleB.currentAggregate
       && entry.metrics.currentMinimum >= C.scheduleB.currentMonthly),
-    B5: layerEntries.every((entry) => entry.forwardValid && entry.reportedMetricsValid
+    B5: layerEntries.every((entry) => entry.forwardValid && entry.forwardDigestValid
+      && entry.reportedMetricsValid
       && entry.metrics.forwardMinimum >= C.scheduleB.forwardMonthly),
     B6: false,
   };
@@ -586,6 +627,10 @@ export function evaluateCertification(data, externalNotice) {
           obligationTotal: sum(obligations.map((obligation) => obligation?.amount)),
         }];
       })),
+      forwardEvidenceDigests: {
+        main: mainForwardDigest,
+        layers: Object.fromEntries(layerNames.map((name) => [name, layerValidation[name]?.forwardDigest ?? ''])),
+      },
     },
     standards: C,
   };
