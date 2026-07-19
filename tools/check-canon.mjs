@@ -21,6 +21,7 @@ import { readFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { evaluateCertification } from './verify-path2-certification-2294.mjs';
+import { verifyRecordAnnexes } from './verify-path2-record-annexes.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -403,6 +404,12 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     'canon manifest: LP-073/074/075 authority roles');
   check(tax.threshold === '$10 million' && tax.scm === 'unchanged',
     'canon manifest: threshold and SCM unchanged');
+  check(tax.lockDate === '2292-02-15' && tax.evidenceCutoff === '2292-01-01'
+        && tax.mainAndLowerCompletedYear === 2291 && tax.dividendCompletedWindow === '2289-2291',
+    'canon manifest: DATA-BACK completed-evidence vintage');
+  check(tax.section4UnionMembers === 16 && tax.section4ClassRepresentatives === 8
+        && tax.publicationRecord === 'complete',
+    'canon manifest: complete §4 union and §11.1 publication record');
 
   check(certification.certified, 'structured certification result: complete record certifies',
     certification.certified ? 'schema + chronology + authority + unchanged canon + schedules + external notice' : certification.errors.join('; '));
@@ -413,6 +420,15 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     'structured certification result: Findings I–IV, Schedule A, and independent B1–B6 pass');
   check(Object.values(certification.validation).every(Boolean),
     'structured certification result: schema, chronology, authority, unchanged canon, and notice validate');
+  try {
+    const publicationRecord = verifyRecordAnnexes();
+    check(publicationRecord.verified && publicationRecord.unionMembers === 16
+      && publicationRecord.classRepresentatives === 8,
+    'complete Path 2 publication record: §4 union, Restatement, Lower certificate, Registrar, and LP-075 review verify',
+    `${publicationRecord.unionMembers} members / ${publicationRecord.classRepresentatives} representatives`);
+  } catch (error) {
+    check(false, 'complete Path 2 publication record verifies', error.message);
+  }
   const whitepaperTax = normalizedText(read('whitepaper.html'));
   const dividendAggregate = `${(certification.metrics.scheduleA.adt36 * 100).toFixed(1)}%`;
   const dividendWeakest = `${(certification.metrics.scheduleA.dividendMinimum * 100).toFixed(1)}%`;
@@ -473,6 +489,12 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(true, 'generated certification page agrees with controlling dataset');
   } catch (error) {
     check(false, 'generated certification page agrees with controlling dataset', String(error.stdout || error.message));
+  }
+  try {
+    execFileSync(process.execPath, [join(ROOT, 'tools/build-path2-record-annexes.mjs'), '--check'], { encoding: 'utf8' });
+    check(true, 'five machine-readable Path 2 annexes agree with their controlling sources');
+  } catch (error) {
+    check(false, 'five machine-readable Path 2 annexes agree with their controlling sources', String(error.stdout || error.message));
   }
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });

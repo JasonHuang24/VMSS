@@ -6,7 +6,9 @@
   "scripts": {
     "build:css": "tailwindcss -i tailwind.input.css -o assets/css/tailwind.css --minify",
     "build:certification": "node tools/build-path2-certification-page.mjs",
+    "build:path2-record": "node tools/build-path2-record-annexes.mjs",
     "check:certification": "node tools/verify-path2-certification-2294.mjs",
+    "check:path2-record": "node tools/verify-path2-record-annexes.mjs && node tools/build-path2-record-annexes.mjs --check",
     "test:certification": "node tools/test-path2-certification-mutations.mjs",
     "check:canon": "node tools/check-canon.mjs"
   },

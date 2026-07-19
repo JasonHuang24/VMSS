@@ -45,7 +45,7 @@ export function buildCertificationHtml(data, notice) {
   ].join('');
 
   const scheduleAEvidence = {
-    A1: `${designYear} registry: ${s.scheduleA.transformRegistry.length} transforms and ${s.scheduleA.provenanceRegistry.length} locked sources; all ${s.scheduleA.mainCurrentWindow.length + s.scheduleA.mainForwardWindow.length + s.scheduleA.dividendWindow.length} rows resolve to them`,
+    A1: `${designYear} registry: ${s.scheduleA.transformRegistry.length} transforms and ${s.scheduleA.provenanceRegistry.length} locked sources; all ${s.scheduleA.mainCurrentWindow.length + s.scheduleA.mainForwardWindow.length + s.scheduleA.dividendWindow.length} rows resolve to them; completed observations end by the ${esc(C.vintagePolicy.computedCutoff)} cutoff and later targets are preregistered projections`,
     A2: `Main-12 ${pct(a.main12)} against ${pct(C.scheduleA.currentAggregate)}`,
     A3: `Main current weakest month ${pct(a.mainCurrentMinimum)} against ${pct(C.scheduleA.currentMonthly)}`,
     A4: `Main forward weakest of ${s.scheduleA.mainForwardWindow.length} months ${pct(a.mainForwardMinimum)} against ${pct(C.scheduleA.forwardMonthly)}; complete ordered window SHA-256-attested`,
@@ -113,6 +113,10 @@ export function buildCertificationHtml(data, notice) {
       <a href="${NOTICE_FILE}"><i class="fas fa-bell" aria-hidden="true"></i> Effective notice</a>
       <a href="tools/verify-path2-certification-2294.mjs"><i class="fas fa-code" aria-hidden="true"></i> Verifier</a>
       <a href="tools/test-path2-certification-mutations.mjs"><i class="fas fa-vial" aria-hidden="true"></i> Mutation tests</a>
+      <a href="documents/path-2-section-11-compendium-2294.md"><i class="fas fa-box-archive" aria-hidden="true"></i> Complete §11.1 compendium</a>
+      <a href="documents/path-2-registrar-execution-record-2294.md"><i class="fas fa-stamp" aria-hidden="true"></i> Registrar execution</a>
+      <a href="documents/path-2-lower-incidence-certificate-2294.md"><i class="fas fa-layer-group" aria-hidden="true"></i> Lower certificate</a>
+      <a href="documents/lp-075-section-13-review-set.md"><i class="fas fa-magnifying-glass" aria-hidden="true"></i> LP-075 cold review</a>
     </div>
     <div class="cert-grid">
       <div class="cert-card"><span class="label">Audit design locked</span><span class="value">${designYear}</span></div>
@@ -128,6 +132,8 @@ export function buildCertificationHtml(data, notice) {
     <p class="cert-banner"><strong>Schedule A: ${notice.scheduleA}.</strong> All four Charter Findings and all A1–A8 statutory conditions pass.</p>
     <h2 id="schedule-b" class="text-2xl font-bold mt-12 mb-4">LP-074 Schedule B conditions</h2><div class="cert-table-wrap"><table class="cert-table"><thead><tr><th>Condition</th><th>Independent Lower-incidence result</th><th>Status</th></tr></thead><tbody>${scheduleB}</tbody></table></div>
     <p class="cert-banner"><strong>Schedule B: ${notice.scheduleB}.</strong> B1–B6 independently pass for ${layerNames.join(', ')}. Lower collections remain siloed and layer-attributed; the certification does not universalize SCM.</p>
+    <h2 class="text-2xl font-bold mt-12 mb-4">Publication completeness</h2>
+    <p class="text-[var(--text-secondary)] leading-relaxed">The §11.1 compendium publishes the complete sixteen-member §4 union, all point estimates and intervals, validation-floor exclusions, class representatives, votes, exposure declarations, environment, execution log, and provenance. The independent Registrar executed the eight §4.6 representatives before either certificate issued. The locked Restatement itemizes every Main obligation, and the LP-075 review set publishes its mechanically selected reviewer, replies, chamber adoption, and presidential veto flag.</p>
     <h2 class="text-2xl font-bold mt-12 mb-4">Authority and effect</h2>
     <p class="text-[var(--text-secondary)] leading-relaxed"><strong>LP-074</strong> is the substantive rate law. <strong>LP-075</strong> compelled the audit but set no rate and activated no schedule. The valid ${auditYear} certificates and notice made LP-074 effective in ${effectiveYear}. <strong>LP-073</strong> governed the historical ${historicalSchedule} era and remains visible in the register and rate history, but it has no residual operative rate authority after ${effectiveYear}.</p>
   </div></section></main><script src="script.js" defer></script><div id="footer-placeholder"></div>

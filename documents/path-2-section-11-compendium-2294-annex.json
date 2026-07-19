@@ -1,0 +1,3958 @@
+{
+  "schemaVersion": "1.0",
+  "compendiumId": "PATH2-SECTION-11-COMPENDIUM-2294",
+  "lockDate": "2292-02-15",
+  "cutoff": "2292-01-01",
+  "publicationDate": "2294-11-15",
+  "observedData": {
+    "sourceAuthority": "PATH2-OBSERVED-SERIES-AUTHORITY",
+    "window": "2272-2291",
+    "cycleDefinition": "Two complete ten-year fiscal and concentration cycles fixed under section 10.1",
+    "rows": [
+      {
+        "year": 2272,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.035,
+        "dividendPerResident": 99.2,
+        "scmActivationFrequency": 7.7,
+        "flowMeasure": 0.6,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2272-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2273,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.0399999999999998,
+        "dividendPerResident": 99.3,
+        "scmActivationFrequency": 7.8,
+        "flowMeasure": 0.605,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2273-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2274,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.045,
+        "dividendPerResident": 99.4,
+        "scmActivationFrequency": 7.9,
+        "flowMeasure": 0.61,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2274-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2275,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.0499999999999998,
+        "dividendPerResident": 99.5,
+        "scmActivationFrequency": 8,
+        "flowMeasure": 0.615,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2275-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2276,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.035,
+        "dividendPerResident": 99.60000000000001,
+        "scmActivationFrequency": 8.1,
+        "flowMeasure": 0.6,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2276-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2277,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.0399999999999998,
+        "dividendPerResident": 99.7,
+        "scmActivationFrequency": 7.7,
+        "flowMeasure": 0.605,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2277-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2278,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.045,
+        "dividendPerResident": 99.8,
+        "scmActivationFrequency": 7.8,
+        "flowMeasure": 0.61,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2278-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2279,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.0499999999999998,
+        "dividendPerResident": 99.9,
+        "scmActivationFrequency": 7.9,
+        "flowMeasure": 0.615,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2279-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2280,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.035,
+        "dividendPerResident": 100,
+        "scmActivationFrequency": 8,
+        "flowMeasure": 0.6,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2280-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2281,
+        "cycleId": "CYCLE-2272-2281",
+        "enacted70CoverageRatio": 1.0399999999999998,
+        "dividendPerResident": 100.10000000000001,
+        "scmActivationFrequency": 8.1,
+        "flowMeasure": 0.605,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2281-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2282,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.03,
+        "dividendPerResident": 99.4,
+        "scmActivationFrequency": 7.9,
+        "flowMeasure": 0.61,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2282-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2283,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.035,
+        "dividendPerResident": 99.5,
+        "scmActivationFrequency": 8,
+        "flowMeasure": 0.615,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2283-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2284,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.04,
+        "dividendPerResident": 99.6,
+        "scmActivationFrequency": 8.1,
+        "flowMeasure": 0.6,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2284-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2285,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.045,
+        "dividendPerResident": 99.8,
+        "scmActivationFrequency": 8.2,
+        "flowMeasure": 0.605,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2285-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2286,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.05,
+        "dividendPerResident": 99.9,
+        "scmActivationFrequency": 8,
+        "flowMeasure": 0.61,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2286-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2287,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.03,
+        "dividendPerResident": 100.1,
+        "scmActivationFrequency": 8.1,
+        "flowMeasure": 0.615,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2287-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2288,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.035,
+        "dividendPerResident": 100.2,
+        "scmActivationFrequency": 8.2,
+        "flowMeasure": 0.6,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2288-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2289,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.04,
+        "dividendPerResident": 100.4,
+        "scmActivationFrequency": 8,
+        "flowMeasure": 0.605,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2289-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2290,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.045,
+        "dividendPerResident": 100.5,
+        "scmActivationFrequency": 8.1,
+        "flowMeasure": 0.61,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2290-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      },
+      {
+        "year": 2291,
+        "cycleId": "CYCLE-2282-2291",
+        "enacted70CoverageRatio": 1.05,
+        "dividendPerResident": 100.6,
+        "scmActivationFrequency": 8.2,
+        "flowMeasure": 0.615,
+        "realizedPublicDeploymentValue": 0.5,
+        "evidenceClass": "COMPLETED_OBSERVATION",
+        "observedThrough": "2291-12-31",
+        "publishedAt": "2292-02-01",
+        "vintageAt": "2292-02-01"
+      }
+    ],
+    "baseline2292": {
+      "years": "2282-2291",
+      "findingICoverageMean": 1.04,
+      "findingIIDividendMean": 100.00000000000001,
+      "findingIIDividendSampleStandardDeviation": 0.4268749491621893,
+      "findingIIIActivationMean": 8.08,
+      "findingIIIFlowMean": 0.6085,
+      "findingIVPublicDeploymentMean": 0.5
+    }
+  },
+  "admissibleUnion": {
+    "rule": "Every preregistered member and every panel addition enters; exclusion occurs only through the section 4.3 validation floor.",
+    "findings": {
+      "I": [
+        {
+          "memberId": "I-PREREG-BASE",
+          "source": "PREREGISTRATION",
+          "finding": "I",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "I-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "I-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "pointEstimate": 1.056,
+              "oneSidedLower95": 1.038
+            },
+            {
+              "year": 2296,
+              "pointEstimate": 1.054,
+              "oneSidedLower95": 1.036
+            },
+            {
+              "year": 2297,
+              "pointEstimate": 1.052,
+              "oneSidedLower95": 1.034
+            },
+            {
+              "year": 2298,
+              "pointEstimate": 1.051,
+              "oneSidedLower95": 1.033
+            },
+            {
+              "year": 2299,
+              "pointEstimate": 1.049,
+              "oneSidedLower95": 1.031
+            },
+            {
+              "year": 2300,
+              "pointEstimate": 1.048,
+              "oneSidedLower95": 1.03
+            },
+            {
+              "year": 2301,
+              "pointEstimate": 1.048,
+              "oneSidedLower95": 1.03
+            },
+            {
+              "year": 2302,
+              "pointEstimate": 1.047,
+              "oneSidedLower95": 1.029
+            },
+            {
+              "year": 2303,
+              "pointEstimate": 1.047,
+              "oneSidedLower95": 1.029
+            },
+            {
+              "year": 2304,
+              "pointEstimate": 1.046,
+              "oneSidedLower95": 1.028
+            },
+            {
+              "year": 2305,
+              "pointEstimate": 1.046,
+              "oneSidedLower95": 1.028
+            },
+            {
+              "year": 2306,
+              "pointEstimate": 1.045,
+              "oneSidedLower95": 1.027
+            },
+            {
+              "year": 2307,
+              "pointEstimate": 1.045,
+              "oneSidedLower95": 1.027
+            },
+            {
+              "year": 2308,
+              "pointEstimate": 1.044,
+              "oneSidedLower95": 1.026
+            },
+            {
+              "year": 2309,
+              "pointEstimate": 1.044,
+              "oneSidedLower95": 1.026
+            },
+            {
+              "year": 2310,
+              "pointEstimate": 1.044,
+              "oneSidedLower95": 1.026
+            },
+            {
+              "year": 2311,
+              "pointEstimate": 1.043,
+              "oneSidedLower95": 1.025
+            },
+            {
+              "year": 2312,
+              "pointEstimate": 1.043,
+              "oneSidedLower95": 1.025
+            },
+            {
+              "year": 2313,
+              "pointEstimate": 1.043,
+              "oneSidedLower95": 1.025
+            },
+            {
+              "year": 2314,
+              "pointEstimate": 1.042,
+              "oneSidedLower95": 1.024
+            },
+            {
+              "year": 2315,
+              "pointEstimate": 1.042,
+              "oneSidedLower95": 1.024
+            },
+            {
+              "year": 2316,
+              "pointEstimate": 1.042,
+              "oneSidedLower95": 1.024
+            },
+            {
+              "year": 2317,
+              "pointEstimate": 1.041,
+              "oneSidedLower95": 1.023
+            },
+            {
+              "year": 2318,
+              "pointEstimate": 1.041,
+              "oneSidedLower95": 1.023
+            },
+            {
+              "year": 2319,
+              "pointEstimate": 1.041,
+              "oneSidedLower95": 1.023
+            },
+            {
+              "year": 2320,
+              "pointEstimate": 1.041,
+              "oneSidedLower95": 1.023
+            },
+            {
+              "year": 2321,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            },
+            {
+              "year": 2322,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            },
+            {
+              "year": 2323,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            },
+            {
+              "year": 2324,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            }
+          ]
+        },
+        {
+          "memberId": "I-CERT-ROBUST",
+          "source": "CERTIFICATION_PANEL",
+          "finding": "I",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "I-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "I-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "pointEstimate": 1.05,
+              "oneSidedLower95": 1.032
+            },
+            {
+              "year": 2296,
+              "pointEstimate": 1.048,
+              "oneSidedLower95": 1.03
+            },
+            {
+              "year": 2297,
+              "pointEstimate": 1.046,
+              "oneSidedLower95": 1.028
+            },
+            {
+              "year": 2298,
+              "pointEstimate": 1.045,
+              "oneSidedLower95": 1.027
+            },
+            {
+              "year": 2299,
+              "pointEstimate": 1.043,
+              "oneSidedLower95": 1.025
+            },
+            {
+              "year": 2300,
+              "pointEstimate": 1.042,
+              "oneSidedLower95": 1.024
+            },
+            {
+              "year": 2301,
+              "pointEstimate": 1.042,
+              "oneSidedLower95": 1.024
+            },
+            {
+              "year": 2302,
+              "pointEstimate": 1.041,
+              "oneSidedLower95": 1.023
+            },
+            {
+              "year": 2303,
+              "pointEstimate": 1.041,
+              "oneSidedLower95": 1.023
+            },
+            {
+              "year": 2304,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            },
+            {
+              "year": 2305,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            },
+            {
+              "year": 2306,
+              "pointEstimate": 1.039,
+              "oneSidedLower95": 1.021
+            },
+            {
+              "year": 2307,
+              "pointEstimate": 1.039,
+              "oneSidedLower95": 1.021
+            },
+            {
+              "year": 2308,
+              "pointEstimate": 1.038,
+              "oneSidedLower95": 1.02
+            },
+            {
+              "year": 2309,
+              "pointEstimate": 1.038,
+              "oneSidedLower95": 1.02
+            },
+            {
+              "year": 2310,
+              "pointEstimate": 1.038,
+              "oneSidedLower95": 1.02
+            },
+            {
+              "year": 2311,
+              "pointEstimate": 1.037,
+              "oneSidedLower95": 1.019
+            },
+            {
+              "year": 2312,
+              "pointEstimate": 1.037,
+              "oneSidedLower95": 1.019
+            },
+            {
+              "year": 2313,
+              "pointEstimate": 1.037,
+              "oneSidedLower95": 1.019
+            },
+            {
+              "year": 2314,
+              "pointEstimate": 1.036,
+              "oneSidedLower95": 1.018
+            },
+            {
+              "year": 2315,
+              "pointEstimate": 1.036,
+              "oneSidedLower95": 1.018
+            },
+            {
+              "year": 2316,
+              "pointEstimate": 1.036,
+              "oneSidedLower95": 1.018
+            },
+            {
+              "year": 2317,
+              "pointEstimate": 1.035,
+              "oneSidedLower95": 1.017
+            },
+            {
+              "year": 2318,
+              "pointEstimate": 1.035,
+              "oneSidedLower95": 1.017
+            },
+            {
+              "year": 2319,
+              "pointEstimate": 1.035,
+              "oneSidedLower95": 1.017
+            },
+            {
+              "year": 2320,
+              "pointEstimate": 1.035,
+              "oneSidedLower95": 1.017
+            },
+            {
+              "year": 2321,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            },
+            {
+              "year": 2322,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            },
+            {
+              "year": 2323,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            },
+            {
+              "year": 2324,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            }
+          ]
+        },
+        {
+          "memberId": "I-CHALLENGE-STRESS",
+          "source": "CHALLENGE_PANEL",
+          "finding": "I",
+          "functionalClass": "stress-envelope",
+          "identificationAssumption": "I-STRESS-IDENTIFICATION",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "I-STRESS-IDENTIFICATION",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": true,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "pointEstimate": 1.044,
+              "oneSidedLower95": 1.026
+            },
+            {
+              "year": 2296,
+              "pointEstimate": 1.042,
+              "oneSidedLower95": 1.024
+            },
+            {
+              "year": 2297,
+              "pointEstimate": 1.04,
+              "oneSidedLower95": 1.022
+            },
+            {
+              "year": 2298,
+              "pointEstimate": 1.039,
+              "oneSidedLower95": 1.021
+            },
+            {
+              "year": 2299,
+              "pointEstimate": 1.037,
+              "oneSidedLower95": 1.019
+            },
+            {
+              "year": 2300,
+              "pointEstimate": 1.036,
+              "oneSidedLower95": 1.018
+            },
+            {
+              "year": 2301,
+              "pointEstimate": 1.036,
+              "oneSidedLower95": 1.018
+            },
+            {
+              "year": 2302,
+              "pointEstimate": 1.035,
+              "oneSidedLower95": 1.017
+            },
+            {
+              "year": 2303,
+              "pointEstimate": 1.035,
+              "oneSidedLower95": 1.017
+            },
+            {
+              "year": 2304,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            },
+            {
+              "year": 2305,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            },
+            {
+              "year": 2306,
+              "pointEstimate": 1.033,
+              "oneSidedLower95": 1.015
+            },
+            {
+              "year": 2307,
+              "pointEstimate": 1.033,
+              "oneSidedLower95": 1.015
+            },
+            {
+              "year": 2308,
+              "pointEstimate": 1.032,
+              "oneSidedLower95": 1.014
+            },
+            {
+              "year": 2309,
+              "pointEstimate": 1.032,
+              "oneSidedLower95": 1.014
+            },
+            {
+              "year": 2310,
+              "pointEstimate": 1.032,
+              "oneSidedLower95": 1.014
+            },
+            {
+              "year": 2311,
+              "pointEstimate": 1.031,
+              "oneSidedLower95": 1.013
+            },
+            {
+              "year": 2312,
+              "pointEstimate": 1.031,
+              "oneSidedLower95": 1.013
+            },
+            {
+              "year": 2313,
+              "pointEstimate": 1.031,
+              "oneSidedLower95": 1.013
+            },
+            {
+              "year": 2314,
+              "pointEstimate": 1.03,
+              "oneSidedLower95": 1.012
+            },
+            {
+              "year": 2315,
+              "pointEstimate": 1.03,
+              "oneSidedLower95": 1.012
+            },
+            {
+              "year": 2316,
+              "pointEstimate": 1.03,
+              "oneSidedLower95": 1.012
+            },
+            {
+              "year": 2317,
+              "pointEstimate": 1.029,
+              "oneSidedLower95": 1.011
+            },
+            {
+              "year": 2318,
+              "pointEstimate": 1.029,
+              "oneSidedLower95": 1.011
+            },
+            {
+              "year": 2319,
+              "pointEstimate": 1.029,
+              "oneSidedLower95": 1.011
+            },
+            {
+              "year": 2320,
+              "pointEstimate": 1.029,
+              "oneSidedLower95": 1.011
+            },
+            {
+              "year": 2321,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            },
+            {
+              "year": 2322,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            },
+            {
+              "year": 2323,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            },
+            {
+              "year": 2324,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            }
+          ]
+        },
+        {
+          "memberId": "I-CHALLENGE-UNSTABLE",
+          "source": "CHALLENGE_PANEL",
+          "finding": "I",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "I-UNSTABLE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "I-UNSTABLE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 1.04,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": false
+          },
+          "survivesValidation": false,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "pointEstimate": 1.0410000000000001,
+              "oneSidedLower95": 1.0230000000000001
+            },
+            {
+              "year": 2296,
+              "pointEstimate": 1.0390000000000001,
+              "oneSidedLower95": 1.0210000000000001
+            },
+            {
+              "year": 2297,
+              "pointEstimate": 1.0370000000000001,
+              "oneSidedLower95": 1.0190000000000001
+            },
+            {
+              "year": 2298,
+              "pointEstimate": 1.036,
+              "oneSidedLower95": 1.018
+            },
+            {
+              "year": 2299,
+              "pointEstimate": 1.034,
+              "oneSidedLower95": 1.016
+            },
+            {
+              "year": 2300,
+              "pointEstimate": 1.0330000000000001,
+              "oneSidedLower95": 1.0150000000000001
+            },
+            {
+              "year": 2301,
+              "pointEstimate": 1.0330000000000001,
+              "oneSidedLower95": 1.0150000000000001
+            },
+            {
+              "year": 2302,
+              "pointEstimate": 1.032,
+              "oneSidedLower95": 1.014
+            },
+            {
+              "year": 2303,
+              "pointEstimate": 1.032,
+              "oneSidedLower95": 1.014
+            },
+            {
+              "year": 2304,
+              "pointEstimate": 1.0310000000000001,
+              "oneSidedLower95": 1.0130000000000001
+            },
+            {
+              "year": 2305,
+              "pointEstimate": 1.0310000000000001,
+              "oneSidedLower95": 1.0130000000000001
+            },
+            {
+              "year": 2306,
+              "pointEstimate": 1.03,
+              "oneSidedLower95": 1.012
+            },
+            {
+              "year": 2307,
+              "pointEstimate": 1.03,
+              "oneSidedLower95": 1.012
+            },
+            {
+              "year": 2308,
+              "pointEstimate": 1.0290000000000001,
+              "oneSidedLower95": 1.0110000000000001
+            },
+            {
+              "year": 2309,
+              "pointEstimate": 1.0290000000000001,
+              "oneSidedLower95": 1.0110000000000001
+            },
+            {
+              "year": 2310,
+              "pointEstimate": 1.0290000000000001,
+              "oneSidedLower95": 1.0110000000000001
+            },
+            {
+              "year": 2311,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            },
+            {
+              "year": 2312,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            },
+            {
+              "year": 2313,
+              "pointEstimate": 1.028,
+              "oneSidedLower95": 1.01
+            },
+            {
+              "year": 2314,
+              "pointEstimate": 1.0270000000000001,
+              "oneSidedLower95": 1.0090000000000001
+            },
+            {
+              "year": 2315,
+              "pointEstimate": 1.0270000000000001,
+              "oneSidedLower95": 1.0090000000000001
+            },
+            {
+              "year": 2316,
+              "pointEstimate": 1.0270000000000001,
+              "oneSidedLower95": 1.0090000000000001
+            },
+            {
+              "year": 2317,
+              "pointEstimate": 1.026,
+              "oneSidedLower95": 1.008
+            },
+            {
+              "year": 2318,
+              "pointEstimate": 1.026,
+              "oneSidedLower95": 1.008
+            },
+            {
+              "year": 2319,
+              "pointEstimate": 1.026,
+              "oneSidedLower95": 1.008
+            },
+            {
+              "year": 2320,
+              "pointEstimate": 1.026,
+              "oneSidedLower95": 1.008
+            },
+            {
+              "year": 2321,
+              "pointEstimate": 1.0250000000000001,
+              "oneSidedLower95": 1.0070000000000001
+            },
+            {
+              "year": 2322,
+              "pointEstimate": 1.0250000000000001,
+              "oneSidedLower95": 1.0070000000000001
+            },
+            {
+              "year": 2323,
+              "pointEstimate": 1.0250000000000001,
+              "oneSidedLower95": 1.0070000000000001
+            },
+            {
+              "year": 2324,
+              "pointEstimate": 1.0250000000000001,
+              "oneSidedLower95": 1.0070000000000001
+            }
+          ]
+        }
+      ],
+      "II": [
+        {
+          "memberId": "II-PREREG-BASE",
+          "source": "PREREGISTRATION",
+          "finding": "II",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "II-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "II-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "dividendPointEstimate": 100.782,
+              "dividendOneSidedLower95": 100.432,
+              "scheduleEffectPointEstimate": 0.22619999999999998,
+              "scheduleEffectOneSidedLower95": 0.1812
+            },
+            {
+              "year": 2296,
+              "dividendPointEstimate": 100.722,
+              "dividendOneSidedLower95": 100.372,
+              "scheduleEffectPointEstimate": 0.1962,
+              "scheduleEffectOneSidedLower95": 0.1512
+            },
+            {
+              "year": 2297,
+              "dividendPointEstimate": 100.672,
+              "dividendOneSidedLower95": 100.322,
+              "scheduleEffectPointEstimate": 0.1662,
+              "scheduleEffectOneSidedLower95": 0.1212
+            },
+            {
+              "year": 2298,
+              "dividendPointEstimate": 100.652,
+              "dividendOneSidedLower95": 100.302,
+              "scheduleEffectPointEstimate": 0.1562,
+              "scheduleEffectOneSidedLower95": 0.11120000000000001
+            },
+            {
+              "year": 2299,
+              "dividendPointEstimate": 100.612,
+              "dividendOneSidedLower95": 100.262,
+              "scheduleEffectPointEstimate": 0.13620000000000002,
+              "scheduleEffectOneSidedLower95": 0.0912
+            },
+            {
+              "year": 2300,
+              "dividendPointEstimate": 100.582,
+              "dividendOneSidedLower95": 100.232,
+              "scheduleEffectPointEstimate": 0.1262,
+              "scheduleEffectOneSidedLower95": 0.08120000000000001
+            },
+            {
+              "year": 2301,
+              "dividendPointEstimate": 100.582,
+              "dividendOneSidedLower95": 100.232,
+              "scheduleEffectPointEstimate": 0.1262,
+              "scheduleEffectOneSidedLower95": 0.08120000000000001
+            },
+            {
+              "year": 2302,
+              "dividendPointEstimate": 100.57199999999999,
+              "dividendOneSidedLower95": 100.222,
+              "scheduleEffectPointEstimate": 0.11620000000000001,
+              "scheduleEffectOneSidedLower95": 0.07120000000000001
+            },
+            {
+              "year": 2303,
+              "dividendPointEstimate": 100.57199999999999,
+              "dividendOneSidedLower95": 100.222,
+              "scheduleEffectPointEstimate": 0.11620000000000001,
+              "scheduleEffectOneSidedLower95": 0.07120000000000001
+            },
+            {
+              "year": 2304,
+              "dividendPointEstimate": 100.562,
+              "dividendOneSidedLower95": 100.212,
+              "scheduleEffectPointEstimate": 0.1062,
+              "scheduleEffectOneSidedLower95": 0.0612
+            },
+            {
+              "year": 2305,
+              "dividendPointEstimate": 100.562,
+              "dividendOneSidedLower95": 100.212,
+              "scheduleEffectPointEstimate": 0.1062,
+              "scheduleEffectOneSidedLower95": 0.0612
+            },
+            {
+              "year": 2306,
+              "dividendPointEstimate": 100.55199999999999,
+              "dividendOneSidedLower95": 100.202,
+              "scheduleEffectPointEstimate": 0.09620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0512
+            },
+            {
+              "year": 2307,
+              "dividendPointEstimate": 100.55199999999999,
+              "dividendOneSidedLower95": 100.202,
+              "scheduleEffectPointEstimate": 0.09620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0512
+            },
+            {
+              "year": 2308,
+              "dividendPointEstimate": 100.542,
+              "dividendOneSidedLower95": 100.19200000000001,
+              "scheduleEffectPointEstimate": 0.09620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0512
+            },
+            {
+              "year": 2309,
+              "dividendPointEstimate": 100.542,
+              "dividendOneSidedLower95": 100.19200000000001,
+              "scheduleEffectPointEstimate": 0.09620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0512
+            },
+            {
+              "year": 2310,
+              "dividendPointEstimate": 100.532,
+              "dividendOneSidedLower95": 100.182,
+              "scheduleEffectPointEstimate": 0.0862,
+              "scheduleEffectOneSidedLower95": 0.0412
+            },
+            {
+              "year": 2311,
+              "dividendPointEstimate": 100.532,
+              "dividendOneSidedLower95": 100.182,
+              "scheduleEffectPointEstimate": 0.0862,
+              "scheduleEffectOneSidedLower95": 0.0412
+            },
+            {
+              "year": 2312,
+              "dividendPointEstimate": 100.52199999999999,
+              "dividendOneSidedLower95": 100.172,
+              "scheduleEffectPointEstimate": 0.0862,
+              "scheduleEffectOneSidedLower95": 0.0412
+            },
+            {
+              "year": 2313,
+              "dividendPointEstimate": 100.52199999999999,
+              "dividendOneSidedLower95": 100.172,
+              "scheduleEffectPointEstimate": 0.0862,
+              "scheduleEffectOneSidedLower95": 0.0412
+            },
+            {
+              "year": 2314,
+              "dividendPointEstimate": 100.512,
+              "dividendOneSidedLower95": 100.162,
+              "scheduleEffectPointEstimate": 0.0762,
+              "scheduleEffectOneSidedLower95": 0.0312
+            },
+            {
+              "year": 2315,
+              "dividendPointEstimate": 100.512,
+              "dividendOneSidedLower95": 100.162,
+              "scheduleEffectPointEstimate": 0.0762,
+              "scheduleEffectOneSidedLower95": 0.0312
+            },
+            {
+              "year": 2316,
+              "dividendPointEstimate": 100.502,
+              "dividendOneSidedLower95": 100.152,
+              "scheduleEffectPointEstimate": 0.0762,
+              "scheduleEffectOneSidedLower95": 0.0312
+            },
+            {
+              "year": 2317,
+              "dividendPointEstimate": 100.502,
+              "dividendOneSidedLower95": 100.152,
+              "scheduleEffectPointEstimate": 0.0762,
+              "scheduleEffectOneSidedLower95": 0.0312
+            },
+            {
+              "year": 2318,
+              "dividendPointEstimate": 100.49199999999999,
+              "dividendOneSidedLower95": 100.142,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            },
+            {
+              "year": 2319,
+              "dividendPointEstimate": 100.49199999999999,
+              "dividendOneSidedLower95": 100.142,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            },
+            {
+              "year": 2320,
+              "dividendPointEstimate": 100.482,
+              "dividendOneSidedLower95": 100.132,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            },
+            {
+              "year": 2321,
+              "dividendPointEstimate": 100.482,
+              "dividendOneSidedLower95": 100.132,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            },
+            {
+              "year": 2322,
+              "dividendPointEstimate": 100.472,
+              "dividendOneSidedLower95": 100.122,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            },
+            {
+              "year": 2323,
+              "dividendPointEstimate": 100.472,
+              "dividendOneSidedLower95": 100.122,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            },
+            {
+              "year": 2324,
+              "dividendPointEstimate": 100.46199999999999,
+              "dividendOneSidedLower95": 100.112,
+              "scheduleEffectPointEstimate": 0.06620000000000001,
+              "scheduleEffectOneSidedLower95": 0.0212
+            }
+          ]
+        },
+        {
+          "memberId": "II-CERT-ROBUST",
+          "source": "CERTIFICATION_PANEL",
+          "finding": "II",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "II-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "II-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "dividendPointEstimate": 100.776,
+              "dividendOneSidedLower95": 100.426,
+              "scheduleEffectPointEstimate": 0.22559999999999997,
+              "scheduleEffectOneSidedLower95": 0.18059999999999998
+            },
+            {
+              "year": 2296,
+              "dividendPointEstimate": 100.716,
+              "dividendOneSidedLower95": 100.366,
+              "scheduleEffectPointEstimate": 0.1956,
+              "scheduleEffectOneSidedLower95": 0.15059999999999998
+            },
+            {
+              "year": 2297,
+              "dividendPointEstimate": 100.666,
+              "dividendOneSidedLower95": 100.316,
+              "scheduleEffectPointEstimate": 0.16559999999999997,
+              "scheduleEffectOneSidedLower95": 0.1206
+            },
+            {
+              "year": 2298,
+              "dividendPointEstimate": 100.646,
+              "dividendOneSidedLower95": 100.296,
+              "scheduleEffectPointEstimate": 0.1556,
+              "scheduleEffectOneSidedLower95": 0.1106
+            },
+            {
+              "year": 2299,
+              "dividendPointEstimate": 100.606,
+              "dividendOneSidedLower95": 100.256,
+              "scheduleEffectPointEstimate": 0.1356,
+              "scheduleEffectOneSidedLower95": 0.0906
+            },
+            {
+              "year": 2300,
+              "dividendPointEstimate": 100.576,
+              "dividendOneSidedLower95": 100.226,
+              "scheduleEffectPointEstimate": 0.1256,
+              "scheduleEffectOneSidedLower95": 0.0806
+            },
+            {
+              "year": 2301,
+              "dividendPointEstimate": 100.576,
+              "dividendOneSidedLower95": 100.226,
+              "scheduleEffectPointEstimate": 0.1256,
+              "scheduleEffectOneSidedLower95": 0.0806
+            },
+            {
+              "year": 2302,
+              "dividendPointEstimate": 100.56599999999999,
+              "dividendOneSidedLower95": 100.216,
+              "scheduleEffectPointEstimate": 0.11560000000000001,
+              "scheduleEffectOneSidedLower95": 0.07060000000000001
+            },
+            {
+              "year": 2303,
+              "dividendPointEstimate": 100.56599999999999,
+              "dividendOneSidedLower95": 100.216,
+              "scheduleEffectPointEstimate": 0.11560000000000001,
+              "scheduleEffectOneSidedLower95": 0.07060000000000001
+            },
+            {
+              "year": 2304,
+              "dividendPointEstimate": 100.556,
+              "dividendOneSidedLower95": 100.206,
+              "scheduleEffectPointEstimate": 0.1056,
+              "scheduleEffectOneSidedLower95": 0.0606
+            },
+            {
+              "year": 2305,
+              "dividendPointEstimate": 100.556,
+              "dividendOneSidedLower95": 100.206,
+              "scheduleEffectPointEstimate": 0.1056,
+              "scheduleEffectOneSidedLower95": 0.0606
+            },
+            {
+              "year": 2306,
+              "dividendPointEstimate": 100.54599999999999,
+              "dividendOneSidedLower95": 100.196,
+              "scheduleEffectPointEstimate": 0.0956,
+              "scheduleEffectOneSidedLower95": 0.050600000000000006
+            },
+            {
+              "year": 2307,
+              "dividendPointEstimate": 100.54599999999999,
+              "dividendOneSidedLower95": 100.196,
+              "scheduleEffectPointEstimate": 0.0956,
+              "scheduleEffectOneSidedLower95": 0.050600000000000006
+            },
+            {
+              "year": 2308,
+              "dividendPointEstimate": 100.536,
+              "dividendOneSidedLower95": 100.186,
+              "scheduleEffectPointEstimate": 0.0956,
+              "scheduleEffectOneSidedLower95": 0.050600000000000006
+            },
+            {
+              "year": 2309,
+              "dividendPointEstimate": 100.536,
+              "dividendOneSidedLower95": 100.186,
+              "scheduleEffectPointEstimate": 0.0956,
+              "scheduleEffectOneSidedLower95": 0.050600000000000006
+            },
+            {
+              "year": 2310,
+              "dividendPointEstimate": 100.526,
+              "dividendOneSidedLower95": 100.176,
+              "scheduleEffectPointEstimate": 0.0856,
+              "scheduleEffectOneSidedLower95": 0.040600000000000004
+            },
+            {
+              "year": 2311,
+              "dividendPointEstimate": 100.526,
+              "dividendOneSidedLower95": 100.176,
+              "scheduleEffectPointEstimate": 0.0856,
+              "scheduleEffectOneSidedLower95": 0.040600000000000004
+            },
+            {
+              "year": 2312,
+              "dividendPointEstimate": 100.51599999999999,
+              "dividendOneSidedLower95": 100.166,
+              "scheduleEffectPointEstimate": 0.0856,
+              "scheduleEffectOneSidedLower95": 0.040600000000000004
+            },
+            {
+              "year": 2313,
+              "dividendPointEstimate": 100.51599999999999,
+              "dividendOneSidedLower95": 100.166,
+              "scheduleEffectPointEstimate": 0.0856,
+              "scheduleEffectOneSidedLower95": 0.040600000000000004
+            },
+            {
+              "year": 2314,
+              "dividendPointEstimate": 100.506,
+              "dividendOneSidedLower95": 100.156,
+              "scheduleEffectPointEstimate": 0.0756,
+              "scheduleEffectOneSidedLower95": 0.0306
+            },
+            {
+              "year": 2315,
+              "dividendPointEstimate": 100.506,
+              "dividendOneSidedLower95": 100.156,
+              "scheduleEffectPointEstimate": 0.0756,
+              "scheduleEffectOneSidedLower95": 0.0306
+            },
+            {
+              "year": 2316,
+              "dividendPointEstimate": 100.496,
+              "dividendOneSidedLower95": 100.146,
+              "scheduleEffectPointEstimate": 0.0756,
+              "scheduleEffectOneSidedLower95": 0.0306
+            },
+            {
+              "year": 2317,
+              "dividendPointEstimate": 100.496,
+              "dividendOneSidedLower95": 100.146,
+              "scheduleEffectPointEstimate": 0.0756,
+              "scheduleEffectOneSidedLower95": 0.0306
+            },
+            {
+              "year": 2318,
+              "dividendPointEstimate": 100.48599999999999,
+              "dividendOneSidedLower95": 100.136,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            },
+            {
+              "year": 2319,
+              "dividendPointEstimate": 100.48599999999999,
+              "dividendOneSidedLower95": 100.136,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            },
+            {
+              "year": 2320,
+              "dividendPointEstimate": 100.476,
+              "dividendOneSidedLower95": 100.126,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            },
+            {
+              "year": 2321,
+              "dividendPointEstimate": 100.476,
+              "dividendOneSidedLower95": 100.126,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            },
+            {
+              "year": 2322,
+              "dividendPointEstimate": 100.466,
+              "dividendOneSidedLower95": 100.116,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            },
+            {
+              "year": 2323,
+              "dividendPointEstimate": 100.466,
+              "dividendOneSidedLower95": 100.116,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            },
+            {
+              "year": 2324,
+              "dividendPointEstimate": 100.45599999999999,
+              "dividendOneSidedLower95": 100.106,
+              "scheduleEffectPointEstimate": 0.0656,
+              "scheduleEffectOneSidedLower95": 0.0206
+            }
+          ]
+        },
+        {
+          "memberId": "II-CHALLENGE-STRESS",
+          "source": "CHALLENGE_PANEL",
+          "finding": "II",
+          "functionalClass": "stress-envelope",
+          "identificationAssumption": "II-STRESS-IDENTIFICATION",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "II-STRESS-IDENTIFICATION",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": true,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "dividendPointEstimate": 100.77,
+              "dividendOneSidedLower95": 100.42,
+              "scheduleEffectPointEstimate": 0.22499999999999998,
+              "scheduleEffectOneSidedLower95": 0.18
+            },
+            {
+              "year": 2296,
+              "dividendPointEstimate": 100.71,
+              "dividendOneSidedLower95": 100.36,
+              "scheduleEffectPointEstimate": 0.195,
+              "scheduleEffectOneSidedLower95": 0.15
+            },
+            {
+              "year": 2297,
+              "dividendPointEstimate": 100.66,
+              "dividendOneSidedLower95": 100.31,
+              "scheduleEffectPointEstimate": 0.16499999999999998,
+              "scheduleEffectOneSidedLower95": 0.12
+            },
+            {
+              "year": 2298,
+              "dividendPointEstimate": 100.64,
+              "dividendOneSidedLower95": 100.29,
+              "scheduleEffectPointEstimate": 0.155,
+              "scheduleEffectOneSidedLower95": 0.11
+            },
+            {
+              "year": 2299,
+              "dividendPointEstimate": 100.6,
+              "dividendOneSidedLower95": 100.25,
+              "scheduleEffectPointEstimate": 0.135,
+              "scheduleEffectOneSidedLower95": 0.09
+            },
+            {
+              "year": 2300,
+              "dividendPointEstimate": 100.57,
+              "dividendOneSidedLower95": 100.22,
+              "scheduleEffectPointEstimate": 0.125,
+              "scheduleEffectOneSidedLower95": 0.08
+            },
+            {
+              "year": 2301,
+              "dividendPointEstimate": 100.57,
+              "dividendOneSidedLower95": 100.22,
+              "scheduleEffectPointEstimate": 0.125,
+              "scheduleEffectOneSidedLower95": 0.08
+            },
+            {
+              "year": 2302,
+              "dividendPointEstimate": 100.55999999999999,
+              "dividendOneSidedLower95": 100.21,
+              "scheduleEffectPointEstimate": 0.115,
+              "scheduleEffectOneSidedLower95": 0.07
+            },
+            {
+              "year": 2303,
+              "dividendPointEstimate": 100.55999999999999,
+              "dividendOneSidedLower95": 100.21,
+              "scheduleEffectPointEstimate": 0.115,
+              "scheduleEffectOneSidedLower95": 0.07
+            },
+            {
+              "year": 2304,
+              "dividendPointEstimate": 100.55,
+              "dividendOneSidedLower95": 100.2,
+              "scheduleEffectPointEstimate": 0.105,
+              "scheduleEffectOneSidedLower95": 0.06
+            },
+            {
+              "year": 2305,
+              "dividendPointEstimate": 100.55,
+              "dividendOneSidedLower95": 100.2,
+              "scheduleEffectPointEstimate": 0.105,
+              "scheduleEffectOneSidedLower95": 0.06
+            },
+            {
+              "year": 2306,
+              "dividendPointEstimate": 100.53999999999999,
+              "dividendOneSidedLower95": 100.19,
+              "scheduleEffectPointEstimate": 0.095,
+              "scheduleEffectOneSidedLower95": 0.05
+            },
+            {
+              "year": 2307,
+              "dividendPointEstimate": 100.53999999999999,
+              "dividendOneSidedLower95": 100.19,
+              "scheduleEffectPointEstimate": 0.095,
+              "scheduleEffectOneSidedLower95": 0.05
+            },
+            {
+              "year": 2308,
+              "dividendPointEstimate": 100.53,
+              "dividendOneSidedLower95": 100.18,
+              "scheduleEffectPointEstimate": 0.095,
+              "scheduleEffectOneSidedLower95": 0.05
+            },
+            {
+              "year": 2309,
+              "dividendPointEstimate": 100.53,
+              "dividendOneSidedLower95": 100.18,
+              "scheduleEffectPointEstimate": 0.095,
+              "scheduleEffectOneSidedLower95": 0.05
+            },
+            {
+              "year": 2310,
+              "dividendPointEstimate": 100.52,
+              "dividendOneSidedLower95": 100.17,
+              "scheduleEffectPointEstimate": 0.08499999999999999,
+              "scheduleEffectOneSidedLower95": 0.04
+            },
+            {
+              "year": 2311,
+              "dividendPointEstimate": 100.52,
+              "dividendOneSidedLower95": 100.17,
+              "scheduleEffectPointEstimate": 0.08499999999999999,
+              "scheduleEffectOneSidedLower95": 0.04
+            },
+            {
+              "year": 2312,
+              "dividendPointEstimate": 100.50999999999999,
+              "dividendOneSidedLower95": 100.16,
+              "scheduleEffectPointEstimate": 0.08499999999999999,
+              "scheduleEffectOneSidedLower95": 0.04
+            },
+            {
+              "year": 2313,
+              "dividendPointEstimate": 100.50999999999999,
+              "dividendOneSidedLower95": 100.16,
+              "scheduleEffectPointEstimate": 0.08499999999999999,
+              "scheduleEffectOneSidedLower95": 0.04
+            },
+            {
+              "year": 2314,
+              "dividendPointEstimate": 100.5,
+              "dividendOneSidedLower95": 100.15,
+              "scheduleEffectPointEstimate": 0.075,
+              "scheduleEffectOneSidedLower95": 0.03
+            },
+            {
+              "year": 2315,
+              "dividendPointEstimate": 100.5,
+              "dividendOneSidedLower95": 100.15,
+              "scheduleEffectPointEstimate": 0.075,
+              "scheduleEffectOneSidedLower95": 0.03
+            },
+            {
+              "year": 2316,
+              "dividendPointEstimate": 100.49,
+              "dividendOneSidedLower95": 100.14,
+              "scheduleEffectPointEstimate": 0.075,
+              "scheduleEffectOneSidedLower95": 0.03
+            },
+            {
+              "year": 2317,
+              "dividendPointEstimate": 100.49,
+              "dividendOneSidedLower95": 100.14,
+              "scheduleEffectPointEstimate": 0.075,
+              "scheduleEffectOneSidedLower95": 0.03
+            },
+            {
+              "year": 2318,
+              "dividendPointEstimate": 100.47999999999999,
+              "dividendOneSidedLower95": 100.13,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            },
+            {
+              "year": 2319,
+              "dividendPointEstimate": 100.47999999999999,
+              "dividendOneSidedLower95": 100.13,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            },
+            {
+              "year": 2320,
+              "dividendPointEstimate": 100.47,
+              "dividendOneSidedLower95": 100.12,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            },
+            {
+              "year": 2321,
+              "dividendPointEstimate": 100.47,
+              "dividendOneSidedLower95": 100.12,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            },
+            {
+              "year": 2322,
+              "dividendPointEstimate": 100.46,
+              "dividendOneSidedLower95": 100.11,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            },
+            {
+              "year": 2323,
+              "dividendPointEstimate": 100.46,
+              "dividendOneSidedLower95": 100.11,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            },
+            {
+              "year": 2324,
+              "dividendPointEstimate": 100.44999999999999,
+              "dividendOneSidedLower95": 100.1,
+              "scheduleEffectPointEstimate": 0.065,
+              "scheduleEffectOneSidedLower95": 0.02
+            }
+          ]
+        },
+        {
+          "memberId": "II-CHALLENGE-UNSTABLE",
+          "source": "CHALLENGE_PANEL",
+          "finding": "II",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "II-UNSTABLE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "II-UNSTABLE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 1.04,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": false
+          },
+          "survivesValidation": false,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "dividendPointEstimate": 100.767,
+              "dividendOneSidedLower95": 100.417,
+              "scheduleEffectPointEstimate": 0.22469999999999998,
+              "scheduleEffectOneSidedLower95": 0.1797
+            },
+            {
+              "year": 2296,
+              "dividendPointEstimate": 100.707,
+              "dividendOneSidedLower95": 100.357,
+              "scheduleEffectPointEstimate": 0.1947,
+              "scheduleEffectOneSidedLower95": 0.1497
+            },
+            {
+              "year": 2297,
+              "dividendPointEstimate": 100.657,
+              "dividendOneSidedLower95": 100.307,
+              "scheduleEffectPointEstimate": 0.16469999999999999,
+              "scheduleEffectOneSidedLower95": 0.1197
+            },
+            {
+              "year": 2298,
+              "dividendPointEstimate": 100.637,
+              "dividendOneSidedLower95": 100.287,
+              "scheduleEffectPointEstimate": 0.1547,
+              "scheduleEffectOneSidedLower95": 0.1097
+            },
+            {
+              "year": 2299,
+              "dividendPointEstimate": 100.597,
+              "dividendOneSidedLower95": 100.247,
+              "scheduleEffectPointEstimate": 0.13470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0897
+            },
+            {
+              "year": 2300,
+              "dividendPointEstimate": 100.567,
+              "dividendOneSidedLower95": 100.217,
+              "scheduleEffectPointEstimate": 0.1247,
+              "scheduleEffectOneSidedLower95": 0.07970000000000001
+            },
+            {
+              "year": 2301,
+              "dividendPointEstimate": 100.567,
+              "dividendOneSidedLower95": 100.217,
+              "scheduleEffectPointEstimate": 0.1247,
+              "scheduleEffectOneSidedLower95": 0.07970000000000001
+            },
+            {
+              "year": 2302,
+              "dividendPointEstimate": 100.55699999999999,
+              "dividendOneSidedLower95": 100.207,
+              "scheduleEffectPointEstimate": 0.11470000000000001,
+              "scheduleEffectOneSidedLower95": 0.06970000000000001
+            },
+            {
+              "year": 2303,
+              "dividendPointEstimate": 100.55699999999999,
+              "dividendOneSidedLower95": 100.207,
+              "scheduleEffectPointEstimate": 0.11470000000000001,
+              "scheduleEffectOneSidedLower95": 0.06970000000000001
+            },
+            {
+              "year": 2304,
+              "dividendPointEstimate": 100.547,
+              "dividendOneSidedLower95": 100.197,
+              "scheduleEffectPointEstimate": 0.1047,
+              "scheduleEffectOneSidedLower95": 0.059699999999999996
+            },
+            {
+              "year": 2305,
+              "dividendPointEstimate": 100.547,
+              "dividendOneSidedLower95": 100.197,
+              "scheduleEffectPointEstimate": 0.1047,
+              "scheduleEffectOneSidedLower95": 0.059699999999999996
+            },
+            {
+              "year": 2306,
+              "dividendPointEstimate": 100.53699999999999,
+              "dividendOneSidedLower95": 100.187,
+              "scheduleEffectPointEstimate": 0.0947,
+              "scheduleEffectOneSidedLower95": 0.0497
+            },
+            {
+              "year": 2307,
+              "dividendPointEstimate": 100.53699999999999,
+              "dividendOneSidedLower95": 100.187,
+              "scheduleEffectPointEstimate": 0.0947,
+              "scheduleEffectOneSidedLower95": 0.0497
+            },
+            {
+              "year": 2308,
+              "dividendPointEstimate": 100.527,
+              "dividendOneSidedLower95": 100.177,
+              "scheduleEffectPointEstimate": 0.0947,
+              "scheduleEffectOneSidedLower95": 0.0497
+            },
+            {
+              "year": 2309,
+              "dividendPointEstimate": 100.527,
+              "dividendOneSidedLower95": 100.177,
+              "scheduleEffectPointEstimate": 0.0947,
+              "scheduleEffectOneSidedLower95": 0.0497
+            },
+            {
+              "year": 2310,
+              "dividendPointEstimate": 100.517,
+              "dividendOneSidedLower95": 100.167,
+              "scheduleEffectPointEstimate": 0.0847,
+              "scheduleEffectOneSidedLower95": 0.0397
+            },
+            {
+              "year": 2311,
+              "dividendPointEstimate": 100.517,
+              "dividendOneSidedLower95": 100.167,
+              "scheduleEffectPointEstimate": 0.0847,
+              "scheduleEffectOneSidedLower95": 0.0397
+            },
+            {
+              "year": 2312,
+              "dividendPointEstimate": 100.50699999999999,
+              "dividendOneSidedLower95": 100.157,
+              "scheduleEffectPointEstimate": 0.0847,
+              "scheduleEffectOneSidedLower95": 0.0397
+            },
+            {
+              "year": 2313,
+              "dividendPointEstimate": 100.50699999999999,
+              "dividendOneSidedLower95": 100.157,
+              "scheduleEffectPointEstimate": 0.0847,
+              "scheduleEffectOneSidedLower95": 0.0397
+            },
+            {
+              "year": 2314,
+              "dividendPointEstimate": 100.497,
+              "dividendOneSidedLower95": 100.147,
+              "scheduleEffectPointEstimate": 0.0747,
+              "scheduleEffectOneSidedLower95": 0.029699999999999997
+            },
+            {
+              "year": 2315,
+              "dividendPointEstimate": 100.497,
+              "dividendOneSidedLower95": 100.147,
+              "scheduleEffectPointEstimate": 0.0747,
+              "scheduleEffectOneSidedLower95": 0.029699999999999997
+            },
+            {
+              "year": 2316,
+              "dividendPointEstimate": 100.487,
+              "dividendOneSidedLower95": 100.137,
+              "scheduleEffectPointEstimate": 0.0747,
+              "scheduleEffectOneSidedLower95": 0.029699999999999997
+            },
+            {
+              "year": 2317,
+              "dividendPointEstimate": 100.487,
+              "dividendOneSidedLower95": 100.137,
+              "scheduleEffectPointEstimate": 0.0747,
+              "scheduleEffectOneSidedLower95": 0.029699999999999997
+            },
+            {
+              "year": 2318,
+              "dividendPointEstimate": 100.47699999999999,
+              "dividendOneSidedLower95": 100.127,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            },
+            {
+              "year": 2319,
+              "dividendPointEstimate": 100.47699999999999,
+              "dividendOneSidedLower95": 100.127,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            },
+            {
+              "year": 2320,
+              "dividendPointEstimate": 100.467,
+              "dividendOneSidedLower95": 100.117,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            },
+            {
+              "year": 2321,
+              "dividendPointEstimate": 100.467,
+              "dividendOneSidedLower95": 100.117,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            },
+            {
+              "year": 2322,
+              "dividendPointEstimate": 100.457,
+              "dividendOneSidedLower95": 100.107,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            },
+            {
+              "year": 2323,
+              "dividendPointEstimate": 100.457,
+              "dividendOneSidedLower95": 100.107,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            },
+            {
+              "year": 2324,
+              "dividendPointEstimate": 100.44699999999999,
+              "dividendOneSidedLower95": 100.097,
+              "scheduleEffectPointEstimate": 0.06470000000000001,
+              "scheduleEffectOneSidedLower95": 0.0197
+            }
+          ]
+        }
+      ],
+      "III": [
+        {
+          "memberId": "III-PREREG-BASE",
+          "source": "PREREGISTRATION",
+          "finding": "III",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "III-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "III-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "activationPointEstimate": 9.18,
+              "activationOneSidedUpper95": 9.42,
+              "flowPointEstimate": 0.6150000000000001,
+              "flowOneSidedLower95": 0.5700000000000001
+            },
+            {
+              "year": 2296,
+              "activationPointEstimate": 9.26,
+              "activationOneSidedUpper95": 9.5,
+              "flowPointEstimate": 0.6090000000000001,
+              "flowOneSidedLower95": 0.5640000000000001
+            },
+            {
+              "year": 2297,
+              "activationPointEstimate": 9.350000000000001,
+              "activationOneSidedUpper95": 9.590000000000002,
+              "flowPointEstimate": 0.6040000000000001,
+              "flowOneSidedLower95": 0.559
+            },
+            {
+              "year": 2298,
+              "activationPointEstimate": 9.42,
+              "activationOneSidedUpper95": 9.66,
+              "flowPointEstimate": 0.5980000000000001,
+              "flowOneSidedLower95": 0.553
+            },
+            {
+              "year": 2299,
+              "activationPointEstimate": 9.5,
+              "activationOneSidedUpper95": 9.74,
+              "flowPointEstimate": 0.5930000000000001,
+              "flowOneSidedLower95": 0.548
+            },
+            {
+              "year": 2300,
+              "activationPointEstimate": 9.56,
+              "activationOneSidedUpper95": 9.8,
+              "flowPointEstimate": 0.5890000000000001,
+              "flowOneSidedLower95": 0.544
+            },
+            {
+              "year": 2301,
+              "activationPointEstimate": 9.56,
+              "activationOneSidedUpper95": 9.8,
+              "flowPointEstimate": 0.5890000000000001,
+              "flowOneSidedLower95": 0.544
+            },
+            {
+              "year": 2302,
+              "activationPointEstimate": 9.58,
+              "activationOneSidedUpper95": 9.82,
+              "flowPointEstimate": 0.5870000000000001,
+              "flowOneSidedLower95": 0.542
+            },
+            {
+              "year": 2303,
+              "activationPointEstimate": 9.58,
+              "activationOneSidedUpper95": 9.82,
+              "flowPointEstimate": 0.5870000000000001,
+              "flowOneSidedLower95": 0.542
+            },
+            {
+              "year": 2304,
+              "activationPointEstimate": 9.600000000000001,
+              "activationOneSidedUpper95": 9.840000000000002,
+              "flowPointEstimate": 0.5850000000000001,
+              "flowOneSidedLower95": 0.54
+            },
+            {
+              "year": 2305,
+              "activationPointEstimate": 9.600000000000001,
+              "activationOneSidedUpper95": 9.840000000000002,
+              "flowPointEstimate": 0.5850000000000001,
+              "flowOneSidedLower95": 0.54
+            },
+            {
+              "year": 2306,
+              "activationPointEstimate": 9.620000000000001,
+              "activationOneSidedUpper95": 9.860000000000001,
+              "flowPointEstimate": 0.5830000000000001,
+              "flowOneSidedLower95": 0.538
+            },
+            {
+              "year": 2307,
+              "activationPointEstimate": 9.620000000000001,
+              "activationOneSidedUpper95": 9.860000000000001,
+              "flowPointEstimate": 0.5830000000000001,
+              "flowOneSidedLower95": 0.538
+            },
+            {
+              "year": 2308,
+              "activationPointEstimate": 9.64,
+              "activationOneSidedUpper95": 9.88,
+              "flowPointEstimate": 0.5810000000000001,
+              "flowOneSidedLower95": 0.536
+            },
+            {
+              "year": 2309,
+              "activationPointEstimate": 9.64,
+              "activationOneSidedUpper95": 9.88,
+              "flowPointEstimate": 0.5810000000000001,
+              "flowOneSidedLower95": 0.536
+            },
+            {
+              "year": 2310,
+              "activationPointEstimate": 9.65,
+              "activationOneSidedUpper95": 9.89,
+              "flowPointEstimate": 0.5790000000000001,
+              "flowOneSidedLower95": 0.534
+            },
+            {
+              "year": 2311,
+              "activationPointEstimate": 9.65,
+              "activationOneSidedUpper95": 9.89,
+              "flowPointEstimate": 0.5790000000000001,
+              "flowOneSidedLower95": 0.534
+            },
+            {
+              "year": 2312,
+              "activationPointEstimate": 9.66,
+              "activationOneSidedUpper95": 9.9,
+              "flowPointEstimate": 0.5770000000000001,
+              "flowOneSidedLower95": 0.532
+            },
+            {
+              "year": 2313,
+              "activationPointEstimate": 9.66,
+              "activationOneSidedUpper95": 9.9,
+              "flowPointEstimate": 0.5770000000000001,
+              "flowOneSidedLower95": 0.532
+            },
+            {
+              "year": 2314,
+              "activationPointEstimate": 9.67,
+              "activationOneSidedUpper95": 9.91,
+              "flowPointEstimate": 0.5750000000000001,
+              "flowOneSidedLower95": 0.53
+            },
+            {
+              "year": 2315,
+              "activationPointEstimate": 9.67,
+              "activationOneSidedUpper95": 9.91,
+              "flowPointEstimate": 0.5750000000000001,
+              "flowOneSidedLower95": 0.53
+            },
+            {
+              "year": 2316,
+              "activationPointEstimate": 9.68,
+              "activationOneSidedUpper95": 9.92,
+              "flowPointEstimate": 0.5730000000000001,
+              "flowOneSidedLower95": 0.528
+            },
+            {
+              "year": 2317,
+              "activationPointEstimate": 9.68,
+              "activationOneSidedUpper95": 9.92,
+              "flowPointEstimate": 0.5730000000000001,
+              "flowOneSidedLower95": 0.528
+            },
+            {
+              "year": 2318,
+              "activationPointEstimate": 9.690000000000001,
+              "activationOneSidedUpper95": 9.930000000000001,
+              "flowPointEstimate": 0.5710000000000001,
+              "flowOneSidedLower95": 0.526
+            },
+            {
+              "year": 2319,
+              "activationPointEstimate": 9.690000000000001,
+              "activationOneSidedUpper95": 9.930000000000001,
+              "flowPointEstimate": 0.5710000000000001,
+              "flowOneSidedLower95": 0.526
+            },
+            {
+              "year": 2320,
+              "activationPointEstimate": 9.700000000000001,
+              "activationOneSidedUpper95": 9.940000000000001,
+              "flowPointEstimate": 0.5690000000000001,
+              "flowOneSidedLower95": 0.524
+            },
+            {
+              "year": 2321,
+              "activationPointEstimate": 9.700000000000001,
+              "activationOneSidedUpper95": 9.940000000000001,
+              "flowPointEstimate": 0.5690000000000001,
+              "flowOneSidedLower95": 0.524
+            },
+            {
+              "year": 2322,
+              "activationPointEstimate": 9.71,
+              "activationOneSidedUpper95": 9.950000000000001,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            },
+            {
+              "year": 2323,
+              "activationPointEstimate": 9.71,
+              "activationOneSidedUpper95": 9.950000000000001,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            },
+            {
+              "year": 2324,
+              "activationPointEstimate": 9.72,
+              "activationOneSidedUpper95": 9.96,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            }
+          ]
+        },
+        {
+          "memberId": "III-CERT-ROBUST",
+          "source": "CERTIFICATION_PANEL",
+          "finding": "III",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "III-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "III-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "activationPointEstimate": 9.239999999999998,
+              "activationOneSidedUpper95": 9.479999999999999,
+              "flowPointEstimate": 0.6090000000000001,
+              "flowOneSidedLower95": 0.5640000000000001
+            },
+            {
+              "year": 2296,
+              "activationPointEstimate": 9.319999999999999,
+              "activationOneSidedUpper95": 9.559999999999999,
+              "flowPointEstimate": 0.6030000000000001,
+              "flowOneSidedLower95": 0.558
+            },
+            {
+              "year": 2297,
+              "activationPointEstimate": 9.41,
+              "activationOneSidedUpper95": 9.65,
+              "flowPointEstimate": 0.5980000000000001,
+              "flowOneSidedLower95": 0.553
+            },
+            {
+              "year": 2298,
+              "activationPointEstimate": 9.479999999999999,
+              "activationOneSidedUpper95": 9.719999999999999,
+              "flowPointEstimate": 0.5920000000000001,
+              "flowOneSidedLower95": 0.547
+            },
+            {
+              "year": 2299,
+              "activationPointEstimate": 9.559999999999999,
+              "activationOneSidedUpper95": 9.799999999999999,
+              "flowPointEstimate": 0.5870000000000001,
+              "flowOneSidedLower95": 0.542
+            },
+            {
+              "year": 2300,
+              "activationPointEstimate": 9.62,
+              "activationOneSidedUpper95": 9.86,
+              "flowPointEstimate": 0.5830000000000001,
+              "flowOneSidedLower95": 0.538
+            },
+            {
+              "year": 2301,
+              "activationPointEstimate": 9.62,
+              "activationOneSidedUpper95": 9.86,
+              "flowPointEstimate": 0.5830000000000001,
+              "flowOneSidedLower95": 0.538
+            },
+            {
+              "year": 2302,
+              "activationPointEstimate": 9.639999999999999,
+              "activationOneSidedUpper95": 9.879999999999999,
+              "flowPointEstimate": 0.5810000000000001,
+              "flowOneSidedLower95": 0.536
+            },
+            {
+              "year": 2303,
+              "activationPointEstimate": 9.639999999999999,
+              "activationOneSidedUpper95": 9.879999999999999,
+              "flowPointEstimate": 0.5810000000000001,
+              "flowOneSidedLower95": 0.536
+            },
+            {
+              "year": 2304,
+              "activationPointEstimate": 9.66,
+              "activationOneSidedUpper95": 9.9,
+              "flowPointEstimate": 0.5790000000000001,
+              "flowOneSidedLower95": 0.534
+            },
+            {
+              "year": 2305,
+              "activationPointEstimate": 9.66,
+              "activationOneSidedUpper95": 9.9,
+              "flowPointEstimate": 0.5790000000000001,
+              "flowOneSidedLower95": 0.534
+            },
+            {
+              "year": 2306,
+              "activationPointEstimate": 9.68,
+              "activationOneSidedUpper95": 9.92,
+              "flowPointEstimate": 0.5770000000000001,
+              "flowOneSidedLower95": 0.532
+            },
+            {
+              "year": 2307,
+              "activationPointEstimate": 9.68,
+              "activationOneSidedUpper95": 9.92,
+              "flowPointEstimate": 0.5770000000000001,
+              "flowOneSidedLower95": 0.532
+            },
+            {
+              "year": 2308,
+              "activationPointEstimate": 9.7,
+              "activationOneSidedUpper95": 9.94,
+              "flowPointEstimate": 0.5750000000000001,
+              "flowOneSidedLower95": 0.53
+            },
+            {
+              "year": 2309,
+              "activationPointEstimate": 9.7,
+              "activationOneSidedUpper95": 9.94,
+              "flowPointEstimate": 0.5750000000000001,
+              "flowOneSidedLower95": 0.53
+            },
+            {
+              "year": 2310,
+              "activationPointEstimate": 9.709999999999999,
+              "activationOneSidedUpper95": 9.95,
+              "flowPointEstimate": 0.5730000000000001,
+              "flowOneSidedLower95": 0.528
+            },
+            {
+              "year": 2311,
+              "activationPointEstimate": 9.709999999999999,
+              "activationOneSidedUpper95": 9.95,
+              "flowPointEstimate": 0.5730000000000001,
+              "flowOneSidedLower95": 0.528
+            },
+            {
+              "year": 2312,
+              "activationPointEstimate": 9.719999999999999,
+              "activationOneSidedUpper95": 9.959999999999999,
+              "flowPointEstimate": 0.5710000000000001,
+              "flowOneSidedLower95": 0.526
+            },
+            {
+              "year": 2313,
+              "activationPointEstimate": 9.719999999999999,
+              "activationOneSidedUpper95": 9.959999999999999,
+              "flowPointEstimate": 0.5710000000000001,
+              "flowOneSidedLower95": 0.526
+            },
+            {
+              "year": 2314,
+              "activationPointEstimate": 9.729999999999999,
+              "activationOneSidedUpper95": 9.969999999999999,
+              "flowPointEstimate": 0.5690000000000001,
+              "flowOneSidedLower95": 0.524
+            },
+            {
+              "year": 2315,
+              "activationPointEstimate": 9.729999999999999,
+              "activationOneSidedUpper95": 9.969999999999999,
+              "flowPointEstimate": 0.5690000000000001,
+              "flowOneSidedLower95": 0.524
+            },
+            {
+              "year": 2316,
+              "activationPointEstimate": 9.739999999999998,
+              "activationOneSidedUpper95": 9.979999999999999,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            },
+            {
+              "year": 2317,
+              "activationPointEstimate": 9.739999999999998,
+              "activationOneSidedUpper95": 9.979999999999999,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            },
+            {
+              "year": 2318,
+              "activationPointEstimate": 9.75,
+              "activationOneSidedUpper95": 9.99,
+              "flowPointEstimate": 0.5650000000000001,
+              "flowOneSidedLower95": 0.52
+            },
+            {
+              "year": 2319,
+              "activationPointEstimate": 9.75,
+              "activationOneSidedUpper95": 9.99,
+              "flowPointEstimate": 0.5650000000000001,
+              "flowOneSidedLower95": 0.52
+            },
+            {
+              "year": 2320,
+              "activationPointEstimate": 9.76,
+              "activationOneSidedUpper95": 10,
+              "flowPointEstimate": 0.5630000000000001,
+              "flowOneSidedLower95": 0.518
+            },
+            {
+              "year": 2321,
+              "activationPointEstimate": 9.76,
+              "activationOneSidedUpper95": 10,
+              "flowPointEstimate": 0.5630000000000001,
+              "flowOneSidedLower95": 0.518
+            },
+            {
+              "year": 2322,
+              "activationPointEstimate": 9.77,
+              "activationOneSidedUpper95": 10.01,
+              "flowPointEstimate": 0.561,
+              "flowOneSidedLower95": 0.516
+            },
+            {
+              "year": 2323,
+              "activationPointEstimate": 9.77,
+              "activationOneSidedUpper95": 10.01,
+              "flowPointEstimate": 0.561,
+              "flowOneSidedLower95": 0.516
+            },
+            {
+              "year": 2324,
+              "activationPointEstimate": 9.78,
+              "activationOneSidedUpper95": 10.02,
+              "flowPointEstimate": 0.561,
+              "flowOneSidedLower95": 0.516
+            }
+          ]
+        },
+        {
+          "memberId": "III-CHALLENGE-STRESS",
+          "source": "CHALLENGE_PANEL",
+          "finding": "III",
+          "functionalClass": "stress-envelope",
+          "identificationAssumption": "III-STRESS-IDENTIFICATION",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "III-STRESS-IDENTIFICATION",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": true,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "activationPointEstimate": 9.299999999999999,
+              "activationOneSidedUpper95": 9.54,
+              "flowPointEstimate": 0.6030000000000001,
+              "flowOneSidedLower95": 0.558
+            },
+            {
+              "year": 2296,
+              "activationPointEstimate": 9.379999999999999,
+              "activationOneSidedUpper95": 9.62,
+              "flowPointEstimate": 0.5970000000000001,
+              "flowOneSidedLower95": 0.552
+            },
+            {
+              "year": 2297,
+              "activationPointEstimate": 9.47,
+              "activationOneSidedUpper95": 9.71,
+              "flowPointEstimate": 0.5920000000000001,
+              "flowOneSidedLower95": 0.547
+            },
+            {
+              "year": 2298,
+              "activationPointEstimate": 9.54,
+              "activationOneSidedUpper95": 9.78,
+              "flowPointEstimate": 0.5860000000000001,
+              "flowOneSidedLower95": 0.541
+            },
+            {
+              "year": 2299,
+              "activationPointEstimate": 9.62,
+              "activationOneSidedUpper95": 9.86,
+              "flowPointEstimate": 0.5810000000000001,
+              "flowOneSidedLower95": 0.536
+            },
+            {
+              "year": 2300,
+              "activationPointEstimate": 9.68,
+              "activationOneSidedUpper95": 9.92,
+              "flowPointEstimate": 0.5770000000000001,
+              "flowOneSidedLower95": 0.532
+            },
+            {
+              "year": 2301,
+              "activationPointEstimate": 9.68,
+              "activationOneSidedUpper95": 9.92,
+              "flowPointEstimate": 0.5770000000000001,
+              "flowOneSidedLower95": 0.532
+            },
+            {
+              "year": 2302,
+              "activationPointEstimate": 9.7,
+              "activationOneSidedUpper95": 9.94,
+              "flowPointEstimate": 0.5750000000000001,
+              "flowOneSidedLower95": 0.53
+            },
+            {
+              "year": 2303,
+              "activationPointEstimate": 9.7,
+              "activationOneSidedUpper95": 9.94,
+              "flowPointEstimate": 0.5750000000000001,
+              "flowOneSidedLower95": 0.53
+            },
+            {
+              "year": 2304,
+              "activationPointEstimate": 9.72,
+              "activationOneSidedUpper95": 9.96,
+              "flowPointEstimate": 0.5730000000000001,
+              "flowOneSidedLower95": 0.528
+            },
+            {
+              "year": 2305,
+              "activationPointEstimate": 9.72,
+              "activationOneSidedUpper95": 9.96,
+              "flowPointEstimate": 0.5730000000000001,
+              "flowOneSidedLower95": 0.528
+            },
+            {
+              "year": 2306,
+              "activationPointEstimate": 9.74,
+              "activationOneSidedUpper95": 9.98,
+              "flowPointEstimate": 0.5710000000000001,
+              "flowOneSidedLower95": 0.526
+            },
+            {
+              "year": 2307,
+              "activationPointEstimate": 9.74,
+              "activationOneSidedUpper95": 9.98,
+              "flowPointEstimate": 0.5710000000000001,
+              "flowOneSidedLower95": 0.526
+            },
+            {
+              "year": 2308,
+              "activationPointEstimate": 9.76,
+              "activationOneSidedUpper95": 10,
+              "flowPointEstimate": 0.5690000000000001,
+              "flowOneSidedLower95": 0.524
+            },
+            {
+              "year": 2309,
+              "activationPointEstimate": 9.76,
+              "activationOneSidedUpper95": 10,
+              "flowPointEstimate": 0.5690000000000001,
+              "flowOneSidedLower95": 0.524
+            },
+            {
+              "year": 2310,
+              "activationPointEstimate": 9.77,
+              "activationOneSidedUpper95": 10.01,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            },
+            {
+              "year": 2311,
+              "activationPointEstimate": 9.77,
+              "activationOneSidedUpper95": 10.01,
+              "flowPointEstimate": 0.5670000000000001,
+              "flowOneSidedLower95": 0.522
+            },
+            {
+              "year": 2312,
+              "activationPointEstimate": 9.78,
+              "activationOneSidedUpper95": 10.02,
+              "flowPointEstimate": 0.5650000000000001,
+              "flowOneSidedLower95": 0.52
+            },
+            {
+              "year": 2313,
+              "activationPointEstimate": 9.78,
+              "activationOneSidedUpper95": 10.02,
+              "flowPointEstimate": 0.5650000000000001,
+              "flowOneSidedLower95": 0.52
+            },
+            {
+              "year": 2314,
+              "activationPointEstimate": 9.79,
+              "activationOneSidedUpper95": 10.03,
+              "flowPointEstimate": 0.5630000000000001,
+              "flowOneSidedLower95": 0.518
+            },
+            {
+              "year": 2315,
+              "activationPointEstimate": 9.79,
+              "activationOneSidedUpper95": 10.03,
+              "flowPointEstimate": 0.5630000000000001,
+              "flowOneSidedLower95": 0.518
+            },
+            {
+              "year": 2316,
+              "activationPointEstimate": 9.799999999999999,
+              "activationOneSidedUpper95": 10.04,
+              "flowPointEstimate": 0.561,
+              "flowOneSidedLower95": 0.516
+            },
+            {
+              "year": 2317,
+              "activationPointEstimate": 9.799999999999999,
+              "activationOneSidedUpper95": 10.04,
+              "flowPointEstimate": 0.561,
+              "flowOneSidedLower95": 0.516
+            },
+            {
+              "year": 2318,
+              "activationPointEstimate": 9.81,
+              "activationOneSidedUpper95": 10.05,
+              "flowPointEstimate": 0.559,
+              "flowOneSidedLower95": 0.514
+            },
+            {
+              "year": 2319,
+              "activationPointEstimate": 9.81,
+              "activationOneSidedUpper95": 10.05,
+              "flowPointEstimate": 0.559,
+              "flowOneSidedLower95": 0.514
+            },
+            {
+              "year": 2320,
+              "activationPointEstimate": 9.82,
+              "activationOneSidedUpper95": 10.06,
+              "flowPointEstimate": 0.557,
+              "flowOneSidedLower95": 0.512
+            },
+            {
+              "year": 2321,
+              "activationPointEstimate": 9.82,
+              "activationOneSidedUpper95": 10.06,
+              "flowPointEstimate": 0.557,
+              "flowOneSidedLower95": 0.512
+            },
+            {
+              "year": 2322,
+              "activationPointEstimate": 9.83,
+              "activationOneSidedUpper95": 10.07,
+              "flowPointEstimate": 0.555,
+              "flowOneSidedLower95": 0.51
+            },
+            {
+              "year": 2323,
+              "activationPointEstimate": 9.83,
+              "activationOneSidedUpper95": 10.07,
+              "flowPointEstimate": 0.555,
+              "flowOneSidedLower95": 0.51
+            },
+            {
+              "year": 2324,
+              "activationPointEstimate": 9.84,
+              "activationOneSidedUpper95": 10.08,
+              "flowPointEstimate": 0.555,
+              "flowOneSidedLower95": 0.51
+            }
+          ]
+        },
+        {
+          "memberId": "III-CHALLENGE-UNSTABLE",
+          "source": "CHALLENGE_PANEL",
+          "finding": "III",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "III-UNSTABLE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "III-UNSTABLE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 1.04,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": false
+          },
+          "survivesValidation": false,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "activationPointEstimate": 9.329999999999998,
+              "activationOneSidedUpper95": 9.569999999999999,
+              "flowPointEstimate": 0.6000000000000001,
+              "flowOneSidedLower95": 0.555
+            },
+            {
+              "year": 2296,
+              "activationPointEstimate": 9.409999999999998,
+              "activationOneSidedUpper95": 9.649999999999999,
+              "flowPointEstimate": 0.5940000000000001,
+              "flowOneSidedLower95": 0.549
+            },
+            {
+              "year": 2297,
+              "activationPointEstimate": 9.5,
+              "activationOneSidedUpper95": 9.74,
+              "flowPointEstimate": 0.5890000000000001,
+              "flowOneSidedLower95": 0.544
+            },
+            {
+              "year": 2298,
+              "activationPointEstimate": 9.569999999999999,
+              "activationOneSidedUpper95": 9.809999999999999,
+              "flowPointEstimate": 0.5830000000000001,
+              "flowOneSidedLower95": 0.538
+            },
+            {
+              "year": 2299,
+              "activationPointEstimate": 9.649999999999999,
+              "activationOneSidedUpper95": 9.889999999999999,
+              "flowPointEstimate": 0.5780000000000001,
+              "flowOneSidedLower95": 0.533
+            },
+            {
+              "year": 2300,
+              "activationPointEstimate": 9.709999999999999,
+              "activationOneSidedUpper95": 9.95,
+              "flowPointEstimate": 0.5740000000000001,
+              "flowOneSidedLower95": 0.529
+            },
+            {
+              "year": 2301,
+              "activationPointEstimate": 9.709999999999999,
+              "activationOneSidedUpper95": 9.95,
+              "flowPointEstimate": 0.5740000000000001,
+              "flowOneSidedLower95": 0.529
+            },
+            {
+              "year": 2302,
+              "activationPointEstimate": 9.729999999999999,
+              "activationOneSidedUpper95": 9.969999999999999,
+              "flowPointEstimate": 0.5720000000000001,
+              "flowOneSidedLower95": 0.527
+            },
+            {
+              "year": 2303,
+              "activationPointEstimate": 9.729999999999999,
+              "activationOneSidedUpper95": 9.969999999999999,
+              "flowPointEstimate": 0.5720000000000001,
+              "flowOneSidedLower95": 0.527
+            },
+            {
+              "year": 2304,
+              "activationPointEstimate": 9.75,
+              "activationOneSidedUpper95": 9.99,
+              "flowPointEstimate": 0.5700000000000001,
+              "flowOneSidedLower95": 0.525
+            },
+            {
+              "year": 2305,
+              "activationPointEstimate": 9.75,
+              "activationOneSidedUpper95": 9.99,
+              "flowPointEstimate": 0.5700000000000001,
+              "flowOneSidedLower95": 0.525
+            },
+            {
+              "year": 2306,
+              "activationPointEstimate": 9.77,
+              "activationOneSidedUpper95": 10.01,
+              "flowPointEstimate": 0.5680000000000001,
+              "flowOneSidedLower95": 0.523
+            },
+            {
+              "year": 2307,
+              "activationPointEstimate": 9.77,
+              "activationOneSidedUpper95": 10.01,
+              "flowPointEstimate": 0.5680000000000001,
+              "flowOneSidedLower95": 0.523
+            },
+            {
+              "year": 2308,
+              "activationPointEstimate": 9.79,
+              "activationOneSidedUpper95": 10.03,
+              "flowPointEstimate": 0.5660000000000001,
+              "flowOneSidedLower95": 0.521
+            },
+            {
+              "year": 2309,
+              "activationPointEstimate": 9.79,
+              "activationOneSidedUpper95": 10.03,
+              "flowPointEstimate": 0.5660000000000001,
+              "flowOneSidedLower95": 0.521
+            },
+            {
+              "year": 2310,
+              "activationPointEstimate": 9.799999999999999,
+              "activationOneSidedUpper95": 10.04,
+              "flowPointEstimate": 0.5640000000000001,
+              "flowOneSidedLower95": 0.519
+            },
+            {
+              "year": 2311,
+              "activationPointEstimate": 9.799999999999999,
+              "activationOneSidedUpper95": 10.04,
+              "flowPointEstimate": 0.5640000000000001,
+              "flowOneSidedLower95": 0.519
+            },
+            {
+              "year": 2312,
+              "activationPointEstimate": 9.809999999999999,
+              "activationOneSidedUpper95": 10.049999999999999,
+              "flowPointEstimate": 0.562,
+              "flowOneSidedLower95": 0.517
+            },
+            {
+              "year": 2313,
+              "activationPointEstimate": 9.809999999999999,
+              "activationOneSidedUpper95": 10.049999999999999,
+              "flowPointEstimate": 0.562,
+              "flowOneSidedLower95": 0.517
+            },
+            {
+              "year": 2314,
+              "activationPointEstimate": 9.819999999999999,
+              "activationOneSidedUpper95": 10.059999999999999,
+              "flowPointEstimate": 0.56,
+              "flowOneSidedLower95": 0.515
+            },
+            {
+              "year": 2315,
+              "activationPointEstimate": 9.819999999999999,
+              "activationOneSidedUpper95": 10.059999999999999,
+              "flowPointEstimate": 0.56,
+              "flowOneSidedLower95": 0.515
+            },
+            {
+              "year": 2316,
+              "activationPointEstimate": 9.829999999999998,
+              "activationOneSidedUpper95": 10.069999999999999,
+              "flowPointEstimate": 0.558,
+              "flowOneSidedLower95": 0.513
+            },
+            {
+              "year": 2317,
+              "activationPointEstimate": 9.829999999999998,
+              "activationOneSidedUpper95": 10.069999999999999,
+              "flowPointEstimate": 0.558,
+              "flowOneSidedLower95": 0.513
+            },
+            {
+              "year": 2318,
+              "activationPointEstimate": 9.84,
+              "activationOneSidedUpper95": 10.08,
+              "flowPointEstimate": 0.556,
+              "flowOneSidedLower95": 0.511
+            },
+            {
+              "year": 2319,
+              "activationPointEstimate": 9.84,
+              "activationOneSidedUpper95": 10.08,
+              "flowPointEstimate": 0.556,
+              "flowOneSidedLower95": 0.511
+            },
+            {
+              "year": 2320,
+              "activationPointEstimate": 9.85,
+              "activationOneSidedUpper95": 10.09,
+              "flowPointEstimate": 0.554,
+              "flowOneSidedLower95": 0.509
+            },
+            {
+              "year": 2321,
+              "activationPointEstimate": 9.85,
+              "activationOneSidedUpper95": 10.09,
+              "flowPointEstimate": 0.554,
+              "flowOneSidedLower95": 0.509
+            },
+            {
+              "year": 2322,
+              "activationPointEstimate": 9.86,
+              "activationOneSidedUpper95": 10.1,
+              "flowPointEstimate": 0.552,
+              "flowOneSidedLower95": 0.507
+            },
+            {
+              "year": 2323,
+              "activationPointEstimate": 9.86,
+              "activationOneSidedUpper95": 10.1,
+              "flowPointEstimate": 0.552,
+              "flowOneSidedLower95": 0.507
+            },
+            {
+              "year": 2324,
+              "activationPointEstimate": 9.87,
+              "activationOneSidedUpper95": 10.11,
+              "flowPointEstimate": 0.552,
+              "flowOneSidedLower95": 0.507
+            }
+          ]
+        }
+      ],
+      "IV": [
+        {
+          "memberId": "IV-PREREG-BASE",
+          "source": "PREREGISTRATION",
+          "finding": "IV",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "IV-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "IV-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "netValuePointEstimate": 0.522,
+              "netValueOneSidedLower95": 0.432,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2296,
+              "netValuePointEstimate": 0.502,
+              "netValueOneSidedLower95": 0.41200000000000003,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2297,
+              "netValuePointEstimate": 0.482,
+              "netValueOneSidedLower95": 0.392,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2298,
+              "netValuePointEstimate": 0.46199999999999997,
+              "netValueOneSidedLower95": 0.372,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2299,
+              "netValuePointEstimate": 0.44200000000000006,
+              "netValueOneSidedLower95": 0.35200000000000004,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2300,
+              "netValuePointEstimate": 0.42200000000000004,
+              "netValueOneSidedLower95": 0.332,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2301,
+              "netValuePointEstimate": 0.41200000000000003,
+              "netValueOneSidedLower95": 0.322,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2302,
+              "netValuePointEstimate": 0.402,
+              "netValueOneSidedLower95": 0.312,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2303,
+              "netValuePointEstimate": 0.392,
+              "netValueOneSidedLower95": 0.302,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2304,
+              "netValuePointEstimate": 0.382,
+              "netValueOneSidedLower95": 0.29200000000000004,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2305,
+              "netValuePointEstimate": 0.372,
+              "netValueOneSidedLower95": 0.28200000000000003,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2306,
+              "netValuePointEstimate": 0.362,
+              "netValueOneSidedLower95": 0.272,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2307,
+              "netValuePointEstimate": 0.352,
+              "netValueOneSidedLower95": 0.262,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2308,
+              "netValuePointEstimate": 0.34199999999999997,
+              "netValueOneSidedLower95": 0.252,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2309,
+              "netValuePointEstimate": 0.332,
+              "netValueOneSidedLower95": 0.24200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2310,
+              "netValuePointEstimate": 0.322,
+              "netValueOneSidedLower95": 0.232,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2311,
+              "netValuePointEstimate": 0.312,
+              "netValueOneSidedLower95": 0.222,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2312,
+              "netValuePointEstimate": 0.30200000000000005,
+              "netValueOneSidedLower95": 0.21200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2313,
+              "netValuePointEstimate": 0.29200000000000004,
+              "netValueOneSidedLower95": 0.202,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2314,
+              "netValuePointEstimate": 0.28200000000000003,
+              "netValueOneSidedLower95": 0.192,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2315,
+              "netValuePointEstimate": 0.272,
+              "netValueOneSidedLower95": 0.18200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2316,
+              "netValuePointEstimate": 0.262,
+              "netValueOneSidedLower95": 0.17200000000000001,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2317,
+              "netValuePointEstimate": 0.252,
+              "netValueOneSidedLower95": 0.162,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2318,
+              "netValuePointEstimate": 0.24200000000000002,
+              "netValueOneSidedLower95": 0.15200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2319,
+              "netValuePointEstimate": 0.24200000000000002,
+              "netValueOneSidedLower95": 0.15200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2320,
+              "netValuePointEstimate": 0.232,
+              "netValueOneSidedLower95": 0.14200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2321,
+              "netValuePointEstimate": 0.232,
+              "netValueOneSidedLower95": 0.14200000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2322,
+              "netValuePointEstimate": 0.222,
+              "netValueOneSidedLower95": 0.132,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2323,
+              "netValuePointEstimate": 0.21200000000000002,
+              "netValueOneSidedLower95": 0.122,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2324,
+              "netValuePointEstimate": 0.202,
+              "netValueOneSidedLower95": 0.112,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            }
+          ]
+        },
+        {
+          "memberId": "IV-CERT-ROBUST",
+          "source": "CERTIFICATION_PANEL",
+          "finding": "IV",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "IV-LOCKED-BASE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "IV-LOCKED-BASE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "netValuePointEstimate": 0.516,
+              "netValueOneSidedLower95": 0.426,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2296,
+              "netValuePointEstimate": 0.496,
+              "netValueOneSidedLower95": 0.406,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2297,
+              "netValuePointEstimate": 0.476,
+              "netValueOneSidedLower95": 0.386,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2298,
+              "netValuePointEstimate": 0.45599999999999996,
+              "netValueOneSidedLower95": 0.366,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2299,
+              "netValuePointEstimate": 0.43600000000000005,
+              "netValueOneSidedLower95": 0.34600000000000003,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2300,
+              "netValuePointEstimate": 0.41600000000000004,
+              "netValueOneSidedLower95": 0.326,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2301,
+              "netValuePointEstimate": 0.406,
+              "netValueOneSidedLower95": 0.316,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2302,
+              "netValuePointEstimate": 0.396,
+              "netValueOneSidedLower95": 0.306,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2303,
+              "netValuePointEstimate": 0.386,
+              "netValueOneSidedLower95": 0.296,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2304,
+              "netValuePointEstimate": 0.376,
+              "netValueOneSidedLower95": 0.28600000000000003,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2305,
+              "netValuePointEstimate": 0.366,
+              "netValueOneSidedLower95": 0.276,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2306,
+              "netValuePointEstimate": 0.356,
+              "netValueOneSidedLower95": 0.266,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2307,
+              "netValuePointEstimate": 0.346,
+              "netValueOneSidedLower95": 0.256,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2308,
+              "netValuePointEstimate": 0.33599999999999997,
+              "netValueOneSidedLower95": 0.246,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2309,
+              "netValuePointEstimate": 0.326,
+              "netValueOneSidedLower95": 0.23600000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2310,
+              "netValuePointEstimate": 0.316,
+              "netValueOneSidedLower95": 0.226,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2311,
+              "netValuePointEstimate": 0.306,
+              "netValueOneSidedLower95": 0.216,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2312,
+              "netValuePointEstimate": 0.29600000000000004,
+              "netValueOneSidedLower95": 0.20600000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2313,
+              "netValuePointEstimate": 0.28600000000000003,
+              "netValueOneSidedLower95": 0.196,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2314,
+              "netValuePointEstimate": 0.276,
+              "netValueOneSidedLower95": 0.186,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2315,
+              "netValuePointEstimate": 0.266,
+              "netValueOneSidedLower95": 0.17600000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2316,
+              "netValuePointEstimate": 0.256,
+              "netValueOneSidedLower95": 0.166,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2317,
+              "netValuePointEstimate": 0.246,
+              "netValueOneSidedLower95": 0.156,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2318,
+              "netValuePointEstimate": 0.23600000000000002,
+              "netValueOneSidedLower95": 0.14600000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2319,
+              "netValuePointEstimate": 0.23600000000000002,
+              "netValueOneSidedLower95": 0.14600000000000002,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2320,
+              "netValuePointEstimate": 0.226,
+              "netValueOneSidedLower95": 0.136,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2321,
+              "netValuePointEstimate": 0.226,
+              "netValueOneSidedLower95": 0.136,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2322,
+              "netValuePointEstimate": 0.216,
+              "netValueOneSidedLower95": 0.126,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2323,
+              "netValuePointEstimate": 0.20600000000000002,
+              "netValueOneSidedLower95": 0.116,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2324,
+              "netValuePointEstimate": 0.196,
+              "netValueOneSidedLower95": 0.10600000000000001,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            }
+          ]
+        },
+        {
+          "memberId": "IV-CHALLENGE-STRESS",
+          "source": "CHALLENGE_PANEL",
+          "finding": "IV",
+          "functionalClass": "stress-envelope",
+          "identificationAssumption": "IV-STRESS-IDENTIFICATION",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "IV-STRESS-IDENTIFICATION",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 0.82,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": true
+          },
+          "survivesValidation": true,
+          "classRepresentative": true,
+          "controlling": true,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "netValuePointEstimate": 0.51,
+              "netValueOneSidedLower95": 0.42,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2296,
+              "netValuePointEstimate": 0.49,
+              "netValueOneSidedLower95": 0.4,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2297,
+              "netValuePointEstimate": 0.47,
+              "netValueOneSidedLower95": 0.38,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2298,
+              "netValuePointEstimate": 0.44999999999999996,
+              "netValueOneSidedLower95": 0.36,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2299,
+              "netValuePointEstimate": 0.43000000000000005,
+              "netValueOneSidedLower95": 0.34,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2300,
+              "netValuePointEstimate": 0.41000000000000003,
+              "netValueOneSidedLower95": 0.32,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2301,
+              "netValuePointEstimate": 0.4,
+              "netValueOneSidedLower95": 0.31,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2302,
+              "netValuePointEstimate": 0.39,
+              "netValueOneSidedLower95": 0.3,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2303,
+              "netValuePointEstimate": 0.38,
+              "netValueOneSidedLower95": 0.29,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2304,
+              "netValuePointEstimate": 0.37,
+              "netValueOneSidedLower95": 0.28,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2305,
+              "netValuePointEstimate": 0.36,
+              "netValueOneSidedLower95": 0.27,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2306,
+              "netValuePointEstimate": 0.35,
+              "netValueOneSidedLower95": 0.26,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2307,
+              "netValuePointEstimate": 0.33999999999999997,
+              "netValueOneSidedLower95": 0.25,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2308,
+              "netValuePointEstimate": 0.32999999999999996,
+              "netValueOneSidedLower95": 0.24,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2309,
+              "netValuePointEstimate": 0.32,
+              "netValueOneSidedLower95": 0.23,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2310,
+              "netValuePointEstimate": 0.31,
+              "netValueOneSidedLower95": 0.22,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2311,
+              "netValuePointEstimate": 0.3,
+              "netValueOneSidedLower95": 0.21,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2312,
+              "netValuePointEstimate": 0.29000000000000004,
+              "netValueOneSidedLower95": 0.2,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2313,
+              "netValuePointEstimate": 0.28,
+              "netValueOneSidedLower95": 0.19,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2314,
+              "netValuePointEstimate": 0.27,
+              "netValueOneSidedLower95": 0.18,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2315,
+              "netValuePointEstimate": 0.26,
+              "netValueOneSidedLower95": 0.17,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2316,
+              "netValuePointEstimate": 0.25,
+              "netValueOneSidedLower95": 0.16,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2317,
+              "netValuePointEstimate": 0.24,
+              "netValueOneSidedLower95": 0.15,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2318,
+              "netValuePointEstimate": 0.23,
+              "netValueOneSidedLower95": 0.14,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2319,
+              "netValuePointEstimate": 0.23,
+              "netValueOneSidedLower95": 0.14,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2320,
+              "netValuePointEstimate": 0.22,
+              "netValueOneSidedLower95": 0.13,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2321,
+              "netValuePointEstimate": 0.22,
+              "netValueOneSidedLower95": 0.13,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2322,
+              "netValuePointEstimate": 0.21,
+              "netValueOneSidedLower95": 0.12,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2323,
+              "netValuePointEstimate": 0.2,
+              "netValueOneSidedLower95": 0.11,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2324,
+              "netValuePointEstimate": 0.19,
+              "netValueOneSidedLower95": 0.1,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            }
+          ]
+        },
+        {
+          "memberId": "IV-CHALLENGE-UNSTABLE",
+          "source": "CHALLENGE_PANEL",
+          "finding": "IV",
+          "functionalClass": "locked-linear-envelope",
+          "identificationAssumption": "IV-UNSTABLE",
+          "estimator": "preregistered deterministic bound estimator",
+          "uncertaintyFamily": "simultaneous one-sided 95 percent adverse interval",
+          "equivalenceClass": "IV-UNSTABLE",
+          "validation": {
+            "heldOutTerminalSegment": "last 20 percent of the section 6.1 observation window",
+            "projectionError": 1.04,
+            "persistenceBenchmarkError": 1,
+            "passesFloor": false
+          },
+          "survivesValidation": false,
+          "classRepresentative": false,
+          "controlling": false,
+          "pointEstimatesAndIntervals": [
+            {
+              "year": 2295,
+              "netValuePointEstimate": 0.507,
+              "netValueOneSidedLower95": 0.417,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2296,
+              "netValuePointEstimate": 0.487,
+              "netValueOneSidedLower95": 0.397,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2297,
+              "netValuePointEstimate": 0.46699999999999997,
+              "netValueOneSidedLower95": 0.377,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2298,
+              "netValuePointEstimate": 0.44699999999999995,
+              "netValueOneSidedLower95": 0.357,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2299,
+              "netValuePointEstimate": 0.42700000000000005,
+              "netValueOneSidedLower95": 0.337,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2300,
+              "netValuePointEstimate": 0.40700000000000003,
+              "netValueOneSidedLower95": 0.317,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2301,
+              "netValuePointEstimate": 0.397,
+              "netValueOneSidedLower95": 0.307,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2302,
+              "netValuePointEstimate": 0.387,
+              "netValueOneSidedLower95": 0.297,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2303,
+              "netValuePointEstimate": 0.377,
+              "netValueOneSidedLower95": 0.287,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2304,
+              "netValuePointEstimate": 0.367,
+              "netValueOneSidedLower95": 0.277,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2305,
+              "netValuePointEstimate": 0.357,
+              "netValueOneSidedLower95": 0.267,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2306,
+              "netValuePointEstimate": 0.347,
+              "netValueOneSidedLower95": 0.257,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2307,
+              "netValuePointEstimate": 0.33699999999999997,
+              "netValueOneSidedLower95": 0.247,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2308,
+              "netValuePointEstimate": 0.32699999999999996,
+              "netValueOneSidedLower95": 0.237,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2309,
+              "netValuePointEstimate": 0.317,
+              "netValueOneSidedLower95": 0.227,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2310,
+              "netValuePointEstimate": 0.307,
+              "netValueOneSidedLower95": 0.217,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2311,
+              "netValuePointEstimate": 0.297,
+              "netValueOneSidedLower95": 0.207,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2312,
+              "netValuePointEstimate": 0.28700000000000003,
+              "netValueOneSidedLower95": 0.197,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2313,
+              "netValuePointEstimate": 0.277,
+              "netValueOneSidedLower95": 0.187,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2314,
+              "netValuePointEstimate": 0.267,
+              "netValueOneSidedLower95": 0.177,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2315,
+              "netValuePointEstimate": 0.257,
+              "netValueOneSidedLower95": 0.167,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2316,
+              "netValuePointEstimate": 0.247,
+              "netValueOneSidedLower95": 0.157,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2317,
+              "netValuePointEstimate": 0.237,
+              "netValueOneSidedLower95": 0.147,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2318,
+              "netValuePointEstimate": 0.227,
+              "netValueOneSidedLower95": 0.137,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2319,
+              "netValuePointEstimate": 0.227,
+              "netValueOneSidedLower95": 0.137,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2320,
+              "netValuePointEstimate": 0.217,
+              "netValueOneSidedLower95": 0.127,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2321,
+              "netValuePointEstimate": 0.217,
+              "netValueOneSidedLower95": 0.127,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2322,
+              "netValuePointEstimate": 0.207,
+              "netValueOneSidedLower95": 0.11699999999999999,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2323,
+              "netValuePointEstimate": 0.197,
+              "netValueOneSidedLower95": 0.107,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            },
+            {
+              "year": 2324,
+              "netValuePointEstimate": 0.187,
+              "netValueOneSidedLower95": 0.097,
+              "concentrationEventsPointEstimate": 0,
+              "concentrationEventsOneSidedUpper95": 0
+            }
+          ]
+        }
+      ]
+    },
+    "controllingMemberByFinding": {
+      "I": "I-CHALLENGE-STRESS",
+      "II": "II-CHALLENGE-STRESS",
+      "III": "III-CHALLENGE-STRESS",
+      "IV": "IV-CHALLENGE-STRESS"
+    },
+    "excludedMembers": [
+      "I-CHALLENGE-UNSTABLE",
+      "II-CHALLENGE-UNSTABLE",
+      "III-CHALLENGE-UNSTABLE",
+      "IV-CHALLENGE-UNSTABLE"
+    ]
+  },
+  "precision": {
+    "I": {
+      "maximumAdmissibleWidth": 0.04,
+      "controllingMaximumWidth": 0.018,
+      "pass": true
+    },
+    "II": {
+      "maximumAdmissibleWidth": 0.4268749491621893,
+      "controllingMaximumWidth": 0.35,
+      "pass": true
+    },
+    "III": {
+      "activationMaximumAdmissibleWidth": 2.02,
+      "activationControllingMaximumWidth": 0.24,
+      "flowMaximumAdmissibleWidth": 0.10850000000000004,
+      "flowControllingMaximumWidth": 0.045,
+      "pass": true
+    },
+    "IV": {
+      "maximumAdmissibleWidth": 0.5,
+      "controllingMaximumWidth": 0.09,
+      "pass": true
+    }
+  },
+  "commissionVotes": [
+    {
+      "seatId": "COMMISSION-01",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-21"
+    },
+    {
+      "seatId": "COMMISSION-02",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-22"
+    },
+    {
+      "seatId": "COMMISSION-03",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-23"
+    },
+    {
+      "seatId": "COMMISSION-04",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-24"
+    },
+    {
+      "seatId": "COMMISSION-05",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-25"
+    },
+    {
+      "seatId": "COMMISSION-06",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-26"
+    },
+    {
+      "seatId": "COMMISSION-07",
+      "exposureDeclaration": "NO_DISQUALIFYING_EXPOSURE",
+      "findings": {
+        "I": "PASS",
+        "II": "PASS",
+        "III": "PASS",
+        "IV": "PASS"
+      },
+      "scheduleA": "CERTIFY",
+      "dissent": null,
+      "signedAt": "2294-10-27"
+    }
+  ],
+  "panelDeclarations": [
+    {
+      "panel": "CERTIFICATION_PANEL",
+      "declaration": "STRONGEST_SURVIVING_MEMBER_ADDED_FOR_EACH_FINDING",
+      "signedAt": "2292-02-15"
+    },
+    {
+      "panel": "CHALLENGE_PANEL",
+      "declaration": "STRONGEST_SURVIVING_MEMBER_ADDED_FOR_EACH_FINDING",
+      "signedAt": "2292-02-15"
+    }
+  ],
+  "deterministicExecution": {
+    "runtime": "Node.js 22 LTS",
+    "externalDependencies": [],
+    "locale": "C",
+    "timezone": "UTC",
+    "randomSeed": null,
+    "seedDeclaration": "NO_RANDOM_SEED_DETERMINISTIC_EXECUTION",
+    "comparisonRule": "UNROUNDED_VALUES_ONLY"
+  },
+  "artifacts": {
+    "controllingData": {
+      "path": "documents/path-2-certification-2294-data.json",
+      "algorithm": "sha256",
+      "digest": "5ade772de3339134b52bdcabc28586cc15494bbe76ebeffd769e2ccad3c16e6e",
+      "bytes": 60180
+    },
+    "effectiveNotice": {
+      "path": "documents/path-2-effective-notice-2295.json",
+      "algorithm": "sha256",
+      "digest": "eb727680b076157f8b97e362bd500dba5d53a68e2cdf6bfcbd54d5e80b779c79",
+      "bytes": 522
+    },
+    "verifier": {
+      "path": "tools/verify-path2-certification-2294.mjs",
+      "algorithm": "sha256",
+      "digest": "e82e0a2a090ece303ab76732355e5f18c629457b901648e40768e41730b6459a",
+      "bytes": 46216
+    },
+    "recordVerifier": {
+      "path": "tools/verify-path2-record-annexes.mjs",
+      "algorithm": "sha256",
+      "digest": "4987fd98b2068bd5bc253280da66d4e8287d3bb1606a8c862c57946de510fd0d",
+      "bytes": 14671
+    },
+    "annexGenerator": {
+      "path": "tools/build-path2-record-annexes.mjs",
+      "algorithm": "sha256",
+      "digest": "72665c10d124efe159f4589224cf7afd661ad1a3e94ad2189040e41296d5243f",
+      "bytes": 20172
+    },
+    "certificationPageGenerator": {
+      "path": "tools/build-path2-certification-page.mjs",
+      "algorithm": "sha256",
+      "digest": "dc2510dad05f2fbd4d4095bd853359fb56f547100e853811d8d03b9e52e72e49",
+      "bytes": 16439
+    },
+    "restatement": {
+      "path": "documents/path-2-charter-restatement-2292-data.json",
+      "algorithm": "sha256",
+      "digest": "9cebb385e4bebcc671f036e912131d8f5afae61b926c5b04e0481b5772c383de",
+      "bytes": 24468
+    },
+    "lowerCertificate": {
+      "path": "documents/path-2-lower-incidence-certificate-2294-data.json",
+      "algorithm": "sha256",
+      "digest": "bb8d14e7e489ce1da66f381604281df47636a446a79dbf3b9a3506c95c02df12",
+      "bytes": 40025
+    },
+    "lp075Review": {
+      "path": "documents/lp-075-section-13-review-set-data.json",
+      "algorithm": "sha256",
+      "digest": "7238210a634a62e89bb3d4705416dbff0850fe57367c5974f50bbf987788f695",
+      "bytes": 2959
+    }
+  }
+}
