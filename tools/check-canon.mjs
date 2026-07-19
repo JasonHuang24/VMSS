@@ -20,6 +20,7 @@ import { execFileSync } from 'child_process';
 import { readFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { evaluateCertification } from './verify-path2-certification-2294.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -382,6 +383,16 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
 {
   const data = JSON.parse(read('documents/path-2-certification-2294-data.json'));
   const notice = JSON.parse(read('documents/path-2-effective-notice-2295.json'));
+  const certification = evaluateCertification(data, notice);
+  const normalizedText = (src) => stripComments(src)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:nbsp|thinsp);/gi, ' ')
+    .replace(/&(?:rarr|rightarrow);/gi, '→')
+    .replace(/&(?:ndash|mdash);/gi, '–')
+    .replace(/\s+/g, ' ')
+    .trim();
   const tax = manifest.taxCanon;
   check(tax.activeSchedule === '50 / 25 / 12.5 / 6.25' && tax.effectiveYear === 2295,
     'canon manifest: exact cascade active from 2295');
@@ -393,29 +404,61 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   check(tax.threshold === '$10 million' && tax.scm === 'unchanged',
     'canon manifest: threshold and SCM unchanged');
 
-  check(data.record.disposition === 'CERTIFIED_BOTH_SCHEDULES' &&
-        data.authority.lp074.activeSchedule.join(' / ') === tax.activeSchedule &&
-        data.authority.lp073.status === 'SUPERSEDED_IN_2295' &&
-        data.authority.lp075.setsRates === false && data.authority.lp075.activatesSchedules === false,
-    'controlling dataset: certified schedules and unambiguous authority chain');
-  check(notice.status === 'VALID' && notice.effectiveAt.startsWith('2295') &&
-        Object.values(notice.rates).join(' / ') === tax.activeSchedule,
-    'effective notice: valid 2295 schedule');
+  check(certification.certified, 'structured certification result: complete record certifies',
+    certification.certified ? 'schema + chronology + authority + unchanged canon + schedules + external notice' : certification.errors.join('; '));
+  check(Object.values(certification.findings).every(Boolean)
+        && certification.scheduleACertified
+        && certification.scheduleBIndependentCertified
+        && certification.scheduleBCertified,
+    'structured certification result: Findings I–IV, Schedule A, and independent B1–B6 pass');
+  check(Object.values(certification.validation).every(Boolean),
+    'structured certification result: schema, chronology, authority, unchanged canon, and notice validate');
+  const whitepaperTax = normalizedText(read('whitepaper.html'));
+  const dividendAggregate = `${(data.sourceInputs.scheduleA.dividendAggregateCoverage * 100).toFixed(1)}%`;
+  const dividendWeakest = `${(data.sourceInputs.scheduleA.dividendMonthlyCoverageMinimum * 100).toFixed(1)}%`;
+  check(whitepaperTax.includes(`${dividendAggregate} aggregate dividend coverage`)
+        && whitepaperTax.includes(`${dividendWeakest} at the weakest month`)
+        && !/123\.0809%|122\.39%/.test(whitepaperTax),
+    'whitepaper reports the dataset-derived LP-070 figures', `${dividendAggregate} aggregate / ${dividendWeakest} weakest`);
+  check(/LP-070 remains the enacted standing future gate/i.test(whitepaperTax)
+        && /trailing 36-month window, with no single month below 100%/i.test(whitepaperTax)
+        && /tax receipts, Lower-layer receipts, SCM recirculation, private velocity, backfill[^.]{0,100}do not count/i.test(whitepaperTax),
+    'whitepaper preserves LP-070 as the standing future gate with prohibited substitutions excluded');
+  check(normalizedText(read('charter.html')).includes('If any reader-facing restatement falls out of step, the binding source controls.'),
+    'Charter restatement declares binding-source precedence');
 
   const currentSurfaces = ['charter.html', 'systems.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
     'layer--1.html', 'layer--3.html', 'simulations.html', 'documents/academy-source.html',
-    'documents/resources-source.html'];
+    'documents/resources-source.html', 'rate-history.html', 'law-polling.html'];
+  const exactCascade = /(?:\b50\s*%?\s*\/\s*25\s*%?\s*\/\s*12\.5\s*%?\s*\/\s*6\.25\s*%?\b|\b50%[^.!?]{0,240}\b25%[^.!?]{0,240}\b12\.5%[^.!?]{0,240}\b6\.25%)/;
   const staleCurrent = [];
-  const forbiddenCurrent = /(?:LP-073[^\n]{0,100}(?:remains operative|operative schedule)|(?:current|active|operative)[^\n]{0,80}(?:70\s*\/\s*35\s*\/\s*17\s*\/\s*8|\b35%|\b17%|\b8%|Finding III\b[^\n]{0,50}fail)|Schedule A\b[^\n]{0,60}refus|Schedule B\b[^\n]{0,60}not reached)/i;
+  const forbiddenCurrent = /(?:LP-073[^.!?]{0,120}(?:remains|is|still)\s+(?:current|active|operative)|(?:current|active|operative|since 2295|from 2295)[^.!?]{0,100}(?:70\s*%?\s*\/\s*35\s*%?\s*\/\s*17\s*%?\s*\/\s*8\s*%?|\b35%|\b17%|\b8%)|2294[^.!?]{0,120}(?:Finding III[^.!?]{0,50}(?:fail|did not pass)|Schedule [AB]\b[^.!?]{0,50}(?:refus|reject|not certified|not reached))|three findings passed[^.!?]{0,50}(?:one did not|one failed)|both refusals|chain with three links|executed (?:that logic|the logic) once already)/i;
   for (const file of currentSurfaces) {
-    const src = stripComments(read(file));
-    if (!src.includes('50') || !src.includes('6.25') || forbiddenCurrent.test(src)) staleCurrent.push(file);
+    const src = normalizedText(read(file));
+    const staleClaim = src.match(forbiddenCurrent)?.[0];
+    if (!exactCascade.test(src) || staleClaim) staleCurrent.push(`${file}: ${staleClaim ? `forbidden "${staleClaim}"` : 'exact cascade absent'}`);
   }
-  check(staleCurrent.length === 0, 'current surfaces enforce 50 / 25 / 12.5 / 6.25 and reject old active-rate/refusal claims',
+  check(staleCurrent.length === 0, 'current surfaces carry the normalized exact cascade and reject old active-rate/refusal claims',
     staleCurrent.length ? staleCurrent.join(', ') : `${currentSurfaces.length} surfaces clear`);
 
+  const authorityAssertions = [
+    ['charter.html', /LP-074 is the substantive rate law/i, /LP-073.{0,80}fully superseded as operative law/i, /LP-075 remains procedural only/i],
+    ['rate-history.html', /current rate authority is LP-074/i, /LP-073 is historical/i, /LP-075 compelled the (?:audit|remedial process)/i],
+    ['law-polling.html', /LP-073 is fully superseded as operative rate law/i, /LP-075.{0,120}(?:compel(?:led|s|ling) (?:the )?(?:audit|commencement|process)|procedural)/i],
+  ];
+  const missingAuthority = authorityAssertions.flatMap(([file, ...patterns]) => {
+    const src = normalizedText(read(file));
+    return patterns.filter((pattern) => !pattern.test(src)).map((pattern) => `${file}: ${pattern.source}`);
+  });
+  check(missingAuthority.length === 0, 'current-law surfaces positively identify LP-074 authority and LP-073/075 limits',
+    missingAuthority.length ? missingAuthority.join('; ') : `${authorityAssertions.length} authority surfaces clear`);
+
   const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !f.startsWith('pending-') && f !== 'deregistered-statutes.html');
-  const refusalLeaks = worldPages.filter((f) => /Finding III\b[^\n]{0,100}fail|Schedule A\b[^\n]{0,100}refus|Schedule B\b[^\n]{0,100}not reached|lawful (?:nonactivation|failure)/i.test(stripComments(read(f))));
+  const supersededOutcome = /(?:Finding III[^.!?]{0,100}(?:fail(?:ed|ure)?|did not pass)|Schedule A\b[^.!?]{0,100}(?:refus(?:ed|al)|reject(?:ed|ion)|not certified)|Schedule B\b[^.!?]{0,100}(?:not reached|refus(?:ed|al)|reject(?:ed|ion)|not certified)|2294[^.!?]{0,120}(?:three findings passed|one finding failed|both refusals)|lawful (?:nonactivation|failure)|both refusals|chain with three links)/i;
+  const refusalLeaks = worldPages.flatMap((file) => {
+    const claim = normalizedText(read(file)).match(supersededOutcome)?.[0];
+    return claim ? [`${file}: "${claim}"`] : [];
+  });
   check(refusalLeaks.length === 0, 'World-tier pages contain no superseded refusal outcome',
     refusalLeaks.length ? refusalLeaks.join(', ') : `${worldPages.length} pages clear`);
 
@@ -426,17 +469,6 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     'full LP-074 statute wrapper states both schedules active from 2295');
 
   try {
-    const out = execFileSync(process.execPath, [join(ROOT, 'tools/verify-path2-certification-2294.mjs')], { encoding: 'utf8' });
-    const required = ['Finding I: PASS', 'Finding II: PASS', 'Finding III: PASS', 'Finding IV: PASS',
-      'Schedule A: CERTIFIED', 'B1: PASS', 'B2: PASS', 'B3: PASS', 'B4: PASS', 'B5: PASS', 'B6: PASS',
-      'Schedule B: CERTIFIED', 'Effective notice: VALID', 'Active schedule from 2295: 50 / 25 / 12.5 / 6.25',
-      'LP-073 status: SUPERSEDED', 'LP-075 status: PROCEDURAL ONLY', 'SCM parameters: UNCHANGED'];
-    check(required.every((line) => out.includes(line)), 'deterministic certification verifier output',
-      required.filter((line) => !out.includes(line)).join(', '));
-  } catch (error) {
-    check(false, 'deterministic certification verifier output', String(error.stdout || error.message));
-  }
-  try {
     execFileSync(process.execPath, [join(ROOT, 'tools/build-path2-certification-page.mjs'), '--check'], { encoding: 'utf8' });
     check(true, 'generated certification page agrees with controlling dataset');
   } catch (error) {
@@ -445,9 +477,9 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
     const summary = out.trim().split('\n');
-    check(/24 passed, 0 failed/.test(out), 'focused certification mutation suite', summary[summary.length - 1]);
+    check(/121 hostile mutations rejected, 0 accepted; positive control passed/.test(out), 'hostile certification mutation suite', summary[summary.length - 1]);
   } catch (error) {
-    check(false, 'focused certification mutation suite', String(error.stdout || error.message));
+    check(false, 'hostile certification mutation suite', String(error.stdout || error.message));
   }
 }
 
