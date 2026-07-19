@@ -18,6 +18,7 @@ const esc = (value) => String(value).replace(/[&<>"']/g, (character) => ({
 const pct = (value, decimals = 1) => `${(value * 100).toFixed(decimals)}%`;
 const pass = (value) => `<span class="cert-pass">${value ? 'PASS' : 'FAIL'}</span>`;
 const row = (name, evidence, ok) => `<tr><td>${name}</td><td>${evidence}</td><td>${pass(ok)}</td></tr>`;
+export const normalizeLineEndings = (value) => String(value).replace(/\r\n/g, '\n');
 
 export function buildCertificationHtml(data, notice) {
   const result = evaluateCertification(data, notice);
@@ -27,6 +28,7 @@ export function buildCertificationHtml(data, notice) {
 
   const C = result.standards;
   const s = data.sourceInputs;
+  const a = result.metrics.scheduleA;
   const activeSchedule = C.authority.lp074.activeSchedule.join(' / ');
   const historicalSchedule = C.authority.lp073.historicalSchedule.join(' / ');
   const layerNames = Object.keys(C.scheduleB.layers);
@@ -36,21 +38,21 @@ export function buildCertificationHtml(data, notice) {
   const effectiveYear = data.record.effectiveAt.slice(0, 4);
 
   const findings = [
-    row('Finding I — institutional adequacy', `Worst of ${C.projectionPeriods} projected coverage lower bounds: ${result.metrics.findingICoverageMinimum.toFixed(3)} against ${C.findings.I.requiredCoverage.toFixed(3)}`, result.findings.I),
-    row('Finding II — ADT elasticity', `All ${C.projectionPeriods} projected dividend lower bounds remain at or above ${C.findings.II.baselineDividendPerResident.toFixed(2)}, and every schedule-effect lower bound remains at or above ${C.findings.II.minimumScheduleEffect.toFixed(2)}`, result.findings.II),
+    row('Finding I — institutional adequacy', `Worst of ${C.annualObservations} keyed annual coverage lower bounds: ${result.metrics.findingICoverageMinimum.toFixed(3)} against ${C.findings.I.requiredCoverage.toFixed(3)}`, result.findings.I),
+    row('Finding II — ADT elasticity', `All ${C.annualObservations} keyed years pass; weakest dividend lower bound ${result.metrics.findingIIDividendMinimum.toFixed(2)} and weakest schedule-effect lower bound ${result.metrics.findingIIScheduleEffectMinimum.toFixed(2)}`, result.findings.II),
     row('Finding III — concentration response', `SCM activation upper bound ${result.metrics.findingIIIActivationUpperBound.toFixed(2)} against ceiling ${result.metrics.findingIIIActivationCeiling.toFixed(2)}; minimum Flow ${result.metrics.findingIIIFlowMinimum.toFixed(3)} against ${C.findings.III.requiredMinimumFlow.toFixed(3)}`, result.findings.III),
-    row('Finding IV — retained-capital utility', `Net marginal-value lower bound ${s.findingIV.netMarginalValueLowerBound.toFixed(2)} against strict floor &gt; ${C.findings.IV.requiredNetMarginalValue.toFixed(2)}; attributable concentration-event upper bound ${s.findingIV.attributableConcentrationEventsUpperBound} against maximum ${C.findings.IV.maximumAttributableConcentrationEvents}`, result.findings.IV),
+    row('Finding IV — retained-capital utility', `Weakest annual net marginal-value lower bound ${result.metrics.findingIVNetMarginalValueMinimum.toFixed(2)} against strict floor &gt; ${C.findings.IV.requiredNetMarginalValue.toFixed(2)}; maximum attributable concentration events ${result.metrics.findingIVConcentrationMaximum}`, result.findings.IV),
   ].join('');
 
   const scheduleAEvidence = {
-    A1: `${designYear} provenance lock complete; authored trigger values excluded: ${s.scheduleA.authoredTriggerValuesExcluded}`,
-    A2: `${pct(s.scheduleA.mainCurrentCoverage)} against ${pct(C.scheduleA.mainCurrentCoverageRequired)}`,
-    A3: `${pct(s.scheduleA.mainMonthlyCoverageMinimum)} minimum against ${pct(C.scheduleA.mainMonthlyFloorRequired)}`,
-    A4: `${pct(s.scheduleA.mainForwardCoverageMinimum)} minimum against ${pct(C.scheduleA.mainForwardFloorRequired)}`,
-    A5: `${pct(s.scheduleA.dividendAggregateCoverage)} against ${pct(C.scheduleA.dividendAggregateRequired)}`,
-    A6: `${pct(s.scheduleA.dividendMonthlyCoverageMinimum)} minimum against ${pct(C.scheduleA.dividendMonthlyFloorRequired)}`,
-    A7: `Prohibited cross-credits excluded: ${s.scheduleA.crossCreditsExcluded}`,
-    A8: `Committed record reproducibility flag: ${s.scheduleA.reproducibleFromThisRecord}`,
+    A1: `${designYear} registry: ${s.scheduleA.transformRegistry.length} transforms and ${s.scheduleA.provenanceRegistry.length} locked sources; all ${s.scheduleA.mainCurrentWindow.length + s.scheduleA.mainForwardWindow.length + s.scheduleA.dividendWindow.length} rows resolve to them`,
+    A2: `Main-12 ${pct(a.main12)} against ${pct(C.scheduleA.currentAggregate)}`,
+    A3: `Main current weakest month ${pct(a.mainCurrentMinimum)} against ${pct(C.scheduleA.currentMonthly)}`,
+    A4: `Main forward weakest of ${s.scheduleA.mainForwardWindow.length} months ${pct(a.mainForwardMinimum)} against ${pct(C.scheduleA.forwardMonthly)}`,
+    A5: `ADT-36 ${pct(a.adt36)} against ${pct(C.scheduleA.dividendAggregate)}`,
+    A6: `Dividend weakest of ${s.scheduleA.dividendWindow.length} completed months ${pct(a.dividendMinimum)} against ${pct(C.scheduleA.dividendMonthly)}`,
+    A7: `${s.scheduleA.provenanceRegistry.length} source classifications validated; prohibited cross-credit categories absent`,
+    A8: 'A2–A7 and all reported metrics successfully recomputed from the raw monthly record',
   };
   const scheduleALabels = {
     A1: 'provenance', A2: 'Main current coverage', A3: 'Main monthly floor',
@@ -61,13 +63,17 @@ export function buildCertificationHtml(data, notice) {
     .map((condition) => row(`${condition} — ${scheduleALabels[condition]}`, scheduleAEvidence[condition], result.scheduleAConditions[condition]))
     .join('');
 
+  const reconciliationText = (layer) => {
+    const values = result.metrics.scheduleBReconciliation[layer];
+    return `${layer}: ${values.auditedCollections.toFixed(1)} audited = ${values.routedTotal.toFixed(1)} routed; ${values.obligationTotal.toFixed(1)} obligations funded`;
+  };
   const bEvidence = {
-    B1: `${layerNames.join(', ')} collection routes each reconcile at ${pct(C.scheduleB.layers['-1'].routeReconciledFraction, 0)}`,
-    B2: `Obligations are enumerated for every exact layer key: ${layerNames.join(', ')}`,
-    B3: `${C.monthlyObservations} monthly observations per layer at ${layerRateList}; prohibited cross-credits are excluded and revenue is layer-attributed`,
-    B4: layerNames.map((layer) => `${layer}: ${pct(result.metrics.scheduleBCoverage[layer], 2)} aggregate (required ${pct(C.scheduleB.requiredAggregateCoverage, 0)}), weakest month ${pct(result.metrics.scheduleBMonthlyMinimum[layer], 2)} (required ${pct(C.scheduleB.requiredMonthlyCoverage, 0)})`).join(' · '),
-    B5: layerNames.map((layer) => `${layer}: ${pct(s.scheduleB.layers[layer].forwardCoverageMinimum)} minimum against ${pct(C.scheduleB.requiredForwardCoverage, 0)}`).join(' · '),
-    B6: `Monthly data published: ${s.scheduleB.monthlyDataPublished}; Path 2 adopted fiscal quantities: ${s.scheduleB.path2AdoptedFiscalQuantities}`,
+    B1: layerNames.map(reconciliationText).join(' · '),
+    B2: layerNames.map((layer) => `${layer}: ${s.scheduleB.layers[layer].obligationMap.obligations.length} ordered obligations; ${s.scheduleB.layers[layer].obligationMap.nonTaxSources.length} explicit non-tax zeros`).join(' · '),
+    B3: `${C.currentMonths.length} keyed current months per layer at ${layerRateList}; every Li/Oi row resolves to an allowed layer-specific source`,
+    B4: layerNames.map((layer) => `${layer}: ${pct(result.metrics.scheduleB[layer].currentAggregate, 2)} current aggregate (required ${pct(C.scheduleB.currentAggregate, 0)}), ${pct(result.metrics.scheduleB[layer].currentMinimum, 2)} current weakest (required ${pct(C.scheduleB.currentMonthly, 0)})`).join(' · '),
+    B5: layerNames.map((layer) => `${layer}: ${pct(result.metrics.scheduleB[layer].forwardMinimum, 2)} forward weakest across ${C.forwardMonths.length} months (required ${pct(C.scheduleB.forwardMonthly, 0)})`).join(' · '),
+    B6: `${esc(s.scheduleB.adoptionRecord.recordId)} adopts B1–B6 for ${s.scheduleB.adoptionRecord.layers.join(', ')}; B1–B5 and all reported metrics recomputed successfully`,
   };
   const scheduleB = Object.keys(result.scheduleBConditions)
     .map((condition) => row(condition, bEvidence[condition], result.scheduleBConditions[condition])).join('');
@@ -82,7 +88,7 @@ export function buildCertificationHtml(data, notice) {
   <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)" />
   <title>${esc(data.record.title)} • The Five Rings</title>
-  <meta name="description" content="The controlling ${auditYear} Path 2 certification: Findings I–IV and Schedule B B1–B6 passed; LP-074's ${activeSchedule} cascade entered force in ${effectiveYear}." />
+  <meta name="description" content="The controlling ${auditYear} Path 2 certification: 30 annual observations, Findings I–IV, Schedule A A1–A8, and Schedule B B1–B6 passed; LP-074's ${activeSchedule} cascade entered force in ${effectiveYear}." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://jasonhchronicles.com/VMSS/${OUTPUT_FILE}" />
   <link rel="stylesheet" href="assets/css/tailwind.css" />
@@ -100,7 +106,7 @@ export function buildCertificationHtml(data, notice) {
     <p class="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)] mb-3">The Five Rings · Path 2 · final certification</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-4">LP-074 final certification — ${auditYear}</h1>
     <p class="text-lg text-[var(--text-muted)] max-w-3xl leading-relaxed">The controlling human-readable certification generated from the committed ${auditYear} dataset, external effective notice, and deterministic verifier.</p>
-    <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>SCHEDULES A AND B CERTIFIED.</strong> The ${auditYear} Path 2 audit passed Findings I–IV and independently passed Schedule B conditions B1–B6. Effective notice was valid. The complete <strong>${activeSchedule}</strong> exact halving cascade entered force in ${effectiveYear}. LP-073 is preserved historically at ${historicalSchedule} but superseded as operative rate law; LP-075 remains procedural only. The ${esc(C.unchangedCanon.threshold)} threshold and SCM remain unchanged.</p></div>
+    <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>SCHEDULES A AND B CERTIFIED.</strong> The ${auditYear} Path 2 audit passed Findings I–IV across exactly ${C.annualObservations} keyed annual observations, Schedule A A1–A8, and Schedule B B1–B6. Effective notice was valid. The complete <strong>${activeSchedule}</strong> exact halving cascade entered force in ${effectiveYear}. LP-073 is preserved historically at ${historicalSchedule} but superseded as operative rate law; LP-075 remains procedural only. The ${esc(C.unchangedCanon.threshold)} threshold and SCM remain unchanged.</p></div>
     <div class="cert-links">
       <a href="documents/path-2-certification-2294-authority.md"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Authority map</a>
       <a href="${DATA_FILE}"><i class="fas fa-database" aria-hidden="true"></i> Controlling dataset</a>
@@ -110,6 +116,7 @@ export function buildCertificationHtml(data, notice) {
     </div>
     <div class="cert-grid">
       <div class="cert-card"><span class="label">Audit design locked</span><span class="value">${designYear}</span></div>
+      <div class="cert-card"><span class="label">Annual horizon</span><span class="value">${C.annualObservations} years</span></div>
       <div class="cert-card"><span class="label">Audit completed</span><span class="value">${auditYear}</span></div>
       <div class="cert-card"><span class="label">Schedule A</span><span class="value">${notice.scheduleA}</span></div>
       <div class="cert-card"><span class="label">Schedule B</span><span class="value">${notice.scheduleB}</span></div>
@@ -133,7 +140,7 @@ function run() {
   const html = buildCertificationHtml(data, notice);
   const outputPath = join(ROOT, OUTPUT_FILE);
   if (process.argv.includes('--check')) {
-    if (readFileSync(outputPath, 'utf8') !== html) {
+    if (normalizeLineEndings(readFileSync(outputPath, 'utf8')) !== normalizeLineEndings(html)) {
       console.error(`${OUTPUT_FILE} is stale; run node tools/build-path2-certification-page.mjs`);
       process.exit(1);
     }

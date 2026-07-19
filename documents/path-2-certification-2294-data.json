@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "6.0",
+  "schemaVersion": "7.0",
   "record": {
     "title": "Path 2 LP-074 Final Certification — 2294",
     "disposition": "CERTIFIED_BOTH_SCHEDULES",
@@ -57,97 +57,409 @@
     }
   },
   "sourceInputs": {
-    "description": "The controlling fictional historical observations fixed at the 2292 lock and published with the 2294 certification. Values are deliberately modest: every gate clears, but none by an implausibly large margin.",
-    "findingI": {
-      "requiredCoverage": 1,
-      "projectedCoverageLowerBounds": [1.026, 1.024, 1.022, 1.021, 1.019, 1.018]
-    },
-    "findingII": {
-      "baselineDividendPerResident": 100,
-      "projectedDividendLowerBounds": [100.42, 100.36, 100.31, 100.29, 100.25, 100.22],
-      "scheduleEffectLowerBounds": [0.18, 0.15, 0.12, 0.11, 0.09, 0.08]
-    },
-    "findingIII": {
-      "baselineScmActivationMean": 8.08,
-      "maximumMultiple": 1.25,
-      "projectedActivationUpperBounds": [9.54, 9.62, 9.71, 9.78, 9.86, 9.92],
-      "requiredMinimumFlow": 0.5,
-      "projectedFlowLowerBounds": [0.558, 0.552, 0.547, 0.541, 0.536, 0.532]
-    },
-    "findingIV": {
-      "requiredNetMarginalValue": 0,
-      "netMarginalValueLowerBound": 0.42,
-      "maximumAttributableConcentrationEvents": 0,
-      "attributableConcentrationEventsUpperBound": 0
-    },
+    "description": "The controlling fictional historical observations fixed at the 2292 lock and published with the 2294 certification. Every result below is recomputed from keyed annual or monthly evidence; thresholds are pinned only in the verifier.",
+    "annualProvenanceRegistry": [
+      {
+        "provenanceId": "PATH2-ANNUAL-LOCK-2292",
+        "sourceClass": "LOCKED_ANNUAL_MODEL",
+        "documentId": "AUDIT-2292-ANNUAL-HORIZON",
+        "transformId": "ANNUAL-LOWER-UPPER-BOUNDS",
+        "lockedAt": "2292-02-15"
+      }
+    ],
+    "annualHorizon": [
+      { "year": 2295, "coverageLowerBound": 1.026, "dividendPerResidentLowerBound": 100.42, "scheduleEffectLowerBound": 0.18, "scmActivationUpperBound": 9.54, "flowLowerBound": 0.558, "netMarginalValueLowerBound": 0.42, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2296, "coverageLowerBound": 1.024, "dividendPerResidentLowerBound": 100.36, "scheduleEffectLowerBound": 0.15, "scmActivationUpperBound": 9.62, "flowLowerBound": 0.552, "netMarginalValueLowerBound": 0.40, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2297, "coverageLowerBound": 1.022, "dividendPerResidentLowerBound": 100.31, "scheduleEffectLowerBound": 0.12, "scmActivationUpperBound": 9.71, "flowLowerBound": 0.547, "netMarginalValueLowerBound": 0.38, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2298, "coverageLowerBound": 1.021, "dividendPerResidentLowerBound": 100.29, "scheduleEffectLowerBound": 0.11, "scmActivationUpperBound": 9.78, "flowLowerBound": 0.541, "netMarginalValueLowerBound": 0.36, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2299, "coverageLowerBound": 1.019, "dividendPerResidentLowerBound": 100.25, "scheduleEffectLowerBound": 0.09, "scmActivationUpperBound": 9.86, "flowLowerBound": 0.536, "netMarginalValueLowerBound": 0.34, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2300, "coverageLowerBound": 1.018, "dividendPerResidentLowerBound": 100.22, "scheduleEffectLowerBound": 0.08, "scmActivationUpperBound": 9.92, "flowLowerBound": 0.532, "netMarginalValueLowerBound": 0.32, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2301, "coverageLowerBound": 1.018, "dividendPerResidentLowerBound": 100.22, "scheduleEffectLowerBound": 0.08, "scmActivationUpperBound": 9.92, "flowLowerBound": 0.532, "netMarginalValueLowerBound": 0.31, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2302, "coverageLowerBound": 1.017, "dividendPerResidentLowerBound": 100.21, "scheduleEffectLowerBound": 0.07, "scmActivationUpperBound": 9.94, "flowLowerBound": 0.530, "netMarginalValueLowerBound": 0.30, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2303, "coverageLowerBound": 1.017, "dividendPerResidentLowerBound": 100.21, "scheduleEffectLowerBound": 0.07, "scmActivationUpperBound": 9.94, "flowLowerBound": 0.530, "netMarginalValueLowerBound": 0.29, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2304, "coverageLowerBound": 1.016, "dividendPerResidentLowerBound": 100.20, "scheduleEffectLowerBound": 0.06, "scmActivationUpperBound": 9.96, "flowLowerBound": 0.528, "netMarginalValueLowerBound": 0.28, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2305, "coverageLowerBound": 1.016, "dividendPerResidentLowerBound": 100.20, "scheduleEffectLowerBound": 0.06, "scmActivationUpperBound": 9.96, "flowLowerBound": 0.528, "netMarginalValueLowerBound": 0.27, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2306, "coverageLowerBound": 1.015, "dividendPerResidentLowerBound": 100.19, "scheduleEffectLowerBound": 0.05, "scmActivationUpperBound": 9.98, "flowLowerBound": 0.526, "netMarginalValueLowerBound": 0.26, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2307, "coverageLowerBound": 1.015, "dividendPerResidentLowerBound": 100.19, "scheduleEffectLowerBound": 0.05, "scmActivationUpperBound": 9.98, "flowLowerBound": 0.526, "netMarginalValueLowerBound": 0.25, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2308, "coverageLowerBound": 1.014, "dividendPerResidentLowerBound": 100.18, "scheduleEffectLowerBound": 0.05, "scmActivationUpperBound": 10.00, "flowLowerBound": 0.524, "netMarginalValueLowerBound": 0.24, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2309, "coverageLowerBound": 1.014, "dividendPerResidentLowerBound": 100.18, "scheduleEffectLowerBound": 0.05, "scmActivationUpperBound": 10.00, "flowLowerBound": 0.524, "netMarginalValueLowerBound": 0.23, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2310, "coverageLowerBound": 1.014, "dividendPerResidentLowerBound": 100.17, "scheduleEffectLowerBound": 0.04, "scmActivationUpperBound": 10.01, "flowLowerBound": 0.522, "netMarginalValueLowerBound": 0.22, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2311, "coverageLowerBound": 1.013, "dividendPerResidentLowerBound": 100.17, "scheduleEffectLowerBound": 0.04, "scmActivationUpperBound": 10.01, "flowLowerBound": 0.522, "netMarginalValueLowerBound": 0.21, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2312, "coverageLowerBound": 1.013, "dividendPerResidentLowerBound": 100.16, "scheduleEffectLowerBound": 0.04, "scmActivationUpperBound": 10.02, "flowLowerBound": 0.520, "netMarginalValueLowerBound": 0.20, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2313, "coverageLowerBound": 1.013, "dividendPerResidentLowerBound": 100.16, "scheduleEffectLowerBound": 0.04, "scmActivationUpperBound": 10.02, "flowLowerBound": 0.520, "netMarginalValueLowerBound": 0.19, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2314, "coverageLowerBound": 1.012, "dividendPerResidentLowerBound": 100.15, "scheduleEffectLowerBound": 0.03, "scmActivationUpperBound": 10.03, "flowLowerBound": 0.518, "netMarginalValueLowerBound": 0.18, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2315, "coverageLowerBound": 1.012, "dividendPerResidentLowerBound": 100.15, "scheduleEffectLowerBound": 0.03, "scmActivationUpperBound": 10.03, "flowLowerBound": 0.518, "netMarginalValueLowerBound": 0.17, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2316, "coverageLowerBound": 1.012, "dividendPerResidentLowerBound": 100.14, "scheduleEffectLowerBound": 0.03, "scmActivationUpperBound": 10.04, "flowLowerBound": 0.516, "netMarginalValueLowerBound": 0.16, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2317, "coverageLowerBound": 1.011, "dividendPerResidentLowerBound": 100.14, "scheduleEffectLowerBound": 0.03, "scmActivationUpperBound": 10.04, "flowLowerBound": 0.516, "netMarginalValueLowerBound": 0.15, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2318, "coverageLowerBound": 1.011, "dividendPerResidentLowerBound": 100.13, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.05, "flowLowerBound": 0.514, "netMarginalValueLowerBound": 0.14, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2319, "coverageLowerBound": 1.011, "dividendPerResidentLowerBound": 100.13, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.05, "flowLowerBound": 0.514, "netMarginalValueLowerBound": 0.14, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2320, "coverageLowerBound": 1.011, "dividendPerResidentLowerBound": 100.12, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.06, "flowLowerBound": 0.512, "netMarginalValueLowerBound": 0.13, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2321, "coverageLowerBound": 1.010, "dividendPerResidentLowerBound": 100.12, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.06, "flowLowerBound": 0.512, "netMarginalValueLowerBound": 0.13, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2322, "coverageLowerBound": 1.010, "dividendPerResidentLowerBound": 100.11, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.07, "flowLowerBound": 0.510, "netMarginalValueLowerBound": 0.12, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2323, "coverageLowerBound": 1.010, "dividendPerResidentLowerBound": 100.11, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.07, "flowLowerBound": 0.510, "netMarginalValueLowerBound": 0.11, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" },
+      { "year": 2324, "coverageLowerBound": 1.010, "dividendPerResidentLowerBound": 100.10, "scheduleEffectLowerBound": 0.02, "scmActivationUpperBound": 10.08, "flowLowerBound": 0.510, "netMarginalValueLowerBound": 0.10, "attributableConcentrationEventsUpperBound": 0, "provenanceId": "PATH2-ANNUAL-LOCK-2292" }
+    ],
     "scheduleA": {
-      "provenanceLocked": true,
-      "authoredTriggerValuesExcluded": true,
-      "mainCurrentCoverageRequired": 1.05,
-      "mainCurrentCoverage": 1.067,
-      "mainMonthlyFloorRequired": 1,
-      "mainMonthlyCoverageMinimum": 1.012,
-      "mainForwardFloorRequired": 1,
-      "mainForwardCoverageMinimum": 1.014,
-      "dividendAggregateRequired": 1.2,
-      "dividendAggregateCoverage": 1.224,
-      "dividendMonthlyFloorRequired": 1,
-      "dividendMonthlyCoverageMinimum": 1.011,
-      "crossCreditsExcluded": true,
-      "reproducibleFromThisRecord": true
+      "transformRegistry": [
+        { "transformId": "REAL-2292", "formula": "reportedValue * adjustment * weight", "units": "constant 2292 purchasing power" },
+        { "transformId": "RATIO-SUM", "formula": "sum(effectiveNumerator) / sum(effectiveDenominator)", "units": "ratio" },
+        { "transformId": "RATIO-MONTH", "formula": "effectiveNumerator / effectiveDenominator", "units": "ratio" }
+      ],
+      "provenanceRegistry": [
+        { "sourceId": "MAIN-CURRENT-T50", "sourceClass": "MAIN_TAX_RECEIPTS", "documentId": "MAIN-LEDGER-2293-T50", "transformId": "REAL-2292", "lockedAt": "2292-02-15" },
+        { "sourceId": "MAIN-CURRENT-M", "sourceClass": "MAIN_OBLIGATIONS", "documentId": "MAIN-LEDGER-2293-M", "transformId": "REAL-2292", "lockedAt": "2292-02-15" },
+        { "sourceId": "MAIN-FORWARD-T50", "sourceClass": "INDEPENDENT_MAIN_RECEIPTS_PROJECTION", "documentId": "MAIN-PROJECTION-2295-2297-T50", "transformId": "REAL-2292", "lockedAt": "2292-02-15" },
+        { "sourceId": "MAIN-FORWARD-M", "sourceClass": "INDEPENDENT_MAIN_OBLIGATIONS_PROJECTION", "documentId": "MAIN-PROJECTION-2295-2297-M", "transformId": "REAL-2292", "lockedAt": "2292-02-15" },
+        { "sourceId": "ADT-AUTOMATION-A", "sourceClass": "ADT_AUTOMATION_RECEIPTS", "documentId": "ADT-LEDGER-2291-2293-A", "transformId": "REAL-2292", "lockedAt": "2292-02-15" },
+        { "sourceId": "ADT-DIVIDEND-D", "sourceClass": "DIVIDEND_OBLIGATIONS", "documentId": "ADT-LEDGER-2291-2293-D", "transformId": "REAL-2292", "lockedAt": "2292-02-15" }
+      ],
+      "mainCurrentWindow": [
+        { "month": "2293-01", "date": "2293-01-01", "t50": 101.2, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-02", "date": "2293-02-01", "t50": 106.8, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-03", "date": "2293-03-01", "t50": 107.0, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-04", "date": "2293-04-01", "t50": 107.2, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-05", "date": "2293-05-01", "t50": 107.4, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-06", "date": "2293-06-01", "t50": 107.6, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-07", "date": "2293-07-01", "t50": 106.8, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-08", "date": "2293-08-01", "t50": 107.0, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-09", "date": "2293-09-01", "t50": 107.2, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-10", "date": "2293-10-01", "t50": 107.4, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-11", "date": "2293-11-01", "t50": 107.6, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" },
+        { "month": "2293-12", "date": "2293-12-01", "t50": 107.2, "m": 100, "inclusionRule": "INCLUDE_LOCKED_MONTH", "adjustment": 1, "weight": 1, "t50SourceId": "MAIN-CURRENT-T50", "mSourceId": "MAIN-CURRENT-M" }
+      ],
+      "mainForwardWindow": [
+        { "month": "2295-01", "date": "2295-01-01", "t50": 101.4, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-02", "date": "2295-02-01", "t50": 101.8, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-03", "date": "2295-03-01", "t50": 102.0, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-04", "date": "2295-04-01", "t50": 101.7, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-05", "date": "2295-05-01", "t50": 101.9, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-06", "date": "2295-06-01", "t50": 102.1, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-07", "date": "2295-07-01", "t50": 101.6, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-08", "date": "2295-08-01", "t50": 101.8, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-09", "date": "2295-09-01", "t50": 102.0, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-10", "date": "2295-10-01", "t50": 101.7, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-11", "date": "2295-11-01", "t50": 101.9, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2295-12", "date": "2295-12-01", "t50": 102.1, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-01", "date": "2296-01-01", "t50": 101.6, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-02", "date": "2296-02-01", "t50": 101.8, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-03", "date": "2296-03-01", "t50": 102.0, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-04", "date": "2296-04-01", "t50": 101.7, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-05", "date": "2296-05-01", "t50": 101.9, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-06", "date": "2296-06-01", "t50": 102.1, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-07", "date": "2296-07-01", "t50": 101.6, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-08", "date": "2296-08-01", "t50": 101.8, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-09", "date": "2296-09-01", "t50": 102.0, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-10", "date": "2296-10-01", "t50": 101.7, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-11", "date": "2296-11-01", "t50": 101.9, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2296-12", "date": "2296-12-01", "t50": 102.1, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-01", "date": "2297-01-01", "t50": 101.6, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-02", "date": "2297-02-01", "t50": 101.8, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-03", "date": "2297-03-01", "t50": 102.0, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-04", "date": "2297-04-01", "t50": 101.7, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-05", "date": "2297-05-01", "t50": 101.9, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-06", "date": "2297-06-01", "t50": 102.1, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-07", "date": "2297-07-01", "t50": 101.6, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-08", "date": "2297-08-01", "t50": 101.8, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-09", "date": "2297-09-01", "t50": 102.0, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-10", "date": "2297-10-01", "t50": 101.7, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-11", "date": "2297-11-01", "t50": 101.9, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" },
+        { "month": "2297-12", "date": "2297-12-01", "t50": 102.1, "m": 100, "t50SourceId": "MAIN-FORWARD-T50", "mSourceId": "MAIN-FORWARD-M" }
+      ],
+      "dividendWindow": [
+        { "month": "2291-01", "date": "2291-01-01", "a": 101.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-02", "date": "2291-02-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-03", "date": "2291-03-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-04", "date": "2291-04-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-05", "date": "2291-05-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-06", "date": "2291-06-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-07", "date": "2291-07-01", "a": 122.7, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-08", "date": "2291-08-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-09", "date": "2291-09-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-10", "date": "2291-10-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-11", "date": "2291-11-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2291-12", "date": "2291-12-01", "a": 122.7, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-01", "date": "2292-01-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-02", "date": "2292-02-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-03", "date": "2292-03-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-04", "date": "2292-04-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-05", "date": "2292-05-01", "a": 122.7, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-06", "date": "2292-06-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-07", "date": "2292-07-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-08", "date": "2292-08-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-09", "date": "2292-09-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-10", "date": "2292-10-01", "a": 122.7, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-11", "date": "2292-11-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2292-12", "date": "2292-12-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-01", "date": "2293-01-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-02", "date": "2293-02-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-03", "date": "2293-03-01", "a": 122.7, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-04", "date": "2293-04-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-05", "date": "2293-05-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-06", "date": "2293-06-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-07", "date": "2293-07-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-08", "date": "2293-08-01", "a": 122.7, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-09", "date": "2293-09-01", "a": 122.9, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-10", "date": "2293-10-01", "a": 123.0, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-11", "date": "2293-11-01", "a": 123.1, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" },
+        { "month": "2293-12", "date": "2293-12-01", "a": 123.3, "d": 100, "inclusionRule": "INCLUDE_COMPLETED_MONTH", "adjustment": 1, "weight": 1, "aSourceId": "ADT-AUTOMATION-A", "dSourceId": "ADT-DIVIDEND-D" }
+      ],
+      "reportedMetrics": {
+        "main12": 1.067,
+        "mainCurrentMinimum": 1.012,
+        "mainForwardMinimum": 1.014,
+        "adt36": 1.224,
+        "dividendMinimum": 1.011
+      }
     },
     "scheduleB": {
-      "requiredAggregateCoverage": 1.05,
-      "requiredMonthlyCoverage": 1,
-      "requiredForwardCoverage": 1,
+      "provenanceRegistry": [
+        { "sourceId": "L1-CURRENT-RECEIPTS", "sourceClass": "LAYER_MINUS_1_RECEIPTS", "documentId": "L1-LEDGER-2293-LI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L1-CURRENT-OBLIGATIONS", "sourceClass": "LAYER_MINUS_1_OBLIGATIONS", "documentId": "L1-LEDGER-2293-OI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L1-FORWARD-RECEIPTS", "sourceClass": "LAYER_MINUS_1_RECEIPTS_PROJECTION", "documentId": "L1-PROJECTION-2295-2297-LI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L1-FORWARD-OBLIGATIONS", "sourceClass": "LAYER_MINUS_1_OBLIGATIONS_PROJECTION", "documentId": "L1-PROJECTION-2295-2297-OI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L2-CURRENT-RECEIPTS", "sourceClass": "LAYER_MINUS_2_RECEIPTS", "documentId": "L2-LEDGER-2293-LI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L2-CURRENT-OBLIGATIONS", "sourceClass": "LAYER_MINUS_2_OBLIGATIONS", "documentId": "L2-LEDGER-2293-OI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L2-FORWARD-RECEIPTS", "sourceClass": "LAYER_MINUS_2_RECEIPTS_PROJECTION", "documentId": "L2-PROJECTION-2295-2297-LI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L2-FORWARD-OBLIGATIONS", "sourceClass": "LAYER_MINUS_2_OBLIGATIONS_PROJECTION", "documentId": "L2-PROJECTION-2295-2297-OI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L3-CURRENT-RECEIPTS", "sourceClass": "LAYER_MINUS_3_RECEIPTS", "documentId": "L3-LEDGER-2293-LI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L3-CURRENT-OBLIGATIONS", "sourceClass": "LAYER_MINUS_3_OBLIGATIONS", "documentId": "L3-LEDGER-2293-OI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L3-FORWARD-RECEIPTS", "sourceClass": "LAYER_MINUS_3_RECEIPTS_PROJECTION", "documentId": "L3-PROJECTION-2295-2297-LI", "lockedAt": "2292-02-15" },
+        { "sourceId": "L3-FORWARD-OBLIGATIONS", "sourceClass": "LAYER_MINUS_3_OBLIGATIONS_PROJECTION", "documentId": "L3-PROJECTION-2295-2297-OI", "lockedAt": "2292-02-15" }
+      ],
       "layers": {
         "-1": {
           "rate": 25,
-          "routeReconciledFraction": 1,
-          "obligationsEnumerated": true,
+          "routeMap": {
+            "auditedCollectionTotal": 1270.1,
+            "destinations": [
+              { "destinationId": "L1-OBLIGATION-TREASURY", "name": "Enumerated obligation treasury", "amount": 1200 },
+              { "destinationId": "L1-ADT-SURPLUS", "name": "Layer -1 ADT surplus reserve", "amount": 70.1 }
+            ]
+          },
+          "obligationMap": {
+            "obligations": [
+              { "obligationId": "L1-UBI", "name": "Universal Basic Income", "fundingDestinationId": "L1-OBLIGATION-TREASURY", "paymentOrder": 1, "amount": 600 },
+              { "obligationId": "L1-PJS", "name": "Primary Job Subsidy", "fundingDestinationId": "L1-OBLIGATION-TREASURY", "paymentOrder": 2, "amount": 300 },
+              { "obligationId": "L1-CIVIC", "name": "Civic infrastructure", "fundingDestinationId": "L1-OBLIGATION-TREASURY", "paymentOrder": 3, "amount": 200 },
+              { "obligationId": "L1-RESERVE", "name": "Required operating reserve", "fundingDestinationId": "L1-OBLIGATION-TREASURY", "paymentOrder": 4, "amount": 100 }
+            ],
+            "nonTaxSources": [
+              { "sourceId": "L1-NONTAX-CARRY", "name": "Prior-period carry", "availableAmount": 0, "disposition": "EXPLICIT_ZERO_NOT_USED" },
+              { "sourceId": "L1-INTERLAYER", "name": "Interlayer credit", "availableAmount": 0, "disposition": "EXPLICIT_ZERO_PROHIBITED" }
+            ]
+          },
           "currentWindow": [
-            { "receipts": 106.0, "obligations": 100 }, { "receipts": 105.5, "obligations": 100 },
-            { "receipts": 106.2, "obligations": 100 }, { "receipts": 105.8, "obligations": 100 },
-            { "receipts": 106.4, "obligations": 100 }, { "receipts": 105.2, "obligations": 100 },
-            { "receipts": 105.9, "obligations": 100 }, { "receipts": 106.1, "obligations": 100 },
-            { "receipts": 105.4, "obligations": 100 }, { "receipts": 105.7, "obligations": 100 },
-            { "receipts": 106.3, "obligations": 100 }, { "receipts": 105.6, "obligations": 100 }
+            { "month": "2293-01", "receipts": 106.0, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-02", "receipts": 105.5, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-03", "receipts": 106.2, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-04", "receipts": 105.8, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-05", "receipts": 106.4, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-06", "receipts": 105.2, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-07", "receipts": 105.9, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-08", "receipts": 106.1, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-09", "receipts": 105.4, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-10", "receipts": 105.7, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-11", "receipts": 106.3, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" },
+            { "month": "2293-12", "receipts": 105.6, "obligations": 100, "receiptsSourceId": "L1-CURRENT-RECEIPTS", "obligationsSourceId": "L1-CURRENT-OBLIGATIONS" }
           ],
-          "forwardCoverageMinimum": 1.018
+          "forwardWindow": [
+            { "month": "2295-01", "receipts": 101.8, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-02", "receipts": 102.0, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-03", "receipts": 102.2, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-04", "receipts": 102.1, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-05", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-06", "receipts": 102.3, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-07", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-08", "receipts": 102.0, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-09", "receipts": 102.2, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-10", "receipts": 102.1, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-11", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2295-12", "receipts": 102.3, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-01", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-02", "receipts": 102.0, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-03", "receipts": 102.2, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-04", "receipts": 102.1, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-05", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-06", "receipts": 102.3, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-07", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-08", "receipts": 102.0, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-09", "receipts": 102.2, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-10", "receipts": 102.1, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-11", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2296-12", "receipts": 102.3, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-01", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-02", "receipts": 102.0, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-03", "receipts": 102.2, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-04", "receipts": 102.1, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-05", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-06", "receipts": 102.3, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-07", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-08", "receipts": 102.0, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-09", "receipts": 102.2, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-10", "receipts": 102.1, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-11", "receipts": 101.9, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" },
+            { "month": "2297-12", "receipts": 102.3, "obligations": 100, "receiptsSourceId": "L1-FORWARD-RECEIPTS", "obligationsSourceId": "L1-FORWARD-OBLIGATIONS" }
+          ],
+          "reportedMetrics": { "currentAggregate": 1.058416666667, "currentMinimum": 1.052, "forwardMinimum": 1.018 }
         },
         "-2": {
           "rate": 12.5,
-          "routeReconciledFraction": 1,
-          "obligationsEnumerated": true,
+          "routeMap": {
+            "auditedCollectionTotal": 759,
+            "destinations": [
+              { "destinationId": "L2-OBLIGATION-TREASURY", "name": "Enumerated obligation treasury", "amount": 720 },
+              { "destinationId": "L2-ADT-SURPLUS", "name": "Layer -2 ADT surplus reserve", "amount": 39 }
+            ]
+          },
+          "obligationMap": {
+            "obligations": [
+              { "obligationId": "L2-UBI", "name": "Universal Basic Income", "fundingDestinationId": "L2-OBLIGATION-TREASURY", "paymentOrder": 1, "amount": 300 },
+              { "obligationId": "L2-PJS", "name": "Primary Job Subsidy", "fundingDestinationId": "L2-OBLIGATION-TREASURY", "paymentOrder": 2, "amount": 180 },
+              { "obligationId": "L2-CIVIC", "name": "Civic infrastructure", "fundingDestinationId": "L2-OBLIGATION-TREASURY", "paymentOrder": 3, "amount": 144 },
+              { "obligationId": "L2-RESERVE", "name": "Required operating reserve", "fundingDestinationId": "L2-OBLIGATION-TREASURY", "paymentOrder": 4, "amount": 96 }
+            ],
+            "nonTaxSources": [
+              { "sourceId": "L2-NONTAX-CARRY", "name": "Prior-period carry", "availableAmount": 0, "disposition": "EXPLICIT_ZERO_NOT_USED" },
+              { "sourceId": "L2-INTERLAYER", "name": "Interlayer credit", "availableAmount": 0, "disposition": "EXPLICIT_ZERO_PROHIBITED" }
+            ]
+          },
           "currentWindow": [
-            { "receipts": 63.4, "obligations": 60 }, { "receipts": 63.2, "obligations": 60 },
-            { "receipts": 63.5, "obligations": 60 }, { "receipts": 63.1, "obligations": 60 },
-            { "receipts": 63.3, "obligations": 60 }, { "receipts": 63.0, "obligations": 60 },
-            { "receipts": 63.4, "obligations": 60 }, { "receipts": 63.2, "obligations": 60 },
-            { "receipts": 63.5, "obligations": 60 }, { "receipts": 63.1, "obligations": 60 },
-            { "receipts": 63.3, "obligations": 60 }, { "receipts": 63.0, "obligations": 60 }
+            { "month": "2293-01", "receipts": 63.4, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-02", "receipts": 63.2, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-03", "receipts": 63.5, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-04", "receipts": 63.1, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-05", "receipts": 63.3, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-06", "receipts": 63.0, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-07", "receipts": 63.4, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-08", "receipts": 63.2, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-09", "receipts": 63.5, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-10", "receipts": 63.1, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-11", "receipts": 63.3, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" },
+            { "month": "2293-12", "receipts": 63.0, "obligations": 60, "receiptsSourceId": "L2-CURRENT-RECEIPTS", "obligationsSourceId": "L2-CURRENT-OBLIGATIONS" }
           ],
-          "forwardCoverageMinimum": 1.014
+          "forwardWindow": [
+            { "month": "2295-01", "receipts": 60.84, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-02", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-03", "receipts": 61.1, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-04", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-05", "receipts": 61.2, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-06", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-07", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-08", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-09", "receipts": 61.1, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-10", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-11", "receipts": 61.2, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2295-12", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-01", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-02", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-03", "receipts": 61.1, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-04", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-05", "receipts": 61.2, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-06", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-07", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-08", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-09", "receipts": 61.1, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-10", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-11", "receipts": 61.2, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2296-12", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-01", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-02", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-03", "receipts": 61.1, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-04", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-05", "receipts": 61.2, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-06", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-07", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-08", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-09", "receipts": 61.1, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-10", "receipts": 60.9, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-11", "receipts": 61.2, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" },
+            { "month": "2297-12", "receipts": 61.0, "obligations": 60, "receiptsSourceId": "L2-FORWARD-RECEIPTS", "obligationsSourceId": "L2-FORWARD-OBLIGATIONS" }
+          ],
+          "reportedMetrics": { "currentAggregate": 1.054166666667, "currentMinimum": 1.05, "forwardMinimum": 1.014 }
         },
         "-3": {
           "rate": 6.25,
-          "routeReconciledFraction": 1,
-          "obligationsEnumerated": true,
+          "routeMap": {
+            "auditedCollectionTotal": 378.9,
+            "destinations": [
+              { "destinationId": "L3-OBLIGATION-TREASURY", "name": "Enumerated obligation treasury", "amount": 360 },
+              { "destinationId": "L3-ADT-SURPLUS", "name": "Layer -3 ADT surplus reserve", "amount": 18.9 }
+            ]
+          },
+          "obligationMap": {
+            "obligations": [
+              { "obligationId": "L3-UBI", "name": "Universal Basic Income", "fundingDestinationId": "L3-OBLIGATION-TREASURY", "paymentOrder": 1, "amount": 150 },
+              { "obligationId": "L3-PJS", "name": "Primary Job Subsidy", "fundingDestinationId": "L3-OBLIGATION-TREASURY", "paymentOrder": 2, "amount": 90 },
+              { "obligationId": "L3-CIVIC", "name": "Civic infrastructure", "fundingDestinationId": "L3-OBLIGATION-TREASURY", "paymentOrder": 3, "amount": 72 },
+              { "obligationId": "L3-RESERVE", "name": "Required operating reserve", "fundingDestinationId": "L3-OBLIGATION-TREASURY", "paymentOrder": 4, "amount": 48 }
+            ],
+            "nonTaxSources": [
+              { "sourceId": "L3-NONTAX-CARRY", "name": "Prior-period carry", "availableAmount": 0, "disposition": "EXPLICIT_ZERO_NOT_USED" },
+              { "sourceId": "L3-INTERLAYER", "name": "Interlayer credit", "availableAmount": 0, "disposition": "EXPLICIT_ZERO_PROHIBITED" }
+            ]
+          },
           "currentWindow": [
-            { "receipts": 31.6, "obligations": 30 }, { "receipts": 31.5, "obligations": 30 },
-            { "receipts": 31.7, "obligations": 30 }, { "receipts": 31.5, "obligations": 30 },
-            { "receipts": 31.6, "obligations": 30 }, { "receipts": 31.5, "obligations": 30 },
-            { "receipts": 31.7, "obligations": 30 }, { "receipts": 31.5, "obligations": 30 },
-            { "receipts": 31.6, "obligations": 30 }, { "receipts": 31.5, "obligations": 30 },
-            { "receipts": 31.7, "obligations": 30 }, { "receipts": 31.5, "obligations": 30 }
+            { "month": "2293-01", "receipts": 31.6, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-02", "receipts": 31.5, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-03", "receipts": 31.7, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-04", "receipts": 31.5, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-05", "receipts": 31.6, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-06", "receipts": 31.5, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-07", "receipts": 31.7, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-08", "receipts": 31.5, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-09", "receipts": 31.6, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-10", "receipts": 31.5, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-11", "receipts": 31.7, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" },
+            { "month": "2293-12", "receipts": 31.5, "obligations": 30, "receiptsSourceId": "L3-CURRENT-RECEIPTS", "obligationsSourceId": "L3-CURRENT-OBLIGATIONS" }
           ],
-          "forwardCoverageMinimum": 1.012
+          "forwardWindow": [
+            { "month": "2295-01", "receipts": 30.36, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-02", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-03", "receipts": 30.6, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-04", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-05", "receipts": 30.7, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-06", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-07", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-08", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-09", "receipts": 30.6, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-10", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-11", "receipts": 30.7, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2295-12", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-01", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-02", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-03", "receipts": 30.6, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-04", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-05", "receipts": 30.7, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-06", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-07", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-08", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-09", "receipts": 30.6, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-10", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-11", "receipts": 30.7, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2296-12", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-01", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-02", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-03", "receipts": 30.6, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-04", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-05", "receipts": 30.7, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-06", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-07", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-08", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-09", "receipts": 30.6, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-10", "receipts": 30.4, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-11", "receipts": 30.7, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" },
+            { "month": "2297-12", "receipts": 30.5, "obligations": 30, "receiptsSourceId": "L3-FORWARD-RECEIPTS", "obligationsSourceId": "L3-FORWARD-OBLIGATIONS" }
+          ],
+          "reportedMetrics": { "currentAggregate": 1.0525, "currentMinimum": 1.05, "forwardMinimum": 1.012 }
         }
       },
-      "prohibitedCrossCreditsExcluded": true,
-      "layerSpecificRevenueAttribution": true,
-      "monthlyDataPublished": true,
-      "path2AdoptedFiscalQuantities": true
+      "adoptionRecord": {
+        "recordId": "LP074-PATH2-ADOPTION-2294",
+        "adoptedAt": "2294-11-15",
+        "authority": "LP-074",
+        "scope": ["B1", "B2", "B3", "B4", "B5", "B6"],
+        "layers": ["-1", "-2", "-3"]
+      }
     }
   }
 }

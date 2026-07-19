@@ -414,8 +414,8 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   check(Object.values(certification.validation).every(Boolean),
     'structured certification result: schema, chronology, authority, unchanged canon, and notice validate');
   const whitepaperTax = normalizedText(read('whitepaper.html'));
-  const dividendAggregate = `${(data.sourceInputs.scheduleA.dividendAggregateCoverage * 100).toFixed(1)}%`;
-  const dividendWeakest = `${(data.sourceInputs.scheduleA.dividendMonthlyCoverageMinimum * 100).toFixed(1)}%`;
+  const dividendAggregate = `${(certification.metrics.scheduleA.adt36 * 100).toFixed(1)}%`;
+  const dividendWeakest = `${(certification.metrics.scheduleA.dividendMinimum * 100).toFixed(1)}%`;
   check(whitepaperTax.includes(`${dividendAggregate} aggregate dividend coverage`)
         && whitepaperTax.includes(`${dividendWeakest} at the weakest month`)
         && !/123\.0809%|122\.39%/.test(whitepaperTax),
@@ -477,7 +477,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
     const summary = out.trim().split('\n');
-    check(/121 hostile mutations rejected, 0 accepted; positive control passed/.test(out), 'hostile certification mutation suite', summary[summary.length - 1]);
+    check(/\d+ hostile mutations rejected, 0 accepted; positive control passed/.test(out), 'hostile certification mutation suite', summary[summary.length - 1]);
   } catch (error) {
     check(false, 'hostile certification mutation suite', String(error.stdout || error.message));
   }

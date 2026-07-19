@@ -15,12 +15,40 @@ const deepFreeze = (value) => {
   return value;
 };
 
-// These are the enacted standards. The evidence JSON must mirror them; it cannot
-// lower its own gates and then ask the verifier to accept those weaker values.
+const monthIds = (startYear, startMonth, count) => Array.from({ length: count }, (_, index) => {
+  const offset = startMonth - 1 + index;
+  const year = startYear + Math.floor(offset / 12);
+  const month = (offset % 12) + 1;
+  return `${year}-${String(month).padStart(2, '0')}`;
+});
+
+const layerConstants = (prefix, rate, expectedCurrentTotal, obligationAmounts) => ({
+  rate,
+  expectedCurrentTotal,
+  routeDestinations: [`${prefix}-OBLIGATION-TREASURY`, `${prefix}-ADT-SURPLUS`],
+  obligations: ['UBI', 'PJS', 'CIVIC', 'RESERVE'].map((suffix, index) => ({
+    obligationId: `${prefix}-${suffix}`,
+    fundingDestinationId: `${prefix}-OBLIGATION-TREASURY`,
+    paymentOrder: index + 1,
+    amount: obligationAmounts[index],
+  })),
+  nonTaxSources: [
+    { sourceId: `${prefix}-NONTAX-CARRY`, disposition: 'EXPLICIT_ZERO_NOT_USED' },
+    { sourceId: `${prefix}-INTERLAYER`, disposition: 'EXPLICIT_ZERO_PROHIBITED' },
+  ],
+  currentSources: [`${prefix}-CURRENT-RECEIPTS`, `${prefix}-CURRENT-OBLIGATIONS`],
+  forwardSources: [`${prefix}-FORWARD-RECEIPTS`, `${prefix}-FORWARD-OBLIGATIONS`],
+});
+
+// All gates live here, outside the evidence. The record cannot lower a threshold,
+// shorten a window, rename a source, or declare its own result.
 export const STATUTORY_CONSTANTS = deepFreeze({
-  schemaVersion: '6.0',
-  projectionPeriods: 6,
-  monthlyObservations: 12,
+  schemaVersion: '7.0',
+  annualStartYear: 2295,
+  annualObservations: 30,
+  currentMonths: monthIds(2293, 1, 12),
+  forwardMonths: monthIds(2295, 1, 36),
+  dividendMonths: monthIds(2291, 1, 36),
   record: {
     title: 'Path 2 LP-074 Final Certification — 2294',
     disposition: 'CERTIFIED_BOTH_SCHEDULES',
@@ -48,29 +76,70 @@ export const STATUTORY_CONSTANTS = deepFreeze({
     III: { baselineScmActivationMean: 8.08, maximumMultiple: 1.25, requiredMinimumFlow: 0.5 },
     IV: { requiredNetMarginalValue: 0, maximumAttributableConcentrationEvents: 0 },
   },
+  annualProvenanceRegistry: [{
+    provenanceId: 'PATH2-ANNUAL-LOCK-2292',
+    sourceClass: 'LOCKED_ANNUAL_MODEL',
+    documentId: 'AUDIT-2292-ANNUAL-HORIZON',
+    transformId: 'ANNUAL-LOWER-UPPER-BOUNDS',
+    lockedAt: '2292-02-15',
+  }],
   scheduleA: {
-    provenanceLocked: true,
-    authoredTriggerValuesExcluded: true,
-    mainCurrentCoverageRequired: 1.05,
-    mainMonthlyFloorRequired: 1,
-    mainForwardFloorRequired: 1,
-    dividendAggregateRequired: 1.2,
-    dividendMonthlyFloorRequired: 1,
-    crossCreditsExcluded: true,
-    reproducibleFromThisRecord: true,
+    currentAggregate: 1.05,
+    currentMonthly: 1,
+    forwardMonthly: 1,
+    dividendAggregate: 1.2,
+    dividendMonthly: 1,
+    transforms: [
+      { transformId: 'REAL-2292', formula: 'reportedValue * adjustment * weight', units: 'constant 2292 purchasing power' },
+      { transformId: 'RATIO-SUM', formula: 'sum(effectiveNumerator) / sum(effectiveDenominator)', units: 'ratio' },
+      { transformId: 'RATIO-MONTH', formula: 'effectiveNumerator / effectiveDenominator', units: 'ratio' },
+    ],
+    provenance: [
+      { sourceId: 'MAIN-CURRENT-T50', sourceClass: 'MAIN_TAX_RECEIPTS', documentId: 'MAIN-LEDGER-2293-T50', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-CURRENT-M', sourceClass: 'MAIN_OBLIGATIONS', documentId: 'MAIN-LEDGER-2293-M', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-FORWARD-T50', sourceClass: 'INDEPENDENT_MAIN_RECEIPTS_PROJECTION', documentId: 'MAIN-PROJECTION-2295-2297-T50', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-FORWARD-M', sourceClass: 'INDEPENDENT_MAIN_OBLIGATIONS_PROJECTION', documentId: 'MAIN-PROJECTION-2295-2297-M', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+      { sourceId: 'ADT-AUTOMATION-A', sourceClass: 'ADT_AUTOMATION_RECEIPTS', documentId: 'ADT-LEDGER-2291-2293-A', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+      { sourceId: 'ADT-DIVIDEND-D', sourceClass: 'DIVIDEND_OBLIGATIONS', documentId: 'ADT-LEDGER-2291-2293-D', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+    ],
+    prohibitedSourceClasses: [
+      'MAIN_TAX_CROSS_CREDIT', 'LOWER_LAYER_RECEIPTS', 'SCM_RECIRCULATION',
+      'PRIVATE_VELOCITY', 'BACKFILL',
+    ],
   },
   scheduleB: {
-    requiredAggregateCoverage: 1.05,
-    requiredMonthlyCoverage: 1,
-    requiredForwardCoverage: 1,
-    prohibitedCrossCreditsExcluded: true,
-    layerSpecificRevenueAttribution: true,
-    monthlyDataPublished: true,
-    path2AdoptedFiscalQuantities: true,
+    currentAggregate: 1.05,
+    currentMonthly: 1,
+    forwardMonthly: 1,
+    provenance: [
+      { sourceId: 'L1-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_1_RECEIPTS', documentId: 'L1-LEDGER-2293-LI', lockedAt: '2292-02-15' },
+      { sourceId: 'L1-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_1_OBLIGATIONS', documentId: 'L1-LEDGER-2293-OI', lockedAt: '2292-02-15' },
+      { sourceId: 'L1-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_1_RECEIPTS_PROJECTION', documentId: 'L1-PROJECTION-2295-2297-LI', lockedAt: '2292-02-15' },
+      { sourceId: 'L1-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_1_OBLIGATIONS_PROJECTION', documentId: 'L1-PROJECTION-2295-2297-OI', lockedAt: '2292-02-15' },
+      { sourceId: 'L2-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_2_RECEIPTS', documentId: 'L2-LEDGER-2293-LI', lockedAt: '2292-02-15' },
+      { sourceId: 'L2-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_2_OBLIGATIONS', documentId: 'L2-LEDGER-2293-OI', lockedAt: '2292-02-15' },
+      { sourceId: 'L2-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_2_RECEIPTS_PROJECTION', documentId: 'L2-PROJECTION-2295-2297-LI', lockedAt: '2292-02-15' },
+      { sourceId: 'L2-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_2_OBLIGATIONS_PROJECTION', documentId: 'L2-PROJECTION-2295-2297-OI', lockedAt: '2292-02-15' },
+      { sourceId: 'L3-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_3_RECEIPTS', documentId: 'L3-LEDGER-2293-LI', lockedAt: '2292-02-15' },
+      { sourceId: 'L3-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_3_OBLIGATIONS', documentId: 'L3-LEDGER-2293-OI', lockedAt: '2292-02-15' },
+      { sourceId: 'L3-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_3_RECEIPTS_PROJECTION', documentId: 'L3-PROJECTION-2295-2297-LI', lockedAt: '2292-02-15' },
+      { sourceId: 'L3-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_3_OBLIGATIONS_PROJECTION', documentId: 'L3-PROJECTION-2295-2297-OI', lockedAt: '2292-02-15' },
+    ],
+    prohibitedSourceClasses: [
+      'MAIN_TAX_CROSS_CREDIT', 'OTHER_LAYER_RECEIPTS', 'SCM_RECIRCULATION',
+      'PRIVATE_VELOCITY', 'BACKFILL',
+    ],
     layers: {
-      '-1': { rate: 25, routeReconciledFraction: 1, obligationsEnumerated: true },
-      '-2': { rate: 12.5, routeReconciledFraction: 1, obligationsEnumerated: true },
-      '-3': { rate: 6.25, routeReconciledFraction: 1, obligationsEnumerated: true },
+      '-1': layerConstants('L1', 25, 1270.1, [600, 300, 200, 100]),
+      '-2': layerConstants('L2', 12.5, 759, [300, 180, 144, 96]),
+      '-3': layerConstants('L3', 6.25, 378.9, [150, 90, 72, 48]),
+    },
+    adoptionRecord: {
+      recordId: 'LP074-PATH2-ADOPTION-2294',
+      adoptedAt: '2294-11-15',
+      authority: 'LP-074',
+      scope: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6'],
+      layers: ['-1', '-2', '-3'],
     },
   },
   authority: {
@@ -109,37 +178,41 @@ export const STATUTORY_CONSTANTS = deepFreeze({
 
 const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const isFiniteNumber = (value) => typeof value === 'number' && Number.isFinite(value);
+const positiveNumber = (value) => isFiniteNumber(value) && value > 0;
+const nearlyEqual = (actual, expected, tolerance = 1e-9) => isFiniteNumber(actual)
+  && isFiniteNumber(expected) && Math.abs(actual - expected) <= tolerance;
+const sum = (values) => values.every(isFiniteNumber) ? values.reduce((total, value) => total + value, 0) : Number.NaN;
+const safeMinimum = (values) => Array.isArray(values) && values.length && values.every(isFiniteNumber)
+  ? Math.min(...values) : Number.NaN;
+const safeMaximum = (values) => Array.isArray(values) && values.length && values.every(isFiniteNumber)
+  ? Math.max(...values) : Number.NaN;
+const safeRatio = (rows, numerator = 'receipts', denominator = 'obligations') => {
+  if (!Array.isArray(rows) || !rows.length || !rows.every((row) => isObject(row)
+    && positiveNumber(row[numerator]) && positiveNumber(row[denominator]))) return Number.NaN;
+  return sum(rows.map((row) => row[numerator])) / sum(rows.map((row) => row[denominator]));
+};
+const effectiveRatio = (rows, numerator, denominator) => {
+  if (!Array.isArray(rows) || !rows.length || !rows.every((row) => isObject(row)
+    && positiveNumber(row[numerator]) && positiveNumber(row[denominator])
+    && positiveNumber(row.adjustment) && positiveNumber(row.weight))) return Number.NaN;
+  return sum(rows.map((row) => row[numerator] * row.adjustment * row.weight))
+    / sum(rows.map((row) => row[denominator] * row.adjustment * row.weight));
+};
 const sameValue = (actual, expected) => {
   if (Array.isArray(expected)) {
-    return Array.isArray(actual)
-      && actual.length === expected.length
+    return Array.isArray(actual) && actual.length === expected.length
       && expected.every((value, index) => sameValue(actual[index], value));
   }
   if (isObject(expected)) {
-    return isObject(actual)
-      && Object.keys(actual).length === Object.keys(expected).length
+    return isObject(actual) && Object.keys(actual).length === Object.keys(expected).length
       && Object.keys(expected).every((key) => Object.hasOwn(actual, key) && sameValue(actual[key], expected[key]));
   }
   return Object.is(actual, expected);
 };
 const hasExactKeys = (value, keys) => isObject(value)
-  && Object.keys(value).length === keys.length
-  && keys.every((key) => Object.hasOwn(value, key));
-const safeMinimum = (values) => Array.isArray(values) && values.length && values.every(isFiniteNumber)
-  ? Math.min(...values) : Number.NaN;
-const safeMaximum = (values) => Array.isArray(values) && values.length && values.every(isFiniteNumber)
-  ? Math.max(...values) : Number.NaN;
-const safeRatio = (rows) => {
-  if (!Array.isArray(rows) || !rows.length || !rows.every((row) => isObject(row)
-    && isFiniteNumber(row.receipts) && row.receipts > 0
-    && isFiniteNumber(row.obligations) && row.obligations > 0)) return Number.NaN;
-  return rows.reduce((sum, row) => sum + row.receipts, 0)
-    / rows.reduce((sum, row) => sum + row.obligations, 0);
-};
+  && Object.keys(value).length === keys.length && keys.every((key) => Object.hasOwn(value, key));
 const strictDateValue = (value, timestamp = false) => {
-  const pattern = timestamp
-    ? /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/
-    : /^\d{4}-\d{2}-\d{2}$/;
+  const pattern = timestamp ? /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/ : /^\d{4}-\d{2}-\d{2}$/;
   if (typeof value !== 'string' || !pattern.test(value)) return Number.NaN;
   const parsed = Date.parse(timestamp ? value : `${value}T00:00:00Z`);
   if (!Number.isFinite(parsed)) return Number.NaN;
@@ -152,14 +225,7 @@ const pushUnless = (errors, condition, message) => {
   return condition;
 };
 const exactMirror = (errors, actual, expected, path) => pushUnless(
-  errors,
-  sameValue(actual, expected),
-  `${path} must exactly match the enacted constant`,
-);
-const exactNumericVector = (errors, value, length, path) => pushUnless(
-  errors,
-  Array.isArray(value) && value.length === length && value.every(isFiniteNumber),
-  `${path} must contain exactly ${length} finite numeric observations`,
+  errors, sameValue(actual, expected), `${path} must exactly match the locked constant`,
 );
 
 export function loadCertificationSources() {
@@ -168,6 +234,44 @@ export function loadCertificationSources() {
     notice: JSON.parse(readFileSync(join(ROOT, NOTICE_FILE), 'utf8')),
   };
 }
+
+const validateMonthSequence = (errors, rows, expectedMonths, path) => {
+  const months = Array.isArray(rows) ? rows.map((row) => row?.month) : [];
+  return pushUnless(errors, sameValue(months, expectedMonths),
+    `${path} must contain the exact ordered ${expectedMonths.length}-month horizon`);
+};
+
+const validateAWindow = (errors, rows, config, sourceIds, path) => {
+  const rowsArray = Array.isArray(rows) ? rows : [];
+  const validLength = pushUnless(errors, rowsArray.length === config.months.length,
+    `${path} must contain exactly ${config.months.length} observations`);
+  const sequenceValid = validateMonthSequence(errors, rowsArray, config.months, path);
+  const rowsValid = rowsArray.length === config.months.length && rowsArray.every((row, index) => {
+    const keysValid = hasExactKeys(row, config.keys);
+    const dateValid = config.dateRequired ? strictDateValue(row?.date) && row.date === `${config.months[index]}-01` : true;
+    const valuesValid = positiveNumber(row?.[config.numerator]) && positiveNumber(row?.[config.denominator]);
+    const inclusionValid = config.inclusionRule === undefined || (row?.inclusionRule === config.inclusionRule
+      && positiveNumber(row?.adjustment) && positiveNumber(row?.weight));
+    const provenanceValid = row?.[config.numeratorSource] === sourceIds[0]
+      && row?.[config.denominatorSource] === sourceIds[1];
+    return keysValid && Boolean(dateValid) && valuesValid && inclusionValid && provenanceValid;
+  });
+  pushUnless(errors, rowsValid, `${path} rows must have exact fields, values, dates, rules, weights, and provenance`);
+  return validLength && sequenceValid && rowsValid;
+};
+
+const validateBWindow = (errors, rows, months, sourceIds, path) => {
+  const rowsArray = Array.isArray(rows) ? rows : [];
+  const validLength = pushUnless(errors, rowsArray.length === months.length,
+    `${path} must contain exactly ${months.length} observations`);
+  const sequenceValid = validateMonthSequence(errors, rowsArray, months, path);
+  const rowsValid = rowsArray.length === months.length && rowsArray.every((row) => hasExactKeys(row,
+    ['month', 'receipts', 'obligations', 'receiptsSourceId', 'obligationsSourceId'])
+    && positiveNumber(row.receipts) && positiveNumber(row.obligations)
+    && row.receiptsSourceId === sourceIds[0] && row.obligationsSourceId === sourceIds[1]);
+  pushUnless(errors, rowsValid, `${path} rows must have exact positive Li/Oi values and locked provenance`);
+  return validLength && sequenceValid && rowsValid;
+};
 
 export function evaluateCertification(data, externalNotice) {
   const schemaErrors = [];
@@ -180,7 +284,9 @@ export function evaluateCertification(data, externalNotice) {
 
   pushUnless(schemaErrors, isObject(data), 'certification record must be an object');
   const root = isObject(data) ? data : {};
-  pushUnless(schemaErrors, hasExactKeys(root, ['schemaVersion', 'record', 'chronology', 'authority', 'unchangedCanon', 'sourceInputs']), 'certification record has malformed top-level keys');
+  pushUnless(schemaErrors, hasExactKeys(root,
+    ['schemaVersion', 'record', 'chronology', 'authority', 'unchangedCanon', 'sourceInputs']),
+  'certification record has malformed top-level keys');
   exactMirror(schemaErrors, root.schemaVersion, C.schemaVersion, 'schemaVersion');
 
   const record = isObject(root.record) ? root.record : {};
@@ -188,122 +294,236 @@ export function evaluateCertification(data, externalNotice) {
   const dateFields = ['auditDesignLocked', 'auditCompleted', 'scheduleACertified', 'scheduleBCertified', 'noticePublished', 'effectiveAt'];
   const dateValues = dateFields.map((field) => strictDateValue(record[field]));
   pushUnless(chronologyErrors, dateValues.every(Number.isFinite), 'record dates must be strict valid YYYY-MM-DD dates');
-  pushUnless(chronologyErrors, dateValues.every((value, index) => index === 0 || value > dateValues[index - 1]), 'record dates must be strictly monotonically ordered');
+  pushUnless(chronologyErrors, dateValues.every((value, index) => index === 0 || value > dateValues[index - 1]),
+    'record dates must be strictly monotonically ordered');
   exactMirror(chronologyErrors, root.chronology, C.chronology, 'chronology');
-  if (Array.isArray(root.chronology)) {
-    const starts = root.chronology.map((entry) => {
-      if (!isObject(entry)) return Number.NaN;
-      if (isFiniteNumber(entry.year)) return entry.year;
-      const match = typeof entry.years === 'string' ? entry.years.match(/^(\d{4})–(\d{4})$/) : null;
-      return match && Number(match[2]) >= Number(match[1]) ? Number(match[1]) : Number.NaN;
-    });
-    pushUnless(chronologyErrors, starts.every(Number.isFinite), 'chronology years must be valid years or ascending year ranges');
-    pushUnless(chronologyErrors, starts.every((year, index) => index === 0 || year >= starts[index - 1]), 'chronology entries must be monotonically ordered');
-  }
 
   const source = isObject(root.sourceInputs) ? root.sourceInputs : {};
-  pushUnless(schemaErrors, hasExactKeys(source, ['description', 'findingI', 'findingII', 'findingIII', 'findingIV', 'scheduleA', 'scheduleB']), 'sourceInputs has malformed keys');
-  pushUnless(schemaErrors, typeof source.description === 'string' && source.description.trim().length > 0, 'sourceInputs.description must be nonempty');
-  const findingI = isObject(source.findingI) ? source.findingI : {};
-  const findingII = isObject(source.findingII) ? source.findingII : {};
-  const findingIII = isObject(source.findingIII) ? source.findingIII : {};
-  const findingIV = isObject(source.findingIV) ? source.findingIV : {};
-  pushUnless(schemaErrors, hasExactKeys(findingI, ['requiredCoverage', 'projectedCoverageLowerBounds']), 'findingI has malformed keys');
-  pushUnless(schemaErrors, hasExactKeys(findingII, ['baselineDividendPerResident', 'projectedDividendLowerBounds', 'scheduleEffectLowerBounds']), 'findingII has malformed keys');
-  pushUnless(schemaErrors, hasExactKeys(findingIII, ['baselineScmActivationMean', 'maximumMultiple', 'projectedActivationUpperBounds', 'requiredMinimumFlow', 'projectedFlowLowerBounds']), 'findingIII has malformed keys');
-  pushUnless(schemaErrors, hasExactKeys(findingIV, ['requiredNetMarginalValue', 'netMarginalValueLowerBound', 'maximumAttributableConcentrationEvents', 'attributableConcentrationEventsUpperBound']), 'findingIV has malformed keys');
-  exactMirror(schemaErrors, findingI.requiredCoverage, C.findings.I.requiredCoverage, 'findingI.requiredCoverage');
-  exactMirror(schemaErrors, findingII.baselineDividendPerResident, C.findings.II.baselineDividendPerResident, 'findingII.baselineDividendPerResident');
-  exactMirror(schemaErrors, findingIII.baselineScmActivationMean, C.findings.III.baselineScmActivationMean, 'findingIII.baselineScmActivationMean');
-  exactMirror(schemaErrors, findingIII.maximumMultiple, C.findings.III.maximumMultiple, 'findingIII.maximumMultiple');
-  exactMirror(schemaErrors, findingIII.requiredMinimumFlow, C.findings.III.requiredMinimumFlow, 'findingIII.requiredMinimumFlow');
-  exactMirror(schemaErrors, findingIV.requiredNetMarginalValue, C.findings.IV.requiredNetMarginalValue, 'findingIV.requiredNetMarginalValue');
-  exactMirror(schemaErrors, findingIV.maximumAttributableConcentrationEvents, C.findings.IV.maximumAttributableConcentrationEvents, 'findingIV.maximumAttributableConcentrationEvents');
-  const vectorsValid = {
-    I: exactNumericVector(schemaErrors, findingI.projectedCoverageLowerBounds, C.projectionPeriods, 'findingI.projectedCoverageLowerBounds'),
-    IIa: exactNumericVector(schemaErrors, findingII.projectedDividendLowerBounds, C.projectionPeriods, 'findingII.projectedDividendLowerBounds'),
-    IIb: exactNumericVector(schemaErrors, findingII.scheduleEffectLowerBounds, C.projectionPeriods, 'findingII.scheduleEffectLowerBounds'),
-    IIIa: exactNumericVector(schemaErrors, findingIII.projectedActivationUpperBounds, C.projectionPeriods, 'findingIII.projectedActivationUpperBounds'),
-    IIIb: exactNumericVector(schemaErrors, findingIII.projectedFlowLowerBounds, C.projectionPeriods, 'findingIII.projectedFlowLowerBounds'),
-  };
-  pushUnless(schemaErrors, isFiniteNumber(findingIV.netMarginalValueLowerBound), 'findingIV.netMarginalValueLowerBound must be a finite number');
-  pushUnless(schemaErrors, isFiniteNumber(findingIV.attributableConcentrationEventsUpperBound), 'findingIV.attributableConcentrationEventsUpperBound must be a finite number');
+  pushUnless(schemaErrors, hasExactKeys(source,
+    ['description', 'annualProvenanceRegistry', 'annualHorizon', 'scheduleA', 'scheduleB']),
+  'sourceInputs has malformed keys');
+  pushUnless(schemaErrors, typeof source.description === 'string' && source.description.trim().length > 0,
+    'sourceInputs.description must be nonempty');
+
+  const annualRegistryValid = exactMirror(schemaErrors, source.annualProvenanceRegistry,
+    C.annualProvenanceRegistry, 'annualProvenanceRegistry');
+  const annualRows = Array.isArray(source.annualHorizon) ? source.annualHorizon : [];
+  const annualKeys = ['year', 'coverageLowerBound', 'dividendPerResidentLowerBound',
+    'scheduleEffectLowerBound', 'scmActivationUpperBound', 'flowLowerBound',
+    'netMarginalValueLowerBound', 'attributableConcentrationEventsUpperBound', 'provenanceId'];
+  const annualLengthValid = pushUnless(schemaErrors, annualRows.length === C.annualObservations,
+    `annualHorizon must contain exactly ${C.annualObservations} observations`);
+  const annualYearsValid = pushUnless(schemaErrors,
+    annualRows.length === C.annualObservations
+      && annualRows.every((row, index) => row?.year === C.annualStartYear + index),
+    `annualHorizon must contain exactly the ordered years ${C.annualStartYear}-${C.annualStartYear + C.annualObservations - 1}`);
+  const annualRowsValid = pushUnless(schemaErrors,
+    annualRows.length === C.annualObservations && annualRows.every((row) => hasExactKeys(row, annualKeys)
+      && annualKeys.slice(1, 8).every((key) => isFiniteNumber(row[key]))
+      && row.provenanceId === C.annualProvenanceRegistry[0].provenanceId),
+    'annualHorizon rows must have exact finite fields and locked provenance');
+  const annualEvidenceValid = annualRegistryValid && annualLengthValid && annualYearsValid && annualRowsValid;
 
   const findings = {
-    I: vectorsValid.I && safeMinimum(findingI.projectedCoverageLowerBounds) >= C.findings.I.requiredCoverage,
-    II: vectorsValid.IIa && vectorsValid.IIb
-      && findingII.projectedDividendLowerBounds.every((value) => value >= C.findings.II.baselineDividendPerResident)
-      && findingII.scheduleEffectLowerBounds.every((value) => value >= C.findings.II.minimumScheduleEffect),
-    III: vectorsValid.IIIa && vectorsValid.IIIb
-      && safeMaximum(findingIII.projectedActivationUpperBounds) <= C.findings.III.baselineScmActivationMean * C.findings.III.maximumMultiple
-      && safeMinimum(findingIII.projectedFlowLowerBounds) >= C.findings.III.requiredMinimumFlow,
-    IV: isFiniteNumber(findingIV.netMarginalValueLowerBound)
-      && isFiniteNumber(findingIV.attributableConcentrationEventsUpperBound)
-      && findingIV.netMarginalValueLowerBound > C.findings.IV.requiredNetMarginalValue
-      && findingIV.attributableConcentrationEventsUpperBound <= C.findings.IV.maximumAttributableConcentrationEvents,
+    I: annualEvidenceValid && annualRows.every((row) => row.coverageLowerBound >= C.findings.I.requiredCoverage),
+    II: annualEvidenceValid && annualRows.every((row) => row.dividendPerResidentLowerBound >= C.findings.II.baselineDividendPerResident
+      && row.scheduleEffectLowerBound >= C.findings.II.minimumScheduleEffect),
+    III: annualEvidenceValid && annualRows.every((row) => row.scmActivationUpperBound
+      <= C.findings.III.baselineScmActivationMean * C.findings.III.maximumMultiple
+      && row.flowLowerBound >= C.findings.III.requiredMinimumFlow),
+    IV: annualEvidenceValid && annualRows.every((row) => row.netMarginalValueLowerBound > C.findings.IV.requiredNetMarginalValue
+      && row.attributableConcentrationEventsUpperBound <= C.findings.IV.maximumAttributableConcentrationEvents),
   };
   Object.entries(findings).forEach(([name, passed]) => pushUnless(conditionErrors, passed, `Finding ${name} failed`));
 
   const scheduleA = isObject(source.scheduleA) ? source.scheduleA : {};
-  const scheduleAKeys = ['provenanceLocked', 'authoredTriggerValuesExcluded', 'mainCurrentCoverageRequired', 'mainCurrentCoverage', 'mainMonthlyFloorRequired', 'mainMonthlyCoverageMinimum', 'mainForwardFloorRequired', 'mainForwardCoverageMinimum', 'dividendAggregateRequired', 'dividendAggregateCoverage', 'dividendMonthlyFloorRequired', 'dividendMonthlyCoverageMinimum', 'crossCreditsExcluded', 'reproducibleFromThisRecord'];
-  pushUnless(schemaErrors, hasExactKeys(scheduleA, scheduleAKeys), 'scheduleA has malformed keys');
-  Object.entries(C.scheduleA).forEach(([key, value]) => exactMirror(schemaErrors, scheduleA[key], value, `scheduleA.${key}`));
-  ['mainCurrentCoverage', 'mainMonthlyCoverageMinimum', 'mainForwardCoverageMinimum', 'dividendAggregateCoverage', 'dividendMonthlyCoverageMinimum'].forEach((key) => {
-    pushUnless(schemaErrors, isFiniteNumber(scheduleA[key]), `scheduleA.${key} must be a finite number`);
-  });
-  const scheduleAConditions = {
-    A1: scheduleA.provenanceLocked === C.scheduleA.provenanceLocked && scheduleA.authoredTriggerValuesExcluded === C.scheduleA.authoredTriggerValuesExcluded,
-    A2: isFiniteNumber(scheduleA.mainCurrentCoverage) && scheduleA.mainCurrentCoverage >= C.scheduleA.mainCurrentCoverageRequired,
-    A3: isFiniteNumber(scheduleA.mainMonthlyCoverageMinimum) && scheduleA.mainMonthlyCoverageMinimum >= C.scheduleA.mainMonthlyFloorRequired,
-    A4: isFiniteNumber(scheduleA.mainForwardCoverageMinimum) && scheduleA.mainForwardCoverageMinimum >= C.scheduleA.mainForwardFloorRequired,
-    A5: isFiniteNumber(scheduleA.dividendAggregateCoverage) && scheduleA.dividendAggregateCoverage >= C.scheduleA.dividendAggregateRequired,
-    A6: isFiniteNumber(scheduleA.dividendMonthlyCoverageMinimum) && scheduleA.dividendMonthlyCoverageMinimum >= C.scheduleA.dividendMonthlyFloorRequired,
-    A7: scheduleA.crossCreditsExcluded === C.scheduleA.crossCreditsExcluded,
-    A8: scheduleA.reproducibleFromThisRecord === C.scheduleA.reproducibleFromThisRecord,
+  pushUnless(schemaErrors, hasExactKeys(scheduleA,
+    ['transformRegistry', 'provenanceRegistry', 'mainCurrentWindow', 'mainForwardWindow', 'dividendWindow', 'reportedMetrics']),
+  'scheduleA has malformed keys');
+  const transformsValid = exactMirror(schemaErrors, scheduleA.transformRegistry, C.scheduleA.transforms,
+    'scheduleA.transformRegistry');
+  const aProvenanceValid = exactMirror(schemaErrors, scheduleA.provenanceRegistry, C.scheduleA.provenance,
+    'scheduleA.provenanceRegistry');
+  const aSourceClasses = Array.isArray(scheduleA.provenanceRegistry)
+    ? scheduleA.provenanceRegistry.map((entry) => entry?.sourceClass) : [];
+  const aSourceClassValid = aProvenanceValid && aSourceClasses.every((sourceClass) =>
+    !C.scheduleA.prohibitedSourceClasses.includes(sourceClass));
+
+  const mainCurrentValid = validateAWindow(schemaErrors, scheduleA.mainCurrentWindow, {
+    months: C.currentMonths,
+    keys: ['month', 'date', 't50', 'm', 'inclusionRule', 'adjustment', 'weight', 't50SourceId', 'mSourceId'],
+    dateRequired: true,
+    numerator: 't50', denominator: 'm', numeratorSource: 't50SourceId', denominatorSource: 'mSourceId',
+    inclusionRule: 'INCLUDE_LOCKED_MONTH',
+  }, ['MAIN-CURRENT-T50', 'MAIN-CURRENT-M'], 'scheduleA.mainCurrentWindow');
+  const mainForwardValid = validateAWindow(schemaErrors, scheduleA.mainForwardWindow, {
+    months: C.forwardMonths,
+    keys: ['month', 'date', 't50', 'm', 't50SourceId', 'mSourceId'],
+    dateRequired: true,
+    numerator: 't50', denominator: 'm', numeratorSource: 't50SourceId', denominatorSource: 'mSourceId',
+  }, ['MAIN-FORWARD-T50', 'MAIN-FORWARD-M'], 'scheduleA.mainForwardWindow');
+  const dividendValid = validateAWindow(schemaErrors, scheduleA.dividendWindow, {
+    months: C.dividendMonths,
+    keys: ['month', 'date', 'a', 'd', 'inclusionRule', 'adjustment', 'weight', 'aSourceId', 'dSourceId'],
+    dateRequired: true,
+    numerator: 'a', denominator: 'd', numeratorSource: 'aSourceId', denominatorSource: 'dSourceId',
+    inclusionRule: 'INCLUDE_COMPLETED_MONTH',
+  }, ['ADT-AUTOMATION-A', 'ADT-DIVIDEND-D'], 'scheduleA.dividendWindow');
+
+  const aMetrics = {
+    main12: effectiveRatio(scheduleA.mainCurrentWindow, 't50', 'm'),
+    mainCurrentMinimum: safeMinimum(Array.isArray(scheduleA.mainCurrentWindow)
+      ? scheduleA.mainCurrentWindow.map((row) => positiveNumber(row?.t50) && positiveNumber(row?.m)
+        ? row.t50 / row.m : Number.NaN) : []),
+    mainForwardMinimum: safeMinimum(Array.isArray(scheduleA.mainForwardWindow)
+      ? scheduleA.mainForwardWindow.map((row) => positiveNumber(row?.t50) && positiveNumber(row?.m)
+        ? row.t50 / row.m : Number.NaN) : []),
+    adt36: effectiveRatio(scheduleA.dividendWindow, 'a', 'd'),
+    dividendMinimum: safeMinimum(Array.isArray(scheduleA.dividendWindow)
+      ? scheduleA.dividendWindow.map((row) => positiveNumber(row?.a) && positiveNumber(row?.d)
+        ? row.a / row.d : Number.NaN) : []),
   };
+  const reportedAKeysValid = pushUnless(schemaErrors, hasExactKeys(scheduleA.reportedMetrics,
+    ['main12', 'mainCurrentMinimum', 'mainForwardMinimum', 'adt36', 'dividendMinimum'])
+    && Object.values(scheduleA.reportedMetrics).every(isFiniteNumber),
+  'scheduleA.reportedMetrics must contain exactly five finite derived values');
+  const aMetricsReconciled = pushUnless(schemaErrors, reportedAKeysValid
+    && Object.entries(aMetrics).every(([key, value]) => nearlyEqual(scheduleA.reportedMetrics[key], value)),
+  'scheduleA.reportedMetrics must exactly reconcile to raw evidence');
+
+  const scheduleAConditions = {
+    A1: transformsValid && aProvenanceValid && mainCurrentValid && mainForwardValid && dividendValid,
+    A2: mainCurrentValid && aMetrics.main12 >= C.scheduleA.currentAggregate,
+    A3: mainCurrentValid && aMetrics.mainCurrentMinimum >= C.scheduleA.currentMonthly,
+    A4: mainForwardValid && aMetrics.mainForwardMinimum >= C.scheduleA.forwardMonthly,
+    A5: dividendValid && aMetrics.adt36 >= C.scheduleA.dividendAggregate,
+    A6: dividendValid && aMetrics.dividendMinimum >= C.scheduleA.dividendMonthly,
+    A7: aSourceClassValid,
+    A8: aMetricsReconciled && Object.values(findings).every(Boolean),
+  };
+  scheduleAConditions.A8 = scheduleAConditions.A8
+    && ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'].every((key) => scheduleAConditions[key]);
   Object.entries(scheduleAConditions).forEach(([name, passed]) => pushUnless(conditionErrors, passed, `${name} failed`));
   const scheduleACertified = Object.values(findings).every(Boolean) && Object.values(scheduleAConditions).every(Boolean);
 
   const scheduleB = isObject(source.scheduleB) ? source.scheduleB : {};
-  const scheduleBKeys = ['requiredAggregateCoverage', 'requiredMonthlyCoverage', 'requiredForwardCoverage', 'layers', 'prohibitedCrossCreditsExcluded', 'layerSpecificRevenueAttribution', 'monthlyDataPublished', 'path2AdoptedFiscalQuantities'];
-  pushUnless(schemaErrors, hasExactKeys(scheduleB, scheduleBKeys), 'scheduleB has malformed keys');
-  for (const key of ['requiredAggregateCoverage', 'requiredMonthlyCoverage', 'requiredForwardCoverage', 'prohibitedCrossCreditsExcluded', 'layerSpecificRevenueAttribution', 'monthlyDataPublished', 'path2AdoptedFiscalQuantities']) {
-    exactMirror(schemaErrors, scheduleB[key], C.scheduleB[key], `scheduleB.${key}`);
-  }
+  pushUnless(schemaErrors, hasExactKeys(scheduleB, ['provenanceRegistry', 'layers', 'adoptionRecord']),
+    'scheduleB has malformed keys');
+  const bProvenanceValid = exactMirror(schemaErrors, scheduleB.provenanceRegistry, C.scheduleB.provenance,
+    'scheduleB.provenanceRegistry');
+  const bSourceClasses = Array.isArray(scheduleB.provenanceRegistry)
+    ? scheduleB.provenanceRegistry.map((entry) => entry?.sourceClass) : [];
+  const bSourceClassValid = bProvenanceValid && bSourceClasses.every((sourceClass) =>
+    !C.scheduleB.prohibitedSourceClasses.includes(sourceClass));
+  const adoptionValid = exactMirror(schemaErrors, scheduleB.adoptionRecord, C.scheduleB.adoptionRecord,
+    'scheduleB.adoptionRecord');
   const layers = isObject(scheduleB.layers) ? scheduleB.layers : {};
   const layerNames = Object.keys(C.scheduleB.layers);
-  pushUnless(schemaErrors, hasExactKeys(layers, layerNames), `scheduleB.layers must contain exactly ${layerNames.join(', ')}`);
-  const layerValidity = {};
+  pushUnless(schemaErrors, hasExactKeys(layers, layerNames),
+    `scheduleB.layers must contain exactly ${layerNames.join(', ')}`);
+
+  const layerValidation = {};
   for (const name of layerNames) {
     const layer = isObject(layers[name]) ? layers[name] : {};
-    pushUnless(schemaErrors, hasExactKeys(layer, ['rate', 'routeReconciledFraction', 'obligationsEnumerated', 'currentWindow', 'forwardCoverageMinimum']), `scheduleB.layers.${name} has malformed keys`);
-    for (const [key, expected] of Object.entries(C.scheduleB.layers[name])) exactMirror(schemaErrors, layer[key], expected, `scheduleB.layers.${name}.${key}`);
-    pushUnless(schemaErrors, isFiniteNumber(layer.forwardCoverageMinimum), `scheduleB.layers.${name}.forwardCoverageMinimum must be a finite number`);
-    const rowsValid = pushUnless(schemaErrors,
-      Array.isArray(layer.currentWindow)
-        && layer.currentWindow.length === C.monthlyObservations
-        && layer.currentWindow.every((row) => hasExactKeys(row, ['receipts', 'obligations'])
-          && isFiniteNumber(row.receipts) && row.receipts > 0
-          && isFiniteNumber(row.obligations) && row.obligations > 0),
-      `scheduleB.layers.${name}.currentWindow must contain exactly ${C.monthlyObservations} positive finite receipt/obligation rows`,
-    );
-    layerValidity[name] = { layer, rowsValid };
+    const LC = C.scheduleB.layers[name];
+    pushUnless(schemaErrors, hasExactKeys(layer,
+      ['rate', 'routeMap', 'obligationMap', 'currentWindow', 'forwardWindow', 'reportedMetrics']),
+    `scheduleB.layers.${name} has malformed keys`);
+    const rateValid = pushUnless(schemaErrors, Object.is(layer.rate, LC.rate),
+      `scheduleB.layers.${name}.rate must match LP-074`);
+    const currentValid = validateBWindow(schemaErrors, layer.currentWindow, C.currentMonths,
+      LC.currentSources, `scheduleB.layers.${name}.currentWindow`);
+    const forwardValid = validateBWindow(schemaErrors, layer.forwardWindow, C.forwardMonths,
+      LC.forwardSources, `scheduleB.layers.${name}.forwardWindow`);
+
+    const currentRows = Array.isArray(layer.currentWindow) ? layer.currentWindow : [];
+    const currentReceipts = sum(currentRows.map((row) => row?.receipts));
+    const currentObligations = sum(currentRows.map((row) => row?.obligations));
+    const routeMap = isObject(layer.routeMap) ? layer.routeMap : {};
+    const destinations = Array.isArray(routeMap.destinations) ? routeMap.destinations : [];
+    const routeShapeValid = hasExactKeys(routeMap, ['auditedCollectionTotal', 'destinations'])
+      && positiveNumber(routeMap.auditedCollectionTotal) && destinations.length === LC.routeDestinations.length
+      && destinations.every((destination, index) => hasExactKeys(destination,
+        ['destinationId', 'name', 'amount'])
+        && destination.destinationId === LC.routeDestinations[index]
+        && typeof destination.name === 'string' && destination.name.trim().length > 0
+        && positiveNumber(destination.amount));
+    pushUnless(schemaErrors, routeShapeValid, `scheduleB.layers.${name}.routeMap must enumerate the exact destination map`);
+    const routeReconciled = routeShapeValid && currentValid
+      && nearlyEqual(routeMap.auditedCollectionTotal, LC.expectedCurrentTotal)
+      && nearlyEqual(routeMap.auditedCollectionTotal, currentReceipts)
+      && nearlyEqual(sum(destinations.map((destination) => destination.amount)), routeMap.auditedCollectionTotal);
+    pushUnless(schemaErrors, routeReconciled,
+      `scheduleB.layers.${name}.routeMap must reconcile every destination to audited collections`);
+
+    const obligationMap = isObject(layer.obligationMap) ? layer.obligationMap : {};
+    const obligations = Array.isArray(obligationMap.obligations) ? obligationMap.obligations : [];
+    const nonTaxSources = Array.isArray(obligationMap.nonTaxSources) ? obligationMap.nonTaxSources : [];
+    const obligationsShapeValid = hasExactKeys(obligationMap, ['obligations', 'nonTaxSources'])
+      && obligations.length === LC.obligations.length
+      && obligations.every((obligation, index) => {
+        const expected = LC.obligations[index];
+        return hasExactKeys(obligation,
+          ['obligationId', 'name', 'fundingDestinationId', 'paymentOrder', 'amount'])
+          && obligation.obligationId === expected.obligationId
+          && obligation.fundingDestinationId === expected.fundingDestinationId
+          && obligation.paymentOrder === expected.paymentOrder
+          && obligation.amount === expected.amount
+          && typeof obligation.name === 'string' && obligation.name.trim().length > 0;
+      })
+      && nonTaxSources.length === LC.nonTaxSources.length
+      && nonTaxSources.every((sourceEntry, index) => {
+        const expected = LC.nonTaxSources[index];
+        return hasExactKeys(sourceEntry, ['sourceId', 'name', 'availableAmount', 'disposition'])
+          && sourceEntry.sourceId === expected.sourceId
+          && sourceEntry.disposition === expected.disposition
+          && Object.is(sourceEntry.availableAmount, 0)
+          && typeof sourceEntry.name === 'string' && sourceEntry.name.trim().length > 0;
+      });
+    pushUnless(schemaErrors, obligationsShapeValid,
+      `scheduleB.layers.${name}.obligationMap must enumerate ordered obligations and explicit non-tax zeros`);
+    const obligationTotal = sum(obligations.map((obligation) => obligation?.amount));
+    const treasuryDestination = destinations.find((destination) => destination?.destinationId === LC.routeDestinations[0]);
+    const obligationsReconciled = obligationsShapeValid && currentValid
+      && nearlyEqual(obligationTotal, currentObligations)
+      && nearlyEqual(treasuryDestination?.amount, obligationTotal);
+    pushUnless(schemaErrors, obligationsReconciled,
+      `scheduleB.layers.${name}.obligations must reconcile to monthly Oi and its funding destination`);
+
+    const bMetrics = {
+      currentAggregate: safeRatio(layer.currentWindow),
+      currentMinimum: safeMinimum(currentRows.map((row) => positiveNumber(row?.receipts)
+        && positiveNumber(row?.obligations) ? row.receipts / row.obligations : Number.NaN)),
+      forwardMinimum: safeMinimum(Array.isArray(layer.forwardWindow)
+        ? layer.forwardWindow.map((row) => positiveNumber(row?.receipts) && positiveNumber(row?.obligations)
+          ? row.receipts / row.obligations : Number.NaN) : []),
+    };
+    const reportedMetricsValid = hasExactKeys(layer.reportedMetrics,
+      ['currentAggregate', 'currentMinimum', 'forwardMinimum'])
+      && Object.values(layer.reportedMetrics).every(isFiniteNumber)
+      && Object.entries(bMetrics).every(([key, value]) => nearlyEqual(layer.reportedMetrics[key], value));
+    pushUnless(schemaErrors, reportedMetricsValid,
+      `scheduleB.layers.${name}.reportedMetrics must reconcile to raw monthly evidence`);
+
+    layerValidation[name] = {
+      rateValid, currentValid, forwardValid, routeReconciled, obligationsReconciled,
+      reportedMetricsValid, metrics: bMetrics,
+    };
   }
-  const entries = layerNames.map((name) => [name, layerValidity[name]?.layer ?? {}]);
+
+  const layerEntries = layerNames.map((name) => layerValidation[name] ?? {});
   const scheduleBConditions = {
-    B1: entries.every(([name, layer]) => layer.routeReconciledFraction === C.scheduleB.layers[name].routeReconciledFraction),
-    B2: entries.every(([name, layer]) => layer.obligationsEnumerated === C.scheduleB.layers[name].obligationsEnumerated),
-    B3: entries.every(([name, layer]) => layer.rate === C.scheduleB.layers[name].rate && layerValidity[name].rowsValid)
-      && scheduleB.prohibitedCrossCreditsExcluded === C.scheduleB.prohibitedCrossCreditsExcluded
-      && scheduleB.layerSpecificRevenueAttribution === C.scheduleB.layerSpecificRevenueAttribution,
-    B4: entries.every(([name, layer]) => layerValidity[name].rowsValid
-      && safeRatio(layer.currentWindow) >= C.scheduleB.requiredAggregateCoverage
-      && safeMinimum(layer.currentWindow.map((row) => row.receipts / row.obligations)) >= C.scheduleB.requiredMonthlyCoverage),
-    B5: entries.every(([, layer]) => isFiniteNumber(layer.forwardCoverageMinimum)
-      && layer.forwardCoverageMinimum >= C.scheduleB.requiredForwardCoverage),
-    B6: scheduleB.monthlyDataPublished === C.scheduleB.monthlyDataPublished
-      && scheduleB.path2AdoptedFiscalQuantities === C.scheduleB.path2AdoptedFiscalQuantities,
+    B1: layerEntries.every((entry) => entry.routeReconciled),
+    B2: layerEntries.every((entry) => entry.obligationsReconciled),
+    B3: bSourceClassValid && layerEntries.every((entry) => entry.rateValid && entry.currentValid),
+    B4: layerEntries.every((entry) => entry.currentValid && entry.reportedMetricsValid
+      && entry.metrics.currentAggregate >= C.scheduleB.currentAggregate
+      && entry.metrics.currentMinimum >= C.scheduleB.currentMonthly),
+    B5: layerEntries.every((entry) => entry.forwardValid && entry.reportedMetricsValid
+      && entry.metrics.forwardMinimum >= C.scheduleB.forwardMonthly),
+    B6: false,
   };
+  scheduleBConditions.B6 = adoptionValid && ['B1', 'B2', 'B3', 'B4', 'B5'].every((key) => scheduleBConditions[key]);
   Object.entries(scheduleBConditions).forEach(([name, passed]) => pushUnless(conditionErrors, passed, `${name} failed`));
   const scheduleBIndependentCertified = Object.values(scheduleBConditions).every(Boolean);
   const scheduleBCertified = scheduleACertified && scheduleBIndependentCertified;
@@ -316,28 +536,28 @@ export function evaluateCertification(data, externalNotice) {
   exactMirror(noticeErrors, externalNotice, C.notice, 'external effective notice');
   const publishedTimestamp = strictDateValue(externalNotice?.publishedAt, true);
   const effectiveTimestamp = strictDateValue(externalNotice?.effectiveAt, true);
-  pushUnless(noticeErrors, Number.isFinite(publishedTimestamp) && Number.isFinite(effectiveTimestamp), 'effective notice timestamps must be strict valid UTC timestamps');
-  pushUnless(noticeErrors, publishedTimestamp < effectiveTimestamp, 'effective notice must be published before its effective instant');
-  pushUnless(noticeErrors, externalNotice?.publishedAt?.slice(0, 10) === record.noticePublished, 'effective notice publication date must match the certification record');
-  pushUnless(noticeErrors, externalNotice?.effectiveAt?.slice(0, 10) === record.effectiveAt, 'effective notice effective date must match the certification record');
+  pushUnless(noticeErrors, Number.isFinite(publishedTimestamp) && Number.isFinite(effectiveTimestamp),
+    'effective notice timestamps must be strict valid UTC timestamps');
+  pushUnless(noticeErrors, publishedTimestamp < effectiveTimestamp,
+    'effective notice must be published before its effective instant');
+  pushUnless(noticeErrors, externalNotice?.publishedAt?.slice(0, 10) === record.noticePublished,
+    'effective notice publication date must match the certification record');
+  pushUnless(noticeErrors, externalNotice?.effectiveAt?.slice(0, 10) === record.effectiveAt,
+    'effective notice effective date must match the certification record');
   const noticeValid = noticeErrors.length === 0 && authorityValid;
 
   const schemaValid = schemaErrors.length === 0;
   const chronologyValid = chronologyErrors.length === 0;
   const certified = schemaValid && chronologyValid && authorityValid && unchangedCanonValid
     && scheduleACertified && scheduleBIndependentCertified && noticeValid;
-  const errors = [...schemaErrors, ...chronologyErrors, ...authorityErrors, ...unchangedCanonErrors, ...noticeErrors, ...conditionErrors];
+  const errors = [...schemaErrors, ...chronologyErrors, ...authorityErrors,
+    ...unchangedCanonErrors, ...noticeErrors, ...conditionErrors];
 
   return {
     certified,
     errors,
-    validation: {
-      schemaValid,
-      chronologyValid,
-      authorityValid,
-      unchangedCanonValid,
-      noticeValid,
-    },
+    validation: { schemaValid, chronologyValid, authorityValid, unchangedCanonValid, noticeValid },
+    annualObservationCount: annualRows.length,
     findings,
     scheduleAConditions,
     scheduleACertified,
@@ -346,12 +566,26 @@ export function evaluateCertification(data, externalNotice) {
     scheduleBCertified,
     notice: noticeValid,
     metrics: {
-      findingICoverageMinimum: safeMinimum(findingI.projectedCoverageLowerBounds),
+      findingICoverageMinimum: safeMinimum(annualRows.map((row) => row?.coverageLowerBound)),
+      findingIIDividendMinimum: safeMinimum(annualRows.map((row) => row?.dividendPerResidentLowerBound)),
+      findingIIScheduleEffectMinimum: safeMinimum(annualRows.map((row) => row?.scheduleEffectLowerBound)),
       findingIIIActivationCeiling: C.findings.III.baselineScmActivationMean * C.findings.III.maximumMultiple,
-      findingIIIActivationUpperBound: safeMaximum(findingIII.projectedActivationUpperBounds),
-      findingIIIFlowMinimum: safeMinimum(findingIII.projectedFlowLowerBounds),
-      scheduleBCoverage: Object.fromEntries(entries.map(([name, layer]) => [name, safeRatio(layer.currentWindow)])),
-      scheduleBMonthlyMinimum: Object.fromEntries(entries.map(([name, layer]) => [name, safeMinimum(Array.isArray(layer.currentWindow) ? layer.currentWindow.map((row) => row.receipts / row.obligations) : [])])),
+      findingIIIActivationUpperBound: safeMaximum(annualRows.map((row) => row?.scmActivationUpperBound)),
+      findingIIIFlowMinimum: safeMinimum(annualRows.map((row) => row?.flowLowerBound)),
+      findingIVNetMarginalValueMinimum: safeMinimum(annualRows.map((row) => row?.netMarginalValueLowerBound)),
+      findingIVConcentrationMaximum: safeMaximum(annualRows.map((row) => row?.attributableConcentrationEventsUpperBound)),
+      scheduleA: aMetrics,
+      scheduleB: Object.fromEntries(layerNames.map((name) => [name, layerValidation[name]?.metrics ?? {}])),
+      scheduleBReconciliation: Object.fromEntries(layerNames.map((name) => {
+        const layer = isObject(layers[name]) ? layers[name] : {};
+        const destinations = Array.isArray(layer.routeMap?.destinations) ? layer.routeMap.destinations : [];
+        const obligations = Array.isArray(layer.obligationMap?.obligations) ? layer.obligationMap.obligations : [];
+        return [name, {
+          auditedCollections: layer.routeMap?.auditedCollectionTotal,
+          routedTotal: sum(destinations.map((destination) => destination?.amount)),
+          obligationTotal: sum(obligations.map((obligation) => obligation?.amount)),
+        }];
+      })),
     },
     standards: C,
   };
@@ -363,7 +597,9 @@ function printResult(result) {
     result.errors.forEach((error) => console.error(`- ${error}`));
     return;
   }
+  console.log(`Annual horizon: ${result.annualObservationCount} keyed observations (2295-2324)`);
   for (const finding of ['I', 'II', 'III', 'IV']) console.log(`Finding ${finding}: PASS`);
+  for (const condition of ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']) console.log(`${condition}: PASS`);
   console.log('Schedule A: CERTIFIED');
   for (const condition of ['B1', 'B2', 'B3', 'B4', 'B5', 'B6']) console.log(`${condition}: PASS`);
   console.log('Schedule B: CERTIFIED');
