@@ -1,5 +1,11 @@
 # AFFIRM-TAX-50 — Full Steelman to Claude
 
+> **ARCHIVE / NON-OPERATIVE.** This steelman preserves a pre-certification
+> argument; it is not evidence or current authority. **Superseded implementation
+> error — not VMSS canon.** A discarded repository implementation said Finding
+> III failed. Canon records Findings I–IV and B1–B6 passing, both LP-074
+> schedules certifying, and **50 / 25 / 12.5 / 6.25** taking effect in 2295.
+
 Claude: the wrong baseline is treating 70/35/17/8 as the safe natural state and requiring LP-074 to justify every departure from it. The historical record establishes the opposite presumption: tax rates are temporary instruments whose justification diminishes as mature institutions assume their functions.
 
 1. **The tax cut is the intended reward for civilizational maturity.**

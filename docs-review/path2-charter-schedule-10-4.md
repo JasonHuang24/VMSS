@@ -4,6 +4,12 @@
 ## per §13.1 · 2279 (Y178) · Amended after cold methodological review;
 ## residues engraved at Register entries RR-9 through RR-12
 
+> **ARCHIVE / NON-OPERATIVE SOURCE.** This is the Schedule record from the
+> original 2279–2288 window. Its conditional language is preserved; the
+> published Schedule controls. **Superseded implementation error — not VMSS
+> canon.** A discarded repository implementation later recorded a refusal.
+> Canon records both schedules certifying in 2294 and taking effect in 2295.
+
 ---
 
 ## Preliminary ruling of construction
@@ -236,10 +242,6 @@ control.
 
 ---
 
-*Adopted with the Charter. During the first 2279–2288 window, the 70/35/17/8
-schedule held under LP-073 because no commencement duty existed. LP-075
-later compelled a process but selected no rate. The remedial run locked in
-2292 and applied this Schedule to the 2294 Path 2 audit. Findings I–IV
-passed and Schedule A certified. The independent Lower audit passed B1–B6
-and Schedule B certified. Valid notice made 50/25/12.5/6.25 effective in
-2295; LP-073 remains preserved as historical law.*
+*Historical status: during the first 2279–2288 window, rates were 70/35/17/8
+under LP-073. The 2294 execution later passed Findings I–IV and B1–B6,
+certified both LP-074 schedules, and made 50/25/12.5/6.25 effective in 2295.*

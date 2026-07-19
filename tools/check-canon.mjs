@@ -16,9 +16,11 @@
  *
  * Run:  node tools/check-canon.mjs   (exit 0 = consistent, 1 = drift)
  */
+import { execFileSync } from 'child_process';
 import { readFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { evaluateCertification } from './verify-path2-certification-2294.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -179,37 +181,22 @@ check(Number(countLine) === entries, 'filter count line = entries',
   check(bad.length === 0, 'vote tables match declared outcomes', bad.length ? bad.join('; ') : `${blocks.length} entries consistent`);
 }
 
-/* Supersession chain (v22.0.1; re-anchored v22.1; closed v22.2): the excavated
-   rate-history statutes form a single chain LP-071 → LP-072 → LP-073. Every
-   link but the last is a superseded statute; exactly one — the tail — is the
-   active schedule in force. Guards the record class against a second "active"
-   schedule, a broken chain, or a renumbering that leaves the trajectory without
-   a live terminus.
-
-   The chain is now three links and ends there. From v22.0 to v22.1 it appeared
-   to terminate at the drafting designation LP-074; R13 (v22.2) established that
-   this was drafting history rather than world canon — the schedule never carried
-   a chamber vote — and both designations were deregistered to the Process record.
-   (The register's own LP-074, since R15, is RATIFY-TAX-50-II: a different
-   instrument that changes no rate. See guard (a).) The guards below replace the
-   old per-statute status assertions: they hold the register's numbering honest,
-   hold the designation texts preserved verbatim off-register, hold the principle
-   in doctrine, and hold the tier boundary itself. */
+/* Rate-law supersession chain. The official LP-074 is distinct from the
+   deregistered drafting designation and became the current tail in 2295. */
 const statusOfLp = (id) => {
   const block = law.split(/(?=<article class="law-entry)/).find((x) => x.includes(`id="${id}"`)) || '';
   return (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1] || null;
 };
 {
-  const CHAIN = ['lp-071', 'lp-072', 'lp-073'];
+  const CHAIN = ['lp-071', 'lp-072', 'lp-073', 'lp-074'];
   const chainStatuses = CHAIN.map(statusOfLp);
   const missing = CHAIN.filter((_, i) => chainStatuses[i] === null);
-  const active = chainStatuses.filter((s) => s === 'status-active').length;
-  const superseded = chainStatuses.filter((s) => s === 'status-superseded').length;
-  const tailActive = chainStatuses[CHAIN.length - 1] === 'status-active';
-  const ok = missing.length === 0 && active === 1 && superseded === CHAIN.length - 1 && tailActive;
-  check(ok, 'rate-history supersession chain (LP-071→072→073, exactly one active)',
+  const superseded = chainStatuses.slice(0, -1).every((s) => s === 'status-superseded');
+  const tailActive = chainStatuses[chainStatuses.length - 1] === 'status-enacted' && law.includes('Schedules Active from 2295');
+  const ok = missing.length === 0 && superseded && tailActive;
+  check(ok, 'rate-history supersession chain (LP-071→072→073→074, active enacted tail)',
     missing.length ? `missing: ${missing.join(', ')}`
-      : `active=${active} superseded=${superseded} tail=${chainStatuses[CHAIN.length - 1]}`);
+      : `historical=${chainStatuses.slice(0, -1).join('/')} tail=${chainStatuses[chainStatuses.length - 1]}`);
 }
 /* (a) Register numbering is in-world numbering (R15, superseding the v22.2
    retired-numbers note). R13 had retired 074/075 permanently; R15 rescinds that
@@ -312,28 +299,27 @@ const statusOfLp = (id) => {
 
 const STATUTE_PAGE = 'pending-ratify-tax-50-ii-statute.html';
 
-/* (e) LP-074 is registered, and registered as an uncommenced law (v22.4; the
-   evidence re-pointed at R16's house-style entry). The entry's whole legal
-   character is that it is in force as a rule while both its rate schedules are
-   inactive. Until R16 a dedicated commencement line said so; the rewritten
-   entry says it in the status line and in its opening paragraph instead. Either
-   way the reader must learn it before reaching the schedules — an entry that
-   lost the qualifier would read as a 50-schedule enactment, which is exactly
-   the drift v22.2 spent a version correcting. */
+/* (e) LP-074 is the active substantive rate law after the independent 2294
+   Schedule A and B certifications. LP-073 remains visible but superseded;
+   LP-075 remains procedural only. */
+const lp073 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-073"')) || '';
 const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
+const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-075"')) || '';
 {
   const need = [
-    ['entry present', !!lp074],
+    ['LP-073 entry present and superseded', !!lp073 && /status-badge status-superseded/.test(lp073)],
+    ['LP-074 entry present', !!lp074],
     ['title', lp074.includes('RATIFY-TAX-50-II &mdash; Conditional Rate Schedule')],
     ['enacted badge', /class="status-badge status-enacted"/.test(lp074)],
-    ['status qualifier', /status-enacted">Enacted &middot; Conditional &mdash; schedules not in force</.test(lp074)],
-    ['changes no rate on passage', lp074.includes('it changes no rate on the day of its passage')],
-    ['live rates named', lp074.includes('The 70/35/17/8 schedule remains in force until certification')],
-    ['anchors the full statute', lp074.includes(`<a href="${STATUTE_PAGE}">Ratification Record</a>`)],
+    ['active-from-2295 status', lp074.includes('Schedules Active from 2295')],
+    ['Schedule A certified', lp074.includes('Schedule A') && lp074.includes('certified')],
+    ['B1–B6 passed', lp074.includes('B1&ndash;B6') && lp074.includes('passed')],
+    ['current cascade named', lp074.includes('50 / 25 / 12.5 / 6.25')],
+    ['LP-075 procedural', !!lp075 && lp075.includes('compelling commencement, not by directing a rate')],
   ];
   const missing = need.filter(([, ok]) => !ok).map(([k]) => k);
-  check(missing.length === 0, 'LP-074 registered as an uncommenced law (enacted, schedules not in force)',
-    missing.length ? `missing: ${missing.join(', ')}` : 'entry + badge + qualifier + live rates + statute anchor');
+  check(missing.length === 0, 'law-register authority chain: LP-073 superseded; LP-074 active; LP-075 procedural',
+    missing.length ? `missing: ${missing.join(', ')}` : 'authority chain complete');
 }
 
 /* (e2) HOUSE-STYLE GUARD (R16, v22.4.1). Register entries are editorial
@@ -392,39 +378,109 @@ const lp074 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     missing.length ? `missing: ${missing.join(', ')}` : 'instrument + conditions + apparatus + backlink');
 }
 
-/* (f) SCHEDULE-INACTIVITY GUARD (v22.3). Two halves, both load-bearing.
-
-   The live schedule is 70/35/17/8 and nothing registered at v22.3 changes it:
-   LP-074 registers a rule, not a rate. So every canon rate surface must still
-   state the live schedule, and the 50-schedule must not appear anywhere on the
-   World tier except inside the LP-074 entry, where it is quoted petition text
-   describing what *would* take force on a certification that has not happened.
-
-   The v22.2 World-tier numeral restriction therefore continues, with the
-   register entry as its single sanctioned exception. 6.25 is the signature: it
-   is the cascade's terminal rate, it appears in no other canon context, and it
-   stood at zero across the World tier before this entry existed. (12.5 is not
-   usable — the whitepaper numbers a section §12.5.) */
+/* (f) ACTIVE TAX-CANON GUARD. The controlling dataset and verifier decide the
+   certification; public-page agreement alone is not enough. */
 {
-  const RATE = '70 / 35 / 17 / 8';
-  const rateSurfaces = ['law-polling.html', 'rate-history.html'];
-  const silent = rateSurfaces.filter((f) => !read(f).includes(RATE));
-  check(silent.length === 0, `schedule-inactivity: rate surfaces still state ${RATE} (LP-073 in force)`,
-    silent.length ? `missing the live schedule: ${silent.join(', ')}` : rateSurfaces.join(', '));
+  const data = JSON.parse(read('documents/path-2-certification-2294-data.json'));
+  const notice = JSON.parse(read('documents/path-2-effective-notice-2295.json'));
+  const certification = evaluateCertification(data, notice);
+  const normalizedText = (src) => stripComments(src)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:nbsp|thinsp);/gi, ' ')
+    .replace(/&(?:rarr|rightarrow);/gi, '→')
+    .replace(/&(?:ndash|mdash);/gi, '–')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const tax = manifest.taxCanon;
+  check(tax.activeSchedule === '50 / 25 / 12.5 / 6.25' && tax.effectiveYear === 2295,
+    'canon manifest: exact cascade active from 2295');
+  check(['findingI', 'findingII', 'findingIII', 'findingIV'].every((key) => tax[key] === 'pass') &&
+        tax.scheduleA === 'certified' && tax.scheduleB === 'certified' && tax.effectiveNotice === 'valid',
+    'canon manifest: Findings I–IV, Schedule A, B1–B6/Schedule B, and notice pass');
+  check(tax.lp073 === 'superseded-in-2295' && tax.lp074 === 'active-substantive-rate-law' && tax.lp075 === 'procedural-only',
+    'canon manifest: LP-073/074/075 authority roles');
+  check(tax.threshold === '$10 million' && tax.scm === 'unchanged',
+    'canon manifest: threshold and SCM unchanged');
 
-  const PROCESS_TIER = (f) => f.startsWith('pending-') || f === 'deregistered-statutes.html';
-  const CASCADE = /6\.25/g;
-  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !PROCESS_TIER(f));
-  const leaks = [];
-  for (const f of worldPages) {
-    const src = stripComments(read(f));
-    const outside = f === 'law-polling.html' ? src.split(lp074).join(' ') : src;
-    const n = (outside.match(CASCADE) || []).length;
-    if (n) leaks.push(`${f} (${n})`);
+  check(certification.certified, 'structured certification result: complete record certifies',
+    certification.certified ? 'schema + chronology + authority + unchanged canon + schedules + external notice' : certification.errors.join('; '));
+  check(Object.values(certification.findings).every(Boolean)
+        && certification.scheduleACertified
+        && certification.scheduleBIndependentCertified
+        && certification.scheduleBCertified,
+    'structured certification result: Findings I–IV, Schedule A, and independent B1–B6 pass');
+  check(Object.values(certification.validation).every(Boolean),
+    'structured certification result: schema, chronology, authority, unchanged canon, and notice validate');
+  const whitepaperTax = normalizedText(read('whitepaper.html'));
+  const dividendAggregate = `${(certification.metrics.scheduleA.adt36 * 100).toFixed(1)}%`;
+  const dividendWeakest = `${(certification.metrics.scheduleA.dividendMinimum * 100).toFixed(1)}%`;
+  check(whitepaperTax.includes(`${dividendAggregate} aggregate dividend coverage`)
+        && whitepaperTax.includes(`${dividendWeakest} at the weakest month`)
+        && !/123\.0809%|122\.39%/.test(whitepaperTax),
+    'whitepaper reports the dataset-derived LP-070 figures', `${dividendAggregate} aggregate / ${dividendWeakest} weakest`);
+  check(/LP-070 remains the enacted standing future gate/i.test(whitepaperTax)
+        && /trailing 36-month window, with no single month below 100%/i.test(whitepaperTax)
+        && /tax receipts, Lower-layer receipts, SCM recirculation, private velocity, backfill[^.]{0,100}do not count/i.test(whitepaperTax),
+    'whitepaper preserves LP-070 as the standing future gate with prohibited substitutions excluded');
+  check(normalizedText(read('charter.html')).includes('If any reader-facing restatement falls out of step, the binding source controls.'),
+    'Charter restatement declares binding-source precedence');
+
+  const currentSurfaces = ['charter.html', 'systems.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
+    'layer--1.html', 'layer--3.html', 'simulations.html', 'documents/academy-source.html',
+    'documents/resources-source.html', 'rate-history.html', 'law-polling.html'];
+  const exactCascade = /(?:\b50\s*%?\s*\/\s*25\s*%?\s*\/\s*12\.5\s*%?\s*\/\s*6\.25\s*%?\b|\b50%[^.!?]{0,240}\b25%[^.!?]{0,240}\b12\.5%[^.!?]{0,240}\b6\.25%)/;
+  const staleCurrent = [];
+  const forbiddenCurrent = /(?:LP-073[^.!?]{0,120}(?:remains|is|still)\s+(?:current|active|operative)|(?:current|active|operative|since 2295|from 2295)[^.!?]{0,100}(?:70\s*%?\s*\/\s*35\s*%?\s*\/\s*17\s*%?\s*\/\s*8\s*%?|\b35%|\b17%|\b8%)|2294[^.!?]{0,120}(?:Finding III[^.!?]{0,50}(?:fail|did not pass)|Schedule [AB]\b[^.!?]{0,50}(?:refus|reject|not certified|not reached))|three findings passed[^.!?]{0,50}(?:one did not|one failed)|both refusals|chain with three links|executed (?:that logic|the logic) once already)/i;
+  for (const file of currentSurfaces) {
+    const src = normalizedText(read(file));
+    const staleClaim = src.match(forbiddenCurrent)?.[0];
+    if (!exactCascade.test(src) || staleClaim) staleCurrent.push(`${file}: ${staleClaim ? `forbidden "${staleClaim}"` : 'exact cascade absent'}`);
   }
-  check(leaks.length === 0,
-    'schedule-inactivity: 50-schedule confined to the LP-074 entry, stated nowhere as in force',
-    leaks.length ? `50-schedule outside LP-074: ${leaks.join(', ')}` : `${worldPages.length} World pages clear`);
+  check(staleCurrent.length === 0, 'current surfaces carry the normalized exact cascade and reject old active-rate/refusal claims',
+    staleCurrent.length ? staleCurrent.join(', ') : `${currentSurfaces.length} surfaces clear`);
+
+  const authorityAssertions = [
+    ['charter.html', /LP-074 is the substantive rate law/i, /LP-073.{0,80}fully superseded as operative law/i, /LP-075 remains procedural only/i],
+    ['rate-history.html', /current rate authority is LP-074/i, /LP-073 is historical/i, /LP-075 compelled the (?:audit|remedial process)/i],
+    ['law-polling.html', /LP-073 is fully superseded as operative rate law/i, /LP-075.{0,120}(?:compel(?:led|s|ling) (?:the )?(?:audit|commencement|process)|procedural)/i],
+  ];
+  const missingAuthority = authorityAssertions.flatMap(([file, ...patterns]) => {
+    const src = normalizedText(read(file));
+    return patterns.filter((pattern) => !pattern.test(src)).map((pattern) => `${file}: ${pattern.source}`);
+  });
+  check(missingAuthority.length === 0, 'current-law surfaces positively identify LP-074 authority and LP-073/075 limits',
+    missingAuthority.length ? missingAuthority.join('; ') : `${authorityAssertions.length} authority surfaces clear`);
+
+  const worldPages = readdirSync(ROOT).filter((f) => f.endsWith('.html') && !f.startsWith('pending-') && f !== 'deregistered-statutes.html');
+  const supersededOutcome = /(?:Finding III[^.!?]{0,100}(?:fail(?:ed|ure)?|did not pass)|Schedule A\b[^.!?]{0,100}(?:refus(?:ed|al)|reject(?:ed|ion)|not certified)|Schedule B\b[^.!?]{0,100}(?:not reached|refus(?:ed|al)|reject(?:ed|ion)|not certified)|2294[^.!?]{0,120}(?:three findings passed|one finding failed|both refusals)|lawful (?:nonactivation|failure)|both refusals|chain with three links)/i;
+  const refusalLeaks = worldPages.flatMap((file) => {
+    const claim = normalizedText(read(file)).match(supersededOutcome)?.[0];
+    return claim ? [`${file}: "${claim}"`] : [];
+  });
+  check(refusalLeaks.length === 0, 'World-tier pages contain no superseded refusal outcome',
+    refusalLeaks.length ? refusalLeaks.join(', ') : `${worldPages.length} pages clear`);
+
+  const statute = read(STATUTE_PAGE);
+  check(statute.includes('ENACTED, CONDITION NOT SATISFIED') === false &&
+        statute.includes('ENACTED — SCHEDULES ACTIVE FROM 2295') &&
+        statute.includes('50 / 25 / 12.5 / 6.25'),
+    'full LP-074 statute wrapper states both schedules active from 2295');
+
+  try {
+    execFileSync(process.execPath, [join(ROOT, 'tools/build-path2-certification-page.mjs'), '--check'], { encoding: 'utf8' });
+    check(true, 'generated certification page agrees with controlling dataset');
+  } catch (error) {
+    check(false, 'generated certification page agrees with controlling dataset', String(error.stdout || error.message));
+  }
+  try {
+    const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
+    const summary = out.trim().split('\n');
+    check(/\d+ hostile mutations rejected, 0 accepted; positive control passed/.test(out), 'hostile certification mutation suite', summary[summary.length - 1]);
+  } catch (error) {
+    check(false, 'hostile certification mutation suite', String(error.stdout || error.message));
+  }
 }
 
 /* (g) PATH 2 CHARTER PAGES (R17–R20, v22.5). The certification methodology

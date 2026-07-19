@@ -1,5 +1,12 @@
 # RATIFY-TAX-50 — Session record (post-v21.9.2 doctrine session)
 
+> **ARCHIVE / NON-OPERATIVE — historical entries preserved.** This is the
+> drafting archive through the pre-certification phases; dated entries are not
+> rewritten. **Superseded implementation error — not VMSS canon.** A discarded
+> repository implementation recorded a Finding III failure. Canon records the
+> 2294 audit passing Findings I–IV and B1–B6, both schedules certifying, and
+> **50 / 25 / 12.5 / 6.25** taking effect in 2295.
+
 ## Founder rulings of record (each shipped by this archival pass)
 - R1: Repair path for the pass-three kill is PATH 3 (rate
   recalibration at source). Paths 1 and 2 are NOT bundled.

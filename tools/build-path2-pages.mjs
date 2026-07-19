@@ -424,6 +424,8 @@ const CHARTER = 'path-2-charter.html';
 const SCHEDULE = 'path-2-schedule.html';
 const REGISTER = 'path-2-risk-register.html';
 const RULINGS = 'pending-ratify-tax-50-rulings.html';
+const CERTIFICATION = 'path-2-certification-2294.html';
+const COMMENCEMENT_ACT = 'path-2-commencement-duty-act.html';
 
 const mdCharter = read('documents/path-2-charter-source.md');
 const mdSchedule = read('documents/path-2-schedule-source.md');
@@ -446,22 +448,24 @@ const built = [];
   built.push([CHARTER, page({
     file: CHARTER,
     title: 'The Path 2 Charter — LP-074 Certification Methodology • The Five Rings',
-    description: 'The Path 2 Charter (fourth draft, terminal): the certification methodology LP-074 fixes in advance for its Schedule A rate reduction. Adopted by the chambers in 2279 (Y178) with its §10.4 Schedule and Residual-Risk Register; no rate moves until a certification event. The live schedule remains 70/35/17/8 (LP-073).',
+    description: 'The Path 2 Charter, adopted in 2279 and amended in 2291 and 2293. Its fixed methodology governed the complete 2294 LP-074 certification effective in 2295.',
     heroKicker: 'The Five Rings · Path 2 · Certification Methodology',
     heroTitle: 'The Path 2 Charter',
-    heroSub: 'The methodology LP-074 requires before any rate can move: where a choice can be fixed, this Charter fixes it; where judgment is irreducible, it converts judgment into adversarial mechanism and prices ambiguity against activation. Adopted 2279 (Y178) with its §10.4 Schedule and Residual-Risk Register.',
+    heroSub: 'The methodology LP-074 requires before a rate can move: where a choice can be fixed, this Charter fixes it; where judgment is irreducible, it converts judgment into adversarial mechanism and prices ambiguity against activation. Adopted 2279 and amended in 2291.',
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Charter status">
           <i class="fas fa-scale-balanced" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Adopted · Certification methodology — no rate moved</span>
-            <p><strong>ADOPTED, 2279 (Y178).</strong> This Charter is the methodology <a href="law-polling.html#lp-074">LP-074</a> fixes in advance; adopting it changed no rate. Its <a href="${SCHEDULE}#part-a">§10.4 Schedule</a> and <a href="${REGISTER}">Residual-Risk Register</a> were adopted alongside it, the Register as part of the adoption record. The live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>); nothing here activates any schedule &mdash; activation belongs to the certification event alone. The first decennial window runs 2279&ndash;2288.</p>
+            <span class="pb-label">Adopted 2279 · Amended 2291 and 2293 · Applied by the 2294 certification</span>
+            <p><strong>HISTORICAL ADOPTION, CURRENT CONTROL.</strong> Adoption changed no rate, and original §12.3 made the 2279&ndash;2288 no-run window lawful. <a href="law-polling.html#lp-075">LP-075</a> later compelled the remedial process without changing a condition or setting a rate. That process locked in 2292 and produced the complete <a href="${CERTIFICATION}">2294 certification</a>. Findings I&ndash;IV passed, Schedule A certified, B1&ndash;B6 independently passed, and Schedule B certified. The complete <strong>50 / 25 / 12.5 / 6.25</strong> cascade entered force in 2295.</p>
           </div>
         </div>`,
     crosslinks: [
       cx(SCHEDULE + '#part-a', 'is-primary', 'fa-list-ol', '§10.4 Schedule — enumerated measures'),
       cx(REGISTER, 'is-primary', 'fa-clipboard-check', 'Residual-Risk Register — the adoption record'),
       cx('law-polling.html#lp-074', '', 'fa-scale-balanced', 'LP-074 — the register entry'),
-      cx('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — the schedule in force'),
+      cx('law-polling.html#lp-075', '', 'fa-hourglass-start', 'LP-075 — the commencement duty'),
+      cx(CERTIFICATION, '', 'fa-clipboard-check', '2294 certification — activation record'),
+      cx('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — historical rate law'),
       cx('pending-ratify-tax-50-rulings.html', '', 'fa-gavel', 'Presidential rulings — the adoption record'),
       cx('pending-ratify-tax-50-ii-statute.html', '', 'fa-file-contract', 'RATIFY-TAX-50-II — the conditional statute'),
     ].join('\n'),
@@ -487,15 +491,16 @@ const built = [];
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Schedule status">
           <i class="fas fa-list-ol" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Adopted with the Charter — schedules not in force</span>
-            <p><strong>PART OF THE CHARTER (§10.4).</strong> This Schedule enumerates the welfare measures, interval families, and preprocessing methods the audit may select from, and is part of the <a href="${CHARTER}#s-10-4">Path 2 Charter</a> for every purpose of §13.1. Its residues are engraved at the <a href="${REGISTER}#rr-9">Register</a> (RR-9 through RR-12). The live schedule remains <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>) until the certification event.</p>
+            <span class="pb-label">Adopted with the Charter · No valid 2294 application</span>
+            <p><strong>PART OF THE CHARTER (§10.4).</strong> This Schedule enumerates the welfare measures, interval families, and preprocessing methods the audit may select from, and is part of the <a href="${CHARTER}#s-10-4">Path 2 Charter</a> for every purpose of §13.1. Its residues are engraved at the <a href="${REGISTER}#rr-9">Register</a> (RR-9 through RR-12). The complete <a href="${CERTIFICATION}">2294 record</a> applied this Schedule to explicit treatment/counterfactual contrasts. Findings I&ndash;IV passed and Schedule A certified; B1&ndash;B6 were then independently evaluated and Schedule B certified.</p>
           </div>
         </div>`,
     crosslinks: [
       cx(CHARTER + '#s-10-4', 'is-primary', 'fa-scale-balanced', 'Path 2 Charter — §10.4'),
       cx(REGISTER, 'is-primary', 'fa-clipboard-check', 'Residual-Risk Register — RR-9 … RR-12'),
       cx('law-polling.html#lp-074', '', 'fa-scale-balanced', 'LP-074 — the register entry'),
-      cx('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — the schedule in force'),
+      cx(CERTIFICATION, '', 'fa-clipboard-check', '2294 certification — audit output'),
+      cx('law-polling.html#lp-073', '', 'fa-layer-group', 'LP-073 — historical rate law'),
     ].join('\n'),
     body,
   })]);
@@ -517,14 +522,15 @@ const built = [];
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Register status">
           <i class="fas fa-clipboard-check" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Adopted with the Charter — part of the adoption record</span>
-            <p><strong>THE ADOPTION RECORD.</strong> This Register ships with the <a href="${CHARTER}">Path 2 Charter</a> and its <a href="${SCHEDULE}">§10.4 Schedule</a>, binding as the Charter’s own account of its limits. It disposes of the standing adversarial findings against the instrument and engraves the twelve residues <strong>RR-1 through RR-12</strong> that no text can close. No rate moves on any of it: the live schedule is <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>).</p>
+            <span class="pb-label">Adoption record · 2291 cadence amendment noted</span>
+            <p><strong>THE ADOPTION RECORD.</strong> This Register ships with the <a href="${CHARTER}">Path 2 Charter</a> and its <a href="${SCHEDULE}">§10.4 Schedule</a>, binding as the Charter’s own account of its limits. It disposes of the standing adversarial findings against the instrument and engraves the twelve residues <strong>RR-1 through RR-12</strong> that no text can close. Its 2291 annotation records LP-075&rsquo;s procedural amendment and its 2293 annotation records coupled reversion. No finding here activated a rate by itself; the valid 2294 certification and notice made both LP-074 schedules effective in 2295.</p>
           </div>
         </div>`,
     crosslinks: [
       cx(CHARTER, 'is-primary', 'fa-scale-balanced', 'Path 2 Charter — the instrument'),
       cx(SCHEDULE, 'is-primary', 'fa-list-ol', '§10.4 Schedule — enumerated measures'),
       cx('law-polling.html#lp-074', '', 'fa-scale-balanced', 'LP-074 — the register entry'),
+      cx(CERTIFICATION, '', 'fa-clipboard-check', '2294 certification — final record'),
       cx('pending-ratify-tax-50-rulings.html', '', 'fa-gavel', 'Presidential rulings — the adoption record'),
     ].join('\n'),
     body,
@@ -552,8 +558,8 @@ const built = [];
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Rulings status">
           <i class="fas fa-gavel" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Adoption record — 2279 (Y178) · no rate moved</span>
-            <p><strong>THE ADJUDICATION OF RECORD.</strong> Two Rulings of the Presidency on the <a href="path-2-charter.html">Path 2 Charter</a> and its <a href="path-2-risk-register.html">Residual-Risk Register</a>: the first sets the adoption posture, the second adopts. Neither changes a rate &mdash; the schedule holds at <strong>70 / 35 / 17 / 8</strong> (<a href="law-polling.html#lp-073">LP-073</a>) until a Commission this Charter can constitute produces a showing it cannot be made to fake. Part of the <a href="pending-ratification.html">Ratification Record</a>.</p>
+            <span class="pb-label">Historical adoption record — 2279 (Y178)</span>
+            <p><strong>THE ADJUDICATION OF RECORD.</strong> These 2279 rulings adopted the <a href="path-2-charter.html">Path 2 Charter</a> and its <a href="path-2-risk-register.html">Residual-Risk Register</a>; they changed no rate. LP-075 later compelled a process the original Charter did not require. The <a href="${CERTIFICATION}">2294 certification</a> applied the locked methodology, certified both LP-074 schedules, and supplied the certificates later made effective by notice. The historical rulings remain unchanged.</p>
           </div>
         </div>`,
     crosslinks: [
@@ -562,6 +568,7 @@ const built = [];
       cx('path-2-risk-register.html', 'is-primary', 'fa-clipboard-check', 'Residual-Risk Register'),
       cx('pending-ratify-tax-50-ii-statute.html', '', 'fa-file-contract', 'RATIFY-TAX-50-II — the conditional statute'),
       cx('law-polling.html#lp-074', '', 'fa-scale-balanced', 'LP-074 — the register entry'),
+      cx(CERTIFICATION, '', 'fa-clipboard-check', '2294 certification — final record'),
       cx('pending-ratification.html', '', 'fa-arrow-left', 'Ratification Record'),
     ].join('\n'),
     body,

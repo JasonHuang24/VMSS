@@ -1,5 +1,12 @@
 # RATIFY-TAX-50 — Opposition Brief (publishes alongside the ballot)
 
+> **ARCHIVE / NON-OPERATIVE.** This is the failed RATIFY-TAX-50 record,
+> preserved below rather than current authority. Its authored figures never
+> activated law. **Superseded implementation error — not VMSS canon.** A
+> discarded repository implementation said the later LP-074 execution failed.
+> Canon records both schedules certifying and **50 / 25 / 12.5 / 6.25** taking
+> effect in 2295. This original opposition remains historical only.
+
 Status: in-world document. Per ruling R9, adversarial-review findings
 with no drafting cure attach VERBATIM to the gauntlet ballot as the
 opposition brief. Source: Sol cold pass five (fresh seat, prompt +

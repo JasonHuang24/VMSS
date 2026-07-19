@@ -1,5 +1,10 @@
 # RATIFY-TAX-50-II — Conditional Successor Petition
 
+> **ARCHIVE / ENACTED TEXT PRESERVED.** This source preserves the petition and
+> its conditional clauses verbatim. It changed no rate on passage. The later
+> complete 2294 Schedule A and separate Schedule B records satisfied those
+> clauses, activating **50 / 25 / 12.5 / 6.25** in 2295. SCM is unchanged.
+
 **Filed:** approximately Y175, under the Trajectory Doctrine. This is a new
 petition line filed approximately sixty-three years after the Y112 failure of
 RATIFY-TAX-50; it neither reopens nor revises that closed line. The Path 2

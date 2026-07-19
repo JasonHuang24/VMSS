@@ -200,6 +200,14 @@ main {
   color: var(--accent);
 }
 
+/* styles.css loads after the generated Tailwind bundle, so the component's
+   display declaration must preserve the responsive `xl:hidden` contract. */
+@media (min-width: 1280px) {
+  .vmss-icon-button.xl\:hidden {
+    display: none;
+  }
+}
+
 .vmss-mobile-menu {
   background: color-mix(in srgb, var(--bg-secondary) 92%, transparent);
   border-color: var(--border);
@@ -217,6 +225,41 @@ main {
 .nav-link-active {
   color: var(--accent) !important;
   font-weight: 700;
+}
+
+/* The compact brand lockup and two utility buttons otherwise exceed a 390px
+   viewport once the desktop padding and flex gaps are applied. Keep the full
+   identity visible while tightening only the mobile chrome. */
+@media (max-width: 640px) {
+  .vmss-nav > div:first-child {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .vmss-nav > div:first-child > div {
+    gap: 0.5rem;
+  }
+
+  .vmss-nav > div:first-child > div > a[aria-label="The Five Rings home"] {
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .vmss-nav .vmss-nav-mark,
+  .vmss-nav .vmss-icon-button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .vmss-nav .vmss-nav-mark {
+    font-size: 1.2rem;
+    flex: 0 0 auto;
+  }
+
+  .vmss-nav > div:first-child > div > div:last-child {
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
 }
 
 .nav-link-join {

@@ -1,12 +1,6 @@
 # PATH 2 CHARTER — RESIDUAL-RISK REGISTER
 ## Disposition of the 50 standing adversarial findings against v2
 ## Adopted alongside the Charter; part of the adoption record.
-## 2291 amendment note: LP-075 changed future commencement duty only.
-## 2293 amendment note: a §13.1-reviewed coupled-reversion rule made
-## Schedule B dependent on an operative Schedule A and created a direct
-## Lower-specific revocation route.
-## The adoption findings below remain historical dispositions; the first
-## 2279–2288 no-run was lawful under the then-operative §12.3.
 ## Status codes: CURED (v3 text removes the exploit) · MITIGATED
 ## (v3 reduces it; named residue stands) · ACCEPTED (residue engraved)
 
@@ -114,7 +108,7 @@ design.
 | O-9 | 2 | CURED | §12.4(b) predicate rewritten as an enumerated void taxonomy with per-type consequences; §5.3 cross-references §12.4(b)(ii) directly; the "before analysis" predicate is gone. |
 | O-10 | 2 | CURED | §1.4: iterative cascade down the competence ranking, not a single designee; exhaustion = competence-collapse void, §12.4(b)(iii), non-consuming with replacement. |
 | O-11 | 2 | CURED | §13.2: fresh panels seated at every revocation lock; the union may grow, never shrink. A thin-union certification faces a fattened union on review. Compounding with O-1 addressed by O-1's cure. |
-| O-12 | 3 | MITIGATED | §1.3 sunsets to disclosure after two windows. First-window thinness stood: if no credible Commission could be constituted early, none was — original §12.3 made that lawful status quo, not a failure. LP-075 later closed prospective omission by requiring commencement without weakening the methodology. Residue → RR-8. |
+| O-12 | 3 | MITIGATED | §1.3 sunsets to disclosure after two windows. First-window thinness stands: if no credible Commission can be constituted early, none is — §12.3 makes that the lawful status quo, not a failure. Residue → RR-8. |
 
 ### Engraved residues (continued)
 
@@ -135,13 +129,10 @@ alternative — seating genuinely interested parties — reopens every
 capture finding both reviewers filed.
 
 **RR-8 — The first window.** The historical quarantine and the
-competence pool collided hardest in 2279–2288. Under the original
-§12.3, if the civilization could not field a Commission it trusted in
-the first decade after Charter adoption, the rates held — which was the
-then-operative promise, not a failure. LP-075 later treated the
-resulting omission as a procedural defect for future windows and
-required a remedial run; it did not retroactively relabel the first
-window unlawful. Accepted as history; prospectively constrained.
+competence pool collide hardest in 2278–2288. If the civilization
+cannot field a Commission it trusts in the decade after the
+proceedings, the rates hold — which is the promise, not the defect.
+Accepted.
 
 ### Schedule findings (cold methodological review of the Schedule’s first draft, 17)
 
