@@ -44,12 +44,19 @@ const layerConstants = (prefix, rate, expectedCurrentTotal, obligationAmounts) =
 // All gates live here, outside the evidence. The record cannot lower a threshold,
 // shorten a window, rename a source, or declare its own result.
 export const STATUTORY_CONSTANTS = deepFreeze({
-  schemaVersion: '7.0',
+  schemaVersion: '8.0',
   annualStartYear: 2295,
   annualObservations: 30,
-  currentMonths: monthIds(2293, 1, 12),
+  currentMonths: monthIds(2291, 1, 12),
   forwardMonths: monthIds(2295, 1, 36),
-  dividendMonths: monthIds(2291, 1, 36),
+  dividendMonths: monthIds(2289, 1, 36),
+  vintagePolicy: {
+    lockDate: '2292-02-15',
+    maximumPublishedReportingLagDays: 45,
+    computedCutoff: '2292-01-01',
+    completedObservationRule: 'PERIOD_END_ON_OR_BEFORE_CUTOFF_AND_PUBLICATION_AND_VINTAGE_BEFORE_LOCK',
+    preregisteredProjectionRule: 'TARGET_MAY_POSTDATE_LOCK_INPUT_CUTOFF_AND_TRANSFORMATION_FIXED_AT_LOCK',
+  },
   certifiedForwardEvidence: {
     algorithm: 'sha256',
     main: {
@@ -103,6 +110,10 @@ export const STATUTORY_CONSTANTS = deepFreeze({
     sourceClass: 'LOCKED_ANNUAL_MODEL',
     documentId: 'AUDIT-2292-ANNUAL-HORIZON',
     transformId: 'ANNUAL-LOWER-UPPER-BOUNDS',
+    evidenceClass: 'PREREGISTERED_PROJECTION',
+    inputCutoff: '2292-01-01',
+    targetThrough: '2324-12-31',
+    transformationLockedAt: '2292-02-15',
     lockedAt: '2292-02-15',
   }],
   scheduleA: {
@@ -117,12 +128,12 @@ export const STATUTORY_CONSTANTS = deepFreeze({
       { transformId: 'RATIO-MONTH', formula: 'effectiveNumerator / effectiveDenominator', units: 'ratio' },
     ],
     provenance: [
-      { sourceId: 'MAIN-CURRENT-T50', sourceClass: 'MAIN_TAX_RECEIPTS', documentId: 'MAIN-LEDGER-2293-T50', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
-      { sourceId: 'MAIN-CURRENT-M', sourceClass: 'MAIN_OBLIGATIONS', documentId: 'MAIN-LEDGER-2293-M', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
-      { sourceId: 'MAIN-FORWARD-T50', sourceClass: 'INDEPENDENT_MAIN_RECEIPTS_PROJECTION', documentId: 'MAIN-PROJECTION-2295-2297-T50', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
-      { sourceId: 'MAIN-FORWARD-M', sourceClass: 'INDEPENDENT_MAIN_OBLIGATIONS_PROJECTION', documentId: 'MAIN-PROJECTION-2295-2297-M', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
-      { sourceId: 'ADT-AUTOMATION-A', sourceClass: 'ADT_AUTOMATION_RECEIPTS', documentId: 'ADT-LEDGER-2291-2293-A', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
-      { sourceId: 'ADT-DIVIDEND-D', sourceClass: 'DIVIDEND_OBLIGATIONS', documentId: 'ADT-LEDGER-2291-2293-D', transformId: 'REAL-2292', lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-CURRENT-T50', sourceClass: 'MAIN_TAX_RECEIPTS', documentId: 'MAIN-LEDGER-2291-T50', transformId: 'REAL-2292', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-CURRENT-M', sourceClass: 'MAIN_OBLIGATIONS', documentId: 'MAIN-LEDGER-2291-M', transformId: 'REAL-2292', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-FORWARD-T50', sourceClass: 'INDEPENDENT_MAIN_RECEIPTS_PROJECTION', documentId: 'MAIN-PROJECTION-2295-2297-T50', transformId: 'REAL-2292', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'MAIN-FORWARD-M', sourceClass: 'INDEPENDENT_MAIN_OBLIGATIONS_PROJECTION', documentId: 'MAIN-PROJECTION-2295-2297-M', transformId: 'REAL-2292', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'ADT-AUTOMATION-A', sourceClass: 'ADT_AUTOMATION_RECEIPTS', documentId: 'ADT-LEDGER-2289-2291-A', transformId: 'REAL-2292', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'ADT-DIVIDEND-D', sourceClass: 'DIVIDEND_OBLIGATIONS', documentId: 'ADT-LEDGER-2289-2291-D', transformId: 'REAL-2292', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
     ],
     prohibitedSourceClasses: [
       'MAIN_TAX_CROSS_CREDIT', 'LOWER_LAYER_RECEIPTS', 'SCM_RECIRCULATION',
@@ -134,18 +145,18 @@ export const STATUTORY_CONSTANTS = deepFreeze({
     currentMonthly: 1,
     forwardMonthly: 1,
     provenance: [
-      { sourceId: 'L1-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_1_RECEIPTS', documentId: 'L1-LEDGER-2293-LI', lockedAt: '2292-02-15' },
-      { sourceId: 'L1-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_1_OBLIGATIONS', documentId: 'L1-LEDGER-2293-OI', lockedAt: '2292-02-15' },
-      { sourceId: 'L1-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_1_RECEIPTS_PROJECTION', documentId: 'L1-PROJECTION-2295-2297-LI', lockedAt: '2292-02-15' },
-      { sourceId: 'L1-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_1_OBLIGATIONS_PROJECTION', documentId: 'L1-PROJECTION-2295-2297-OI', lockedAt: '2292-02-15' },
-      { sourceId: 'L2-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_2_RECEIPTS', documentId: 'L2-LEDGER-2293-LI', lockedAt: '2292-02-15' },
-      { sourceId: 'L2-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_2_OBLIGATIONS', documentId: 'L2-LEDGER-2293-OI', lockedAt: '2292-02-15' },
-      { sourceId: 'L2-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_2_RECEIPTS_PROJECTION', documentId: 'L2-PROJECTION-2295-2297-LI', lockedAt: '2292-02-15' },
-      { sourceId: 'L2-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_2_OBLIGATIONS_PROJECTION', documentId: 'L2-PROJECTION-2295-2297-OI', lockedAt: '2292-02-15' },
-      { sourceId: 'L3-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_3_RECEIPTS', documentId: 'L3-LEDGER-2293-LI', lockedAt: '2292-02-15' },
-      { sourceId: 'L3-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_3_OBLIGATIONS', documentId: 'L3-LEDGER-2293-OI', lockedAt: '2292-02-15' },
-      { sourceId: 'L3-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_3_RECEIPTS_PROJECTION', documentId: 'L3-PROJECTION-2295-2297-LI', lockedAt: '2292-02-15' },
-      { sourceId: 'L3-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_3_OBLIGATIONS_PROJECTION', documentId: 'L3-PROJECTION-2295-2297-OI', lockedAt: '2292-02-15' },
+      { sourceId: 'L1-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_1_RECEIPTS', documentId: 'L1-LEDGER-2291-LI', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'L1-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_1_OBLIGATIONS', documentId: 'L1-LEDGER-2291-OI', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'L1-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_1_RECEIPTS_PROJECTION', documentId: 'L1-PROJECTION-2295-2297-LI', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'L1-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_1_OBLIGATIONS_PROJECTION', documentId: 'L1-PROJECTION-2295-2297-OI', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'L2-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_2_RECEIPTS', documentId: 'L2-LEDGER-2291-LI', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'L2-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_2_OBLIGATIONS', documentId: 'L2-LEDGER-2291-OI', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'L2-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_2_RECEIPTS_PROJECTION', documentId: 'L2-PROJECTION-2295-2297-LI', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'L2-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_2_OBLIGATIONS_PROJECTION', documentId: 'L2-PROJECTION-2295-2297-OI', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'L3-CURRENT-RECEIPTS', sourceClass: 'LAYER_MINUS_3_RECEIPTS', documentId: 'L3-LEDGER-2291-LI', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'L3-CURRENT-OBLIGATIONS', sourceClass: 'LAYER_MINUS_3_OBLIGATIONS', documentId: 'L3-LEDGER-2291-OI', evidenceClass: 'COMPLETED_OBSERVATION', observedThrough: '2291-12-31', publishedAt: '2292-02-01', vintageAt: '2292-02-01', maxReportingLagDays: 45, lockedAt: '2292-02-15' },
+      { sourceId: 'L3-FORWARD-RECEIPTS', sourceClass: 'LAYER_MINUS_3_RECEIPTS_PROJECTION', documentId: 'L3-PROJECTION-2295-2297-LI', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
+      { sourceId: 'L3-FORWARD-OBLIGATIONS', sourceClass: 'LAYER_MINUS_3_OBLIGATIONS_PROJECTION', documentId: 'L3-PROJECTION-2295-2297-OI', evidenceClass: 'PREREGISTERED_PROJECTION', inputCutoff: '2292-01-01', targetThrough: '2297-12-31', transformationLockedAt: '2292-02-15', lockedAt: '2292-02-15' },
     ],
     prohibitedSourceClasses: [
       'MAIN_TAX_CROSS_CREDIT', 'OTHER_LAYER_RECEIPTS', 'SCM_RECIRCULATION',
@@ -247,9 +258,52 @@ const strictDateValue = (value, timestamp = false) => {
   if (timestamp ? normalized.replace('.000Z', 'Z') !== value : normalized.slice(0, 10) !== value) return Number.NaN;
   return parsed;
 };
+const addUtcDays = (date, days) => new Date(strictDateValue(date) + days * 86400000)
+  .toISOString().slice(0, 10);
+const monthEnd = (month) => {
+  if (typeof month !== 'string' || !/^\d{4}-\d{2}$/.test(month)) return '';
+  const [year, monthNumber] = month.split('-').map(Number);
+  if (monthNumber < 1 || monthNumber > 12) return '';
+  return new Date(Date.UTC(year, monthNumber, 0)).toISOString().slice(0, 10);
+};
 const pushUnless = (errors, condition, message) => {
   if (!condition) errors.push(message);
   return condition;
+};
+
+const validateVintageRegistry = (errors, registry, policy, path) => {
+  if (!Array.isArray(registry) || !registry.length) {
+    errors.push(`${path} must contain at least one provenance entry`);
+    return false;
+  }
+  const lockValue = strictDateValue(policy.lockDate);
+  const cutoffValue = strictDateValue(policy.computedCutoff);
+  const valid = registry.every((entry) => {
+    if (!isObject(entry) || strictDateValue(entry.lockedAt) !== lockValue) return false;
+    if (entry.evidenceClass === 'COMPLETED_OBSERVATION') {
+      return strictDateValue(entry.observedThrough) <= cutoffValue
+        && strictDateValue(entry.publishedAt) < lockValue
+        && strictDateValue(entry.vintageAt) < lockValue
+        && entry.maxReportingLagDays === policy.maximumPublishedReportingLagDays;
+    }
+    if (entry.evidenceClass === 'PREREGISTERED_PROJECTION') {
+      return strictDateValue(entry.inputCutoff) <= cutoffValue
+        && strictDateValue(entry.transformationLockedAt) <= lockValue
+        && Number.isFinite(strictDateValue(entry.targetThrough));
+    }
+    return false;
+  });
+  pushUnless(errors, valid,
+    `${path} must classify every source as an admissible completed observation or preregistered projection`);
+  return valid;
+};
+
+const validateObservedWindowVintage = (errors, rows, policy, path) => {
+  const cutoffValue = strictDateValue(policy.computedCutoff);
+  const valid = Array.isArray(rows) && rows.length > 0 && rows.every((row) =>
+    strictDateValue(monthEnd(row?.month)) <= cutoffValue);
+  pushUnless(errors, valid, `${path} contains a completed observation after the section 6.2 cutoff`);
+  return valid;
 };
 const exactMirror = (errors, actual, expected, path) => pushUnless(
   errors, sameValue(actual, expected), `${path} must exactly match the locked constant`,
@@ -302,6 +356,7 @@ const validateBWindow = (errors, rows, months, sourceIds, path) => {
 
 export function evaluateCertification(data, externalNotice) {
   const schemaErrors = [];
+  const vintageErrors = [];
   const chronologyErrors = [];
   const authorityErrors = [];
   const unchangedCanonErrors = [];
@@ -327,13 +382,20 @@ export function evaluateCertification(data, externalNotice) {
 
   const source = isObject(root.sourceInputs) ? root.sourceInputs : {};
   pushUnless(schemaErrors, hasExactKeys(source,
-    ['description', 'annualProvenanceRegistry', 'annualHorizon', 'scheduleA', 'scheduleB']),
+    ['description', 'vintagePolicy', 'annualProvenanceRegistry', 'annualHorizon', 'scheduleA', 'scheduleB']),
   'sourceInputs has malformed keys');
   pushUnless(schemaErrors, typeof source.description === 'string' && source.description.trim().length > 0,
     'sourceInputs.description must be nonempty');
+  exactMirror(vintageErrors, source.vintagePolicy, C.vintagePolicy, 'sourceInputs.vintagePolicy');
+  pushUnless(vintageErrors,
+    addUtcDays(C.vintagePolicy.computedCutoff, C.vintagePolicy.maximumPublishedReportingLagDays)
+      === C.vintagePolicy.lockDate,
+  'section 6.2 cutoff must equal lock date minus the maximum published reporting lag');
 
   const annualRegistryValid = exactMirror(schemaErrors, source.annualProvenanceRegistry,
     C.annualProvenanceRegistry, 'annualProvenanceRegistry');
+  const annualVintageValid = validateVintageRegistry(vintageErrors, source.annualProvenanceRegistry,
+    C.vintagePolicy, 'annualProvenanceRegistry');
   const annualRows = Array.isArray(source.annualHorizon) ? source.annualHorizon : [];
   const annualKeys = ['year', 'coverageLowerBound', 'dividendPerResidentLowerBound',
     'scheduleEffectLowerBound', 'scmActivationUpperBound', 'flowLowerBound',
@@ -349,7 +411,8 @@ export function evaluateCertification(data, externalNotice) {
       && annualKeys.slice(1, 8).every((key) => isFiniteNumber(row[key]))
       && row.provenanceId === C.annualProvenanceRegistry[0].provenanceId),
     'annualHorizon rows must have exact finite fields and locked provenance');
-  const annualEvidenceValid = annualRegistryValid && annualLengthValid && annualYearsValid && annualRowsValid;
+  const annualEvidenceValid = annualRegistryValid && annualVintageValid
+    && annualLengthValid && annualYearsValid && annualRowsValid;
 
   const findings = {
     I: annualEvidenceValid && annualRows.every((row) => row.coverageLowerBound > C.findings.I.requiredCoverage),
@@ -371,6 +434,8 @@ export function evaluateCertification(data, externalNotice) {
     'scheduleA.transformRegistry');
   const aProvenanceValid = exactMirror(schemaErrors, scheduleA.provenanceRegistry, C.scheduleA.provenance,
     'scheduleA.provenanceRegistry');
+  const aVintageValid = validateVintageRegistry(vintageErrors, scheduleA.provenanceRegistry,
+    C.vintagePolicy, 'scheduleA.provenanceRegistry');
   const aSourceClasses = Array.isArray(scheduleA.provenanceRegistry)
     ? scheduleA.provenanceRegistry.map((entry) => entry?.sourceClass) : [];
   const aSourceClassValid = aProvenanceValid && aSourceClasses.every((sourceClass) =>
@@ -383,6 +448,8 @@ export function evaluateCertification(data, externalNotice) {
     numerator: 't50', denominator: 'm', numeratorSource: 't50SourceId', denominatorSource: 'mSourceId',
     inclusionRule: 'INCLUDE_LOCKED_MONTH',
   }, ['MAIN-CURRENT-T50', 'MAIN-CURRENT-M'], 'scheduleA.mainCurrentWindow');
+  const mainCurrentVintageValid = validateObservedWindowVintage(vintageErrors,
+    scheduleA.mainCurrentWindow, C.vintagePolicy, 'scheduleA.mainCurrentWindow');
   const mainForwardValid = validateAWindow(schemaErrors, scheduleA.mainForwardWindow, {
     months: C.forwardMonths,
     keys: ['month', 'date', 't50', 'm', 't50SourceId', 'mSourceId'],
@@ -401,6 +468,8 @@ export function evaluateCertification(data, externalNotice) {
     numerator: 'a', denominator: 'd', numeratorSource: 'aSourceId', denominatorSource: 'dSourceId',
     inclusionRule: 'INCLUDE_COMPLETED_MONTH',
   }, ['ADT-AUTOMATION-A', 'ADT-DIVIDEND-D'], 'scheduleA.dividendWindow');
+  const dividendVintageValid = validateObservedWindowVintage(vintageErrors,
+    scheduleA.dividendWindow, C.vintagePolicy, 'scheduleA.dividendWindow');
 
   const aMetrics = {
     main12: effectiveRatio(scheduleA.mainCurrentWindow, 't50', 'm'),
@@ -424,8 +493,9 @@ export function evaluateCertification(data, externalNotice) {
   'scheduleA.reportedMetrics must exactly reconcile to raw evidence');
 
   const scheduleAConditions = {
-    A1: transformsValid && aProvenanceValid && mainCurrentValid && mainForwardValid
-      && mainForwardDigestValid && dividendValid,
+    A1: transformsValid && aProvenanceValid && aVintageValid
+      && mainCurrentValid && mainCurrentVintageValid && mainForwardValid
+      && mainForwardDigestValid && dividendValid && dividendVintageValid,
     A2: mainCurrentValid && aMetrics.main12 >= C.scheduleA.currentAggregate,
     A3: mainCurrentValid && aMetrics.mainCurrentMinimum >= C.scheduleA.currentMonthly,
     A4: mainForwardValid && mainForwardDigestValid
@@ -445,6 +515,8 @@ export function evaluateCertification(data, externalNotice) {
     'scheduleB has malformed keys');
   const bProvenanceValid = exactMirror(schemaErrors, scheduleB.provenanceRegistry, C.scheduleB.provenance,
     'scheduleB.provenanceRegistry');
+  const bVintageValid = validateVintageRegistry(vintageErrors, scheduleB.provenanceRegistry,
+    C.vintagePolicy, 'scheduleB.provenanceRegistry');
   const bSourceClasses = Array.isArray(scheduleB.provenanceRegistry)
     ? scheduleB.provenanceRegistry.map((entry) => entry?.sourceClass) : [];
   const bSourceClassValid = bProvenanceValid && bSourceClasses.every((sourceClass) =>
@@ -467,6 +539,8 @@ export function evaluateCertification(data, externalNotice) {
       `scheduleB.layers.${name}.rate must match LP-074`);
     const currentValid = validateBWindow(schemaErrors, layer.currentWindow, C.currentMonths,
       LC.currentSources, `scheduleB.layers.${name}.currentWindow`);
+    const currentVintageValid = validateObservedWindowVintage(vintageErrors, layer.currentWindow,
+      C.vintagePolicy, `scheduleB.layers.${name}.currentWindow`);
     const forwardValid = validateBWindow(schemaErrors, layer.forwardWindow, C.forwardMonths,
       LC.forwardSources, `scheduleB.layers.${name}.forwardWindow`);
     const forwardDigest = orderedWindowDigest(layer.forwardWindow,
@@ -545,7 +619,7 @@ export function evaluateCertification(data, externalNotice) {
       `scheduleB.layers.${name}.reportedMetrics must reconcile to raw monthly evidence`);
 
     layerValidation[name] = {
-      rateValid, currentValid, forwardValid, forwardDigestValid, forwardDigest,
+      rateValid, currentValid, currentVintageValid, forwardValid, forwardDigestValid, forwardDigest,
       routeReconciled, obligationsReconciled,
       reportedMetricsValid, metrics: bMetrics,
     };
@@ -555,7 +629,8 @@ export function evaluateCertification(data, externalNotice) {
   const scheduleBConditions = {
     B1: layerEntries.every((entry) => entry.routeReconciled),
     B2: layerEntries.every((entry) => entry.obligationsReconciled),
-    B3: bSourceClassValid && layerEntries.every((entry) => entry.rateValid && entry.currentValid),
+    B3: bSourceClassValid && bVintageValid
+      && layerEntries.every((entry) => entry.rateValid && entry.currentValid && entry.currentVintageValid),
     B4: layerEntries.every((entry) => entry.currentValid && entry.reportedMetricsValid
       && entry.metrics.currentAggregate >= C.scheduleB.currentAggregate
       && entry.metrics.currentMinimum >= C.scheduleB.currentMonthly),
@@ -588,16 +663,17 @@ export function evaluateCertification(data, externalNotice) {
   const noticeValid = noticeErrors.length === 0 && authorityValid;
 
   const schemaValid = schemaErrors.length === 0;
+  const vintageValid = vintageErrors.length === 0;
   const chronologyValid = chronologyErrors.length === 0;
-  const certified = schemaValid && chronologyValid && authorityValid && unchangedCanonValid
+  const certified = schemaValid && vintageValid && chronologyValid && authorityValid && unchangedCanonValid
     && scheduleACertified && scheduleBIndependentCertified && noticeValid;
-  const errors = [...schemaErrors, ...chronologyErrors, ...authorityErrors,
+  const errors = [...schemaErrors, ...vintageErrors, ...chronologyErrors, ...authorityErrors,
     ...unchangedCanonErrors, ...noticeErrors, ...conditionErrors];
 
   return {
     certified,
     errors,
-    validation: { schemaValid, chronologyValid, authorityValid, unchangedCanonValid, noticeValid },
+    validation: { schemaValid, vintageValid, chronologyValid, authorityValid, unchangedCanonValid, noticeValid },
     annualObservationCount: annualRows.length,
     findings,
     scheduleAConditions,

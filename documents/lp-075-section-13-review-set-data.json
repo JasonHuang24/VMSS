@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "reviewSetId": "LP075-SECTION-13-1-REVIEW-SET",
+  "amendmentFiled": "2289-03-01",
+  "rankingSnapshot": "2289-03-15",
+  "ranking": [
+    {
+      "rank": 1,
+      "entityId": "AUDIT-METHOD-ENTITY-01",
+      "eligible": false,
+      "reason": "prior authorship exposure"
+    },
+    {
+      "rank": 2,
+      "entityId": "AUDIT-METHOD-ENTITY-12",
+      "eligible": true,
+      "reason": "highest-ranked unexposed entity"
+    },
+    {
+      "rank": 3,
+      "entityId": "AUDIT-METHOD-ENTITY-27",
+      "eligible": true,
+      "reason": "not reached"
+    }
+  ],
+  "selectedReviewer": "AUDIT-METHOD-ENTITY-12",
+  "selectionMethod": "MECHANICAL_HIGHEST_RANKED_ELIGIBLE",
+  "reviewPublished": "2290-01-15",
+  "findings": [
+    {
+      "id": "LP075-R1",
+      "severity": "HIGHEST",
+      "issue": "The amendment reverses the Presidency Part V no-duty holding.",
+      "disposition": "SUSTAINED_AS_PROSPECTIVE_AMENDMENT",
+      "replyPublished": "2290-05-01",
+      "reviewerReply": "The conflict is real and cannot be construed away. Section 13.1 permits the chambers to amend cadence prospectively while preserving the first window and all evidentiary gates.",
+      "standingObjection": true
+    },
+    {
+      "id": "LP075-R2",
+      "severity": "HIGH",
+      "issue": "RR-8 prices first-window non-commencement as lawful history.",
+      "disposition": "SUSTAINED_AND_PRESERVED",
+      "replyPublished": "2290-05-01",
+      "reviewerReply": "The remedial duty does not retroactively relabel 2279-2288 and therefore does not contradict RR-8.",
+      "standingObjection": false
+    },
+    {
+      "id": "LP075-R3",
+      "severity": "HIGH",
+      "issue": "Compelled commencement could become compelled certification.",
+      "disposition": "CURED_BY_OUTCOME_NEUTRALITY",
+      "replyPublished": "2290-05-01",
+      "reviewerReply": "Certification, failure, and recognized void remain available; no rate or evidentiary threshold changes.",
+      "standingObjection": false
+    },
+    {
+      "id": "LP075-R4",
+      "severity": "MEDIUM",
+      "issue": "Strategic non-locking could recreate omission.",
+      "disposition": "CURED_BY_REPLACEMENT_AND_ATTRIBUTION",
+      "replyPublished": "2290-05-01",
+      "reviewerReply": "Replacement constitution, public attribution, and Meritboard sanction close the dissolution route.",
+      "standingObjection": false
+    }
+  ],
+  "repliesCompletedBeforeAdoption": true,
+  "adoption": {
+    "adoptedAt": "2291-01-15",
+    "Meritboard": "73%",
+    "SupremeCourt": "7/10",
+    "Sanctuary": "97%",
+    "Main": "84%",
+    "LowerAggregate": "72%"
+  },
+  "presidency": {
+    "highestSeverityFlagRaised": true,
+    "vetoExercised": false,
+    "dispositionPublished": "2291-01-20",
+    "reason": "The chambers used section 13.1 to reverse the no-duty rule prospectively, preserved the first window, and left factual certification entirely with the locked instrument."
+  },
+  "enactedAt": "2291-01-20"
+}

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0",
+  "executionId": "PATH2-REGISTRAR-EXECUTION-2294-10-20",
+  "office": "Independent Path 2 Registrar",
+  "executionStarted": "2294-10-15T09:00:00Z",
+  "executionCompleted": "2294-10-20T17:30:00Z",
+  "issuedBeforeInstruments": true,
+  "conformityNotMerits": true,
+  "environment": {
+    "runtime": "Node.js 22 LTS",
+    "externalDependencies": [],
+    "locale": "C",
+    "timezone": "UTC",
+    "randomSeed": null,
+    "seedDeclaration": "NO_RANDOM_SEED_DETERMINISTIC_EXECUTION",
+    "comparisonRule": "UNROUNDED_VALUES_ONLY"
+  },
+  "escrowedArtifacts": {
+    "controllingData": {
+      "path": "documents/path-2-certification-2294-data.json",
+      "algorithm": "sha256",
+      "digest": "5ade772de3339134b52bdcabc28586cc15494bbe76ebeffd769e2ccad3c16e6e",
+      "bytes": 60180
+    },
+    "verifier": {
+      "path": "tools/verify-path2-certification-2294.mjs",
+      "algorithm": "sha256",
+      "digest": "e82e0a2a090ece303ab76732355e5f18c629457b901648e40768e41730b6459a",
+      "bytes": 46216
+    },
+    "recordVerifier": {
+      "path": "tools/verify-path2-record-annexes.mjs",
+      "algorithm": "sha256",
+      "digest": "4987fd98b2068bd5bc253280da66d4e8287d3bb1606a8c862c57946de510fd0d",
+      "bytes": 14671
+    },
+    "annexGenerator": {
+      "path": "tools/build-path2-record-annexes.mjs",
+      "algorithm": "sha256",
+      "digest": "72665c10d124efe159f4589224cf7afd661ad1a3e94ad2189040e41296d5243f",
+      "bytes": 20172
+    },
+    "certificationPageGenerator": {
+      "path": "tools/build-path2-certification-page.mjs",
+      "algorithm": "sha256",
+      "digest": "dc2510dad05f2fbd4d4095bd853359fb56f547100e853811d8d03b9e52e72e49",
+      "bytes": 16439
+    },
+    "restatement": {
+      "path": "documents/path-2-charter-restatement-2292-data.json",
+      "algorithm": "sha256",
+      "digest": "9cebb385e4bebcc671f036e912131d8f5afae61b926c5b04e0481b5772c383de",
+      "bytes": 24468
+    },
+    "lowerCertificate": {
+      "path": "documents/path-2-lower-incidence-certificate-2294-data.json",
+      "algorithm": "sha256",
+      "digest": "bb8d14e7e489ce1da66f381604281df47636a446a79dbf3b9a3506c95c02df12",
+      "bytes": 40025
+    },
+    "compendiumAnnex": {
+      "path": "documents/path-2-section-11-compendium-2294-annex.json",
+      "algorithm": "sha256",
+      "digest": "20b25cfb6f30bbd040d0c714dad4a8167790ade6a3014d517aab0454c63d2a1c",
+      "bytes": 140776
+    }
+  },
+  "classRepresentativesExecuted": {
+    "I": "I-CHALLENGE-STRESS",
+    "II": "II-CHALLENGE-STRESS",
+    "III": "III-CHALLENGE-STRESS",
+    "IV": "IV-CHALLENGE-STRESS"
+  },
+  "executionLog": [
+    {
+      "at": "2294-10-15T09:00:00Z",
+      "step": "VERIFY_ESCROW_DIGESTS",
+      "outcome": "MATCH"
+    },
+    {
+      "at": "2294-10-15T10:30:00Z",
+      "step": "LOAD_LOCKED_ENVIRONMENT",
+      "outcome": "READY"
+    },
+    {
+      "at": "2294-10-16T08:00:00Z",
+      "step": "EXECUTE_VALIDATION_FLOOR",
+      "outcome": "12_SURVIVE_4_EXCLUDED"
+    },
+    {
+      "at": "2294-10-17T08:00:00Z",
+      "step": "EXECUTE_SECTION_4_6_REPRESENTATIVES",
+      "outcome": "8_EXECUTED"
+    },
+    {
+      "at": "2294-10-18T08:00:00Z",
+      "step": "RECOMPUTE_FINDINGS_I_IV",
+      "outcome": "ALL_PASS"
+    },
+    {
+      "at": "2294-10-19T08:00:00Z",
+      "step": "RECOMPUTE_A1_A8_AND_B1_B6",
+      "outcome": "ALL_PASS"
+    },
+    {
+      "at": "2294-10-20T15:00:00Z",
+      "step": "VERIFY_SECTION_1_6_DISPOSITIONS",
+      "outcome": "MATCH"
+    },
+    {
+      "at": "2294-10-20T17:30:00Z",
+      "step": "ISSUE_CONFORMITY_CERTIFICATE",
+      "outcome": "ISSUANCE_PERMITTED"
+    }
+  ],
+  "comparisons": {
+    "findings": {
+      "I": true,
+      "II": true,
+      "III": true,
+      "IV": true
+    },
+    "scheduleA": {
+      "A1": true,
+      "A2": true,
+      "A3": true,
+      "A4": true,
+      "A5": true,
+      "A6": true,
+      "A7": true,
+      "A8": true
+    },
+    "scheduleB": {
+      "B1": true,
+      "B2": true,
+      "B3": true,
+      "B4": true,
+      "B5": true,
+      "B6": true
+    },
+    "metrics": {
+      "findingICoverageMinimum": 1.01,
+      "findingIIDividendMinimum": 100.1,
+      "findingIIScheduleEffectMinimum": 0.02,
+      "findingIIIActivationCeiling": 10.1,
+      "findingIIIActivationUpperBound": 10.08,
+      "findingIIIFlowMinimum": 0.51,
+      "findingIVNetMarginalValueMinimum": 0.1,
+      "findingIVConcentrationMaximum": 0,
+      "scheduleA": {
+        "main12": 1.0670000000000002,
+        "mainCurrentMinimum": 1.012,
+        "mainForwardMinimum": 1.014,
+        "adt36": 1.2240000000000002,
+        "dividendMinimum": 1.011
+      },
+      "scheduleB": {
+        "-1": {
+          "currentAggregate": 1.0584166666666666,
+          "currentMinimum": 1.052,
+          "forwardMinimum": 1.018
+        },
+        "-2": {
+          "currentAggregate": 1.0541666666666665,
+          "currentMinimum": 1.05,
+          "forwardMinimum": 1.014
+        },
+        "-3": {
+          "currentAggregate": 1.0525,
+          "currentMinimum": 1.05,
+          "forwardMinimum": 1.012
+        }
+      },
+      "scheduleBReconciliation": {
+        "-1": {
+          "auditedCollections": 1270.1,
+          "routedTotal": 1270.1,
+          "obligationTotal": 1200
+        },
+        "-2": {
+          "auditedCollections": 759,
+          "routedTotal": 759,
+          "obligationTotal": 720
+        },
+        "-3": {
+          "auditedCollections": 378.9,
+          "routedTotal": 378.9,
+          "obligationTotal": 360
+        }
+      },
+      "forwardEvidenceDigests": {
+        "main": "aed1750cbfc533d94d5285db35dedc53ebbcbb0c27579a397b1566a09d84c0d5",
+        "layers": {
+          "-1": "0b07dd289c9e58c6526033bc42edf55e8c614c2fe456fac33e5330ecfbd6da37",
+          "-2": "57b92421aaae66793a4ba6a9491e040af026d0280eea2e71e9565c45bbc55712",
+          "-3": "8156d2570e8d4cf5d1fca6b2d1c36d29e42bfabcf11da07238f953aef0c85cad"
+        }
+      }
+    }
+  },
+  "everyReportedComparisonMatched": true,
+  "everyDispositionMatchedSection1_6": true,
+  "deviations": [],
+  "disposition": "CONFORMITY_CERTIFIED_ISSUANCE_PERMITTED"
+}

@@ -92,6 +92,14 @@ hostile('Schedule A provenance', 'missing transform', (candidate) => { a(candida
 hostile('Schedule A provenance', 'duplicate source ID', (candidate) => { a(candidate).provenanceRegistry[1].sourceId = a(candidate).provenanceRegistry[0].sourceId; });
 hostile('Schedule A provenance', 'forbidden source class', (candidate) => { a(candidate).provenanceRegistry[0].sourceClass = 'MAIN_TAX_CROSS_CREDIT'; });
 hostile('Schedule A provenance', 'malformed lock date', (candidate) => { a(candidate).provenanceRegistry[0].lockedAt = '2292-02-30'; });
+hostile('vintage guard', 'completed source observed after cutoff', (candidate) => { a(candidate).provenanceRegistry[0].observedThrough = '2292-01-02'; });
+hostile('vintage guard', 'completed source published at lock', (candidate) => { a(candidate).provenanceRegistry[0].publishedAt = '2292-02-15'; });
+hostile('vintage guard', 'completed source vintage at lock', (candidate) => { a(candidate).provenanceRegistry[0].vintageAt = '2292-02-15'; });
+hostile('vintage guard', 'completed source mislabeled projection', (candidate) => { a(candidate).provenanceRegistry[0].evidenceClass = 'PREREGISTERED_PROJECTION'; });
+hostile('vintage guard', 'projection input after cutoff', (candidate) => { a(candidate).provenanceRegistry[2].inputCutoff = '2292-01-02'; });
+hostile('vintage guard', 'projection transformation after lock', (candidate) => { a(candidate).provenanceRegistry[2].transformationLockedAt = '2292-02-16'; });
+hostile('vintage guard', 'Main completed month after cutoff', (candidate) => { a(candidate).mainCurrentWindow[11].month = '2292-01'; a(candidate).mainCurrentWindow[11].date = '2292-01-01'; });
+hostile('vintage guard', 'dividend completed month after cutoff', (candidate) => { a(candidate).dividendWindow[35].month = '2292-01'; a(candidate).dividendWindow[35].date = '2292-01-01'; });
 hostile('Schedule A provenance', 'authored trigger source', (candidate) => { a(candidate).mainCurrentWindow[0].t50SourceId = 'AUTHOR-TRIGGER'; });
 hostile('Schedule A plausible field', 'small valid-looking adjustment change', (candidate) => { a(candidate).mainCurrentWindow[5].adjustment = 1.001; });
 hostile('Schedule A plausible field', 'small valid-looking weight change', (candidate) => { a(candidate).mainCurrentWindow[5].weight = 0.999; });
@@ -130,6 +138,8 @@ hostile('Schedule B schema', 'extra layer', (candidate) => { b(candidate).layers
 hostile('Schedule B provenance', 'missing provenance entry', (candidate) => { b(candidate).provenanceRegistry.pop(); });
 hostile('Schedule B provenance', 'duplicate provenance source ID', (candidate) => { b(candidate).provenanceRegistry[1].sourceId = b(candidate).provenanceRegistry[0].sourceId; });
 hostile('Schedule B provenance', 'forbidden source class', (candidate) => { b(candidate).provenanceRegistry[0].sourceClass = 'OTHER_LAYER_RECEIPTS'; });
+hostile('vintage guard', 'Lower completed source after cutoff', (candidate) => { b(candidate).provenanceRegistry[0].observedThrough = '2292-01-02'; });
+hostile('vintage guard', 'Lower projection input after cutoff', (candidate) => { b(candidate).provenanceRegistry[2].inputCutoff = '2292-01-02'; });
 
 for (const layerName of ['-1', '-2', '-3']) {
   const layer = (candidate) => b(candidate).layers[layerName];
@@ -192,7 +202,7 @@ hostile('Schedule B adoption', 'omitted adopted layer', (candidate) => { b(candi
 hostile('external notice', 'notice object emptied', ({ notice }) => { Object.keys(notice).forEach((key) => delete notice[key]); });
 hostile('plausible date', 'valid adjacent audit completion date', ({ data }) => { data.record.auditCompleted = '2294-10-16'; });
 hostile('plausible date', 'valid adjacent effective date', ({ data }) => { data.record.effectiveAt = '2295-01-02'; });
-hostile('plausible date', 'valid adjacent monthly observation date', (candidate) => { a(candidate).mainCurrentWindow[5].date = '2293-06-02'; });
+hostile('plausible date', 'valid adjacent monthly observation date', (candidate) => { a(candidate).mainCurrentWindow[5].date = '2291-06-02'; });
 hostile('plausible date', 'valid adjacent provenance lock date', (candidate) => { a(candidate).provenanceRegistry[0].lockedAt = '2292-02-16'; });
 hostile('plausible date', 'valid adjacent notice timestamp', ({ notice }) => { notice.publishedAt = '2294-12-02T12:00:00Z'; });
 hostile('plausible authority', 'small active Main rate change', ({ data }) => { data.authority.lp074.activeSchedule[0] = 50.01; });

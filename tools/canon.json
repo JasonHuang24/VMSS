@@ -18,6 +18,13 @@
     "lp073": "superseded-in-2295",
     "lp074": "active-substantive-rate-law",
     "lp075": "procedural-only",
-    "scm": "unchanged"
+    "scm": "unchanged",
+    "lockDate": "2292-02-15",
+    "evidenceCutoff": "2292-01-01",
+    "mainAndLowerCompletedYear": 2291,
+    "dividendCompletedWindow": "2289-2291",
+    "section4UnionMembers": 16,
+    "section4ClassRepresentatives": 8,
+    "publicationRecord": "complete"
   }
 }

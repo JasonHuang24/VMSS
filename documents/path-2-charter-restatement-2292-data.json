@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": "1.0",
+  "instrumentId": "PATH2-RESTATEMENT-SNAPSHOT-2292",
+  "status": "LOCKED_AT_2292_02_15",
+  "lockDate": "2292-02-15",
+  "cutoff": "2292-01-01",
+  "units": "billions of layer credits, constant 2292 purchasing power",
+  "rule": "The population is fixed item by item under Charter sections 3.1 and 10.1; no unenumerated obligation enters M(m).",
+  "obligations": [
+    {
+      "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+      "legalHead": "Federal enforcement network",
+      "paymentOrder": 1,
+      "monthlyAmount": 40
+    },
+    {
+      "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+      "legalHead": "Constitutional and federal courts",
+      "paymentOrder": 2,
+      "monthlyAmount": 25
+    },
+    {
+      "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+      "legalHead": "Layer boundary infrastructure",
+      "paymentOrder": 3,
+      "monthlyAmount": 35
+    }
+  ],
+  "currentWindow": [
+    {
+      "month": "2291-01",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-02",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-03",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-04",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-05",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-06",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-07",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-08",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-09",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-10",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-11",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    },
+    {
+      "month": "2291-12",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-CURRENT-M",
+      "reconciles": true
+    }
+  ],
+  "forwardWindow": [
+    {
+      "month": "2295-01",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-02",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-03",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-04",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-05",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-06",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-07",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-08",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-09",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-10",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-11",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2295-12",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-01",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-02",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-03",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-04",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-05",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-06",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-07",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-08",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-09",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-10",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-11",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2296-12",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-01",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-02",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-03",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-04",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-05",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-06",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-07",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-08",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-09",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-10",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-11",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    },
+    {
+      "month": "2297-12",
+      "items": [
+        {
+          "obligationId": "MAIN-ENFORCEMENT-NETWORK",
+          "amount": 40
+        },
+        {
+          "obligationId": "MAIN-CONSTITUTIONAL-COURTS",
+          "amount": 25
+        },
+        {
+          "obligationId": "MAIN-BOUNDARY-INFRASTRUCTURE",
+          "amount": 35
+        }
+      ],
+      "enumeratedTotal": 100,
+      "controllingM": 100,
+      "sourceId": "MAIN-FORWARD-M",
+      "reconciles": true
+    }
+  ],
+  "exclusions": [
+    "Automation Dividend Treasury dividend obligations",
+    "Savings Circulation Mandate recycling",
+    "Lower-layer obligations",
+    "Discretionary expenditure not enumerated at lock",
+    "Cyclical backfill"
+  ],
+  "reconciliation": {
+    "currentRows": 12,
+    "forwardRows": 36,
+    "everyMonthReconciles": true,
+    "oldPetitionAllocationUsed": false
+  }
+}
