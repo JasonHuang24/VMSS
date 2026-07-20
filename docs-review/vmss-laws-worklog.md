@@ -159,3 +159,137 @@ spelling "Defence" in the repository, against the register's "defense". Correcte
   register; the outcome text ("Permitted with licensing and reporting") is what is in force. The
   `advisory, not institutionally enforced` formula is carried verbatim, comma included, on every -3
   row.
+
+---
+
+## Prompt 2 — Charter trim + guard flips (single commit)
+
+### Files changed
+
+| File | Change | Delta |
+|---|---|---|
+| `charter.html` | III.III trim: Path 2 narration deleted, four rate bullets replaced by the ratified sentence, restatement paragraph removed, two rationale paragraphs relocated out | −11 / +2 |
+| `whitepaper.html` | receives the two rationale paragraphs **verbatim**, after the Trajectory Doctrine block, with a one-line lead-in | +4 |
+| `tools/check-canon.mjs` | 3 retargets + 2 guard families + 3 manual enrollments | +203 / −6 |
+| `tools/build-law-toc.mjs` | sibling mode for laws.html | +152 / −2 |
+| `sitemap.xml` | adds laws.html (22 → 23 URLs) | +6 |
+| `faq.html` | :818 tier misattribution rewritten (see judgment J9) | −1 / +1 |
+
+One commit, as required — CI never sees the intermediate state where the Charter has lost its
+cascade but the pins still point at it.
+
+### Gate
+
+- `node tools/check-canon.mjs` → **120 passed, 0 failed**. Baseline 103, so **+17 checks**.
+- `npm run build:css` → no post-build diff.
+- `node tools/build-law-toc.mjs` (both modes) → idempotent; second run byte-identical. The
+  generator's output for `laws.html` is byte-identical to the block committed in Prompt 1, so the
+  hand-off and the tool agree exactly.
+
+### charter.html III.III — dispositions actually applied
+
+| Architecture §4 row | Applied |
+|---|---|
+| line 195 final sentence (Path 2 narration) | deleted |
+| lines 196–201 (four rate bullets) | replaced by the ratified sentence |
+| line 202 (restatement apparatus) | removed; lives in the Code's Taxation-title preamble |
+| lines 204–205 (rate-keyed rationale) | relocated **verbatim** to whitepaper §12.1 |
+| line 195 (rest), line 203 | kept — grants and rights, no mutable parameters |
+
+No `h2`/`h3` id was touched; `simulations.html`'s Charter article-anchor deep links are unaffected
+(re-verified by link-integrity 8b, which passes).
+
+Post-trim Charter state, as the architecture predicted exactly: **one** surviving LP reference —
+LP-069 at III.VII — and **zero** cascade matches. Article III.II's PJS overtime figures
+($125 / $62.50 / $31.25 / $15.63) were confirmed not to trip the cascade regex, as instructed
+(verified, not assumed).
+
+### Retargets — moved, never deleted
+
+| Pin | Was | Now |
+|---|---|---|
+| Binding-source precedence | `charter.html` restatement sentence | `laws.html` conflicts clause (verbatim §2.1 sentence) |
+| Authority assertions (3 patterns) | `charter.html` row | `laws.html` row — same three patterns, same strictness |
+| Cascade `currentSurfaces` | `charter.html` | `laws.html` — **still 12 surfaces** |
+
+The other two authority rows (`rate-history.html`, `law-polling.html`) are untouched. **No check was
+deleted or weakened anywhere in this prompt.**
+
+### New guards
+
+**§7.2 Charter purity** — 3 checks: no cascade on the constitutional surface; no LP reference outside
+a one-entry whitelist; and a stale-whitelist check so the whitelist cannot outlive what it exempts.
+The whitelist entry carries its own architecture citation (§5 category A, Phase 3 TODO).
+
+**§7.3 Code integrity** — 10 checks: (a1) data-source resolves, (a2) no failed/superseded/rerouted
+source, (a3) no double consolidation, (a4) every enacted register entry consolidated 1:1,
+(b) each entry links its own register anchor, (c) data-tier vocabulary, (d1) Tier 1 row count from
+the element-anchored `<h2 id="article-` regex, (d2) Tier 1 title text-equality in order,
+(e) positive sitemap coverage, plus a ToC-sync check mirroring the register's existing one.
+
+**§7.3f Tier-claim guard** — 1 check over all World-tier pages. Deliberately a predication test
+("taxation is charter-level"), not adjacency, because "constitutional" legitimately sits near tax
+vocabulary throughout the corpus.
+
+### Manual-list enrollment — confirmed individually
+
+- Cascade `currentSurfaces` — **confirmed** (laws.html swapped in, step 2).
+- Stale-fact pages (`five currencies`) — **confirmed**, laws.html added.
+- Duplicate-id pages — **confirmed**, laws.html added.
+- In-page-anchor pages — **confirmed**, laws.html added (belt-and-braces beside 8b).
+- Auto-enrolled sweeps (layer guard, refusal-leak, link-integrity 8b) — **no action needed**;
+  verified passing over laws.html since its first commit.
+
+### Hostile mutation suite — every new guard proven to bite
+
+17 mutations applied to a live tree, each expected to turn CI red. **17 rejected, 0 accepted.**
+
+| Mutation | Result |
+|---|---|
+| reintroduce the exact cascade into charter.html | REJECTED |
+| reintroduce an unwhitelisted LP reference into charter.html | REJECTED |
+| drop LP-069 while leaving it whitelisted | REJECTED |
+| delete a consolidated enacted entry | REJECTED |
+| point an entry at a failed/rerouted filing | REJECTED |
+| point an entry at a nonexistent register anchor | REJECTED |
+| invent a data-tier on a ToC link | REJECTED |
+| invent a data-tier on an entry article | REJECTED |
+| drift a Tier 1 index title | REJECTED |
+| drop a Tier 1 index row | REJECTED |
+| break an entry's own source link (still resolvable) | REJECTED |
+| drop laws.html from the sitemap | REJECTED |
+| remove an authority assertion from laws.html | REJECTED |
+| alter the conflicts clause | REJECTED |
+| restore the faq:818 tier misattribution | REJECTED |
+| assert the rate schedule is constitutional on systems.html | REJECTED |
+| stale Code ToC (entry present, link missing) | REJECTED |
+
+The suite found one genuine hole on its first run: guard (c) originally read `data-tier` only from
+entry articles, so a bogus tier on a generated ToC link passed. The guard was widened to every
+`data-tier` on the page and the mutation now fails as it should. Recorded because it is exactly the
+kind of guard that would have looked green forever.
+
+### Judgments exercised beyond the architecture — flagged for review
+
+- **J8 — the sitemap entry was added in this prompt, not Prompt 3.** Prompt 2 step 4(e) explicitly
+  sanctions this ("or add the sitemap entry here and note it"). Noted.
+- **J9 — faq:818 was rewritten in this prompt, not Prompt 3.** This one is a real deviation and
+  needs the architect's eye. Guard 7.3f is specified for Prompt 2, but faq:818 is the live defect
+  that guard exists to catch, and it is scheduled for repair in Prompt 3. Shipping the guard and the
+  defect in different commits would mean knowingly leaving CI red across a prompt boundary, which
+  the definition of done forbids. I applied the same resolution the pack itself prescribes for the
+  identical ordering conflict at 4(e): pull the minimum forward and say so. **Only the misattributed
+  clause moved**; Prompt 3 still owns the `:796` four-tier explainer link and everything else in §6.
+  The wording used is the one Prompt 3 specifies. Alternative, if the architect prefers strict
+  prompt scoping: move guard 7.3f into the Prompt 3 commit instead.
+- **J10 — the generator defaults to running both modes.** `--laws` and `--law-polling` select one.
+  Default-both keeps the maintainer instruction printed on law-polling.html ("re-run after adding or
+  renaming any LP entry: `node tools/build-law-toc.mjs`") correct now that a second index depends on
+  the same record. The register's existing parsing is untouched, as required — this is a CLI
+  addition, not a parser change.
+- **J11 — a ToC-sync check was added beyond the §7.3 list.** It mirrors the register's long-standing
+  `ToC links = entries` check on the same terms. An extension, not a deletion; drop it if the
+  architect wants §7.3 held to exactly its enumerated members.
+- **J12 — the replacement sentence for the rate bullets is the architecture's draft wording,
+  verbatim.** Architecture §4 marks it "Jason approves final wording". It ships as drafted and is
+  flagged here as pending that approval.

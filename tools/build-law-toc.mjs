@@ -1,22 +1,48 @@
 #!/usr/bin/env node
 /**
- * build-law-toc.mjs — regenerates the Table of Contents on law-polling.html
- * from the entry anchors themselves. Re-run after adding or renaming any LP
- * entry:  node tools/build-law-toc.mjs
+ * build-law-toc.mjs — regenerates the Tables of Contents on the two record
+ * pages from their own entry anchors. Re-run after adding or renaming any LP
+ * entry, or after adding a provision to the Code:
+ *
+ *   node tools/build-law-toc.mjs                 both pages (default)
+ *   node tools/build-law-toc.mjs --law-polling   the enactment register only
+ *   node tools/build-law-toc.mjs --laws          VMSS Laws only
+ *
+ * Two independent parsers, not one parameterized one. The register and the
+ * Code have different markup contracts — .law-entry with status badges and
+ * three chronological sections against .code-entry with data-tier/data-source
+ * and four jurisdictional sections — and collapsing them into a shared parser
+ * would couple two documents that are meant to be able to diverge. The
+ * register half below is untouched from v20.5.5; the Code half (v22.7.0) is a
+ * sibling of it.
+ *
+ * Both halves hard-fail on any extraction mismatch rather than emitting a
+ * partial index, and both are idempotent: a second run produces no diff.
  *
  * Markup and design are the v20.5.5 component (commit b0f5cb4): collapsible
  * .law-toc with tier headers, count pills, and a dense auto-fill grid of
- * LP-number links. Each link additionally carries data-status / data-pillar
- * so the page's filter chips can synchronize the ToC with the entry list.
+ * LP-number links. Each register link additionally carries data-status /
+ * data-pillar so the page's filter chips can synchronize the ToC with the
+ * entry list.
  *
- * Writes between the LAW-TOC:BEGIN / LAW-TOC:END markers; the first run
- * inserts the marker block after the filter-count line.
+ * Writes between the LAW-TOC:BEGIN / LAW-TOC:END markers (register) and the
+ * LAWS-TOC:BEGIN / LAWS-TOC:END markers (Code).
  */
 import { readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
-const path = join(dirname(fileURLToPath(import.meta.url)), '..', 'law-polling.html');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const flags = process.argv.slice(2);
+const only = flags.find((f) => f === '--laws' || f === '--law-polling');
+const runRegister = only !== '--laws';
+const runCode = only !== '--law-polling';
+
+if (runRegister) buildRegisterToc();
+if (runCode) buildCodeToc();
+
+function buildRegisterToc() {
+const path = join(ROOT, 'law-polling.html');
 let html = readFileSync(path, 'utf8');
 
 const SECTIONS = [
@@ -79,3 +105,115 @@ if (markerRe.test(html)) {
 
 writeFileSync(path, html);
 console.log(`law-toc: ${total} entries indexed (${grouped.map((g) => `${g.name}: ${g.entries.length}`).join(' · ')})`);
+}
+
+/* ---- Sibling mode: VMSS Laws (the Consolidated Code), v22.7.0 ----
+   Parses the architecture §3.2 markup contract: article.code-entry carrying
+   id / data-tier / data-source, grouped by the four tier-section ids, with
+   subject titles (h3.code-subject) subdividing Tier 2 only. Entries themselves
+   stay hand-authored under R16 — only the index is generated. */
+function buildCodeToc() {
+  const path = join(ROOT, 'laws.html');
+  let html = readFileSync(path, 'utf8');
+
+  const TIERS = [
+    ['tier-charter', 'The Charter of VMSS'],
+    ['tier-federal', 'Federal Law'],
+    ['tier-layer', 'Layer-Wide Regulation'],
+    ['tier-district', 'District Regulation'],
+  ];
+
+  const entryRe = /<article class="code-entry([^"]*)" id="([\w.-]+)" data-tier="([a-z]+)" data-source="([^"]*)">([\s\S]*?)<\/article>/g;
+  const all = [...html.matchAll(entryRe)].map((m) => {
+    const body = m[5];
+    const lp = (body.match(/class="lp-self">([^<]+)<\/a>/) || [])[1];
+    const title = (body.match(/<h3 class="law-title">([\s\S]*?)<\/h3>/) || [])[1];
+    const index = (body.match(/<a class="code-index-title"[^>]*>([\s\S]*?)<\/a>/) || [])[1];
+    let num;
+    let txt;
+    if (m[3] === 'charter') {
+      /* Tier 1 rows are a bare index of the Charter's own headings. The
+         display number is derived from the anchor rather than restated, so
+         the index cannot drift from the anchor it points at. */
+      if (!index) throw new Error(`charter row ${m[2]} has no index title`);
+      const src = m[4];
+      num = src === 'preamble' ? 'Pre.'
+        : src === 'founding-affirmation' ? 'Fin.'
+          : `Art. ${src.replace(/^article-/, '').toUpperCase()}`;
+      const parts = index.split(' – ');
+      txt = parts.length > 1 ? parts.slice(1).join(' – ').trim() : index.trim();
+    } else {
+      if (!lp || !title) throw new Error(`entry ${m[2]} missing LP number or title`);
+      num = lp.trim();
+      txt = title.trim();
+    }
+    return { id: m[2], tier: m[3], num, txt, pos: m.index };
+  });
+  if (!all.length) throw new Error('no code entries matched');
+
+  const totalArticles = (html.match(/<article class="code-entry/g) || []).length;
+  if (all.length !== totalArticles) throw new Error(`extraction mismatch: ${all.length} parsed vs ${totalArticles} articles`);
+
+  const bounds = TIERS.map(([id]) => {
+    const at = html.indexOf(`id="${id}"`);
+    if (at === -1) throw new Error(`tier section ${id} not found`);
+    return at;
+  });
+  const grouped = TIERS.map(([id, name], i) => ({
+    id,
+    name,
+    entries: all.filter((e) => e.pos > bounds[i] && (i === TIERS.length - 1 || e.pos < bounds[i + 1])),
+  }));
+  const total = grouped.reduce((n, g) => n + g.entries.length, 0);
+  if (total !== all.length) throw new Error(`tier grouping lost entries: ${total} vs ${all.length}`);
+  for (const g of grouped) {
+    const wrong = g.entries.filter((e) => `tier-${e.tier}` !== g.id);
+    if (wrong.length) throw new Error(`data-tier disagrees with its section for: ${wrong.map((e) => e.id).join(', ')}`);
+  }
+
+  const subjects = [...html.matchAll(/<h3 class="code-subject" id="([\w-]+)">([\s\S]*?)<\/h3>/g)]
+    .map((m) => ({ id: m[1], name: m[2].trim(), pos: m.index }));
+
+  const link = (e) =>
+    `        <a href="#${e.id}" class="toc-link" data-tier="${e.tier}"><span class="toc-num">${e.num}</span> <span class="toc-txt">${e.txt}</span></a>`;
+
+  const tierBody = (g) => {
+    if (g.id !== 'tier-federal' || !subjects.length) {
+      return `        <div class="toc-grid">\n${g.entries.map(link).join('\n')}\n        </div>`;
+    }
+    const inSub = subjects.map((s, i) => ({
+      ...s,
+      entries: g.entries.filter((e) => e.pos > s.pos && (i === subjects.length - 1 || e.pos < subjects[i + 1].pos)),
+    }));
+    const covered = inSub.reduce((n, s) => n + s.entries.length, 0);
+    if (covered !== g.entries.length) throw new Error(`subject grouping lost entries: ${covered} vs ${g.entries.length}`);
+    return inSub.map((s) => `        <div class="toc-subject">
+          <a href="#${s.id}" class="toc-subject-head">${s.name} <span class="toc-count">${s.entries.length}</span></a>
+        </div>
+        <div class="toc-grid">
+${s.entries.map(link).join('\n')}
+        </div>`).join('\n');
+  };
+
+  const toc = `<!-- LAWS-TOC:BEGIN (generated by tools/build-law-toc.mjs --laws — do not edit by hand) -->
+<div class="law-toc" id="lawsToc">
+  <button class="toc-toggle" id="lawsTocToggle" aria-expanded="false" aria-controls="lawsTocBody">
+    <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">${total} provisions &middot; ${TIERS.map(([, n]) => n).join(' &middot; ')}</span></span>
+    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+  </button>
+  <div class="toc-body" id="lawsTocBody">
+${grouped.map((g) => `      <div class="toc-tier">
+        <a href="#${g.id}" class="toc-tier-head">${g.name} <span class="toc-count">${g.entries.length}</span></a>
+${tierBody(g)}
+      </div>`).join('\n')}
+  </div>
+</div>
+<!-- LAWS-TOC:END -->`;
+
+  const markerRe = /<!-- LAWS-TOC:BEGIN[\s\S]*?<!-- LAWS-TOC:END -->/;
+  if (!markerRe.test(html)) throw new Error('LAWS-TOC:BEGIN/END markers not found in laws.html');
+  html = html.replace(markerRe, toc);
+
+  writeFileSync(path, html);
+  console.log(`laws-toc: ${total} provisions indexed (${grouped.map((g) => `${g.name}: ${g.entries.length}`).join(' · ')})`);
+}
