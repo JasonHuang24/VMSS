@@ -39,28 +39,46 @@ read as the veto surface, not as a mining target — correct under the home rule
 
 ### Numbers
 
-- **1,320** candidates mined; **61** instruments (51 founding-act, 10 schedule-under-authority);
+- **1,321** candidates mined; **61** instruments (51 founding-act, 10 schedule-under-authority);
   **27** promoted names, **34** minted; **506** ids clustered, **83** flagged, **731** excluded.
-- Every id accounted for exactly once — verified mechanically by the synthesis pass (0 duplicates,
-  0 orphans).
+- Tier spread as returned by the mining stage: charter-home-excluded 386 · schedule-under-authority
+  369 · founding-act 347 · not-law 133 · ambiguous 53 · regulatory-flag 17 · gap-flag 16 = 1,321.
+- **The accounting does not close.** The synthesis pass worked from a stated pool of 1,320 and claims
+  "0 unaccounted"; the true pool is 1,321, so one id is unaccounted for. Nothing about any instrument
+  turns on it, but the excluded set must not be treated as exhaustive until it is re-run.
 - 61 exceeds the spec's "roughly 25–60". Justified in the inventory's Counts section: the overshoot
   sits in §23–26, where canon already supplies distinct proper names that rule 2 forbids merging.
   Merging them would mean renaming things canon has named. Minted count (34) is inside the envelope.
 
 ### Defects in the run, recorded rather than smoothed
 
-1. **The architectural-function clustering lens returned no structured result.** It wrote
-   `cluster-architecture.md` (committed in the annex) but that file was never fed to the synthesis,
-   which therefore merged **two** lenses, not three. Not fatal — the two surviving lenses were the
-   two whose outputs the synthesis actually reconciles — but the inventory's coverage claim is
-   weaker than designed, and this is stated in the inventory itself rather than only here.
-   `cluster-architecture.md` is the cheapest available coverage gain before Phase A.
-2. **The legal-operation lens returned structured output but never wrote its notes file**, so its
-   reasoning survives only through the synthesis and the name-conflict table.
-3. A latent bug in the workflow script: `parallel(...).then(r => r.filter(Boolean))` compacts the
-   array, so a failed lens shifts the indices used to label the proposals. It did not corrupt the
-   synthesis (the empty slot arrived as `{}`), but the `log()` lens labels in the run transcript are
-   unreliable. Recorded so a later run does not trust them.
+**Correction notice.** An earlier revision of this worklog and of the inventory header described these
+defects wrongly, having trusted the synthesis document's account of its own provenance. The workflow's
+completion report contradicts it. What follows is reconciled against the run journal, the failure
+list, and the script. The false statements were: that the architectural-function lens returned
+nothing; that its notes were never consumed; and that the legal-operation lens returned data.
+
+1. **The legal-operation (deontic) lens FAILED** — `API Error: Claude's response exceeded the 64000
+   output token maximum`. It returned nothing and contributed nothing. The instrument set is the
+   synthesis of two lenses: subject-domain and architectural-function.
+2. **The architectural-function lens succeeded and WAS consumed — under the wrong name.** This is the
+   consequence of defect 3, not a separate fault. Its output reached the synthesis in the prompt slot
+   labelled *legal-operation*. Therefore every "legal-operation lens" attribution in the inventory's
+   name-conflict table actually credits the architectural-function lens, and the inventory's PART 0
+   claim that "the architectural-function lens returned empty" is exactly backwards. **The decisions
+   stand; the attributions do not.**
+3. **The script bug that caused it.** `parallel(...).then(r => r.filter(Boolean))` compacts the
+   results array, so a failed lens silently shifts every later lens into the previous slot. The
+   synthesis prompt interpolates `clusterings[0..2]` positionally against fixed lens headings, so the
+   failure did not merely garble `log()` labels — it mislabelled real data inside the prompt and
+   manufactured a phantom "empty lens". A later run must index by lens key, never by position.
+4. **The synthesis pass FAILED on return** — `API Error: Connection closed mid-response` — after
+   writing `synthesis-instruments.md`. The file is complete (PART 0 through PART 4, ending cleanly),
+   and it is the artifact the inventory is built from. But its structured return never arrived, so
+   nothing independently checked its accounting: **PART 4's verification record is the synthesis
+   agent's own unaudited claim about its own work.** Its one testable assertion — the id accounting —
+   is already known to be off by one (see Numbers). Phase V should re-verify PART 4's other four
+   claims rather than inherit them.
 
 ### Stop conditions — none hit
 

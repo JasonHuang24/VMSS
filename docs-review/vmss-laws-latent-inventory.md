@@ -45,22 +45,35 @@ quote, an anchor, a deontic type, an already-named-by-canon finding, a home, and
 Three independent clustering passes then ran over the pooled candidates under different lenses
 (subject-domain, legal-operation, architectural-function), and a synthesis pass merged them.
 
-Two honest defects in that run, neither of which invalidates the result but both of which bound how
-much confidence the numbers carry:
+Three defects in that run. None invalidates the instrument set, but each bounds how much confidence
+the document's own claims carry, and the first means **this file's PART 0 misdescribes its own
+provenance** — that paragraph is left standing as written, and corrected here.
 
-1. **The architectural-function lens returned no structured result.** It wrote its reasoning to
-   `cluster-architecture.md` — committed in the annex — but that file was never fed to the synthesis.
-   The instrument set below is therefore the synthesis of **two** lenses, not three.
-   `cluster-architecture.md` remains unmined and is the cheapest available source of coverage gain if
-   Jason wants a second pass before authoring.
-2. **The legal-operation lens returned its structured result but never wrote its notes file**, so its
-   reasoning is preserved only as it survives into the synthesis and the conflict table.
+1. **The legal-operation lens failed and contributed nothing.** It exceeded the 64,000-token output
+   maximum and returned no result. The instrument set below is the synthesis of **two** lenses:
+   subject-domain and architectural-function.
+2. **PART 0's provenance sentence is wrong, and so is every "legal-operation lens" attribution in the
+   name-conflict table.** The workflow script compacted its results array after the failure, which
+   shifted the surviving proposals by one slot: the architectural-function lens's output was handed to
+   the synthesis under the label *legal-operation*, and the empty third slot produced PART 0's claim
+   that "the architectural-function lens returned empty". The reverse is true — architectural-function
+   is the lens that ran and was consumed. **The decisions in the conflict table stand; the lens
+   credited for them does not.** `cluster-architecture.md` in the annex is that lens's own notes.
+3. **The synthesis pass failed on return, after writing this document.** The connection closed
+   mid-response, so its structured output never arrived and the workflow never independently checked
+   its accounting. PART 4's verification record is therefore the synthesis agent's **own unaudited
+   claim about itself**, not a cross-checked result. Treat it as testimony, not proof.
 
 ## Counts
 
 - **61 instruments** — 51 founding-act, 10 schedule-under-authority. 27 promoted, 34 minted.
 - **506** candidate ids clustered into instruments · **83** escalated to flags · **731** excluded.
-- Pool total **1,320**; every id accounted for exactly once (verified mechanically — 0 duplicates, 0 orphans).
+- **Pool total 1,321**, not the 1,320 PART 0 and PART 4 state. The mining stage returned 1,321
+  candidates (charter-home-excluded 386 · schedule-under-authority 369 · founding-act 347 · not-law
+  133 · ambiguous 53 · regulatory-flag 17 · gap-flag 16). **One id is therefore unaccounted for**, and
+  the "0 unaccounted" claim in PART 4 is off by one. The discrepancy is small enough not to disturb any
+  instrument, but it means the accounting has not in fact closed and should be re-run before Phase A
+  treats the excluded set as exhaustive.
 
 61 slightly exceeds the spec's "roughly 25–60" envelope. The overshoot is concentrated in §23–26
 (external relations), where canon already supplies a dense set of distinct proper names — the
