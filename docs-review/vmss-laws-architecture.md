@@ -1,6 +1,6 @@
 # VMSS Laws — Architecture for the Legal-Stack Restructure
 
-Status: FOR RATIFICATION (Jason). v1.0, 2026-07-20. No code accompanies this document.
+Status: **RATIFIED 2026-07-20 — D1–D5 approved as recommended** (Jason, pending visual review of the implemented result). v1.0.
 Companion: `docs-review/vmss-laws-opus-prompts.md` — implementation prompts, contingent on §9's decision register.
 Provenance: composed from a six-reader canon survey + three-critic adversarial review (canon-fidelity, ambiguity-efficacy, implementation-feasibility); all file:line citations below verified against the repo at main f9b73f9.
 
