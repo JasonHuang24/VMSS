@@ -393,3 +393,94 @@ did not do.** Recommend it as a follow-up; it is independent of this restructure
   "a federal-tier schedule under LP-074". I wrote "a federal-tier schedule under LP-074, **not
   Charter text**" because the chunk-level reader this clause exists for benefits from the negative
   as much as the positive. Trim the three words if the architect prefers the literal minimum.
+
+---
+
+## Prompt 4 — Adversarial verification pass (report, don't fix)
+
+### Files changed
+
+| File | Change | Delta |
+|---|---|---|
+| `docs-review/vmss-laws-p4-conformance.md` | **new** — the conformance report | +~290 |
+| `docs-review/vmss-laws-worklog.md` | this section | — |
+
+**No source file was touched.** Prompt 4 is report-only, and it was honoured literally: every defect
+found is written up as a proposed fix for the architect, including the ones that are defects in my
+own Prompt 1 and Prompt 2 output and that I could have quietly corrected.
+
+### Gate (re-run from scratch)
+
+- `node tools/check-canon.mjs` → **120 passed, 0 failed**.
+- `npm run build:css` → no post-build diff.
+- `node tools/build-law-toc.mjs` → idempotent in **both** modes and in each single mode; second run
+  byte-identical.
+- `simulations.html` Charter deep links → 6 distinct anchors, all resolve after the trim.
+- Version lockstep → footer 22.7.0, README 22.7.0.
+
+### Method and scale
+
+Eight-dimension hostile fan-out (one reviewer per Prompt-4 requirement), then an independent
+refutation pass over every finding. 62 review agents, ~4.2M reviewer tokens, 864 tool calls.
+
+- **145 requirement verdicts: 116 PASS, 29 FAIL.**
+- **54 raw findings → 50 refuted, 4 confirmed.**
+
+The refutation pass earned its keep: it killed 50 of 54 findings, most of which misread the
+architecture or objected to style. Full detail in `docs-review/vmss-laws-p4-conformance.md`.
+
+### Headline results
+
+**One blocker: R22 is registered nowhere.** Architecture §8 names "R22 registered in the process
+record" as a Phase 1+2 deliverable, and D4 licenses the shipped page title "The Consolidated Code"
+*"by broadened R22"*. Four of five §8 deliverables shipped; this one did not, because **no prompt in
+the pack assigns it** — it is a gap between the architecture and the implementation pack, not an
+omission inside a prompt. I did not invent the registration: authoring a ruling and choosing its
+place in the Ratification Record is doctrinal prose that no prompt specifies, and the
+no-invented-doctrine rule outranks completing the task. Architect decision required before merge.
+
+**One genuine architecture self-conflict.** `law-polling.html:2301` (the LP-070 entry, enacted,
+therefore primary authority) still carries the "binding schedule at Whitepaper §12.1" designation
+that D5/R22(c) retires, and still states that Charter III.III "carries a marker pointing to its
+binding source" — false as of the trim. §6 says law-polling gets "**No entry changes**"; D5 says the
+designation must be retired. Both cannot hold. Prompt 3 obeyed §6.
+
+**Four confirmed findings**, three of which are the same defect found independently by three
+dimensions: `laws.html:300` quotes Charter XXVIII.II with a sentence silently elided inside the
+quotation marks and no ellipsis, under a lead-in that says "without qualification" — while the
+sentence removed is a qualification. The fourth is a guard of mine that passes vacuously.
+
+**A guard I shipped is partly theatre, and my own mutation suite missed it.** Code-integrity guard
+(b) uses `laws.includes(...)`, a whole-document test, so an entry whose register anchor is linked
+twice on the page passes even with its own Source link deleted. That is true of exactly two entries
+(LP-074 and LP-042). My Prompt 2 mutation targeted LP-021, which has no duplicate anchor — so the
+suite proved the guard on a case where it works. Recorded in full because "17 mutations, 17
+rejected" would otherwise read as stronger evidence than it is.
+
+**Hedge and naming defects in my own authoring** (Prompt-0 rules 2 and 3): the verbatim
+"advisory, not institutionally enforced" is missing from four Tier 3 all-layer entries whose
+register rows carry -3 advisory outcomes; LP-061's -3 row drops the clause carrying -3 agency;
+LP-031 never states it remains operative; LP-075 says "that Charter's" where the naming table
+requires "the Path 2 Charter's".
+
+### What passed
+
+116 of 145, including every §7.1 retarget verified as a move rather than a deletion
+(`currentSurfaces` still exactly 12), §7.2 charter purity, the §3.2 markup contract, the §3.3 1:1
+consolidation of all 49 enacted register entries, generator idempotency, R13 cleanliness, exactly
+the 7 canonical pillar markers, and — worth stating because an over-trim would have been as bad as
+an under-trim — **every architecture §5 category-B and category-C Charter parameter still present
+and intact**.
+
+### Recommended disposition
+
+Blocking: F1 (R22). Cheap and should land in this branch: F4–F9. Architect's call, possibly needing
+its own ruling: F2, F3. Deferrable: F10–F20.
+
+### Judgments exercised beyond the architecture — flagged for review
+
+- **J16 — "fix nothing" was honoured literally, including against my own defects.** F4–F9 are small
+  and I could have corrected them silently. Prompt 4 says "Fix nothing; list proposed fixes for the
+  architect", and a verification pass that edits what it is verifying is not a verification pass.
+  The branch is therefore delivered with known, documented, non-blocking defects rather than with
+  quietly-patched ones. Say the word and they are a few minutes' work.
