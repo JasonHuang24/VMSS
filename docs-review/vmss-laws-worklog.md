@@ -293,3 +293,103 @@ kind of guard that would have looked green forever.
 - **J12 — the replacement sentence for the rate bullets is the architecture's draft wording,
   verbatim.** Architecture §4 marks it "Jason approves final wording". It ships as drafted and is
   flagged here as pending that approval.
+
+---
+
+## Prompt 3 — Site-wide alignment (architecture §6)
+
+### Files changed
+
+| File | Change | Delta |
+|---|---|---|
+| `navbar.html` | "Laws" between Charter and Whitepaper, desktop + mobile | +2 |
+| `footer.html` | laws.html in the link row; version stamp → 22.7.0 | +1 / −1 |
+| `README.md` | version lockstep → 22.7.0 | +1 / −1 |
+| `whitepaper.html` | three framing lines → the three-way division | +3 / −3 |
+| `faq.html` | `:796` four-tier explainer gains a Code link | +1 / −1 |
+| `systems.html` | `:231` hierarchy bullet gains a Code link; `:263` rate block gains tier attribution | +2 / −2 |
+| `law-polling.html` | role statement gains "the enactment register" line | +2 / −1 |
+
+`sitemap.xml` and the `faq:818` rewrite landed in Prompt 2 (judgments J8/J9); nothing further was
+needed here.
+
+### Gate
+
+- `node tools/check-canon.mjs` → **120 passed, 0 failed**.
+- `npm run build:css` → no post-build diff.
+- `node tools/build-law-toc.mjs` → the law-polling role line landed **outside** parsed territory,
+  confirmed by byte-comparing law-polling.html across a regeneration: no ToC change.
+
+### Whitepaper framing — LP-042 compliance
+
+The three-way division now reads: the Charter defines the **constitutional law**; VMSS Laws is the
+**consolidated statement of the law in force at every tier**; the whitepaper is **explanatory, and
+its designated sections carry specification weight under LP-042**.
+
+Checked against the two failure modes the architecture names: the word "binding" was **not**
+transferred to the Code (it is secondary authority under LP-042 and says so), and the whitepaper was
+**not** demoted to "explanation only" — the specification-weight clause is stated explicitly on all
+three lines.
+
+**Line 1697 (was :1693) is exempt, as instructed, after reading it.** It is the Founding Treaty
+passage in the closing "The Jury Has Spoken" section: *"The Founding Treaty is the commitment. This
+whitepaper is the explanation. The Charter is the law."* That is a Treaty triad about the Treaty's
+own standing, not a Charter-binding framing line about the whitepaper's relationship to the Code.
+Rewriting it would have damaged Treaty framing to fix a problem it does not have. Left untouched.
+
+The two relocated rationale paragraphs were read in place: they now follow the Trajectory Doctrine
+block, under a one-line lead-in ("What the current top-bracket rate produces on the private side of
+the ledger:"), and immediately precede §12.2 Currency Siloing. §12.1 keeps its rate table and its
+cascade sentence, and whitepaper.html remains in the cascade sweep.
+
+### Browser verification (localhost:4188, DOM geometry — screenshots timed out in the pane)
+
+| Check | Result |
+|---|---|
+| Nav ordering, all widths | `charter.html > laws.html > whitepaper.html` ✔ |
+| Desktop label | "Laws" at all xl+ widths |
+| Mobile menu | "VMSS Laws", single line (24px), between Charter and Whitepaper, no page overflow at 375px ✔ |
+| laws.html render | 87 entries (30/39/14/4), 4 tier sections, 7 subject titles, 7 pillar marks, 1 preamble block, 87 ToC links, ToC opens on click, **0 horizontal overflow**, **0 console errors** |
+| charter.html after trim | 3 paragraphs in III.III; **0** cascade matches page-wide; exactly **one** LP reference (LP-069); all article anchors intact |
+| footer | Version 22.7.0 renders |
+
+### FINDING — pre-existing navbar overflow (not introduced here, but worsened)
+
+Prompt 3 step 1 asked me to verify no wrap or overflow at 1280 / 1919 / 1920. **The desktop nav row
+already overflowed its available width at all three widths before this change.** Measured
+`need − available` for the `hidden xl:flex` link row:
+
+| Viewport | Without a Laws link | With it | Cost of the link |
+|---|---|---|---|
+| 1280 | **+53 px over** | +84 px over | 31 px |
+| 1919 | **+38 px over** | +69 px over | 31 px |
+| 1920 | **+397 px over** | +427 px over | 30 px |
+
+The 1920 figure is the largest because that breakpoint switches the row from `gap-1.5` (6px) to
+`gap-7` (28px) — 16 gaps × 28px = 448px of gutter in a 1344px container. The row is `flex-nowrap`,
+so it does not wrap; it spills, and the page scrolls horizontally.
+
+**This is a pre-existing navbar capacity defect, not a regression I introduced** — the "without"
+column is the current `main` behaviour with my link hidden. But adding a 17th item makes it ~30px
+worse at every width, and honesty requires flagging that rather than reporting "verified, no wrap".
+
+I applied the remedy the prompt prescribes for exactly this case ("if tight, keep 'Laws' at all xl+
+widths"): the dual-span was collapsed to a plain `Laws` label, so the desktop nav never renders
+"VMSS Laws". The mobile menu, which has room, keeps the full name. That is the whole of the remedy
+available inside §6's scope — **curing the underlying overflow means changing the navbar's own
+layout (gap scale, breakpoint, or overflow strategy), which is not in the architecture and which I
+did not do.** Recommend it as a follow-up; it is independent of this restructure.
+
+### Judgments exercised beyond the architecture — flagged for review
+
+- **J13 — navbar dual-span collapsed to a single short label.** The architecture §6 and Prompt 3
+  step 1 both specify the dual-span pattern *with* the "if tight, keep 'Laws' at all xl+ widths"
+  fallback. Measurement showed it is tight at every tested width, so the fallback applies. The
+  mobile menu still carries "VMSS Laws" in full.
+- **J14 — the law-polling role line was added as a new paragraph rather than edited into the
+  existing one,** so it lands above the stat cards and far outside the ToC generator's parsed
+  territory. Verified by regeneration diff rather than by inspection.
+- **J15 — the systems.html `:263` clause is stronger than the architecture's minimum.** §6 asks for
+  "a federal-tier schedule under LP-074". I wrote "a federal-tier schedule under LP-074, **not
+  Charter text**" because the chunk-level reader this clause exists for benefits from the negative
+  as much as the positive. Trim the three words if the architect prefers the literal minimum.
