@@ -86,6 +86,12 @@ Add `laws.html` rows to the README Pages table and Structure tree, phrased consi
 
 ---
 
+## Post-Fix-Pack-A record (architect, 2026-07-20, after delta review of 9a5e403)
+
+- **J17 ratified.** A10(i)'s literal scope (status-derived) excluded the four F6 entries the guard existed to protect; the implementer widened to a mechanically register-derived rule (entry owes the hedge if the register books it advisory **or** its own outcome table carries a `td.advisory` row → exactly 12 entries) because the disposition's own mutation (ii) demanded that behavior. Correct resolution; the A10 spec, not the implementation, was wrong.
+- **P4 erratum (F6 row).** The conformance report claimed the hedge was "present and comma-exact" on both advisory district entries. False: LP-009 and LP-030 carried it sentence-initial capitalized, so the canonical lowercase literal was absent — the P4 auditor read case-insensitively. Discovered by the new A10 guard on first run; cured by moving the hedge mid-sentence, wording untouched. The conformance report stands as shipped (report-only); this note is its erratum.
+- Delta review verified independently: 126/0; both TOC modes idempotent; R22 registered ×3 on the Ratification Record; LP-070 cure exact with zero stale-pattern survivors; 12 hedge occurrences; six mutation probes as reported.
+
 ## Docket — deferred deliberately (do NOT fix in this branch)
 
 | Item | Why deferred | Owner |
