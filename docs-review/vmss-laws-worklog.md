@@ -484,3 +484,97 @@ its own ruling: F2, F3. Deferrable: F10–F20.
   architect", and a verification pass that edits what it is verifying is not a verification pass.
   The branch is therefore delivered with known, documented, non-blocking defects rather than with
   quietly-patched ones. Say the word and they are a few minutes' work.
+
+---
+
+## Fix Pack A (A1–A12) — architect dispositions applied
+
+Applied per `docs-review/vmss-laws-review-dispositions.md`, which supplies every fix's verbatim text
+or exact rule. **No doctrinal judgment was exercised.** Docket items (F10–F12, F15–F17, F19, F20,
+the LP-005.2 badge anomaly, the Lite-site trim) were deliberately not touched.
+
+### Files changed
+
+| File | Change | Delta |
+|---|---|---|
+| `tools/check-canon.mjs` | A5 de-vacuation, A10 + A11 new guards, A1 + A2 durability pins | +104 / −6 |
+| `laws.html` | A4, A6, A7, A8, A9, A11 marker (+ the casing cure below) | +11 / −11 |
+| `pending-ratification.html` | A1 — R22 registered | +9 |
+| `whitepaper.html` | A3 — §10.6 and §10.6.1 link the Code | +2 / −2 |
+| `law-polling.html` | A2 — LP-070 placement description cured | +1 / −1 |
+| `README.md` | A12 — Pages table + Structure tree rows | +2 |
+
+### Gate
+
+- `node tools/check-canon.mjs` → **126 passed, 0 failed** (was 120; **+6 checks**).
+- `npm run build:css` → no post-build diff.
+- `node tools/build-law-toc.mjs` → both modes idempotent, byte-identical on re-run.
+- A2 specifically: `law-polling.html` re-run through the generator after the in-entry edit —
+  **TOC byte-stable**, confirmed by file comparison rather than inspection.
+
+### Per-fix disposition
+
+| Fix | Applied |
+|---|---|
+| **A1** | R22 registered on `pending-ratification.html` as a `process-frame` ruling block above the status banner, verbatim (a)/(b)/(c) + the LP-070 anchor note. Pin added on both `R22` and `Restatement &amp; Consolidation Doctrine` in the entity form the page actually uses. **D4's condition is cleared — the title stands, no retitle.** |
+| **A2** | Both replacement sentences applied exactly as written. Stale-fact pin added: `law-polling.html` must not contain `III.III now carries`. |
+| **A3** | Both appended sentences verbatim, using the whitepaper's own page-link class (`text-[var(--accent)] font-semibold hover:underline`) per "match each location's existing conventions". |
+| **A4** | Elided sentence restored in position; lead-in changed to "states the ordering directly:". |
+| **A5** | `codeEntries` now captures entry bodies with the generator's own regex; guard (b) asserts against `e.body`. Comment rewritten to match the code. |
+| **A6** | Hedge added to LP-013, LP-026, LP-036, LP-042 Scope values: "Layer-wide, all layers; in -3 Terminal, advisory, not institutionally enforced". |
+| **A7** | "and the voluntary districts vote to keep it" restored on LP-061's -3 row. |
+| **A8** | LP-031 now opens "**Operative as an implementing specification under LP-045.2's extensibility clause.**" |
+| **A9** | "that Charter's §13.1" → "the Path 2 Charter's §13.1". |
+| **A10** | New guards (a5) advisory-flag and (a6) mixed per-layer structure — see the scope note below. |
+| **A11** | Guard (e2) extended to `laws.html`'s `code-entry` blocks with the same four bans, plus a check that the `data-r22="taxation-preamble"` marker exists at all, so the exemption cannot lose its anchor silently. |
+| **A12** | `laws.html` row added to the Pages table after `charter.html`, and to the Structure tree. |
+
+### Two things the verification caught that the dispositions did not anticipate
+
+**1. A10, as first implemented, did not cover the A6 entries — the verification step caught it.**
+A10(i) names "`status-advisory` register entries and mixed petitions' -3 rows". I implemented
+exactly that, and mutation (ii) came back **ACCEPTED**: LP-013/026/036/042 are `status-enacted` in
+the register, so a status-derived scope excludes precisely the four entries F6 was about. The
+disposition's own definition of done requires mutation (ii) to fail, so the scope was widened to a
+rule still derived mechanically from the register rather than from a hand-kept list: **an entry owes
+the flag if the register books it advisory outright, or if the register's own outcome table carries
+an advisory row** (`<td class="advisory">`). That resolves to exactly 12 entries — the 6 mixed
+petitions, the 4 all-layer regulations, and the 2 advisory district entries — with no list to
+maintain. Recorded because a status-only rule would have shipped green while leaving F6's exact gap
+open.
+
+**2. The new A10 guard immediately caught a defect the P4 report had cleared.** On first run it
+failed on `code-lp-009` and `code-lp-030`. The P4 conformance report states the hedge was "present
+and comma-exact … [on] both `status-advisory` district entries". It was not: both carried
+**"Advisory, not institutionally enforced"** sentence-initial, so the canonical lowercase literal
+did not appear. Cured by rewording so the hedge sits mid-sentence in its charter form; wording
+otherwise unchanged, meta fields untouched. `laws.html` now carries the comma-exact literal 12
+times. **P4 §5 F6's claim that those two entries were clean is erratum-worthy** — the audit read
+them case-insensitively.
+
+### Mutation results — the four targeted cases, all on paths that previously escaped
+
+| # | Mutation | Result |
+|---|---|---|
+| (i) | Delete **LP-074's own** entry Source link (doubled-anchor case) | **REJECTED** — guard (b) |
+| (i-b) | Same for **LP-042**, the other doubled-anchor entry | **REJECTED** — guard (b) |
+| (ii) | Delete the advisory hedge from an A6 entry (LP-026) | **REJECTED** — guard (a5) |
+| (iii) | Insert an `ls-cite` anchor into a `code-entry` body (LP-063) | **REJECTED** — R16 Code guard |
+| (iv-a) | Apparatus **inside** the sanctioned Taxation preamble | **GREEN** — exemption covers its own block, correctly |
+| (iv-b) | Ordinary entry forging `data-r22="taxation-preamble"` + apparatus | **REJECTED** — exemption is not claimable by entries |
+
+**6 probes, 6 correct, 0 leaks.** Both (i) and (i-b) were green before A5 — they are the exact
+vacuity F5 identified. A methodological note: my first (iv-a) probe used `href="#x"`, which turned
+CI red on the *link-integrity* guard rather than proving anything about the R16 exemption. The probe
+was corrected to a resolving fragment before the result was accepted; a red build is not evidence
+unless it is red for the reason under test.
+
+No mutation residue remains: `laws.html` contains exactly one `data-r22` marker and zero `ls-cite` /
+`Citation key` strings.
+
+### Judgments — none doctrinal
+
+- **J17 — the A10 scope widening** described above. Mechanically derived, no list, no doctrine; taken
+  because the disposition's verification step mandates the behaviour.
+- **J18 — the LP-009/LP-030 casing cure.** Required to satisfy the literal pin A10 mandates. The
+  hedge's wording is unchanged; only sentence position and casing moved.
