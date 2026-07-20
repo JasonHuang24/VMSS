@@ -193,3 +193,12 @@ Same move class as R13 (layer scrub) and R16 (apparatus out of register entries)
 - **Anchor stability:** the trim touches only III.III bodies, no h2/h3 ids; 8b + simulations.html deep links verify.
 - **R13/R16:** the Code is World-tier (no founder-as-actor, no seat names — auto-swept); its one apparatus block (Taxation preamble) is licensed by R22, everything else narrative.
 - **Naming discipline:** two Charters, a Code, a register, and a Ratification Record — §2.3's table is the only defense; it binds every prompt.
+
+---
+
+## 11. Errata & post-implementation rulings (architect, 2026-07-20, after the P4 conformance review)
+
+- **E1 (resolves P4-F2):** §6's law-polling row read "No entry changes"; that conflicted with D5/R22(c), which the P4 audit proved (LP-070's entry still carried the retired "binding schedule" designation and a placement claim falsified by the trim). The row is amended to: "No changes to any entry's ruling, votes, or meta; narrative placement descriptions may be cured to track the consolidation." Basis: R16 classifies entry prose as editorial narrative, and the in-world 2211 dual-key ruling recorded in LP-070 is itself the anchor for R22(a) — only its placement description was stale. Cure text: dispositions A2.
+- **E2 (resolves P4-F1):** the prompt pack never assigned R22's registration — an architecture→pack gap, as the implementer correctly diagnosed. Registration text and home (pending-ratification.html, process idiom) are fixed in dispositions A1. Once placed, D4's condition is met and the shipped title stands.
+- **E3:** §7.5's original claim that all sweeps used explicit lists was corrected pre-implementation (three are readdirSync globs); recorded here because §10 still carried the older risk framing.
+- **J-ratifications:** J1 (LP-005.2 kept, supersession-as-lead; register badge anomaly → docket), J3 (empty Cross-Domain title unrendered), J9 (faq:818 atomically with guard 7.3f), J13 (short nav label at all xl+ widths). All sixteen judgments accepted.
