@@ -1,5 +1,7 @@
 # VMSS Laws — Latent-Sweep Review Dispositions (Fix Pack B)
 
+**RATIFIED 2026-07-21 under delegated orchestration (Jason → architect):** the gate, Fix Pack B as scoped, and the 61-instrument granularity are approved; the alternate ~21-act synthesis is closed as comparison material. Reserved to Jason personally, not delegated: doctrinal adjudication of the PART 3 contradiction flags, and the merge of the latent branch to main (the natural veto read of the 61 named entries).
+
 Architect review, 2026-07-21, of `feat/vmss-laws-latent-corpus` @ f1daced (Phase M gate b025015, provenance correction 9a45fc5, independent verification f1daced). Companion data: `docs-review/vmss-laws-latent-mining/accounting-recheck.{mjs,json}` — the architect's mechanical re-derivation of the id accounting from the committed annex, replacing the never-committed `assign.mjs` result and the dangling "returned JSON's `excluded` array" reference at inventory:1571.
 
 ## Verdict

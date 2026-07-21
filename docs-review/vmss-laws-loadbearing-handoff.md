@@ -2,7 +2,7 @@
 
 Architect spec v1.0, 2026-07-21. Commissioned by Jason: only load-bearing Charter law remains at Charter tier; every other Charter-parked rule demotes to the tier the data indicates (federal, then layer-wide, then district — Charter XXVIII.III's own ordering). The decision procedure is explicitly **not** manual judgment: "This decision is not done by me manually, it's inferable data." This spec therefore replaces architecture §5's hand-built category table as *procedure* while retaining it as *validation prior* (§5 below).
 
-Status: **DRAFT — NOT LAUNCHABLE.** Launch gates, in order: (1) the latent-corpus sweep (`docs-review/vmss-laws-latent-handoff.md`) has pushed its branch with the inventory committed and Phase A at least attempted; (2) the architect has reviewed that branch; (3) Jason says go. Run L2 has its own, separate gate (§7). Never launch a stale spec: if the latent sweep's outcome contradicts anything here, this file is revised first.
+Status: **DRAFT — NOT LAUNCHABLE.** Launch gates, in order: (1) the latent-corpus sweep (`docs-review/vmss-laws-latent-handoff.md`) has completed Fix Pack B + Phase A + Phase V on its branch (per `vmss-laws-latent-dispositions.md`); (2) the architect has reviewed that branch green; (3) go-signal — held by the architect under delegated orchestration (2026-07-21). **Not delegated:** the Run L1 → L2 gate (§7) — Jason personally ratifies the demotion register and the proposed amendment record before any enactment, because L2 authors in-world constitutional history. Never launch a stale spec: if the latent sweep's outcome contradicts anything here, this file is revised first.
 
 ---
 
