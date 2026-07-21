@@ -536,12 +536,24 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
      guard is what stops it coming back: the Charter states no subordinate-tier
      rate or schedule, and references no LP instrument outside a whitelist.
 
-     Scope is deliberately exact. "No rate or schedule", not "no LP reference" —
-     charter:247's LP-069 mention is category A under architecture §5 and is
-     whitelisted here until the Phase 3 III.VII cure relocates it. Article
-     III.II's PJS overtime figures ($125 / $62.50 / $31.25 / $15.63) are
-     genuinely enacted Charter text, are category B under §5, and do not match
-     the cascade regex — verified, not assumed. */
+     Scope is deliberately exact. "No rate or schedule", not "no LP reference".
+
+     RETARGETED at v23.0.0 by the Enabling Consolidation Amendment (LP-076).
+     Both scope notes this comment used to carry are now spent, and both are
+     recorded rather than deleted because the next reader will otherwise
+     re-derive them:
+       · The LP-069 whitelist entry is retired — the amendment relocated the
+         III.VII savings-base reference, discharging the Phase 3 TODO. The
+         whitelist is empty by removal.
+       · Article III.II's PJS overtime figures ($125 / $62.50 / $31.25 /
+         $15.63) are no longer Charter text at all; they are LP-076's Overtime
+         Premium Protocol. The old claim that they "do not match the cascade
+         regex" was re-verified before being retired, not inherited: the
+         cascade regex requires 50 / 25 / 12.5 / 6.25 with percent semantics,
+         and the PJS figures are dollar amounts in a different ratio, so they
+         never matched and their departure changes nothing here.
+     What now enforces their absence is guard (f2b) below, which is
+     rule-scoped and occurrence-counting rather than cascade-shaped. */
   {
     const charterSrc = read('charter.html');
     const charterText = normalizedText(charterSrc);
@@ -564,6 +576,114 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     const stale = [...CHARTER_LP_WHITELIST.keys()].filter((lp) => !lpRefs.includes(lp));
     check(stale.length === 0, 'charter purity: whitelist carries no entry the Charter no longer references',
       stale.length ? `retire from whitelist: ${stale.join(', ')}` : 'whitelist exactly matches the survivors');
+  }
+
+  /* (f2b) THE ENABLING CONSOLIDATION AMENDMENT (LP-076, v23.0.0).
+     Three guards holding the amendment's own claim: it changed no magnitude
+     and no right, it only changed which register a schedule is read from.
+
+     Design constraints, both learned the hard way in the Run L1 register and
+     binding on anyone who edits this block:
+
+     (1) RULE-SCOPED, NEVER DIGIT-SCOPED. `90-99%` is III.IV's forfeiture band
+         AND LP-071's founding net-worth cap, which legitimately survives at
+         rate-history.html:160, law-polling.html and the tax-50 supplemental.
+         A digit-matching purity guard collides with a rule that never moved.
+         Every pattern below therefore carries its own rule context.
+     (2) OCCURRENCE-COUNTING, NEVER EXISTENCE-TESTING. Canon restates its own
+         magnitudes across articles — III.VIII:242 restated III.VII's trigger
+         and rate, and III.IV:202 restated III.V's band endpoints (erratum
+         E-L1, the occurrence the L1 register missed). A relocation that
+         leaves one restatement behind leaves the magnitude at Charter tier.
+         The relocated set is enumerated per RULE, and every rule's every
+         phrasing is listed.
+     (3) The Charter side asserts ABSENCE, the Code side asserts PRESENCE, and
+         both run off the same table. Deleting a row silently retires both
+         halves at once, which is the only way to weaken this quietly. */
+  {
+    const amendedCharter = normalizedText(read('charter.html'));
+    /* id · the rule · every phrasing the Charter used for it · the Code entry
+       that received it. Sources: the ratified demotion register §4.1–§4.5 plus
+       errata E-L1 (III.IV:202) and E-L2 (the whole of XXVII:423). */
+    const RELOCATED = [
+      { id: 'III.II per-hour premium cascade', to: 'code-lp-076',
+        re: /overtime rate of \$125 per hour|\$62\.50\/hr in -1|\$31\.25\/hr in -2|\$15\.63\/hr in -3|owes \$1,250 in overtime/g },
+      { id: 'III.IV downward-conversion forfeiture band', to: 'code-fc-central-banking-authority',
+        re: /90-99% forfeiture that prevents arbitrage/g },
+      { id: 'III.V retention bands', to: 'code-fc-central-banking-authority',
+        re: /90% to treasury, 10% retained|93% to treasury, 7% retained|96% to treasury, 4% retained|98% to treasury, 2% retained|99% to treasury, 1% retained/g },
+      { id: 'III.V band endpoints restated in III.IV (E-L1)', to: 'code-fc-central-banking-authority',
+        re: /10% retained on the first \$1M, scaling down to 1% above \$1B/g },
+      { id: 'III.V pre-positioning lookback windows', to: 'code-fc-central-banking-authority',
+        re: /within 24 months prior to a punitive reassignment|within 24 months prior to filing/g },
+      { id: 'III.VII upper-layer trigger and rate', to: 'code-lp-070',
+        re: /reaches \$100 billion|population-average of \$100,000|garnishing rate is 10% of each citizen/g },
+      { id: 'III.VII rolling-average window', to: 'code-lp-070',
+        re: /90-day rolling average of total district savings/g },
+      { id: 'III.VII -1 trigger and rate', to: 'code-lp-070',
+        re: /reaches \$50 billion, a garnishing cycle activates at 5%/g },
+      { id: 'III.VII upper-layer equilibrium illustration', to: 'code-lp-070',
+        re: /a citizen holding \$100,000 loses \$10,000\/month/g },
+      { id: 'III.VII -1 equilibrium illustration', to: 'code-lp-070',
+        re: /a citizen holding \$50,000 loses \$2,500\/month/g },
+      { id: 'III.VII terminal-layer triggers', to: 'code-lp-069',
+        re: /\$25 billion aggregate UBI-origin savings in -2|\$10 billion aggregate UBI-origin savings in -3/g },
+      { id: 'III.VII attribution window', to: 'code-lp-069',
+        re: /24-month rolling window of UBI and subsidy receipts|24-month cumulative UBI receipts/g },
+      { id: 'III.VIII restatement of the terminal trigger and rate (N-2)', to: 'code-lp-069',
+        re: /\$10 billion district aggregate trigger and 5% monthly rate/g },
+      { id: 'XXVII escalation rate', to: 'code-lp-064',
+        re: /escalation compounds at 50% per child beyond the threshold/g },
+      { id: 'XXVII worked illustration', to: 'code-lp-064',
+        re: /baseline aggregate effective rate is 40%|raises it to 60%|raises it to 90%|raises it to 135%/g },
+      { id: 'XXVII trailing illustration past the quoted span (E-L2)', to: 'code-lp-064',
+        re: /under 60–90% escalation to survive long at 135%/g },
+    ];
+
+    /* (i) Charter side: zero occurrences of any relocated rule. Counting, not
+       testing — the detail line names the rule and the count so a partial
+       relocation reads as "2 left behind", not merely "failed". */
+    const charterResidue = RELOCATED.flatMap((r) => {
+      const hits = [...amendedCharter.matchAll(r.re)].map((m) => m[0]);
+      return hits.length ? [`${r.id}: ${hits.length} occurrence(s) still at Charter tier (${hits.join(' | ')})`] : [];
+    });
+    check(charterResidue.length === 0,
+      'consolidation purity: the Charter states no magnitude LP-076 relocated (rule-scoped, occurrence-counting)',
+      charterResidue.length ? charterResidue.join('; ') : `${RELOCATED.length} relocated rules absent from the constitutional surface`);
+
+    /* (ii) Code side: every relocated rule present in the entry that received
+       it. This is the vintage-guard discipline made permanent — a relocation
+       that drops a magnitude en route is a magnitude change, which the
+       amendment claims it never makes. Scoped to the receiving entry, so
+       moving text between Code entries also goes red. */
+    const receivingEntries = new Map([...read('laws.html').matchAll(/<article class="code-entry[^"]*" id="([\w.-]+)"[\s\S]*?<\/article>/g)]
+      .map((m) => [m[1], normalizedText(m[0])]));
+    const fidelity = RELOCATED.flatMap((r) => {
+      const block = receivingEntries.get(r.to);
+      if (block === undefined) return [`${r.id}: receiving entry #${r.to} not found in the Code`];
+      /* r.re carries /g, so test() would advance lastIndex across calls. */
+      r.re.lastIndex = 0;
+      return r.re.test(block) ? [] : [`${r.id}: absent from its receiving entry #${r.to}`];
+    });
+    check(fidelity.length === 0,
+      'consolidation fidelity: every relocated magnitude is stated by its receiving instrument',
+      fidelity.length ? fidelity.join('; ') : `${RELOCATED.length} relocated rules land in 5 receiving entries`);
+
+    /* (iii) Negative magnitudes (finding N-1). A floor, quorum, ceiling or
+       threshold of NONE is an operative magnitude carrying no digits, so no
+       mechanical magnitude sweep can see it being relocated, weakened, or
+       quietly dropped. Two of the four sit inside provisions this amendment
+       edited. All four are Charter-tier keeps. */
+    const NEGATIVE_MAGNITUDES = [
+      'There is no minimum wage in VMSS',
+      'No minimum participation quorum is imposed',
+      'There is no limit on consecutive terms',
+      'not a supermajority, full agreement',
+    ];
+    const lostNegatives = NEGATIVE_MAGNITUDES.filter((s) => !amendedCharter.includes(s));
+    check(lostNegatives.length === 0,
+      'charter tier: the negative magnitudes stand (N-1 — a floor of none is still a floor)',
+      lostNegatives.length ? `missing: ${lostNegatives.join(' | ')}` : `${NEGATIVE_MAGNITUDES.length} negative magnitudes present verbatim`);
   }
 
   /* (f3) CODE INTEGRITY GUARDS (v22.7.0, architecture §7.3). laws.html is a
