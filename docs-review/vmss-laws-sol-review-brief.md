@@ -86,6 +86,28 @@ reviewers want adversarial input, and reading it first would prime your fresh-ey
      consequence) while the rate that produces them is now federal. The inside reading: the
      ordinals are a Charter-tier *bound* on the federal rate. Does that reading hold, or does the
      retained text over-constrain or contradict the relocation?
+  4. **Prosecute the thin keeps.** The audit kept most provisions on hard data (machinery, locked
+     membership criteria, or measured dependency in-degree). A handful were kept on *kind alone* —
+     "this is a principle, and principles are what constitutions hold" — with little or no
+     dependency data behind them. For each row below, first argue the case for **demotion as
+     strongly as the attached corpus allows** (what breaks? who could change it afterward, and at
+     what threshold? what in-world reading becomes possible?), then weigh the defense in the
+     register, and give a per-row verdict: KEEP or DEMOTE, with the receiving tier if demote, and
+     your confidence. Do not defer to the audit's answer — the point of this question is that the
+     kind test is a values judgment the in-degree data cannot check, and you are the first
+     reviewer outside the model family that made it.
+     | Provision | Kept on |
+     |---|---|
+     | Four Founding Lines · Founding Affirmation | L3 only — zero in-edges of any type |
+     | XVI, XVII, XIX | L3 only — stated principles, near-zero in-degree |
+     | XXIII (Zero Leakage Aspiration) | L3 aspiration, operatively inert; canon's own hedge "This is not a promise — it is a direction" |
+     | XXIV (medical-access floor, graduation principle) | L3, minimal in-degree |
+     | XXVI (outcomes-not-inputs stance) | L3; routes its mechanics to Article II |
+     | III.IV purchasing-power gradient ranges | Judgment call D-3 — kept as a *bound* on the central bank's delegated discretion, not on in-degree |
+     Context you should weigh but not treat as dispositive: the audit's own record shows a purely
+     mechanical in-degree test would have demoted the civilization's founding lines — the register
+     treats that as proof the kind test does real work. Your question is whether it did the right
+     work on each of these rows.
 
 **Findings format.** Numbered `S<section>-F<n>`, most severe first, max ~20 findings. Each:
 **severity** (BLOCKER / MAJOR / MINOR / NOTE) · the exact quoted text at issue (with file) · the
