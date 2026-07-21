@@ -321,3 +321,153 @@ magnitudes no title had ever advertised. The proposal goes to Jason with three r
    pre-merge window governs both.
 
 L3b's launch block is drafted after: Sol's findings return and are triaged, and Jason ratifies §8.
+
+---
+
+# Part IV — Architect Triage of the Sol Peer Review
+
+Reviewed: `docs-review/vmss-laws-sol-review-findings.md` (Sol's verbatim response, reviewing the
+branch at `4f65d46`). Method unchanged from Parts I–III: no finding was accepted on Sol's word.
+Every decisive citation was re-verified at source before disposition — charter.html:188–190
+(III.II derivation text), :280–283 (Article XI gates, consensus definition, veto placement),
+:327 (Article XXII setter clause), :398–402 (XXV.VI three-track text), :417–419 (XXVII
+fifth-child clause); law-polling.html:655–680 (the full LP-076 record), :2145–2151 (LP-064
+register entry); laws.html:706–716 (LP-064 Code entry), :848–856 (Overtime Premium Protocol).
+Two corpus sweeps were re-run independently: no companion 2299 federal ballot exists anywhere
+in law-polling.html or the pending-ratification records, and `$15.625` appears in zero HTML
+files. Sol's arithmetic was re-derived: 1.5³ = 3.375; insolvency crossover baseline ≈ 29.63%;
+25% baseline → 84.375% at child five; $2,500 ÷ 20 = $125; $15.625 rounds half-up to $15.63.
+All of it checks.
+
+## IV.1 Dispositions
+
+| Finding | Severity | Disposition | Cure vehicle |
+|---|---|---|---|
+| S1-F1 federal receivers never cleared XXV.VI | BLOCKER | **ACCEPTED** | LP-076 record revision (cure choice → Jason, §IV.2) |
+| S1-F2 Sanctuary tally not certified | MAJOR | **ACCEPTED** | Same results-table revision |
+| S1-F3 no veto row / no consultation certification | MINOR | **ACCEPTED** | Same results-table revision |
+| S2-F1 "no right / only the register" misstates incidence | MAJOR | **ACCEPTED** | LP-076 summary + Court scope-note rewrite |
+| S3-F1 LP-064 baseline conditional, Charter result categorical | MAJOR | **ACCEPTED** | laws.html LP-064 entry (with one caveat, §IV.3) |
+| S5-F1 missing ÷20 operator and rounding rule | MINOR | **ACCEPTED** | Overtime Premium Protocol entry |
+
+**Rejected findings: none. The arbitration register is therefore empty** — the escalation path
+(rejected challenges to architect decisions go to Jason) has nothing to carry. Two of the six
+accepted findings (S1-F1, S2-F1) are challenges to architecture this review endorsed in Part II;
+they are accepted, not contested, and Part II's exhaustiveness record is charged accordingly.
+
+**Architect correction accepted (S-6.2).** Sol is right and Part II (O-3/Presidency discussion)
+was wrong: Article XXII at charter.html:327 expressly assigns the President "setting amendment
+thresholds in consultation with the Court." Part II's statement that Article XI names the range
+but not the setter is corrected here — the setter was named all along, one article over. Two
+consequences: the "Presidency-as-setter" ratification item dissolves (there is no new canon to
+ratify; the power is existing constitutional text), and what remains is S1-F3's narrower cure —
+certifying that the consultation happened and that the point was fixed before the window opened.
+
+## IV.2 The blocker: verified, and two cure architectures
+
+S1-F1 survives every defense the record itself offers. The record's own frame — the schedules
+"were already being recalibrated by federal instruments" — fails at source: LP-064 "specified
+around the rate" until 2299, the Overtime Premium Protocol is minted by the amendment, and the
+Central Banking Authority's band rows carry "Amended 2299" provenance. The federal instruments
+verifiably gained content in 2299, and no five-layer ballot exists to have enacted it. Article
+XI's electorate deliberately excludes the layers XXV.VI deliberately includes; stricter is not
+a superset. The -3 employer's attack Sol drafts is facial and undisputed. This is the single
+best finding any reviewer has produced on this project.
+
+Two cures satisfy Sol's minimum. Both are available because LP-076's record is branch text,
+not yet merged canon — the record can still be authored, not amended.
+
+- **Cure A — companion federal ballot.** File the receivers' enactment as its own register
+  entry — the natural number is LP-077, which the RATIFY-TAX-50 execution record holds open
+  ("075 is not retired — it remains available to the next law that earns it"; the same R15
+  doctrine holds 077 open, and a five-layer ratification would genuinely earn it). Costs: a
+  full new record, register count 90 → 91, stat cards 8/60/22 → 8/60/23, guard and TOC updates,
+  and it reverses the ratified don't-file-LP-077 disposition (which was scoped to the renaming
+  instrument, so no true conflict — but the reversal should be ratified explicitly).
+- **Cure B — dual-track LP-076 (architect recommendation).** Recast the 2296 filing as a paired
+  instrument: one filing that ran the Article XI amendment ladder and the concurrent XXV.VI
+  federal enactment ladder in the same window, each gate certified independently. The already-
+  blessed O-2 convention — one number, two titles, two tiers — anticipates exactly this shape.
+  Mechanically: the Threshold field lists both ladders; the results table grows from four rows
+  to a certified dual block (Meritboard 88% against both floors; Court 9/10 against both bars,
+  with the rewritten scope note; Main 81% against both set points; Sanctuary closing tally
+  serving consensus and the 90% federal track at once; a new lower-layer aggregate row — the
+  one vote that genuinely never existed and must now be authored; a Presidential disposition
+  row covering veto non-exercise and Court consultation on both set points). One revision cures
+  S1-F1, S1-F2, S1-F3, and S2-F1 together, keeps the register at 90, and makes the first-success
+  record carry the full audit trail its own Threshold field promises.
+
+Recommendation: **Cure B**, for record concentration, count stability, and the O-2 precedent.
+Cure A is the doctrinally purer separation and remains on the table if Jason prefers the two
+constitutional processes to leave two records. Either way the new in-world facts (the
+lower-layer aggregate result, the Sanctuary closing tally, the certification dates) are
+authorship, and they are Jason's to ratify before L3b drafts them.
+
+## IV.3 Caveats on accepted cures (binding on the L3b draft)
+
+1. **S3-F1 scope qualifier is unverified.** Sol's cure text confines the 40% baseline to
+   "households within the escalation's +1, Main, and -1 scope." No verified corpus text
+   establishes that layer scope for the escalation; Charter XXVII speaks of every citizen.
+   L3b adopts the cure's substance — the baseline becomes operative, not hypothetical — but
+   must verify the scope claim at source and drop the qualifier if the corpus does not carry
+   it. Do not import unverified doctrine inside a cure.
+2. **S5-F1 lands federal-side only.** The ÷20 indexing sentence and the rounding convention
+   (nearest cent, half up) go in the Overtime Premium Protocol entry. The Charter's retained
+   derivation text at III.II stays untouched — the cure must not re-thicken the Charter. The
+   Protocol's "Every figure is recoverable from retained Charter text" overclaim is tempered
+   in the same edit: it is false for $15.63 specifically without the rounding rule, which is
+   precisely why L2 relocated the value byte-identically as printed.
+3. **Guard discipline.** The (f2b) RELOCATED table pins occurrence counts per phrasing. Cure
+   text that reprints a pinned phrasing (e.g. an additional `$15.63`, or a first-ever
+   `$15.625` as the pre-rounding value) changes a count some guard pins or should pin. Every
+   L3b edit runs check-canon after landing; any deliberate count change updates the pin with
+   the mutation-test discipline (red for the reason under test). New result-row percentages
+   (the lower-layer aggregate figure, the Sanctuary tally) must not collide with pinned
+   phrasings elsewhere; rule-scoping, never digit-scoping, as always.
+4. **S2-F1's replacement holding** (Sol's draft language is sound) also propagates to the
+   Court scope-note inside the results table and to the "empty of substance" framing sentence —
+   one incidence statement, stated once, echoed consistently.
+
+## IV.4 S-6 answers and the thin keeps
+
+- **S-6.1 (O-4)**: Sol concurs with harmonization and supplies an exact uniform formula whose
+  operative improvement is the word "only" — making the ladder the exclusive amendment path on
+  the face of each grant. Feeds Jason's O-4 decision with the architect and the external
+  reviewer now aligned; the formula's application list (six sites) matches the O-4 census.
+- **S-6.2**: architect correction, accepted above.
+- **S-6.3**: Sol endorses the Part III ordinal theory (child five as Charter constraint on
+  federal calibration, child six directly constitutional) and correctly conditions it on
+  S3-F1's cure. No new work beyond S3-F1.
+- **S-6.4**: all eight prosecuted keeps sustained, confidence 65–99%. **No demotion decisions
+  reach Jason's ratification session** — the thin-keep question closes with the constitutional
+  tier intact. Sol's one editorial note (Article XXIII's dated trajectory as context vs.
+  operative law) is filed as a future-cycle editorial candidate, explicitly not L3b scope.
+
+## IV.5 Consequences for the consolidated ratification session
+
+Jason's single post-Sol session now decides, in full:
+
+1. The L3a proposal §8 items as already listed (48/48 null mapping incl. XXII.II; cleanup
+   dispositions item-by-item). The don't-file-LP-077 item is now **conditional on the S1-F1
+   cure choice**: it stands under Cure B, and is explicitly reversed under Cure A.
+2. **S1-F1 cure architecture: Cure B (recommended) or Cure A.**
+3. The authored in-world facts the cure requires: lower-layer aggregate result, Sanctuary
+   closing tally, certification dates, consultation line.
+4. S2-F1's replacement holding language (Sol's draft as base).
+5. S3-F1's operative-baseline cure, with the scope-qualifier verify-or-drop caveat.
+6. S5-F1's derivation/rounding text, federal-side.
+7. O-4 harmonization — now Sol-concurred, with his formula as the candidate text.
+8. F-6 — unchanged, his call, same pre-merge window.
+9. ~~Presidency-as-setter~~ — dissolved by S-6.2; nothing to ratify.
+10. Thin keeps — no action required; noted closed.
+
+Arbitration items: none.
+
+L3b's scope, once ratified, is the union of: the Sol cures (1–6 above as decided), the queued
+cleanup round (N-1..N-8, F-5, Case-A, LAYER-ALIGN), the G1 charter-TOC guard, and O-4/F-6 if
+taken. One combined Opus run on `feat/vmss-laws-v23.0.0`, per the standing sequence: launch
+block → Opus executes → architect Part V review → Jason's veto read → PR → squash as
+`canon v23.0.0` + tag.
+
+Sol's verdict line is adopted as this review's own: the current 136/0 proves structural
+synchronization, not legal validity. **Merge remains blocked until the cures land.**
