@@ -361,3 +361,56 @@ row still carries the B8 schema. **This is the one deliberate departure from "au
 
 One instrument held (#55) and escalated rather than authored from a forbidden source — recorded here, not
 a gate failure. No check weakened; no unspecified doctrine authored.
+
+---
+
+## Phase V — VERIFY (adversarial fan-out, 2026-07-21)
+
+A fresh-eyes ultracode adversarial pass (11 agents: 9 group verifiers instructed to *assume errors and
+refute*, + a naming-voice panel + a register-cure completeness panel), reading the **shipped** laws.html
+entries against the ratified inventory provisions — independent of the author→verify pipeline.
+
+**Result: 58/60 entries clean on the first adversarial pass; 2 confirmed findings, both fixed and
+re-verified** (report-then-fix, each logged):
+
+- **#22 The Enforcement Chain — over-attribution (fixed).** The summary made "medical drones … revive
+  them", but provision 1 keeps revival an agentless, infrastructure-conditioned step ("medical drones
+  deploy to the victim and stabilize in the field; revival initiates if the victim dies and infrastructure
+  is operational"). Rewritten so the drones stabilize and revival initiates separately.
+- **#54 The Consent Ceiling Act — dropped qualifier (fixed).** The summary broadened a conditioned
+  permission ("an athlete may … disable pre-intervention for the bout") past provision 4's qualifier.
+  Restored: "an athlete **competing where pre-intervention would misfire on legitimate striking** may
+  scope-adjust or disable it for the bout."
+
+Both are the same defect class the author→verify pass caught on #18 — a distillation adding scope the
+provisions do not carry — which is exactly what the invention boundary forbids; all three are now
+corrected.
+
+**Panels — both pass:**
+- **Naming-voice:** all 60 names read as canon (register/whitepaper rhythm), 0 collisions against the 89
+  register titles + register-derived Code titles, 0 digits / acronyms / dates / "Second Pass"/"Redraft"
+  tokens. 28 promoted verbatim from canon; the minted names read in-voice.
+- **Register-cure completeness:** the law-polling.html cure reads true — founding instruments carry no
+  polling record and their consolidated statement lives in laws.html; the Tier-2 band intro is consistent
+  with R23 (declaratory codification, content controls over name, no new rule/right/history/ladder).
+
+**Mechanical Phase V checks (main loop):** home rule — **0** founding entries sourced from charter.html;
+data-source distribution 55 whitepaper · 3 world · 1 systems · 1 technologies (all canon); R13 — no
+seat-name token on laws.html; 60 unique `code-fc-` ids.
+
+### Final gate suite
+
+| Gate | Result |
+|---|---|
+| `node tools/check-canon.mjs` | **132 passed, 0 failed** (branch-time baseline **126**; +5 founding guards +1 R23 pin, now biting on 60 real entries) |
+| `accounting-recheck.json` | pool **1,352** · phantom **0** · suspicious **0** · residual grounds a353/b104/c46 |
+| `build-law-toc` both modes | idempotent — consecutive runs byte-identical; Code ToC indexes 147 provisions |
+| `npm run build:css` | clean, no post-build diff |
+| `npm run test:code-guards` | 7/7 founding-guard mutation probes bit |
+| `npm run test:certification` | 2272 hostile mutations rejected, 0 accepted (untouched, sanity) |
+
+### Stop conditions — none hit
+
+No unresolvable gate, no temptation to weaken a check (guards were added/partitioned, none deleted), no
+unavoidable doctrine authorship (the one instrument that would have required authoring from a forbidden
+source — #55 — was held and escalated, not written). The run reaches its intended end state green.
