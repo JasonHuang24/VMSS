@@ -9,12 +9,15 @@
  * throwaway copy of the repo, that:
  *   1. a founding entry with data-instrument between data-tier and data-source is
  *      SEEN by both parsers (generator indexes it; checker keeps its ToC in sync
- *      and exits clean) — the parser fix works;
+ *      and exits clean) — the parser fix works. Injected net-neutrally (swap, not
+ *      add) so it also leaves count-parity guard (v) satisfied;
  *   2. a forged data-instrument value fails guard (iv);
  *   3. a founding entry citing a nonexistent Whitepaper § fails guard (i-wp);
  *   4. an unresolved data-source fails guard (i);
  *   5. a non-canon (charter) data-source fails guard (ii);
- *   6. a name colliding with a register/Code title fails guard (iii).
+ *   6. a name colliding with a register/Code title fails guard (iii);
+ *   7. DELETING a founding entry — so the count falls below PART 1 minus the held
+ *      list — fails count-parity guard (v), in isolation (probe v).
  * A red build is evidence only if it is red for the reason under test, so each
  * negative asserts the SPECIFIC guard label appears in the failure list.
  *
@@ -68,6 +71,15 @@ const inject = (entry) => pristineLaws.replace(
   `<h3 class="code-subject" id="subject-economy">Economy, SCM &amp; Anti-Concentration</h3>\n\n${entry}`,
 );
 
+/* The count-parity guard (v) reads the founding-entry count, so probes that must
+   leave it satisfied edit net-neutrally: swapFirstFounding replaces the first
+   real founding entry (id="code-fc-…") with `entry`, holding the count at 60 =
+   PART 1 (61) − held (1). deleteFirstFounding removes one, dropping it to 59 —
+   the mutation probe (v) exists to prove (v) rejects. */
+const FIRST_FOUNDING = /<article class="code-entry" id="code-fc-[\s\S]*?<\/article>\n?/;
+const swapFirstFounding = (entry) => pristineLaws.replace(FIRST_FOUNDING, `${entry}\n`);
+const deleteFirstFounding = () => pristineLaws.replace(FIRST_FOUNDING, '');
+
 const run = (script, args = []) => {
   try {
     const stdout = execFileSync(process.execPath, [join(TMP, script), ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
@@ -78,13 +90,17 @@ const run = (script, args = []) => {
 };
 const failLines = (out) => out.split('\n').filter((l) => l.includes('FAIL'));
 
-/* ---- 1. POSITIVE CONTROL: seen by both parsers, accepted by every guard ---- */
+/* ---- 1. POSITIVE CONTROL: seen by both parsers, accepted by every guard ----
+   Swap (not add) a valid founding entry in for the first one: the fixture is
+   still SEEN by both parsers and accepted by (i)-(iv), and the net-neutral edit
+   keeps count-parity guard (v) satisfied (60 = 61 − 1), so a clean build is a
+   clean build for the right reason rather than a count that happens to match. */
 {
-  writeFileSync(LAWS, inject(foundingEntry()));
+  writeFileSync(LAWS, swapFirstFounding(foundingEntry()));
   const gen = run('tools/build-law-toc.mjs', ['--laws']);
   const seenByGenerator = gen.code === 0 && /laws-toc: \d+ provisions/.test(gen.out);
   const chk = run('tools/check-canon.mjs');
-  const seenByChecker = chk.code === 0; // ToC-sync + extraction pass ⇒ both parsers agree the entry exists
+  const seenByChecker = chk.code === 0; // ToC-sync + extraction + count-parity pass ⇒ both parsers agree the entry exists
   record('positive: generator indexes the founding entry (data-instrument between tier and source)', seenByGenerator, gen.out.trim().split('\n').pop());
   record('positive: check-canon accepts a valid founding entry and keeps its ToC in sync', seenByChecker, chk.out.trim().split('\n').filter(Boolean).pop());
 }
@@ -109,6 +125,24 @@ negative('(ii) charter data-source fails the canon-source guard (home rule)',
   foundingEntry({ source: 'charter.html#article-iii' }), 'code integrity (ii)');
 negative('(iii) name colliding with a register title fails the collision guard',
   foundingEntry({ name: 'Lower-Layer Economic Disclosure Law' }), 'code integrity (iii)');
+
+/* ---- (v) COUNT PARITY: the one probe that removes rather than injects.
+   Deleting a real founding entry drops the count below PART 1 (61) − held (1);
+   the ToC is regenerated first so ToC-sync cannot bite, leaving the count-parity
+   guard as the only thing that can fail — proving (v) fires red for its own
+   reason, not on collateral. ---- */
+{
+  writeFileSync(LAWS, deleteFirstFounding());
+  run('tools/build-law-toc.mjs', ['--laws']); // resync the ToC so ONLY (v) can bite
+  const chk = run('tools/check-canon.mjs');
+  const fails = failLines(chk.out);
+  const bit = chk.code === 1 && fails.some((l) => l.includes('code integrity (v)'));
+  const collateral = fails.filter((l) => l.includes('code integrity') && !l.includes('code integrity (v)'));
+  record('(v) a missing founding entry fails the count-parity guard (PART 1 − held)',
+    bit && collateral.length === 0,
+    bit ? (collateral.length ? `also tripped ${collateral.length} other code guard(s)` : 'bit: code integrity (v), in isolation')
+      : 'guard did not fire (code integrity (v))');
+}
 
 /* ---- Report ---- */
 rmSync(TMP, { recursive: true, force: true });

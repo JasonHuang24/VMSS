@@ -756,6 +756,34 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(nameCollision.length === 0, 'code integrity (iii): no founding entry name collides with a register or Code title',
       nameCollision.length ? nameCollision.join('; ') : `${foundingEntries.length} founding names are collision-free`);
 
+    /* (v) FOUNDING-COUNT PARITY (latent-corpus sweep follow-up F1). The founding
+       corpus is exactly the ratified inventory's PART 1 instrument set, less the
+       instruments explicitly held from authoring. Both sides are derived
+       mechanically — the PART 1 `### N.` instrument headings from the inventory,
+       the founding entries from laws.html — so a dropped, duplicated or
+       forgotten founding entry (or a silently grown/renumbered inventory) fails
+       loudly here rather than drifting in under a green build; (i)-(iii) bind
+       each founding entry's shape but say nothing about how many there must be.
+       The held list is the one hand-kept constant: today a single instrument,
+       PART 1 #55 The High-Consequence Environment Certification Standard (slug
+       high-consequence-certification), held — not authored — because its sole
+       source is simulations.html and handoff §4 forbids authoring a rule from
+       narrative (worklog "The 60 vs 61 — #55 held (stop-condition-adjacent,
+       flagged)"). Mutation-tested (probe v) in tools/test-code-founding-guards.mjs. */
+    const HELD_FROM_FOUNDING = [55]; // PART 1 instrument numbers held, not authored (worklog "60 vs 61")
+    const inventoryLines = read('docs-review/vmss-laws-latent-inventory.md').split('\n');
+    const invP1 = inventoryLines.findIndex((l) => l.startsWith('## PART 1'));
+    const invP2 = inventoryLines.findIndex((l) => l.startsWith('## PART 2'));
+    const part1Instruments = (invP1 >= 0 && invP2 > invP1)
+      ? [...inventoryLines.slice(invP1, invP2).join('\n').matchAll(/^### \d+\. /gm)].length
+      : -1;
+    const expectedFounding = part1Instruments - HELD_FROM_FOUNDING.length;
+    check(part1Instruments > 0 && foundingEntries.length === expectedFounding,
+      'code integrity (v): founding entries equal PART 1 instruments minus the held list',
+      part1Instruments <= 0
+        ? 'could not parse PART 1 instrument headings from docs-review/vmss-laws-latent-inventory.md'
+        : `${foundingEntries.length} founding / ${expectedFounding} expected (${part1Instruments} PART 1 − ${HELD_FROM_FOUNDING.length} held: #${HELD_FROM_FOUNDING.join(', #')})`);
+
     /* (d) Tier 1 is an index of the Charter's own headings, and it must stay
        mechanically equal to them — count AND title text. Count-only would let a
        gist drift in under a correct number, which is the drift class the whole
