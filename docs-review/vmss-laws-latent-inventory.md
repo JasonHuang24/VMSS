@@ -250,6 +250,8 @@ governing surface.
 - **primary anchor** whitepaper.html §12.1 (h4 id="trajectory-doctrine", lines 878–882)
 - **parent authority** — (founding act)
 - **candidate ids** wp-09-12-48, wp-09-12-49, wp-09-12-86, path2-record-121, path2-record-129
+- **parent-authority** none-standalone
+- **charter-touchpoints** III.III (charter.html:176) restates-content
 
 Provisions
 1. Taxation was founded to carry three functions — revenue, anti-concentration, and trust — and each retires as its structural replacement matures. (wp-09-12-48, path2-record-129)
@@ -269,6 +271,8 @@ language also appears in deregistered drafting texts, which are not in force and
 - **origin** minted · **class** founding-act · **slug** `settlement-layer-collection`
 - **primary anchor** whitepaper.html §12.1 (line 876); §12.6 (line 931)
 - **candidate ids** wp-09-12-44, wp-09-12-45, wp-09-12-46, wp-09-12-47, wp-09-12-81, systems-33
+- **parent-authority** none-standalone
+- **charter-touchpoints** III.III (charter.html:176) restates-content
 
 Provisions
 1. Below the top marginal threshold, bracket structure is layer-administered. (wp-09-12-44)
@@ -291,6 +295,8 @@ LP-072 "The Layered Schedule".
 - **origin** promoted · **class** founding-act · **slug** `central-banking-authority`
 - **primary anchor** whitepaper.html §12.3 Central Banking Authority (lines 900–901)
 - **candidate ids** wp-09-12-59, wp-09-12-60, wp-09-12-55, systems-19, systems-21, world-72, world-74, wp-23-26-70
+- **parent-authority** none-standalone
+- **charter-touchpoints** III.IV (charter.html:176) restates-content; III.VII (charter.html:176) derives-authority
 
 Provisions
 1. VMSS maintains a central bank as sole issuing authority for all layer currencies; no private institution or market mechanism handles cross-layer monetary exchange. (wp-09-12-59, systems-21)
@@ -312,6 +318,8 @@ Siloing" is a reserved Charter article heading and was avoided as a head.
 - **parent authority** Charter Article III.I — Universal Basic Income / Automation Dividend Treasury
 - **primary anchor** whitepaper.html §11 intro (line 818); simulations.html #sim-civ-2 (line 775)
 - **candidate ids** wp-09-12-34, sims-13
+- **parent-authority** Charter Article III.I — Universal Basic Income / Automation Dividend Treasury
+- **charter-touchpoints** III.I (charter.html:176) derives-authority
 
 Provisions
 1. The Automation Dividend Treasury is funded by AI-driven automated labor across fabrication, mining, agriculture, construction, maintenance and logistics. (wp-09-12-34)
@@ -329,6 +337,8 @@ without "Automation Dividend Treasury" as the head because that phrase is Charte
 - **parent authority** Charter Article III — Economic Framework
 - **primary anchor** systems.html #primary-job-subsidy (lines 255–259); layer--1.html lines 50–79
 - **candidate ids** systems-13, systems-25b, layers-sads-41, layers-sads-43
+- **parent-authority** Charter Article III — Economic Framework
+- **charter-touchpoints** III (charter.html:176) derives-authority; III.I (charter.html:176) restates-content; III.II (charter.html:176) restates-content; III.VII (charter.html:176) restates-content; III.VIII (charter.html:176) restates-content
 
 Provisions
 1. Work is classified in three bands — qualifying (subsidy applies), non-qualifying but legal (no subsidy, no restriction, no moral judgment), and grey-area work (legal, market-rewarded, no subsidy, fully permitted) — with qualifying thresholds scaling by layer institutional intensity. (systems-13)
@@ -348,6 +358,8 @@ none of which the Charter states. Charter III.VIII addresses -3 only. Kept clear
 - **parent authority** Charter Article I (layer separation); Article XXV.I (mega-wall reference)
 - **primary anchor** whitepaper.html §18.3 (lines 1100–1102); technologies.html Card 9 (lines 471–486); world.html §1 (lines 422–431)
 - **candidate ids** wp-01-08-30, wp-17-19-37, wp-17-19-38, wp-17-19-39, technologies-32, technologies-33, technologies-34, world-01, world-02, world-03, layers-sads-01, wp-27-34-96, wp-17-19-35, wp-17-19-36
+- **parent-authority** Charter Article I (layer separation); Article XXV.I (mega-wall reference)
+- **charter-touchpoints** I (charter.html:157) derives-authority; XXV.I (charter.html:372) derives-authority
 - **Fix Pack B2:** wp-17-19-35 (§18.3 mega-wall physical spec) and wp-17-19-36 (§18.3 wall active-defense envelope) appended — §18.3 duplicate sources of content already carried by provisions 1 and 3–4; the standing citations (-37/-38) point one §-source over from the annex's own numbering (skew recorded in the worklog).
 
 Provisions
@@ -370,6 +382,8 @@ engineering-and-access standard; splitting the wall from its gates would leave b
 - **origin** promoted · **class** founding-act · **slug** `threshold-inhibition-protocol`
 - **primary anchor** whitepaper.html §15.1, §15.4 (lines 985, 995); §19.1 (lines 1133–1134)
 - **candidate ids** wp-01-08-08, wp-13-16-17, wp-13-16-26, wp-13-16-27, wp-17-19-53, wp-17-19-54, systems-50, world-145, sims-01, sims-02, faq-front-39, wp-17-19-51, wp-17-19-52
+- **parent-authority** Charter Articles I and VI (pre-intervention posture)
+- **charter-touchpoints** I (charter.html:157) derives-authority; VI (charter.html:258) derives-authority
 - **Fix Pack B2:** wp-17-19-51 (§19.1 Threshold Inhibition Protocol, the named mechanism) and wp-17-19-52 (§19.1 pre-intervention boundary — acts, not thoughts) appended — §19.1 duplicate sources of the mechanism this instrument IS (provisions 1–3) and of the acts-not-thoughts limit (provisions 1, 5).
 
 Provisions
@@ -392,6 +406,8 @@ sexual-assault default is already enacted and is excluded.
 - **origin** minted · **class** founding-act · **slug** `implant-instrumentation`
 - **primary anchor** whitepaper.html §15.2–15.3 (lines 988–992), §22.3 (line 1321); technologies.html Card 1 (lines 56–75)
 - **candidate ids** wp-01-08-07, wp-01-08-13, wp-13-16-20, wp-13-16-21, wp-13-16-23, wp-13-16-24, wp-13-16-25, wp-17-19-55, wp-20-22-36, technologies-01, technologies-02, technologies-05, technologies-06, technologies-07, technologies-08, systems-43, systems-52, layers-sads-22, faq-front-40, faq-front-52, faq-front-53, wp-27-34-73
+- **parent-authority** Charter Article IV
+- **charter-touchpoints** Article IV (charter.html:245) derives-authority; Article XXV.III (charter.html:372) restates-content
 
 Provisions
 1. Implant installation is voluntary at civilization entry for Main Layer and below; refusal is permitted and carries no criminal consequence. (wp-13-16-23, wp-20-22-36, technologies-01, technologies-07)
@@ -418,6 +434,8 @@ failed) and Charter XXV.III. Three internal tensions are flagged rather than res
 - **origin** promoted · **class** founding-act · **slug** `cognition-corroboration`
 - **primary anchor** whitepaper.html §22.1 (lines 1313–1315)
 - **candidate ids** wp-20-22-32, wp-20-22-33, wp-20-22-34, wp-13-16-22, wp-17-19-48, technologies-43, technologies-44
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article II (charter.html:165) restates-content
 
 Provisions
 1. Non-public means non-broadcast, not non-captured: the implant parses neural state at high resolution and logs cognition data confidentially within the implant ledger network. (wp-20-22-32, wp-13-16-22)
@@ -438,6 +456,8 @@ LP-056's cognition-inference bar is already enacted and is excluded.
 - **origin** promoted · **class** founding-act · **slug** `secondary-observation-envelope`
 - **primary anchor** whitepaper.html §18.8 (lines 1117–1122); technologies.html Card 5b (lines 297–327)
 - **candidate ids** wp-17-19-45, wp-17-19-46, wp-17-19-47, wp-17-19-49, wp-17-19-50, technologies-37, technologies-38, technologies-39, technologies-40, technologies-41, technologies-42, technologies-45, wp-27-34-43, world-146, faq-front-49, sims-27
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XV (charter.html:303) restates-content; Article XVIII (charter.html:311) restates-content; Article XXI (charter.html:320) restates-content
 
 Provisions
 1. Augmented-reality surveillance infrastructure is the secondary observation envelope backstopping the implant ledger when the implant is absent, removed or technically compromised; it is structurally peer to the implant and operationally peer to the drone network, not a fine-print backdrop. (wp-17-19-45, technologies-37)
@@ -462,6 +482,8 @@ trigger are one instrument because each is meaningless without the others.
 - **parent authority** Charter Article II — Social Trust Index
 - **primary anchor** whitepaper.html §5.1–5.3, §5.6, §5.10, §5.12 (lines 471–547)
 - **candidate ids** wp-01-08-14, wp-01-08-16, wp-01-08-38, wp-01-08-40, wp-01-08-41, wp-01-08-47, wp-01-08-55, wp-01-08-58, layers-sads-29, technologies-58, wp-27-34-118
+- **parent-authority** Charter Article II — Social Trust Index
+- **charter-touchpoints** Article II (charter.html:165) derives-authority
 
 Provisions
 1. The governance layer observes the constitutional dimensions through seven weighted operational measurement domains, at approximate weights including civic compliance at about 15 and crisis response at about 10. (wp-01-08-38)
@@ -488,6 +510,8 @@ acronym in the name.
 - **origin** minted · **class** founding-act · **slug** `ledger-integrity`
 - **primary anchor** whitepaper.html §5, §5.4, §5.7, §6.2 (lines 467, 510, 525, 566–567); technologies.html Card 8 (line 424)
 - **candidate ids** wp-01-08-37, wp-01-08-43, wp-01-08-49, wp-01-08-62, wp-01-08-63, technologies-54, technologies-55, systems-45, faq-front-50, faq-front-51, faq-front-87
+- **parent-authority** Charter Article II
+- **charter-touchpoints** Article II (charter.html:165) derives-authority; Article XXV.III (charter.html:372) restates-content
 
 Provisions
 1. Only consensus-grade conduct, established to a standard of proof through non-repudiable telemetry, is admissible to the behavioral ledger; opinion, belief and dissent do not enter the record. Intake discipline is not a feature of the metric but the precondition of its legitimacy. (wp-01-08-43, faq-front-87)
@@ -510,6 +534,8 @@ instrument title. LP-036 already governs cross-era comparability and is excluded
 - **origin** minted · **class** founding-act · **slug** `record-contestation`
 - **primary anchor** whitepaper.html §5.7–5.8 (lines 525–530)
 - **candidate ids** wp-01-08-48, wp-01-08-50, wp-01-08-51, wp-01-08-53, systems-08
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. A citizen who believes the AI misread the context of a logged behavioral event may contest the record; the AI does not reverse its own observations, so contestation requires an external channel. (wp-01-08-48)
@@ -530,6 +556,8 @@ provision. Gap noted in flags: "a sufficient volume" states no numeric threshold
 - **origin** minted · **class** founding-act · **slug** `calibration-boundary`
 - **primary anchor** whitepaper.html §5.4.2 (line 516); §5.1 (lines 485–500); §7.6 (line 626); §10.7.1 (line 813)
 - **candidate ids** wp-01-08-39, wp-01-08-46, wp-01-08-78, wp-20-22-08, wp-09-12-33
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XI (charter.html:280) restates-content
 
 Provisions
 1. Measurement domains and constitutional dimensions operate at different altitudes: domain boundaries may be recalibrated as measurement matures; the constitutional dimension set beneath them may not. (wp-01-08-39)
@@ -550,6 +578,8 @@ a cadence, not a boundary rule.
 - **origin** promoted · **class** founding-act · **slug** `security-classification-system`
 - **primary anchor** whitepaper.html §8 (lines 637–728); §34 glossary (lines 1972–1973)
 - **candidate ids** wp-01-08-82, wp-01-08-83, wp-01-08-84, wp-01-08-85, wp-01-08-86, wp-01-08-87, wp-01-08-88, wp-27-34-128
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XI (charter.html:280) restates-content; Article XXV.V (charter.html:372) restates-content
 
 Provisions
 1. A single three-tier classification governs access to all sensitive infrastructure; the tiers are defined by the consequence of unauthorized access — existential threat, load-bearing system compromise, or operational exposure — not by the domain the infrastructure belongs to, and military, civilian and governance infrastructure use the same system. (wp-01-08-82, wp-27-34-128)
@@ -572,6 +602,8 @@ Classification, Top Secret or Confidential text at all.
 - **origin** promoted · **class** founding-act · **slug** `unified-transparency-doctrine`
 - **primary anchor** whitepaper.html §8.2 (lines 724–726); §19.9 (line 1180); §22.2 (line 1318)
 - **candidate ids** wp-01-08-89, wp-01-08-90, wp-20-22-35, systems-40, systems-59, world-80, wp-17-19-66, wp-17-19-67, wp-27-34-19, wp-27-34-24, wp-17-19-64, wp-17-19-65
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XX (charter.html:316) restates-content; Article XXV.V (charter.html:372) restates-content
 - **Fix Pack B2:** wp-17-19-64 (§19.9 leakage trajectory published and public) and wp-17-19-65 (§19.9 AI-governance failures admitted, logged, preserved) appended — §19.9 duplicate sources of provisions 7 and 6 respectively (which cite the adjacent -66/-67).
 
 Provisions
@@ -595,6 +627,8 @@ preservation.
 - **parent authority** Charter Article XXIII — Zero Leakage Aspiration
 - **primary anchor** whitepaper.html §28.2 (lines 1566–1567); §17.1.3 (line 1059)
 - **candidate ids** wp-17-19-16, wp-27-34-17, wp-27-34-18, wp-27-34-94, sims-39
+- **parent-authority** Charter Article XXIII — Zero Leakage Aspiration
+- **charter-touchpoints** Article XXIII (charter.html:342) derives-authority
 
 Provisions
 1. Each revival failure is logged against the zero-leakage aspiration as an irreducible leakage event the architecture tracks without promising to eliminate. (wp-17-19-16)
@@ -612,6 +646,8 @@ preserved; the trajectory projections themselves remain not-law and are excluded
 - **origin** promoted · **class** founding-act · **slug** `redundant-envelope-pattern`
 - **primary anchor** whitepaper.html §28.0 (lines 1546–1553); §28.5 (line 1574); §18.6 (line 1111)
 - **candidate ids** wp-27-34-08, wp-27-34-09, wp-27-34-11, wp-27-34-12, wp-27-34-21, wp-17-19-43, systems-48, wp-13-16-32, wp-17-19-41
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XXV.III (charter.html:372) restates-content
 - **Fix Pack B2:** wp-17-19-41 (§18.6 critical-infrastructure mandatory analog redundancy) appended — §18.6 duplicate source of provisions 5–6 (which cite the adjacent -43); the analog-redundancy mandate this instrument already carries.
 
 Provisions
@@ -635,6 +671,8 @@ Security" is an existing systems.html heading and was avoided as a name.
 - **origin** minted · **class** founding-act · **slug** `governance-restraint`
 - **primary anchor** whitepaper.html §7 (lines 606–608); §7.4 (line 621); §5.11 (line 540); systems.html #governance-principles (lines 225–232)
 - **candidate ids** wp-01-08-56, wp-01-08-69, wp-01-08-71, wp-01-08-76, wp-09-12-25, wp-17-19-68, systems-03, systems-04, systems-61
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XXII (charter.html:327) restates-content
 
 Provisions
 1. Officeholders remain fully subject to the same laws as all citizens, and legal violation results in immediate loss of office — not investigative process or political negotiation. (wp-01-08-69, wp-17-19-68, systems-03)
@@ -656,6 +694,8 @@ constraints, the metric-trap duty and the coalition non-override rule are simila
 - **origin** promoted · **class** founding-act · **slug** `civic-floor`
 - **primary anchor** whitepaper.html §4.4 (lines 455–458)
 - **candidate ids** wp-01-08-32, wp-01-08-33, wp-01-08-34
+- **parent-authority** none-standalone
+- **charter-touchpoints** Preamble (charter.html:147) restates-content; Article III (charter.html:176) restates-content; Article VIII (charter.html:270) restates-content; Article XI (charter.html:280) restates-content; Article XXV.I–III (charter.html:372) restates-content
 
 Provisions
 1. The civic floor is the non-withdrawable set of obligations the state carries identically at every layer, including -3; it operates identically in Sanctuary and in the terminal layer, and it is what makes the federal-floor-remains clause meaningful. (wp-01-08-32)
@@ -673,6 +713,8 @@ and the one-way ratchet. LP-034 and LP-043 already operate on the floor and are 
 - **origin** minted · **class** founding-act · **slug** `federal-reach-boundary`
 - **primary anchor** whitepaper.html §4.2.1 (line 449); §10.1 (line 773); §21.3 (line 1298)
 - **candidate ids** wp-01-08-27, wp-01-08-28, wp-01-08-29, wp-09-12-13, wp-20-22-21, wp-20-22-23, layers-sads-13, layers-sads-52, layers-sads-60, layers-sads-62, sims-18, faq-front-43, faq-front-48
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article VI (charter.html:258) restates-content; Article X (charter.html:276) restates-content; Article XXV (charter.html:372) restates-content
 
 Provisions
 1. The federal floor activates in -3 on two explicit triggers and only these two: violation of the absolute federal laws, and activity triggering the External Force Doctrine. Below these two triggers, organized activity is tolerated however it develops. (wp-01-08-27)
@@ -702,6 +744,8 @@ rather than folded in, because it conflicts with Charter Article X on its face.
 - **parent authority** Charter Article VI — Enforcement & Restoration Protocol
 - **primary anchor** whitepaper.html §19.2–19.3 (lines 1138–1153)
 - **candidate ids** wp-17-19-56, wp-17-19-58, technologies-31, systems-53, systems-54, systems-58, faq-front-94, layers-sads-42
+- **parent-authority** Charter Article VI — Enforcement & Restoration Protocol
+- **charter-touchpoints** Article VI (charter.html:258) derives-authority
 
 Provisions
 1. Once an act occurs the system responds in a fixed sequence: the implant records the event with full contextual data; medical drones deploy to the victim and stabilize in the field; revival initiates if the victim dies and infrastructure is operational; the perpetrator is identified through telemetry, sedated if necessary, transported by enforcement drone, and reassigned downward on severity. The entire chain can complete in minutes. (wp-17-19-56)
@@ -723,6 +767,8 @@ rather than a founding act.
 - **parent authority** Charter Articles V, VI and XXIV
 - **primary anchor** whitepaper.html §18.1 (line 1094); technologies.html Card 5 (line 269)
 - **candidate ids** wp-17-19-34, technologies-27, technologies-28, technologies-29, world-151
+- **parent-authority** Charter Articles V, VI and XXIV
+- **charter-touchpoints** Article V (charter.html:249) derives-authority; Article VI (charter.html:258) derives-authority; Article XXIV (charter.html:363) derives-authority
 
 Provisions
 1. Medical drones are deployed instantly after any harm event in Main Layer and above, arriving in seconds rather than minutes, with hospital-grade stabilization performed in the field. (wp-17-19-34, technologies-27)
@@ -741,6 +787,8 @@ chronic-care limb is not an enforcement function.
 - **origin** minted · **class** founding-act · **slug** `harmed-party-restoration`
 - **primary anchor** whitepaper.html §19.5 (line 1168); §12.4 (line 904)
 - **candidate ids** wp-17-19-60, wp-09-12-62, faq-front-10, faq-front-12
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article III.V (charter.html:176) restates-content
 
 Provisions
 1. The victim's record is annotated as victimized; there is no trust penalty for being harmed. (wp-17-19-60)
@@ -760,6 +808,8 @@ excluded here.
 - **origin** promoted · **class** founding-act · **slug** `two-level-moral-causality`
 - **primary anchor** whitepaper.html §5.13 (line 553); §6.5 (lines 578–579); §34 glossary (lines 2029–2030)
 - **candidate ids** wp-01-08-59, wp-01-08-66, wp-27-34-147, wp-27-34-92, faq-front-37, faq-front-86
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XXI (charter.html:320) restates-content
 
 Provisions
 1. Criminal morality is civilization-wide, act-based and layer-invariant: murder is murder, fraud is fraud, and the offense produces the same reassignment regardless of which layer the offender lives in. No layer is permitted a different criminal code. (wp-01-08-59, wp-27-34-147)
@@ -781,6 +831,8 @@ on a divergent criminal code, and no Charter article carries the mechanism test.
 - **origin** promoted · **class** founding-act · **slug** `individual-attribution`
 - **primary anchor** whitepaper.html §7.3 (line 617); §34 glossary (lines 1844–1845)
 - **candidate ids** wp-01-08-74, wp-27-34-88, systems-60
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XVIII (charter.html:311) restates-content
 
 Provisions
 1. VMSS does not recognize corporate personhood or collective liability. (wp-01-08-74, wp-27-34-88, systems-60)
@@ -798,6 +850,8 @@ constitutive prohibition determining who is a legal subject at all.
 - **origin** minted · **class** founding-act · **slug** `private-justice-boundary`
 - **primary anchor** whitepaper.html §4.2 (line 444); layer--1.html line 86; layer--2.html line 82
 - **candidate ids** wp-01-08-20, wp-01-08-22, layers-sads-31, layers-sads-32, layers-sads-33, layers-sads-49, layers-sads-50, layers-sads-51, sims-40
+- **parent-authority** Article XIV
+- **charter-touchpoints** Article XIV (charter.html:301) derives-authority
 
 Provisions
 1. Private justice in -2 operates within one architectural constraint: killing triggers immediate -3 reassignment. Everything below killing is a permitted enforcement instrument — indefinite detention, nonlethal torment, sustained coercion — administered without VMSS procedural constraint. (wp-01-08-20, layers-sads-49)
@@ -818,6 +872,8 @@ codified. Article XIV supplies the proportionality authority for the -1 half but
 - **origin** promoted · **class** founding-act · **slug** `authorized-bailout`
 - **primary anchor** whitepaper.html §17.3.1 (lines 1078–1081)
 - **candidate ids** wp-17-19-26, wp-17-19-27, wp-17-19-28, wp-27-34-44, layers-sads-45, wp-17-19-25
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XXV.V (charter.html:372) restates-content
 - **Fix Pack B2:** wp-17-19-25 (§17.3.1 bailout revival location forced, anti-evasion) appended — §17.3.1 duplicate source of provisions 3–4 (which cite the adjacent -27); the forced-location and arrest-on-arrival clauses already carried.
 
 Provisions
@@ -839,6 +895,8 @@ arrest-on-arrival clauses are what keep the grant from becoming an evasion route
 - **parent authority** Charter Article IV — Technology & Continuity
 - **primary anchor** whitepaper.html §17.1–17.1.1 (lines 1027–1042)
 - **candidate ids** wp-17-19-03, wp-17-19-06, wp-17-19-07, wp-01-08-21, technologies-13, technologies-19, faq-front-05, wp-27-34-49, layers-sads-30
+- **parent-authority** Charter Article IV — Technology & Continuity
+- **charter-touchpoints** IV (charter.html:245) derives-authority; III.III (charter.html:176) restates-content
 
 Provisions
 1. Published revival failure rates by layer: approximately 1 in 1,000,000 in +1 Sanctuary and Main Layer, approximately 1 in 10,000 in -1, approximately 1 in 1,000 in -2, and none in -3. (wp-17-19-03, technologies-19, faq-front-05, wp-27-34-49)
@@ -860,6 +918,8 @@ ordering rule and the disclosure duty are one technical schedule. Hedges ("~") p
 - **origin** minted · **class** founding-act · **slug** `continuity-integrity`
 - **primary anchor** whitepaper.html §17.1.2–17.1.5, §17.2 (lines 1047–1071)
 - **candidate ids** wp-17-19-08, wp-17-19-09, wp-17-19-14, wp-17-19-15, wp-17-19-17, wp-17-19-18a, wp-17-19-19, wp-17-19-23, wp-20-22-51, technologies-20, faq-front-07, faq-front-08, faq-front-11, wp-17-19-18b
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 - **Fix Pack B3/B2:** the phantom `wp-17-19-18` is cured to `wp-17-19-18a` (the annex splits §17.1.5 line 1065 into 18a/18b/18c; provision 4's sync-authentication text matches 18a verbatim). wp-17-19-18b (§17.1.5 duress signaling — kidnapping is not a -3 federal-floor trigger) appended — duplicate source of provision 5 (which cites the adjacent -19). wp-17-19-18c is not-law (tolerated -3 gray-market remainder) and is a named exclusion in PART 2.
 
 Provisions
@@ -886,6 +946,8 @@ in rather than split into a separate consent act, per rule 5.
 - **origin** promoted · **class** founding-act · **slug** `institutional-archive`
 - **primary anchor** whitepaper.html §17.4 (lines 1084–1085)
 - **candidate ids** wp-17-19-29, wp-17-19-30, wp-17-19-31
+- **parent-authority** Articles XVIII, XX and VIII
+- **charter-touchpoints** XVIII (charter.html:311) derives-authority; XX (charter.html:316) derives-authority; VIII (charter.html:270) derives-authority
 
 Provisions
 1. The implant ledger, score history, ranking standings, reassignment record, district assignment and biographical data of every resident who ever existed are preserved indefinitely as civilizational infrastructure, not personal property; its purposes are network attribution, accountability, parentage verification and long-horizon historical research. (wp-17-19-29)
@@ -903,6 +965,8 @@ LP-032 governs access standing beyond that window and is excluded.
 - **origin** minted · **class** founding-act · **slug** `live-session-consent`
 - **primary anchor** whitepaper.html §16.1 (line 1005); technologies.html Card 2 (lines 99–113)
 - **candidate ids** wp-13-16-33, technologies-09, technologies-10, technologies-11, technologies-12, wp-27-34-104, faq-front-89
+- **parent-authority** Charter Article IV
+- **charter-touchpoints** IV (charter.html:245) derives-authority
 
 Provisions
 1. Neural diving operates in two modes: Audience Mode, passive observation of a host's subjective experience, and Pilot Mode, temporary active control with explicitly revocable consent. (technologies-09, wp-27-34-104, faq-front-89)
@@ -921,6 +985,8 @@ avoid collision with LP-008 "Neural Diving Consent Expansion" (failed).
 - **origin** minted · **class** founding-act · **slug** `augmentation-consent`
 - **primary anchor** technologies.html Card 4 (lines 198, 215, 242); whitepaper.html §16.2 (line 1012)
 - **candidate ids** technologies-21, technologies-24, wp-13-16-42, layers-sads-14
+- **parent-authority** Charter Article V
+- **charter-touchpoints** V (charter.html:249) derives-authority
 
 Provisions
 1. Biological-augmentation modifications are consensual, reversible, and previewed through neural diving before commitment. (technologies-21, wp-13-16-42)
@@ -937,6 +1003,8 @@ of the technology is preserved in the flag list, as is the missing subsidy rate.
 - **origin** minted · **class** founding-act · **slug** `defensive-posture-doctrine`
 - **primary anchor** whitepaper.html §23 (lines 1357–1386); world.html §3 Military Posture (lines 504–530)
 - **candidate ids** wp-23-26-01, wp-23-26-02, wp-23-26-05, wp-23-26-06, wp-23-26-07, wp-23-26-08, wp-23-26-10, world-06, world-08, world-09, world-12, world-14, world-15, world-16, world-17, world-18, world-27, technologies-48, technologies-49, faq-front-47
+- **parent-authority** Charter Article XXV.V
+- **charter-touchpoints** XXV.V (charter.html:372) derives-authority
 
 Provisions
 1. Military posture is defensive; territorial boundaries have never expanded beyond the founding charter, and capability exists solely to ensure no external actor can threaten the architecture residents depend on. (wp-23-26-01, world-27)
@@ -963,6 +1031,8 @@ self-limiting design: the capability is enormous precisely because its permitted
 - **origin** promoted · **class** founding-act · **slug** `wartime-conduct-provisions`
 - **primary anchor** whitepaper.html §23.3 (line 1386); world.html §3 (lines 529–530); self-named at world.html:615
 - **candidate ids** wp-23-26-11, wp-23-26-12, world-13
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Captured combatants are processed through behavioral evaluation and placed on the layer gradient by conduct: a conscript with no criminal history enters Main Layer if they choose to remain, and a commanding officer responsible for atrocities is placed in the layer their conduct warrants. (wp-23-26-11, world-13)
@@ -980,6 +1050,8 @@ because these are standing rights of detained persons rather than constraints on
 - **origin** promoted · **class** founding-act · **slug** `external-force-doctrine`
 - **primary anchor** whitepaper.html §24–24.2 (lines 1395–1418); world.html §3 (lines 598–619)
 - **candidate ids** wp-23-26-15, wp-23-26-17, wp-23-26-18, wp-23-26-19, wp-23-26-35, wp-27-34-71, wp-27-34-87, world-19, world-20, world-21, world-22, world-23, world-24, world-25
+- **parent-authority** Article VI
+- **charter-touchpoints** Article VI (charter.html:258) derives-authority
 
 Provisions
 1. The defensive-only posture is a doctrinal constraint with explicit imminence thresholds for off-territory force against non-allied actors; VMSS initiates no territorial expansion, regime change or punitive expedition, but reserves preemption against verified existential threats under defined conditions. (wp-23-26-15, world-19)
@@ -1001,6 +1073,8 @@ the procedural gate and the preemption boundary would be a licence rather than a
 - **origin** minted · **class** founding-act · **slug** `orbital-sovereignty`
 - **primary anchor** whitepaper.html §23.4 (lines 1389–1390); world.html §18 (lines 1094–1108)
 - **candidate ids** wp-23-26-13, world-10, world-11, world-122, world-123, world-124, world-125, world-126, wp-27-34-119
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. VMSS claims exclusive jurisdiction over the orbital corridors its assets occupy and maintains a defense perimeter around each installation; it claims no sovereignty over orbital space generally. (wp-23-26-13, world-10, world-11)
@@ -1022,6 +1096,8 @@ current doctrine", "For now") preserved.
 - **origin** promoted · **class** founding-act · **slug** `sanctions-tier-ladder`
 - **primary anchor** whitepaper.html §24.4 (lines 1425–1439); world.html §8 (lines 811–828)
 - **candidate ids** wp-23-26-22, wp-23-26-23, wp-23-26-25, wp-23-26-26, wp-23-26-27, world-75, world-77, world-93, world-95, world-108
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Sanctions operate through technology withdrawal rather than financial-system exclusion or currency manipulation. (world-75)
@@ -1045,6 +1121,8 @@ higher", "calibrated per case rather than fixed in doctrine".
 - **origin** promoted · **class** founding-act · **slug** `federation-treaty`
 - **primary anchor** whitepaper.html §24.3, §25.1–25.2 (lines 1421, 1456–1464); world.html §13 (lines 960–980)
 - **candidate ids** wp-23-26-20, wp-23-26-36, wp-23-26-37, wp-23-26-40, wp-27-34-76, world-26, world-28, world-29, world-36, world-38, world-89, world-90, world-91, world-96, world-109
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. The Treaty is a multilateral framework establishing binding obligations between VMSS, its alliance partners, and signatory non-allied states. (world-90)
@@ -1072,6 +1150,8 @@ admission, downgrade review and the only sanctions exit.
 - **origin** promoted · **class** founding-act · **slug** `continuity-sovereignty`
 - **primary anchor** world.html §13 Continuity Sovereignty (lines 1002–1003)
 - **candidate ids** wp-23-26-39, world-99, world-100
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Revival identity recognition is a structural condition of alliance: an allied state must recognize a revived VMSS citizen's property rights, contractual obligations, marital status, institutional standing and legal personhood as continuous. (wp-23-26-39, world-99)
@@ -1088,6 +1168,8 @@ part of the same instrument and is preserved rather than smoothed.
 - **origin** promoted · **class** founding-act · **slug** `hostile-state-doctrine`
 - **primary anchor** world.html §13 Hostile State Doctrine (lines 971–972); whitepaper.html §25.3–25.4 (lines 1468, 1471)
 - **candidate ids** world-94, wp-23-26-45, wp-23-26-46, world-33
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. VMSS publicly acknowledges continuous surveillance of any state classified as hostile; this is declared doctrine, not covert operations. (world-94)
@@ -1107,6 +1189,8 @@ instrument keys off a three-way classification only this doctrine supplies.
 - **origin** minted · **class** founding-act · **slug** `intelligence-posture-doctrine`
 - **primary anchor** whitepaper.html §24.6 (lines 1447–1449); world.html §20 (lines 1138–1144)
 - **candidate ids** wp-23-26-32, wp-23-26-33, wp-23-26-34, wp-27-34-75, world-134, world-135, world-136
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XX (charter.html:316) derives-authority
 
 Provisions
 1. Continuous surveillance of non-allied state weapons development, force posture, diplomatic signaling and cyber-intrusion infrastructure is mandatory; the force doctrine is unoperatable without it. (wp-23-26-32, world-134)
@@ -1129,6 +1213,8 @@ enforcement route (Article XX) is. Hedge preserved: "HUMINT is minimal".
 - **origin** promoted · **class** founding-act · **slug** `technology-transfer-tiers`
 - **primary anchor** whitepaper.html §25.7 (lines 1482–1486); world.html §16 (lines 1054–1067)
 - **candidate ids** wp-23-26-51, wp-23-26-52, wp-23-26-43, wp-23-26-24, wp-27-34-139, world-35, world-73, world-76, world-97, world-111, world-112, world-113, world-114, world-115, world-116
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article IV (charter.html:245) restates-content
 
 Provisions
 1. Tier 0 — universally withheld: implant blueprints, implant fabrication facility access, backup vessel technology, formula internals, fabrication proxy operational architecture, and the Five Instruments systems. No treaty, no payment and no allied relationship produces access. (wp-23-26-51, wp-27-34-139, world-112)
@@ -1154,6 +1240,8 @@ world.html §8 states an absolute longevity prohibition but the §16 Tier 0 enum
 - **origin** promoted · **class** founding-act · **slug** `territorial-doctrine`
 - **primary anchor** whitepaper.html §24.5 (lines 1442–1444); world.html §19 (lines 1114–1126)
 - **candidate ids** wp-23-26-28, wp-23-26-29, wp-23-26-30, wp-23-26-31, wp-27-34-150, world-107, world-110, world-127, world-129, world-130, world-131
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Conquest is refused categorically in every form — military conquest, coerced cession, and subversion of foreign governance to produce voluntary-looking annexation. (wp-23-26-28, world-127, wp-27-34-150)
@@ -1174,6 +1262,8 @@ prohibition to "the founding charter" in three places and charter.html carries n
 - **origin** minted · **class** founding-act · **slug** `diplomatic-establishment`
 - **primary anchor** whitepaper.html §25.3, §25.8 (lines 1467–1468, 1489–1490); world.html §17 (lines 1076–1088)
 - **candidate ids** wp-23-26-42, wp-23-26-44, wp-23-26-53, wp-23-26-54, world-32, world-34, world-98, world-117, world-118, world-119, world-120, world-121
+- **parent-authority** Charter XXII
+- **charter-touchpoints** Charter XXII (charter.html:327) derives-authority
 
 Provisions
 1. Ambassadors are drawn from the Meritboard's foreign-relations ranking, appointed by the President from the top of that ranking, step off the ranking on appointment, serve without fixed term, and are recalled by presidential decision or Meritboard re-ranking; an ambassador carries the President's authority under direct executive mandate. (wp-23-26-42, world-32, world-117)
@@ -1195,6 +1285,8 @@ or a diplomatic corps, and supplies no immunity rule at all.
 - **origin** promoted · **class** founding-act · **slug** `border-layer-equivalence-mapping`
 - **primary anchor** whitepaper.html §25.6 (lines 1478–1479); world.html §4 (lines 638–639)
 - **candidate ids** wp-23-26-49, wp-23-26-50, world-30, world-31, world-45, world-46, sims-34, wp-27-34-51
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Each allied civilization's gradient-governance system is mapped to the five-layer architecture at treaty signing; the mapping is structural, explicit and symmetric, absorbing ring-count differences, and citizens encounter no bespoke case-by-case interpretation at each crossing. (wp-23-26-49, world-30)
@@ -1215,6 +1307,8 @@ arbitrary without the denial rule that forbids reassignment in either direction.
 - **origin** minted · **class** founding-act · **slug** `layer-travel-egress`
 - **primary anchor** whitepaper.html §26.1 (lines 1497–1498); §22.4 (line 1324); world.html §5 (lines 676–695)
 - **candidate ids** world-40, world-41, world-42, world-43, wp-23-26-55, wp-23-26-56, wp-23-26-57, wp-20-22-38, systems-46, faq-front-02
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article X (charter.html:276) restates-content
 
 Provisions
 1. The technoneural implant serves as the citizen's international passport; no separate documentation is required, and the implant remains active and recording during international travel. (world-40, wp-23-26-55)
@@ -1236,6 +1330,8 @@ list as a calibration detail; that distinction is preserved.
 - **origin** promoted · **class** founding-act · **slug** `transit-right-doctrine`
 - **primary anchor** whitepaper.html §26.5 (lines 1517–1518); §34 glossary (lines 2017–2018)
 - **candidate ids** wp-23-26-71, wp-23-26-72, world-78, wp-27-34-143
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. VMSS airspace and territorial waters are sovereign and no blanket transit rights exist for state vessels, aircraft or carriers. (wp-23-26-71, world-78)
@@ -1254,6 +1350,8 @@ different altitudes and the apparent conflict is flagged rather than resolved.
 - **origin** minted · **class** founding-act · **slug** `citizenship-admission`
 - **primary anchor** whitepaper.html §26.2 (lines 1501–1504); world.html §6, §14 (lines 720–725, 1016–1028)
 - **candidate ids** world-39, world-47, world-48, world-49, world-50, world-52, world-53, world-54, world-101, world-102, wp-23-26-58, wp-23-26-59, faq-front-22, systems-41, wp-27-34-29
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article XI (charter.html:280) restates-content
 
 Provisions
 1. Anyone may apply. There is no population cap, no ethnic criterion and no ideological test; the gatekeeping mechanism is behavioral sorting rather than membership scarcity, and each layer scales proportionally without structural modification. (world-47, systems-41, wp-23-26-58, wp-27-34-29)
@@ -1281,6 +1379,8 @@ adjudicated.
 - **origin** minted · **class** founding-act · **slug** `citizenship-status`
 - **primary anchor** whitepaper.html §26.2–26.3 (lines 1503–1511); world.html §6–7 (lines 728–729, 752–754)
 - **candidate ids** wp-23-26-60, wp-23-26-62, wp-23-26-67, wp-23-26-68, wp-23-26-69, world-55, world-56, world-57, world-63, world-64, world-65, world-68
+- **parent-authority** none-standalone
+- **charter-touchpoints** III.I (charter.html:176) restates-content; VIII (charter.html:270) restates-content; X (charter.html:276) restates-content
 
 Provisions
 1. The baseline dividend is citizens-only; foreign nationals in VMSS territory — applicants under processing, diplomatic staff, tourists, elective residents — do not receive it and operate through their own resources, origin-sovereignty consular support, or voluntary citizen generosity. (wp-23-26-60)
@@ -1309,6 +1409,8 @@ implant installation.
 - **origin** promoted · **class** founding-act · **slug** `recall-protocol`
 - **primary anchor** world.html §7 Recall Protocol (lines 735–749); whitepaper.html §25.5, §26.3 (lines 1474–1475, 1507)
 - **candidate ids** world-58, world-59, world-60, world-62, wp-23-26-63, wp-23-26-47, wp-23-26-48
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Citizens who commit offenses abroad are subject to recall, because the implant records the act regardless of geographic location; citizens are otherwise subject to local law and VMSS does not intervene in foreign proceedings. (world-58, wp-23-26-63)
@@ -1332,6 +1434,8 @@ return window is never stated.
 - **origin** minted · **class** founding-act · **slug** `foreign-jurisdiction-non-recognition`
 - **primary anchor** whitepaper.html §19.11 (line 1191); world.html §7 (lines 757–770)
 - **candidate ids** wp-17-19-75, world-66, world-67, world-69, world-70, world-71
+- **parent-authority** none-standalone
+- **charter-touchpoints** VIII (charter.html:270) restates-content
 
 Provisions
 1. VMSS does not recognize foreign court authority over VMSS-resident assets or citizens; conflicting non-allied rulings are diplomatic matter rather than binding legal obligation, and Article VIII child protections are non-negotiable regardless of foreign adjudication. (wp-17-19-75)
@@ -1352,6 +1456,8 @@ outbound instrument and this is an inbound refusal. LP-035 (status-carry sorting
 - **origin** promoted · **class** founding-act · **slug** `status-based-territorial-jurisdiction`
 - **primary anchor** whitepaper.html §19.11 (lines 1187–1190); §34 glossary (lines 1984–1985)
 - **candidate ids** wp-17-19-71, wp-17-19-73, wp-17-19-74, wp-27-34-132, systems-58b, layers-sads-24, world-105, wp-17-19-72
+- **parent-authority** none-standalone
+- **charter-touchpoints** III.V (charter.html:176) restates-content
 - **Fix Pack B2:** wp-17-19-72 (§19.11 anti-gaming preserver runs in both directions — status unchanged by geography) appended — §19.11 duplicate source of provision 5 (which cites the adjacent -74).
 
 Provisions
@@ -1375,6 +1481,8 @@ and is excluded. Hedge preserved: status "primarily determines" which rules appl
 - **origin** minted · **class** founding-act · **slug** `consent-ceiling`
 - **primary anchor** whitepaper.html §19.11 (line 1195); layer--3.html line 113; faq.html (lines 287, 496)
 - **candidate ids** wp-17-19-77, layers-sads-68, layers-sads-69, faq-front-41, faq-front-90
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Consent cannot override the prohibition on killing: a duel between two consenting adults is homicide in every layer above -3. (layers-sads-68)
@@ -1396,6 +1504,8 @@ placement-criteria carve-out. The -3 half of the duelling rule is customary and 
 - **origin** minted · **class** founding-act · **slug** `high-consequence-certification`
 - **primary anchor** simulations.html #sim-cst-4 (lines 485–488), #sim-cst-5 (lines 526–547)
 - **candidate ids** sims-29, sims-30, sims-31, sims-32, sims-33
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Non-sentience is certified against standing criteria — no persistent self-model across sessions, no goal-formation outside scripted bounds, no continuous identity across reset cycles, no capacity for unprompted preference, no measurable inner-state continuity — with each test run, recorded and published. (sims-31)
@@ -1417,6 +1527,8 @@ is narrative; corroboration against a non-narrative surface is flagged before ad
 - **origin** promoted · **class** founding-act · **slug** `metric-gated-domain`
 - **primary anchor** whitepaper.html §21–21.4 (lines 1274–1302)
 - **candidate ids** wp-20-22-19, wp-20-22-20, wp-20-22-22, wp-20-22-24, wp-27-34-98, layers-sads-12, layers-sads-98
+- **parent-authority** none-standalone
+- **charter-touchpoints** none
 
 Provisions
 1. Any group of residents in any layer may establish a metric gated domain around any transparent, measurable criterion; these are private, community-defined and layer-agnostic. (wp-20-22-19, wp-27-34-98, layers-sads-12)
@@ -1441,6 +1553,8 @@ LP-027 and the "MGD Doctrine" phrase inside a register entry.
 - **parent authority** Charter Article IX — Selective Ascension Domains
 - **primary anchor** whitepaper.html §20.1, §20.3, §20.6 (lines 1209, 1257, 1267)
 - **candidate ids** wp-20-22-02, wp-20-22-03, wp-20-22-05, wp-20-22-06, wp-20-22-07, wp-20-22-15, faq-front-72
+- **parent-authority** Charter Article IX — Selective Ascension Domains
+- **charter-touchpoints** Charter Article IX (charter.html:274) derives-authority; Article XXVIII (charter.html:434) restates-content; Article XI (charter.html:280) restates-content
 
 Provisions
 1. Each chartered domain is defined by exactly one measurable criterion gating admission and continued membership; the criterion must be transparent, objectively measurable, and continuously verifiable through the implant ledger or institutional infrastructure. (wp-20-22-03, faq-front-72)
@@ -1462,6 +1576,8 @@ is flagged, never authored.
 - **origin** minted · **class** founding-act · **slug** `domain-boundary`
 - **primary anchor** whitepaper.html §20.4–20.6 (lines 1260–1267); layer-0.html line 64
 - **candidate ids** wp-20-22-04, wp-20-22-09, wp-20-22-10, wp-20-22-11, wp-20-22-12, wp-20-22-14, layers-sads-15, layers-sads-17, faq-front-73
+- **parent-authority** Charter Article IX
+- **charter-touchpoints** Charter Article IX (charter.html:274) derives-authority
 
 Provisions
 1. Domains are metric-gated voluntary membership domains, not governance entities. They do not redistribute wealth among members, impose internal taxation, arbitrate binding disputes with enforcement authority, operate quasi-governmental functions, or exercise any coercive power over members or non-members. (wp-20-22-09)
@@ -1484,6 +1600,8 @@ foreclosure nor the exclusion protections. The credential-portability contradict
 - **origin** minted · **class** founding-act · **slug** `rights-ceiling-doctrine`
 - **primary anchor** whitepaper.html §22 intro, §22.1, §22.8 (lines 1308–1311, 1342–1343); world.html §9 (lines 845–862)
 - **candidate ids** wp-20-22-27, wp-20-22-28, wp-20-22-30, wp-20-22-57, wp-20-22-58, layers-sads-23, world-79, world-81, world-82
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article V (charter.html:249) restates-content
 
 Provisions
 1. The Charter defines the ceiling of government authority, not merely its aspirations; every enforcement mechanism, governance structure and technology deployment operates within the rights constraints. (wp-20-22-27)
@@ -1509,6 +1627,8 @@ are the same rule applied to a different surface.
 - **origin** promoted · **class** founding-act · **slug** `substrate-personhood`
 - **primary anchor** whitepaper.html §22.7, §22.9, §22.10 (lines 1338–1352); §34 glossary (lines 1990–1997)
 - **candidate ids** wp-20-22-53, wp-20-22-59, wp-20-22-64, wp-20-22-65, wp-27-34-41, wp-27-34-134, wp-27-34-136, faq-front-70, world-140
+- **parent-authority** none-standalone
+- **charter-touchpoints** Charter Article XXI (charter.html:320) restates-content; Charter Article XXII (charter.html:327) restates-content
 
 Provisions
 1. Any entity capable of reasoning, preference and autonomous decision-making at or above human level is classified as a person regardless of substrate, receiving scores, layer assignment, rights and consequences identical to those of any human, cyborg or augmented citizen. (wp-20-22-53, wp-27-34-41, faq-front-70)
@@ -1531,6 +1651,8 @@ embodiment-marker convention is deliberately excluded and flagged — canon hedg
 - **origin** promoted · **class** founding-act · **slug** `clean-record-doctrine`
 - **primary anchor** whitepaper.html §22.5 (lines 1327–1329); layer--1.html line 94
 - **candidate ids** wp-20-22-39, sims-26, wp-20-22-45, wp-20-22-46, layers-sads-26, layers-sads-35
+- **parent-authority** none-standalone
+- **charter-touchpoints** Article VIII (charter.html:270) restates-content; Article XXVII (charter.html:421) restates-content
 
 Provisions
 1. Children inherit citizenship from birth. No child inherits their parent's layer status, score, or criminal record — the doctrine is absolute. (wp-20-22-39, sims-26)
