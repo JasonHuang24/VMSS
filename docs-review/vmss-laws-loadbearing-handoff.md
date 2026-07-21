@@ -95,3 +95,13 @@ Execute per the handoff: §3 build the typed dependency graph (multi-modal extra
 
 Gate: the register is the must-complete deliverable — if the time box expires with graph + register committed, the run succeeded. Hard time box: ~2 hours of usage — sequence so the graph, then the register, are committed and pushed before it expires. Commit and push at every completed milestone (nodes → graph → classification → register), not only at the end (git push -u origin feat/charter-loadbearing-audit). check-canon must stay green throughout (you touch only docs artifacts). When the register is pushed, STOP: Jason personally ratifies it before any Run L2 enactment exists. No PR, no merge, never main.
 ```
+
+## 12. Architect's L1 review checklist (runs when the Opus session pushes)
+
+- Recheck gates independently: check-canon green; graph JSON committed and well-formed; worklog milestones present.
+- Edge-typing audit: spot-extract ~20 edges myself across surfaces and compare types (E1/E2 vs E3 — the classification hinges on this line).
+- Completeness critic's claims re-verified, not inherited (the Phase M lesson: self-testimony is not proof).
+- Classification vs the architecture §5 prior: every divergence carries evidence; none silently adopted or suppressed.
+- Demotion candidates: evidence trail holds per candidate; receiving-instrument order respected; E3 worklist and E4 anchor list complete.
+- Inherited residual: spot-check docs-review/vmss-laws-latent-mining/cluster-architecture.md for instrument-shaped content absent from the 61 — a latent-set miss would surface here as missing E1 edges.
+- Amendment text + event record are PROPOSALS only; nothing enacted; magnitudes byte-identical in every proposed relocation.
