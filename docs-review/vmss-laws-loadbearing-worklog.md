@@ -360,3 +360,52 @@ each simulation was authored against, latest `v20.5`) and is unrelated to the si
 bump does not move it, and it did not. **No Process Ruling was authored**: v22.8.0 needed R23 because
 declaratory codification required a doctrine ruling; an in-world Article XI amendment carries its own
 record in the register and needs none. Authoring one would be doctrine beyond the ratified licence.
+
+**Must-complete gate met and pushed at `800f796`** — steps 1–5 and 8, check-canon **136 / 0**.
+
+## L2 Phase 6 — E3 tier attribution (§14.6)
+
+Scope as specified: E3 edges targeting the **five candidate provisions only**, and only where the
+surface **attributes a demoted magnitude to the Charter**. Pure restatements carrying no tier claim
+are untouched — the graph's E3 rows for III.I, III.III, XXIII, II and XXVIII.I are out of scope by
+construction, and the layer pages' rate blocks make no tier claim.
+
+The pattern is `systems.html:263`'s, as the register's §7 directs.
+
+| Surface | Was | Now |
+|---|---|---|
+| `faq.html:227` | *"through the downward transfer retention schedule (Article III.IV–III.V)"* | *"…schedule — a federal-tier schedule under LP-076, with Articles III.IV–III.V retaining the principle and reaching no band —"* |
+| `whitepaper.html:905` | *"Full schedule in Article III.V of the Charter."* | *"Full schedule at federal tier under LP-076, not Charter text — Article III.V retains the principle and reaches no band."* |
+| `systems.html:343` | block-level attribution of the escalation to Article XXVII | *"; the escalation rate below is a federal-tier rate under LP-064, not Charter text."* |
+| `whitepaper.html:1327` | *"Article XXVII's replenishment tax — a compounding 50% tax escalation per child beyond the second that…"* | *"…per child beyond the second, a federal-tier rate under LP-064 rather than Charter text, that…"* |
+| `world.html:1224` | same sentence | same fix |
+
+**The magnitudes on these surfaces were not removed.** E3 restatements follow the law to whatever
+tier it lives at; only the tier claim was wrong, and only the tier claim changed.
+
+**Recorded, not edited (with reasons):**
+- `pending-ratify-tax-50-ballot.html:143` attributes an escalated rate to Article XXVII. The
+  pending-ratification surfaces carry **frozen pre-vote ballot text**; editing one would rewrite a
+  historical artifact rather than align a restatement. Flagged for Jason.
+- `documents/VERBATIM-SOURCE-TEMPLATE.md:376` (*"Downward retention schedule (90-99% to treasury) —
+  anchored in Article III.IV/V"*) and the PDF print sources `documents/resources-source.html:532`,
+  `:540` and `documents/academy-source.html:479`, `:806`. These are generation inputs at explainer
+  rank, not published surfaces. Recorded.
+- `faq.html:829`'s *"Article XXVII establishes a replenishment tax with a target of 2.5 children per
+  family"* is **correct as it stands** — the 2.5 target is a keep and remains Charter content.
+- The register §7 **alignment gaps** (layer pages carrying no tax content; `layers.html` carrying no
+  Charter citation; `layer--3.html` never stating III.I's amount) are **out of scope per §14.6** —
+  recorded, not authored.
+
+## L2 Phase 7 — Canon-defect errata (§14.7)
+
+| # | Surface | Fix |
+|---|---|---|
+| F-1 | `simulations.html:456` | *"Article XXIII.II"* → **Article XXV.II**. XXIII is Zero Leakage Aspiration and has no sub-articles; the nuclear-weapons prohibition is XXV.II |
+| F-2 | `why-vmss.html:532` | *"The Article XIV provisions"* → **Article III.V**. XIV is Proportional Response; asset conversion on descent is III.V |
+| F-3 | `whitepaper.html:1692` | *"the Article XI gauntlet described in Section 8"* → **Section 9**. §8 is security classification |
+| F-4 | `laws.html` LP-002 Charter anchor | *"Article III.I"* → **Article III.II**. PJS and the overtime premium live in III.II |
+| F-4b | `law-polling.html` LP-002 Canon Anchor | Same defect, same entry, on the register surface: *"Articles XXV.VI, III.I"* → **III.II**. Found while fixing F-4; the register listed only the laws.html occurrence. Fixed for consistency and flagged here |
+| F-5 | `world.html:1156`, `:1165` | **NOT fixed — no provable citation**, as §14.7 requires. "Substrate" appears in charter.html only at Article IV, and the metric-governance half of :1165 genuinely does match XXII, so the correct target is undetermined. Recorded for Jason |
+| F-6 | `charter.html:262` | Out of L2 scope by §13 — the External Force Doctrine's dangling Charter reference stays open as a doctrine question for Jason |
+| F-7 | inventory B8 fields | Superseded by the graph; dies here as recommended |
