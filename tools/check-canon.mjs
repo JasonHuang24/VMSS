@@ -549,11 +549,14 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(!cascadeHit, 'charter purity: the Charter states no subordinate-tier rate cascade',
       cascadeHit ? `found "${cascadeHit}"` : 'no exact-cascade match on the constitutional surface');
 
-    /* Whitelist is by LP number, and it is a list of exactly one. Adding to it
-       requires an architecture citation; the entry below carries its own. */
-    const CHARTER_LP_WHITELIST = new Map([
-      ['LP-069', 'architecture §5 category A — III.VII savings-base attribution; Phase 3 TODO: relocate with the III.VII text cure'],
-    ]);
+    /* Whitelist is by LP number. Adding to it requires an architecture
+       citation. EMPTIED BY REMOVAL at v23.0.0: the sole entry, LP-069, was
+       whitelisted with a standing Phase 3 TODO to relocate with the III.VII
+       text cure. The Enabling Consolidation Amendment performed that cure —
+       charter.html's savings-base paragraph now cites federal law and VMSS
+       Laws rather than the LP number — so the entry is retired, not blanked.
+       The staleness check below is why blanking would not have worked. */
+    const CHARTER_LP_WHITELIST = new Map([]);
     const lpRefs = [...new Set([...stripComments(charterSrc).matchAll(/\bLP-\d[\d.]*/g)].map((m) => m[0]))];
     const unlisted = lpRefs.filter((lp) => !CHARTER_LP_WHITELIST.has(lp));
     check(unlisted.length === 0, 'charter purity: no unwhitelisted LP reference on the Charter page',
