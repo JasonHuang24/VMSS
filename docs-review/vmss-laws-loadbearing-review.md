@@ -149,3 +149,111 @@ handoff (branch `feat/vmss-laws-v23.0.0` per handoff §10, incorporating E-L1–
 guard requirements — rule-scoped, occurrence-counting, negative-magnitude-aware — and the §4.2
 `90-99%` LP-071 collision warning) → a fresh Opus session executes. Until ratification, nothing
 moves.
+
+---
+
+# Part II — Architect Review of Run L2 (the enactment)
+
+Architect review, 2026-07-21, of `feat/vmss-laws-v23.0.0` @ `edaf83a` (phases 935049d · e2f748b ·
+15c0810 · 800f796 · e12413e · edaf83a), per handoff §16.
+
+## Verdict
+
+**ACCEPTED.** The Enabling Consolidation Amendment is enacted as ratified: five schedules leave the
+Charter, five grants land, every relocated magnitude re-enacts byte-identically, and the guard
+layer that holds those properties survived the architect's own mutation attacks. Two decisions go
+to Jason at the veto read (below); nothing blocks the read from starting.
+
+## Independently verified (§16 checklist — none of it inherited)
+
+- **check-canon green at every commit**, walked by the architect: 133/0 ×3, then 136/0 ×3 —
+  matching the run's table. Both TOC modes idempotent. Derived registers: `law 8/60/22 of 90`,
+  founding count still exactly 60, Tier-1 index 30 rows, laws TOC 148 provisions.
+- **charter.html diff confined to the ratified provisions** (III.II, III.IV, III.V, III.VII,
+  III.VIII, XXVII). The id inventory and h2/h3 heading set are byte-identical pre/post. All eight
+  keep-sentinels (the N-1 negative magnitudes, both comma-exact hedges, the involuntary-descent
+  absolute, the 2.5 target) present exactly once. The consequential edits beyond the enumerated
+  spans (E-L4's opening-paragraph cure, :218's dangling "above", the :230/:232/:235 de-digitized
+  narrative, :423's E-L2 coverage) are each necessary to the removals and were flagged by the run.
+- **Zero residual demoted magnitudes**, by the architect's own rule-scoped sweep: every demoted
+  phrasing greps 0 in charter.html; the complete remaining dollar census is the four III.I keeps
+  plus the two deliberate illustration keeps (:202 token illustration, :224 no-floor uniformity).
+  No fifth E-L1/E-L4-class instance exists.
+- **Byte-identity spot-verified** across ~15 relocated fragments, including `$15.63/hr in -3`, all
+  five retention bands, the E-L1 endpoints (CBA), and the E-L4 sentence (LP-070). Each receiving
+  entry carries an in-world "Amended 2299 … at identical values" provenance row; the CBA remains a
+  founding instrument, otherwise untouched.
+- **The R15 retarget re-derived from the ruling text, as the run requested — CONFIRMED.** R15's
+  execution record states the controlling principle in terms: *"075 is not retired — it remains
+  available to the next law that earns it."* LP-075 was since earned; LP-076 became the next true
+  number; the amendment taking it applies R15 rather than excepting it. The one pre-existing
+  LP-076 mention (the immutable R15 record, pending-ratify-tax-50-record.html:169) is prose, not a
+  link — nothing dangles, nothing contradicts. The retargeted guard preserves (a2)'s real
+  mischief-target (RATIFY-TAX-50 resurfacing under the retired designation).
+- **LP-071 collision safety is stronger than claimed**: the surviving cap uses the en-dash
+  (`90–99%`, six occurrences across rate-history, law-polling, the tax-50 supplemental) while
+  III.IV's relocated band uses the ASCII hyphen (`90-99%`). Rule-scoping *and* encoding keep them
+  apart; all six occurrences untouched.
+- **Seven mutation probes re-run by the architect, all bite red-for-the-reason**: fidelity on a
+  corrupted `$15.63`; the per-phrasing Phase V attack (one band corrupted among five); purity on a
+  reinserted rate; purity via injection into a laws.html Tier-1 charter-mirror entry (three guards
+  fired); the N-1 pin on a deleted and a duplicated negative magnitude; the R15 guard on forged
+  RATIFY-TAX-50 content. The Tier-1 mirror scan is non-vacuous (61 `data-tier="charter"` entries).
+- **LP-076's register idiom is inherited, not invented**: "(gravity-set)" comes from LP-057, whose
+  *81% yes against a 90% point* the new entry deliberately echoes as *81% yes against an 80%
+  point* — same vote share, different gravity, opposite outcome. Scope string, gate order, and
+  threshold form match the seven failed entries; dates 2296/2299 as ratified; stat cards
+  90 = 8/60/22 advertised and derived atomically.
+- **E3 attributions and errata verified**: every tier-attribution edit follows the systems.html:263
+  negative-citation pattern; restatements keep their content; F-1–F-4 are in place at source
+  (simulations XXV.II; why-vmss III.V; whitepaper §9; LP-002 → III.II on both surfaces);
+  register errata E-L1/E-L2/E-L3 folded with the RATIFIED header.
+
+## Defect found and fixed by the architect (disclosed)
+
+**A NUL byte in tools/check-canon.mjs:618** — the (f2b) join separator was `' \x00 '`, a
+here-string mangling artifact. Node parsed it, the guard logic was unaffected, but the file
+registered as *binary* to grep/file/diff, which would make future tooling silently skip the
+repo's most load-bearing script. Fixed at `0b09699` (one byte → spaces; 136/0 before and after;
+tree-wide NUL scan of every touched file: clean). This is the sole code change the architect has
+made in this project, disclosed per the division-of-labor rule. Trivial report discrepancy noted
+alongside: the run's prose says "16 rules / 36 phrasings"; the committed table is 17 rules /
+33 phrasings. The code is authoritative.
+
+## Dispositions of the six open items (delegated orchestration)
+
+1. **R15 retarget scope narrowing: ENDORSED.** Page-wide `lp-076` references are now legitimate
+   (TOC, cross-references); the masquerade can only work as or inside the entry, and check-canon's
+   duplicate-DOM-id guard closes the second-`id="lp-076"` hole.
+2. **One number, two titles, two tiers: BLESSED as house convention** for amendments that mint
+   instruments. The Code entry states the relationship; the badge names the recalibration ladder.
+   Precedent note: a future amendment minting several instruments needs a designated primary.
+3. **XXVII's ordinal profile: DECLARED, here, as the controlling reading.** The retained ordinals
+   ("the fifth is unsurvivable", "which the schedule reaches at the fifth child") are a Charter
+   **bound on the relocated rate** — the §6 case-B pattern: federal tier sets the rate; the Charter
+   fixes the outcomes the rate must produce. A recalibration moving the insolvency crossover off
+   child five is a Charter question, by design. No text change needed; this record cures
+   "undeclared."
+4. **Grant-formula asymmetry → JASON at the veto read, with a recommendation: HARMONIZE now.**
+   Three grants (III.IV forfeiture, the savings-base cure, XXVII) omit "enacted and recalibrated
+   through the Article XXV.VI ladder." No in-world authority hole exists (XXVIII.III's hierarchy
+   routes all federal recalibration through the ladder), and the ratified §10 texts were followed
+   verbatim — but the Charter is a document where textual uniformity is doctrine, and the III.III
+   precedent already reads the formula as regime-descriptive rather than historical. **Pre-merge
+   is the only cheap moment**: after v23.0.0 ships, harmonizing costs an in-world amendment.
+   If Jason prefers the asymmetry, it should be declared intentional in the register instead.
+5. **pending-ratify-tax-50-ballot.html:143: ENDORSED as frozen pre-vote record** — immutable
+   class, correctly not edited.
+6. **F-5 recorded, F-6 remains Jason's doctrine question** — unchanged.
+
+**Also flagged for Jason's read:** the LP-076 commentary names **the Presidency** as setter of the
+Main Layer gravity point — new procedural canon (charter :286 names the rule, not the setter).
+Endorsed as power-neutral (the Presidency already holds an absolute veto, so setting the bar
+grants it nothing the veto does not), but it is authored mechanics and his read should confirm it.
+
+## Ship state
+
+`a640529` (the §17 peer-review plan) is merged into the v23 branch at `3f181bd` — the eventual PR
+now carries both branches' content. Sequence: **Sol peer review (§17, brief committed beside this
+file) → findings triage → Jason's veto read (O-4 decision + the Presidency line) → PR → squash
+lands as `canon v23.0.0` + tag on the squash (Jason pushes the tag).**
