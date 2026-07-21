@@ -1,9 +1,18 @@
 # VMSS Charter — Load-Bearing Register (Run L1 output)
 
-**Status: PROPOSED — nothing here is enacted.** This is Jason's ratification surface, the D1–D5
-pattern. No `charter.html` edit, no `laws.html` edit, and no guard change occurred in Run L1.
-The proposed amendment text (§10) and the proposed in-world event record (§11) are **proposals**;
-Run L2 does not exist until Jason ratifies this document personally.
+**Status: RATIFIED — Jason ratified this register with the architect's errata on 2026-07-21**
+(*"I ratify the register with your errata — draft the L2 handoff."*). Ratification record:
+`docs-review/vmss-laws-loadbearing-handoff.md` §13. Review basis:
+`docs-review/vmss-laws-loadbearing-review.md` (architect, 2026-07-21, register accepted at
+`aae169f`). Errata **E-L1, E-L2, E-L3** are folded into the text below and marked inline; the §13.3
+open pick is closed to the Central Banking Authority per the review's recommendation, adopted at
+ratification. Run L2 (`feat/vmss-laws-v23.0.0`) enacts this document and nothing beyond it.
+
+*Historical status line, as the document stood at the L1 gate:* **PROPOSED — nothing here is
+enacted.** This was Jason's ratification surface, the D1–D5 pattern. No `charter.html` edit, no
+`laws.html` edit, and no guard change occurred in Run L1. The amendment text (§10) and the in-world
+event record (§11) shipped as **proposals**; Run L2 did not exist until Jason ratified this
+document personally.
 
 Run L1 of `docs-review/vmss-laws-loadbearing-handoff.md`, executed 2026-07-21 on branch
 `feat/charter-loadbearing-audit` (base: `canon v22.8.0`). Machine-readable companion:
@@ -242,7 +251,20 @@ new schedule instrument enacted by the amendment itself.
 ### 4.3 III.V — the five-band retention schedule and the 24-month lookbacks
 
 - **Candidate text** (charter.html:209–215, the five `<li>` bands; charter.html:206 and :216, the
-  two 24-month lookback windows).
+  two 24-month lookback windows; **charter.html:202**, per erratum E-L1 below).
+- **⚠ ERRATUM E-L1 (architect review, ratified — binding on L2's drafting).** `charter.html:202`,
+  inside III.IV's text, restates III.V's band endpoints in retained-percentage form: *"The same
+  progressive scale applies — 10% retained on the first $1M, scaling down to 1% above $1B."* The
+  occurrence appears in neither the §10 relocation list as originally drafted nor finding N-2's
+  restatement inventory, and the graph carries only the pointer E2 from :202 (*"using the downward
+  transfer retention schedule (Article III.V)"*) — the magnitude restatement has no edge. As
+  originally drafted, L2 would have demoted the III.V bands while the Charter retained two of their
+  values one article up: exactly the occurrence-counting failure class N-2 warns about. **Fix, now
+  in force: charter.html:202 joins the III.V relocation set. The sentence keeps its pointer form and
+  loses the band values** (L2-drafted text of the form *"The same progressive scale applies — per
+  the retention schedule — converted at destination-layer purchasing power"*). Note that the
+  purchasing-power gradients later in the same line are a **keep** (§6 case B) — the :202 edit is
+  surgical to the two band endpoints.
 - **In-edges: E1 = 1, E2 = 9, E3 = 16.** **Read the E2s carefully — this is the row most likely to
   be misread.** Every one of the nine is a *pointer to the schedule as a whole*, not a dependency
   on a band value: charter VII:267 *"liquidated per the schedule in Article III.V"*; charter
@@ -256,9 +278,13 @@ new schedule instrument enacted by the amendment itself.
 - **Target tier:** Federal (cross-layer).
 - **Receiving instrument:** **the Central Banking Authority** for the retention bands (same
   settlement mechanism as §4.2 — III.IV:202 already routes visitors and elective residents through
-  the III.V schedule, so the two belong in one instrument); **new schedule instrument** or the
-  same, for the 24-month lookbacks. **Flag:** the lookbacks are an anti-avoidance rule, arguably
-  closer in kind to LP-069/LP-070's attribution family than to settlement. Jason should pick.
+  the III.V schedule, so the two belong in one instrument). **The 24-month lookbacks: RESOLVED at
+  ratification to the Central Banking Authority as well** — the flag below was the open pick; the
+  architect recommended keeping the whole III.IV/III.V settlement family in one instrument (the
+  anti-avoidance kinship with LP-069/070 is real, but attribution's home is the savings base, not
+  asset liquidation), and Jason adopted that recommendation. *Original flag, recorded:* the
+  lookbacks are an anti-avoidance rule, arguably closer in kind to LP-069/LP-070's attribution
+  family than to settlement.
 - **Keeps:** the involuntary-descent 100% absolute (a rule of kind, not a tunable band — *"One
   hundred percent of proceeds are transferred … without exception"*), joint-asset treatment,
   victim-restoration priority, and the anti-pre-positioning principle *"pre-positioning does not
@@ -296,6 +322,13 @@ new schedule instrument enacted by the amendment itself.
   threshold"* plus the worked illustration *"If a family's baseline aggregate effective rate is
   40%: the third child raises it to 60%. The fourth child raises it to 90%. The fifth child raises
   it to 135%"*.
+- **⚠ ERRATUM E-L2 (architect review, ratified — binding on L2's drafting).** The relocation is
+  **occurrence-complete across the whole of charter.html:423**, not merely across the span quoted
+  above. The line's trailing sentence — *"no rational actor accumulates sufficient savings under
+  60–90% escalation to survive long at 135%"* — restates the illustration's magnitudes *after* the
+  quoted candidate span ends, as does the *"already-punitive rates of children three and four"*
+  passage's context. L2's XXVII edit covers the full line; the retained prose keeps its qualitative
+  force (the runway to bankruptcy, the unsurvivability of the fifth child) and loses the figures.
 - **In-edges: E1 = 2, E2 = 3, E3 = 14.** Both E1s are **LP-064** (*Replenishment Assessment and
   Child Dividend Stewardship Act*, laws.html:707, law-polling.html:2119): *"Implementing
   specification of Charter Article XXVII — collection mechanics, not new doctrine."*
@@ -336,8 +369,13 @@ new schedule instrument enacted by the amendment itself.
 
 The spec predicted heavy E2 in-degree and said the graph decides. It does.
 
-- **19 E1/E2 in-edges target XXV.I–III specifically** (1 E1, 18 E2), plus 5 further E2 at
-  Article-XXV granularity from VI, VII, XXVIII.I, XXVIII.III, and the Federal Reach Boundary Act.
+- **30 E1/E2 in-edges target XXV.I–III specifically** (7 E1, 23 E2 — the sum of the §2 rows for
+  XXV.I, XXV.II, and XXV.III), plus 12 further E2 and 1 E1 at Article-XXV granularity from VI, VII,
+  XXVIII.I, XXVIII.III, and the Federal Reach Boundary Act.
+  **⚠ ERRATUM E-L3 (architect review, ratified).** This line read *"19 E1/E2 in-edges … (1 E1, 18
+  E2)"* at the L1 gate — an internal inconsistency with the graph and with the register's own §2
+  rows, which sum to 7 E1 + 23 E2 = 30. The real counts are *higher*, so the keep verdict only
+  strengthens; the corrected figures are stated above.
 - **Article VI's -3 federal floor is unintelligible without them** — charter.html:262 makes the
   floor activate on *"violation of absolute federal laws (Articles XXV.I–XXV.III)"*. Demote them
   and the Charter's only statement of when the civilization reaches into the Terminal layer points
@@ -508,8 +546,9 @@ the derivation sentence:
 > set by federal law and consolidated in VMSS Laws, that prevents arbitrage while allowing
 > citizens to arrive in lower layers with limited capital.
 
-**III.V** — replacing the five bands at charter.html:209–215 and the two 24-month windows at
-:206 and :216:
+**III.V** — replacing the five bands at charter.html:209–215, the two 24-month windows at
+:206 and :216, and (per E-L1) the band-endpoint restatement inside III.IV at :202, which keeps its
+pointer form:
 > The retention schedule and the pre-positioning lookback window are federal law, enacted and
 > recalibrated through the Article XXV.VI ladder and consolidated in VMSS Laws. The Charter fixes
 > the principle — origin-layer assets are liquidated on a progressive scale, voluntary permanent
@@ -525,7 +564,8 @@ the derivation sentence:
 > and no means testing, and automatic deactivation when the aggregate falls below its trigger —
 > and reaches no threshold or rate.
 
-**XXVII** — replacing the escalation rate and its worked illustration at charter.html:423:
+**XXVII** — replacing the escalation rate and its worked illustration at charter.html:423,
+occurrence-complete across the whole line per E-L2:
 > The escalation rate is federal law, consolidated in VMSS Laws. The Charter fixes the
 > architecture — comprehensive fiscal escalation measured against total parental inflow,
 > compounding per child beyond the threshold, with the dividend never withheld at source and the
@@ -567,7 +607,11 @@ Proposed entry:
   end of the 80–90% range, because charter.html:286 sets the point in range by *"the gravity of the
   proposed change"* and this change reaches no substantive rule.
 
-**Three flags Jason must settle before L2 can author this:**
+**Three flags Jason must settle before L2 can author this — ALL THREE SETTLED at ratification
+(handoff §13):** the number LP-076, the title, the dates **Filed 2296 / Vote Concluded 2299**, the
+first-success-in-seven framing, and **licence to author the enacted-entry idiom at minimal delta
+from the seven failed entries** are granted. The flags are retained below as the record of what was
+outstanding and why.
 
 1. **⚠ There is no enacted idiom in the Charter Amendments section.** All 7 entries failed; the
    section has no `status-badge` class, no passing vote-table phrasing, and no closing-commentary
@@ -608,7 +652,8 @@ Found while building the graph; none is in scope for L1 to fix, all are cheap.
    ranges as a demotable parameter; the register's ground is that a bound on a delegated power is
    §10.6.1 Charter content.
 3. **§4.3's lookback receiving instrument is genuinely open** — settlement (Central Banking
-   Authority) vs. attribution (LP-069/070 family). Recorded, not decided.
+   Authority) vs. attribution (LP-069/070 family). Recorded, not decided. **CLOSED at ratification
+   to the Central Banking Authority** (architect recommendation adopted; see §4.3).
 4. **`Canon Anchor` typing.** The register-lens typed Charter articles appearing *only* in an
    entry's `Canon Anchor` meta field as **E4** (weaker choice per instruction). If a reviewer reads
    `Canon Anchor` as a parent-authority field, roughly **70 E4 rows re-type to E1 in bulk**. This

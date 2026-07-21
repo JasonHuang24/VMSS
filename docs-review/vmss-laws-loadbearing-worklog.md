@@ -171,3 +171,45 @@ reading, changing the in-degree table but no result); and the choice not to fan 
 
 **STOP condition reached as specified.** The register is pushed. Jason ratifies it personally
 before any Run L2 enactment exists. No PR, no merge, never main.
+
+---
+---
+
+# Run L2 — Enactment: the Enabling Consolidation Amendment (canon v23.0.0)
+
+Run L2 of `docs-review/vmss-laws-loadbearing-handoff.md` — **§13 (ratification record) and §14
+(execution spec) govern**. Branch: `feat/vmss-laws-v23.0.0`. Executing session: Opus, 2026-07-21.
+
+Jason ratified the register with the architect's errata (handoff §13). This run authors in-world
+constitutional history **exactly as ratified and nothing more**; every judgment taken beyond the
+ratified licence is flagged in this worklog.
+
+## L2 Phase 0 — Setup and baseline
+
+| Item | Value |
+|---|---|
+| `git remote -v` | `https://github.com/JasonHuang24/VMSS.git` (fetch + push) — verified |
+| Branch | `feat/vmss-laws-v23.0.0`, created from `origin/feat/charter-loadbearing-audit` at `913ab52` (the L2 handoff commit). The L1 branch is not touched again. |
+| L1 branch state consumed | `913ab52` — carries the graph, the register, the architect's L1 review, and handoff §13–§16 |
+| History discipline (handoff §9) | The launch block instructed **no history rewrite, no force-push, no tag operations**. None were performed. Recorded verbatim as §9 requires. |
+| check-canon baseline | **133 passed / 0 failed** — `derived: archive=94 (world=48 residents=46) sections=10 versions=26 \| law 7/60/22 of 89 \| academy=33 resources=33 \| faq=79 why=32` |
+| Stat-card ground truth at branch time | law-polling.html: **89 = 7 Charter-amendment / 60 Federal / 22 Regulatory**. This run moves it to **90 = 8/60/22**. |
+| Founding-count ground truth | laws.html: **60** `data-instrument="founding"` entries. **Must not move** — new entries are enacted under LP-076, never marked founding. |
+
+Specs read in full, in the launch block's order: loadbearing-handoff (§13 ratification record, §14
+execution spec; §7–§10 background) · loadbearing-register (the ratified content authority) ·
+loadbearing-review (errata E-L1–E-L3, observation O-L1) · architecture · opus-prompts Prompt 0.
+
+## L2 Phase 1 — Record-keeping: errata folded, register marked RATIFIED (§14.1)
+
+`docs-review/vmss-laws-loadbearing-register.md` only. No canon surface touched; check-canon
+unchanged at 133/0.
+
+| Change | Where |
+|---|---|
+| Status header rewritten PROPOSED → **RATIFIED**, citing handoff §13 and the review doc; the original status line preserved verbatim as the historical record | register head |
+| **E-L1** folded: `charter.html:202` joins the III.V relocation set; the sentence keeps pointer form and loses the band values; noted that the purchasing-power gradients on the same line are a §6-case-B **keep**, so the :202 edit is surgical | §4.3, §10 (III.V) |
+| **E-L2** folded: the XXVII relocation is **occurrence-complete across the whole of `charter.html:423`**, covering the trailing `60–90%` / `135%` sentence beyond the originally quoted span | §4.5, §10 (XXVII) |
+| **E-L3** folded: §6 Case A's count corrected from "19 (1 E1, 18 E2)" to **30 (7 E1, 23 E2)**, matching the graph and the register's own §2 rows; the erratum records the original figure and notes the keep only strengthens | §6 Case A |
+| §13.3's open pick **closed**: the III.V 24-month lookbacks receive at the **Central Banking Authority** (architect recommendation adopted at ratification — the whole III.IV/III.V settlement family in one instrument) | §4.3, §13.3 |
+| §11's three flags marked **settled** at ratification: LP-076, the title, Filed 2296 / Concluded 2299, the first-success framing, and the licence to author the enacted-entry idiom at minimal delta | §11 |
