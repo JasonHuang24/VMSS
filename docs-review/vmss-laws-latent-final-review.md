@@ -30,6 +30,12 @@ check-canon 133/0; mutation suite 8/8. Commit, push the branch. Touch nothing el
 - **J-C3 — §19.11 PART 2 mislabels (−76/−78) left unedited, recorded in PART 5: ENDORSED.** Valid dispositions, wrong labels, outside B3's scope; sign-off at the PR read.
 - **J-C4 — founding-act parent-authority values as provisional: ENDORSED, by design.** These are E1-edge seeds for the load-bearing audit, which is the process that adjudicates them (loadbearing handoff §3); the #3 self-correction to `none-standalone` against its own rationale was the right instinct.
 
+## E-F2 — Mainline normalization ratified (architect, 2026-07-21)
+
+After this review shipped, Jason normalized the repository history to the mainline convention the earlier canon tags already follow (v22.5 · v22.5.1 · v22.6.0 — one squashed, tagged commit per canon version): main's v22.7.0 series was squashed into `3b27200` with the v22.7.0 tag moved onto it, and both live branches were rebased content-identically. The architect verified zero content change anywhere and Jason ratified the act and the landing method. **Supersession:** the "merge commit only" instruction (architecture §8, opus-prompts, and step 2 of this review's sequence) is superseded — PRs land as squashed `canon vX.Y.Z:` commits with the version tag on the squash; nothing strands because tags move with the rewrite. PR #30 lands as `canon v22.8.0` + tag accordingly.
+
+**Hash concordance** (docs in this directory cite pre-rewrite ids; mapping derived mechanically by subject match, trees verified identical): b025015→aa9377f · 9a45fc5→5cc40f0 · f1daced→a6d0ab0 · 31b18d6→af02de1 · c16759f→dd6426d · c3c9348→eb9af09 · 286bf85→b5359f0 · a154b06→968bd8e · 4bd6f79→f907807 · 0f8f819→27e836c · baec304→0c2c721 · e37b189→a03bbae · b3303a1→2779c4e · 7588dc0→df97b72 · 89e6f59→bf99158 · the twelve v22.7.0-era commits + merge 01d37f1 → squashed into 3b27200 (tag v22.7.0).
+
 ## Sequence from here
 
 1. F1 lands on the latent branch (block above).
