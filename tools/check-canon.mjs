@@ -209,17 +209,26 @@ const statusOfLp = (id) => {
    drafting designations live off-register, labeled as designations (guard (b2)).
 
    (a1) The register's LP-074 is RATIFY-TAX-50-II, not a restored drafting text.
-   (a2) The old number is fully retired from the tree: a stale #lp-076 would be a
-        link into a slot the register no longer has. */
+   (a2) The old LP-076 designation is fully retired: the number was a drafting
+        designation that never registered in world, and RATIFY-TAX-50 content
+        may never reappear under it. RETARGETED at v23.0.0: R15's own holding is
+        that in-world numbering takes the next true number, so a number that was
+        never consumed in world is available. The Enabling Consolidation
+        Amendment was ratified into the lp-076 slot in 2299. The guard therefore
+        no longer asserts the slot is empty — it asserts the slot is not the old
+        designation: any lp-076 entry must be the amendment, and must carry no
+        RATIFY-TAX-50 subject matter. Deleting either half re-opens the exact
+        hole (a2) was written to close. */
 {
   const entry = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
   check(entry.includes('RATIFY-TAX-50-II'),
     "register's LP-074 is RATIFY-TAX-50-II (R15: the R14 law takes the next true number)",
     entry ? 'entry present, titled RATIFY-TAX-50-II' : 'no lp-074 entry');
 
-  const stale = [...law.matchAll(/\blp-076\b/gi)].map((m) => m[0]);
-  check(stale.length === 0, 'register carries no LP-076 (R15 renumber complete)',
-    stale.length ? `found ${stale.length}` : 'clear');
+  const lp076 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-076"')) || '';
+  const lp076Ok = lp076.includes('The Enabling Consolidation Amendment') && !/RATIFY-TAX-50/.test(lp076);
+  check(lp076Ok, 'register\'s LP-076 is the Enabling Consolidation Amendment, never the retired RATIFY-TAX-50 designation (R15)',
+    lp076 ? (lp076Ok ? 'entry present, titled the Enabling Consolidation Amendment' : 'lp-076 entry is not the amendment, or carries RATIFY-TAX-50 subject matter') : 'no lp-076 entry');
 }
 
 /* (b) The deregistered texts survive verbatim off-register. Deregistration is
