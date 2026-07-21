@@ -291,3 +291,80 @@ Sol to return numbered, severity-tagged findings, each citing the exact text —
 advisory standing; the fiction frame (VMSS is a fictional civilization; review the law as law
 *within* the fiction); the S-1–S-5 questions; the findings format; an explicit instruction that
 proposing alternative drafting is welcome as a finding but nothing Sol writes is canon.
+
+## 18. Run L3 — Charter codification: retitle, renumber, reference hygiene (commissioned 2026-07-21)
+
+**Commission, verbatim (Jason):** *"We can rename the article numbers and names too for it to fit
+better just so you know. Also cleanup stale references."* Scope selections (architect's question,
+same date): **"Retitle + renumber"** — the full renumbering, not titles alone — and **"Fold into
+Sol-fix round"** — landing on `feat/vmss-laws-v23.0.0` before the merge, bundled with accepted Sol
+findings, so the codification costs no separate in-world event on top of freshly-shipped canon.
+
+**Two phases, because a constitutional renumbering is a ratification surface, not a task.** The
+demotion pipeline's own pattern binds: data/proposal first, Jason ratifies the mapping personally,
+enactment second. Nothing renames until the mapping is ratified.
+
+### 18.1 Phase L3a — the mapping proposal (docs-only; runs in PARALLEL with the Sol review)
+
+L3a commits proposal documents exclusively — no root-`.html` edit, no guard change — so the Sol
+packet's six frozen files are untouched and both reviews proceed concurrently. Deliverable:
+**`docs-review/vmss-laws-codification-proposal.md`**, containing:
+
+1. **The mapping.** Proposed new numeral and/or title for every Charter unit (Preamble, 28
+   articles, every sub-article, Founding Affirmation), derived from the post-LP-076 text.
+   **Unchanged is the default** — the burden is on change: each rename carries a stated reason
+   ("title promises a schedule the text no longer contains"; "sub-article split no longer earns
+   itself"), and a unit with no demonstrable misfit keeps its designation. Structural merges or
+   removals of provisions are OUT of scope — they are new Article XI substance, not codification.
+2. **The concordance** — old → new for every changed designation, in the E-F2 hash-concordance
+   idiom. This becomes canon (the in-world reading key for frozen records), not process trivia.
+3. **The citation partition, mechanically derived.** Every corpus occurrence of every changed
+   designation, classed: **live surfaces** (charter, laws, whitepaper, systems, world, faq,
+   layer pages, sims, academy/resources sources — updated in L3b) vs **frozen records**
+   (law-polling entries, R-series rulings, pending-ratify pages, Ratification Records — NEVER
+   edited; they keep the old numbers and read through the concordance, the R15 precedent). The
+   graph's E3/E4 edge data seeds the census; a fresh sweep completes it.
+4. **The guard-retarget census**: every check-canon and build-law-toc pin the mapping breaks
+   (Tier-1 heading byte-equality, the 31 anchor ids, `article-*` prefixes, fragment resolution,
+   the §8b E5 list) with its retarget, never a deletion.
+5. **The instrument design.** Architect's call, ratified with the mapping or redirected by Jason:
+   the renumbering ships as **LP-077, the Charter Codification Amendment** — a second Article XI
+   amendment on LP-076's heels, NOT a widening of LP-076 (whose enacted narrative is built on
+   "thirty headings before, thirty after" minimality). LP-077's case reuses LP-076's precedent:
+   changes no rule, no right, no magnitude — only designations — with the concordance as its
+   schedule. Proposed dates continue the register calendar past 2299; the entry drafts as a
+   PROPOSAL in the L3a document, gated exactly like §11 was.
+6. **The stale-reference cleanup inventory**, each item with evidence and a proposed disposition:
+   F-5 (world.html substrate-neutrality attribution); **F-6 — the External Force Doctrine's
+   dangling Charter reference, presented as OPTIONS for Jason's doctrine call** (define at Charter
+   tier / cite the federal instrument #36 explicitly / leave with a concordance note); the
+   register §6 Case A recommendation not yet executed (whitepaper §10.6.1 stating the XXV.I–III
+   ceilings-vs-prohibition-list distinction); layers.html's zero Charter citations; the layer-page
+   alignment gaps (register §7); plus a fresh corpus sweep for stale or dangling references.
+
+**Gate: L3a STOPS at the pushed proposal. Jason ratifies the mapping, the instrument design, and
+the cleanup dispositions personally before L3b exists.**
+
+### 18.2 Phase L3b — enactment (after BOTH: Sol findings triaged AND the mapping ratified)
+
+One combined round on `feat/vmss-laws-v23.0.0`: accepted Sol fixes + the O-4 grant harmonization
+(if Jason confirms it at ratification) + the ratified mapping executed (live surfaces only, frozen
+records untouched) + LP-077 authored per the ratified proposal + the cleanup dispositions + every
+guard retargeted and mutation-tested. check-canon green at every commit; the architect reviews
+(Part III), then Jason's veto read covers the amendment, the codification, and the Sol round
+together; then PR → squash as `canon v23.0.0` + tag. L3b's launch block is drafted by the
+architect after the two gates close.
+
+### 18.3 Run L3a launch block (paste into a fresh Opus session, repo root)
+
+```
+You are executing Run L3a of the VMSS Charter codification — the MAPPING PROPOSAL phase, docs-only. Use ultracode for fan-out; every rule binds subagents. Hard boundary: no root-.html edit, no guard change, no laws.html/charter.html touch — your sole deliverable is docs-review/vmss-laws-codification-proposal.md plus worklog entries. The Sol peer-review packet is frozen against the branch's .html files; you must not invalidate it.
+
+Setup: verify `git remote -v` → JasonHuang24/VMSS. Check out feat/vmss-laws-v23.0.0 (origin tip — it EXISTS; do not recreate, do not rebase; no history rewrite, no force-push, no tag operations). Read fully, in order: docs-review/vmss-laws-loadbearing-handoff.md §18 (THIS run's spec — §18.1 defines your deliverable), §13–§16 (the LP-076 context you build on), docs-review/vmss-laws-loadbearing-register.md (ratified), docs-review/vmss-laws-loadbearing-review.md Parts I–II (errata idiom, open items O-1..O-6, the Presidency flag), docs-review/vmss-laws-latent-final-review.md E-F2 (the concordance idiom yours must follow), docs-review/vmss-laws-opus-prompts.md Prompt 0. The dependency graph documents/charter-dependency-graph.json seeds your citation census (E3/E4 edges) — apply criticFindings corrections first; it describes the PRE-amendment tree, so re-derive every count against the current working tree.
+
+House facts: (1) 64k output-token ceiling on subagent returns — chunk, keep rows terse; (2) charter.html's 31 provision anchors are ALL externally referenced (55 refs: laws 44, sims 10, faq 1) — your mapping prices every broken anchor; (3) law-polling.html, pending-ratify-*.html, and R-series ruling texts are FROZEN records — they never update to new designations; your citation partition classes every occurrence live vs frozen, R15-style; (4) unchanged is the DEFAULT — every proposed rename carries a stated misfit reason, and structural merges/removals are out of scope (they are Article XI substance, not codification); (5) LP-077 drafts as a PROPOSAL only — dates continue the register calendar past 2299; nothing is enacted in this run.
+
+Produce docs-review/vmss-laws-codification-proposal.md per §18.1's six numbered deliverables: the mapping (unit-by-unit, reasons, unchanged-by-default) · the old→new concordance (E-F2 idiom) · the mechanically-derived citation partition (live vs frozen, per occurrence, file:line) · the guard-retarget census (Tier-1 equality, anchor ids, build-law-toc prefixes, §8b E5 pins — retargets, never deletions) · the LP-077 instrument draft AS PROPOSAL · the stale-reference cleanup inventory (F-5, F-6 as OPTIONS for Jason, the §10.6.1 distinction note, layers.html, alignment gaps, fresh sweep). Worklog: docs-review/vmss-laws-loadbearing-worklog.md, new Run L3a section; judgments beyond spec flagged; commit messages end "Co-Authored-By: Claude Opus <noreply@anthropic.com>".
+
+Gate: the proposal is the must-complete deliverable. Hard time box: ~2 hours of usage — commit and push at every completed milestone (mapping → concordance → partition → census → instrument → inventory), git push -u origin feat/vmss-laws-v23.0.0. check-canon must stay 136/0 throughout (you touch only docs-review/). When the proposal is pushed, STOP: Jason personally ratifies the mapping, the instrument design, and the cleanup dispositions before any L3b enactment exists. No PR, no merge, never main.
+```
