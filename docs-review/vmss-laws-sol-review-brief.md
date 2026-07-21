@@ -63,6 +63,32 @@ schedule is read from.** The register document (attached) records the data-drive
 8. `vmss-laws-codification-proposal.md` — the null rename mapping and its reasoning, the
    do-not-file recommendation, and the stale-reference inventory.
 
+**Work protocol — the depth contract.** This is a deep review, not a reaction. Work at full
+depth; if the response outgrows one message, stop mid-section with `[CONTINUED]` and resume when
+prompted — Jason will keep saying "continue" until you print `[REVIEW COMPLETE]` at the very end.
+
+1. **Read all eight files completely before writing anything** — and read the canon surfaces
+   (both charters, laws.html, law-polling.html) *before* the four inside documents, so your
+   picture of the law forms from the primary sources rather than from the authors' own account
+   of them. The charters are read in full, not sampled.
+2. **S-1 required deliverable**: gate-by-gate — each of Article XI's stated gates against
+   LP-076's recorded result, one line each; every meta field checked against the seven failed
+   entries' form; and the best single attack an in-world litigant could mount, even if you judge
+   it fails.
+3. **S-2 required deliverable**: a five-row table, one per amended provision — what left, what
+   stayed, and whether any right or obligation changed for any in-world actor, however slight.
+   "No change" is a claim you defend per row, not a default you assert once.
+4. **Show your rejected hypotheses.** For S-3, cross-read every receiving entry in laws.html
+   against its Charter grant and record each pair checked. For S-5, list at least eight candidate
+   issues you examined, including the dismissed ones with their one-line reasons. A sweep that
+   reports only what it kept cannot be audited for depth — the dismissals are how we know you
+   looked.
+5. **Novelty check before filing**: if the attached record already documents your finding (the
+   reviews' errata and open items, the proposal's N-findings and inventory), cite where and move
+   on — *unless you dispute the recorded disposition*, which is itself a finding.
+6. **Verify every quote verbatim against its file before citing it.** A finding that misquotes
+   its own evidence forfeits standing.
+
 **Complete S-1 through S-5 in order before opening S-6** — S-6 names the spots where the inside
 reviewers want adversarial input, and reading it first would prime your fresh-eyes sweep.
 
@@ -126,12 +152,16 @@ reviewers want adversarial input, and reading it first would prime your fresh-ey
      treats that as proof the kind test does real work. Your question is whether it did the right
      work on each of these rows.
 
-**Findings format.** Numbered `S<section>-F<n>`, most severe first, max ~20 findings. Each:
-**severity** (BLOCKER / MAJOR / MINOR / NOTE) · the exact quoted text at issue (with file) · the
-claim in one sentence · the reasoning in a few more. A finding with no quotable text is a NOTE.
-If a section yields nothing, say "S-n: no findings" — silence is not reviewable. End with a
-one-paragraph overall verdict: would you let this merge as constitutional canon, and if not, what
-is the minimum set of fixes?
+**Findings format.** Numbered `S<section>-F<n>`, most severe first, capped at ~20 **filed**
+findings — the cap limits noise, never work: everything you examined and dismissed belongs in the
+rejected-hypothesis lists, not the findings. Each finding: **severity** (BLOCKER / MAJOR / MINOR /
+NOTE) · the exact quoted text at issue (with file) · the claim in one sentence · the reasoning in
+a few more. A finding with no quotable text is a NOTE. If a section yields nothing after real
+work, say "S-n: no findings" *and point at that section's rejected-hypothesis list as the proof
+of work* — silence is not reviewable. Close with two things: a one-paragraph overall verdict
+(would you let this merge as constitutional canon; if not, the minimum fix set), and a **declared
+non-coverage statement** — what you did not examine and why, so nobody mistakes your review's
+edge for its endorsement. Then print `[REVIEW COMPLETE]`.
 
 ---
 
