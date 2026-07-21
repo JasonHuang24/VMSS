@@ -290,3 +290,74 @@ vacuously green while no founding entry is authored — they light up at Phase A
 `build:css` clean. `build-law-toc` both modes byte-stable and idempotent on the real files (the optional
 capture is backward-compatible with the register-derived entries). No stop conditions hit; no check
 weakened — guards were added and partitioned, none deleted (Prompt 0 rule 6).
+
+---
+
+## Phase A — AUTHOR (2026-07-21)
+
+### What shipped
+
+- **laws.html**: a **Founding Corpus band** at the end of Tier 2 — an R23 intro + nine subject-group
+  headers (distinct `code-subject` ids, so the generator groups them without colliding with the register
+  subjects) + **60 founding-corpus Code entries** (`<article class="code-entry" id="code-fc-<slug>"
+  data-tier="federal" data-instrument="founding" data-source="<canon page>">`, "Founding corpus" badge,
+  R16 1–3-sentence current-force narratives distilled from the ratified inventory, meta grid: Source(s) ·
+  Enacted (founding) · Parent authority for the schedule-under-authority class). Badge/self-link CSS added
+  to the inline `<style>`.
+- **law-polling.html**: register-intro cure (handoff §7.2 text, verbatim). ToC byte-stable (outside the
+  parsed markers).
+- **pending-ratification.html**: **R23 — The Codification Sweep** registered beside R22, verbatim
+  (handoff §7.3); pinned in check-canon.
+- **footer.html + README.md**: **v22.8.0** lockstep (§9.2).
+- **B8 §9.3 schema backfill**: all 61 instruments carry `parent-authority` + `charter-touchpoints`
+  (committed separately as Fix Pack B8).
+
+### How it ran
+
+A single ultracode author→verify pipeline (18 agents: 9 subject-group authors, 9 adversarial verifiers).
+Each verifier re-checked its group against the inventory for invented content, hedge preservation,
+name/markup exactness, canon-source data-source, R16/R13. **8/9 groups verified clean; the ninth caught a
+real defect** — #18 The Redundant Envelope Pattern conflated provisions 5–7 (attributing datacenter
+attributes to implant infrastructure and vice-versa). Fixed at assembly: the summary now keeps
+human-operated / EM-disruption fallback on datacenters and "same protection level as backup vessel
+fabrication" on implant infrastructure, matching the provisions. A mechanical pre-insertion scan
+confirmed every entry: id = `code-fc-<slug>`, `data-instrument="founding"`, canon data-source, no
+candidate-id token, no seat-name token, no `ls-cite`.
+
+### The 60 vs 61 — #55 held (stop-condition-adjacent, flagged)
+
+**Instrument #55 The High-Consequence Environment Certification Standard was NOT authored.** Its sole
+source is `simulations.html` (candidate ids sims-29…33), and handoff §4's source ranking forbids
+simulations as a source of rules ("era-pinned narrative; mine only for instruments they reference, never
+as source of rules"). The inventory's own rationale flags it: *"Its home surface is narrative;
+corroboration against a non-narrative surface is flagged before adoption."* No such corroboration exists,
+and the Phase-A guard (ii) would reject a founding entry with `data-source="simulations.html"`. Authoring
+it would be authoring a rule from a forbidden source — so it is held and escalated to Jason. Its inventory
+row still carries the B8 schema. **This is the one deliberate departure from "author all 61."**
+
+### Gate after Phase A
+
+- `node tools/check-canon.mjs` → **132 passed, 0 failed** (131 + the R23 pin). The five founding guards
+  now bite on **60 real entries** and all pass; ToC-sync + link-integrity + R13 + refusal sweeps pass over
+  the 60. **This is the baseline count to hold: 132, up from the 126 measured at branch time.**
+- `build-law-toc` both modes idempotent; the Code ToC now indexes **147 provisions** (30 Charter · 99
+  Federal = 39 register + 60 founding · 14 Layer · 4 District).
+- `npm run build:css` clean; founding-guard mutation suite still 7/7.
+
+### Judgments beyond spec (flagged)
+
+1. **#55 held** (above).
+2. **Class split is 9 schedule-under-authority + 52 founding-act, not the inventory Counts' 10/51** — the
+   `**class**` fields enumerate exactly 9 SUA. Another synthesis-era miscount; recorded, ids untouched.
+3. **Subject grouping**: the 60 entries sit in a dedicated Founding Corpus band under nine subject-group
+   headers that mirror the architecture §3.5 domains but with distinct ids (register vs founding kept
+   visually and structurally separate, no id collision). A defensible reading of "under the existing
+   subject titles"; flagged.
+4. **B8 founding-act parent-authority** is the sweep's provisional reading (12 founding acts name a
+   licensing article, 40 are `none-standalone`) for the load-bearing audit to confirm; #3 corrected to
+   `none-standalone` per its own rationale.
+
+### Stop conditions
+
+One instrument held (#55) and escalated rather than authored from a forbidden source — recorded here, not
+a gate failure. No check weakened; no unspecified doctrine authored.
