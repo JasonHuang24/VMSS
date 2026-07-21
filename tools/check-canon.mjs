@@ -799,6 +799,18 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(r22.length === 0, 'R22 is registered on the Ratification Record (process record)',
       r22.length ? `missing: ${r22.join(', ')}` : 'ruling number + doctrine name present');
 
+    /* R23 durability pin (latent-corpus sweep, v22.8.0). The founding-corpus Code
+       band and the law-polling register-intro cure both rest on R23 being
+       registered as the declaratory-codification ruling; pin it in the entity
+       form the page uses so a later edit cannot remove the ruling while leaving
+       the 60 founding entries that depend on it standing. */
+    const r23 = [
+      ['ruling number', record.includes('R23')],
+      ['doctrine name', record.includes('The Codification Sweep')],
+    ].filter(([, ok]) => !ok).map(([k]) => k);
+    check(r23.length === 0, 'R23 is registered on the Ratification Record (process record)',
+      r23.length ? `missing: ${r23.join(', ')}` : 'ruling number + doctrine name present');
+
     /* ToC sync, mirroring the register's own 'ToC links = entries' check above.
        The Code's index is generated, so a mismatch means the generator was not
        re-run after an entry landed — the same failure the register guard has
