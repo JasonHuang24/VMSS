@@ -234,5 +234,60 @@ Gate: must-complete is steps 1–5 + 8 pushed green; should-complete 6–7. Hard
 - check-canon green at every commit (walk the log); TOC modes idempotent; count delta vs 133
   explained per guard; build:css if any class changed.
 - History discipline: no rewrite, no tags, only intended files touched.
-- Then: Jason's veto read of the rendered amendment → PR → squash lands as `canon v23.0.0` with
-  the tag on the squash (Jason pushes the tag; this environment cannot).
+- Then: **external peer review (§17)** → Jason's veto read of the rendered amendment → PR → squash
+  lands as `canon v23.0.0` with the tag on the squash (Jason pushes the tag; this environment
+  cannot).
+
+## 17. External peer review — ChatGPT ("Sol"), planned 2026-07-21
+
+**Why.** Every author and reviewer in this project so far is Claude-family (Opus executes, Fable
+reviews). Intra-family adversarial checking cannot catch errors both models share by construction
+— correlated blind spots are the one error class the current pipeline structurally cannot see. An
+external, non-Claude peer breaks the correlation. This is a process-tier record; R13 (no founder
+names in World-tier canon) is untouched — "Sol" appears in docs-review/ only, like every other
+session name in this directory.
+
+**Position in the sequence** — after the architect's §16 review accepts the L2 push, **before**
+Jason's veto read and any PR:
+
+1. Opus pushes `feat/vmss-laws-v23.0.0` → architect runs §16 (+ any fix round).
+2. **Architect finalizes the Sol review brief** from the actual shipped state (skeleton below) and
+   commits it as `docs-review/vmss-laws-sol-review-brief.md`; Jason pastes it into a ChatGPT
+   session with the listed files attached.
+3. Sol returns findings; Jason pastes them back verbatim; the architect commits the transcript
+   (`vmss-laws-sol-review-findings.md`) and triages every finding into a dispositions record —
+   accepted (→ a scoped Opus fix commit on the L2 branch) or rejected with evidence, the Fix Pack
+   B pattern. Nothing is silently dropped.
+4. Jason's veto read — now informed by both reviews — then PR, squash, tag.
+
+Pre-merge placement is deliberate: findings land as branch fixes inside `canon v23.0.0` rather
+than as a v23.0.1 errata after in-world constitutional history has shipped.
+
+**Authority model.** Sol's review is **advisory** — findings, never edits, no authoring licence,
+no ratification standing. Adjudication of contested findings is the architect's; anything
+doctrinal escalates to Jason with the merge veto he already holds. A Sol finding cannot weaken a
+guard or change a ratified decision by itself; it can only send one back to Jason.
+
+**Scope — where external reading has power** (Sol cannot execute tooling; guards stay ours):
+
+- **S-1 Procedural legitimacy:** does LP-076's record satisfy Article XI's gates *as the Charter
+  itself states them* — order, thresholds, consensus mechanics, veto? Any hole in the in-world
+  process trail?
+- **S-2 Adversarial re-read of the decisions:** argue the other side of the five demotions and the
+  two hard-case keeps; flag any demotion that changes a right in substance despite byte-identical
+  magnitudes, and any keep that is really a parked parameter.
+- **S-3 Cross-surface contradiction sweep:** does any amended passage contradict any other
+  provided surface?
+- **S-4 Voice and idiom:** does the amended Charter prose hold register; does the first-success
+  entry read as the same civilization that wrote seven failures?
+- **S-5 Fresh eyes:** anything two same-family models plausibly missed together — stated
+  assumptions treated as facts, shared framing errors.
+
+**Materials Jason attaches:** charter.html (amended) + the pre-amendment charter.html for diffing;
+laws.html; law-polling.html; the register (as amended); the architect review. The brief instructs
+Sol to return numbered, severity-tagged findings, each citing the exact text — findings only.
+
+**Brief skeleton** (finalized post-§16 with real hashes and any run-specific flags): role and
+advisory standing; the fiction frame (VMSS is a fictional civilization; review the law as law
+*within* the fiction); the S-1–S-5 questions; the findings format; an explicit instruction that
+proposing alternative drafting is welcome as a finding but nothing Sol writes is canon.
