@@ -615,7 +615,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
       normalizedText(read('charter.html')),
       ...[...read('laws.html').matchAll(/<article class="code-entry[^"]*" id="[\w.-]+" data-tier="charter"[\s\S]*?<\/article>/g)]
         .map((m) => normalizedText(m[0])),
-    ].join('   ');
+    ].join('   ');
     const amendedCharter = charterTierText;
     /* id · the rule · every phrasing the Charter used for it · the Code entry
        that received it. Sources: the ratified demotion register §4.1–§4.5 plus
