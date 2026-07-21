@@ -76,7 +76,7 @@ The in-world mechanism is the architecture's **Enabling Consolidation Amendment*
 
 ## 9. Hard rules (unchanged from the house rules; binding on every subagent)
 
-No invented doctrine outside §7.1's licensed zone; hedges verbatim; naming table (architecture §2.3) binding — this project adds one row: **the Enabling Consolidation Amendment** (always full name on first use per page); R13 (no founder-as-actor, no seat names World-tier); R16 entry style; never delete a failing check to go green; magnitudes byte-identical everywhere — if any number would change, stop, that is a different project.
+No invented doctrine outside §7.1's licensed zone; hedges verbatim; naming table (architecture §2.3) binding — this project adds one row: **the Enabling Consolidation Amendment** (always full name on first use per page); R13 (no founder-as-actor, no seat names World-tier); R16 entry style; never delete a failing check to go green; magnitudes byte-identical everywhere — if any number would change, stop, that is a different project. **History discipline (added after the v22.8.0 normalization, final-review E-F2):** no history rewrite, no force-push, and no tag create/move/delete in any run unless the launch block explicitly instructs it; a run that receives such an instruction records it verbatim in its worklog. "Touch nothing else" means exactly that.
 
 ## 10. Ship spec
 
