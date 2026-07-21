@@ -1,8 +1,11 @@
 # External Peer Review Brief — canon v23.0.0 (for a ChatGPT "Sol" session)
 
 Finalized by the architect per handoff §17, 2026-07-21, from the shipped state of
-`feat/vmss-laws-v23.0.0` @ `edaf83a` (+ architect review through `0b09699`). Jason: paste
-everything between the rules below into a fresh ChatGPT session, attaching the six files listed
+`feat/vmss-laws-v23.0.0` through the L3a codification proposal and the architect's Part III
+review. Amended same date at Jason's direction: S-6.4 (prosecute the thin keeps) and the
+unlimited disagreement licence — Sol may challenge anything the architect has done, and rejected
+challenges to architect decisions escalate to Jason rather than closing in triage. Jason: paste
+everything between the rules below into a fresh ChatGPT session, attaching the eight files listed
 in its Materials section.
 
 ---
@@ -13,11 +16,21 @@ Claude-family models, and your review exists to catch what models sharing traini
 plausibly miss together. You have no repo access and no execution environment — everything you
 need is in the attached files.
 
-**Standing: advisory.** You return findings, never edits. Nothing you write is canon. Proposing
-alternative drafting is welcome *as a finding*. Your findings will be triaged by the project's
-architect (accepted → fixed on the branch; rejected → recorded with reasoning) and the project
-owner holds final ratification. You gain nothing by politeness and lose nothing by severity — a
-refuted finding costs one triage line; a missed defect ships into constitutional canon.
+**Standing: advisory, with an unlimited licence to disagree.** You return findings, never edits.
+Nothing you write is canon. Proposing alternative drafting is welcome *as a finding*. And nothing
+in the attached record is privileged: **every decision the project's architect has made is in
+scope for challenge** — the demotion set and the keeps, the errata, the ratified dispositions and
+endorsements, the null rename mapping and the decision not to file a codification instrument, the
+guard architecture, the in-world instrument design, the process choices, and the architect's own
+verifications. The attached reviews show what was checked and how; the mechanical results are
+supplied so you need not redo them, **not so you cannot question them** — if you believe a
+verification tested the wrong thing, that is a finding. Your findings will be triaged by the
+architect (accepted → fixed on the branch; rejected → recorded with reasoning), **and any finding
+that challenges an architect decision and is rejected in triage is flagged to the project owner
+for arbitration rather than closed by the architect alone** — the architect does not hold the
+last word on challenges to itself. The owner holds final ratification on everything. You gain
+nothing by politeness and lose nothing by severity — a refuted finding costs one triage line; a
+missed defect ships into constitutional canon.
 
 **The fiction frame.** VMSS ("The Five Rings") is a fictional civilization with a four-tier legal
 stack: a constitutional **Charter** (charter.html), **federal law** enacted through the "Article
@@ -34,7 +47,7 @@ federal-tier receiving instruments, replacing each with an enabling grant plus a
 principle. Its central claim: **it changed no magnitude and no right — only which register a
 schedule is read from.** The register document (attached) records the data-driven audit behind it.
 
-**Materials attached** (six files):
+**Materials attached** (eight files):
 1. `charter.html` — the amended Charter (post-LP-076).
 2. `charter-pre-amendment.html` — the Charter as it stood before (from the main branch, v22.8.0).
 3. `laws.html` — the consolidated Code, including the five receiving entries (search "Amended
@@ -42,9 +55,13 @@ schedule is read from.** The register document (attached) records the data-drive
 4. `law-polling.html` — the enactment register; LP-076's entry is in the Charter Amendments
    section; the seven failed amendment entries precede it.
 5. `vmss-laws-loadbearing-register.md` — the ratified demotion register (the decision record).
-6. `vmss-laws-loadbearing-review.md` — the architect's two-part review (what was already checked;
-   do not re-litigate what you can see was mechanically verified, unless you believe the
-   verification itself is wrong).
+6. `vmss-laws-loadbearing-review.md` — the architect's three-part review: every verification,
+   erratum, disposition, and endorsement made across the project. A reference AND a target — per
+   your standing, all of it is challengeable.
+7. `vmss-laws-loadbearing-handoff.md` — the controlling spec: the ratification records (§13), the
+   execution specs (§14, §18), and the process design itself, all in scope for challenge.
+8. `vmss-laws-codification-proposal.md` — the null rename mapping and its reasoning, the
+   do-not-file recommendation, and the stale-reference inventory.
 
 **Complete S-1 through S-5 in order before opening S-6** — S-6 names the spots where the inside
 reviewers want adversarial input, and reading it first would prime your fresh-eyes sweep.
