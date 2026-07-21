@@ -130,3 +130,42 @@ Not started. Resumes from the ratified inventory.
 ## Phase V — VERIFY
 
 Not started.
+
+---
+
+## Independent verification pass (second run, 2026-07-21)
+
+A second, independent execution of this sweep ran on the same branch. It mined the corpus and
+synthesised its own inventory before discovering — at the push step — that this branch already
+carried the committed Phase M gate (`b025015` / `9a45fc5`). It did **not** overwrite the established,
+more-complete 61-instrument inventory. Instead it aligned to the committed tip and contributed the
+independent cross-check the prior run explicitly said it lacked (its PART 4 is "unaudited
+self-testimony"; its accounting is off by one).
+
+**Deliverable:** `docs-review/vmss-laws-latent-verification.md` (new) — an outside audit that
+converges with the committed inventory on every core call.
+
+**Findings (detail in the verification record):**
+- The two runs, mining independently, **converge on every headline doctrinal call**: the home rule is
+  decisively exclusive; the handoff's "Currency Siloing Act" exemplar fails it and survives only as
+  The Central Banking Authority; the two Phase A parser blockers (`check-canon.mjs:590`,
+  `build-law-toc.mjs:126`) are real; the whitepaper has no per-section anchors; the PCD/SAD catalogue
+  is regulatory-tier and register-absent (flag, never author). Independent convergence corroborates
+  the inventory's soundness.
+- **Independent mechanical checks pass:** 0/61 name collisions against the 89 existing titles; 0
+  reserved-phrase heads; no number/date/acronym in any minted name; home-rule spot-checks hold.
+- **Two open items before Phase A (endorsed, not blocking the gate):** (1) mechanically re-prove the
+  excluded pool is exhaustive (the prior run's own recommendation; its 1,321-vs-1,320 accounting has
+  not closed); (2) the two parser fixes + a whitepaper-`<h2>N.`-existence guard in place of literal
+  anchor resolution.
+- **No overwrite performed.** The committed inventory and this worklog's prior content are untouched;
+  this section and the verification record are additive.
+
+**check-canon:** 126 passed, 0 failed (unchanged; only `docs-review/*.md` touched).
+
+**Reconciliation note for Jason.** Two independent Phase M runs now exist for this assignment. The
+committed 61-instrument inventory is the more complete and is the gate. This run's fuller alternate
+synthesis (a stricter, more consolidated ~21-founding-act reading with an explicit exclusions ledger)
+is preserved out-of-tree in the session scratchpad and can be surfaced if a side-by-side comparison
+is wanted. Recommendation: keep the 61-instrument inventory as the gate; treat this verification
+record as its independent audit.
