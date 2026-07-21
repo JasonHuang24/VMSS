@@ -123,6 +123,26 @@ prompted — Jason will keep saying "continue" until you print `[REVIEW COMPLETE
 6. **Verify every quote verbatim against its file before citing it.** A finding that misquotes
    its own evidence forfeits standing.
 
+**Completion contract — you do not stop until this is done.** The review is complete only when
+ALL of the following exist: the state-verification header (branch, HEAD, check-canon baseline);
+every section S-1 through S-6 written **in order**, each with its required deliverable; the S-3
+pair list and S-5 candidate list including dismissals; the filed findings; the overall verdict;
+the declared non-coverage statement; and the literal line `[REVIEW COMPLETE]`. Until every item
+on that list exists, the task is not finished and you keep working. Binding rules:
+- **A plan is not a review.** Never substitute a description of what you would examine for
+  examining it. Never compress or skip a remaining section because the response is getting long —
+  that is what `[CONTINUED]` is for; end the message and resume exactly where you stopped.
+- **Do not ask whether to continue — the answer is always yes.** The only legitimate early stop
+  in this entire task is the wrong-branch/dirty-tree stop in your first action.
+- **Tool failure is not task failure.** If a command errors or a file will not open, note it,
+  work from what you can read, and record the gap in the non-coverage statement. Abandoning the
+  review because one probe failed is not an outcome this brief permits.
+- **An empty section is finished by its dismissal list, not by silence.** Write the list, declare
+  "no findings," move to the next section.
+- Fatigue phrasing — "the remaining sections would follow the same pattern," "for brevity," "in
+  the interest of time" — is a completion-contract violation. There is no time budget. There is a
+  completion list.
+
 **Complete S-1 through S-5 in order before opening S-6** — S-6 names the spots where the inside
 reviewers want adversarial input, and reading it first would prime your fresh-eyes sweep.
 
