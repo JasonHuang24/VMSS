@@ -255,3 +255,38 @@ ids count under `assigned` (disposition precedence), so nothing is double-counte
    citations (no provision change without sign-off). Recorded in PART 5.
 3. PART 2's `wp-17-19-76 — LP-047.3` / `wp-17-19-78 — LP-048.3` mislabels (annex: -76 = LP-048.3, -78 =
    not-law callout) are left unedited — valid `named-excluded` dispositions, outside B3's phantom scope.
+
+### B6 — parser fixes + founding guards, mutation-tested
+
+Both Code parsers matched `data-tier="…" data-source="…"` **adjacent**; the founding markup places
+`data-instrument` between them. Applied architect notes (b)/(c) as ratified:
+
+- **build-law-toc.mjs** (`entryRe`): optional `data-instrument` capture; a third body-parse branch for
+  `instrument === 'founding'` (no `lp-self`; ToC label "Founding", name from `law-title`).
+- **check-canon.mjs** (`codeEntries`): optional `data-instrument` capture; **explicit partition** —
+  `foundingEntries` vs `registerEntries` — so founding entries are routed OUT of (a1)/(a2)/(a3)/(b) and
+  the (a4) 1:1 count rather than silently non-matching, and held to their own guards:
+  - **(iv)** `data-instrument` vocabulary ∈ {founding} (asserted over every value on the page, ToC
+    included, like the (c) tier guard);
+  - **(i)** `data-source` resolves — a bare existing page or a `file#anchor` whose fragment is a real
+    id in that file;
+  - **(i-wp)** every cited `Whitepaper §N` exists as an `<h2>N.` heading (the real bite for the
+    whitepaper-homed instruments whose data-source is a bare page, since whitepaper has no per-section
+    anchors — architect note (b));
+  - **(ii)** data-source is a whitepaper/World-tier canon page — never charter.html (home rule) or a
+    Process/front page;
+  - **(iii)** no founding name equals a register `law-title` or a register-derived Code title.
+
+**Mutation suite** `tools/test-code-founding-guards.mjs` (npm `test:code-guards`) runs on a throwaway
+repo copy — **7/7 probes bit**: positive control (a founding entry with `data-instrument` between
+`data-tier` and `data-source` is indexed by the generator — Federal Law 39→40 — and accepted by
+check-canon with its ToC in sync, proving **both parsers see it**); forged `data-instrument` → (iv);
+nonexistent Whitepaper § → (i-wp); unresolved fragment → (i) only (not i-wp); charter data-source →
+(ii); colliding name → (iii). Each negative asserts the specific guard label — red for the reason under
+test (the P4 lesson).
+
+**Gate after B6:** `check-canon` **131 passed, 0 failed** (baseline 126 + the five founding guards,
+vacuously green while no founding entry is authored — they light up at Phase A's first commit).
+`build:css` clean. `build-law-toc` both modes byte-stable and idempotent on the real files (the optional
+capture is backward-compatible with the register-derived entries). No stop conditions hit; no check
+weakened — guards were added and partitioned, none deleted (Prompt 0 rule 6).
