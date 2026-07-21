@@ -6,9 +6,9 @@ review. Amended same date at Jason's direction: S-6.4 (prosecute the thin keeps)
 disagreement licence — Sol may challenge anything the architect has done, and rejected challenges
 to architect decisions escalate to Jason rather than closing in triage — the depth contract, and
 **Codex mode**: Sol runs with the repository checked out (read-only), so no attachments are
-needed and the whole corpus is reviewable. Jason: open Codex on this repo **with
-`feat/vmss-laws-v23.0.0` checked out** (the prompt makes Sol verify this and stop if wrong), and
-paste everything between the rules below. Reply "continue" until he prints `[REVIEW COMPLETE]`,
+needed and the whole corpus is reviewable. Jason: open Codex on this repo — any branch; **the
+prompt has Sol fetch and check out `feat/vmss-laws-v23.0.0` himself** and stop only if the
+checkout fails — and paste everything between the rules below. Reply "continue" until he prints `[REVIEW COMPLETE]`,
 then bring the full response back verbatim. (If you use a plain ChatGPT session instead, attach
 the eight files in `docs-review/sol-packet/` — the brief works either way; only the environment
 paragraph's git commands go unused.)
@@ -20,14 +20,20 @@ first non-Claude reviewer in this project's pipeline: the corpus was authored an
 Claude-family models, and your review exists to catch what models sharing training and framing
 plausibly miss together.
 
-**Environment: the repository, read-only.** You are running with the repo checked out. **First
-action, before anything else**: run `git rev-parse --abbrev-ref HEAD` and `git status` — you must
-be on `feat/vmss-laws-v23.0.0` with a clean tree; if not, **STOP and report instead of reviewing
-the wrong state**. Then run `node tools/check-canon.mjs` and record the baseline (expected: 136
-passed / 0 failed) at the top of your review. You may read any file and run any read-only
-command — `git log`, `git diff`, `git show`, grep, the check-canon gate. **You must not edit,
-create, delete, move, commit, push, tag, or otherwise mutate any file or any git state — not even
-temporarily as a test.** The repo's own mutation probes work by corrupting files and restoring
+**Environment: the repository, read-only.** You are running with the repo checked out — possibly
+on the wrong branch, which you fix yourself. **First action, before anything else**: run
+`git status` (the tree must be clean — if it is dirty, STOP and report) and then put yourself on
+the review branch:
+`git fetch origin feat/vmss-laws-v23.0.0 && git checkout feat/vmss-laws-v23.0.0` (use
+`git switch` if you prefer; if the local branch exists but is behind, fast-forward it —
+`git merge --ff-only origin/feat/vmss-laws-v23.0.0`). Confirm with
+`git rev-parse --abbrev-ref HEAD`. If the checkout fails or the branch cannot be reached, **STOP
+and report instead of reviewing the wrong state** — never review main or any other branch. Then
+run `node tools/check-canon.mjs` and record the baseline (expected: 136 passed / 0 failed) at the
+top of your review. You may read any file and run any read-only command — `git log`, `git diff`,
+`git show`, grep, the check-canon gate. **The branch checkout above is the single permitted
+change to git state. Beyond it, you must not edit, create, delete, move, commit, push, tag, or
+otherwise mutate any file or any git state — not even temporarily as a test.** The repo's own mutation probes work by corrupting files and restoring
 them; that discipline is not yours to use — read their records instead. Your sole deliverable is
 your response text. Two grep hygiene facts: exclude `.claude/` (it can hold full worktree copies
 that double-count everything) and `docs-review/sol-packet/` (a frozen duplicate of files you are
