@@ -257,3 +257,67 @@ grants it nothing the veto does not), but it is authored mechanics and his read 
 now carries both branches' content. Sequence: **Sol peer review (§17, brief committed beside this
 file) → findings triage → Jason's veto read (O-4 decision + the Presidency line) → PR → squash
 lands as `canon v23.0.0` + tag on the squash (Jason pushes the tag).**
+
+---
+
+# Part III — Architect Review of Run L3a (the codification mapping proposal)
+
+Architect review, 2026-07-21, of `feat/vmss-laws-v23.0.0` @ `84ae541`
+(`docs-review/vmss-laws-codification-proposal.md`), per handoff §18.1.
+
+## Verdict
+
+**ACCEPTED, and the null mapping is ENDORSED.** The zero-change result is the honest application of
+unchanged-by-default, and its structural argument survives independent verification: **zero** of
+the Charter's headings contain schedule vocabulary (re-derived by the architect: rate / band /
+schedule / threshold / window / percent / $ / % — 0 of 46 numbered headings), so LP-076 removed
+magnitudes no title had ever advertised. The proposal goes to Jason with three ratification items
+(§8 of the proposal); the architect's endorsements are below.
+
+## Independently verified
+
+- Boundary and gates: one commit, `docs-review/` only (+759 lines), check-canon 136/0 at entry and
+  exit; the Sol packet's six frozen files untouched — both reviews remain concurrent.
+- **The XXII.II orphan and both cure refutations verified at source**: no `XXII.I` exists anywhere;
+  Article XXII's lead text is five paragraphs of operative rule (the Meritboard's constitutional
+  definition), and `charter.html:336` is the Charter's only article-level closing prose positioned
+  after a final sub-article — Cure B would strand it inside XXII.II. The disposition (unchanged,
+  recorded as a deliberate irregularity) is correct, and §7.3's honesty about the adversarial pass
+  (2 of 3 refuters would have passed Cure B; the completeness critic caught it) is noted with
+  approval.
+- **Every §6 finding spot-checked at source, all real**: faq.html:829 carries the entire demoted
+  XXVII schedule attributed to the Charter (N-1); systems.html:281 ends "Full schedule in Article
+  III.V", now in-world false (N-2); the identical pre-positioning sentence on layer--3.html:154 and
+  simulations.html:2712 (N-4); laws.html:895's "(External Force Doctrine)" gloss on XXV.IV (N-5);
+  "personhood" ×0 / "substrate" ×1 in charter.html (F-5's split verdict); whitepaper.html:805 still
+  lacks the Case-A distinction sentence. The charter.html hand-authored TOC (33 `toc-link` rows, no
+  generator marker, no guard) confirmed (G1).
+- N-1 and N-2 are genuine L2 step-6 coverage misses — and a gap in the architect's own Part II
+  review, which verified the E3 pass's *pattern* but not its *exhaustiveness*. Recorded against
+  myself; the L3b fix list closes it.
+
+## Endorsements (delegated orchestration) — final say remains Jason's per §8
+
+1. **The mapping: RATIFY AS PROPOSED** (48/48 unchanged; XXII.II recorded, not cured). If Jason
+   still wants renames for taste, that is the owner's prerogative the data cannot veto — but
+   Cure B + the :336 relocation is the only coherent form, and it is Article XI substance.
+2. **LP-077: DO NOT FILE — ENDORSED.** The three-ground case (LP-076's minimality narrative;
+   LP-042 makes reference hygiene consolidation, not amendment; stat-card motion for nothing) is
+   sound, and the in-world record "the codification was examined and found unnecessary" is
+   stronger canon than an empty amendment.
+3. **Cleanup dispositions — endorse the run's recommendations throughout**: F-5 option 1; Case-A
+   minimal cure; LAYERS-CITE unchanged; LAYER-ALIGN option 2 (the two missing III.I baselines
+   only); N-1/N-2/N-4 fixed via the systems.html:263 pattern; **N-3 sharpened to "under LP-076,
+   consolidated in the Central Banking Authority"** (the precision cure the Part II precedent note
+   anticipated); N-6 re-drafted to cite III.IV for the conversion gradient; N-7/N-8 left as-is;
+   **G1's charter-TOC guard added in L3b** (guard addition, mutation-tested). N-5 follows Jason's
+   F-6 direction.
+4. **§7.6/§7.7 classification calls: RATIFIED** (the three dated records frozen by kind;
+   `documents/*.html` as SOURCE class — consistent with L1's explainer-rank treatment).
+5. **F-6 remains Jason's, with one framing note from the architect**: option 2 (cite the federal
+   instrument at charter.html:258 with the Charter's established pointer pattern) is the only
+   option that cures the document, and — like the O-4 harmonization — it can ride inside LP-076's
+   enacted text pre-merge at zero in-world cost. Post-merge it becomes amendment work. The same
+   pre-merge window governs both.
+
+L3b's launch block is drafted after: Sol's findings return and are triaged, and Jason ratifies §8.
