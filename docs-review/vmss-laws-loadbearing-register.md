@@ -631,6 +631,94 @@ Found while building the graph; none is in scope for L1 to fix, all are cheap.
 
 ---
 
+## 13b. Completeness-critic results (the handoff §3 proof obligation)
+
+Three adversarial critics ran against the extraction, each independently re-deriving ground truth
+from `charter.html` rather than trusting it. Both completeness critics returned **GAPS_FOUND**.
+Their findings are recorded in full here and in the graph's `criticFindings`. **No finding changes
+any §3 classification or any §4 candidate** — verified line by line — but two are load-bearing for
+L2 and are not buried.
+
+**Magnitude completeness — the numeric ledger closes exactly.** The critic re-enumerated
+charter.html:147–474 and confirmed that *every* `$`, `%`, `x`, `n/n`, and `n:n` literal — including
+all 12 leakage-trajectory rows and both 24-month lookbacks — has exactly one owning node. That is
+the handoff §3 obligation discharged for numerics.
+
+**⚠ Finding N-1 — negative magnitudes.** All of the magnitude critic's genuine misses are a class
+the extraction had no rule for: **magnitudes expressed as an absence.** *"There is no minimum wage
+in VMSS"* (charter.html:190), *"No minimum participation quorum is imposed"* (:286), *"There is no
+limit on consecutive terms"* (:336), and *"+1 Sanctuary votes by consensus — not a supermajority,
+full agreement"* (:286) are all operative magnitudes stating a floor, quorum, ceiling, or threshold
+of **none**. They carry no digits and no mechanical sweep will see them.
+*Consequence for L2:* the purity guard proposed in handoff §8 scans for magnitude *strings*. It
+would not notice a negative magnitude being relocated, added, or lost. Two of these sit inside
+demotion candidates' provisions — `no minimum wage` is in III.II — and the register keeps every one
+of them at Charter tier as L3 stances. The guard must be told they exist.
+
+**⚠ Finding N-2 — intra-Charter magnitude restatement.** Several magnitudes are stated at **two
+Charter locations**: III.VIII:242 restates III.VII's *"$10 billion district aggregate trigger and
+5% monthly rate"*; XI:294 restates all five XXV.VI ladder thresholds; VII:266 and II:175 both carry
+the 85-point floor; XI:286's `80–90%` band is owned twice within XI itself.
+*Consequence for L2:* a demotion must relocate **every occurrence**, and the consolidation-fidelity
+guard must count occurrences rather than test existence. §4.4 already treats III.VIII:242 as
+travelling with III.VII; this finding is why that is mandatory rather than tidy. Combined with the
+§4.2 `90-99%` collision warning (LP-071's net-worth cap shares III.IV's digits), the guard design
+for L2 must be **rule-scoped and occurrence-counting**, not digit-matching.
+
+**Deontic completeness — 9 clause-granularity gaps, 8 mislabels, 24 duplicate clusters.**
+Every line the critic named *does* carry a node; what it found are **distinct deontic clauses
+sharing a line with a covered clause** — e.g. charter.html:440's *"enforced by the AI governance
+system through the same implant-ledger infrastructure"* sits on the same line as the 80%
+ratification threshold that owns it. This is a genuine granularity gap and is reported as one, not
+softened. All nine sit in III.VII's keeps, XXV, XXV.VI, XXVIII.I, XXVIII.II, or XXVIII.III — every
+one already load-bearing on independent grounds, so no classification moves. The 8 `deontic`
+mislabels (e.g. `iii-v-prepositioning-lookback-24-months` labelled `prohibition` where its text is
+an obligation) are metadata errors in the graph, not classification errors: the L1–L4 test reads
+`kind` and in-degree, not `deontic`. The 24 duplicate clusters are canon's own cross-article
+restatements that the extraction mirrored instead of deduplicating — the same phenomenon as N-2.
+One literal id collision (`xi-pillar-article-marker`, emitted twice) was dropped by the assembler's
+dedup; raw 422 nodes → 421 committed.
+
+**⚠ Finding N-3 — the extraction has a systematic over-conferring bias, and it does not change a
+single result.** The third critic was prompted to *refute* every E1/E2 edge. It found **41
+mistypes, and every one of the 41 inflates a non-conferring edge into E1 or E2. Zero E1/E2 edges
+were found deflated into E3** — the 15+ E3 spot-checks all held as restatement. Five patterns:
+the inventory's own `restates-content` touchpoint fields typed E2 (7); section and glossary
+headings carrying a parenthetical article citation typed E1 while structurally identical headings
+elsewhere were typed E3 (4); **comparison, contrast, and outright negation sentences typed E2** (7
+— e.g. *"mirrors XI"*, *"in deliberate contrast to Article XI, which excludes them"*, *"needs no
+Article XXVIII petition"*, *"are not a third trigger"* — the cited rule operates with the article
+removed); bare restatements typed E2, several with an E3-typed twin of the same sentence elsewhere
+(13); and quote/anchor provenance failures (6).
+
+Two are worth naming because they would have conferred status from text that *denies* it:
+`law-polling.html:699` (LP-003) was typed E1 to XI from an Outcome row reading *"Petitioners
+declined to pursue Article XI gauntlet"* — a record that the route was **not** taken; and
+`pending-ratification.html:129` was typed E2 to III.III from a dual-key ruling that holds
+III.III's rate content to be **restatement, not engraving** — the opposite of a constitutive
+dependency.
+
+**Impact test, run mechanically: no classification moves.** Applying all 41 corrections, the
+provisions that lose conferring edges are XI (−8), XXV.VI (−4), XXII (−4), XXV (−3), Preamble (−3),
+VIII (−3), and thirteen others at −1 or −2. **Every one is a keep that remains load-bearing by a
+wide margin** — XI retains 15 E1 / 29 E2; XXV.VI retains 107 E1. Among the five demotion
+candidates, four are untouched (III.II, III.IV, III.VII/VIII, XXVII lose **zero** corrected edges)
+and **III.V loses two**, taking it from E2=9 to E2=7. That does not change §4.3's result and mildly
+strengthens it: §4.3's whole argument is that III.V's E2s are *pointers to the schedule* rather
+than dependencies on band values, and two of the nine turn out not to be dependencies at all.
+
+The direction of the bias is the reassuring part. An extraction that over-confers produces
+**false keeps**, never false demotions — it can only make the register too conservative about what
+leaves the Charter. Since no candidate depended on an inflated edge, the demotion set is safe
+against this error class. Full critic output, all 41 rows with corrected types, is in the graph's
+`criticFindings`.
+
+**Honest statement of what is proven and what is not.** The numeric-magnitude obligation is
+discharged exactly. The deontic-clause obligation is discharged at line granularity and
+**substantially but not exactly at clause granularity** — nine known exceptions, all enumerated
+above, none in a candidate. A future run should not read this register as claiming clause-level
+exhaustiveness it did not achieve.
+
 ## 14. Gate
 
 Per handoff §6: `documents/charter-dependency-graph.json` and this register are committed and the

@@ -72,4 +72,102 @@ House fact honoured throughout: subagent structured returns carry a hard 64k out
 schema carries a `truncated` flag, and per-edge output was held to a `from | fromLoc | to | type |
 quote(≤140)` row.
 
-*(Results, counts, and the divergence findings follow below as each phase lands.)*
+### Results
+
+29 agents, **0 errors, 0 empty results**, ~2.33M subagent tokens, 400 tool uses, 18 min wall clock.
+
+| Artifact | Value |
+|---|---|
+| Provision nodes | 422 raw → **421** committed (one literal id collision, `xi-pillar-article-marker`, dropped by the assembler's dedup) |
+| Provision labels covered | **49** — Preamble, Four Founding Lines, I–XXVIII with every sub-article, Founding Affirmation |
+| Nodes carrying magnitudes | 113 |
+| Typed edges | **1221** — E1 335 · E2 310 · E3 400 · E4 131 · E5 45 |
+| Truncated returns | **1 of 29**, and it was deliberate consolidation, not a cutoff (see below) |
+
+**The 64k ceiling held.** One lens returned `truncated: true`: the simulations/records citation
+lens, which consolidated ~225 pedagogical Article citations in `documents/academy-source.html` and
+`documents/resources-source.html` into ~20 representative rows and set the flag to say so. Those
+are PDF-generation sources at explainer rank carrying no E1/E2; they cannot change a
+classification. Recorded rather than re-run. No lens was lost — the failure mode that cost the
+Phase M run a whole clustering lens did not recur.
+
+### Two assembler bugs, found and fixed before the graph was committed
+
+1. **Roman-numeral alternation was leftmost-matching.** `'I|II|III|...'` made `III.I` normalise to
+   `I`, collapsing every Article III sub-article onto Article I — the provision count came out as
+   **6** instead of 49. Fixed by sorting the alternation longest-first. Recorded because it is
+   silent: the graph looked well-formed and every count was wrong.
+2. **Prefix-strip ordering.** `charter.html` was stripped to `.html` because the bare `charter:`
+   prefix rule ran before the `charter.html` rule. Fixed by ordering the specific case first.
+
+### Completeness critics (handoff §3's proof obligation)
+
+Three adversarial critics, each re-deriving ground truth from `charter.html` rather than trusting
+the extraction. Results are recorded in full in the register §13b and in the graph's
+`criticFindings`; the headline is that **all three returned findings and none moved a
+classification**:
+
+- **Magnitudes: the numeric ledger closes exactly.** Every `$`, `%`, `x`, `n/n`, `n:n` literal —
+  including all 12 leakage-trajectory rows and both 24-month lookbacks — has exactly one owner.
+  Its genuine misses are a class the extraction had no rule for: **negative magnitudes** stated as
+  an absence (*"There is no minimum wage in VMSS"*, *"No minimum participation quorum is
+  imposed"*). Consequential for L2's purity guard, which scans for strings.
+- **Deontic clauses: 9 clause-granularity gaps.** Every line the critic named *does* carry a node;
+  the gaps are distinct deontic clauses sharing a line with a covered clause. Reported as a
+  granularity gap rather than softened. All nine sit in provisions already load-bearing on
+  independent grounds.
+- **Edge types: 41 mistypes, all in one direction.** Every one inflates a non-conferring edge into
+  E1/E2; zero E1/E2 edges were found deflated into E3. Impact tested mechanically: four of the five
+  demotion candidates lose zero corrected edges, III.V loses two of nine and keeps its result. An
+  over-conferring bias can only produce false *keeps*, so the demotion set is safe against it.
+
+### Independent checks run beyond the lenses
+
+- **E4 anchor census, derived mechanically:** 55 external `charter.html#` references (laws.html 44,
+  simulations.html 10, faq.html 1) against charter.html's 31 ids — **all 31 are referenced**. An
+  initial census was wrong because the pattern also matched `path-2-charter.html#`; corrected with
+  a boundary and re-derived.
+- **Architect §12 residual check** (`cluster-architecture.md` spot-check for instrument-shaped
+  content absent from the 61): **clean.** Every spine name absent from PART 1 — Failsafe
+  Configuration, Consequence Classification, STI Measurement Schedule, Continuity Guarantee,
+  Continuity Consent, Monetary Sovereignty — resolves through the inventory's own documented
+  rename/merge table. No latent-set miss; no missing E1 edges from that cause.
+- **Worktree hygiene:** `.claude/worktrees/` holds full repo copies that pollute repo-wide greps.
+  Verified after extraction that **zero edges cite a worktree path**.
+
+---
+
+## Phase 2 — Classification, validation, and the register
+
+Applied the handoff §4 L1–L4 test per provision, edge-typed. Validated against the architecture §5
+prior: **the prior's direction is reproduced on every row** — five refinements and two line-number
+corrections, all recorded in register §9 with evidence, none suppressed and none silently adopted.
+
+Both hard cases adjudicated with evidence rather than deferred (register §6).
+
+**Judgment exercised beyond the spec** — flagged in register §13, and summarised for the architect:
+the derivation-sentence keep in III.II (D-1); the XXVII single-magnitude reading (D-2); the
+recommendation to *keep* III.IV's gradient ranges as a bound on a delegated power (D-3); the
+`Canon Anchor` typing sensitivity (~70 E4 rows would re-type to E1 in bulk under a different
+reading, changing the in-degree table but no result); and the choice not to fan out the
+`Articles XXV.I–XXV.III` range citations into three edges rather than invent evidence.
+
+## Gates
+
+| Gate | Result |
+|---|---|
+| check-canon | **133 passed / 0 failed** at every commit — unchanged from baseline. This run touches no root `.html` file. |
+| `build:css` | Not run and not required — no HTML/JS class changed. |
+| TOC modes | Not run and not required — no register or Code entry changed. |
+| Files touched | `docs-review/` and `documents/` only, as the hard boundary requires. |
+| History discipline | No rewrite, no force-push, no tag operation. One `git pull --rebase` of a single unpushed local commit onto an architect push (§12 checklist) — ordinary integration, no published history altered. |
+
+## Milestones pushed
+
+1. `c8bb365` — worklog opened (setup, baseline, method).
+2. `cc88e07` — `documents/charter-dependency-graph.json` (421 nodes, 1221 typed edges).
+3. `5f873dc` — `docs-review/vmss-laws-loadbearing-register.md` (the gate deliverable).
+4. This commit — critic findings folded into the graph and register; worklog completed.
+
+**STOP condition reached as specified.** The register is pushed. Jason ratifies it personally
+before any Run L2 enactment exists. No PR, no merge, never main.

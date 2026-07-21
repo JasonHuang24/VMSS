@@ -17113,7 +17113,431 @@
    "quote": "through the downward transfer retention schedule (Article III.IV–III.V), converted at destination purchasing power"
   }
  ],
- "criticFindings": [],
+ "criticFindings": [
+  {
+   "verdict": "GAPS_FOUND",
+   "misses": [
+    {
+     "line": 234,
+     "item": "\"taxation of earned income in every layer remains governed by Article III.III\" — jurisdictional reservation carving tax out of the SCM; no node states it.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 239,
+     "item": "\"No additional rate is created; attribution feeds the existing pulse mechanics.\" — distinct prohibition on rate creation; none of the six L239 nodes carry it.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 239,
+     "item": "\"the central bank's clearing record is the sole sensor\" — binding evidentiary rule for dormant-commercial attribution; the dormant-property node stops at \"active enterprise is never reached\".",
+     "problem": "unclassified"
+    },
+    {
+     "line": 373,
+     "item": "\"They do not retain the right to actions whose consequences fall on residents of all five rings simultaneously.\" — autonomy grant plus its limit; xxv-cross-layer-federal-scope states only the scope rationale.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 412,
+     "item": "\"may strike any post-ratification federal law that subsequent review determines crossed the line\" — post-enactment strike power; xxv-vi-no-charter-backdoor covers only pre-gate redirection.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 460,
+     "item": "\"the Supreme Court may strike it and redirect it to Article XI\" for misclassification caught during/after ratification; xxviii-iii-dual-key-classification covers only pre-drafting concurrence and upward reclassification.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 440,
+     "item": "\"A regulation that passes 80% ratification becomes binding law within the layer, enforced by the AI governance system\" — the binding/enforcement clause; node captures only the 80% threshold and unlimited re-petition.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 445,
+     "item": "\"Temporary presence, seasonal relocation, and coordinated migration do not confer voting rights.\" — a prohibition; xxviii-ii-residency-voting-eligibility states only the positive six-of-twelve requirement.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 449,
+     "item": "\"Residents who move into a regulated area are subject to its regulations. Residents who move out are no longer subject.\" — obligation on in-migrants; geographic-attachment node states persistence, not subjection.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 175,
+     "item": "ii-null-exempt-criminal-acts-track-2 marked deontic=prohibition, but its text mandates action: acts are \"flagged on the criminal record log (Track 2) immediately regardless of age\" — an obligation/procedure.",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 220,
+     "item": "iii-v-visitation-breach-no-insulation marked kind=prohibition/deontic=standard, but the text is a mandatory trigger: \"Any qualifying breach during a visit triggers standard VMSS consequence\".",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 216,
+     "item": "iii-v-voluntary-filing-lookback-24-months marked deontic=prohibition; L216 text is pure obligation — \"Assets transferred ... are subject to the same liquidation schedule\" with no prohibitory language.",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 206,
+     "item": "iii-v-prepositioning-lookback-24-months marked deontic=prohibition; the operative clause is \"are subject to the same liquidation schedule\" (obligation), the prohibition being only the trailing rationale.",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 426,
+     "item": "xxvii-child-limitation-last-resort-only marked deontic=standard, but \"is never deployed under ordinary operation\" is a categorical prohibition.",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 331,
+     "item": "xxii-president-steps-off-ranking marked kind=prohibition while its own deontic and text are obligation (\"The President steps off the executive-doctrinal-leadership ranking upon appointment\").",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 225,
+     "item": "iii-vi-sti-recovery-no-upward-restoration marked deontic=standard, but \"does not restore eligibility for upward movement\" is a prohibition.",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 277,
+     "item": "x-prior-crimes-counted marked deontic=standard; \"Prior crimes are counted\" is a mandatory input to the re-entry assessment (obligation/procedure).",
+     "problem": "wrong-owner"
+    }
+   ],
+   "duplicates": [
+    "xi-pillar-article-marker (id emitted twice: L278-279 and L278-280)",
+    "v-abortion-illegal-as-murder / viii-abortion-illegal-classified-murder",
+    "v-terminated-fetus-reincarnation / viii-terminated-fetus-reincarnated-main",
+    "v-unimplanted-mother-no-link / viii-no-active-implant-no-link",
+    "v-children-remain-with-parents / viii-children-remain-no-auto-relocation",
+    "v-right-to-relocate-main-layer / viii-relocation-right-without-parental-consent / xxvii-children-held-harmless-from-parental-debt",
+    "v-autoparenting-not-default / viii-autoparenting-freely-chosen",
+    "i-heaven-layers-pre-intervention / vi-heaven-pre-intervention",
+    "i-main-layer-post-intervention / vi-main-and-lower-post-intervention",
+    "i-lower-layers-post-intervention-minimal-presence / vi-terminal-minimal-presence",
+    "i-minor-infractions-clearable-and-amendable / xv-minor-infractions-clearable",
+    "i-volume-to-pattern-conversion-rule / xv-trajectory-not-countdown",
+    "iii-iv-visitor-elective-transfer-right / iii-v-elective-residency-transfer-mechanism",
+    "iii-v-elective-residency-status-retention / vii-elective-residency-indefinite / iii-vi-elective-resident-upward-return",
+    "iii-v-visitation-status-and-asset-retention / vii-downward-visitation-temporary / vii-visitation-status-neutral",
+    "iii-v-voluntary-residency-status-relinquishment / iii-vi-voluntary-residency-ceiling-sealed / vii-voluntary-permanent-residency",
+    "iii-iv-upward-conversion-prohibited / iii-viii-currency-siloing-containment",
+    "iii-vii-lower-layer-thresholds-and-rate (-3 leg) / iii-viii-scm-ubi-origin-only",
+    "xi-charter-suspension-power / xxi-emergency-charter-suspension-authority",
+    "xi-federal-mirror-relaxed-thresholds / xxv-vi-meritboard-floor-60 / xxv-vi-supreme-court-6-10 / xxv-vi-sanctuary-90 / xxv-vi-main-layer-70-80 / xxv-vi-lower-layer-aggregate-70-80 / xxv-vi-presidential-veto",
+    "xi-layer-criteria-changes-require-xi / xxviii-iii-structural-petition-jurisdiction-bar",
+    "xii-no-single-metric-punitive-descent / xiii-structural-independence-of-decisions",
+    "xii-layer-phasing-exemption / xiii-phasing-exempt-same-reasoning",
+    "ii-formula-proprietary-classified-dynamic + ii-ten-to-one-penalty-recovery-ratio + ii-public-rating-layer-relative / xxvi-sti-mechanics-cross-reference"
+   ],
+   "summary": "Read charter.html L147-474 in full and enumerated every obligation, prohibition, permission, entitlement, and binding procedure.\nCoverage is high but not exact: 9 deontic clauses sit in zero node, concentrated in III.VII savings-base (L234, L239 x2), the XXV.VI/XXVIII.III strike-and-redirect powers (L412, L460), XXVIII.I enforcement (L440), XXVIII.II voting and subjection rules (L445, L449), and the XXV autonomy limit (L373).\n8 nodes carry a deontic value that contradicts their own text: obligations labelled prohibition (L175, L206, L216), prohibitions labelled standard (L220, L225, L426), one obligation labelled standard (L277), one kind/deontic conflict (L331).\n24 duplicate clusters cover the same rule unit twice or more. Most are canonical restatements the extraction mirrored rather than deduplicated: Article V L254-256 vs Article VIII L271-273 (six pairs), Article I L160-164 vs Articles VI and XV, the III.IV/III.V/III.VI vs VII mobility-and-transfer overlaps, XI L293-294 vs XXI L325 and XXV.VI L400-409, and XII L298 vs XIII L300.\nOne hard defect: node id `xi-pillar-article-marker` is emitted twice (L278-279, L278-280) — a literal id collision, not a semantic duplicate.\nQuotes are byte-faithful to the source; canon hedges preserved.\nRead-only run; no files modified, no git state touched."
+  },
+  {
+   "verdict": "GAPS_FOUND",
+   "misses": [
+    {
+     "line": 286,
+     "item": "\"+1 Sanctuary votes by consensus — not a supermajority, full agreement\" — the strictest vote threshold in the Charter has no ledger row anywhere (also restated 289, 295, and quantified at 404 as \"Relaxed from XI's full consensus by ten points\", where only \"ten points\" is owned).",
+     "problem": "unclassified"
+    },
+    {
+     "line": 286,
+     "item": "\"No minimum participation quorum is imposed.\" — an operative quorum magnitude (quorum = none) on the Article XI ratification vote.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 190,
+     "item": "\"There is no minimum wage in VMSS.\" — operative wage-floor magnitude (floor = none); the line's other 11 literals are all owned by overtime nodes.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 386,
+     "item": "\"Violations of federal law in lower layers are addressed through a two-track escalation system.\" — count literal; ledger jumps from 379 to 387 and 388.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 460,
+     "item": "\"Classification of a petition as regulatory or structural is dual-key: both the Meritboard's ... and the Supreme Court must concur\" — two-body concurrence threshold plus either-body upward reclassification; no node covers line 460.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 293,
+     "item": "\"suspension is one-case, time-limited, and automatically expires when the emergency resolves\" — bounded-scope magnitude on Supreme Court charter suspension; no node covers line 293.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 298,
+     "item": "\"No single metric, including STI, shall unilaterally determine punitive layer assignment or descent into lower layers.\" — Article XII has zero nodes; same literal class as the ledgered \"single measurable criterion\" (275) and \"single-axis\" (302).",
+     "problem": "unclassified"
+    },
+    {
+     "line": 300,
+     "item": "\"System decisions that produce punitive layer reassignment must remain structurally independent from any single metric.\" — Article XIII has zero nodes.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 291,
+     "item": "\"a single body — including the Chief Architect — cannot unilaterally rewrite the terms under which every resident lives.\" — count constraint; same class as the ledgered \"two branches\" (332).",
+     "problem": "unclassified"
+    },
+    {
+     "line": 336,
+     "item": "\"There is no limit on consecutive terms\" — term-limit magnitude (none); the two ten-year literals on the same line are owned, this one is not.",
+     "problem": "unclassified"
+    },
+    {
+     "line": 294,
+     "item": "\"60% Meritboard floor, 6/10 Supreme Court majority, 90% Sanctuary supermajority, 70–80% Main Layer supermajority\" (+ the second 70–80%) — all five federal-ladder thresholds are also owned at 400/401/404/405/406; one node also bundles five distinct rule units.",
+     "problem": "double-classified"
+    },
+    {
+     "line": 242,
+     "item": "\"the $10 billion district aggregate trigger and 5% monthly rate\" — same trigger and rate already owned at 235 by iii-vii-lower-layer-thresholds-and-rate; node name does not declare cross-reference.",
+     "problem": "double-classified"
+    },
+    {
+     "line": 286,
+     "item": "\"Main Layer votes by supermajority in the 80–90% range\" — the same band is owned by xi-population-ratification-gate from the gate headline on the same line (and restated a third time at 289).",
+     "problem": "double-classified"
+    },
+    {
+     "line": 175,
+     "item": "\"including the 85-point Sanctuary eligibility floor\" — the 85-point floor is defined and owned at 266 by vii-sanctuary-sti-85-point-floor.",
+     "problem": "double-classified"
+    }
+   ],
+   "duplicates": [
+    "xi-federal-mirror-relaxed-thresholds",
+    "iii-viii-scm-ubi-origin-only",
+    "xi-main-layer-supermajority-band",
+    "ii-null-blocks-85-point-sanctuary-phasing",
+    "xxiii-generational-tightening"
+   ],
+   "summary": "Re-derived charter.html:147-474 independently. The numeric inventory (currency, percent, ratio, fraction, multiplier, trajectory rows, dates) matches the ledger exactly — every $, %, x, n/n and n:n literal I enumerated has an owner, including all 12 leakage rows and both 24-month lookbacks.\nAll 10 misses are non-numeric or negative-magnitude literals: vote thresholds expressed in words (consensus), floors expressed as absences (no minimum wage, no quorum, no term limit, one-case), and count literals (two-track, dual-key, single metric).\nArticles XII (298) and XIII (300) have zero nodes in the ledger despite carrying \"single metric\" literals of the same class the ledger owns at 275 and 302. Lines 291, 293 and 460 are likewise entirely uncovered.\nDouble-classification is concentrated in cross-article restatement. xi-federal-mirror-relaxed-thresholds (294) is the worst: it owns all five XXV.VI thresholds a second time and bundles five rule units into one node.\nThe ledger already has a correct pattern for this — xxvi-sti-mechanics-cross-reference (419) declares its 10:1 as a cross-reference to 167. The 294, 242, 289 and 175 restatements do not, so they read as independent owners.\nxxiii-generational-tightening (361) classifies rhetorical restatement of the 2150/3000 trajectory endpoints already owned by the schedule node — over-classification rather than a gap.\nNot reported (judged in-clause, not skips): \"single qualifying event\" (164), \"no floor, no exemptions, no means testing\" (230), the 60–90% context restatement (423), monthly/annual cadences at 228/446."
+  },
+  {
+   "verdict": "GAPS_FOUND",
+   "misses": [
+    {
+     "line": 438,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Cognition-Corroboration Specification -> II typed E2, should be E3: the touchpoint field it is drawn from literally reads \"Article II (charter.html:165) restates-content\" — the inventory's own classifier says restatement, and parent-authority is \"none-standalone\"",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 460,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Secondary Observation Envelope -> XVIII typed E2, should be E3: field reads \"Article XVIII (charter.html:311) restates-content\"; parent-authority is none-standalone",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 560,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Calibration Boundary Doctrine -> XI typed E2, should be E3: field reads \"Article XI (charter.html:280) restates-content\"; parent-authority none-standalone",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 582,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Security Classification System -> XI typed E2, should be E3: field reads \"Article XI ... restates-content; Article XXV.V ... restates-content\"",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 698,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Civic Floor Act -> XI typed E2, should be E3: the whole row is restates-content (Preamble, III, VIII, XI, XXV.I-III); no derives-authority anywhere on it",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 717,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Federal Reach Boundary Act -> XXV typed E2, should be E3: field reads \"Article XXV (charter.html:372) restates-content\"",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 791,
+     "item": "docs-review/vmss-laws-latent-inventory.md The Harmed-Party Restoration Standard -> III.V typed E2, should be E3: field reads \"Article III.V (charter.html:176) restates-content\"",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 775,
+     "item": "whitepaper §10.2 Federal Law Drafting Ladder -> XXV.VI typed E1, should be E3: the quote is a section heading with a parenthetical citation, identical in form to \"10.1 Federal Law (Article XXV)\" at :772 and \"5.9 ... (Charter Article XII)\" at :532, both typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1359,
+     "item": "whitepaper §23.1 Two Primary Instruments -> XXV.V typed E1, should be E3: heading-plus-parenthetical form; no operates-under language in the heading or the body at :1360",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1802,
+     "item": "whitepaper glossary Federal Law Drafting Ladder -> XXV.VI typed E1, should be E3: glossary heading with parenthetical, same form as \"Clearable vs. Permanent Infractions (Article XV)\" (:1751) and \"Blind Review / Presidential Review Cycle (Article XXII.II)\" (:1724), both E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1950,
+     "item": "whitepaper glossary Regulatory Governance -> XXVIII typed E1, should be E3: heading-plus-parenthetical; the body at :1951 restating the same mechanism is already typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 776,
+     "item": "whitepaper §10.2 -> XI typed E2, should be E3: \"drafted through a ladder that mirrors Article XI at a proportionally relaxed threshold\" is a comparison — XXV.VI operates whether or not XI exists; its glossary twin at :1803 (\"Mirrors Article XI at proportionally relaxed thresholds\") is typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 778,
+     "item": "whitepaper §10.2 lower-layer inclusion -> XI typed E2, should be E3: \"in deliberate contrast to Article XI, which excludes them\" is an explicit contrast; the federal three-track ratification rule does not consume XI's content to operate",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1081,
+     "item": "whitepaper §17.3.1 Authorized Bailout -> XXV typed E2, should be E4: the sentence exists to DENY the relationship — \"Different authorities, different triggers ... otherwise unrelated instruments\"; bailout operates with XXV removed",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1422,
+     "item": "whitepaper LP-040 -> XXVIII typed E2, should be E4: \"needs no Article XXVIII petition because reconstruction falls within the treaty's pre-ratified scope\" is a negative carve-out; Phase III works with XXVIII removed",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1439,
+     "item": "whitepaper §24.4 cross-treaty environmental trigger -> XXV.I typed E2, should be E3: \"its external counterpart is this sanctions-architecture trigger\" — the sanctions ladder is stated as the counterpart of XXV.I, not as dependent on it",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 516,
+     "item": "whitepaper §5.4.2 -> IV typed E2, should be E4: \"the same routing Charter Article IV specifies\" is a consistency cross-reference; the dual-key/XI routing rule operates without IV",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 537,
+     "item": "whitepaper §5.10 phasing exemption -> XII typed E2, should be E4: \"Layer phasing carries the same exemption as Article XII for the same reason\" creates an exemption from XIII by analogy; the XII reference is comparative, not operative",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 449,
+     "item": "whitepaper §4.2.1 -> XXV.VI typed E2, should be E3: \"Cross-layer protective mandates of the food-safety class (Article XXV.VI) are not a third trigger\" is a negation — the two-trigger federal-floor rule at (a)/(b) operates unchanged with XXV.VI removed",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1346,
+     "item": "whitepaper §22.9 -> XXII typed E2, should be E3: \"Article XXII's metric governance constraint prevents ASI from designing its own ranking metrics\" is a bare restatement; the near-identical glossary sentence at :1707 is typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1165,
+     "item": "world.html 21. Substrate Personhood — ASI -> XXII typed E2, should be E3: \"Article XXII's metric governance constraint holds\" restates the same constraint as whitepaper :1707 (E3); world.html is a mirror surface",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1976,
+     "item": "whitepaper glossary Social Trust Index -> XII typed E2, should be E3: \"STI cannot single-handedly produce punitive layer reassignment (Articles XII/XIII)\" is a restatement, and the same glossary entry's Article II citation is already typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1821,
+     "item": "whitepaper glossary Founding Core -> XI typed E2, should be E3: \"amendment requires clearing the full Article XI gauntlet\" is the same route-restatement as :415 (\"must clear the same Article XI gauntlet as any other amendment\"), typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 230,
+     "item": "systems.html Governance Principles — founding-core charter sections -> XI typed E2, should be E3: \"Reachable only through the full Article XI gauntlet\" is a bullet restating the amendment route; the adjacent bullet at :227 stating the same thing is typed E3",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1342,
+     "item": "whitepaper §22.8 Voluntary Society -> Preamble typed E2, should be E3: \"The Charter Preamble establishes The Five Rings as 'a voluntary society'\" is the canonical restatement form (X establishes Y); §22.8 is a reconciliation argument, not an in-force rule",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1342,
+     "item": "whitepaper §22.8 -> X, VIII, III.V typed E2, should be E3: \"may exit VMSS freely (Article X)\", \"independent AI legal advocate from birth (Article VIII)\", \"voluntary permanent residency with published asset-liquidation terms (Article III.V)\" are three parenthetical restatements of Charter content used as evidence in an argument",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1510,
+     "item": "whitepaper §26.3 citizenship revocation -> X typed E2, should be E3: \"Exit (Article X) is physical departure with citizenship retained\" is a labelled restatement of Article X's own content",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1183,
+     "item": "whitepaper §19.10 -> XX typed E2, should be E3: the quote \"Article XX mandates internal review, correction, and adaptation\" is verbatim-equivalent to charter.html Article XX's own text (\"mechanisms for internal review, correction, and adaptation\") — pure restatement; the operative remedy language sits in the next sentence",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 805,
+     "item": "whitepaper §10.6.1 -> XXV typed E2, should be E3: \"Substantive prohibitions — including serious ones — live at Article XXV\" allocates content descriptively; the operative routing test is at :806, which is separately typed",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 455,
+     "item": "whitepaper §4.4 Civic Floor -> Preamble, III, VIII, XXV.I typed E2, should be E3: the four are parenthetical source citations in an enumeration (\"full dignity (Charter Preamble)\"), and the Civic Floor Act's own touchpoint row at docs-review/vmss-laws-latent-inventory.md:698 classifies every one of them as restates-content",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 1556,
+     "item": "whitepaper §28.0 Redundant Envelope Pattern -> XIV typed E2, should be E3: \"Article XIV three-axis evaluation (primary proportionality framework)\" is a catalog row in an envelope-stack list with no operative verb",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 307,
+     "item": "technologies.html AR Surveillance — Capabilities -> XVIII typed E2, should be E3: the source is a bare bullet, \"Network attribution data feeding Article XVIII coordination-detection\", mirroring whitepaper §18.8 prose",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 327,
+     "item": "technologies.html AR Surveillance — Anti-Evasion -> XXV.III typed E1, should be E3: no authority language anywhere on the line; it is a near-verbatim mirror of whitepaper :1122, which the same run typed E2",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 203,
+     "item": "sads.html Founders' Archive Domain — Gating Metric -> Preamble typed E2, should be E3: \"Sustained scholarly engagement with the Charter ... and the four founding lines of the Preamble\" names the Preamble as study subject matter; the gate operates on engagement, not on Preamble rule content",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 88,
+     "item": "layer--1.html parental coercion severity test -> VIII typed E2, should be E3: the quote (\"high severity (denial of a charter right to a minor), sustained by definition\") never cites Article VIII; it is an illustrative axis-profile example inside a restatement of Article XIV",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 699,
+     "item": "law-polling.html LP-003 -> XI typed E1, should be E4: the quoted field is the Outcome row \"Petitioners declined to pursue Article XI gauntlet\" — a record that the XI route was NOT taken confers no authority; the XI reference that belongs to the reroute is the Scope field at :695",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 129,
+     "item": "pending-ratification.html LP-070 dual-key tier ruling -> III.III typed E2, should be E3: the ruling holds the opposite of what E2 would confer — Charter III.III's rate figures were \"restatement … not Charter-tier engraving\"",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 137,
+     "item": "path-2-risk-register.html RR-4 residue note -> XXII typed E2, should be E4: the quote \"Meritboard ranking, Supreme Court appeal, Presidential veto\" cites no Charter article, and the sentence ends \"This is the design of VMSS, relied upon, not restated\" — a pointer at standing institutions",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 130,
+     "item": "path-2-risk-register.html finding 14 cure -> XXI typed E2, should be E4: the quote is a disposition-table cell restating Path 2 Charter §2.4; it names no Charter Article XXI, and the anchor row is finding 13, not 14",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 217,
+     "item": "path-2-charter.html §13.1 amendment review -> XXII typed E2, should be E3: the extracted fragment (\"the reviewer's standing objection is flagged to the Presidency for veto consideration\") is about presidential veto; the actual Meritboard/XXII dependency in §13.1 is the unquoted \"highest-ranked eligible entity on the Meritboard's audit-methodology ranking\"",
+     "problem": "wrong-owner"
+    },
+    {
+     "line": 614,
+     "item": "simulations.html Backup Vessel Parity scenario -> XXV.VI typed E1, should be E3: the quote \"The statute cleared the Article XXV.VI ladder in the winter of 2135\" is not on line 614 — it is on simulations.html:664 (External Force Doctrine replacement statute). Line 614 reads \"Backup Vessel Parity had cleared its Article XXV.VI ladder in 2111\", a narrative recital, not a register entry",
+     "problem": "wrong-owner"
+    }
+   ],
+   "duplicates": [
+    "systems.html:183 -> XI (typed twice from the same line: E2 as \"systems:Governance — founding core\" and E3 as \"systems:Governance\")",
+    "whitepaper.html:775 -> XXV.VI and whitepaper.html:1802 -> XXV.VI (§10.2 heading and glossary heading, identical rule unit)",
+    "whitepaper.html:1346 -> XXII and whitepaper.html:1707 -> XXII (same ASI metric-governance sentence)",
+    "whitepaper.html:1346 -> XXII and world.html:1165 -> XXII (same sentence mirrored to world.html)",
+    "whitepaper.html:1119 -> XVIII and technologies.html:307 -> XVIII (§18.8 network-attribution feed)",
+    "whitepaper.html:1122 -> XXV.III and technologies.html:327 -> XXV.III (implant/AR divergence trigger, near-verbatim)",
+    "whitepaper.html:1442 -> XI and world.html:1114 -> XI (territorial-doctrine conquest/XI sentence, near-verbatim)",
+    "whitepaper.html:1448 -> XX and world.html:1141 -> XX (offensive-operations/XX anomaly sentence)",
+    "whitepaper.html:1173/1176/1179 style heading edges vs glossary twins (19.7/XVI, 19.8/XVII, 19.9/XX restated in §34)",
+    "docs-review/vmss-laws-latent-inventory.md systematic double-count: every instrument emits the same article twice, once from the parent-authority line and once from the charter-touchpoints line — :321/:322 III.I, :340/:341 III, :361/:362 I and XXV.I, :385/:386 I and VI, :409/:410 IV, :485/:486 II, :513/:514 II, :630/:631 XXIII, :747/:748 VI, :770/:771 V, VI and XXIV, :853/:854 XIV, :898/:899 IV, :949/:950 XVIII, XX and VIII"
+   ],
+   "summary": "41 mistypes found; every one inflates a non-conferring edge into E1/E2 (none were E1/E2 deflated into E3 — the 15+ E3 spot-checks at wp:413, 415, 470, 532, 536, 539, 553, 772, 777, 800, 876, systems:227/231/281/343, sads:209, layer--1:50/57/61/98 all held as restatement).\nFive failure patterns: (1) the docs-review inventory's own \"restates-content\" touchpoint fields typed E2 — 7 edges, all with parent-authority \"none-standalone\"; (2) section/glossary headings with a parenthetical article typed E1 while structurally identical headings elsewhere are E3 — 4 edges; (3) comparison, contrast and NEGATION sentences typed E2 (\"mirrors XI\", \"in deliberate contrast to XI\", \"otherwise unrelated instruments\", \"needs no XXVIII petition\", \"are not a third trigger\") — 7 edges where the rule operates with the cited article removed; (4) bare restatements typed E2, several with an E3-typed twin of the same sentence elsewhere in the corpus — 13 edges; (5) quote/anchor provenance failures where the quote does not support (or is not even on) the cited line — simulations:614 (quote lives at :664), law-polling:699 (records that the XI route was declined), pending-ratification:129 (a ruling holding III.III is restatement, not engraving), p2-risk-register:130/137, p2-charter:217.\nHighest-impact: pending-ratification:129 and law-polling:699 would confer load-bearing status from text that explicitly denies it.\nDuplicates are dominated by one systematic extractor bug: the latent inventory emits each article twice per instrument (parent-authority row + charter-touchpoints row), affecting at least 13 instruments."
+  }
+ ],
  "lensNotes": [
   "Zero-edge instruments (parent-authority none-standalone AND charter-touchpoints none): #35, #37, #38, #39, #40, #41, #44, #46, #48, #51, #54, #55, #56.\nWhere parent-authority and a derives-authority touchpoint name the same article (#32 IV, #33 V, #34 XXV.V, #36 VI, #45 XXII, #57 IX, #58 IX), one E1 edge is emitted, not two; fromLoc is the touchpoints line.\n#57 Domain Chartering: XXVIII/XI are arguably E2 — provision 3 routes domain creation through the XXVIII petition mechanism and escalates to the XI gauntlet, so the routing rule cannot operate without them. Typed E3 per weaker-when-torn.\n#52 Foreign Jurisdiction Non-Recognition: provision 1 makes \"Article VIII child protections ... non-negotiable regardless of foreign adjudication\" — arguably E2; typed E3 per the field label and weaker-when-torn.\n#59 Rights Ceiling: provisions 1-2 depend on the Charter as a whole as a ceiling, but the only named touchpoint is Article V (restates-content); no edge invented for an unnamed provision.\n#42 and #43 carry parent-authority \"none-standalone\" yet still name a touchpoint; edges typed from the touchpoint field alone (XX derives-authority = E1; IV restates-content = E3). #57 duplicates its parent authority at lines 1553 and 1556.",
   "layers.html (248 lines) contains ZERO occurrences of \"Charter\"/\"charter\"/\"Article N\"/\"charter.html#\" — no edges, and no anchor exposure. Verified by grep -c.\nNo file in this lens uses a `charter.html#anchor` deep link; all two hrefs (systems.html:231, 351) point at bare charter.html, so anchor drift is not yet a risk here but the E4 rows have no anchor to stabilize.\nsystems.html:263 is a NEGATIVE citation worth reviewer attention: \"The rates below are a federal-tier schedule under LP-074, not Charter text\" — the 50/25/12.5/6.25 cascade is explicitly disclaimed as Charter-derived. No edge emitted.\nworld.html:1156/1165 attribute \"substrate neutrality\" to Article XXII, but \"substrate\" appears in charter.html only at line 248 (Article IV continuity), and XXII is titled \"The Meritboard & Executive Authority\". The metric-governance half of 1165 does match XXII text; the substrate-neutrality half may be an uncited/misattributed provision. Flagged, not resolved.\nTorn typings, all resolved toward the weaker type where possible: world:1156, sads:186, systems:488 could each be argued E3 (restatement) rather than E2; I kept E2 only where an in-force rule's operation (personhood parity, ledger third-category, federal-mandate response routing) genuinely stops without the provision. systems:463 and sads:209 were downgraded E2→E3 as narrative restatement.\nQuotes at sads.html preserve source HTML entities (&ndash;, &rsquo;) byte-faithfully; world/systems use literal em dashes.",
