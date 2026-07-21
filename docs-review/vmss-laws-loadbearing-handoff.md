@@ -2,7 +2,7 @@
 
 Architect spec v1.0, 2026-07-21. Commissioned by Jason: only load-bearing Charter law remains at Charter tier; every other Charter-parked rule demotes to the tier the data indicates (federal, then layer-wide, then district — Charter XXVIII.III's own ordering). The decision procedure is explicitly **not** manual judgment: "This decision is not done by me manually, it's inferable data." This spec therefore replaces architecture §5's hand-built category table as *procedure* while retaining it as *validation prior* (§5 below).
 
-Status: **RUN L1 IN EXECUTION — handed to a fresh Opus session** (2026-07-21). Both launch conditions were satisfied: F1 landed and the latent sweep merged as the `canon v22.8.0` squash (tag v22.8.0; landing method ratified per final-review E-F2). The branch `feat/charter-loadbearing-audit` exists on origin, spec-synced from canon v22.8.0 main — the executing session checks it out, never recreates or rebases it. Execution model per Jason's token-division directive: the architect session (Fable) specifies and reviews; the Opus session mines and authors. An architect-side extraction start was aborted for this reason; its partial output survives as `documents/charter-provision-nodes.draft.json` (unverified seed, Preamble–XXIV only — verify or regenerate). Gates (1) and (2) are satisfied: the sweep completed Fix Pack B + Phase A + Phase V at b3303a1 and the architect reviewed it green (final review, 2026-07-21). Go-signal for L1 is given under delegated orchestration, effective at the merge; the §11 launch block is the run's entry point. **Not delegated:** the Run L1 → L2 gate (§7) — Jason personally ratifies the demotion register and the proposed amendment record before any enactment, because L2 authors in-world constitutional history. Never launch a stale spec: if the latent sweep's outcome contradicts anything here, this file is revised first.
+Status: **RUN L1 COMPLETE AND RATIFIED — RUN L2 READY TO LAUNCH** (2026-07-21). L1 shipped at `aae169f` (graph + register), architect-reviewed and accepted with three binding errata (`vmss-laws-loadbearing-review.md` @ 9d05e20), and **Jason personally ratified the register with the errata** (§13). The §15 launch block is Run L2's entry point. Historical note — L1's launch context follows: Both launch conditions were satisfied: F1 landed and the latent sweep merged as the `canon v22.8.0` squash (tag v22.8.0; landing method ratified per final-review E-F2). The branch `feat/charter-loadbearing-audit` exists on origin, spec-synced from canon v22.8.0 main — the executing session checks it out, never recreates or rebases it. Execution model per Jason's token-division directive: the architect session (Fable) specifies and reviews; the Opus session mines and authors. An architect-side extraction start was aborted for this reason; its partial output survives as `documents/charter-provision-nodes.draft.json` (unverified seed, Preamble–XXIV only — verify or regenerate). Gates (1) and (2) are satisfied: the sweep completed Fix Pack B + Phase A + Phase V at b3303a1 and the architect reviewed it green (final review, 2026-07-21). Go-signal for L1 is given under delegated orchestration, effective at the merge; the §11 launch block is the run's entry point. **Not delegated:** the Run L1 → L2 gate (§7) — Jason personally ratifies the demotion register and the proposed amendment record before any enactment, because L2 authors in-world constitutional history. Never launch a stale spec: if the latent sweep's outcome contradicts anything here, this file is revised first.
 
 ---
 
@@ -105,3 +105,134 @@ Gate: the register is the must-complete deliverable — if the time box expires 
 - Demotion candidates: evidence trail holds per candidate; receiving-instrument order respected; E3 worklist and E4 anchor list complete.
 - Inherited residual: spot-check docs-review/vmss-laws-latent-mining/cluster-architecture.md for instrument-shaped content absent from the 61 — a latent-set miss would surface here as missing E1 edges.
 - Amendment text + event record are PROPOSALS only; nothing enacted; magnitudes byte-identical in every proposed relocation.
+
+## 13. Ratification record (the Run L1 → L2 gate, closed)
+
+**Jason ratified the register with the architect's errata, 2026-07-21.** Verbatim: *"I ratify the
+register with your errata — draft the L2 handoff."* Review basis:
+`docs-review/vmss-laws-loadbearing-review.md` (architect, same date, register accepted at
+`aae169f`). The ratification covers:
+
+- **The five clause-level demotions** with target tier Federal and receiving instruments as
+  registered: III.II per-hour cascade → **the Overtime Premium Protocol** (new schedule
+  instrument, name promoted from charter.html:190); III.IV forfeiture band and III.V retention
+  bands → **the Central Banking Authority** (founding instrument #3); III.VII/VIII triggers,
+  rates, and windows → **LP-069 + LP-070**; XXVII escalation rate → **LP-064**.
+- **III.V's 24-month lookbacks → the Central Banking Authority**, per the architect's
+  recommendation adopted at ratification (register §13.3 left the pick open; the review
+  recommended keeping the whole III.IV/III.V settlement family in one instrument).
+- **The two hard-case keeps** (XXV.I–III; III.IV's gradient ranges) and refinements **D-1–D-5**.
+- **Errata E-L1–E-L3** (review doc) as binding on L2's drafting: E-L1 — charter.html:202's
+  restatement of III.V's band endpoints relocates with the III.V schedule, the sentence keeping
+  pointer form; E-L2 — the XXVII edit is occurrence-complete across the whole of charter.html:423;
+  E-L3 — the register's §6 Case A count line is corrected.
+- **The §11 event-record proposals**: number LP-076; title *The Enabling Consolidation Amendment*;
+  in-world dates **Filed 2296, Vote Concluded 2299**; the first-success-in-seven framing (it
+  passed because it changes no number and no right); and **licence to author the enacted-entry
+  idiom** — the one authored-canon item §11 flagged — at minimal delta from the seven failed
+  entries' form.
+- **Canon defects**: F-1–F-4 are fixed in L2 as an errata commit; F-5 only if a provable citation
+  exists (else recorded); **F-6 (the External Force Doctrine's dangling Charter reference) stays
+  open as a doctrine question for Jason — not L2 scope**; F-7 is superseded by the graph.
+
+Still reserved to Jason: the **merge veto** — his read of the rendered amendment after the
+architect's L2 review, before any PR to main.
+
+## 14. Run L2 execution spec (supplements §7–§8; the register as amended is the content authority)
+
+**Branch:** `feat/vmss-laws-v23.0.0`, created from `origin/feat/charter-loadbearing-audit` (which
+carries the graph, the register, and the review). Never touch the L1 branch again; never main.
+
+**Ordering — promote before removal, green at every commit.** A demoted magnitude must land in its
+receiving instrument before (or in the same commit as) it leaves charter.html; no commit may leave
+a magnitude homeless or check-canon red. Guard retargets land in the same commit as the content
+change they pin whenever an intermediate state would otherwise be red.
+
+1. **Record-keeping commit:** fold E-L1/E-L2/E-L3 into the register text; add a RATIFIED line to
+   the register's status header citing §13 and the review doc.
+2. **Receiving instruments (laws.html):** the Overtime Premium Protocol authored as a new
+   federal-tier Code entry sourced to LP-076; the Central Banking Authority entry gains the III.IV
+   forfeiture band, the III.V retention schedule, and both 24-month lookbacks; LP-069/LP-070 gain
+   the III.VII/VIII triggers, rates, and windows; LP-064 gains the 50%-per-child escalation rate.
+   Every relocated magnitude **byte-identical as printed** (`$15.63`, not $15.625 — string
+   comparison, never arithmetic). Amending a founding entry (the CBA) follows the Code's existing
+   amendment idiom — derive it from house pattern; if none exists, a minimal "(as amended by
+   LP-076)" provenance note, flagged in the worklog. New entries are **not**
+   `data-instrument="founding"` — they are enacted under LP-076; the founding count guard's 60
+   must not move.
+3. **The event record (law-polling.html):** LP-076 in the #charter-amendments section per the
+   ratified §11 proposal — Scope string verbatim, threshold string as 6 of 7 entries carry it,
+   Canon Anchor as proposed, Main Layer ratifying at the lower end of the 80–90% band with the
+   :286 gravity rationale stated, Presidential veto not exercised. Success idiom at minimal delta
+   from the seven failed entries (badge class reused from the site's existing enacted styling
+   where one exists; vote-table cells classed pass; closing commentary records the first success
+   against the 7/7 record and why). **Stat cards move 89 = 7/60/22 → 90 = 8/60/22 — advertised and
+   derived atomically.** If the pending-ratification pipeline idiom requires a companion
+   Ratification Record entry, author it minimally within the licensed zone and flag it.
+4. **charter.html amendment:** the five §10 replacement texts as ratified, plus E-L1's :202
+   pointer-form fix and E-L2's full-:423 coverage. Every keep verbatim — the derivation sentence,
+   the gradient ranges and their "not a fixed exchange rate" sentence, the involuntary-descent
+   100%, all N-1 negative magnitudes ("There is no minimum wage in VMSS", "No minimum
+   participation quorum is imposed", "There is no limit on consecutive terms", consensus-not-
+   supermajority), every comma-exact hedge, the 2.5 target, children-held-harmless. No h2/h3 id or
+   heading-text change; Tier-1 index stays 30 rows byte-equal. The LP-069 whitelist entry is
+   **removed** (not emptied in place) in this commit, since charter.html:239's reference relocates
+   here.
+5. **Guards (per §8, plus the register's findings):** purity-guard expansion generated from the
+   register's demotion set — **rule-scoped and occurrence-counting, never digit-scoped** (N-2), and
+   collision-safe against LP-071's `90-99%` net-worth cap at rate-history.html:160,
+   law-polling.html:2336, pending-ratify-tax-50-supplemental.html:139 (§4.2 warning);
+   consolidation-fidelity guard string-comparing every relocated magnitude occurrence;
+   negative-magnitude pins for the N-1 list at Charter tier; the §8b E5 retarget list worked
+   through, including re-verifying the check-canon.mjs:533 comment's claim rather than inheriting
+   it. **Every new or changed guard mutation-tested** — red for the reason under test, probes
+   recorded in the worklog.
+6. **E3 tier-attribution pass:** filter the graph for E3 edges targeting the five candidate
+   provisions only. A surface that attributes a demoted magnitude to the Charter gets the
+   systems.html:263 negative-citation pattern ("a federal-tier schedule under LP-076, not Charter
+   text"); pure restatements without tier claims are untouched. The §7 alignment *gaps* (missing
+   content on layer pages) are out of scope — recorded, not authored.
+7. **Canon-defect errata commit:** F-1 (simulations.html:456 → XXV.II), F-2 (why-vmss.html:532 →
+   III.V), F-3 (whitepaper.html:1692 → §9), F-4 (laws.html:765 LP-002 anchor → III.II); F-5 only
+   with provable citation.
+8. **Version v23.0.0** per the architecture §8 idiom — mirror what v22.8.0 touched (version log,
+   footer, README lockstep).
+9. **Phase V adversarial verification** and the worklog throughout
+   (`docs-review/vmss-laws-loadbearing-worklog.md`, new "Run L2" section).
+
+**Must-complete gate:** steps 1–5 and 8 pushed green (the amendment triad + guards + version).
+**Should-complete:** steps 6–7; if the time box expires, push the last green state and record the
+remainder in the worklog. Expected check-canon count: **above the 133 baseline** (new guards);
+report the delta and the reason per guard.
+
+## 15. Run L2 launch block (paste into a fresh Opus session, repo root)
+
+```
+You are executing Run L2 of the VMSS Charter load-bearing audit — the ENACTMENT run: the Enabling Consolidation Amendment, canon v23.0.0. Use ultracode for fan-out; every rule binds subagents. Jason has personally ratified the demotion register with the architect's errata (handoff §13) — you author in-world constitutional history exactly as ratified, nothing more.
+
+Setup: verify `git remote -v` → JasonHuang24/VMSS. Create feat/vmss-laws-v23.0.0 from origin/feat/charter-loadbearing-audit (git fetch origin && git checkout -b feat/vmss-laws-v23.0.0 origin/feat/charter-loadbearing-audit). Per §9's history discipline: no history rewrite, no force-push, no tag operations. Read fully, in order: docs-review/vmss-laws-loadbearing-handoff.md (§13 ratification record and §14 execution spec govern THIS run; §7–§10 background), docs-review/vmss-laws-loadbearing-register.md (the ratified content authority — §4 candidates, §10 amendment text, §11 event record, §8/§8b guard lists, §13b findings N-1/N-2), docs-review/vmss-laws-loadbearing-review.md (errata E-L1–E-L3 bind your drafting; O-L1 tells you how to consume the graph), docs-review/vmss-laws-architecture.md, docs-review/vmss-laws-opus-prompts.md Prompt 0 (hard rules). The graph documents/charter-dependency-graph.json drives the E3 pass — apply the criticFindings corrections and discount narrative-source E1/E2 before any in-degree reasoning.
+
+House facts: (1) subagent structured returns have a 64k output-token ceiling — chunk surfaces, keep returns terse; (2) law-polling.html's stat cards are ground truth for register parses AND this run changes them: 89 = 7/60/22 becomes 90 = 8/60/22, advertised and derived atomically; (3) the extended parsers in tools/check-canon.mjs (codeEntries) and tools/build-law-toc.mjs are the canonical readers; laws.html's 60 data-instrument="founding" entries and their count guard must not move — new entries are enacted under LP-076, never marked founding; (4) magnitudes relocate byte-identical AS PRINTED ($15.63, not $15.625) — string compare, never arithmetic; if any number would change, STOP; (5) the purity/fidelity guards you write must be rule-scoped and occurrence-counting, never digit-scoped — LP-071's 90-99% net-worth cap shares III.IV's digits on three surfaces and must not collide.
+
+Execute §14's ordering — promote before removal, check-canon green at EVERY commit, guard retargets atomic with the content they pin: (1) fold errata E-L1/E-L2/E-L3 into the register + RATIFIED header; (2) receiving instruments in laws.html (Overtime Premium Protocol new under LP-076; Central Banking Authority gains III.IV band + III.V schedule + both lookbacks; LP-069/070 gain III.VII/VIII; LP-064 gains the 50% rate); (3) LP-076 in law-polling.html per the ratified §11 proposal (Filed 2296, Concluded 2299; success idiom at minimal delta from the seven failed entries; stat cards to 90 = 8/60/22); (4) charter.html amendment — the five §10 replacement texts + E-L1's :202 fix + E-L2's full-:423 coverage, every keep and hedge verbatim, no h2/h3 id or heading-text change, Tier-1 stays 30 rows byte-equal, LP-069 whitelist entry REMOVED; (5) guards per §14.5, every one mutation-tested; (6) E3 tier-attribution pass (candidate provisions only, systems.html:263 pattern); (7) canon-defect errata F-1–F-4 (F-5 only if provable); (8) version v23.0.0 mirroring the v22.8.0 idiom; (9) Phase V adversarial verification. Worklog: docs-review/vmss-laws-loadbearing-worklog.md, new Run L2 section; judgments beyond spec flagged; commit messages end "Co-Authored-By: Claude Opus <noreply@anthropic.com>".
+
+Gate: must-complete is steps 1–5 + 8 pushed green; should-complete 6–7. Hard time box: ~2 hours of usage — sequence so the must-complete core is committed and pushed before it expires; commit and push at every completed milestone (git push -u origin feat/vmss-laws-v23.0.0). Expected check-canon: above the 133 baseline (new guards) — report the delta per guard. Stop conditions per the latent handoff §8: any unresolvable gate, any temptation to weaken a check, any doctrine authorship beyond the ratified licence → stop at last green state and record. When pushed, STOP: the architect reviews, then Jason takes his veto read of the rendered amendment. No PR, no merge, never main.
+```
+
+## 16. Architect's L2 review checklist (runs when the Opus session pushes)
+
+- Diff audit: charter.html edits confined to the ratified spans (:190, :201, :202, :206, :209–215,
+  :216, :230, :232, :235, :239, :242, :423); every keep sentence byte-identical pre/post; anchors
+  and heading text unchanged; Tier-1 index 30 rows byte-equal.
+- Byte-identity, mechanically: every demoted magnitude present in its receiving instrument exactly
+  as previously printed; occurrence count of every demoted magnitude in charter.html = 0,
+  **rule-scoped** (LP-071's 90-99% elsewhere untouched); E-L1's :202 and E-L2's :423 handled.
+- Guards: no guard deleted or weakened; whitelist empty by removal; every new/retargeted guard's
+  mutation probe re-run by the architect; the :533 comment re-verified, not inherited.
+- LP-076: idiom delta vs the seven failed entries minimal and enumerable; dates 2296/2299; stat
+  cards 90 = 8/60/22 advertised and derived; founding count still 60.
+- check-canon green at every commit (walk the log); TOC modes idempotent; count delta vs 133
+  explained per guard; build:css if any class changed.
+- History discipline: no rewrite, no tags, only intended files touched.
+- Then: Jason's veto read of the rendered amendment → PR → squash lands as `canon v23.0.0` with
+  the tag on the squash (Jason pushes the tag; this environment cannot).
