@@ -587,8 +587,14 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        whose register anchor happened to be linked twice on the page passed even
        with its own Source link deleted — true of exactly LP-074 and LP-042.
        Entry-scoped is the only form that means what the label says. */
-    const codeEntries = [...laws.matchAll(/<article class="code-entry[^"]*" id="([\w.-]+)" data-tier="([a-z]+)" data-source="([^"]*)">([\s\S]*?)<\/article>/g)]
-      .map((m) => ({ id: m[1], tier: m[2], source: m[3], body: m[4] }));
+    /* Founding-corpus entries (latent-corpus sweep, v22.8.0) place an optional
+       data-instrument="founding" between data-tier and data-source. The capture
+       is optional so register-derived entries still match; founding entries are
+       then explicitly partitioned out of the register guards (a1)/(a2)/(a3)/(b)
+       and the (a4) 1:1 count below — never left to non-match silently — and are
+       held to their own guards (i)-(iv). */
+    const codeEntries = [...laws.matchAll(/<article class="code-entry[^"]*" id="([\w.-]+)" data-tier="([a-z]+)"(?: data-instrument="([a-z]+)")? data-source="([^"]*)">([\s\S]*?)<\/article>/g)]
+      .map((m) => ({ id: m[1], tier: m[2], instrument: m[3], source: m[4], body: m[5] }));
 
     /* (c) tier vocabulary first — the later checks read data-tier. Asserted over
        EVERY data-tier on the page, not only the ones on entry articles: the
@@ -601,7 +607,23 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(badTier.length === 0, 'code integrity (c): data-tier vocabulary is charter|federal|layer|district',
       badTier.length ? `invalid: ${badTier.join(', ')}` : `${codeEntries.length} entries, ${declaredTiers.length} tiers declared`);
 
+    /* (iv) data-instrument vocabulary — the founding partition below trusts this
+       attribute to route an entry out of the register guards, so a forged or
+       misspelled value must fail loudly rather than silently fall back to the
+       register path. Absent = register-derived (the common case). Only
+       'founding' is licensed today. Asserted over EVERY data-instrument on the
+       page, ToC included, on the same principle as (c). */
+    const INSTRUMENTS = new Set(['founding']);
+    const declaredInstruments = [...new Set([...laws.matchAll(/data-instrument="([^"]*)"/g)].map((m) => m[1]))];
+    const badInstrument = declaredInstruments.filter((t) => !INSTRUMENTS.has(t));
+    check(badInstrument.length === 0, 'code integrity (iv): data-instrument vocabulary is {founding}',
+      badInstrument.length ? `invalid: ${badInstrument.join(', ')}` : `${declaredInstruments.length || 'no'} data-instrument value(s) declared`);
+
     const lawEntries = codeEntries.filter((e) => e.tier !== 'charter');
+    /* Founding-corpus entries derive from canon prose, not the register, so they
+       are exempt from the register-1:1 guards but bound to (i)-(iii) below. */
+    const foundingEntries = lawEntries.filter((e) => e.instrument === 'founding');
+    const registerEntries = lawEntries.filter((e) => e.instrument !== 'founding');
 
     /* (a) Status whitelist, asserted in BOTH directions. Forward: every entry the
        Code publishes derives from a register entry whose status is publishable
@@ -610,17 +632,17 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        has exactly one Code entry. Forgetting to consolidate a new LP is the
        standing co-maintenance risk this project accepted; this is the tripwire. */
     const PUBLISHABLE = new Set(['status-enacted', 'status-mixed', 'status-advisory']);
-    const unresolved = lawEntries.filter((e) => !registerStatus.has(e.source)).map((e) => `${e.id}→${e.source}`);
-    check(unresolved.length === 0, 'code integrity (a1): every code entry data-source resolves to a register entry',
-      unresolved.length ? `unresolved: ${unresolved.join(', ')}` : `${lawEntries.length} entries resolve`);
+    const unresolved = registerEntries.filter((e) => !registerStatus.has(e.source)).map((e) => `${e.id}→${e.source}`);
+    check(unresolved.length === 0, 'code integrity (a1): every register-derived code entry data-source resolves to a register entry',
+      unresolved.length ? `unresolved: ${unresolved.join(', ')}` : `${registerEntries.length} register entries resolve (${foundingEntries.length} founding entries partitioned out)`);
 
-    const notPublishable = lawEntries
+    const notPublishable = registerEntries
       .filter((e) => registerStatus.has(e.source) && !PUBLISHABLE.has(registerStatus.get(e.source).status))
       .map((e) => `${e.source}=${registerStatus.get(e.source).status}`);
     check(notPublishable.length === 0, 'code integrity (a2): no code entry derives from a failed/superseded/rerouted filing',
-      notPublishable.length ? `not publishable: ${notPublishable.join(', ')}` : `${lawEntries.length} entries within the §3.3 whitelist`);
+      notPublishable.length ? `not publishable: ${notPublishable.join(', ')}` : `${registerEntries.length} entries within the §3.3 whitelist`);
 
-    const sources = lawEntries.map((e) => e.source);
+    const sources = registerEntries.map((e) => e.source);
     const duplicated = [...new Set(sources.filter((s, i) => sources.indexOf(s) !== i))];
     check(duplicated.length === 0, 'code integrity (a3): no register entry is consolidated twice',
       duplicated.length ? `duplicated: ${duplicated.join(', ')}` : `${sources.length} distinct sources`);
@@ -637,7 +659,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        build. The hedge is pinned in its exact comma form, matching
        charter.html's own wording, because the comma is the hedge. */
     const ADVISORY_FLAG = 'advisory, not institutionally enforced';
-    const mixedSources = lawEntries.filter((e) => registerStatus.get(e.source)?.status === 'status-mixed');
+    const mixedSources = registerEntries.filter((e) => registerStatus.get(e.source)?.status === 'status-mixed');
     /* Scope is derived from the register, not from a hand-kept list: an entry
        owes the flag if the register books it advisory outright, OR if the
        register's own outcome table carries an advisory row — which is how the
@@ -646,7 +668,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        this way is what makes the check bite on the four all-layer entries
        (LP-013/026/036/042), whose register status is plain `status-enacted`;
        a status-only rule would have left exactly the gap F6 found. */
-    const owesFlag = lawEntries.filter((e) => {
+    const owesFlag = registerEntries.filter((e) => {
       const reg = registerStatus.get(e.source);
       return reg && (reg.status === 'status-advisory' || reg.advisoryOutcome);
     });
@@ -674,9 +696,93 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        let a second link to the same anchor elsewhere on the page satisfy it,
        which is how this check passed vacuously for LP-074 and LP-042 until
        v22.7.1. */
-    const anchorMismatch = lawEntries.filter((e) => !e.body.includes(`href="law-polling.html#${e.source}"`)).map((e) => e.id);
-    check(anchorMismatch.length === 0, 'code integrity (b): every code entry links its own register anchor from its own body',
-      anchorMismatch.length ? `no source link in body: ${anchorMismatch.join(', ')}` : `${lawEntries.length} source links present`);
+    const anchorMismatch = registerEntries.filter((e) => !e.body.includes(`href="law-polling.html#${e.source}"`)).map((e) => e.id);
+    check(anchorMismatch.length === 0, 'code integrity (b): every register-derived code entry links its own register anchor from its own body',
+      anchorMismatch.length ? `no source link in body: ${anchorMismatch.join(', ')}` : `${registerEntries.length} source links present`);
+
+    /* (i)-(iii) FOUNDING-CORPUS GUARDS (latent-corpus sweep, v22.8.0; handoff
+       §7.4 + architect note (b)). Founding instruments derive from canon prose
+       and carry no register entry, so they cannot pass (a1)/(b); these are their
+       equivalents. Vacuously green while no founding entry is authored — that is
+       correct: the sweep authors them in Phase A and each becomes visible here at
+       its first commit. Mutation-tested in tools/test-code-founding-guards.mjs. */
+    const CANON_SOURCE = /^(?:whitepaper|systems|technologies|world|layers|layer-(?:\+1|0|-1|-2|-3)|sads)\.html$/;
+    /* (i) data-source resolves: a bare existing page, or a file#anchor whose
+       fragment is a real id in that file. whitepaper.html has no per-section
+       anchors (F2), so founding entries cite it as a bare page and pin the
+       section through the (i-wp) heading check instead. */
+    const foundingResolve = foundingEntries.flatMap((e) => {
+      const [file, frag] = e.source.split('#');
+      let target; try { target = read(file); } catch { return [`${e.id}: no such file ${file}`]; }
+      if (frag && !new RegExp(` id="${frag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`).test(target)) {
+        return [`${e.id}: ${file}#${frag} does not resolve`];
+      }
+      return [];
+    });
+    check(foundingResolve.length === 0, 'code integrity (i): every founding entry data-source resolves (bare page or file#anchor)',
+      foundingResolve.length ? foundingResolve.join('; ') : `${foundingEntries.length} founding data-sources resolve`);
+
+    /* (i-wp) Whitepaper section pin: every "Whitepaper §N" a founding entry cites
+       must exist as an <h2>N. heading. This is what gives (i) real bite for the
+       whitepaper-homed instruments whose data-source is a bare page. */
+    const whitepaper = read('whitepaper.html');
+    const wpSection = (n) => new RegExp(`<h2[^>]*>\\s*${n}\\.`).test(whitepaper);
+    const badWpCite = foundingEntries.flatMap((e) =>
+      [...e.body.matchAll(/Whitepaper\s*&sect;\s*(\d+)|Whitepaper\s*§\s*(\d+)/g)]
+        .map((m) => m[1] || m[2])
+        .filter((n) => !wpSection(n))
+        .map((n) => `${e.id}: Whitepaper §${n}`));
+    check(badWpCite.length === 0, 'code integrity (i-wp): every cited Whitepaper §N exists as an <h2>N. heading',
+      badWpCite.length ? badWpCite.join('; ') : `${foundingEntries.length} founding entries pin real whitepaper sections`);
+
+    /* (ii) every founding entry names a whitepaper or World-tier canon source as
+       its data-source — never charter.html (the home rule forbids a founding name
+       for Charter-homed rules) and never a Process-tier or front page. */
+    const noCanon = foundingEntries.filter((e) => !CANON_SOURCE.test(e.source.split('#')[0])).map((e) => `${e.id}→${e.source}`);
+    check(noCanon.length === 0, 'code integrity (ii): every founding entry cites a whitepaper or World-tier canon source',
+      noCanon.length ? noCanon.join('; ') : `${foundingEntries.length} founding entries are canon-sourced`);
+
+    /* (iii) name-collision: no founding entry's title may equal an existing
+       register law-title or a register-derived Code entry title — canon-already-
+       named things are promoted verbatim, not re-minted under a colliding name. */
+    const titleOf = (body) => (body.match(/<h3 class="law-title">([\s\S]*?)<\/h3>/) || [])[1]?.trim();
+    const registerTitles = new Set([...law.matchAll(/<h3 class="law-title">([\s\S]*?)<\/h3>/g)].map((m) => m[1].trim()));
+    const codeTitles = new Set(registerEntries.map((e) => titleOf(e.body)).filter(Boolean));
+    const nameCollision = foundingEntries.flatMap((e) => {
+      const t = titleOf(e.body);
+      if (!t) return [`${e.id}: no law-title`];
+      return (registerTitles.has(t) || codeTitles.has(t)) ? [`${e.id}: "${t}"`] : [];
+    });
+    check(nameCollision.length === 0, 'code integrity (iii): no founding entry name collides with a register or Code title',
+      nameCollision.length ? nameCollision.join('; ') : `${foundingEntries.length} founding names are collision-free`);
+
+    /* (v) FOUNDING-COUNT PARITY (latent-corpus sweep follow-up F1). The founding
+       corpus is exactly the ratified inventory's PART 1 instrument set, less the
+       instruments explicitly held from authoring. Both sides are derived
+       mechanically — the PART 1 `### N.` instrument headings from the inventory,
+       the founding entries from laws.html — so a dropped, duplicated or
+       forgotten founding entry (or a silently grown/renumbered inventory) fails
+       loudly here rather than drifting in under a green build; (i)-(iii) bind
+       each founding entry's shape but say nothing about how many there must be.
+       The held list is the one hand-kept constant: today a single instrument,
+       PART 1 #55 The High-Consequence Environment Certification Standard (slug
+       high-consequence-certification), held — not authored — because its sole
+       source is simulations.html and handoff §4 forbids authoring a rule from
+       narrative (worklog "The 60 vs 61 — #55 held (stop-condition-adjacent,
+       flagged)"). Mutation-tested (probe v) in tools/test-code-founding-guards.mjs. */
+    const HELD_FROM_FOUNDING = [55]; // PART 1 instrument numbers held, not authored (worklog "60 vs 61")
+    const inventoryLines = read('docs-review/vmss-laws-latent-inventory.md').split('\n');
+    const invP1 = inventoryLines.findIndex((l) => l.startsWith('## PART 1'));
+    const invP2 = inventoryLines.findIndex((l) => l.startsWith('## PART 2'));
+    const part1Instruments = (invP1 >= 0 && invP2 > invP1)
+      ? [...inventoryLines.slice(invP1, invP2).join('\n').matchAll(/^### \d+\. /gm)].length
+      : -1;
+    const expectedFounding = part1Instruments - HELD_FROM_FOUNDING.length;
+    check(part1Instruments > 0 && foundingEntries.length === expectedFounding,
+      'code integrity (v): founding entries equal PART 1 instruments minus the held list',
+      part1Instruments <= 0
+        ? 'could not parse PART 1 instrument headings from docs-review/vmss-laws-latent-inventory.md'
+        : `${foundingEntries.length} founding / ${expectedFounding} expected (${part1Instruments} PART 1 − ${HELD_FROM_FOUNDING.length} held: #${HELD_FROM_FOUNDING.join(', #')})`);
 
     /* (d) Tier 1 is an index of the Charter's own headings, and it must stay
        mechanically equal to them — count AND title text. Count-only would let a
@@ -720,6 +826,18 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     ].filter(([, ok]) => !ok).map(([k]) => k);
     check(r22.length === 0, 'R22 is registered on the Ratification Record (process record)',
       r22.length ? `missing: ${r22.join(', ')}` : 'ruling number + doctrine name present');
+
+    /* R23 durability pin (latent-corpus sweep, v22.8.0). The founding-corpus Code
+       band and the law-polling register-intro cure both rest on R23 being
+       registered as the declaratory-codification ruling; pin it in the entity
+       form the page uses so a later edit cannot remove the ruling while leaving
+       the 60 founding entries that depend on it standing. */
+    const r23 = [
+      ['ruling number', record.includes('R23')],
+      ['doctrine name', record.includes('The Codification Sweep')],
+    ].filter(([, ok]) => !ok).map(([k]) => k);
+    check(r23.length === 0, 'R23 is registered on the Ratification Record (process record)',
+      r23.length ? `missing: ${r23.join(', ')}` : 'ruling number + doctrine name present');
 
     /* ToC sync, mirroring the register's own 'ToC links = entries' check above.
        The Code's index is generated, so a mismatch means the generator was not

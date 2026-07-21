@@ -123,9 +123,13 @@ function buildCodeToc() {
     ['tier-district', 'District Regulation'],
   ];
 
-  const entryRe = /<article class="code-entry([^"]*)" id="([\w.-]+)" data-tier="([a-z]+)" data-source="([^"]*)">([\s\S]*?)<\/article>/g;
+  /* Founding-corpus entries (latent-corpus sweep, v22.8.0) place an optional
+     data-instrument="founding" between data-tier and data-source; the capture is
+     optional so register-derived entries (no data-instrument) still match. */
+  const entryRe = /<article class="code-entry([^"]*)" id="([\w.-]+)" data-tier="([a-z]+)"(?: data-instrument="([a-z]+)")? data-source="([^"]*)">([\s\S]*?)<\/article>/g;
   const all = [...html.matchAll(entryRe)].map((m) => {
-    const body = m[5];
+    const instrument = m[4];
+    const body = m[6];
     const lp = (body.match(/class="lp-self">([^<]+)<\/a>/) || [])[1];
     const title = (body.match(/<h3 class="law-title">([\s\S]*?)<\/h3>/) || [])[1];
     const index = (body.match(/<a class="code-index-title"[^>]*>([\s\S]*?)<\/a>/) || [])[1];
@@ -136,18 +140,25 @@ function buildCodeToc() {
          display number is derived from the anchor rather than restated, so
          the index cannot drift from the anchor it points at. */
       if (!index) throw new Error(`charter row ${m[2]} has no index title`);
-      const src = m[4];
+      const src = m[5];
       num = src === 'preamble' ? 'Pre.'
         : src === 'founding-affirmation' ? 'Fin.'
           : `Art. ${src.replace(/^article-/, '').toUpperCase()}`;
       const parts = index.split(' – ');
       txt = parts.length > 1 ? parts.slice(1).join(' – ').trim() : index.trim();
+    } else if (instrument === 'founding') {
+      /* Founding-corpus instruments carry no LP number — a founding act has no
+         ladder record — so the ToC labels them "Founding" and takes the name
+         from the entry's own law-title. */
+      if (!title) throw new Error(`founding entry ${m[2]} has no law-title`);
+      num = 'Founding';
+      txt = title.trim();
     } else {
       if (!lp || !title) throw new Error(`entry ${m[2]} missing LP number or title`);
       num = lp.trim();
       txt = title.trim();
     }
-    return { id: m[2], tier: m[3], num, txt, pos: m.index };
+    return { id: m[2], tier: m[3], instrument, num, txt, pos: m.index };
   });
   if (!all.length) throw new Error('no code entries matched');
 
