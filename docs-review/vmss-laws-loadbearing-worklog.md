@@ -409,3 +409,137 @@ tier it lives at; only the tier claim was wrong, and only the tier claim changed
 | F-5 | `world.html:1156`, `:1165` | **NOT fixed — no provable citation**, as §14.7 requires. "Substrate" appears in charter.html only at Article IV, and the metric-governance half of :1165 genuinely does match XXII, so the correct target is undetermined. Recorded for Jason |
 | F-6 | `charter.html:262` | Out of L2 scope by §13 — the External Force Doctrine's dangling Charter reference stays open as a doctrine question for Jason |
 | F-7 | inventory B8 fields | Superseded by the graph; dies here as recommended |
+
+## L2 Phase V — Adversarial verification, and what it broke (§14.9)
+
+Six independent verifiers, each given one claim of the amendment's and told to **refute** it, each
+required to work from `git diff 913ab52..HEAD` and to default to "violation found" when uncertain.
+**Four of the six refuted their claim.** Every finding below was reproduced before being acted on.
+This section is the honest record: the run's own first draft was wrong in two load-bearing ways.
+
+### The blocking finding — E-L4, and the guard that should have caught it did not
+
+Three verifiers converged independently on the same line. `charter.html`'s III.VII **opening
+paragraph** — never enumerated by the register's §10 relocation set, and therefore never edited —
+still read:
+
+> *"A citizen holding $100,000 at the opening of a monthly cycle **owes 10% on that amount** …"*
+
+That is the upper-layer garnishing rate, sitting thirteen lines above the new enabling grant which
+declares the Charter *"reaches no threshold or rate."* The Charter contradicted itself on the same
+page, and the amendment's core claim was false as shipped.
+
+**This is the third instance of the exact class N-2, E-L1 and E-L2 were each written to catch** — a
+magnitude restated at a second location the candidate enumeration missed. The register's §4.4 lists
+`:230, :232, :235, :239, :242` and omits the intro paragraph. **Recorded as erratum E-L4**, on the
+same footing as the architect's E-L1: an occurrence the L1 enumeration missed, cured in drafting.
+
+**Why the guard was blind, and the deeper defect it exposed.** The purity row's phrasing list carried
+`garnishing rate is 10% of each citizen`; the intro's phrasing is `owes 10% on that amount`. The
+guard was **phrasing-bound and therefore only as complete as the enumeration it was built from**. A
+guard generated from the register cannot catch what the register missed. Recorded for the architect
+as a structural limit of this guard class, not merely a missed row.
+
+*Fix:* the illustration relocated to LP-070 byte-identically, the Charter sentence rewritten to state
+the pulse-at-start principle without the rate, and the phrasing added to the guard table as E-L4.
+
+### The guard defect — `.test()` on an alternation, and how it was defeated
+
+The fidelity guard stored each rule as one regex alternation and called `.test()`, which is satisfied
+by **any one** alternative. The verifier reproduced the consequence: **five relocated magnitudes
+simultaneously corrupted inside their receiving instruments — `99% to treasury, 1% retained` → 50/50,
+`10%` → `99%`, `135%` → `999%`, `$10 billion` → `$1`, `24 months` → `240 months` — with check-canon
+green at 136/0.** The guard did not assert the property its own label claimed.
+
+*Fix:* phrasings are now stored as a **list**, and **every phrasing is asserted individually on both
+sides**. Design note (4) records why. 16 rules / 36 phrasings.
+
+### Two further guard holes, both reproduced, both closed
+
+- **Charter tier is two surfaces.** The purity guard scanned `charter.html` only, but `laws.html`'s
+  Tier 1 mirrors the Charter at `data-tier="charter"`. The verifier injected the relocated cascade
+  into the mirror: **green**. Now both surfaces are scanned (design note (5)).
+- **The negative-magnitude guard was existence-testing**, violating the block's own stated design
+  constraint (2). Now occurrence-**counting** against a pinned count per stance.
+
+### Canon contradictions the amendment left standing
+
+- **`laws.html:584` still read *"All seven Charter amendments ever filed have failed"*** — and linked
+  to a section that now contains an enacted eighth. Fixed.
+- **LP-076's entry carried four overstatements**, each corrected against the register's own record:
+  *"seven amendments asked the ratifying populations"* (only five reached a population gate — LP-046
+  and LP-050 died at institutional gates); *"the drafters argued the gravity down"* (invented a
+  drafter-side advocacy step; LP-057 establishes that the Presidency sets the gravity point);
+  *"the register carries the full relocation table"* (dangling — the relocation table is a
+  Process-tier artifact, an R13 leak); and *"the floor of the 80–90% band"* paired with an
+  unstated gravity point.
+- **Missing LP-041 disclosure.** Every post-2140 Charter entry carries one; LP-076 is filed 2296 with
+  a Meritboard body as drafter — the exact case LP-041 targets — and disclosed nothing. Added, and
+  the Threshold field now states `Main 80% (gravity-set)` per the LP-057 house rule, so the `met`
+  claim is checkable.
+
+### Charter prose defects introduced by the drafting, now fixed
+
+- III.VII's -1 paragraph carried a **dangling comparative** (*"The lower rate and threshold"* — the
+  comparator left with the upper-layer figures) and **two incompatible definitions of "equilibrium
+  point"** in adjacent paragraphs. Both rewritten.
+- III.VII's -2/-3 paragraph had fused two sentences into one **mis-scoped predicate** (a
+  district-aggregate threshold is not a portion of an individual's balance). Split.
+- III.V's *"the retention schedule **above**"* no longer had anything above it. Cured.
+
+### Tier-attribution completeness gaps
+
+Phase VI's pass missed five surfaces that attribute a relocated magnitude to Charter tier, three of
+them unrecorded. Now cured: `faq.html:634` and `simulations.html:576` (same construction as lines
+cured two lines away in the same commit), and — the worst — `documents/academy-source.html:1252`,
+which listed the SCM thresholds and the retention schedule as **"Charter-stable variables … require
+Article XI amendment gauntlet"**, the exact inverse of what LP-076 makes true. Also
+`documents/resources-source.html:2655`. These three feed distributed PDFs, not drafts.
+
+### Mutation testing, round 2
+
+**11 probes, all biting for the reason under test** — the original 8 plus every attack Phase V used
+to defeat the first draft (magnitude corrupted in place ×3, the Tier-1 mirror injection, and E-L4).
+One probe (`V-E`) initially **missed** because the pinned phrasing carried a leading `A ` and these
+comparisons are case-exact; the pin was tightened and the probe now bites. Recorded because a probe
+that misses is the only evidence the probe set is doing work.
+
+### What survived refutation
+
+- **Byte-identity: 26/26 relocated fragments match character-for-character.** `$15.63` landed as
+  `$15.63`, not `$15.625`. No magnitude changed value anywhere in the diff.
+- **Every register-listed keep and hedge present verbatim** — 0 violations across §4.1–§4.5, §5,
+  §6 case B and N-1, including all three `approximately` gradient hedges.
+- **Structure**: 30 h2s, id inventory diff-identical, all heading text diff-identical, Tier-1 index
+  byte-equal, all 31 anchors resolve, every external reference into `charter.html` resolves.
+- **Founding count still exactly 60**; stat cards, filter line and both TOCs re-derived independently.
+- **The whitelist emptying is a strict strengthening** — any `LP-` on the Charter page now fails.
+- **No dead regexes**: all 36 phrasings matched the pre-amendment `charter.html`, so every pin was
+  capable of biting.
+
+### Open, flagged for the architect — not fixed by this run
+
+1. **The R15 retarget narrowed scope.** The old pin scanned all of `law-polling.html` for `lp-076`;
+   the new one asserts within the lp-076 entry. `LP-076 RATIFY-TAX-50` co-occurring **elsewhere** on
+   the page would now pass. Judged acceptable (the entry is the only place the designation could
+   masquerade as a register record) but it is a genuine narrowing and should be reviewed.
+2. **One LP number, two titles, two tiers.** LP-076 is a Charter amendment in `law-polling.html` and
+   titles a federal Code entry (*The Overtime Premium Protocol*) in `laws.html`. No other LP does
+   this. It is **forced** — code-integrity guard (a4) requires a Code entry for every enacted
+   register entry, and LP-076's only federal output is the Protocol — but it is a new registry
+   convention and the architect should bless or redirect it. The Code entry's
+   `Federal · Article XXV.VI` badge names the ladder that recalibrates the Protocol, not its
+   enacting route; the summary states the distinction explicitly.
+3. **XXVII's retained ordinal profile still constrains a relocated rate.** The Charter keeps *"the
+   fifth is unsurvivable"* and *"which the schedule reaches at the fifth child"* — arithmetic
+   consequences of the 50%/child rate against a 40% baseline. A federal recalibration moving the
+   crossover off child five would falsify retained Charter text. This is arguably correct
+   (a bound on delegated power, the §6 case B pattern) but it is undeclared.
+4. **Grant-formula asymmetry.** III.II, III.III, III.V and III.VII grants say *"enacted and
+   recalibrated through the Article XXV.VI ladder"*; III.IV's forfeiture, the savings-base cure and
+   XXVII's rate say only *"federal law … consolidated in VMSS Laws"*. The §10 ratified texts are
+   written that way and were followed verbatim, so this was **not** corrected — three relocated
+   schedules have no Charter-stated recalibration authority. Flagged as a register-text question.
+5. **`pending-ratify-tax-50-ballot.html:143`** attributes an escalated rate to Article XXVII. Frozen
+   pre-vote text; not edited.
+6. **F-5** remains unfixed for want of a provable citation; **F-6** remains Jason's doctrine question.

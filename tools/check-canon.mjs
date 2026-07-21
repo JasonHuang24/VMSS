@@ -599,57 +599,84 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
          phrasing is listed.
      (3) The Charter side asserts ABSENCE, the Code side asserts PRESENCE, and
          both run off the same table. Deleting a row silently retires both
-         halves at once, which is the only way to weaken this quietly. */
+         halves at once, which is the only way to weaken this quietly.
+     (4) PER-PHRASING, NEVER PER-RULE. Phase V refuted the first draft of this
+         block: it stored each rule as one alternation and called .test(),
+         which is satisfied by ANY one alternative. Five magnitudes were
+         corrupted inside their receiving instruments with CI still green.
+         Phrasings are therefore stored as a LIST and every one is asserted
+         individually, on both sides.
+     (5) CHARTER TIER IS TWO SURFACES. charter.html is the constitutional text;
+         laws.html's Tier 1 mirrors it at data-tier="charter". A magnitude
+         re-appearing in the mirror is back at Charter tier just as surely.
+         Both are scanned. */
   {
-    const amendedCharter = normalizedText(read('charter.html'));
+    const charterTierText = [
+      normalizedText(read('charter.html')),
+      ...[...read('laws.html').matchAll(/<article class="code-entry[^"]*" id="[\w.-]+" data-tier="charter"[\s\S]*?<\/article>/g)]
+        .map((m) => normalizedText(m[0])),
+    ].join('   ');
+    const amendedCharter = charterTierText;
     /* id · the rule · every phrasing the Charter used for it · the Code entry
        that received it. Sources: the ratified demotion register §4.1–§4.5 plus
        errata E-L1 (III.IV:202) and E-L2 (the whole of XXVII:423). */
     const RELOCATED = [
-      { id: 'III.II per-hour premium cascade', to: 'code-lp-076',
-        re: /overtime rate of \$125 per hour|\$62\.50\/hr in -1|\$31\.25\/hr in -2|\$15\.63\/hr in -3|owes \$1,250 in overtime/g },
-      { id: 'III.IV downward-conversion forfeiture band', to: 'code-fc-central-banking-authority',
-        re: /90-99% forfeiture that prevents arbitrage/g },
-      { id: 'III.V retention bands', to: 'code-fc-central-banking-authority',
-        re: /90% to treasury, 10% retained|93% to treasury, 7% retained|96% to treasury, 4% retained|98% to treasury, 2% retained|99% to treasury, 1% retained/g },
-      { id: 'III.V band endpoints restated in III.IV (E-L1)', to: 'code-fc-central-banking-authority',
-        re: /10% retained on the first \$1M, scaling down to 1% above \$1B/g },
-      { id: 'III.V pre-positioning lookback windows', to: 'code-fc-central-banking-authority',
-        re: /within 24 months prior to a punitive reassignment|within 24 months prior to filing/g },
-      { id: 'III.VII upper-layer trigger and rate', to: 'code-lp-070',
-        re: /reaches \$100 billion|population-average of \$100,000|garnishing rate is 10% of each citizen/g },
-      { id: 'III.VII rolling-average window', to: 'code-lp-070',
-        re: /90-day rolling average of total district savings/g },
-      { id: 'III.VII -1 trigger and rate', to: 'code-lp-070',
-        re: /reaches \$50 billion, a garnishing cycle activates at 5%/g },
-      { id: 'III.VII upper-layer equilibrium illustration', to: 'code-lp-070',
-        re: /a citizen holding \$100,000 loses \$10,000\/month/g },
-      { id: 'III.VII -1 equilibrium illustration', to: 'code-lp-070',
-        re: /a citizen holding \$50,000 loses \$2,500\/month/g },
-      { id: 'III.VII terminal-layer triggers', to: 'code-lp-069',
-        re: /\$25 billion aggregate UBI-origin savings in -2|\$10 billion aggregate UBI-origin savings in -3/g },
-      { id: 'III.VII attribution window', to: 'code-lp-069',
-        re: /24-month rolling window of UBI and subsidy receipts|24-month cumulative UBI receipts/g },
-      { id: 'III.VIII restatement of the terminal trigger and rate (N-2)', to: 'code-lp-069',
-        re: /\$10 billion district aggregate trigger and 5% monthly rate/g },
-      { id: 'XXVII escalation rate', to: 'code-lp-064',
-        re: /escalation compounds at 50% per child beyond the threshold/g },
-      { id: 'XXVII worked illustration', to: 'code-lp-064',
-        re: /baseline aggregate effective rate is 40%|raises it to 60%|raises it to 90%|raises it to 135%/g },
-      { id: 'XXVII trailing illustration past the quoted span (E-L2)', to: 'code-lp-064',
-        re: /under 60–90% escalation to survive long at 135%/g },
+      { id: 'III.II per-hour premium cascade', to: 'code-lp-076', alts: [
+        'overtime rate of $125 per hour', '$62.50/hr in -1', '$31.25/hr in -2', '$15.63/hr in -3',
+        'owes $1,250 in overtime'] },
+      { id: 'III.IV downward-conversion forfeiture band', to: 'code-fc-central-banking-authority', alts: [
+        '90-99% forfeiture that prevents arbitrage'] },
+      { id: 'III.V retention bands', to: 'code-fc-central-banking-authority', alts: [
+        '90% to treasury, 10% retained', '93% to treasury, 7% retained', '96% to treasury, 4% retained',
+        '98% to treasury, 2% retained', '99% to treasury, 1% retained'] },
+      { id: 'III.V band endpoints restated in III.IV (E-L1)', to: 'code-fc-central-banking-authority', alts: [
+        '10% retained on the first $1M, scaling down to 1% above $1B'] },
+      { id: 'III.V pre-positioning lookback windows', to: 'code-fc-central-banking-authority', alts: [
+        'within 24 months prior to a punitive reassignment', 'within 24 months prior to filing'] },
+      { id: 'III.VII upper-layer trigger and rate', to: 'code-lp-070', alts: [
+        'reaches $100 billion', 'population-average of $100,000',
+        'garnishing rate is 10% of each citizen'] },
+      /* E-L4 (Phase V): the pulse-at-start illustration in III.VII's opening
+         paragraph restated the upper-layer rate. Never enumerated by the
+         register's §10 relocation set — the same occurrence class as E-L1. */
+      { id: 'III.VII pulse-at-start illustration (E-L4)', to: 'code-lp-070', alts: [
+        /* No leading article: the Charter opened the sentence with "A citizen",
+           the Code carries "a citizen", and these comparisons are case-exact. */
+        'holding $100,000 at the opening of a monthly cycle owes 10% on that amount'] },
+      { id: 'III.VII rolling-average window', to: 'code-lp-070', alts: [
+        '90-day rolling average of total district savings'] },
+      { id: 'III.VII -1 trigger and rate', to: 'code-lp-070', alts: [
+        'reaches $50 billion, a garnishing cycle activates at 5%'] },
+      { id: 'III.VII upper-layer equilibrium illustration', to: 'code-lp-070', alts: [
+        'a citizen holding $100,000 loses $10,000/month'] },
+      { id: 'III.VII -1 equilibrium illustration', to: 'code-lp-070', alts: [
+        'a citizen holding $50,000 loses $2,500/month'] },
+      { id: 'III.VII terminal-layer triggers', to: 'code-lp-069', alts: [
+        '$25 billion aggregate UBI-origin savings in -2', '$10 billion aggregate UBI-origin savings in -3'] },
+      { id: 'III.VII attribution window', to: 'code-lp-069', alts: [
+        '24-month rolling window of UBI and subsidy receipts', '24-month cumulative UBI receipts'] },
+      { id: 'III.VIII restatement of the terminal trigger and rate (N-2)', to: 'code-lp-069', alts: [
+        '$10 billion district aggregate trigger and 5% monthly rate'] },
+      { id: 'XXVII escalation rate', to: 'code-lp-064', alts: [
+        'escalation compounds at 50% per child beyond the threshold'] },
+      { id: 'XXVII worked illustration', to: 'code-lp-064', alts: [
+        'baseline aggregate effective rate is 40%', 'raises it to 60%', 'raises it to 90%', 'raises it to 135%'] },
+      { id: 'XXVII trailing illustration past the quoted span (E-L2)', to: 'code-lp-064', alts: [
+        'under 60–90% escalation to survive long at 135%'] },
     ];
+    const occurrences = (haystack, needle) => haystack.split(needle).length - 1;
+    const relocatedPhrasings = RELOCATED.reduce((n, r) => n + r.alts.length, 0);
 
     /* (i) Charter side: zero occurrences of any relocated rule. Counting, not
        testing — the detail line names the rule and the count so a partial
        relocation reads as "2 left behind", not merely "failed". */
-    const charterResidue = RELOCATED.flatMap((r) => {
-      const hits = [...amendedCharter.matchAll(r.re)].map((m) => m[0]);
-      return hits.length ? [`${r.id}: ${hits.length} occurrence(s) still at Charter tier (${hits.join(' | ')})`] : [];
-    });
+    const charterResidue = RELOCATED.flatMap((r) => r.alts.flatMap((a) => {
+      const n = occurrences(amendedCharter, a);
+      return n ? [`${r.id}: "${a}" × ${n} still at Charter tier`] : [];
+    }));
     check(charterResidue.length === 0,
       'consolidation purity: the Charter states no magnitude LP-076 relocated (rule-scoped, occurrence-counting)',
-      charterResidue.length ? charterResidue.join('; ') : `${RELOCATED.length} relocated rules absent from the constitutional surface`);
+      charterResidue.length ? charterResidue.join('; ') : `${relocatedPhrasings} phrasings of ${RELOCATED.length} relocated rules absent from both Charter-tier surfaces`);
 
     /* (ii) Code side: every relocated rule present in the entry that received
        it. This is the vintage-guard discipline made permanent — a relocation
@@ -661,29 +688,38 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     const fidelity = RELOCATED.flatMap((r) => {
       const block = receivingEntries.get(r.to);
       if (block === undefined) return [`${r.id}: receiving entry #${r.to} not found in the Code`];
-      /* r.re carries /g, so test() would advance lastIndex across calls. */
-      r.re.lastIndex = 0;
-      return r.re.test(block) ? [] : [`${r.id}: absent from its receiving entry #${r.to}`];
+      /* Every phrasing individually — design note (4). An alternation test
+         here is satisfied by any one survivor and hides the rest. */
+      return r.alts.flatMap((a) => (occurrences(block, a) ? [] : [`${r.id}: "${a}" absent from #${r.to}`]));
     });
     check(fidelity.length === 0,
       'consolidation fidelity: every relocated magnitude is stated by its receiving instrument',
-      fidelity.length ? fidelity.join('; ') : `${RELOCATED.length} relocated rules land in 5 receiving entries`);
+      fidelity.length ? fidelity.join('; ') : `${relocatedPhrasings} phrasings of ${RELOCATED.length} relocated rules land in 5 receiving entries`);
 
     /* (iii) Negative magnitudes (finding N-1). A floor, quorum, ceiling or
        threshold of NONE is an operative magnitude carrying no digits, so no
        mechanical magnitude sweep can see it being relocated, weakened, or
        quietly dropped. Two of the four sit inside provisions this amendment
-       edited. All four are Charter-tier keeps. */
+       edited. All four are Charter-tier keeps.
+
+       Counted, not merely tested, for the same reason every other row here is
+       counted: canon restates itself, and a stance surviving in one place
+       while being dropped from another is exactly the drift this catches. The
+       expected count is pinned per stance against charter.html alone. */
     const NEGATIVE_MAGNITUDES = [
-      'There is no minimum wage in VMSS',
-      'No minimum participation quorum is imposed',
-      'There is no limit on consecutive terms',
-      'not a supermajority, full agreement',
+      ['There is no minimum wage in VMSS', 1],
+      ['No minimum participation quorum is imposed', 1],
+      ['There is no limit on consecutive terms', 1],
+      ['not a supermajority, full agreement', 1],
     ];
-    const lostNegatives = NEGATIVE_MAGNITUDES.filter((s) => !amendedCharter.includes(s));
+    const charterProper = normalizedText(read('charter.html'));
+    const lostNegatives = NEGATIVE_MAGNITUDES.flatMap(([s, want]) => {
+      const n = occurrences(charterProper, s);
+      return n === want ? [] : [`"${s}" × ${n}, expected ${want}`];
+    });
     check(lostNegatives.length === 0,
       'charter tier: the negative magnitudes stand (N-1 — a floor of none is still a floor)',
-      lostNegatives.length ? `missing: ${lostNegatives.join(' | ')}` : `${NEGATIVE_MAGNITUDES.length} negative magnitudes present verbatim`);
+      lostNegatives.length ? lostNegatives.join('; ') : `${NEGATIVE_MAGNITUDES.length} negative magnitudes present at their pinned counts`);
   }
 
   /* (f3) CODE INTEGRITY GUARDS (v22.7.0, architecture §7.3). laws.html is a
