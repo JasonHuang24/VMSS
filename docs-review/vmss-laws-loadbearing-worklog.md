@@ -543,3 +543,93 @@ that misses is the only evidence the probe set is doing work.
 5. **`pending-ratify-tax-50-ballot.html:143`** attributes an escalated rate to Article XXVII. Frozen
    pre-vote text; not edited.
 6. **F-5** remains unfixed for want of a provable citation; **F-6** remains Jason's doctrine question.
+
+---
+
+# Run L3a — Charter codification: the mapping proposal (§18.1)
+
+Executed 2026-07-21 on `feat/vmss-laws-v23.0.0`, entered at origin tip `610f5da` (fast-forward from
+`edaf83a`; no rewrite, no force-push, no tag operation). Docs-only: the sole deliverable is
+`docs-review/vmss-laws-codification-proposal.md`. **check-canon 136 passed / 0 failed at entry and
+at exit.** No root `.html`, no `tools/` file, no guard touched — the Sol peer-review packet stays
+valid against the branch's frozen `.html` state.
+
+## Method
+
+Mechanical work was done in-session by script; judgment work was fanned out. A workflow ran 22
+agents in three phases: **Survey** (four independent misfit lenses — post-amendment title fit,
+numbering integrity, external consistency, and a skeptic briefed to argue "change nothing" — plus a
+guard-retarget census and a cleanup sweep), **Refute** (every deduplicated proposal sent to three
+adversarial refuters on distinct lenses: textual, cost, and scope), and **Critic** (a completeness
+critic told to assume all of the above missed something). 1.68M subagent tokens, 376 tool calls.
+
+The citation partition was **not** delegated. A read-only Node script enumerated all 43 root `.html`
+files plus `documents/*.html` across five occurrence kinds (prose `Article N`, `Art. N`,
+`charter.html#` hrefs, bare `#` fragments, bare sub-article tokens), yielding **1,562 occurrences**
+classed LIVE 793 / FROZEN 362 / SOURCE 407. Mechanical derivation over agent testimony is the
+standing rule of this project and it applied here.
+
+## Result
+
+**Zero mapping changes across all 48 units.** Five proposals were generated and every one died:
+
+| Proposal | Outcome |
+|---|---|
+| XXII.II → XXII.I (renumber) | refuted 3/3 |
+| Designate XXII lead text as XXII.I | survived 2/3, then **refuted by the critic** |
+| Article XXVII retitle | refuted 3/3 |
+| Two lone-subdivision variants | refuted 3/3 each |
+
+Lens 1 (post-amendment title fit) returned **zero proposals** unprompted: no Charter title contains
+the words *rate*, *band*, *schedule*, *threshold*, *window*, or *percent*, so LP-076's removals
+orphaned nothing. That is the null result's structural cause and it is stated in the proposal's §0.
+
+## What the adversarial pass and the critic changed
+
+- **The one surviving proposal was wrong.** Designating Article XXII's lead text `XXII.I` would
+  strand `charter.html:336` — a paragraph about the Meritboard's breadth, not the review cycle —
+  inside `XXII.II`. Article XXII is the **only** article with article-level prose after its final
+  sub-article (III ends :240, XXV :410, XXVIII :458). Text moving between units is out of scope.
+  Two of three refuters would have let it through; the critic caught it. **I re-verified it at
+  source before adopting it** — the project's rule that critic claims are not inherited.
+- **The register's §8b guard line numbers had all moved** (+168 lines in `check-canon.mjs`) and
+  `build-law-toc.mjs:120` was never a designation pin at all. Corrected in the proposal's §4.1.
+
+## Findings that outlive this run
+
+- **G1 — `charter.html`'s own table of contents (`:104`–`:141`) restates all 30 titles and numerals
+  a second time inside the same file, hand-authored, with no generator and no guard.** I verified
+  both halves myself: `build-law-toc.mjs` never opens `charter.html`, no `check-canon` reference
+  reads `toc-txt`, and all 30 values are currently exact suffix copies of their h2 titles. The
+  invariant holds and nothing enforces it. Recommended as a standalone guard addition — out of
+  L3a's docs-only scope, so reported, not performed.
+- **G2/G3** — 17 of 18 sub-articles carry no `id` and appear in no guard; visible designation prose
+  is unpinned even where its href is.
+- **Fresh sweep found eight items**, headed by two high-severity tier misattributions L2's step 6
+  did not reach: `faq.html:829` attributes the whole XXVII escalation schedule to the Charter, and
+  `systems.html:281` points at Article III.V for a schedule that is no longer there.
+- **N-6 is a regression in this branch's own errata commit.** F-2's cure repointed
+  `why-vmss.html:532` from *"Article XIV"* onto *"Article III.V"* — a schedule LP-076 had just
+  hollowed, and the wrong sub-article for a conversion ratio besides (that is III.IV's gradient).
+  Recorded with both readings, including the one that partly exonerates it.
+
+## Judgments beyond spec, flagged
+
+1. **The null mapping** — §18.1 anticipated a mapping with content.
+2. **§5.1 recommends not filing LP-077 at all.** If nothing renames, the cleanup is all below
+   Charter tier, and under LP-042 reference hygiene is consolidation, not amendment — so it costs no
+   in-world event. This is the run's most consequential recommendation and it is a judgment.
+3. **The frozen/live classification** of `rate-history.html`, `deregistered-statutes.html` and
+   `path-2-certification-2294.html` is this run's call (all three contribute 0 occurrences, so no
+   number moves).
+4. **`documents/*.html` classed SOURCE, not LIVE** — 407 occurrences, 26% of the census, held as a
+   third class. If read as live, LIVE rises 793 → 1,200.
+5. **One sweep "finding" was already dispositioned** and is recorded as such rather than re-raised:
+   the LP-076 one-number-two-titles collision was **blessed** by the architect's Part II review,
+   disposition 2. What is genuinely new is its discoverable cost (proposal N-3), not the convention.
+
+## Gate
+
+Proposal committed and pushed. **STOP.** Jason personally ratifies the mapping, the instrument
+design, and the cleanup dispositions — F-6 explicitly carries no recommendation from this run —
+before any L3b enactment exists. No PR, no merge, never main.
