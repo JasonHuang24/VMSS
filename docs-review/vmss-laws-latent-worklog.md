@@ -169,3 +169,89 @@ synthesis (a stricter, more consolidated ~21-founding-act reading with an explic
 is preserved out-of-tree in the session scratchpad and can be surfaced if a side-by-side comparison
 is wanted. Recommendation: keep the 61-instrument inventory as the gate; treat this verification
 record as its independent audit.
+
+---
+
+## Fix Pack B — Phase A preconditions (2026-07-21)
+
+Executing `docs-review/vmss-laws-latent-dispositions.md` Fix Pack B on `feat/vmss-laws-latent-corpus`.
+**B9 (spec sync)** done first: merged `origin/claude/laws-html-visibility-5nppos` (latent handoff v1.1
+§9, load-bearing successor spec, this fix pack + `accounting-recheck.{mjs,json}`) — clean merge, the two
+branches touched near-disjoint files.
+
+### Baseline measured at branch time
+
+`node tools/check-canon.mjs` → **126 passed, 0 failed** (matches the handoff's re-derived baseline and
+the verification record). Fix Pack B1–B5/B7 touch only `docs-review/**`, outside every check-canon
+sweep, so this number is unchanged by them.
+
+### B1 — accounting rebased on the committed ledger
+
+`accounting-recheck.json` is ground truth. Re-ran `accounting-recheck.mjs` from the committed annex:
+**pool 1,352** (the 1,320/1,321 figures came from the lost, never-committed workflow journal). Derived
+partition: **516 assigned · 89 flag-cited · 109 named-excluded · 135 Path 2 categorical · 503 residual**
+(= 1,352). The stale Counts block, the SYNTHESIS Counts line, PART 4 §5, and the residual block's
+dangling "returned JSON's `excluded` array" reference are corrected **in place beside the originals**
+(9a45fc5 idiom) with pointers to the committed ledger.
+
+### B2 — all 30 `suspiciousResiduals` dispositioned
+
+> **Judgment beyond spec (flagged):** the committed JSON enumerates **30** suspicious residuals, not
+> the memo's "26". The ledger is ground truth (B1), so all 30 were dispositioned. Each was verified by
+> reading the annex block AND the covering instrument's actual provision text before disposition.
+
+- **11 → assigned** (duplicate §-source ids of content instruments already carry): wp-17-19-35/-36→#6;
+  -51/-52→#7; -41→#18; -25→#28; -18a/-18b→#30; -64/-65→#16; -72→#53. Each appended to the instrument's
+  `**candidate ids**` line with a per-instrument evidence note; the covering provision is cited.
+- **9 → named exclusion** (PART 2): layers-sads-63→LP-006, wp-17-19-22→LP-060 (already enacted);
+  systems-65→Charter XXV.III, layers-sads-66→federal floor + XXVIII petition (charter-home); wp-17-19-42
+  → UBI/PJS restatement; layers-sads-16, layers-sads-56, wp-17-19-18c, wp-27-34-153 → not-law (new
+  "Not law" subsection).
+- **10 → PART 3 flag**: systems-66b→Contradictions (B4); wp-09-12-18, wp-20-22-16, wp-27-34-61/-79/-82/
+  -84/-113/-114/-123 → Regulatory-tier (Article XXVIII/IX SAD & Precognition-family, no register entry).
+
+Full per-id evidence ledger added as inventory **PART 5** (outside the tool's parsed ranges). No new
+instrument authored, no provision text changed; nothing genuinely uncarried was minted — the uncarried
+operative content (SAD/Precognition instruments) was escalated to flags, not authored.
+
+### B3 — phantom citations cured
+
+- Instrument #30 `wp-17-19-18` → `wp-17-19-18a` (annex splits §17.1.5 into 18a/18b/18c; prov-4 text = 18a).
+- PART 2 `wp-17-19-79 — LP-049` **struck** (annex defines no -79; LP-049's real id is -77, already
+  assigned). The §19.11 numbering skew (-76/-78 mislabels) is recorded in PART 5 for later sign-off, not
+  edited — outside B3's scope and no provision change without sign-off.
+
+### B4 — dropped flag restored + annex erratum
+
+systems-66b restored to PART 3 Contradictions verbatim from the annex headline (mutual-aid ladder adds a
+"+1 Sanctuary" rung Charter XXV.IV omits). The `mine-systems.md` headline-vs-table numbering skew
+(headline labels Genetic Diversity Monitoring `systems-65`; table/PART 3 use `systems-66`; true
+`systems-65` is the XXV.III hacking-prohibition charter-home row) is recorded as an erratum in PART 5;
+ids are **not** renumbered.
+
+### B5 — residual ledger closed
+
+`accounting-recheck.mjs` extended to emit `residualGround` per residual id (a=charter-home, b=not-law,
+c=restatement/other) and a `summary.residualGrounds` tally. Derived: **503 residuals — a 353 · b 104 ·
+c 46.** The residual block now states this and points at the committed ledger.
+
+### B7 — flag counts restated
+
+"83 flag-owned" superseded by the ledger's **89 `flag-cited`**; contradiction cross-cites of assigned
+ids count under `assigned` (disposition precedence), so nothing is double-counted.
+
+### Recheck after Fix Pack B1–B5/B7
+
+`node docs-review/vmss-laws-latent-mining/accounting-recheck.mjs` →
+`pool 1352 · assigned 516 · flag-cited 89 · named-excluded 109 · path2 135 · residual 503 (a353/b104/c46)
+· phantomRefs [] · suspiciousResiduals []`. Regenerated JSON committed.
+
+### Judgments beyond spec (flagged for review)
+
+1. suspiciousResiduals is **30**, not the memo's 26 — dispositioned all 30 against the ground-truth JSON.
+2. A systematic **§-source citation skew** runs through the whitepaper clusters: the inventory's standing
+   citations sit one (§18.3/§19.1/§17.3.1/§18.6/§19.9/§19.11) or two (§19.11 weapon cluster) ids off the
+   annex's own numbering. The dispositioned duplicate ids were **appended**, not used to rewrite existing
+   citations (no provision change without sign-off). Recorded in PART 5.
+3. PART 2's `wp-17-19-76 — LP-047.3` / `wp-17-19-78 — LP-048.3` mislabels (annex: -76 = LP-048.3, -78 =
+   not-law callout) are left unedited — valid `named-excluded` dispositions, outside B3's phantom scope.

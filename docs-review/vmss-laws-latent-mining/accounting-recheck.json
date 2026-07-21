@@ -2,55 +2,27 @@
  "summary": {
   "poolTotal": 1352,
   "dispositions": {
-   "residual-undispositioned": 533,
-   "assigned": 505,
-   "named-excluded": 100,
-   "flag-cited": 79,
+   "residual-undispositioned": 503,
+   "assigned": 516,
+   "named-excluded": 109,
+   "flag-cited": 89,
    "path2-categorical-excluded": 135
   },
-  "phantomRefs": [
-   "wp-17-19-18",
-   "wp-17-19-79"
-  ],
-  "suspiciousResiduals": [
-   "layers-sads-16",
-   "layers-sads-56",
-   "layers-sads-63",
-   "layers-sads-66",
-   "systems-65",
-   "systems-66b",
-   "wp-09-12-18",
-   "wp-17-19-18a",
-   "wp-17-19-18b",
-   "wp-17-19-18c",
-   "wp-17-19-22",
-   "wp-17-19-25",
-   "wp-17-19-35",
-   "wp-17-19-36",
-   "wp-17-19-41",
-   "wp-17-19-42",
-   "wp-17-19-51",
-   "wp-17-19-52",
-   "wp-17-19-64",
-   "wp-17-19-65",
-   "wp-17-19-72",
-   "wp-20-22-16",
-   "wp-27-34-113",
-   "wp-27-34-114",
-   "wp-27-34-123",
-   "wp-27-34-153",
-   "wp-27-34-61",
-   "wp-27-34-79",
-   "wp-27-34-82",
-   "wp-27-34-84"
-  ],
-  "note": "pool derived from committed annex notes; prior claims (pool 1,320/1,321; 121+640=731) do not reconcile against them"
+  "residualGrounds": {
+   "a": 353,
+   "b": 104,
+   "c": 46
+  },
+  "phantomRefs": [],
+  "suspiciousResiduals": [],
+  "note": "pool derived from committed annex notes; prior claims (pool 1,320/1,321; 121+640=731) do not reconcile against them. residualGrounds: a=charter-home, b=not-law, c=restatement/other (Fix Pack B5)"
  },
  "ledger": {
   "faq-front-01": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-02": {
    "file": "faq-front",
@@ -60,12 +32,14 @@
   "faq-front-03": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-04": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-05": {
    "file": "faq-front",
@@ -75,7 +49,8 @@
   "faq-front-06": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-07": {
    "file": "faq-front",
@@ -105,7 +80,8 @@
   "faq-front-101": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "faq-front-102": {
    "file": "faq-front",
@@ -115,22 +91,26 @@
   "faq-front-103": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "faq-front-104": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "faq-front-105": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "faq-front-106": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-11": {
    "file": "faq-front",
@@ -155,37 +135,44 @@
   "faq-front-15": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-16": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-17": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-18": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-19": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-20": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-21": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-22": {
    "file": "faq-front",
@@ -195,62 +182,74 @@
   "faq-front-23": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-24": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-25": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-26": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-27": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-28": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-29": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-30": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-31": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-32": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-33": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-34": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-35": {
    "file": "faq-front",
@@ -260,7 +259,8 @@
   "faq-front-36": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-37": {
    "file": "faq-front",
@@ -270,7 +270,8 @@
   "faq-front-38": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-39": {
    "file": "faq-front",
@@ -290,7 +291,8 @@
   "faq-front-42": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-43": {
    "file": "faq-front",
@@ -300,12 +302,14 @@
   "faq-front-44": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-45": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-46": {
    "file": "faq-front",
@@ -350,82 +354,98 @@
   "faq-front-54": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-55": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-56": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-57": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-58": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-59": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-60": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-61": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-62": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-63": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-64": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-65": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-66": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-67": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-68": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-69": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-70": {
    "file": "faq-front",
@@ -505,7 +525,8 @@
   "faq-front-85": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "faq-front-86": {
    "file": "faq-front",
@@ -535,17 +556,20 @@
   "faq-front-91": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-92": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-93": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-94": {
    "file": "faq-front",
@@ -555,12 +579,14 @@
   "faq-front-95": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-96": {
    "file": "faq-front",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "faq-front-97": {
    "file": "faq-front",
@@ -570,12 +596,14 @@
   "faq-front-98": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "faq-front-99": {
    "file": "faq-front",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "layers-sads-01": {
    "file": "layers-sads",
@@ -585,17 +613,20 @@
   "layers-sads-02": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-03": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-04": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-05": {
    "file": "layers-sads",
@@ -605,27 +636,32 @@
   "layers-sads-06": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-07": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-08": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-09": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-10": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-100": {
    "file": "layers-sads",
@@ -635,7 +671,8 @@
   "layers-sads-11": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-12": {
    "file": "layers-sads",
@@ -660,7 +697,7 @@
   "layers-sads-16": {
    "file": "layers-sads",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "layers-sads-17": {
    "file": "layers-sads",
@@ -675,17 +712,20 @@
   "layers-sads-19": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-20": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-21": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-22": {
    "file": "layers-sads",
@@ -705,7 +745,8 @@
   "layers-sads-25": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-26": {
    "file": "layers-sads",
@@ -750,7 +791,8 @@
   "layers-sads-34": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-35": {
    "file": "layers-sads",
@@ -760,12 +802,14 @@
   "layers-sads-36": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-37": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-38": {
    "file": "layers-sads",
@@ -780,7 +824,8 @@
   "layers-sads-40": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-41": {
    "file": "layers-sads",
@@ -800,7 +845,8 @@
   "layers-sads-44": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-45": {
    "file": "layers-sads",
@@ -810,17 +856,20 @@
   "layers-sads-46": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-47": {
    "file": "layers-sads",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "layers-sads-48": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-49": {
    "file": "layers-sads",
@@ -845,32 +894,37 @@
   "layers-sads-53": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-54": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-55": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-56": {
    "file": "layers-sads",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "layers-sads-57": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-58": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-59": {
    "file": "layers-sads",
@@ -885,7 +939,8 @@
   "layers-sads-61": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-62": {
    "file": "layers-sads",
@@ -895,7 +950,7 @@
   "layers-sads-63": {
    "file": "layers-sads",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "layers-sads-64": {
    "file": "layers-sads",
@@ -910,7 +965,7 @@
   "layers-sads-66": {
    "file": "layers-sads",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "layers-sads-67": {
    "file": "layers-sads",
@@ -935,12 +990,14 @@
   "layers-sads-71": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-72": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-73": {
    "file": "layers-sads",
@@ -955,42 +1012,50 @@
   "layers-sads-75": {
    "file": "layers-sads",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "layers-sads-76": {
    "file": "layers-sads",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "layers-sads-77": {
    "file": "layers-sads",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "layers-sads-78": {
    "file": "layers-sads",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "layers-sads-79": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-80": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-81": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-82": {
    "file": "layers-sads",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "layers-sads-83": {
    "file": "layers-sads",
@@ -1975,12 +2040,14 @@
   "sims-36": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-37": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-38": {
    "file": "sims",
@@ -2000,52 +2067,62 @@
   "sims-41": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-42": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-43": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-44": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-45": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-46": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-47": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-48": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-49": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-50": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-51": {
    "file": "sims",
@@ -2085,7 +2162,8 @@
   "sims-58": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-59": {
    "file": "sims",
@@ -2110,177 +2188,212 @@
   "sims-63": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-64": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-65": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-66": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-67": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-68": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-69": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-70": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-71": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-72": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-73": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-74": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-75": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-76": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-77": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-78": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-79": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-80": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-81": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-82": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-83": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-84": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-85": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-86": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-87": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-88": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-89": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-90": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-91": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-92": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-93": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-94": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "sims-95": {
    "file": "sims",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "c"
   },
   "systems-01": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-02": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-03": {
    "file": "systems",
@@ -2295,17 +2408,20 @@
   "systems-05": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-06": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-07": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-07b": {
    "file": "systems",
@@ -2320,22 +2436,26 @@
   "systems-09": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-10": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-11": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-12": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-13": {
    "file": "systems",
@@ -2345,7 +2465,8 @@
   "systems-14": {
    "file": "systems",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "systems-15": {
    "file": "systems",
@@ -2355,17 +2476,20 @@
   "systems-16": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-17": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-18": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-19": {
    "file": "systems",
@@ -2375,7 +2499,8 @@
   "systems-20": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-21": {
    "file": "systems",
@@ -2385,22 +2510,26 @@
   "systems-22": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-23": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-24": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-25": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-25b": {
    "file": "systems",
@@ -2410,37 +2539,44 @@
   "systems-26": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-27": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-28": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-29": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-30": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-31": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-32": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-33": {
    "file": "systems",
@@ -2450,22 +2586,26 @@
   "systems-34": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-35": {
    "file": "systems",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "systems-36": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-37": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-38": {
    "file": "systems",
@@ -2475,7 +2615,8 @@
   "systems-39": {
    "file": "systems",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "systems-40": {
    "file": "systems",
@@ -2485,7 +2626,8 @@
   "systems-40b": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-41": {
    "file": "systems",
@@ -2495,7 +2637,8 @@
   "systems-42": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-43": {
    "file": "systems",
@@ -2505,7 +2648,8 @@
   "systems-44": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-45": {
    "file": "systems",
@@ -2520,12 +2664,14 @@
   "systems-46b": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-47": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-48": {
    "file": "systems",
@@ -2535,7 +2681,8 @@
   "systems-49": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-50": {
    "file": "systems",
@@ -2545,7 +2692,8 @@
   "systems-51": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-52": {
    "file": "systems",
@@ -2565,22 +2713,26 @@
   "systems-54b": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-55": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-56": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-57": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-58": {
    "file": "systems",
@@ -2610,22 +2762,25 @@
   "systems-62": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-63": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-64": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-65": {
    "file": "systems",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "systems-66": {
    "file": "systems",
@@ -2635,12 +2790,13 @@
   "systems-66b": {
    "file": "systems",
    "minedClass": "(unknown)",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "systems-67": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-67b": {
    "file": "systems",
@@ -2650,12 +2806,14 @@
   "systems-68": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "systems-69": {
    "file": "systems",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-01": {
    "file": "technologies",
@@ -2670,12 +2828,14 @@
   "technologies-03": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-04": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-05": {
    "file": "technologies",
@@ -2725,27 +2885,32 @@
   "technologies-14": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-15": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-16": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-17": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-18": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-19": {
    "file": "technologies",
@@ -2765,12 +2930,14 @@
   "technologies-22": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-23": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-24": {
    "file": "technologies",
@@ -2805,7 +2972,8 @@
   "technologies-30": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-31": {
    "file": "technologies",
@@ -2830,12 +2998,14 @@
   "technologies-35": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-36": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-37": {
    "file": "technologies",
@@ -2885,12 +3055,14 @@
   "technologies-46": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-47": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-48": {
    "file": "technologies",
@@ -2905,17 +3077,20 @@
   "technologies-50": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-51": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-52": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-53": {
    "file": "technologies",
@@ -2935,12 +3110,14 @@
   "technologies-56": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-57": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-58": {
    "file": "technologies",
@@ -2950,52 +3127,62 @@
   "technologies-59": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-60": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-61": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-62": {
    "file": "technologies",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "technologies-63": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-64": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-65": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-66": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-67": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-68": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "technologies-69": {
    "file": "technologies",
@@ -3005,7 +3192,8 @@
   "technologies-70": {
    "file": "technologies",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-01": {
    "file": "world",
@@ -3025,12 +3213,14 @@
   "world-04": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-05": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-06": {
    "file": "world",
@@ -3040,7 +3230,8 @@
   "world-07": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-08": {
    "file": "world",
@@ -3075,7 +3266,8 @@
   "world-103": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-104": {
    "file": "world",
@@ -3090,7 +3282,8 @@
   "world-106": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-107": {
    "file": "world",
@@ -3235,12 +3428,14 @@
   "world-132": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-133": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-134": {
    "file": "world",
@@ -3260,12 +3455,14 @@
   "world-137": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-138": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-139": {
    "file": "world",
@@ -3285,17 +3482,20 @@
   "world-141": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-142": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-143": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-144": {
    "file": "world",
@@ -3320,7 +3520,8 @@
   "world-148": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-149": {
    "file": "world",
@@ -3335,7 +3536,8 @@
   "world-150": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-151": {
    "file": "world",
@@ -3350,37 +3552,44 @@
   "world-153": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-154": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-155": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-156": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-157": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-158": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-159": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-16": {
    "file": "world",
@@ -3390,7 +3599,8 @@
   "world-160": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-17": {
    "file": "world",
@@ -3495,7 +3705,8 @@
   "world-37": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-38": {
    "file": "world",
@@ -3565,7 +3776,8 @@
   "world-51": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-52": {
    "file": "world",
@@ -3730,17 +3942,20 @@
   "world-84": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-85": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-86": {
    "file": "world",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "world-87": {
    "file": "world",
@@ -3750,7 +3965,8 @@
   "world-88": {
    "file": "world",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "world-89": {
    "file": "world",
@@ -3820,22 +4036,26 @@
   "wp-01-08-03": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-04": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-05": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-06": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-07": {
    "file": "wp-01-08",
@@ -3850,22 +4070,26 @@
   "wp-01-08-09": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-10": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-11": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-12": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-13": {
    "file": "wp-01-08",
@@ -3880,7 +4104,8 @@
   "wp-01-08-15": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-16": {
    "file": "wp-01-08",
@@ -3890,17 +4115,20 @@
   "wp-01-08-17": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-18": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-19": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-20": {
    "file": "wp-01-08",
@@ -3920,22 +4148,26 @@
   "wp-01-08-23": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-24": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-25": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-26": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-27": {
    "file": "wp-01-08",
@@ -3960,7 +4192,8 @@
   "wp-01-08-31": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-32": {
    "file": "wp-01-08",
@@ -4015,7 +4248,8 @@
   "wp-01-08-42": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-43": {
    "file": "wp-01-08",
@@ -4025,7 +4259,8 @@
   "wp-01-08-44": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-45": {
    "file": "wp-01-08",
@@ -4065,7 +4300,8 @@
   "wp-01-08-52": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-53": {
    "file": "wp-01-08",
@@ -4075,7 +4311,8 @@
   "wp-01-08-54": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-55": {
    "file": "wp-01-08",
@@ -4090,7 +4327,8 @@
   "wp-01-08-57": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-58": {
    "file": "wp-01-08",
@@ -4105,12 +4343,14 @@
   "wp-01-08-60": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-61": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-62": {
    "file": "wp-01-08",
@@ -4125,12 +4365,14 @@
   "wp-01-08-64": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-65": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-66": {
    "file": "wp-01-08",
@@ -4140,12 +4382,14 @@
   "wp-01-08-67": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-68": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-69": {
    "file": "wp-01-08",
@@ -4165,12 +4409,14 @@
   "wp-01-08-72": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-73": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-74": {
    "file": "wp-01-08",
@@ -4180,7 +4426,8 @@
   "wp-01-08-75": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-76": {
    "file": "wp-01-08",
@@ -4190,7 +4437,8 @@
   "wp-01-08-77": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-78": {
    "file": "wp-01-08",
@@ -4205,12 +4453,14 @@
   "wp-01-08-80": {
    "file": "wp-01-08",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-01-08-81": {
    "file": "wp-01-08",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-01-08-82": {
    "file": "wp-01-08",
@@ -4260,37 +4510,44 @@
   "wp-09-12-01": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-02": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-03": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-04": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-05": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-06": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-07": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-08": {
    "file": "wp-09-12",
@@ -4300,22 +4557,26 @@
   "wp-09-12-09": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-10": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-11": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-12": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-13": {
    "file": "wp-09-12",
@@ -4325,17 +4586,20 @@
   "wp-09-12-14": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-15": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-16": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-17": {
    "file": "wp-09-12",
@@ -4345,7 +4609,7 @@
   "wp-09-12-18": {
    "file": "wp-09-12",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-09-12-19": {
    "file": "wp-09-12",
@@ -4360,17 +4624,20 @@
   "wp-09-12-21": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-22": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-23": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-09-12-24": {
    "file": "wp-09-12",
@@ -4385,17 +4652,20 @@
   "wp-09-12-26": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-09-12-27": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-28": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-29": {
    "file": "wp-09-12",
@@ -4410,12 +4680,14 @@
   "wp-09-12-31": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-32": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-09-12-33": {
    "file": "wp-09-12",
@@ -4430,37 +4702,44 @@
   "wp-09-12-35": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-36": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-37": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-38": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-39": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-40": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-41": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-09-12-42": {
    "file": "wp-09-12",
@@ -4470,7 +4749,8 @@
   "wp-09-12-43": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-44": {
    "file": "wp-09-12",
@@ -4515,17 +4795,20 @@
   "wp-09-12-52": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-53": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-09-12-54": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-55": {
    "file": "wp-09-12",
@@ -4535,17 +4818,20 @@
   "wp-09-12-56": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-57": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-58": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-09-12-59": {
    "file": "wp-09-12",
@@ -4560,7 +4846,8 @@
   "wp-09-12-61": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-62": {
    "file": "wp-09-12",
@@ -4570,47 +4857,56 @@
   "wp-09-12-63": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-64": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-65": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-66": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-67": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-68": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-69": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-70": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-71": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-72": {
    "file": "wp-09-12",
@@ -4650,12 +4946,14 @@
   "wp-09-12-79": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-80": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-81": {
    "file": "wp-09-12",
@@ -4665,7 +4963,8 @@
   "wp-09-12-82": {
    "file": "wp-09-12",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-09-12-83": {
    "file": "wp-09-12",
@@ -4690,87 +4989,104 @@
   "wp-09-12-87": {
    "file": "wp-09-12",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-01": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-02": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-03": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-04": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-05": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-06": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-07": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-08": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-09": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-10": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-11": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-12": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-13": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-14": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-15": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-16": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-17": {
    "file": "wp-13-16",
@@ -4780,12 +5096,14 @@
   "wp-13-16-18": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-19": {
    "file": "wp-13-16",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-13-16-20": {
    "file": "wp-13-16",
@@ -4845,7 +5163,8 @@
   "wp-13-16-31": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-32": {
    "file": "wp-13-16",
@@ -4910,47 +5229,56 @@
   "wp-13-16-44": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-45": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-46": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-47": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-48": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-49": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-13-16-50": {
    "file": "wp-13-16",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-17-19-01": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-02": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-03": {
    "file": "wp-17-19",
@@ -4960,12 +5288,14 @@
   "wp-17-19-04": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-05": {
    "file": "wp-17-19",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-17-19-06": {
    "file": "wp-17-19",
@@ -4990,12 +5320,14 @@
   "wp-17-19-10": {
    "file": "wp-17-19",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-17-19-11": {
    "file": "wp-17-19",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-17-19-12": {
    "file": "wp-17-19",
@@ -5030,17 +5362,17 @@
   "wp-17-19-18a": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-18b": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-18c": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "wp-17-19-19": {
    "file": "wp-17-19",
@@ -5050,7 +5382,8 @@
   "wp-17-19-20": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-21": {
    "file": "wp-17-19",
@@ -5060,7 +5393,7 @@
   "wp-17-19-22": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "wp-17-19-23": {
    "file": "wp-17-19",
@@ -5075,7 +5408,7 @@
   "wp-17-19-25": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-26": {
    "file": "wp-17-19",
@@ -5115,7 +5448,8 @@
   "wp-17-19-33": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-34": {
    "file": "wp-17-19",
@@ -5125,12 +5459,12 @@
   "wp-17-19-35": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-36": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-37": {
    "file": "wp-17-19",
@@ -5150,17 +5484,18 @@
   "wp-17-19-40": {
    "file": "wp-17-19",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-17-19-41": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-42": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "wp-17-19-43": {
    "file": "wp-17-19",
@@ -5205,12 +5540,12 @@
   "wp-17-19-51": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-52": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-53": {
    "file": "wp-17-19",
@@ -5235,7 +5570,8 @@
   "wp-17-19-57": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-58": {
    "file": "wp-17-19",
@@ -5245,7 +5581,8 @@
   "wp-17-19-59": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-60": {
    "file": "wp-17-19",
@@ -5255,27 +5592,30 @@
   "wp-17-19-61": {
    "file": "wp-17-19",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-17-19-62": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-63": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-64": {
    "file": "wp-17-19",
    "minedClass": "SUA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-65": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-66": {
    "file": "wp-17-19",
@@ -5300,7 +5640,8 @@
   "wp-17-19-70": {
    "file": "wp-17-19",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-17-19-71": {
    "file": "wp-17-19",
@@ -5310,7 +5651,7 @@
   "wp-17-19-72": {
    "file": "wp-17-19",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "assigned"
   },
   "wp-17-19-73": {
    "file": "wp-17-19",
@@ -5345,7 +5686,8 @@
   "wp-20-22-01": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-02": {
    "file": "wp-20-22",
@@ -5420,17 +5762,19 @@
   "wp-20-22-16": {
    "file": "wp-20-22",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-20-22-17": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-18": {
    "file": "wp-20-22",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-20-22-19": {
    "file": "wp-20-22",
@@ -5465,12 +5809,14 @@
   "wp-20-22-25": {
    "file": "wp-20-22",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-20-22-26": {
    "file": "wp-20-22",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-20-22-27": {
    "file": "wp-20-22",
@@ -5485,7 +5831,8 @@
   "wp-20-22-29": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-30": {
    "file": "wp-20-22",
@@ -5525,7 +5872,8 @@
   "wp-20-22-37": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-38": {
    "file": "wp-20-22",
@@ -5540,7 +5888,8 @@
   "wp-20-22-40": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-41": {
    "file": "wp-20-22",
@@ -5550,17 +5899,20 @@
   "wp-20-22-42": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-43": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-44": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-45": {
    "file": "wp-20-22",
@@ -5580,17 +5932,20 @@
   "wp-20-22-48": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-49": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-50": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-51": {
    "file": "wp-20-22",
@@ -5600,7 +5955,8 @@
   "wp-20-22-52": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-53": {
    "file": "wp-20-22",
@@ -5615,7 +5971,8 @@
   "wp-20-22-55": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-56": {
    "file": "wp-20-22",
@@ -5640,12 +5997,14 @@
   "wp-20-22-60": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-20-22-61": {
    "file": "wp-20-22",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-20-22-62": {
    "file": "wp-20-22",
@@ -5655,7 +6014,8 @@
   "wp-20-22-63": {
    "file": "wp-20-22",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-20-22-64": {
    "file": "wp-20-22",
@@ -5670,7 +6030,8 @@
   "wp-20-22-66": {
    "file": "wp-20-22",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-20-22-67": {
    "file": "wp-20-22",
@@ -5680,7 +6041,8 @@
   "wp-20-22-68": {
    "file": "wp-20-22",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-23-26-01": {
    "file": "wp-23-26",
@@ -5695,12 +6057,14 @@
   "wp-23-26-03": {
    "file": "wp-23-26",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-23-26-04": {
    "file": "wp-23-26",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-23-26-05": {
    "file": "wp-23-26",
@@ -5725,7 +6089,8 @@
   "wp-23-26-09": {
    "file": "wp-23-26",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-23-26-10": {
    "file": "wp-23-26",
@@ -5760,7 +6125,8 @@
   "wp-23-26-16": {
    "file": "wp-23-26",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-23-26-17": {
    "file": "wp-23-26",
@@ -5885,7 +6251,8 @@
   "wp-23-26-41": {
    "file": "wp-23-26",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-23-26-42": {
    "file": "wp-23-26",
@@ -5985,7 +6352,8 @@
   "wp-23-26-61": {
    "file": "wp-23-26",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-23-26-62": {
    "file": "wp-23-26",
@@ -6010,7 +6378,8 @@
   "wp-23-26-66": {
    "file": "wp-23-26",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-23-26-67": {
    "file": "wp-23-26",
@@ -6045,37 +6414,44 @@
   "wp-27-34-01": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-02": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-03": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-04": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-05": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-06": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-07": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-08": {
    "file": "wp-27-34",
@@ -6090,27 +6466,32 @@
   "wp-27-34-10": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-100": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-101": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-102": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-103": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-104": {
    "file": "wp-27-34",
@@ -6120,27 +6501,32 @@
   "wp-27-34-105": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-106": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-107": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-108": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-109": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-11": {
    "file": "wp-27-34",
@@ -6150,42 +6536,48 @@
   "wp-27-34-110": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-111": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-112": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-113": {
    "file": "wp-27-34",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-114": {
    "file": "wp-27-34",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-115": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-116": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-117": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-118": {
    "file": "wp-27-34",
@@ -6205,42 +6597,49 @@
   "wp-27-34-120": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-121": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-122": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-123": {
    "file": "wp-27-34",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-124": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-125": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-126": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-127": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-128": {
    "file": "wp-27-34",
@@ -6250,22 +6649,26 @@
   "wp-27-34-129": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-13": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-130": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-131": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-132": {
    "file": "wp-27-34",
@@ -6275,7 +6678,8 @@
   "wp-27-34-133": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-134": {
    "file": "wp-27-34",
@@ -6285,7 +6689,8 @@
   "wp-27-34-135": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-136": {
    "file": "wp-27-34",
@@ -6295,12 +6700,14 @@
   "wp-27-34-137": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-138": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-139": {
    "file": "wp-27-34",
@@ -6310,22 +6717,26 @@
   "wp-27-34-14": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-140": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-141": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-142": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-143": {
    "file": "wp-27-34",
@@ -6335,17 +6746,20 @@
   "wp-27-34-144": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-145": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-146": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-147": {
    "file": "wp-27-34",
@@ -6355,17 +6769,20 @@
   "wp-27-34-148": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-149": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-15": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-150": {
    "file": "wp-27-34",
@@ -6375,22 +6792,25 @@
   "wp-27-34-151": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-152": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-153": {
    "file": "wp-27-34",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "named-excluded"
   },
   "wp-27-34-16": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-17": {
    "file": "wp-27-34",
@@ -6410,7 +6830,8 @@
   "wp-27-34-20": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-21": {
    "file": "wp-27-34",
@@ -6420,12 +6841,14 @@
   "wp-27-34-22": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-23": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-24": {
    "file": "wp-27-34",
@@ -6435,22 +6858,26 @@
   "wp-27-34-25": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-26": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-27": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-28": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-29": {
    "file": "wp-27-34",
@@ -6460,52 +6887,62 @@
   "wp-27-34-30": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-31": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-32": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-33": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-34": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-35": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-36": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-37": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-38": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-39": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-40": {
    "file": "wp-27-34",
@@ -6520,7 +6957,8 @@
   "wp-27-34-42": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-43": {
    "file": "wp-27-34",
@@ -6535,22 +6973,26 @@
   "wp-27-34-45": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-46": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-47": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-48": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-49": {
    "file": "wp-27-34",
@@ -6570,12 +7012,14 @@
   "wp-27-34-52": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-53": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-54": {
    "file": "wp-27-34",
@@ -6585,82 +7029,97 @@
   "wp-27-34-55": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-56": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-57": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-58": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-59": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-60": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-61": {
    "file": "wp-27-34",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-62": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-63": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-64": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-65": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-66": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-67": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-68": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-69": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-70": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-71": {
    "file": "wp-27-34",
@@ -6670,7 +7129,8 @@
   "wp-27-34-72": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-73": {
    "file": "wp-27-34",
@@ -6680,7 +7140,8 @@
   "wp-27-34-74": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-75": {
    "file": "wp-27-34",
@@ -6695,42 +7156,47 @@
   "wp-27-34-77": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-78": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-79": {
    "file": "wp-27-34",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-80": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-81": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-82": {
    "file": "wp-27-34",
    "minedClass": "RF",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-83": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-84": {
    "file": "wp-27-34",
    "minedClass": "FA",
-   "disposition": "residual-undispositioned"
+   "disposition": "flag-cited"
   },
   "wp-27-34-85": {
    "file": "wp-27-34",
@@ -6740,7 +7206,8 @@
   "wp-27-34-86": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-87": {
    "file": "wp-27-34",
@@ -6755,17 +7222,20 @@
   "wp-27-34-89": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-90": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-91": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-92": {
    "file": "wp-27-34",
@@ -6775,7 +7245,8 @@
   "wp-27-34-93": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-94": {
    "file": "wp-27-34",
@@ -6785,7 +7256,8 @@
   "wp-27-34-95": {
    "file": "wp-27-34",
    "minedClass": "NL",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "b"
   },
   "wp-27-34-96": {
    "file": "wp-27-34",
@@ -6795,7 +7267,8 @@
   "wp-27-34-97": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   },
   "wp-27-34-98": {
    "file": "wp-27-34",
@@ -6805,7 +7278,8 @@
   "wp-27-34-99": {
    "file": "wp-27-34",
    "minedClass": "CHX",
-   "disposition": "residual-undispositioned"
+   "disposition": "residual-undispositioned",
+   "residualGround": "a"
   }
  }
 }

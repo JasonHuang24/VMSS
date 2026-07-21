@@ -78,6 +78,15 @@ const namedExcl = new Set(extractIds(invLines.slice(P2, RESID).join('\n')));
 const flagged = new Set(extractIds(invLines.slice(P3, P4).join('\n')));
 const promoted = new Set(['path2-record-121', 'path2-record-129']);
 
+// Fix Pack B5 — residual ground per the inventory's three-ground scheme, derived mechanically from the
+// mined class: (a) charter-home-excluded (CHX), (b) not-law (NL), (c) verbatim restatement of a rule
+// already carried (everything else — schedule/founding/ambiguous/flag/unknown residuals that survived
+// dispositioning are duplicate-source or sims-restatement ids). The authoritative per-id ground is the
+// annex `tier` field; '(unknown)' falls to (c) by default because the crude block-sniff could not
+// resolve it — such ids are the residue the annex tier still governs.
+const residualGround = (minedClass) =>
+  minedClass === 'CHX' ? 'a' : minedClass === 'NL' ? 'b' : 'c';
+
 const ledger = {};
 for (const [id, { file, minedClass }] of [...pool.entries()].sort()) {
   const disposition = assigned.has(id) ? 'assigned'
@@ -85,7 +94,9 @@ for (const [id, { file, minedClass }] of [...pool.entries()].sort()) {
     : namedExcl.has(id) ? 'named-excluded'
     : (id.startsWith('path2-record-') && !promoted.has(id)) ? 'path2-categorical-excluded'
     : 'residual-undispositioned';
-  ledger[id] = { file: file.replace('mine-', '').replace('.md', ''), minedClass, disposition };
+  const entry = { file: file.replace('mine-', '').replace('.md', ''), minedClass, disposition };
+  if (disposition === 'residual-undispositioned') entry.residualGround = residualGround(minedClass);
+  ledger[id] = entry;
 }
 const phantom = [...new Set([...assigned, ...namedExcl, ...flagged])].filter((id) => !pool.has(id));
 const suspicious = Object.entries(ledger)
@@ -97,10 +108,14 @@ const suspicious = Object.entries(ledger)
 const summary = {
   poolTotal: pool.size,
   dispositions: {},
+  residualGrounds: { a: 0, b: 0, c: 0 },
   phantomRefs: phantom,
   suspiciousResiduals: suspicious,
-  note: 'pool derived from committed annex notes; prior claims (pool 1,320/1,321; 121+640=731) do not reconcile against them',
+  note: 'pool derived from committed annex notes; prior claims (pool 1,320/1,321; 121+640=731) do not reconcile against them. residualGrounds: a=charter-home, b=not-law, c=restatement/other (Fix Pack B5)',
 };
-for (const v of Object.values(ledger)) summary.dispositions[v.disposition] = (summary.dispositions[v.disposition] || 0) + 1;
+for (const v of Object.values(ledger)) {
+  summary.dispositions[v.disposition] = (summary.dispositions[v.disposition] || 0) + 1;
+  if (v.residualGround) summary.residualGrounds[v.residualGround] += 1;
+}
 writeFileSync(`${MINING}/accounting-recheck.json`, `${JSON.stringify({ summary, ledger }, null, 1)}\n`);
 console.log(JSON.stringify(summary, null, 2));

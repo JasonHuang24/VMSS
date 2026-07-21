@@ -75,6 +75,30 @@ provenance** — that paragraph is left standing as written, and corrected here.
   instrument, but it means the accounting has not in fact closed and should be re-run before Phase A
   treats the excluded set as exhaustive.
 
+> **Fix Pack B1 correction (2026-07-21) — the accounting now closes against the committed ledger.**
+> The two paragraphs above are left standing as the provenance record of the never-closed count (the
+> 9a45fc5 idiom). They are superseded by `docs-review/vmss-laws-latent-mining/accounting-recheck.json`,
+> the architect's mechanical re-derivation from the committed annex notes (run
+> `node docs-review/vmss-laws-latent-mining/accounting-recheck.mjs`). Derived, ground-truth numbers:
+> - **Pool total 1,352** (not 1,320/1,321 — those figures came from the lost workflow journal, which
+>   exists nowhere in-tree; the annex itself defines 1,352 distinct candidate ids).
+> - **516** ids clustered into the 61 instruments (`assigned`) · **89** escalated to flags
+>   (`flag-cited`) · **747** excluded = 109 named exclusions + 135 Path 2 categorical + 503 residual.
+> - **0 phantom references · 0 suspicious residuals** after Fix Pack B2/B3 (every operative/escalation
+>   -class residual is now dispositioned to a covering instrument, a named exclusion, or a PART 3 flag;
+>   the two phantom citations are cured/struck). The 503 residuals each carry a recorded ground (a/b/c)
+>   in the ledger and in the residual exclusion block below (Fix Pack B5).
+> The "26 suspiciousResiduals" figure in the dispositions memo was the architect's write-time estimate;
+> the committed ledger enumerated **30**, and all 30 are dispositioned here.
+> - **Fix Pack B7 — flag counts restated from the ledger.** The prior "83 flag-owned" figure (a
+>   flag-only count plus contradiction cross-cites of assigned ids) is superseded by the ledger's **89
+>   `flag-cited`** ids — the ids whose only disposition is a PART 3 flag. Contradiction and
+>   tier-ambiguity bullets additionally *cross-cite* ids that are assigned to instruments; by
+>   disposition precedence (`assigned` outranks `flag-cited`) the ledger counts those under `assigned`,
+>   not as flags, so no id is double-counted. The `flag-cited` total rose 79 → 89 under Fix Pack B2 as
+>   the ten duplicate-source regulatory/contradiction ids (systems-66b, wp-09-12-18, wp-20-22-16, and
+>   the seven wp-27-34 Precognition/SAD ids) were escalated to PART 3.
+
 61 slightly exceeds the spec's "roughly 25–60" envelope. The overshoot is concentrated in §23–26
 (external relations), where canon already supplies a dense set of distinct proper names — the
 Federation Treaty, the External Force Doctrine, the Sanctions Tier Ladder, the Technology Transfer
@@ -134,6 +158,11 @@ explicit Charter non-homes).
 **Counts.** 61 instruments · 506 candidate ids clustered · 83 ids escalated to flags · 731 ids excluded
 (121 named exclusions + 640 residual charter-home / not-law / restatement ids) · pool total 1,320 ·
 every id accounted for exactly once (verified mechanically, `assign.mjs` → 0 duplicates, 0 orphans).
+
+> **Fix Pack B1 correction.** `assign.mjs` was never committed and the pool it reported (1,320) does
+> not reconcile against the committed annex. Superseded by `accounting-recheck.json`: **pool 1,352 ·
+> 516 clustered · 89 flag-cited · 747 excluded (109 named + 135 Path 2 categorical + 503 residual) · 0
+> phantom · 0 suspicious.** See the Counts correction block above and PART 4 §5.
 
 **Class split.** 51 founding-act · 10 schedule-under-authority.
 **Origin split.** 27 promoted (canon already names the instrument or its head noun) · 34 minted.
@@ -318,7 +347,8 @@ none of which the Charter states. Charter III.VIII addresses -3 only. Kept clear
 - **origin** minted · **class** schedule-under-authority · **slug** `boundary-transit-infrastructure`
 - **parent authority** Charter Article I (layer separation); Article XXV.I (mega-wall reference)
 - **primary anchor** whitepaper.html §18.3 (lines 1100–1102); technologies.html Card 9 (lines 471–486); world.html §1 (lines 422–431)
-- **candidate ids** wp-01-08-30, wp-17-19-37, wp-17-19-38, wp-17-19-39, technologies-32, technologies-33, technologies-34, world-01, world-02, world-03, layers-sads-01, wp-27-34-96
+- **candidate ids** wp-01-08-30, wp-17-19-37, wp-17-19-38, wp-17-19-39, technologies-32, technologies-33, technologies-34, world-01, world-02, world-03, layers-sads-01, wp-27-34-96, wp-17-19-35, wp-17-19-36
+- **Fix Pack B2:** wp-17-19-35 (§18.3 mega-wall physical spec) and wp-17-19-36 (§18.3 wall active-defense envelope) appended — §18.3 duplicate sources of content already carried by provisions 1 and 3–4; the standing citations (-37/-38) point one §-source over from the annex's own numbering (skew recorded in the worklog).
 
 Provisions
 1. Every ring boundary and the outer perimeter carries a continuous mega-wall: 15km above ground, 5km below ground, a 1km base cross-section tapering parabolically above the midpoint to a roughly 1m crest at peak altitude, in advanced composite materials. (wp-01-08-30, wp-17-19-37, technologies-32, world-01, layers-sads-01, wp-27-34-96)
@@ -339,7 +369,8 @@ engineering-and-access standard; splitting the wall from its gates would leave b
 ### 7. The Threshold Inhibition Protocol
 - **origin** promoted · **class** founding-act · **slug** `threshold-inhibition-protocol`
 - **primary anchor** whitepaper.html §15.1, §15.4 (lines 985, 995); §19.1 (lines 1133–1134)
-- **candidate ids** wp-01-08-08, wp-13-16-17, wp-13-16-26, wp-13-16-27, wp-17-19-53, wp-17-19-54, systems-50, world-145, sims-01, sims-02, faq-front-39
+- **candidate ids** wp-01-08-08, wp-13-16-17, wp-13-16-26, wp-13-16-27, wp-17-19-53, wp-17-19-54, systems-50, world-145, sims-01, sims-02, faq-front-39, wp-17-19-51, wp-17-19-52
+- **Fix Pack B2:** wp-17-19-51 (§19.1 Threshold Inhibition Protocol, the named mechanism) and wp-17-19-52 (§19.1 pre-intervention boundary — acts, not thoughts) appended — §19.1 duplicate sources of the mechanism this instrument IS (provisions 1–3) and of the acts-not-thoughts limit (provisions 1, 5).
 
 Provisions
 1. The Protocol triggers on intent plus imminent execution and never on thoughts, desires, or planning. (wp-13-16-17, wp-17-19-54)
@@ -540,7 +571,8 @@ Classification, Top Secret or Confidential text at all.
 ### 16. The Unified Transparency Doctrine
 - **origin** promoted · **class** founding-act · **slug** `unified-transparency-doctrine`
 - **primary anchor** whitepaper.html §8.2 (lines 724–726); §19.9 (line 1180); §22.2 (line 1318)
-- **candidate ids** wp-01-08-89, wp-01-08-90, wp-20-22-35, systems-40, systems-59, world-80, wp-17-19-66, wp-17-19-67, wp-27-34-19, wp-27-34-24
+- **candidate ids** wp-01-08-89, wp-01-08-90, wp-20-22-35, systems-40, systems-59, world-80, wp-17-19-66, wp-17-19-67, wp-27-34-19, wp-27-34-24, wp-17-19-64, wp-17-19-65
+- **Fix Pack B2:** wp-17-19-64 (§19.9 leakage trajectory published and public) and wp-17-19-65 (§19.9 AI-governance failures admitted, logged, preserved) appended — §19.9 duplicate sources of provisions 7 and 6 respectively (which cite the adjacent -66/-67).
 
 Provisions
 1. Normative outputs are legible and exploitable internals are classified. Citizens must be able to see the rules that govern them, their own status, the institutional outputs that shape their life, and the broad measured criteria the civilization commits to. Nothing that affects a citizen's accountability or civic standing is hidden from them. (wp-01-08-89)
@@ -579,7 +611,8 @@ preserved; the trajectory projections themselves remain not-law and are excluded
 ### 18. The Redundant Envelope Pattern
 - **origin** promoted · **class** founding-act · **slug** `redundant-envelope-pattern`
 - **primary anchor** whitepaper.html §28.0 (lines 1546–1553); §28.5 (line 1574); §18.6 (line 1111)
-- **candidate ids** wp-27-34-08, wp-27-34-09, wp-27-34-11, wp-27-34-12, wp-27-34-21, wp-17-19-43, systems-48, wp-13-16-32
+- **candidate ids** wp-27-34-08, wp-27-34-09, wp-27-34-11, wp-27-34-12, wp-27-34-21, wp-17-19-43, systems-48, wp-13-16-32, wp-17-19-41
+- **Fix Pack B2:** wp-17-19-41 (§18.6 critical-infrastructure mandatory analog redundancy) appended — §18.6 duplicate source of provisions 5–6 (which cite the adjacent -43); the analog-redundancy mandate this instrument already carries.
 
 Provisions
 1. VMSS does not depend on any single instrument for any load-bearing function. Every load-bearing capability carries three to five stacked deterrent envelopes so that evasion of any single one falls into the next layer; the pattern is the architecture's primary defense against the single-point-of-failure problem, not an incidental feature. (wp-27-34-08)
@@ -784,7 +817,8 @@ codified. Article XIV supplies the proportionality authority for the -1 half but
 ### 28. Authorized Bailout
 - **origin** promoted · **class** founding-act · **slug** `authorized-bailout`
 - **primary anchor** whitepaper.html §17.3.1 (lines 1078–1081)
-- **candidate ids** wp-17-19-26, wp-17-19-27, wp-17-19-28, wp-27-34-44, layers-sads-45
+- **candidate ids** wp-17-19-26, wp-17-19-27, wp-17-19-28, wp-27-34-44, layers-sads-45, wp-17-19-25
+- **Fix Pack B2:** wp-17-19-25 (§17.3.1 bailout revival location forced, anti-evasion) appended — §17.3.1 duplicate source of provisions 3–4 (which cite the adjacent -27); the forced-location and arrest-on-arrival clauses already carried.
 
 Provisions
 1. Authorized bailout is a citizen-initiated implant command that triggers self-death and forces backup vessel revival in a sovereign VMSS fabrication facility, existing as protection against coercive captivity or torture by private actors where enforcement density is thin and drone rescue cannot reach in time. (wp-17-19-26)
@@ -825,14 +859,15 @@ ordering rule and the disclosure duty are one technical schedule. Hedges ("~") p
 ### 30. The Continuity Integrity Act
 - **origin** minted · **class** founding-act · **slug** `continuity-integrity`
 - **primary anchor** whitepaper.html §17.1.2–17.1.5, §17.2 (lines 1047–1071)
-- **candidate ids** wp-17-19-08, wp-17-19-09, wp-17-19-14, wp-17-19-15, wp-17-19-17, wp-17-19-18, wp-17-19-19, wp-17-19-23, wp-20-22-51, technologies-20, faq-front-07, faq-front-08, faq-front-11
+- **candidate ids** wp-17-19-08, wp-17-19-09, wp-17-19-14, wp-17-19-15, wp-17-19-17, wp-17-19-18a, wp-17-19-19, wp-17-19-23, wp-20-22-51, technologies-20, faq-front-07, faq-front-08, faq-front-11, wp-17-19-18b
+- **Fix Pack B3/B2:** the phantom `wp-17-19-18` is cured to `wp-17-19-18a` (the annex splits §17.1.5 line 1065 into 18a/18b/18c; provision 4's sync-authentication text matches 18a verbatim). wp-17-19-18b (§17.1.5 duress signaling — kidnapping is not a -3 federal-floor trigger) appended — duplicate source of provision 5 (which cites the adjacent -19). wp-17-19-18c is not-law (tolerated -3 gray-market remainder) and is a named exclusion in PART 2.
 
 Provisions
 1. Revival restores legal identity in full: marriages, contracts, property and layer status carry through without interruption, and the revived person is the same person legally, socially and doctrinally. (faq-front-11)
 2. A failed revival is permanent. The architecture does not offer a second attempt through template-based body fabrication; a new body from genetic template is a separate person with none of the continuity the technology-and-continuity provision binds to, and any template held in pre-fabrication queue is destroyed to foreclose later duplicate-identity claims. (wp-17-19-14)
 3. Sanctuary residency of a revival-failed citizen lapses at the moment of failure; the record persists in the institutional archive. (wp-17-19-15)
-4. Sync authentication: a vessel synchronizes only through the citizen's implant link and each sync is signed against the civic ledger. A body revived outside institutional infrastructure carries an unsigned continuity claim that no layer's institutions, contracts, gates or ledger standing recognize. (wp-17-19-18)
-5. Duress signaling: involuntary-state telemetry flags coerced sync and captive revival to the federal floor wherever the floor operates; in -3 the flag records without triggering enforcement, because kidnapping is not a federal-floor trigger, and the record feeds network attribution. (wp-17-19-19)
+4. Sync authentication: a vessel synchronizes only through the citizen's implant link and each sync is signed against the civic ledger. A body revived outside institutional infrastructure carries an unsigned continuity claim that no layer's institutions, contracts, gates or ledger standing recognize. (wp-17-19-18a)
+5. Duress signaling: involuntary-state telemetry flags coerced sync and captive revival to the federal floor wherever the floor operates; in -3 the flag records without triggering enforcement, because kidnapping is not a federal-floor trigger, and the record feeds network attribution. (wp-17-19-19, wp-17-19-18b)
 6. Backup vessel maintenance is not a free entitlement: the dividend covers survival in every layer, and vessel upkeep is an infrastructure cost requiring economic participation above the survival floor. (wp-17-19-09)
 7. Implant removal severs the sync; death without a current backup is death without revival. (wp-17-19-08)
 8. Scheduled implant replacement runs a facility-mediated relay with both hardware instances active and the facility holding the mind-state across the swap; the engineered coverage gap is zero. Unsupervised loss severs the link instead. (wp-17-19-17)
@@ -1316,7 +1351,8 @@ outbound instrument and this is an inbound refusal. LP-035 (status-carry sorting
 ### 53. Status-Based vs. Territorial Jurisdiction
 - **origin** promoted · **class** founding-act · **slug** `status-based-territorial-jurisdiction`
 - **primary anchor** whitepaper.html §19.11 (lines 1187–1190); §34 glossary (lines 1984–1985)
-- **candidate ids** wp-17-19-71, wp-17-19-73, wp-17-19-74, wp-27-34-132, systems-58b, layers-sads-24, world-105
+- **candidate ids** wp-17-19-71, wp-17-19-73, wp-17-19-74, wp-27-34-132, systems-58b, layers-sads-24, world-105, wp-17-19-72
+- **Fix Pack B2:** wp-17-19-72 (§19.11 anti-gaming preserver runs in both directions — status unchanged by geography) appended — §19.11 duplicate source of provision 5 (which cites the adjacent -74).
 
 Provisions
 1. VMSS operates two jurisdictional modes within single sovereignty: territorial operation, which is layer-specific and answers what physical infrastructure operates here; and status-based normative jurisdiction, the consequence contract tied to a citizen's earned placement rather than their current physical location. (wp-17-19-71, wp-27-34-132)
@@ -1525,17 +1561,27 @@ wp-09-12-42 — LP-074. wp-09-12-50, -51, -72, -73, -74, -75, -76, -77, -78, -83
 LP-070 machinery. wp-13-16-28, -29, -30 — LP-062.2. wp-13-16-34, -35, -36 — LP-037.
 wp-13-16-37, -38, -39, -40 — LP-056. wp-17-19-12, -21 — LP-065. wp-17-19-13 — LP-038.2.
 wp-17-19-24 — LP-060. wp-17-19-32 — LP-032. wp-17-19-76 — LP-047.3. wp-17-19-78 — LP-048.3.
-wp-17-19-79 — LP-049. wp-20-22-41 — LP-068. wp-20-22-47 — LP-023. wp-20-22-54 — LP-013.
+*(Fix Pack B3: a phantom "LP-049" citation to a nonexistent §19.11 annex id stood here and is struck;
+the real mined id for LP-049 "Cross-Layer Weapon Transit Specification" is already in the pool and
+already assigned — the cure and the §19.11 numbering skew are recorded in PART 5.)*
+wp-20-22-41 — LP-068. wp-20-22-47 — LP-023. wp-20-22-54 — LP-013.
 wp-20-22-67 — LP-045.2. wp-23-26-14 — LP-029. wp-23-26-21 — LP-040. wp-23-26-64 — LP-035.
 wp-23-26-65 — LP-028. systems-15, layers-sads-38, layers-sads-74, faq-front-35, sims-24 — LP-074.
 technologies-53 — LP-023. world-44 — LP-028. layers-sads-27 — LP-068. layers-sads-64,
 faq-front-13 — LP-004.2. layers-sads-65 — LP-006. faq-front-09 — LP-065. faq-front-14 — LP-006 +
 LP-004.2. sims-03 — LP-060. sims-04, sims-05 — LP-004.2. sims-07 — LP-005.3. sims-09 — LP-006.
 sims-20 — LP-022. sims-21 — LP-048.3.
+*(Fix Pack B2)* layers-sads-63 — LP-006 (Lower-Layer Economic Disclosure Law; the -3 Article XXVIII
+regulatory mechanism operates but enacted -3 regulations are advisory — the enacted register entry is
+the home). wp-17-19-22 — LP-060 (Survivor Elective Memory Excision Act; the survivor elective-excision
+rule is already the enacted instrument, joining -24 already listed above).
 
 ### Restatement of an instrument that already exists and has a home
 wp-17-19-44 — UBI, PJS and the automation surplus are existing named instruments with Charter homes.
 world-104 — Savings Circulation Mandate, property caps and Primary Job Subsidy, likewise.
+*(Fix Pack B2)* wp-17-19-42 — the §18.7 statement that "the automation surplus funds Universal Basic
+Income across all layers" while "the Primary Job Subsidy rewards human contribution" restates UBI and
+PJS, both existing named instruments with Charter homes (same ground as wp-17-19-44).
 
 ### Charter-home (the home rule)
 systems-07b — annual district redraw is Charter XXVIII.II. faq-front-46 — Charter XXV.V.
@@ -1547,6 +1593,25 @@ sims-15 — Charter III.V retention schedule. sims-16, sims-19 — Charter XXV.I
 sims-17 — Charter XXV.I–III and Article VI. sims-22 — Charter III.IV. sims-23 — Charter III.I.
 sims-25 — Charter III.II. sims-55 — Charter Article XI. sims-56 — Charter Article XXI.
 sims-57 — Charter Article II tiered visibility.
+*(Fix Pack B2)* systems-65 — Charter Article XXV.III: "Development or deployment of techniques capable
+of compromising technoneural implants or VMSS institutional systems is strictly prohibited"; the
+implant-and-institutional-hacking prohibition is Charter-home (see the B4 numbering-skew erratum —
+this is the true systems-65 row, not Genetic Diversity Monitoring). layers-sads-66 — the federal floor
+"is binding regardless of whether the destination layer has enacted its own regulations", with the
+Article XXVIII petition right preserved: both limbs are Charter-home (federal-floor absolutes under
+Article XXV; petition mechanism under Article XXVIII.I).
+
+### Not law (surfaced individually under Fix Pack B2, recorded here rather than in the residual mass)
+layers-sads-16 — "approximately 32.5% of the civilization's residents meet [the 85 STI threshold]": a
+demographic measurement of the Charter III.I floor, not an operative rule (annex tier `not-law`).
+layers-sads-56 — "the organic hierarchy that emerges when people … occupy the same space for long
+enough": the -2 analogue of -3 organic self-ordering, emergent and non-codifiable (annex tier
+`not-law`; the annex summary-table label "Judicial Extraction" is a mis-cite — the Judicial-Extraction
+Charter conflict is flagged separately in PART 3). wp-17-19-18c — "the tolerated remainder … low-fidelity gray-market revival
+among -3 voluntary residents who accept the odds": an emergent -3 market condition canon frames as
+remainder, not rule (annex tier `not-law`; hedges preserved). wp-27-34-153 — the Zero Leakage
+Aspiration, "0% leakage is the civilizational target — a direction, not a promise": Article
+XXIII-class aspiration, not-law by the tier test.
 
 ### Never in force
 sims-06 — LP-005.2, expressly superseded by LP-005.3; must not be codified.
@@ -1568,8 +1633,16 @@ notes' `tier` field: (a) `charter-home-excluded` — the rule's home is Charter 
 home rule forbids a federal name; (b) `not-law` — aspiration, trajectory projection, cultural or
 lifestyle description, -3 organic self-ordering, counterfactual allied-nation instruments, or
 comparative critique of Earth-era institutions; (c) verbatim restatement of a rule already carried by
-an instrument named above or by an enacted LP. The full id list is reproduced in the returned JSON's
-`excluded` array in fourteen surface-grouped entries.
+an instrument named above or by an enacted LP.
+
+> **Fix Pack B1/B5 — the residual ledger now closes mechanically.** The dangling reference to "the
+> returned JSON's `excluded` array" (the lost workflow output) is replaced by the committed
+> `docs-review/vmss-laws-latent-mining/accounting-recheck.json`, whose `ledger` records every residual
+> id with its `file`, `minedClass`, and `residualGround`. Derived residual total: **503 ids** —
+> **(a) charter-home 353 · (b) not-law 104 · (c) restatement/other 46** (`summary.residualGrounds`).
+> Ground (c) collects duplicate-source and sims-restatement ids plus the `(unknown)`-class residue the
+> crude block-sniff could not resolve; the authoritative per-id ground remains the annex `tier` field,
+> which the ledger reproduces. Re-run `accounting-recheck.mjs` after any edit and re-commit the JSON.
 
 ---
 
@@ -1612,6 +1685,21 @@ an instrument named above or by an enacted LP. The full id list is reproduced in
   resolve, or it is a genuine gap (sims-10).
 - Genetic Diversity Monitoring asserted as standard federal ecological infrastructure across all
   layers including -3, with no register entry (systems-66).
+- *(Fix Pack B2)* Duplicate-source regulatory-tier flags surfaced on the whitepaper §20/§27–34
+  surfaces, each an Article XXVIII / Article IX SAD instrument with no law-polling register entry —
+  recorded, never authored: the whitepaper §20.2 restatement of the state-chartered SAD catalogue
+  (wp-20-22-16, the same catalogue flagged above at layers-sads-83); the Precognition Covenant Domain
+  charter (wp-27-34-113, with layers-sads-93), the Predictive Intervention Architecture and its hard
+  deployment bound (wp-27-34-114), the Restorative Intervention Protocol (wp-27-34-123, with
+  layers-sads-93), the Forestalled Act Ledger's third-consequence-category rule (wp-27-34-79, with
+  layers-sads-94), the Consent-as-Metric Gate developed for the PCD charter (wp-27-34-61), the Four
+  Architectural Commitments binding the PIA — the strongest deontic content in the family but attached
+  to the 2230 Article XXVIII charter (wp-27-34-84), and the Founders' Archive Domain SAD (wp-27-34-82,
+  with wp-20-22-13). None is authorable: Article XXVIII regulations are petitioned by definition.
+- *(Fix Pack B2)* A -3 advisory regulation enacted under Article XXVIII "within a month at 93%
+  ratification — the highest margin in -3's regulatory history", with no corresponding law-polling
+  register entry and no institutional enforcement in the terminal layer (wp-09-12-18). Flag only —
+  petitioned by definition, not authorable.
 
 ### Tier ambiguity — escalated rather than clustered
 - wp-09-12-30 — "Structural architecture lives in the Charter; substantive prohibitions live at
@@ -1730,6 +1818,12 @@ an instrument named above or by an enacted LP. The full id list is reproduced in
   combat-sports answer states pre-intervention is mandatory in Sanctuary and not opt-out. As written an
   unscoped reader could conclude Sanctuary residents may disable pre-intervention, contradicting
   Charter Articles I and VI.
+- **MUTUAL-AID LADDER DIVERGENCE** *(Fix Pack B4 — restored from the annex; dropped by the synthesis
+  pass).* The mutual-aid ladder in `systems.html` adds "escalating to +1 Sanctuary for maximum
+  resources", a rung Charter XXV.IV does not contain — Charter XXV.IV enumerates only -2→-3, -1→-2 and
+  Main→-1 (systems-66b). Either a systems-side addition needing ratification or a Charter omission
+  needing an erratum; not mintable. The same divergence is recorded once more, on the schedule side, at
+  systems-67b in the tier-ambiguity list above.
 
 ### Gaps
 - wp-23-26-38 and world-92 — the Federation Treaty's "published criteria" for admission and continued
@@ -1801,6 +1895,72 @@ this set needs reworking.
 4. **No overreach.** Every provision line traces to at least one candidate id whose mined quote states
    it. No magnitude, threshold, date, scope, right or duty appears that is not in a quote. No founding
    instrument carries a filing date, vote, drafter or ladder record.
-5. **Accounting.** Mechanically verified by `assign.mjs`: 1,320 pool ids · 506 assigned across 61
+5. **Accounting.** ~~Mechanically verified by `assign.mjs`: 1,320 pool ids · 506 assigned across 61
    instruments with 0 duplicates and 0 ids outside the pool · 83 flag-owned ids · 731 excluded (121
-   named + 640 residual) · 0 unaccounted.
+   named + 640 residual) · 0 unaccounted.~~ **Fix Pack B1 supersession:** `assign.mjs` was never
+   committed and its 1,320-pool result is unreproducible; the accounting is re-derived mechanically by
+   `accounting-recheck.mjs` from the committed annex and committed as `accounting-recheck.json`.
+   Ground-truth ledger: **pool 1,352 · 516 assigned across the 61 instruments · 89 flag-cited · 747
+   excluded (109 named + 135 Path 2 categorical + 503 residual, each residual carrying a recorded
+   ground a/b/c) · 0 phantom references · 0 suspicious residuals.** Re-run and re-commit the JSON after
+   any inventory or annex edit; it is ground truth until superseded (dispositions memo B1).
+
+## PART 5 — FIX PACK B DISPOSITION RECORD (audit trail, 2026-07-21)
+
+This section is the per-id evidence ledger required by dispositions B2/B3. It is outside the ranges the
+`accounting-recheck.mjs` tool parses (PART 1 candidate-id lines, PART 2 named exclusions, PART 3
+flags), so it records the reasoning without affecting the mechanical count. The committed
+`accounting-recheck.json` is the machine-readable companion.
+
+**B2 — the 30 committed `suspiciousResiduals`, each dispositioned (JSON enumerated 30, not the memo's
+estimate of 26):**
+
+*Assigned — content already carried; the id is a duplicate §-source appended to the covering
+instrument's candidate-id line (the standing citation points one §-source over from the annex's own
+numbering — a systematic skew recorded below, not silently rewritten):*
+- wp-17-19-35, wp-17-19-36 → #6 The Boundary and Transit Infrastructure Standard (mega-wall physical
+  spec; wall active-defense envelope), provisions 1 and 3–4.
+- wp-17-19-51, wp-17-19-52 → #7 The Threshold Inhibition Protocol (the named §19.1 mechanism; the
+  acts-not-thoughts limit), provisions 1–3 and 5.
+- wp-17-19-41 → #18 The Redundant Envelope Pattern (§18.6 mandatory analog redundancy), provisions 5–6.
+- wp-17-19-25 → #28 Authorized Bailout (§17.3.1 forced revival location, anti-evasion), provisions 3–4.
+- wp-17-19-18a, wp-17-19-18b → #30 The Continuity Integrity Act (sync authentication; duress
+  signalling), provisions 4 and 5. -18a via the B3 phantom cure of the never-defined `wp-17-19-18`.
+- wp-17-19-64, wp-17-19-65 → #16 The Unified Transparency Doctrine (leakage trajectory published; AI-
+  governance failures admitted/logged/preserved), provisions 7 and 6.
+- wp-17-19-72 → #53 Status-Based vs. Territorial Jurisdiction (bidirectional anti-gaming), provision 5.
+
+*Named exclusions — recorded in PART 2:*
+- layers-sads-63 → LP-006 (already enacted). wp-17-19-22 → LP-060 (already enacted).
+- systems-65 → Charter XXV.III (implant/institutional hacking prohibition). layers-sads-66 → Charter
+  federal floor + Article XXVIII petition right.
+- wp-17-19-42 → restatement of UBI/PJS (existing named instruments with Charter homes).
+- layers-sads-16, layers-sads-56, wp-17-19-18c, wp-27-34-153 → not-law (demographic / -2 organic
+  self-ordering / -3 tolerated remainder / Article XXIII aspiration).
+
+*Escalated to PART 3 flags:*
+- systems-66b → Contradictions (mutual-aid-ladder divergence; Fix Pack B4 restore).
+- wp-09-12-18, wp-20-22-16, wp-27-34-61, wp-27-34-79, wp-27-34-82, wp-27-34-84, wp-27-34-113,
+  wp-27-34-114, wp-27-34-123 → Regulatory-tier (Article XXVIII / IX SAD & Precognition-family
+  instruments, no register entry — not authorable).
+
+**B3 — phantom citations cured:**
+- Instrument #30's `wp-17-19-18` → `wp-17-19-18a` (annex splits §17.1.5 line 1065 into 18a/18b/18c; the
+  provision-4 sync-authentication text is 18a verbatim). 18b (duress) is assigned to #30 provision 5;
+  18c (hardware mortality) is a not-law named exclusion.
+- PART 2's `wp-17-19-79 — LP-049`: the annex defines no `wp-17-19-79`. LP-049 "Cross-Layer Weapon
+  Transit Specification" is mined at **wp-17-19-77**, which is already `assigned` (to the mutual-combat
+  instrument). Because re-citing an already-assigned id in PART 2 would be redundant and the §19.11
+  cluster carries a numbering skew this fix pack is not authorised to rewrite, the phantom line is
+  **struck** rather than repointed. The §19.11 skew: PART 2 tags `wp-17-19-76 — LP-047.3` and
+  `wp-17-19-78 — LP-048.3`, but the annex defines -76 as LP-048.3 (defense of third parties) and -78 as
+  a not-law enforcement-principle callout; the true LP-047.3 id is -74 and the true LP-049 id is -77.
+  These mislabels are outside B3's scope (they are valid `named-excluded`/`assigned` dispositions, not
+  phantoms) and are recorded here for a later sign-off rather than edited.
+
+**B4 — dropped contradiction flag restored + annex erratum (ids NOT renumbered):**
+- systems-66b restored to PART 3 Contradictions verbatim from the annex headline.
+- `mine-systems.md` numbering skew: the annex *headline* (line 20) labels Genetic Diversity Monitoring
+  `systems-65`, but the candidate table (line 100) and inventory PART 3 label it `systems-66`; the true
+  `systems-65` is the Article XXV.III implant/institutional-hacking charter-home row. Recorded as an
+  erratum; ids are left as committed.
