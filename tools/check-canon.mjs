@@ -355,6 +355,29 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   check(offenders.length === 0,
     'house style: register entries carry no working-document apparatus (R16)',
     offenders.length ? offenders.join('; ') : `${blocks.length} entries clean`);
+
+  /* (e2b) The same rule over the Code (v22.7.1). R16 binds laws.html exactly as
+     it binds the register — entries are narrative plus meta — but until now the
+     ban was enforced only on law-polling.html's .law-entry blocks, so the Code
+     could have grown a citation key or a statute block without failing CI.
+
+     The Taxation-title preamble is the one apparatus block R22 sanctions, and
+     it is exempted by a structural marker rather than by position, so moving it
+     cannot silently widen the exemption. Note the exemption is scoped to that
+     block only: entries are matched separately and none of them can claim it. */
+  const codeSrc = stripComments(read('laws.html'));
+  const sanctioned = codeSrc.match(/<div class="code-preamble" data-r22="taxation-preamble">[\s\S]*?<\/div>\s*<article/);
+  check(!!sanctioned, 'house style: the Code marks its one sanctioned apparatus block (R22 taxation preamble)',
+    sanctioned ? 'data-r22="taxation-preamble" present' : 'marker missing — the R16 exemption has no stable anchor');
+  const codeBlocks = [...codeSrc.matchAll(/<article class="code-entry[^"]*" id="([\w.-]+)"[\s\S]*?<\/article>/g)];
+  const codeOffenders = [];
+  for (const m of codeBlocks) {
+    const found = APPARATUS.filter(([, re]) => re.test(m[0])).map(([k]) => k);
+    if (found.length) codeOffenders.push(`${m[1]}: ${found.join(', ')}`);
+  }
+  check(codeOffenders.length === 0,
+    'house style: Code entries carry no working-document apparatus (R16)',
+    codeOffenders.length ? codeOffenders.join('; ') : `${codeBlocks.length} code entries clean`);
 }
 
 /* (e3) The statute the register entry stops short of. R16 moved the full
@@ -440,10 +463,21 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
         && /trailing 36-month window, with no single month below 100%/i.test(whitepaperTax)
         && /tax receipts, Lower-layer receipts, SCM recirculation, private velocity, backfill[^.]{0,100}do not count/i.test(whitepaperTax),
     'whitepaper preserves LP-070 as the standing future gate with prohibited substitutions excluded');
-  check(normalizedText(read('charter.html')).includes('If any reader-facing restatement falls out of step, the binding source controls.'),
-    'Charter restatement declares binding-source precedence');
+  /* Binding-source precedence, retargeted at v22.7.0. The sentence used to live
+     on charter.html, inside the restatement paragraph that carried the federal
+     rate schedule on the constitutional surface. R22 relocated that apparatus to
+     the Code's Taxation-title preamble, so the pin moves with it: the Code is a
+     consolidation classified secondary authority under LP-042, and it says so in
+     the conflicts clause this pins. Retarget, not deletion — the invariant
+     (some surface declares which text controls) is unchanged. */
+  check(normalizedText(read('laws.html')).includes('If this consolidation and the enacted instrument diverge, the enacted instrument — as recorded in its Law Polling register entry and any published instrument page — controls.'),
+    'VMSS Laws declares the conflicts clause (enacted instrument controls)');
 
-  const currentSurfaces = ['charter.html', 'systems.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
+  /* Cascade surfaces: charter.html swapped for laws.html at v22.7.0 (still 12).
+     The Charter no longer states a subordinate-tier rate at all — the purity
+     guard below now asserts the opposite of what this list used to assert about
+     it — and the Code is the surface that must carry the schedule. */
+  const currentSurfaces = ['laws.html', 'systems.html', 'whitepaper.html', 'faq.html', 'why-vmss.html',
     'layer--1.html', 'layer--3.html', 'simulations.html', 'documents/academy-source.html',
     'documents/resources-source.html', 'rate-history.html', 'law-polling.html'];
   const exactCascade = /(?:\b50\s*%?\s*\/\s*25\s*%?\s*\/\s*12\.5\s*%?\s*\/\s*6\.25\s*%?\b|\b50%[^.!?]{0,240}\b25%[^.!?]{0,240}\b12\.5%[^.!?]{0,240}\b6\.25%)/;
@@ -457,8 +491,11 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   check(staleCurrent.length === 0, 'current surfaces carry the normalized exact cascade and reject old active-rate/refusal claims',
     staleCurrent.length ? staleCurrent.join(', ') : `${currentSurfaces.length} surfaces clear`);
 
+  /* Authority assertions: the charter.html row became the laws.html row at
+     v22.7.0. Same three patterns, same strictness — they moved with the
+     apparatus block they were always describing. */
   const authorityAssertions = [
-    ['charter.html', /LP-074 is the substantive rate law/i, /LP-073.{0,80}fully superseded as operative law/i, /LP-075 remains procedural only/i],
+    ['laws.html', /LP-074 is the substantive rate law/i, /LP-073.{0,80}fully superseded as operative law/i, /LP-075 remains procedural only/i],
     ['rate-history.html', /current rate authority is LP-074/i, /LP-073 is historical/i, /LP-075 compelled the (?:audit|remedial process)/i],
     ['law-polling.html', /LP-073 is fully superseded as operative rate law/i, /LP-075.{0,120}(?:compel(?:led|s|ling) (?:the )?(?:audit|commencement|process)|procedural)/i],
   ];
@@ -477,6 +514,249 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   });
   check(refusalLeaks.length === 0, 'World-tier pages contain no superseded refusal outcome',
     refusalLeaks.length ? refusalLeaks.join(', ') : `${worldPages.length} pages clear`);
+
+  /* (f2) CHARTER PURITY GUARD (v22.7.0, architecture §7.2). The structural half
+     of the restructure, and the exact inverse of what the cascade list above
+     used to assert about charter.html.
+
+     Until v22.6 the Charter page carried the live federal rate schedule as
+     article-text bullets. It was labelled a restatement, and it was one, but
+     placement beat labelling: an LP-074 activation mutated the constitutional
+     surface, and a reader — human or model — reasonably concluded the
+     constitution had changed. R22 relocated the apparatus to the Code. This
+     guard is what stops it coming back: the Charter states no subordinate-tier
+     rate or schedule, and references no LP instrument outside a whitelist.
+
+     Scope is deliberately exact. "No rate or schedule", not "no LP reference" —
+     charter:247's LP-069 mention is category A under architecture §5 and is
+     whitelisted here until the Phase 3 III.VII cure relocates it. Article
+     III.II's PJS overtime figures ($125 / $62.50 / $31.25 / $15.63) are
+     genuinely enacted Charter text, are category B under §5, and do not match
+     the cascade regex — verified, not assumed. */
+  {
+    const charterSrc = read('charter.html');
+    const charterText = normalizedText(charterSrc);
+    const cascadeHit = charterText.match(exactCascade)?.[0];
+    check(!cascadeHit, 'charter purity: the Charter states no subordinate-tier rate cascade',
+      cascadeHit ? `found "${cascadeHit}"` : 'no exact-cascade match on the constitutional surface');
+
+    /* Whitelist is by LP number, and it is a list of exactly one. Adding to it
+       requires an architecture citation; the entry below carries its own. */
+    const CHARTER_LP_WHITELIST = new Map([
+      ['LP-069', 'architecture §5 category A — III.VII savings-base attribution; Phase 3 TODO: relocate with the III.VII text cure'],
+    ]);
+    const lpRefs = [...new Set([...stripComments(charterSrc).matchAll(/\bLP-\d[\d.]*/g)].map((m) => m[0]))];
+    const unlisted = lpRefs.filter((lp) => !CHARTER_LP_WHITELIST.has(lp));
+    check(unlisted.length === 0, 'charter purity: no unwhitelisted LP reference on the Charter page',
+      unlisted.length ? `unlisted: ${unlisted.join(', ')}` : `${lpRefs.length} whitelisted (${lpRefs.join(', ') || 'none'})`);
+    const stale = [...CHARTER_LP_WHITELIST.keys()].filter((lp) => !lpRefs.includes(lp));
+    check(stale.length === 0, 'charter purity: whitelist carries no entry the Charter no longer references',
+      stale.length ? `retire from whitelist: ${stale.join(', ')}` : 'whitelist exactly matches the survivors');
+  }
+
+  /* (f3) CODE INTEGRITY GUARDS (v22.7.0, architecture §7.3). laws.html is a
+     consolidation of an enacted record, so the failure mode it can develop is
+     silent divergence from that record. These convert that into CI red.
+
+     The register is parsed here rather than trusted as a constant: the entry
+     count, the section split, and every status are derived from law-polling.html
+     the same way section 4 above derives them. */
+  {
+    const laws = stripComments(read('laws.html'));
+    const registerBlocks = law.split(/(?=<article class="law-entry)/).slice(1);
+    const regFederalStart = law.indexOf('id="federal-laws"');
+    const regRegulatoryStart = law.indexOf('id="regulatory-petitions"');
+    const registerStatus = new Map();
+    let scan = 0;
+    for (const block of registerBlocks) {
+      const at = law.indexOf(block, scan);
+      scan = at + 1;
+      const id = (block.match(/id="(lp-[\w-]+)"/) || [])[1];
+      if (!id) continue;
+      registerStatus.set(id, {
+        status: (block.match(/class="status-badge (status-[a-z]+)"/) || [])[1],
+        section: at > regRegulatoryStart ? 'regulatory' : at > regFederalStart ? 'federal' : 'charter',
+        /* The register marks a -3 advisory outcome with an advisory cell in the
+           entry's own outcome table, independently of the entry's status badge. */
+        advisoryOutcome: /<td class="advisory"/.test(block),
+      });
+    }
+
+    /* Body-capturing, matching the generator's own regex. The body matters: at
+       v22.7.0 the (b) source-anchor check tested the whole page, so an entry
+       whose register anchor happened to be linked twice on the page passed even
+       with its own Source link deleted — true of exactly LP-074 and LP-042.
+       Entry-scoped is the only form that means what the label says. */
+    const codeEntries = [...laws.matchAll(/<article class="code-entry[^"]*" id="([\w.-]+)" data-tier="([a-z]+)" data-source="([^"]*)">([\s\S]*?)<\/article>/g)]
+      .map((m) => ({ id: m[1], tier: m[2], source: m[3], body: m[4] }));
+
+    /* (c) tier vocabulary first — the later checks read data-tier. Asserted over
+       EVERY data-tier on the page, not only the ones on entry articles: the
+       generated ToC carries the attribute too, and a guard that only reads the
+       articles would pass while the index above them advertised a fifth tier
+       that does not exist. */
+    const TIERS = new Set(['charter', 'federal', 'layer', 'district']);
+    const declaredTiers = [...new Set([...laws.matchAll(/data-tier="([^"]*)"/g)].map((m) => m[1]))];
+    const badTier = declaredTiers.filter((t) => !TIERS.has(t));
+    check(badTier.length === 0, 'code integrity (c): data-tier vocabulary is charter|federal|layer|district',
+      badTier.length ? `invalid: ${badTier.join(', ')}` : `${codeEntries.length} entries, ${declaredTiers.length} tiers declared`);
+
+    const lawEntries = codeEntries.filter((e) => e.tier !== 'charter');
+
+    /* (a) Status whitelist, asserted in BOTH directions. Forward: every entry the
+       Code publishes derives from a register entry whose status is publishable
+       (enacted 1:1, mixed as per-layer outcomes, advisory with its flag).
+       Backward: every enacted register entry — Federal and Regulatory alike —
+       has exactly one Code entry. Forgetting to consolidate a new LP is the
+       standing co-maintenance risk this project accepted; this is the tripwire. */
+    const PUBLISHABLE = new Set(['status-enacted', 'status-mixed', 'status-advisory']);
+    const unresolved = lawEntries.filter((e) => !registerStatus.has(e.source)).map((e) => `${e.id}→${e.source}`);
+    check(unresolved.length === 0, 'code integrity (a1): every code entry data-source resolves to a register entry',
+      unresolved.length ? `unresolved: ${unresolved.join(', ')}` : `${lawEntries.length} entries resolve`);
+
+    const notPublishable = lawEntries
+      .filter((e) => registerStatus.has(e.source) && !PUBLISHABLE.has(registerStatus.get(e.source).status))
+      .map((e) => `${e.source}=${registerStatus.get(e.source).status}`);
+    check(notPublishable.length === 0, 'code integrity (a2): no code entry derives from a failed/superseded/rerouted filing',
+      notPublishable.length ? `not publishable: ${notPublishable.join(', ')}` : `${lawEntries.length} entries within the §3.3 whitelist`);
+
+    const sources = lawEntries.map((e) => e.source);
+    const duplicated = [...new Set(sources.filter((s, i) => sources.indexOf(s) !== i))];
+    check(duplicated.length === 0, 'code integrity (a3): no register entry is consolidated twice',
+      duplicated.length ? `duplicated: ${duplicated.join(', ')}` : `${sources.length} distinct sources`);
+
+    const enactedIds = [...registerStatus.entries()].filter(([, v]) => v.status === 'status-enacted').map(([k]) => k);
+    const unconsolidated = enactedIds.filter((id) => !sources.includes(id));
+    check(unconsolidated.length === 0, 'code integrity (a4): every enacted register entry has a code entry (1:1)',
+      unconsolidated.length ? `missing from the Code: ${unconsolidated.join(', ')}` : `${enactedIds.length} enacted entries consolidated`);
+
+    /* (a5) §3.3 says advisory entries carry the advisory flag and mixed entries
+       carry per-layer outcomes. Until v22.7.1 (a1)–(a4) asserted only status-set
+       membership, so those two clauses were prose rather than enforcement — and
+       four all-layer Tier 3 entries shipped without the flag under a green
+       build. The hedge is pinned in its exact comma form, matching
+       charter.html's own wording, because the comma is the hedge. */
+    const ADVISORY_FLAG = 'advisory, not institutionally enforced';
+    const mixedSources = lawEntries.filter((e) => registerStatus.get(e.source)?.status === 'status-mixed');
+    /* Scope is derived from the register, not from a hand-kept list: an entry
+       owes the flag if the register books it advisory outright, OR if the
+       register's own outcome table carries an advisory row — which is how the
+       -3 position is recorded for parallel petitions AND for the all-layer
+       regulations that bind everywhere but are unenforced in -3. Deriving it
+       this way is what makes the check bite on the four all-layer entries
+       (LP-013/026/036/042), whose register status is plain `status-enacted`;
+       a status-only rule would have left exactly the gap F6 found. */
+    const owesFlag = lawEntries.filter((e) => {
+      const reg = registerStatus.get(e.source);
+      return reg && (reg.status === 'status-advisory' || reg.advisoryOutcome);
+    });
+    const missingFlag = owesFlag.filter((e) => !e.body.includes(ADVISORY_FLAG)).map((e) => e.id);
+    check(missingFlag.length === 0,
+      `code integrity (a5): every entry with an advisory -3 outcome carries "${ADVISORY_FLAG}" verbatim`,
+      missingFlag.length ? `missing the flag: ${missingFlag.join(', ')}`
+        : `${owesFlag.length} entries carry the flag, comma-exact`);
+
+    /* (a6) Mixed petitions diverged along the layer gradient; §3.1.6 forbids
+       flattening them to one summary. Assert the structure that actually
+       carries the divergence: a per-layer outcome table with a row per layer. */
+    const flattenedMixed = mixedSources.filter((e) => {
+      const rows = (e.body.match(/<tr><th scope="row">/g) || []).length;
+      return !/<div class="law-vote">/.test(e.body) || rows < 5;
+    }).map((e) => e.id);
+    check(flattenedMixed.length === 0,
+      'code integrity (a6): every mixed petition states per-layer outcomes, never a flattened summary',
+      flattenedMixed.length ? `flattened: ${flattenedMixed.join(', ')}`
+        : `${mixedSources.length} mixed petitions carry a per-layer table`);
+
+    /* (b) Belt-and-braces beside 8b: the Source link on each entry has to point
+       at that entry's own register anchor, not merely at some real anchor. The
+       test is scoped to the entry's own body — a page-wide substring test would
+       let a second link to the same anchor elsewhere on the page satisfy it,
+       which is how this check passed vacuously for LP-074 and LP-042 until
+       v22.7.1. */
+    const anchorMismatch = lawEntries.filter((e) => !e.body.includes(`href="law-polling.html#${e.source}"`)).map((e) => e.id);
+    check(anchorMismatch.length === 0, 'code integrity (b): every code entry links its own register anchor from its own body',
+      anchorMismatch.length ? `no source link in body: ${anchorMismatch.join(', ')}` : `${lawEntries.length} source links present`);
+
+    /* (d) Tier 1 is an index of the Charter's own headings, and it must stay
+       mechanically equal to them — count AND title text. Count-only would let a
+       gist drift in under a correct number, which is the drift class the whole
+       restructure exists to close. The regex is element-anchored so the h3
+       `article-xxv-vi` is excluded by construction. */
+    const charterHeads = [...read('charter.html').matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)]
+      .map((m) => ({ id: m[1], title: m[2].trim() }));
+    const articleHeads = (read('charter.html').match(/<h2 id="article-/g) || []).length;
+    const expectedRows = articleHeads + 2; // + Preamble + Founding Affirmation
+    const indexRows = [...laws.matchAll(/<article class="code-entry[^"]*" id="[\w.-]+" data-tier="charter" data-source="([^"]+)">\s*<a class="code-index-title" href="charter\.html#([^"]+)">([\s\S]*?)<\/a>/g)]
+      .map((m) => ({ source: m[1], href: m[2], title: m[3].trim() }));
+    check(indexRows.length === expectedRows, 'code integrity (d1): Tier 1 indexes every Charter heading',
+      `${indexRows.length} index rows / ${expectedRows} expected (${articleHeads} articles + Preamble + Founding Affirmation)`);
+    const titleDrift = indexRows.flatMap((row, i) => {
+      const head = charterHeads[i];
+      if (!head) return [`row ${i + 1} (${row.source}): no matching Charter heading`];
+      if (head.id !== row.source || head.id !== row.href) return [`row ${i + 1}: anchor ${row.source}/${row.href} vs Charter ${head.id}`];
+      if (head.title !== row.title) return [`${head.id}: "${row.title}" vs Charter "${head.title}"`];
+      return [];
+    });
+    check(titleDrift.length === 0, 'code integrity (d2): Tier 1 titles are textually equal to the Charter headings',
+      titleDrift.length ? titleDrift.slice(0, 4).join('; ') : `${indexRows.length} titles equal, in order`);
+
+    /* (e) Positive sitemap coverage. Section 2 above is negative-only — it
+       asserts what the sitemap must NOT contain — so a new primary doctrine
+       surface could ship unlisted forever. The Code is indexable by design
+       (unlike rate-history/deregistered), so absence is a defect. */
+    check(read('sitemap.xml').includes('laws.html'), 'code integrity (e): sitemap.xml lists laws.html');
+
+    /* R22 durability pin (v22.7.1). The Code's title, its secondary-authority
+       classification, and the Charter trim all rest on R22 being registered in
+       the process record. It shipped as prose on a Process-tier page, so
+       nothing but this pin stops a later edit from removing the ruling while
+       leaving everything that depends on it standing. Pinned in the entity form
+       the page actually uses. */
+    const record = read('pending-ratification.html');
+    const r22 = [
+      ['ruling number', record.includes('R22')],
+      ['doctrine name', record.includes('Restatement &amp; Consolidation Doctrine')],
+    ].filter(([, ok]) => !ok).map(([k]) => k);
+    check(r22.length === 0, 'R22 is registered on the Ratification Record (process record)',
+      r22.length ? `missing: ${r22.join(', ')}` : 'ruling number + doctrine name present');
+
+    /* ToC sync, mirroring the register's own 'ToC links = entries' check above.
+       The Code's index is generated, so a mismatch means the generator was not
+       re-run after an entry landed — the same failure the register guard has
+       caught since v20.5.5, on the same terms. */
+    const tocLinks = [...laws.matchAll(/<a href="#([\w.-]+)" class="toc-link"/g)].map((m) => m[1]);
+    const entryIdSet = new Set(codeEntries.map((e) => e.id));
+    const orphanLinks = tocLinks.filter((id) => !entryIdSet.has(id));
+    const unindexed = codeEntries.filter((e) => !tocLinks.includes(e.id)).map((e) => e.id);
+    check(tocLinks.length === codeEntries.length && !orphanLinks.length && !unindexed.length,
+      'code integrity: Code ToC indexes every entry (else run tools/build-law-toc.mjs --laws)',
+      orphanLinks.length || unindexed.length
+        ? `orphan links: ${orphanLinks.join(', ') || 'none'}; unindexed: ${unindexed.join(', ') || 'none'}`
+        : `${tocLinks.length} links / ${codeEntries.length} entries`);
+  }
+
+  /* (f4) TIER-CLAIM GUARD (v22.7.0, architecture §7.3f). The live-misattribution
+     class this project was opened to cure: faq.html asserted "no federal tax
+     code (taxation is charter-level and layer-stratified)" — flatly false
+     against the Charter's own restatement note and against LP-074. Prose that
+     attributes the rate schedule to the constitutional tier is now a CI failure
+     rather than a thing a reader has to catch.
+
+     Deliberately narrow: it fires on a predication ("taxation is charter-level",
+     "the rate schedule is constitutional"), not on mere adjacency, because
+     "constitutional" legitimately appears near tax vocabulary all over the
+     corpus — Article III is in the constitution, and saying so is correct. */
+  {
+    const TIER_MISATTRIBUTION = /\b(?:tax(?:ation|es)?|tax code|rate schedule|top marginal rates?|the (?:rate )?cascade)\b[^.!?]{0,60}\b(?:is|are|sits? at|remains?)\b[^.!?]{0,40}\b(?:charter-level|charter level|constitutional(?:ly)?|charter-tier)\b/i;
+    const offenders = worldPages.flatMap((file) => {
+      const hit = normalizedText(read(file)).match(TIER_MISATTRIBUTION)?.[0];
+      return hit ? [`${file}: "${hit}"`] : [];
+    });
+    check(offenders.length === 0,
+      `tier-claim guard: no World-tier page places the rate schedule at the constitutional tier (${worldPages.length} pages)`,
+      offenders.length ? offenders.join('; ') : 'no tier misattribution');
+  }
 
   const statute = read(STATUTE_PAGE);
   check(statute.includes('ENACTED, CONDITION NOT SATISFIED') === false &&
@@ -576,7 +856,7 @@ const footerV = (read('footer.html').match(/Version ([\d.]+)/) || [])[1];
 check(readmeV && readmeV === footerV, 'README/footer version stamps match', `README ${readmeV} vs footer ${footerV}`);
 
 /* ---- 7. Known-stale-fact guards ---- */
-const pages = ['index.html', 'charter.html', 'whitepaper.html', 'faq.html', 'systems.html', 'world.html',
+const pages = ['index.html', 'charter.html', 'laws.html', 'whitepaper.html', 'faq.html', 'systems.html', 'world.html',
   'why-vmss.html', 'technologies.html', 'law-polling.html', 'simulations.html',
   'documents/academy-source.html', 'documents/resources-source.html'];
 for (const p of pages) {
@@ -584,8 +864,16 @@ for (const p of pages) {
   check(!bad, `${p}: no stale "five currencies"`);
 }
 
+/* Stale-placement pin (v22.7.1). The register's LP-070 entry used to say the
+   Charter "now carries a marker pointing to its binding source". The trim
+   removed that marker, so the sentence became false about a live surface. The
+   ruling it records is untouched; only the placement description was cured, and
+   this stops the stale phrasing coming back. */
+check(!stripComments(read('law-polling.html')).includes('III.III now carries'),
+  'law-polling: no stale claim that Charter III.III carries a restatement marker');
+
 /* ---- 8. Duplicate DOM ids per page ---- */
-for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'charter.html',
+for (const p of ['whitepaper.html', 'law-polling.html', 'laws.html', 'simulations.html', 'charter.html',
   'systems.html', 'technologies.html', 'faq.html', 'why-vmss.html']) {
   const ids = [...stripComments(read(p)).matchAll(/ id="([^"]+)"/g)].map((m) => m[1]);
   const dupes = [...new Set(ids.filter((id, i) => ids.indexOf(id) !== i))];
@@ -655,7 +943,7 @@ for (const p of ['whitepaper.html', 'law-polling.html', 'simulations.html', 'cha
 }
 
 /* ---- 9. In-page href="#x" anchors resolve to a real id ---- */
-for (const p of ['simulations.html', 'charter.html', 'systems.html', 'technologies.html', 'law-polling.html']) {
+for (const p of ['simulations.html', 'charter.html', 'laws.html', 'systems.html', 'technologies.html', 'law-polling.html']) {
   const src = stripComments(read(p));
   const ids = new Set([...src.matchAll(/ id="([^"]+)"/g)].map((m) => m[1]));
   const dead = [...new Set([...src.matchAll(/href="#([^"]+)"/g)].map((m) => m[1]))]

@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 22.6.0
+**Version:** 22.7.0
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -41,6 +41,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `world.html` | The World of VMSS — international law, founding era, geopolitical context, entertainment, daily life |
 | `whitepaper.html` | 34-section paginated whitepaper with TOC, page jump, and expanded glossary |
 | `charter.html` | Founding constitutional document — all 28 articles |
+| `laws.html` | VMSS Laws — the consolidated code: current-force law at all four tiers (Charter index, federal law, layer-wide and district regulation), every provision cited to its enacting instrument |
 | `law-polling.html` | Law polling record — Charter amendments, federal laws, and regulatory petitions with vote breakdowns, drafters, and canon anchors |
 | `faq.html` | Extended FAQ with edge cases |
 | `roadmap.html` | Scroll-driven seven-phase roadmap — pinned scenes, persistent year + leakage-gradient rail, 2026 Founding Treaty to 3000 |
@@ -77,6 +78,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ├── world.html
 ├── whitepaper.html
 ├── charter.html
+├── laws.html
 ├── faq.html
 ├── roadmap.html
 ├── audiobook.html
