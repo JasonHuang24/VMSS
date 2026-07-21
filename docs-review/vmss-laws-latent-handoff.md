@@ -1,6 +1,6 @@
 # VMSS Laws — Latent-Corpus Codification Sweep (the naming assignment)
 
-Architect spec, 2026-07-20. Commissioned by Jason: "going through the whole website and inventing the names of the laws latent to the existing doctrine." Successor to the v22.7.0 restructure (PR #29); runs on a new branch. Time-boxed: the inventory is the must-complete deliverable (§7).
+Architect spec, 2026-07-20. Commissioned by Jason: "going through the whole website and inventing the names of the laws latent to the existing doctrine." Successor to the v22.7.0 restructure (PR #29); runs on a new branch. Time-boxed: the inventory is the must-complete deliverable (§7). **v1.1, 2026-07-21: §9 addendum — base branch, versioning, inventory schema extension, sequencing; §9 controls where it amends §§1–8.**
 
 ## 1. Mission
 
@@ -51,3 +51,24 @@ Economy: currency siloing/conversion, central banking (§12.3), SCM operational 
 ## 8. Ship spec
 
 Branch: `feat/vmss-laws-latent-corpus` created from `feat/vmss-laws-v22.7.0` (PR #29 may merge under you; do not touch main or #29). Gates: check-canon 0 failures (report count vs 126), build:css clean, both TOC modes idempotent. Reports append to `docs-review/vmss-laws-latent-worklog.md`. Stop conditions as in the v22.7.0 handoff: last green state, record, never improvise doctrine. Push the branch when done (or when the time box expires with the inventory committed). No PR, no merge, no main.
+
+## 9. Architect addendum — v1.1 (2026-07-21)
+
+- **9.1 Base branch (amends §8).** PR #29 has merged (main at 01d37f1). Create `feat/vmss-laws-latent-corpus` from current `main`. The "PR #29 may merge under you" caution is obsolete; the check-canon baseline of 126 stands — re-derive it at branch time and report against what you measure.
+- **9.2 Versioning (gap in v1.0).** Phase A is a structural pass under the R16 convention: bump the site version to **v22.8.0** (footer.html + README lockstep; check-canon §6 enforces). If the run ends inventory-only under the time box, no bump — docs-review artifacts do not version the site.
+- **9.3 Inventory schema extension (feeds the successor project).** Every inventory row additionally records, machine-readably: **`parent-authority`** — the Charter article, Founding Act, or enacted LP the instrument operates under (or `none-standalone`), and **`charter-touchpoints`** — every Charter article the instrument's provisions cite, restate, or depend on, each with file:line and marked *derives-authority* vs *restates-content*. Rationale: the successor project (`docs-review/vmss-laws-loadbearing-handoff.md`) computes Charter load-bearing status from the corpus dependency graph, and this sweep is already reading every surface — capture the edges in the same pass. This extends no invention license; it is citation bookkeeping under §2's existing boundary.
+- **9.4 Sequencing.** The load-bearing audit runs AFTER this sweep and consumes its output. Do not attempt Charter demotion, enabling-grant drafting, or category-B relocation in this run — architecture §5 remains the standing docket, and the home rule (§4) still excludes Charter-homed rules from naming.
+
+### Launch block (paste into a fresh Opus session opened at the repo root)
+
+```
+You are executing the VMSS latent-corpus codification sweep, solo, end to end. Use ultracode for the fan-out phases; every rule below binds your subagents too.
+
+Setup: verify `git remote -v` points at JasonHuang24/VMSS. Fetch origin main, create branch feat/vmss-laws-latent-corpus from origin/main. Then read, fully and in order: docs-review/vmss-laws-architecture.md (ratified; controls over your judgment), docs-review/vmss-laws-latent-handoff.md at v1.1 including the §9 addendum (the spec for THIS run), and docs-review/vmss-laws-opus-prompts.md Prompt 0 (the shared preamble — its hard rules apply verbatim).
+
+Execute the latent handoff pipeline: Phase M → commit docs-review/vmss-laws-latent-inventory.md (the gate file and must-complete deliverable — if the time box expires here, the run succeeded) → Phase A → Phase V, under the §2 invention boundary, §4 architecture-protection rules, §5 naming conventions, and §9 addendum. Capture the §9.3 parent-authority and charter-touchpoint fields for every inventory row.
+
+Reporting: append per-phase reports to docs-review/vmss-laws-latent-worklog.md (files changed with deltas, check-canon pass count vs the baseline you measure at branch time, every judgment beyond the spec flagged for review), committed with the work. Commit messages end with "Co-Authored-By: Claude Opus <noreply@anthropic.com>".
+
+Stop conditions and ship per §8: on any unresolvable gate failure, forbidden temptation (deleting/weakening a check; authoring unspecified doctrine), or unreconcilable parse, stop at the last green state and record it in the worklog. When done — or at time-box expiry with the inventory committed — push the branch (git push -u origin feat/vmss-laws-latent-corpus). No PR, no merge, never main.
+```

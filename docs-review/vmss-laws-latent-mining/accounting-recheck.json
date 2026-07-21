@@ -1,0 +1,6811 @@
+{
+ "summary": {
+  "poolTotal": 1352,
+  "dispositions": {
+   "residual-undispositioned": 533,
+   "assigned": 505,
+   "named-excluded": 100,
+   "flag-cited": 79,
+   "path2-categorical-excluded": 135
+  },
+  "phantomRefs": [
+   "wp-17-19-18",
+   "wp-17-19-79"
+  ],
+  "suspiciousResiduals": [
+   "layers-sads-16",
+   "layers-sads-56",
+   "layers-sads-63",
+   "layers-sads-66",
+   "systems-65",
+   "systems-66b",
+   "wp-09-12-18",
+   "wp-17-19-18a",
+   "wp-17-19-18b",
+   "wp-17-19-18c",
+   "wp-17-19-22",
+   "wp-17-19-25",
+   "wp-17-19-35",
+   "wp-17-19-36",
+   "wp-17-19-41",
+   "wp-17-19-42",
+   "wp-17-19-51",
+   "wp-17-19-52",
+   "wp-17-19-64",
+   "wp-17-19-65",
+   "wp-17-19-72",
+   "wp-20-22-16",
+   "wp-27-34-113",
+   "wp-27-34-114",
+   "wp-27-34-123",
+   "wp-27-34-153",
+   "wp-27-34-61",
+   "wp-27-34-79",
+   "wp-27-34-82",
+   "wp-27-34-84"
+  ],
+  "note": "pool derived from committed annex notes; prior claims (pool 1,320/1,321; 121+640=731) do not reconcile against them"
+ },
+ "ledger": {
+  "faq-front-01": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-02": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-03": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-04": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-05": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "faq-front-06": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-07": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-08": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-09": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "faq-front-10": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-100": {
+   "file": "faq-front",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "faq-front-101": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-102": {
+   "file": "faq-front",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "faq-front-103": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-104": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-105": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-106": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-11": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-12": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-13": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "faq-front-14": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "faq-front-15": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-16": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-17": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-18": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-19": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-20": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-21": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-22": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-23": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-24": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-25": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-26": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-27": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-28": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-29": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-30": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-31": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-32": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-33": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-34": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-35": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "faq-front-36": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-37": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-38": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-39": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-40": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-41": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-42": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-43": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-44": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-45": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-46": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "faq-front-47": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-48": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-49": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-50": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-51": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-52": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-53": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-54": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-55": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-56": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-57": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-58": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-59": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-60": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-61": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-62": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-63": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-64": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-65": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-66": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-67": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-68": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-69": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-70": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-71": {
+   "file": "faq-front",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "faq-front-72": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-73": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-74": {
+   "file": "faq-front",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "faq-front-75": {
+   "file": "faq-front",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "faq-front-76": {
+   "file": "faq-front",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "faq-front-77": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "flag-cited"
+  },
+  "faq-front-78": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "flag-cited"
+  },
+  "faq-front-79": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "flag-cited"
+  },
+  "faq-front-80": {
+   "file": "faq-front",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "faq-front-81": {
+   "file": "faq-front",
+   "minedClass": "RF",
+   "disposition": "flag-cited"
+  },
+  "faq-front-82": {
+   "file": "faq-front",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "faq-front-83": {
+   "file": "faq-front",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "faq-front-84": {
+   "file": "faq-front",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "faq-front-85": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-86": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-87": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-88": {
+   "file": "faq-front",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "faq-front-89": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-90": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-91": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-92": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-93": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-94": {
+   "file": "faq-front",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "faq-front-95": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-96": {
+   "file": "faq-front",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-97": {
+   "file": "faq-front",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "faq-front-98": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "faq-front-99": {
+   "file": "faq-front",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-01": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-02": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-03": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-04": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-05": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-06": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-07": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-08": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-09": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-10": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-100": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-11": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-12": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-13": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-14": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-15": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-16": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-17": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "layers-sads-18": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-19": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-20": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-21": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-22": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-23": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-24": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-25": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-26": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "layers-sads-27": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-28": {
+   "file": "layers-sads",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-29": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-30": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-31": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "layers-sads-32": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "layers-sads-33": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "layers-sads-34": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-35": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-36": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-37": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-38": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-39": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-40": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-41": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-42": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-43": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-44": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-45": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-46": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-47": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-48": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-49": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-50": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-51": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-52": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "assigned"
+  },
+  "layers-sads-53": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-54": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-55": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-56": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-57": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-58": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-59": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-60": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "layers-sads-61": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-62": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "layers-sads-63": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-64": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-65": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-66": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-67": {
+   "file": "layers-sads",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-68": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-69": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-70": {
+   "file": "layers-sads",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-71": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-72": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-73": {
+   "file": "layers-sads",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-74": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "layers-sads-75": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-76": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-77": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-78": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-79": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-80": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-81": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-82": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "layers-sads-83": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-84": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-85": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-86": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-87": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-88": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-89": {
+   "file": "layers-sads",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-90": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-91": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-92": {
+   "file": "layers-sads",
+   "minedClass": "RF",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-93": {
+   "file": "layers-sads",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-94": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-95": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-96": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-97": {
+   "file": "layers-sads",
+   "minedClass": "CHX",
+   "disposition": "flag-cited"
+  },
+  "layers-sads-98": {
+   "file": "layers-sads",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "layers-sads-99": {
+   "file": "layers-sads",
+   "minedClass": "NL",
+   "disposition": "flag-cited"
+  },
+  "path2-record-001": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-002": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-003": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-004": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-005": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-006": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-007": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-008": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-009": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-010": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-011": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-012": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-013": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-014": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-015": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-016": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-017": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-018": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-019": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-020": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-021": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-022": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-023": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-024": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-025": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-026": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-027": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-028": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-029": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-030": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-031": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-032": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-033": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-034": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-035": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-036": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-037": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-038": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-039": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-040": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-041": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-042": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-043": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-044": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-045": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-046": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-047": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-048": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-049": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-050": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-051": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-052": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-053": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-054": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-055": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-056": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-057": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-058": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-059": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-060": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-061": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-062": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-063": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-064": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-065": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-066": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-067": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-068": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-069": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-070": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-071": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-072": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-073": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-074": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-075": {
+   "file": "path2-record",
+   "minedClass": "CHX",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-076": {
+   "file": "path2-record",
+   "minedClass": "CHX",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-077": {
+   "file": "path2-record",
+   "minedClass": "CHX",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-078": {
+   "file": "path2-record",
+   "minedClass": "CHX",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-079": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-080": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-081": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-082": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-083": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-084": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-085": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-086": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-087": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-088": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-089": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-090": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-091": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-092": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-093": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-094": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-095": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-096": {
+   "file": "path2-record",
+   "minedClass": "(unknown)",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-097": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-098": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "path2-record-099": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-100": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-101": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-102": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-103": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-104": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-105": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-106": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-107": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-108": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-109": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-110": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-111": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-112": {
+   "file": "path2-record",
+   "minedClass": "CHX",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-113": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-114": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-115": {
+   "file": "path2-record",
+   "minedClass": "(unknown)",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-116": {
+   "file": "path2-record",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "path2-record-117": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-118": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-119": {
+   "file": "path2-record",
+   "minedClass": "(unknown)",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-120": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-121": {
+   "file": "path2-record",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "path2-record-122": {
+   "file": "path2-record",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "path2-record-123": {
+   "file": "path2-record",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "path2-record-124": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "path2-record-125": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-126": {
+   "file": "path2-record",
+   "minedClass": "CHX",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-127": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-128": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-129": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "path2-record-130": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-131": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-132": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-133": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-134": {
+   "file": "path2-record",
+   "minedClass": "(unknown)",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-135": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-136": {
+   "file": "path2-record",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "path2-record-137": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-138": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-139": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-140": {
+   "file": "path2-record",
+   "minedClass": "NL",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-141": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-142": {
+   "file": "path2-record",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "path2-record-143": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "path2-record-144": {
+   "file": "path2-record",
+   "minedClass": "SUA",
+   "disposition": "path2-categorical-excluded"
+  },
+  "sims-01": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-02": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-03": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-04": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-05": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-06": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-07": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-08": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-09": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-10": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-11": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-12": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-13": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-14": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-15": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-16": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-17": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-18": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-19": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-20": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-21": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-22": {
+   "file": "sims",
+   "minedClass": "CHX",
+   "disposition": "named-excluded"
+  },
+  "sims-23": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-24": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-25": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-26": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-27": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-28": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-29": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-30": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-31": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-32": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-33": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-34": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-35": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-36": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-37": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-38": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-39": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-40": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "sims-41": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-42": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-43": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-44": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-45": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-46": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-47": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-48": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-49": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-50": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-51": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-52": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-53": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-54": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-55": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-56": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-57": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "sims-58": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-59": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-60": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-61": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-62": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "sims-63": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-64": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-65": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-66": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-67": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-68": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-69": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-70": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-71": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-72": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-73": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-74": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-75": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-76": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-77": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-78": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-79": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-80": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-81": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-82": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-83": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-84": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-85": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-86": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-87": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-88": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-89": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-90": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-91": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-92": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-93": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-94": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "sims-95": {
+   "file": "sims",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-01": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-02": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-03": {
+   "file": "systems",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "systems-04": {
+   "file": "systems",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "systems-05": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-06": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-07": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-07b": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "systems-08": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-09": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-10": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-11": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-12": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-13": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-14": {
+   "file": "systems",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-15": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "systems-16": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-17": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-18": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-19": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-20": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-21": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-22": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-23": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-24": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-25": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-25b": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-26": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-27": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-28": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-29": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-30": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-31": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-32": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-33": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-34": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-35": {
+   "file": "systems",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-36": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-37": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-38": {
+   "file": "systems",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "systems-39": {
+   "file": "systems",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-40": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-40b": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-41": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-42": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-43": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-44": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-45": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-46": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-46b": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-47": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-48": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-49": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-50": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-51": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-52": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-53": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-54": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-54b": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-55": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-56": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-57": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-58": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-58b": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "systems-59": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-60": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "systems-61": {
+   "file": "systems",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "systems-62": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-63": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-64": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-65": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-66": {
+   "file": "systems",
+   "minedClass": "RF",
+   "disposition": "flag-cited"
+  },
+  "systems-66b": {
+   "file": "systems",
+   "minedClass": "(unknown)",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-67": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-67b": {
+   "file": "systems",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "systems-68": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "systems-69": {
+   "file": "systems",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-01": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-02": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-03": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-04": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-05": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-06": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-07": {
+   "file": "technologies",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "technologies-08": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-09": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-10": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-11": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-12": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-13": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-14": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-15": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-16": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-17": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-18": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-19": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-20": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-21": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-22": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-23": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-24": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-25": {
+   "file": "technologies",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "technologies-26": {
+   "file": "technologies",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "technologies-27": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-28": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-29": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-30": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-31": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-32": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-33": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-34": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-35": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-36": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-37": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-38": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-39": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-40": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-41": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-42": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-43": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-44": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-45": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-46": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-47": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-48": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-49": {
+   "file": "technologies",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "technologies-50": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-51": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-52": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-53": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "technologies-54": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-55": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-56": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-57": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-58": {
+   "file": "technologies",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "technologies-59": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-60": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-61": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-62": {
+   "file": "technologies",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-63": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-64": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-65": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-66": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-67": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-68": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "technologies-69": {
+   "file": "technologies",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "technologies-70": {
+   "file": "technologies",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-01": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-02": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-03": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-04": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-05": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-06": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-07": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-08": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-09": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-10": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-100": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-101": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-102": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-103": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-104": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "world-105": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-106": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-107": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-108": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-109": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-11": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-110": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-111": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-112": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-113": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-114": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-115": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "world-116": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-117": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-118": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-119": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-12": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-120": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-121": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-122": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-123": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-124": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-125": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-126": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-127": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-128": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "named-excluded"
+  },
+  "world-129": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-13": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-130": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-131": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-132": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-133": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-134": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-135": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-136": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-137": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-138": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-139": {
+   "file": "world",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "world-14": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-140": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-141": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-142": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-143": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-144": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "world-145": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-146": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-147": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "world-148": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-149": {
+   "file": "world",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "world-15": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-150": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-151": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-152": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "world-153": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-154": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-155": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-156": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-157": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-158": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-159": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-16": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-160": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-17": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-18": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-19": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-20": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-21": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-22": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-23": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-24": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-25": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-26": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-27": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-28": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-29": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-30": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-31": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-32": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-33": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-34": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-35": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-36": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-37": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-38": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-39": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-40": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-41": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-42": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-43": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-44": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "named-excluded"
+  },
+  "world-45": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-46": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-47": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-48": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-49": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-50": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-51": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-52": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-53": {
+   "file": "world",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "world-54": {
+   "file": "world",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "world-55": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-56": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-57": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-58": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-59": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-60": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-61": {
+   "file": "world",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "world-62": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-63": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-64": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-65": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-66": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-67": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-68": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-69": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-70": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-71": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-72": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-73": {
+   "file": "world",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "world-74": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-75": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-76": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-77": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-78": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-79": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-80": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-81": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-82": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-83": {
+   "file": "world",
+   "minedClass": "RF",
+   "disposition": "flag-cited"
+  },
+  "world-84": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-85": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-86": {
+   "file": "world",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "world-87": {
+   "file": "world",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "world-88": {
+   "file": "world",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "world-89": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-90": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-91": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-92": {
+   "file": "world",
+   "minedClass": "(unknown)",
+   "disposition": "flag-cited"
+  },
+  "world-93": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-94": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-95": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-96": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-97": {
+   "file": "world",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "world-98": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "world-99": {
+   "file": "world",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-01": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-02": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-03": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-04": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-05": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-06": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-07": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-08": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-09": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-10": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-11": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-12": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-13": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-14": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-15": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-16": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-17": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-18": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-19": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-20": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-21": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-22": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-23": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-24": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-25": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-26": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-27": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-28": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-29": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-30": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-31": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-32": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-33": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-34": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-35": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-36": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-37": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-38": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-39": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-40": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-41": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-42": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-43": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-44": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-45": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-46": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-47": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-48": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-49": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-50": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-51": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-52": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-53": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-54": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-55": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-56": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-57": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-58": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-59": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-60": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-61": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-62": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-63": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-64": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-65": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-66": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-67": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-68": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-69": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-70": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-71": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-72": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-73": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-74": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-75": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-76": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-77": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-78": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-01-08-79": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-01-08-80": {
+   "file": "wp-01-08",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-81": {
+   "file": "wp-01-08",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-01-08-82": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-83": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-84": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-85": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-86": {
+   "file": "wp-01-08",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-87": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-88": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-89": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-01-08-90": {
+   "file": "wp-01-08",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-01": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-02": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-03": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-04": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-05": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-06": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-07": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-08": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-09": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-10": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-11": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-12": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-13": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-14": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-15": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-16": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-17": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-18": {
+   "file": "wp-09-12",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-19": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-20": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-21": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-22": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-23": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-24": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-25": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-26": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-27": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-28": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-29": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-30": {
+   "file": "wp-09-12",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-09-12-31": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-32": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-33": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-34": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-35": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-36": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-37": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-38": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-39": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-40": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-41": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-42": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-43": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-44": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-45": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-46": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-47": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-48": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-49": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-50": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-51": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-52": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-53": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-54": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-55": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-56": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-57": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-58": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-59": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-60": {
+   "file": "wp-09-12",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-61": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-62": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-63": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-64": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-65": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-66": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-67": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-68": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-69": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-70": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-71": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-72": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-73": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-74": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-75": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-76": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-77": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-78": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-79": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-80": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-81": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-82": {
+   "file": "wp-09-12",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-09-12-83": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-84": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-85": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-09-12-86": {
+   "file": "wp-09-12",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-09-12-87": {
+   "file": "wp-09-12",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-01": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-02": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-03": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-04": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-05": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-06": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-07": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-08": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-09": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-10": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-11": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-12": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-13": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-14": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-15": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-16": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-17": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-18": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-19": {
+   "file": "wp-13-16",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-20": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-21": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-22": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-23": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-24": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-25": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-26": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-27": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-28": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-29": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-30": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-31": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-32": {
+   "file": "wp-13-16",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-13-16-33": {
+   "file": "wp-13-16",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-13-16-34": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-35": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-36": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-37": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-38": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-39": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-40": {
+   "file": "wp-13-16",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-13-16-41": {
+   "file": "wp-13-16",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "wp-13-16-42": {
+   "file": "wp-13-16",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-13-16-43": {
+   "file": "wp-13-16",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "wp-13-16-44": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-45": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-46": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-47": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-48": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-49": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-13-16-50": {
+   "file": "wp-13-16",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-01": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-02": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-03": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-04": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-05": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-06": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-07": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-08": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-09": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-10": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-11": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-12": {
+   "file": "wp-17-19",
+   "minedClass": "(unknown)",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-13": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-14": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-15": {
+   "file": "wp-17-19",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-17-19-16": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-17": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-18a": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-18b": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-18c": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-19": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-20": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-21": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-22": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-23": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-24": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-25": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-26": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-27": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-28": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-29": {
+   "file": "wp-17-19",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "wp-17-19-30": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-31": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "assigned"
+  },
+  "wp-17-19-32": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-33": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-34": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-35": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-36": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-37": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-38": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-39": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "assigned"
+  },
+  "wp-17-19-40": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-41": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-42": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-43": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-44": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-45": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-46": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-47": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-48": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-49": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "assigned"
+  },
+  "wp-17-19-50": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-51": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-52": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-53": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-54": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-55": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-56": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-57": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-58": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-59": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-60": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-61": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-62": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-63": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-64": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-65": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-66": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-67": {
+   "file": "wp-17-19",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-17-19-68": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "assigned"
+  },
+  "wp-17-19-69": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "flag-cited"
+  },
+  "wp-17-19-70": {
+   "file": "wp-17-19",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-71": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-72": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-17-19-73": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-74": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-75": {
+   "file": "wp-17-19",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-76": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-17-19-77": {
+   "file": "wp-17-19",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-17-19-78": {
+   "file": "wp-17-19",
+   "minedClass": "NL",
+   "disposition": "named-excluded"
+  },
+  "wp-20-22-01": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-02": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-03": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-04": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-05": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-06": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-07": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-08": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-09": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-10": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-11": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-12": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-13": {
+   "file": "wp-20-22",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-20-22-14": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-15": {
+   "file": "wp-20-22",
+   "minedClass": "RF",
+   "disposition": "assigned"
+  },
+  "wp-20-22-16": {
+   "file": "wp-20-22",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-17": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-18": {
+   "file": "wp-20-22",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-19": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-20": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-21": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-22": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-23": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-24": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-25": {
+   "file": "wp-20-22",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-26": {
+   "file": "wp-20-22",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-27": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-28": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-29": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-30": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-31": {
+   "file": "wp-20-22",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-20-22-32": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-33": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-34": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-35": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-36": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-37": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-38": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-39": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-40": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-41": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-20-22-42": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-43": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-44": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-45": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-46": {
+   "file": "wp-20-22",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "wp-20-22-47": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-20-22-48": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-49": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-50": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-51": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-52": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-53": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-54": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-20-22-55": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-56": {
+   "file": "wp-20-22",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-20-22-57": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-58": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-59": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-60": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-61": {
+   "file": "wp-20-22",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-62": {
+   "file": "wp-20-22",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-20-22-63": {
+   "file": "wp-20-22",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-64": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-65": {
+   "file": "wp-20-22",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-20-22-66": {
+   "file": "wp-20-22",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-20-22-67": {
+   "file": "wp-20-22",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-20-22-68": {
+   "file": "wp-20-22",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-01": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-02": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-03": {
+   "file": "wp-23-26",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-04": {
+   "file": "wp-23-26",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-05": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-06": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-07": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-08": {
+   "file": "wp-23-26",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-23-26-09": {
+   "file": "wp-23-26",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-10": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-11": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-12": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-13": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-14": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-23-26-15": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-16": {
+   "file": "wp-23-26",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-17": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-18": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-19": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-20": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-21": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-23-26-22": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-23": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-24": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-25": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-26": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-27": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-28": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-29": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-30": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-31": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-32": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-33": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-34": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-35": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-36": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-37": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-38": {
+   "file": "wp-23-26",
+   "minedClass": "GF",
+   "disposition": "flag-cited"
+  },
+  "wp-23-26-39": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-40": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-41": {
+   "file": "wp-23-26",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-42": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-43": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-44": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-45": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-46": {
+   "file": "wp-23-26",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-23-26-47": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-48": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-49": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-50": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-51": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-52": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-53": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-54": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-55": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-56": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-57": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-58": {
+   "file": "wp-23-26",
+   "minedClass": "AMB",
+   "disposition": "assigned"
+  },
+  "wp-23-26-59": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-60": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-61": {
+   "file": "wp-23-26",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-62": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-63": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-64": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-23-26-65": {
+   "file": "wp-23-26",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-23-26-66": {
+   "file": "wp-23-26",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-23-26-67": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-68": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-69": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-70": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-71": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-23-26-72": {
+   "file": "wp-23-26",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-01": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-02": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-03": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-04": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-05": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-06": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-07": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-08": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-09": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-10": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-100": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-101": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-102": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-103": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-104": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-105": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-106": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-107": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-108": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-109": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-11": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-110": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-111": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-112": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-113": {
+   "file": "wp-27-34",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-114": {
+   "file": "wp-27-34",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-115": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-116": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-117": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-118": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-119": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-12": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-120": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-121": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-122": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-123": {
+   "file": "wp-27-34",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-124": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-125": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-126": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-127": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-128": {
+   "file": "wp-27-34",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "wp-27-34-129": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-13": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-130": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-131": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-132": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-133": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-134": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-135": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-136": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-137": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-138": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-139": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-14": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-140": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-141": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-142": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-143": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-144": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-145": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-146": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-147": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-148": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-149": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-15": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-150": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-151": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-152": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-153": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-16": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-17": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-18": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-19": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-20": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-21": {
+   "file": "wp-27-34",
+   "minedClass": "(unknown)",
+   "disposition": "assigned"
+  },
+  "wp-27-34-22": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-23": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-24": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-25": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-26": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-27": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-28": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-29": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-30": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-31": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-32": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-33": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-34": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-35": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-36": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-37": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-38": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-39": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-40": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "named-excluded"
+  },
+  "wp-27-34-41": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-42": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-43": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-44": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-45": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-46": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-47": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-48": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-49": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-50": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "flag-cited"
+  },
+  "wp-27-34-51": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-52": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-53": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-54": {
+   "file": "wp-27-34",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-27-34-55": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-56": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-57": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-58": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-59": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-60": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-61": {
+   "file": "wp-27-34",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-62": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-63": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-64": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-65": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-66": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-67": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-68": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-69": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-70": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-71": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-72": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-73": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-74": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-75": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-76": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-77": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-78": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-79": {
+   "file": "wp-27-34",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-80": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-81": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-82": {
+   "file": "wp-27-34",
+   "minedClass": "RF",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-83": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-84": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-85": {
+   "file": "wp-27-34",
+   "minedClass": "AMB",
+   "disposition": "flag-cited"
+  },
+  "wp-27-34-86": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-87": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-88": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-89": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-90": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-91": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-92": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-93": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-94": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-95": {
+   "file": "wp-27-34",
+   "minedClass": "NL",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-96": {
+   "file": "wp-27-34",
+   "minedClass": "SUA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-97": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  },
+  "wp-27-34-98": {
+   "file": "wp-27-34",
+   "minedClass": "FA",
+   "disposition": "assigned"
+  },
+  "wp-27-34-99": {
+   "file": "wp-27-34",
+   "minedClass": "CHX",
+   "disposition": "residual-undispositioned"
+  }
+ }
+}
