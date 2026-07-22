@@ -817,4 +817,45 @@ national-defense track, so the article citation is right and only its gloss was 
 
 XXV.IV re-glossed to its true title; the External Force Doctrine surfaced separately as the
 founding instrument it is (the drafter's evident intent, now pointed at its real home rather than
-mislabelled onto the nearest article). check-canon **137/0**; no CSS diff.
+mislabelled onto the nearest article). check-canon **137/0**; no CSS diff. Pushed `92f2c72`.
+
+## W4 — O-4 grant harmonization (`charter.html`)
+
+Applied Sol's uniform formula (the operative addition is "amended" and **only**, making the
+XXV.VI ladder the exclusive amendment path on the face of each grant) to the federal-law grant
+sentences. Census by grep "federal law" in charter.html: four sites already carried the 2-verb
+formula (III.II:190, III.III:196, III.V:209, III.VII/VIII:235 — all the identical string
+"enacted and recalibrated through the Article XXV.VI ladder and consolidated in VMSS Laws"), and
+three OMITTED the ladder clause (III.IV forfeiture:201, III.VII savings-base:233, XXVII:419) —
+exactly the three O-4/Part II flagged.
+
+| Site | Change |
+|---|---|
+| III.II:190, III.III:196, III.V:209, III.VII/VIII:235 | `enacted and recalibrated through the Article XXV.VI ladder` → `enacted, amended, and recalibrated **only** through the Article XXV.VI ladder` (one replace_all over the identical string; 4 occurrences) |
+| III.IV:201 | "a forfeiture, set by federal law and consolidated in VMSS Laws, that prevents arbitrage" → "a forfeiture that is federal law, enacted, amended, and recalibrated only through the Article XXV.VI ladder and consolidated in VMSS Laws, that prevents arbitrage" (ladder clause added; III.IV's retained gradient ranges untouched) |
+| III.VII savings-base:233 | "the specification is federal law, consolidated in VMSS Laws." → "…is federal law, enacted, amended, and recalibrated only through the Article XXV.VI ladder and consolidated in VMSS Laws." |
+| XXVII:419 | "The escalation rate is federal law, consolidated in VMSS Laws." → "…is federal law, enacted, amended, and recalibrated only through the Article XXV.VI ladder and consolidated in VMSS Laws." |
+
+Result: the uniform formula "enacted, amended, and recalibrated only through the Article XXV.VI
+ladder" now appears **7 times** — every federal-law grant on the Charter surface reads identically.
+Each site's existing anchor links (`#article-xxv-vi`, `laws.html`) preserved; each "reaches no
+[rate/band/threshold]" clause kept.
+
+**"Two surfaces" — resolved as vacuous:** §20 W4 requires editing any grant sentence also mirrored
+in a `laws.html data-tier="charter"` entry. Verified at source: the laws.html charter-tier entries
+(`code-charter-article-*`) are **title-only index links** (e.g. laws.html:670 is just the article
+title `<a class="code-index-title">`), carrying no grant sentences. The Code's III.III tax
+restatement (laws.html:687) sits in a **federal-tier** `code-preamble`, not a charter-tier entry,
+and already reads "…rather than through Charter amendment," conveying "only." So no laws.html edit
+is required or made. check-canon **137/0**; charter purity LP-whitelist stays empty; the N-1
+negative magnitude "There is no minimum wage in VMSS" preserved ×1; no CSS diff.
+
+**Deviation flagged — III.III included beyond Sol's literal six:** Sol's S-6.1 list names six
+sites (III.II, III.IV, III.V, III.VII/VIII, XXVII, III.VII savings-base); III.III (the LP-074 tax
+grant) is not among them, being O-4's *precedent* rather than a defect. But the four 2-verb sites
+share one identical string, and O-4's own rationale is that **textual uniformity is doctrine** —
+leaving III.III as the lone 2-verb variant would reintroduce the asymmetry the harmonization exists
+to remove. I therefore harmonized III.III too (accurate: the tax schedule is likewise amended only
+through XXV.VI). If Jason prefers III.III left at the 2-verb precedent, reverting just its "amended,
+and … only" is a one-string change at the veto read. No [VETO-READ] in-world fact in W4 (textual
+uniformity only).
