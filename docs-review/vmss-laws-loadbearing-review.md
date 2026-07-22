@@ -471,3 +471,80 @@ block → Opus executes → architect Part V review → Jason's veto read → PR
 
 Sol's verdict line is adopted as this review's own: the current 136/0 proves structural
 synchronization, not legal validity. **Merge remains blocked until the cures land.**
+
+---
+
+# Part V — Architect Review of Run L3b (the cure run)
+
+Reviewed: commits `066896a`→`18c193a` on `feat/vmss-laws-v23.0.0` against §20's binding spec.
+Method unchanged: the run's claims were treated as hypotheses. The gate was re-run personally
+(**138 passed / 0 failed**, register 8/60/22 of 90); the file surface diffed (13 files, exactly
+the specced surface — no frozen record, no sol-packet, no documents/ touched); every work item
+re-verified at source.
+
+## V.1 What was re-derived
+
+- **W1**: the full LP-076 record re-read against §20 W1.1–W1.7. Scope and Threshold fields name
+  both ladders with XXV.VI's own termination language; the six-row certified block is complete;
+  the S2-F1 replacement holding is stated once in the summary and echoed consistently in the
+  Court scope note and the italic footnote; the Meritboard reservation closer survives verbatim;
+  "already being recalibrated" is softened to exactly what the record can prove ("administered
+  the adjacent mechanics and specified around the rates … until this filing enacted them at
+  federal tier"). The Sanctuary tally (98% yes · 0 no votes · 2% abstaining) satisfies Article
+  XI's cast-vote consensus rule (abstention is not dissent, per the Charter's own text) and the
+  90% federal floor in one count. All receiver provenance headers re-read: each now names the
+  concurrent XXV.VI track as the enacting process.
+- **Guards**: G2 (f2c) is scoped to the LP-076 article block, three per-phrasing occurrence
+  pins, no alternations, design note explaining the blocker it holds closed. G1 (g1) parses all
+  thirty TOC rows, resolves anchors, tail-matches headings, retarget-never-delete documented.
+  **Architect probes, distinct vectors from the run's own**: G2 — tally corruption ("0 no
+  votes" → "2 no votes"), red with the exact pin message; G1 — heading-side rename (the run
+  probed the TOC side), red with the tail-match message. Both restored; final tree 138/0 clean.
+- **W2**: charter.html:423 verified — "The tax escalation curve applies in +1 Sanctuary, Main
+  Layer, and -1 Noncompliance" is Charter text. The operative baseline lands declaratively and
+  phrases scope by reference to the curve's reach with charter-sourced layer names — stronger
+  than Sol's literal draft. S3-F1's arithmetic now closes: 40% × 3.375 = 135% > 100%,
+  categorically.
+- **W3**: ÷20 indexing sentence, half-up rounding rule, and the $15.625 → $15.63 print
+  convention all present; `$15.625` enters the corpus exactly once, laws.html only; no (f2b)
+  pin moved; the "recoverable" claim is now conditioned on the Protocol's stated convention —
+  the truth condition Sol's S5-F1 demanded. Charter III.II untouched (derivation clause
+  re-verified intact post-W4).
+- **W4**: "enacted, amended, and recalibrated only through" counted at exactly 7 charter sites;
+  the III.II entitlement-and-derivation clause survives; laws.html charter-tier mirrors are
+  title-only index links, so the two-surface condition was vacuous as the run found.
+- **W5**: charter.html:258 cites the founding instrument via the established pointer pattern
+  (no LP token — charter purity clean); laws.html:895's gloss now reads "Articles XXV.IV
+  (Enforcement Escalation Ladder), XIV; the External Force Doctrine (founding instrument)".
+- **W6**: spot-census at source — N-6 (why-vmss:532 cites III.IV's conversion gradient; the L2
+  regression is cured), Case-A (whitepaper:805 carries the ceilings-not-the-list sentence),
+  LAYER-ALIGN ($2,500/-2 and $1,250/-3 matching the III.I baselines), N-2 (systems:281
+  reattributes to the Central Banking Authority), N-1 (faq:829 carries the LP-064 tier fence).
+
+## V.2 Deviations — all three ENDORSED
+
+1. **W2 scope qualifier adopted.** The verify-or-drop rule worked exactly as designed — in the
+   adopt direction. §IV.3.1's premise ("no verified corpus text establishes that layer scope")
+   was wrong: charter.html:423 establishes it and escaped the Part IV sweep. Recorded as the
+   **second correction charged against the architect's own record this cycle** (after S-6.2).
+2. **W1.6 no-fabrication.** The law-polling LP-064/069/070 entries are frozen-in-time original
+   ballot records (2206/2220/2211); the spec's presumption that they carried provenance rows
+   was the architect's. Declining to fabricate an anachronistic row is the frozen-record
+   principle applied correctly.
+3. **W4 III.III as a seventh site.** Sol's list was six; III.III already carried the two-verb
+   formula and harmonizing it serves O-4's own uniformity rationale. One-string revertible.
+
+## V.3 Sol cure closure map
+
+S1-F1 → W1 dual-track block + G2 · S1-F2 → the Sanctuary tally row · S1-F3 → the Presidential
+Disposition row · S2-F1 → the replacement holding + dual-scope Court note + footnote · S3-F1 →
+W2 · S5-F1 → W3. **All six findings closed; Sol's required order of cure 1–6 fully landed.**
+The blocker's re-opening is now guard-enforced, not merely drafted.
+
+## V.4 Verdict
+
+**Run L3b ACCEPTED.** No errata. The remaining gate is Jason's veto read — the six [VETO-READ]
+items consolidated in the worklog (Sanctuary tally · 75% Main federal point · 82%/75%
+lower-layer aggregate · Presidential certification framing · the F-6 clause · the W2 scope
+clause) — then PR, squash as `canon v23.0.0`, tag on the squash, and the two tags pushed from
+Jason's clone (v22.8.0 remains absent from origin).
