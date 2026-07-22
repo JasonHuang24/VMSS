@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-22
 **Raw results:** `v23-pressure-test-run4-results-chatgpt.md` (saved verbatim)
-**Config:** UNRECORDED AT PASTE TIME — registered protocol was smallest current GPT tier at default/untouched reasoning. **Ask Jason for the exact model + setting string and stamp both files.** (Run-3 exact settings for both models also still open.)
+**Config (stamped 2026-07-22, per Jason):** **GPT 5.6 Terra, HIGH reasoning.** Protocol deviation: registered design was default/untouched reasoning; actual was high. Consequence for interpretation: run 4 isolates model tier at fixed high effort (pairing with run 1's frontier-high), and the deploy-default fabrication floor remains untested. The floor result stands on its own terms — sub-frontier-at-high holds it. (Run-3 exact settings for both models still open.)
 **Verification:** 5 parallel subagents — four citation batches (S1–S5, S6–S10, S11–S15, S16–S20) and a three-stage adjudicator on the S14 GAP claim (verify → adversarial → steelman, whitepaper included). ~230 citations checked.
 
 ## Headline
@@ -56,11 +56,11 @@ The three-stage adjudication returned NARROWED, strongly toward defeated:
 | 2 | GPT-5 medium | 0 | 1 | ~1 | 0 | 3 (all narrowed) | none (false positives) |
 | 3 | GPT-5 low | 0 | 0 | 2–3 | 0 | 0 | none (known territory only) |
 | 3 | Opus low | 0 | 0 | ~6 minor | 0 | 1 (narrowed; queue-5 rediscovery) | novel seams; 1 rediscovery |
-| 4 | GPT small tier, default (setting unrecorded) | **0** | **0** | **~1** | **0** | 1 (narrowed; queue-7 rediscovery) | 1 rediscovery + novel seam framing (same-layer gift vector) |
+| 4 | GPT 5.6 Terra, high | **0** | **0** | **~1** | **0** | 1 (narrowed; queue-7 rediscovery) | 1 rediscovery + novel seam framing (same-layer gift vector) |
 
 **What run 4's first half adds to the campaign conclusions:**
 
 1. The zero-fabrication invariant extends **below the frontier tier** (one vendor so far). The guardrail hypothesis strengthens: attached-corpus + cite-or-flag + redraft-chain discipline appears to do the work, not model scale.
 2. The prediction record is now 0-for-3 waves, always in the same direction — every predicted degradation failed to appear. Standing lesson: stop predicting citation-hygiene collapse from config downgrades; the failure mode that actually varies is *altitude* (gap-vector scoping, attribution precision), not honesty.
-3. "Discovery requires high effort" needs a caveat: a small-tier default-config model produced a genuine narrowed rediscovery with a novel framing vector, matching Opus-low's profile. High effort remains the only config that has produced *enactable* gaps (LP-077/078), but rediscovery signal is available cheaply.
+3. "Discovery requires high effort" needs a caveat: a small-tier model (later confirmed to be running at HIGH reasoning — see config stamp) produced a genuine narrowed rediscovery with a novel framing vector, matching Opus-low's profile. High effort remains the only config that has produced *enactable* gaps (LP-077/078); rediscovery signal is available at sub-frontier cost.
 4. The name-collision traps (fiscal Trajectory Doctrine, LP-035 scope, LP-076 dual register, LP-074) have now defeated **me** more often than any tested model. Verification remains mandatory in both directions — the pipeline exists as much to check my suspicions as the runs' claims.

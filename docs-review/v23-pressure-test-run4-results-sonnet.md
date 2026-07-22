@@ -1,7 +1,7 @@
 # v23 Pressure Test — Run 4 Results (Claude/Sonnet, fabrication-floor test)
 
 **Date pasted:** 2026-07-22
-**Config:** UNRECORDED AT PASTE TIME — paste labeled only "Sonnet"; registered protocol was Claude Sonnet (current release) at default/untouched thinking. Ask Jason for the exact model name + setting string and stamp here. (Run-3 and run-4-ChatGPT exact settings also still open.)
+**Config (stamped 2026-07-22, per Jason):** **Claude Sonnet 5, HIGH (extended) thinking.** Protocol deviation: the registered design called for default/untouched thinking; the run actually used high. Run 4 therefore isolates model tier at fixed high effort (clean pair with run 1's frontier-high) — which also explains this run's Opus-like altitude and heavy verbatim quoting. (Run-3 exact setting strings still unrecorded.)
 **Saved verbatim below the divider.** The paste began with the bare label "Sonnet," excluded here.
 
 **Pre-verification observations (mine, recorded before the pipeline ran):**
