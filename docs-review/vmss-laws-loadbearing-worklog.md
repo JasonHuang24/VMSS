@@ -701,3 +701,39 @@ red-for-the-reason, then reverted):**
 
 **check-canon after W1+G2: 137 passed / 0 failed** (136 + G2). `law 8/60/22 of 90`, founding count
 60, Tier-1 30 — all unmoved. No CSS class added (existing classes reused; no build:css needed).
+Pushed `066896a`.
+
+## W2 — S3-F1: LP-064's 40% baseline made operative (`laws.html:710`)
+
+Sol S3-F1 (MAJOR): the receiver stated the 40% baseline conditionally ("**If** a family's
+baseline aggregate effective rate is 40%…") while Charter XXVII now fixes the fifth-child result
+categorically. With 50% compounding, fifth-child liability = baseline × 1.5³; only a baseline
+> ≈29.63% clears 100%, so a conditional "if 40%" does not guarantee the Charter's categorical
+result. Cure: state 40% as the operative baseline.
+
+| Site | Before → after |
+|---|---|
+| `laws.html:710` | "If a family's baseline aggregate effective rate is 40%: the third child raises it to 60%." → "The baseline aggregate effective rate is 40% for households in the layers the escalation curve reaches — +1 Sanctuary, Main Layer, and -1 Noncompliance. The third child raises it to 60%." |
+
+All (f2b) code-lp-064 pinned phrasings preserved as substrings — `baseline aggregate effective
+rate is 40%`, `raises it to 60%`, `raises it to 90%`, `raises it to 135%`, `escalation compounds
+at 50% per child beyond the threshold`, and the E-L2 trailing `under 60–90% escalation to survive
+long at 135%` all unmoved. **No pin change needed; check-canon 137/0.**
+
+**Deviation flagged — scope qualifier VERIFIED, therefore ADOPTED (contra §IV.3.1's premise):**
+§IV.3.1 instructed verify-or-drop on Sol's "+1, Main, and -1" scope qualifier, asserting "no
+verified corpus text establishes that layer scope for the escalation; Charter XXVII speaks of
+every citizen." That premise is contradicted at source: **`charter.html:423`** (Article XXVII)
+states verbatim *"The tax escalation curve applies in +1 Sanctuary, Main Layer, and -1
+Noncompliance — layers where VMSS maintains institutional economic presence. In -2 Violent Offense
+and -3 Terminal, no reproductive tax penalty is imposed."* The scope is therefore established
+canon, so the verify-or-drop rule's own condition ("adopt only if verified corpus text establishes
+that scope") resolves to **adopt**. I phrased the qualifier to the Charter's own verified scope
+rather than Sol's looser abbreviation. If Jason/architect prefer the receiver scope-neutral (to
+match faq/systems/whitepaper, which state "40% baseline" without the layer restriction), the clause
+"for households in the layers the escalation curve reaches — +1 Sanctuary, Main Layer, and -1
+Noncompliance" is strippable at the veto read with no other change. **[VETO-READ — scope clause]**
+
+Sweeps done per §20 W2: faq.html:829, systems.html:346, whitepaper.html:948/:2003 already state 40%
+declaratively (no tense fix needed — confirmed); no other LP-076 relocation row carried the
+conditional "If a family" phrasing (only laws.html:710 did).
