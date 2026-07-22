@@ -736,4 +736,26 @@ Noncompliance" is strippable at the veto read with no other change. **[VETO-READ
 
 Sweeps done per §20 W2: faq.html:829, systems.html:346, whitepaper.html:948/:2003 already state 40%
 declaratively (no tense fix needed — confirmed); no other LP-076 relocation row carried the
-conditional "If a family" phrasing (only laws.html:710 did).
+conditional "If a family" phrasing (only laws.html:710 did). Pushed `013b6c9`.
+
+## W3 — S5-F1: overtime derivation + rounding, federal-side only (`laws.html:853`)
+
+Sol S5-F1 (MINOR): the retained derivation lacks the ÷20 operator and the rounding rule, so the
+Protocol's "Every figure is recoverable from retained Charter text" claim is false for $15.63
+specifically. Cure, in the Overtime Premium Protocol entry only (Charter III.II untouched, per
+§IV.3.2):
+
+| Site | Added / changed |
+|---|---|
+| `laws.html:853` | + "The hourly index divides the weekly subsidy value by the 20 qualifying hours that unlock it, so $2,500 across those 20 hours indexes to $125." |
+| `laws.html:853` | + "The per-hour schedule rounds to the nearest cent, half up, before multiplication by qualifying overtime hours, so the terminal layer's exact **$15.625** prints as **$15.63**." |
+| `laws.html:853` | tempered: "Every figure is recoverable from retained Charter text by the derivation III.II keeps" → "Every figure is recoverable from the retained Charter derivation once this Protocol's indexing and rounding convention is applied — the weekly value divided by the 20 qualifying hours, rounded half up to the cent" |
+
+**Pin sensitivity (§IV.3.3), verified deliberately:** `$15.625` **first enters the corpus** — 1
+occurrence, in `code-lp-076` only (federal-side). Bare `$15.63` in `laws.html` goes 1 → 2 (the new
+"prints as $15.63"). Neither moves a (f2b) pinned count: the pinned phrasing is `$15.63/hr in -3`,
+still exactly **1** in `code-lp-076`; no guard counts bare `$15.63` or `$15.625`. **No pin update
+required.** All 5 code-lp-076 pinned phrasings preserved (`overtime rate of $125 per hour`,
+`$62.50/hr in -1`, `$31.25/hr in -2`, `$15.63/hr in -3`, `owes $1,250 in overtime`). check-canon
+**137/0**. Not [VETO-READ] — $15.625 is the exact pre-rounding derivation value, not an authored
+in-world fact.
