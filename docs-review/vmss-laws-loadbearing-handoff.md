@@ -368,3 +368,173 @@ Produce docs-review/vmss-laws-codification-proposal.md per §18.1's six numbered
 
 Gate: the proposal is the must-complete deliverable. Hard time box: ~2 hours of usage — commit and push at every completed milestone (mapping → concordance → partition → census → instrument → inventory), git push -u origin feat/vmss-laws-v23.0.0. check-canon must stay 136/0 throughout (you touch only docs-review/). When the proposal is pushed, STOP: Jason personally ratifies the mapping, the instrument design, and the cleanup dispositions before any L3b enactment exists. No PR, no merge, never main.
 ```
+
+## 19. Ratification record (the post-Sol consolidated gate, closed 2026-07-22)
+
+Jason, verbatim, after the Part IV triage report: **"I'm going to go with your reccomendation."**
+He then declined the itemized question dialog and directed continuation — recorded as adopting
+the architect recommendations across the open list, every item reversible at his veto read:
+
+1. **S1-F1 cure: Cure B** — the dual-track LP-076 record (explicitly recommended in Part IV §IV.2).
+   Cure A (companion ballot consuming LP-077) is off the table; **don't-file LP-077 therefore
+   stands** as ratified.
+2. **L3a proposal §8: ratified in full** as endorsed in Part III — 48/48 null mapping, XXII.II
+   left as a deliberate orphan numeral, cleanup dispositions (F-5 option 1, Case-A minimal cure,
+   LAYER-ALIGN option 2, LAYERS-CITE unchanged, N-1–N-8 as dispositioned).
+3. **Sol cures S1-F2, S1-F3, S2-F1, S3-F1, S5-F1: ratified** as triaged in Part IV, with the
+   Part IV §IV.3 caveats binding (scope-qualifier verify-or-drop; federal-side-only S5-F1; guard
+   discipline).
+4. **O-4: harmonize**, using Sol's uniform formula (architect recommended Part II; Sol concurred
+   S-6.1).
+5. **F-6: option 2** — the one-clause pointer cure at charter.html:258. The L3a proposal carried
+   no recommendation, but the Part III framing note ("the only option that cures the document,"
+   free only pre-merge) is the architect recommendation the directive adopts. **Flagged
+   [VETO-READ]: one clause, strippable at the veto read at zero cost if Jason wants it out.**
+   N-5 is cured in the same direction, per the proposal's own dependency note.
+6. **Presidency-as-setter: dissolved** (S-6.2 — Article XXII already names the setter). Only the
+   consultation certification remains, inside Cure B's results table.
+7. **Thin keeps: closed** — Sol sustained all eight; no demotions.
+8. **Arbitration register: empty** — no rejected findings existed to escalate.
+
+The authored in-world facts Cure B requires (lower-layer aggregate result and set point, Sanctuary
+closing tally, certification dates, consultation line) are **drafted by Opus under §20's
+constraints and flagged [VETO-READ]** — Jason blesses or edits them at the veto read before merge.
+
+## 20. Run L3b execution spec (the final content run; supplements §14's conventions)
+
+Branch `feat/vmss-laws-v23.0.0`. Baseline entering: check-canon **136/0**. Content authorities,
+in order: this §19–§20 · the Part IV triage (loadbearing-review.md) · the Sol findings verbatim
+(vmss-laws-sol-review-findings.md) · the L3a proposal §6 (codification-proposal.md) · Parts I–III.
+Where Sol's cure text and a Part IV caveat conflict, the caveat wins.
+
+**W1 — Cure B: recast LP-076 as a paired dual-track instrument** (law-polling.html, LP-076 record).
+The 2296 filing ran the Article XI amendment ladder AND the concurrent Article XXV.VI federal
+enactment ladder in one window; each gate certified independently. Edits:
+1. **Scope meta-field** names both processes as a paired instrument.
+2. **Threshold meta-field** carries both ladders: the existing amendment line, plus federal —
+   60% Meritboard · 6/10 Court · Sanctuary 90% · Main 70–80% (point set at filing) · lower-layer
+   aggregate 70–80% (point set at filing) · Presidential veto.
+3. **Results table** becomes a certified dual block:
+   - Meritboard 88% — certified against both floors (70% amendment / 60% federal).
+   - Supreme Court 9/10 — both scopes named; the scope note REWRITTEN per S2-F1 (see W1.4).
+   - Main Layer 81% — against the 80% amendment point and the federal point (author a point in
+     70–80, fixed at filing).
+   - Sanctuary — closing tally authored: yes / **no = 0** / abstain, serving full-agreement
+     consensus and the 90% federal track in one count. [VETO-READ]
+   - Lower-layer aggregate (-1/-2/-3) — authored result clearing an authored point in 70–80.
+     This is the one vote that never existed; draft it plausible against the record's tone
+     (XXV.VI's own text: lower layers draw disproportionate benefit from federal reach). [VETO-READ]
+   - Presidential disposition — veto not exercised, certified at window close 2299; both set
+     points fixed at filing (2296) after Article XXII consultation with the Court, unaltered
+     after the window opened. [VETO-READ dates]
+4. **Summary paragraphs**: first paragraph gains the dual-track framing; third paragraph's
+   holding "changes no number and no right … only effect … which register a schedule is read
+   from" is REPLACED, Sol's S2-F1 draft as base: changes no present magnitude or substantive
+   entitlement; does change the competent lawmaking tier, future ratification constituencies,
+   and degree of entrenchment for each relocated schedule. Soften "already being recalibrated
+   by federal instruments" to what the record can prove (administered adjacent mechanics,
+   specified around the rates). KEEP the Meritboard reservation closer verbatim. One incidence
+   statement, echoed consistently — including the Court scope note and the italic footnote.
+5. **Italic footnote**: still first-success/1-for-8; add that the paired federal track made it
+   the widest ballot in the register's history (five layers); "lowest point ever set" stays,
+   scoped to the amendment track.
+6. **Receiver provenance audit**: every "received … by LP-076" row (laws.html LP-064 / LP-069 /
+   LP-070 / Central Banking Authority / Overtime Premium Protocol; law-polling.html LP-064 /
+   LP-069 / LP-070 entries) minimally edited so the enacting process reads as LP-076's
+   concurrent Article XXV.VI track. No magnitude changes anywhere in W1.
+7. charter.html untouched by W1. Register count untouched: 90 = 8/60/22 stands.
+
+**W2 — S3-F1: the operative baseline** (laws.html, LP-064 Code entry). "If a family's baseline
+aggregate effective rate is 40%:" becomes a declarative operative baseline ("The baseline
+aggregate effective rate is 40%. The third child raises it to 60%. …"). Sol's layer-scope
+qualifier ("+1, Main, and -1") is VERIFY-OR-DROP: adopt only if verified corpus text establishes
+that scope; otherwise omit. Sweep FAQ / Systems / Whitepaper worked examples for tense
+consistency (they already treat 40% as actual); sweep the LP-076 relocation rows for any echo
+of the conditional phrasing.
+
+**W3 — S5-F1: derivation and rounding, federal-side only** (laws.html, Overtime Premium
+Protocol entry). Add: the hourly index divides the weekly subsidy value by the 20 qualifying
+hours that unlock it; the per-hour schedule rounds to the nearest cent, half up, before
+multiplication by qualifying overtime hours ($15.625 prints as $15.63). Temper "Every figure
+is recoverable from retained Charter text" — recoverable via the indexing and rounding
+convention this Protocol states. Charter III.II is NOT touched. If "$15.63" gains an occurrence
+or "$15.625" first enters the corpus, update the (f2b) pins deliberately, in the same commit.
+
+**W4 — O-4 harmonization** (charter.html + mirrored charter-tier laws.html entries). Census the
+grant sites (grep "federal law" in charter.html; expect the six from Sol's S-6.1 list). Apply
+the uniform formula per site — "… is federal law, enacted, amended, and recalibrated only
+through the Article XXV.VI ladder and consolidated in VMSS Laws. The Charter fixes [that site's
+retained architecture] and reaches no [rate / band / threshold / window]." — preserving each
+site's existing anchor links. Charter tier is TWO surfaces: any edited sentence mirrored in a
+laws.html data-tier="charter" entry is edited on both, same commit. Consolidation-fidelity /
+(f2b) pins updated deliberately where phrasing counts move.
+
+**W5 — F-6 option 2 + N-5** (charter.html:258; laws.html:895). One clause at :258 citing the
+founding instrument — pointer pattern per the five precedents (:190, :196, :209, :235, :419),
+target `laws.html#code-fc-external-force-doctrine`. [VETO-READ]. Then N-5: correct LP-005.3's
+Charter-anchor gloss (XXV.IV is the Enforcement Escalation Ladder; the Doctrine resolves at the
+founding instrument, not at XXV.IV), per the proposal's N-5 row.
+
+**W6 — the ratified cleanup round** (proposal §6 dispositions, as ratified in §19.2): F-5
+option 1 · Case-A minimal cure at whitepaper.html:805 (one sentence: XXV.I–XXV.III sit at
+Charter tier by deliberate placement, ceilings not the list; the prohibition list is federal and
+grows through the ladder) · LAYER-ALIGN option 2 · N-1 (faq.html:829) / N-2 (systems.html:281) /
+N-4 via the systems.html:263 attribution pattern · N-3 sharpened to "under LP-076, consolidated
+in the Central Banking Authority" · N-6 redrafted citing III.IV · N-7 / N-8 / LAYERS-CITE left.
+
+**W7 — guards** (tools/check-canon.mjs, house rules: rule-scoped never digit-scoped;
+occurrence-counting never existence-testing; per-phrasing never alternations; every new or
+changed check mutation-tested red for the reason under test):
+- **G1**: the charter-TOC guard from the proposal (TOC ↔ heading census).
+- **G2 (new, lands with W1)**: the dual-track block stands — LP-076's record carries exactly one
+  lower-layer aggregate row, exactly one Presidential disposition row, and a Sanctuary tally
+  certifying zero standing no; occurrence-counted per phrasing.
+- Expected final baseline **138/0** (136 + G1 + G2); every deliberate pin change documented in
+  the run report with its cause.
+
+**Sequencing** W1 → G2 → W2 → W3 → W6 → W5 → W4 → G1. check-canon green after every W (pin
+updates land in the same commit as their cause). Milestone push after each W.
+
+**Prohibitions**: no pending-ratify-* edits · docs-review/sol-packet/ untouched · no Charter
+heading or anchor changes · no register-count change (90 = 8/60/22) · no new LP numbers ·
+founding count stays 60 · frozen records are evidence, not targets · no PR, no merge, never main.
+
+**Report**: per-item census (file:line, before → after) · all [VETO-READ] authored facts listed
+in one block for Jason · deviations from spec flagged · final check-canon output · worklog gains
+a Run L3b section. Then STOP: architect Part V review → Jason's veto read → PR → squash as
+`canon v23.0.0` + tag.
+
+## 21. Run L3b launch block (paste into a fresh Opus session, repo root)
+
+```
+You are Opus, executing Run L3b — the final content run of the VMSS laws v23.0.0 project. The
+architect (a separate session) specifies and reviews; you execute. Work on branch
+feat/vmss-laws-v23.0.0: git fetch origin feat/vmss-laws-v23.0.0 && git checkout
+feat/vmss-laws-v23.0.0. Baseline: node tools/check-canon.mjs must print 136 passed / 0 failed
+before you edit anything.
+
+Read first, in order: docs-review/vmss-laws-loadbearing-handoff.md §19–§20 (the ratification
+record and YOUR BINDING SPEC) · docs-review/vmss-laws-loadbearing-review.md Part IV (the triage;
+its §IV.3 caveats override Sol's literal cure text) · docs-review/vmss-laws-sol-review-findings.md
+(the external review being cured) · docs-review/vmss-laws-codification-proposal.md §6 (the
+ratified cleanup dispositions).
+
+Execute §20's seven work items in its stated sequence: W1 dual-track LP-076 record → G2 guard →
+W2 LP-064 operative baseline → W3 overtime derivation/rounding → W6 cleanup round → W5 F-6
+pointer + N-5 → W4 grant harmonization → G1 charter-TOC guard. Every in-world fact you author
+(tallies, set points, dates) gets a [VETO-READ] flag in your report — Jason blesses them before
+merge. Verify-or-drop rules in §20 are binding: never import an unverified claim inside a cure.
+
+House rules: check-canon green after every work item; guard pin changes deliberate,
+mutation-tested red for the reason under test, landing in the same commit as their cause;
+stat cards 90 = 8/60/22 and founding count 60 are fixed; frozen pending-ratify-* records and
+docs-review/sol-packet/ are untouchable; expected final baseline 138/0. Hard time box: ~2 hours
+of usage — commit and push at every completed work item, git push -u origin
+feat/vmss-laws-v23.0.0. Commit messages end "Co-Authored-By: Claude Opus
+<noreply@anthropic.com>". Worklog: docs-review/vmss-laws-loadbearing-worklog.md, new Run L3b
+section, per-item census plus the consolidated [VETO-READ] block.
+
+When W1–W7 are pushed with 138/0, STOP. No PR, no merge, never main. The architect runs the
+Part V review, Jason takes the veto read (including every [VETO-READ] fact and the F-6 clause),
+and only then does the squash-and-tag as canon v23.0.0 happen — outside your session.
+```
