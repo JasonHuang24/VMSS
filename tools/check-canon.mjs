@@ -760,6 +760,41 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
       lostNegatives.length ? lostNegatives.join('; ') : `${NEGATIVE_MAGNITUDES.length} negative magnitudes present at their pinned counts`);
   }
 
+  /* (g1) CHARTER TABLE-OF-CONTENTS CENSUS (v23.0.0, proposal §6 G1). charter.html
+     carries a hand-authored table of contents (the .law-toc block) that restates
+     all thirty unit titles and numerals a second time inside the same file.
+     build-law-toc.mjs never opens charter.html and no other check reads its
+     toc-txt, so until now a renamed heading or a re-ordered article could leave
+     this index silently disagreeing with the text it indexes — the exact
+     hand-maintained-number failure class this script exists to make impossible.
+     The invariant the proposal verified by hand: every toc-link resolves to a
+     heading on the page, and its toc-txt is the exact tail of that heading's
+     title (the heading carries the "Article N – " prefix the row drops).
+     Thirty rows — Preamble + 28 articles + Founding Affirmation — matching the
+     Tier-1 index count. Retarget, never delete: a title change must land on both
+     the heading and its row, which is precisely the drift this catches. */
+  {
+    const charterSrc = read('charter.html');
+    const decodeToc = (s) => s.replace(/<[^>]+>/g, '')
+      .replace(/&amp;/g, '&').replace(/&middot;/g, '·')
+      .replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&rsquo;/g, '’')
+      .replace(/\s+/g, ' ').trim();
+    const charterHeadings = new Map(
+      [...charterSrc.matchAll(/<h2 id="([\w-]+)"[^>]*>([\s\S]*?)<\/h2>/g)]
+        .map((m) => [m[1], decodeToc(m[2])]));
+    const tocRows = [...charterSrc.matchAll(/<a href="#([\w-]+)" class="toc-link"><span class="toc-num">([^<]*)<\/span> <span class="toc-txt">([\s\S]*?)<\/span><\/a>/g)]
+      .map((m) => ({ anchor: m[1], num: decodeToc(m[2]), txt: decodeToc(m[3]) }));
+    const tocMiss = tocRows.flatMap((r) => {
+      const heading = charterHeadings.get(r.anchor);
+      if (heading === undefined) return [`toc "${r.num} ${r.txt}" → #${r.anchor} resolves to no <h2>`];
+      return heading.endsWith(r.txt) ? [] : [`toc "${r.txt}" is not the tail of heading "${heading}" (#${r.anchor})`];
+    });
+    check(tocRows.length === 30 && tocMiss.length === 0,
+      'charter TOC census: 30 rows, each toc-txt is the exact tail of its heading (proposal G1)',
+      tocMiss.length ? tocMiss.join('; ')
+        : (tocRows.length !== 30 ? `${tocRows.length} toc rows, expected 30` : '30 toc rows resolve and tail-match their headings'));
+  }
+
   /* (f3) CODE INTEGRITY GUARDS (v22.7.0, architecture §7.3). laws.html is a
      consolidation of an enacted record, so the failure mode it can develop is
      silent divergence from that record. These convert that into CI red.

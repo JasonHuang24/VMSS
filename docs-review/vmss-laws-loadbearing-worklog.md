@@ -858,4 +858,81 @@ leaving III.III as the lone 2-verb variant would reintroduce the asymmetry the h
 to remove. I therefore harmonized III.III too (accurate: the tax schedule is likewise amended only
 through XXV.VI). If Jason prefers III.III left at the 2-verb precedent, reverting just its "amended,
 and … only" is a one-string change at the veto read. No [VETO-READ] in-world fact in W4 (textual
-uniformity only).
+uniformity only). Pushed `d1f778f`.
+
+## G1 — charter table-of-contents census guard (`tools/check-canon.mjs`, (g1))
+
+The proposal's standing G1 finding: charter.html carries a hand-authored table of contents
+(`.law-toc`, ~:104–:141) restating all 30 unit titles and numerals a second time inside the same
+file — `build-law-toc.mjs` never opens charter.html and no check read its `toc-txt`, so a renamed
+heading or re-ordered article could leave the index silently disagreeing with the text. New guard
+`(g1)` enforces the invariant the proposal verified by hand: **30 toc-link rows** (Preamble + 28
+articles + Founding Affirmation), each resolving to an `<h2>` on the page, with the row's `toc-txt`
+the **exact tail** of that heading's title (the heading carries the "Article N – " prefix the row
+drops). Entity-decoded on both sides; retarget-never-delete. **Mutation-tested (both
+red-for-the-reason, then reverted):**
+- Probe A — toc-txt "Economic Framework" → "Economic Frameworks": FAIL "toc 'Economic Frameworks'
+  is not the tail of heading 'Article III – Economic Framework' (#article-iii)".
+- Probe B — deleted the Article XXVI toc row: FAIL "29 toc rows, expected 30". Only G1 fired
+  (137 passed, 1 failed) — confirming G1 is the sole enforcer of this census, the exact gap it fills.
+
+**check-canon after G1: 138 passed / 0 failed** — the expected final baseline (136 + G2 + G1).
+
+---
+
+# Run L3b — final report
+
+**Baseline movement:** 136/0 (entry) → **138/0 (exit)**, delta +2 = **G2** (dual-track ballot
+completeness, lands with W1) + **G1** (charter-TOC census). Both mutation-tested red-for-the-reason
+and reverted. No other guard count moved; no existing guard weakened or deleted; no pin change was
+required by any content edit (W2/W3 preserved every (f2b) phrasing as a substring; W6/W5/W4 touched
+no pinned magnitude).
+
+**Commits pushed to `feat/vmss-laws-v23.0.0` (sequence W1→G2→W2→W3→W6→W5→W4→G1):**
+`066896a` (W1+G2) · `013b6c9` (W2) · `7fa3b57` (W3) · `8a14c72` (W6) · `92f2c72` (W5) · `d1f778f`
+(W4) · this commit (G1).
+
+**Invariants held at every commit:** check-canon green; register count `90 = 8/60/22`; founding
+count `60`; Tier-1 index `30`; `build:css` no diff (every class reused). No pending-ratify-* edit,
+no `docs-review/sol-packet/` touch, no Charter heading/anchor change, no new LP number, no history
+rewrite / force-push / tag.
+
+## Consolidated [VETO-READ] block — every authored in-world fact, for Jason
+
+All authored facts live in the LP-076 record (`law-polling.html`) except the F-6 clause. Each is
+reversible at the veto read.
+
+1. **Sanctuary closing tally — 98% yes · 0 no votes · 2% abstaining** (results table). Authored to
+   certify full-agreement consensus (zero standing no) and clear the 90% federal Sanctuary floor in
+   one count. "0 no votes" is load-bearing for both the consensus gate and Sol S1-F2; G2 pins it.
+2. **Main Layer federal point — 75%** (in 70–80%, set at filing). The existing 81% Main result now
+   clears both the 80% amendment point (unchanged) and this authored federal point.
+3. **Lower-Layer Aggregate — 82% yes against a 75% federal point** (set at filing). The one ballot
+   that never existed pre-Cure-B; drafted plausible against the record's tone (XXV.VI: lower layers
+   draw disproportionate benefit from federal reach). G2 pins the row's presence.
+4. **Presidential Disposition — veto not exercised, certified at window close (2299); both
+   population set points fixed at filing (2296) after Article XXII consultation with the Court,
+   unaltered after the window opened.** Dates 2296/2299 pre-existed; the certification framing is
+   authored. G2 pins the row's presence.
+5. **F-6 clause (`charter.html:258`)** — the one-clause pointer citing the External Force Doctrine's
+   founding instrument. Strippable at zero cost if Jason leaves the Doctrine a doctrine question.
+6. **W2 scope clause (`laws.html:710`)** — "for households in the layers the escalation curve
+   reaches — +1 Sanctuary, Main Layer, and -1 Noncompliance." Not invented: verified at
+   `charter.html:423`. Strippable if a scope-neutral receiver is preferred.
+
+## Deviations flagged (fuller detail in each W section above)
+
+- **W2 scope qualifier ADOPTED, not dropped** — §IV.3.1's premise that the escalation scope is
+  unverified is contradicted at `charter.html:423`; the verify-or-drop rule's own condition resolves
+  to adopt. [VETO-READ #6]
+- **W1.6 law-polling.html LP-064/069/070 ballot records** carry no "received by LP-076" row (they
+  are the original 2206/2220/2211 enactment records); the 2299 provenance lives only in the Code. No
+  edit made there — no anachronistic row fabricated.
+- **W4 III.III harmonized beyond Sol's literal six** for textual uniformity (O-4's own rationale);
+  one-string revertible.
+- **F-6 / W5** direction is Jason's doctrine call; executed as ratified option 2, with N-5 following
+  the same direction.
+
+**STOP per §20/§21:** W1–W7 pushed at 138/0. No PR, no merge, never main. Architect runs the Part V
+review; Jason takes the veto read (every [VETO-READ] fact above + the F-6 clause); then the
+squash-and-tag as `canon v23.0.0` happens outside this session.
