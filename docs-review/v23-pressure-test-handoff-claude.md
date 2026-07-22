@@ -1,6 +1,7 @@
 # VMSS v23 Law Pressure Test — Handoff Prompt (Claude)
 
-**Run with:** Claude Opus 4.8, **extended thinking ON** (Fable 5 optional for a later re-run).
+**Run 1 (complete, verified):** Claude Opus 4.8, extended thinking ON. Results: `v23-pressure-test-results-opus.md`; review: `v23-pressure-test-review-opus.md`.
+**Run 2 (effort experiment):** Claude Opus 4.8, **extended thinking OFF** (or the lowest/medium thinking setting the UI offers). The prompt below stays byte-identical — the only variable is reasoning effort. Purpose: measure whether defect rate, false-gap rate, and finding selection shift when the model thinks less. Note against the corpus as it stood at run 1 (LP-001–LP-076): LP-077/LP-078 were enacted after run 1's findings, so a run-2 model working from updated files may correctly find the S20/S9 territory already covered — that is a valid finding, not an error.
 **Attach:** `laws.html`, `law-polling.html`, `charter.html` (adjudicate strictly from these three files — do not import outside assumptions).
 
 ---

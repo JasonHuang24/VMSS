@@ -1,6 +1,7 @@
 # VMSS v23 Law Pressure Test — Handoff Prompt (ChatGPT)
 
-**Run with:** GPT-5 Thinking (or the newest flagship "Thinking" model available), **reasoning effort: Extended/Heavy**.
+**Run 1 (complete, verified):** GPT-5 Thinking, extended reasoning. Results: `v23-pressure-test-results-chatgpt.md`; review: `v23-pressure-test-review-chatgpt.md`.
+**Run 2 (effort experiment):** same model, **reasoning effort: standard/medium** (not extended). The prompt below stays byte-identical — the only variable is reasoning effort. Purpose: measure whether defect rate, false-gap rate, and finding selection shift when the model thinks less. Note: LP-077/LP-078 were enacted after run 1; if run 2 attaches updated corpus files, finding the fork/MGD-sensor territory covered is a valid result, not an error.
 **Attach:** `laws.html`, `law-polling.html`, `charter.html` (adjudicate strictly from these three files — do not import outside assumptions).
 
 ---
