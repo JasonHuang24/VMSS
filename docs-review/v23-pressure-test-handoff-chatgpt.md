@@ -1,7 +1,8 @@
 # VMSS v23 Law Pressure Test — Handoff Prompt (ChatGPT)
 
 **Run 1 (complete, verified):** GPT-5 Thinking, extended reasoning. Results: `v23-pressure-test-results-chatgpt.md`; review: `v23-pressure-test-review-chatgpt.md`.
-**Run 2 (effort experiment):** same model, **reasoning effort: standard/medium** (not extended). The prompt below stays byte-identical — the only variable is reasoning effort. Purpose: measure whether defect rate, false-gap rate, and finding selection shift when the model thinks less. Note: LP-077/LP-078 were enacted after run 1; if run 2 attaches updated corpus files, finding the fork/MGD-sensor territory covered is a valid result, not an error.
+**Run 2 (complete, verified):** GPT-5 Thinking, standard/medium reasoning, post-enactment corpus. Results: `v23-pressure-test-run2-results-chatgpt.md`; review: `v23-pressure-test-run2-review-chatgpt.md`. Signature degradation: envelope-sweep depth — 3 overbroad GAP claims all narrowed under the steelman protocol; 1 fabricated number; citation hygiene otherwise excellent.
+**Run 3 (low-effort experiment):** **lowest reasoning setting available** (e.g. GPT-5 Instant / minimal reasoning — record which). Prompt below stays byte-identical; only the effort knob moves. Registered predictions from the run-2 findings: more overbroad gap claims with defeating text nearby; fabricated numbers multiply; possible first fabricated instrument or superseded-pass citation (zero of each so far across all four runs); shallower per-scenario sweeps. Corpus note: attached files include enacted LP-077–079 beyond the prompt's stated LP-076 range — finding that territory covered is valid; run-2 GPT-5 noticed and flagged the range extension unprompted, so whether run 3 also notices is a data point.
 **Attach:** `laws.html`, `law-polling.html`, `charter.html` (adjudicate strictly from these three files — do not import outside assumptions).
 
 ---
