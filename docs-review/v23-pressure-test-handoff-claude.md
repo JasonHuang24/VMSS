@@ -1,6 +1,6 @@
 # VMSS v23 Law Pressure Test — Handoff Prompt (Claude)
 
-**Run with:** Claude Fable 5 (or Claude Opus 4.8 if Fable is unavailable), **extended thinking ON / highest reasoning effort**.
+**Run with:** Claude Opus 4.8, **extended thinking ON** (Fable 5 optional for a later re-run).
 **Attach:** `laws.html`, `law-polling.html`, `charter.html` (adjudicate strictly from these three files — do not import outside assumptions).
 
 ---
