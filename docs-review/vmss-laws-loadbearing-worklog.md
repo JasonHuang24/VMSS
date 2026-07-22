@@ -936,3 +936,16 @@ reversible at the veto read.
 **STOP per §20/§21:** W1–W7 pushed at 138/0. No PR, no merge, never main. Architect runs the Part V
 review; Jason takes the veto read (every [VETO-READ] fact above + the F-6 clause); then the
 squash-and-tag as `canon v23.0.0` happens outside this session.
+
+## Release closure — canon v23.0.0 (2026-07-22)
+
+PR #31 squash-merged to main as `e7d640d` ("canon v23.0.0: the Enabling Consolidation
+Amendment — five Charter schedules to federal tier; dual-track LP-076; Sol peer-review cures"),
+tree byte-identical to the reviewed branch, CI green, gate 138/0 on the merged tree. Both
+canon tags pushed from Jason's desktop clone by the Opus implementor (this cloud environment
+cannot push tags) and independently verified by the architect via ls-remote: annotated
+`v22.8.0` → `9638212` and `v23.0.0` → `e7d640d`, message convention `canon vX.Y.Z — <descriptor>`
+mirrored from v22.6.0/v22.7.0. Recorded here per §9's history discipline — the tag run itself
+was forbidden file edits, so its instruction and outcome are entered by the architect on its
+report. The v23.0.0 cycle is closed. Open residue carried forward, all non-blocking: PART 3
+contradiction flags, #55 disposition, Sol's Article XXIII editorial note (future cycle).
