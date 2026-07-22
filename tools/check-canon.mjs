@@ -209,17 +209,64 @@ const statusOfLp = (id) => {
    drafting designations live off-register, labeled as designations (guard (b2)).
 
    (a1) The register's LP-074 is RATIFY-TAX-50-II, not a restored drafting text.
-   (a2) The old number is fully retired from the tree: a stale #lp-076 would be a
-        link into a slot the register no longer has. */
+   (a2) The old LP-076 designation is fully retired: the number was a drafting
+        designation that never registered in world, and RATIFY-TAX-50 content
+        may never reappear under it. RETARGETED at v23.0.0: R15's own holding is
+        that in-world numbering takes the next true number, so a number that was
+        never consumed in world is available. The Enabling Consolidation
+        Amendment was ratified into the lp-076 slot in 2299. The guard therefore
+        no longer asserts the slot is empty — it asserts the slot is not the old
+        designation: any lp-076 entry must be the amendment, and must carry no
+        RATIFY-TAX-50 subject matter. Deleting either half re-opens the exact
+        hole (a2) was written to close. */
 {
   const entry = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-074"')) || '';
   check(entry.includes('RATIFY-TAX-50-II'),
     "register's LP-074 is RATIFY-TAX-50-II (R15: the R14 law takes the next true number)",
     entry ? 'entry present, titled RATIFY-TAX-50-II' : 'no lp-074 entry');
 
-  const stale = [...law.matchAll(/\blp-076\b/gi)].map((m) => m[0]);
-  check(stale.length === 0, 'register carries no LP-076 (R15 renumber complete)',
-    stale.length ? `found ${stale.length}` : 'clear');
+  const lp076 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-076"')) || '';
+  const lp076Ok = lp076.includes('The Enabling Consolidation Amendment') && !/RATIFY-TAX-50/.test(lp076);
+  check(lp076Ok, 'register\'s LP-076 is the Enabling Consolidation Amendment, never the retired RATIFY-TAX-50 designation (R15)',
+    lp076 ? (lp076Ok ? 'entry present, titled the Enabling Consolidation Amendment' : 'lp-076 entry is not the amendment, or carries RATIFY-TAX-50 subject matter') : 'no lp-076 entry');
+}
+
+/* (f2c) DUAL-TRACK BALLOT COMPLETENESS (LP-076, v23.0.0, Cure B — Sol S1-F1/F2/F3).
+   Cure B recast LP-076 as a paired instrument: it ran the Article XI amendment
+   ladder AND a concurrent Article XXV.VI federal-enactment ladder in one window.
+   The federal receivers (the Overtime Premium Protocol, the Central Banking
+   Authority, LP-064/069/070) are federal law and could only be enacted by the
+   five-layer XXV.VI electorate — the very layers Article XI excludes. The
+   record therefore MUST publish the two rows that electorate adds, the
+   lower-layer aggregate and the Presidential disposition, and it must certify
+   the Sanctuary close as full agreement with zero standing no — the single
+   count that serves both the consensus gate and the 90% federal Sanctuary
+   floor. Deleting any of the three re-opens the exact blocker (S1-F1) Cure B
+   closed: a Charter vote that removed the schedules while the federal
+   replacements were never enacted by their required constituency.
+
+   Occurrence-counting per phrasing (design note (4) of (f2b)): a duplicated
+   lower-layer row, a dropped Presidential row, or a Sanctuary cell that no
+   longer prints the zero-no tally each go red for their own reason. Scoped to
+   the LP-076 register block so other entries' identically-labelled rows are
+   invisible here. Counted on the raw block because `normalizedText` is not in
+   scope this early in the file and the pinned strings are exact HTML anyway. */
+{
+  const lp076Rec = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-076"')) || '';
+  const occ = (h, n) => h.split(n).length - 1;
+  const DUAL_TRACK = [
+    ['lower-layer aggregate row (the federal electorate Article XI excludes)', '<th scope="row">Lower-Layer Aggregate</th>', 1],
+    ['Presidential disposition row (veto + consultation certification)', '<th scope="row">Presidential Disposition</th>', 1],
+    ['Sanctuary zero-standing-no certification (consensus + 90% federal floor)', '0 no votes', 1],
+  ];
+  const dualTrackMiss = DUAL_TRACK.flatMap(([label, needle, want]) => {
+    const n = occ(lp076Rec, needle);
+    return n === want ? [] : [`${label}: "${needle}" × ${n}, expected ${want}`];
+  });
+  check(dualTrackMiss.length === 0,
+    'LP-076 dual-track record carries both federal-electorate rows and certifies Sanctuary zero standing no (Cure B, occurrence-counting)',
+    dualTrackMiss.length ? dualTrackMiss.join('; ')
+      : 'dual-track block complete: lower-layer + Presidential rows present once, Sanctuary tally certifies 0 no');
 }
 
 /* (b) The deregistered texts survive verbatim off-register. Deregistration is
@@ -527,12 +574,24 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
      guard is what stops it coming back: the Charter states no subordinate-tier
      rate or schedule, and references no LP instrument outside a whitelist.
 
-     Scope is deliberately exact. "No rate or schedule", not "no LP reference" —
-     charter:247's LP-069 mention is category A under architecture §5 and is
-     whitelisted here until the Phase 3 III.VII cure relocates it. Article
-     III.II's PJS overtime figures ($125 / $62.50 / $31.25 / $15.63) are
-     genuinely enacted Charter text, are category B under §5, and do not match
-     the cascade regex — verified, not assumed. */
+     Scope is deliberately exact. "No rate or schedule", not "no LP reference".
+
+     RETARGETED at v23.0.0 by the Enabling Consolidation Amendment (LP-076).
+     Both scope notes this comment used to carry are now spent, and both are
+     recorded rather than deleted because the next reader will otherwise
+     re-derive them:
+       · The LP-069 whitelist entry is retired — the amendment relocated the
+         III.VII savings-base reference, discharging the Phase 3 TODO. The
+         whitelist is empty by removal.
+       · Article III.II's PJS overtime figures ($125 / $62.50 / $31.25 /
+         $15.63) are no longer Charter text at all; they are LP-076's Overtime
+         Premium Protocol. The old claim that they "do not match the cascade
+         regex" was re-verified before being retired, not inherited: the
+         cascade regex requires 50 / 25 / 12.5 / 6.25 with percent semantics,
+         and the PJS figures are dollar amounts in a different ratio, so they
+         never matched and their departure changes nothing here.
+     What now enforces their absence is guard (f2b) below, which is
+     rule-scoped and occurrence-counting rather than cascade-shaped. */
   {
     const charterSrc = read('charter.html');
     const charterText = normalizedText(charterSrc);
@@ -540,11 +599,14 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(!cascadeHit, 'charter purity: the Charter states no subordinate-tier rate cascade',
       cascadeHit ? `found "${cascadeHit}"` : 'no exact-cascade match on the constitutional surface');
 
-    /* Whitelist is by LP number, and it is a list of exactly one. Adding to it
-       requires an architecture citation; the entry below carries its own. */
-    const CHARTER_LP_WHITELIST = new Map([
-      ['LP-069', 'architecture §5 category A — III.VII savings-base attribution; Phase 3 TODO: relocate with the III.VII text cure'],
-    ]);
+    /* Whitelist is by LP number. Adding to it requires an architecture
+       citation. EMPTIED BY REMOVAL at v23.0.0: the sole entry, LP-069, was
+       whitelisted with a standing Phase 3 TODO to relocate with the III.VII
+       text cure. The Enabling Consolidation Amendment performed that cure —
+       charter.html's savings-base paragraph now cites federal law and VMSS
+       Laws rather than the LP number — so the entry is retired, not blanked.
+       The staleness check below is why blanking would not have worked. */
+    const CHARTER_LP_WHITELIST = new Map([]);
     const lpRefs = [...new Set([...stripComments(charterSrc).matchAll(/\bLP-\d[\d.]*/g)].map((m) => m[0]))];
     const unlisted = lpRefs.filter((lp) => !CHARTER_LP_WHITELIST.has(lp));
     check(unlisted.length === 0, 'charter purity: no unwhitelisted LP reference on the Charter page',
@@ -552,6 +614,185 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     const stale = [...CHARTER_LP_WHITELIST.keys()].filter((lp) => !lpRefs.includes(lp));
     check(stale.length === 0, 'charter purity: whitelist carries no entry the Charter no longer references',
       stale.length ? `retire from whitelist: ${stale.join(', ')}` : 'whitelist exactly matches the survivors');
+  }
+
+  /* (f2b) THE ENABLING CONSOLIDATION AMENDMENT (LP-076, v23.0.0).
+     Three guards holding the amendment's own claim: it changed no magnitude
+     and no right, it only changed which register a schedule is read from.
+
+     Design constraints, both learned the hard way in the Run L1 register and
+     binding on anyone who edits this block:
+
+     (1) RULE-SCOPED, NEVER DIGIT-SCOPED. `90-99%` is III.IV's forfeiture band
+         AND LP-071's founding net-worth cap, which legitimately survives at
+         rate-history.html:160, law-polling.html and the tax-50 supplemental.
+         A digit-matching purity guard collides with a rule that never moved.
+         Every pattern below therefore carries its own rule context.
+     (2) OCCURRENCE-COUNTING, NEVER EXISTENCE-TESTING. Canon restates its own
+         magnitudes across articles — III.VIII:242 restated III.VII's trigger
+         and rate, and III.IV:202 restated III.V's band endpoints (erratum
+         E-L1, the occurrence the L1 register missed). A relocation that
+         leaves one restatement behind leaves the magnitude at Charter tier.
+         The relocated set is enumerated per RULE, and every rule's every
+         phrasing is listed.
+     (3) The Charter side asserts ABSENCE, the Code side asserts PRESENCE, and
+         both run off the same table. Deleting a row silently retires both
+         halves at once, which is the only way to weaken this quietly.
+     (4) PER-PHRASING, NEVER PER-RULE. Phase V refuted the first draft of this
+         block: it stored each rule as one alternation and called .test(),
+         which is satisfied by ANY one alternative. Five magnitudes were
+         corrupted inside their receiving instruments with CI still green.
+         Phrasings are therefore stored as a LIST and every one is asserted
+         individually, on both sides.
+     (5) CHARTER TIER IS TWO SURFACES. charter.html is the constitutional text;
+         laws.html's Tier 1 mirrors it at data-tier="charter". A magnitude
+         re-appearing in the mirror is back at Charter tier just as surely.
+         Both are scanned. */
+  {
+    const charterTierText = [
+      normalizedText(read('charter.html')),
+      ...[...read('laws.html').matchAll(/<article class="code-entry[^"]*" id="[\w.-]+" data-tier="charter"[\s\S]*?<\/article>/g)]
+        .map((m) => normalizedText(m[0])),
+    ].join('   ');
+    const amendedCharter = charterTierText;
+    /* id · the rule · every phrasing the Charter used for it · the Code entry
+       that received it. Sources: the ratified demotion register §4.1–§4.5 plus
+       errata E-L1 (III.IV:202) and E-L2 (the whole of XXVII:423). */
+    const RELOCATED = [
+      { id: 'III.II per-hour premium cascade', to: 'code-lp-076', alts: [
+        'overtime rate of $125 per hour', '$62.50/hr in -1', '$31.25/hr in -2', '$15.63/hr in -3',
+        'owes $1,250 in overtime'] },
+      { id: 'III.IV downward-conversion forfeiture band', to: 'code-fc-central-banking-authority', alts: [
+        '90-99% forfeiture that prevents arbitrage'] },
+      { id: 'III.V retention bands', to: 'code-fc-central-banking-authority', alts: [
+        '90% to treasury, 10% retained', '93% to treasury, 7% retained', '96% to treasury, 4% retained',
+        '98% to treasury, 2% retained', '99% to treasury, 1% retained'] },
+      { id: 'III.V band endpoints restated in III.IV (E-L1)', to: 'code-fc-central-banking-authority', alts: [
+        '10% retained on the first $1M, scaling down to 1% above $1B'] },
+      { id: 'III.V pre-positioning lookback windows', to: 'code-fc-central-banking-authority', alts: [
+        'within 24 months prior to a punitive reassignment', 'within 24 months prior to filing'] },
+      { id: 'III.VII upper-layer trigger and rate', to: 'code-lp-070', alts: [
+        'reaches $100 billion', 'population-average of $100,000',
+        'garnishing rate is 10% of each citizen'] },
+      /* E-L4 (Phase V): the pulse-at-start illustration in III.VII's opening
+         paragraph restated the upper-layer rate. Never enumerated by the
+         register's §10 relocation set — the same occurrence class as E-L1. */
+      { id: 'III.VII pulse-at-start illustration (E-L4)', to: 'code-lp-070', alts: [
+        /* No leading article: the Charter opened the sentence with "A citizen",
+           the Code carries "a citizen", and these comparisons are case-exact. */
+        'holding $100,000 at the opening of a monthly cycle owes 10% on that amount'] },
+      { id: 'III.VII rolling-average window', to: 'code-lp-070', alts: [
+        '90-day rolling average of total district savings'] },
+      { id: 'III.VII -1 trigger and rate', to: 'code-lp-070', alts: [
+        'reaches $50 billion, a garnishing cycle activates at 5%'] },
+      { id: 'III.VII upper-layer equilibrium illustration', to: 'code-lp-070', alts: [
+        'a citizen holding $100,000 loses $10,000/month'] },
+      { id: 'III.VII -1 equilibrium illustration', to: 'code-lp-070', alts: [
+        'a citizen holding $50,000 loses $2,500/month'] },
+      { id: 'III.VII terminal-layer triggers', to: 'code-lp-069', alts: [
+        '$25 billion aggregate UBI-origin savings in -2', '$10 billion aggregate UBI-origin savings in -3'] },
+      { id: 'III.VII attribution window', to: 'code-lp-069', alts: [
+        '24-month rolling window of UBI and subsidy receipts', '24-month cumulative UBI receipts'] },
+      { id: 'III.VIII restatement of the terminal trigger and rate (N-2)', to: 'code-lp-069', alts: [
+        '$10 billion district aggregate trigger and 5% monthly rate'] },
+      { id: 'XXVII escalation rate', to: 'code-lp-064', alts: [
+        'escalation compounds at 50% per child beyond the threshold'] },
+      { id: 'XXVII worked illustration', to: 'code-lp-064', alts: [
+        'baseline aggregate effective rate is 40%', 'raises it to 60%', 'raises it to 90%', 'raises it to 135%'] },
+      { id: 'XXVII trailing illustration past the quoted span (E-L2)', to: 'code-lp-064', alts: [
+        'under 60–90% escalation to survive long at 135%'] },
+    ];
+    const occurrences = (haystack, needle) => haystack.split(needle).length - 1;
+    const relocatedPhrasings = RELOCATED.reduce((n, r) => n + r.alts.length, 0);
+
+    /* (i) Charter side: zero occurrences of any relocated rule. Counting, not
+       testing — the detail line names the rule and the count so a partial
+       relocation reads as "2 left behind", not merely "failed". */
+    const charterResidue = RELOCATED.flatMap((r) => r.alts.flatMap((a) => {
+      const n = occurrences(amendedCharter, a);
+      return n ? [`${r.id}: "${a}" × ${n} still at Charter tier`] : [];
+    }));
+    check(charterResidue.length === 0,
+      'consolidation purity: the Charter states no magnitude LP-076 relocated (rule-scoped, occurrence-counting)',
+      charterResidue.length ? charterResidue.join('; ') : `${relocatedPhrasings} phrasings of ${RELOCATED.length} relocated rules absent from both Charter-tier surfaces`);
+
+    /* (ii) Code side: every relocated rule present in the entry that received
+       it. This is the vintage-guard discipline made permanent — a relocation
+       that drops a magnitude en route is a magnitude change, which the
+       amendment claims it never makes. Scoped to the receiving entry, so
+       moving text between Code entries also goes red. */
+    const receivingEntries = new Map([...read('laws.html').matchAll(/<article class="code-entry[^"]*" id="([\w.-]+)"[\s\S]*?<\/article>/g)]
+      .map((m) => [m[1], normalizedText(m[0])]));
+    const fidelity = RELOCATED.flatMap((r) => {
+      const block = receivingEntries.get(r.to);
+      if (block === undefined) return [`${r.id}: receiving entry #${r.to} not found in the Code`];
+      /* Every phrasing individually — design note (4). An alternation test
+         here is satisfied by any one survivor and hides the rest. */
+      return r.alts.flatMap((a) => (occurrences(block, a) ? [] : [`${r.id}: "${a}" absent from #${r.to}`]));
+    });
+    check(fidelity.length === 0,
+      'consolidation fidelity: every relocated magnitude is stated by its receiving instrument',
+      fidelity.length ? fidelity.join('; ') : `${relocatedPhrasings} phrasings of ${RELOCATED.length} relocated rules land in 5 receiving entries`);
+
+    /* (iii) Negative magnitudes (finding N-1). A floor, quorum, ceiling or
+       threshold of NONE is an operative magnitude carrying no digits, so no
+       mechanical magnitude sweep can see it being relocated, weakened, or
+       quietly dropped. Two of the four sit inside provisions this amendment
+       edited. All four are Charter-tier keeps.
+
+       Counted, not merely tested, for the same reason every other row here is
+       counted: canon restates itself, and a stance surviving in one place
+       while being dropped from another is exactly the drift this catches. The
+       expected count is pinned per stance against charter.html alone. */
+    const NEGATIVE_MAGNITUDES = [
+      ['There is no minimum wage in VMSS', 1],
+      ['No minimum participation quorum is imposed', 1],
+      ['There is no limit on consecutive terms', 1],
+      ['not a supermajority, full agreement', 1],
+    ];
+    const charterProper = normalizedText(read('charter.html'));
+    const lostNegatives = NEGATIVE_MAGNITUDES.flatMap(([s, want]) => {
+      const n = occurrences(charterProper, s);
+      return n === want ? [] : [`"${s}" × ${n}, expected ${want}`];
+    });
+    check(lostNegatives.length === 0,
+      'charter tier: the negative magnitudes stand (N-1 — a floor of none is still a floor)',
+      lostNegatives.length ? lostNegatives.join('; ') : `${NEGATIVE_MAGNITUDES.length} negative magnitudes present at their pinned counts`);
+  }
+
+  /* (g1) CHARTER TABLE-OF-CONTENTS CENSUS (v23.0.0, proposal §6 G1). charter.html
+     carries a hand-authored table of contents (the .law-toc block) that restates
+     all thirty unit titles and numerals a second time inside the same file.
+     build-law-toc.mjs never opens charter.html and no other check reads its
+     toc-txt, so until now a renamed heading or a re-ordered article could leave
+     this index silently disagreeing with the text it indexes — the exact
+     hand-maintained-number failure class this script exists to make impossible.
+     The invariant the proposal verified by hand: every toc-link resolves to a
+     heading on the page, and its toc-txt is the exact tail of that heading's
+     title (the heading carries the "Article N – " prefix the row drops).
+     Thirty rows — Preamble + 28 articles + Founding Affirmation — matching the
+     Tier-1 index count. Retarget, never delete: a title change must land on both
+     the heading and its row, which is precisely the drift this catches. */
+  {
+    const charterSrc = read('charter.html');
+    const decodeToc = (s) => s.replace(/<[^>]+>/g, '')
+      .replace(/&amp;/g, '&').replace(/&middot;/g, '·')
+      .replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&rsquo;/g, '’')
+      .replace(/\s+/g, ' ').trim();
+    const charterHeadings = new Map(
+      [...charterSrc.matchAll(/<h2 id="([\w-]+)"[^>]*>([\s\S]*?)<\/h2>/g)]
+        .map((m) => [m[1], decodeToc(m[2])]));
+    const tocRows = [...charterSrc.matchAll(/<a href="#([\w-]+)" class="toc-link"><span class="toc-num">([^<]*)<\/span> <span class="toc-txt">([\s\S]*?)<\/span><\/a>/g)]
+      .map((m) => ({ anchor: m[1], num: decodeToc(m[2]), txt: decodeToc(m[3]) }));
+    const tocMiss = tocRows.flatMap((r) => {
+      const heading = charterHeadings.get(r.anchor);
+      if (heading === undefined) return [`toc "${r.num} ${r.txt}" → #${r.anchor} resolves to no <h2>`];
+      return heading.endsWith(r.txt) ? [] : [`toc "${r.txt}" is not the tail of heading "${heading}" (#${r.anchor})`];
+    });
+    check(tocRows.length === 30 && tocMiss.length === 0,
+      'charter TOC census: 30 rows, each toc-txt is the exact tail of its heading (proposal G1)',
+      tocMiss.length ? tocMiss.join('; ')
+        : (tocRows.length !== 30 ? `${tocRows.length} toc rows, expected 30` : '30 toc rows resolve and tail-match their headings'));
   }
 
   /* (f3) CODE INTEGRITY GUARDS (v22.7.0, architecture §7.3). laws.html is a

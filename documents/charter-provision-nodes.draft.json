@@ -1,0 +1,2174 @@
+{
+ "_status": "UNVERIFIED DRAFT SEED \u2014 partial provision-node extraction from an aborted architect-side run (2026-07-21, stopped to move execution to the Opus session per the token-division directive). Coverage: the two completed extraction ranges only (Preamble through ~Article XXIV); Articles XXV-XXVIII + Founding Affirmation NOT covered. Every row must be verified against charter.html or regenerated before use; the committed charter-dependency-graph.json supersedes this file.",
+ "nodeCount": 214,
+ "nodes": [
+  {
+   "id": "preamble-founding-principles",
+   "article": "Preamble",
+   "lines": "147-148",
+   "label": "Voluntary society under moral causality; full dignity default; consequence follows choice",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "founding-line-1-consequence-follows-conduct",
+   "article": "Four Founding Lines",
+   "lines": "151",
+   "label": "Consequence follows conduct; civilization reveals what has been earned",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "founding-line-2-sanctuary-pre-intervention",
+   "article": "Four Founding Lines",
+   "lines": "152",
+   "label": "Highest-trust layer: harm halted before completion; no Sanctuary citizen victimized",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "founding-line-3-lived-trust-post-intervention",
+   "article": "Four Founding Lines",
+   "lines": "153",
+   "label": "Lived-trust layer: harm may complete; answered afterward; agency preserved",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "founding-line-4-no-death-no-absolution",
+   "article": "Four Founding Lines",
+   "lines": "154",
+   "label": "No life is ended; no life is absolved; both truths hold at once",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "founding-lines-status-amendability",
+   "article": "Four Founding Lines",
+   "lines": "150-155",
+   "label": "Four lines: symbolic anchor, unchanged, amendable via Article XI gauntlet",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": [
+    "Four Founding Lines",
+    "four lines"
+   ]
+  },
+  {
+   "id": "i-layer-assignment-principle",
+   "article": "I",
+   "lines": "157-158",
+   "label": "Layers are graduated environments assigned by demonstrated intent and execution of harm",
+   "kindHint": "membership-criteria",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "i-heaven-pre-intervention-regime",
+   "article": "I",
+   "lines": "160",
+   "label": "Heaven Layers (+1, SADs): acts halted mid-execution via neural inhibition, drones",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "i-main-post-intervention-regime",
+   "article": "I",
+   "lines": "161",
+   "label": "Main Layer (0): acts may complete; victims revived/treated; perpetrators reassigned",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "i-lower-layers-regime",
+   "article": "I",
+   "lines": "162",
+   "label": "Lower Layers (-1,-2,-3): post-intervention; minimal institutional presence in -3 Terminal",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "i-categorical-threshold-two-pathways",
+   "article": "I",
+   "lines": "164",
+   "label": "Main-to--1 threshold is categorical, not continuous; exactly two reassignment pathways",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "Two pathways"
+   ]
+  },
+  {
+   "id": "i-single-qualifying-event-pathway",
+   "article": "I",
+   "lines": "164",
+   "label": "Pathway 1: single incarceration-grade event (DUI, assault, fraud at meaningful scale)",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "a single qualifying event"
+   ]
+  },
+  {
+   "id": "i-unremediable-pattern-pathway",
+   "article": "I",
+   "lines": "164",
+   "label": "Pathway 2: sustained accumulation of minor infractions without remediation",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "i-minor-infraction-clearability",
+   "article": "I",
+   "lines": "164",
+   "label": "Minor infractions clearable/amendable; only uncorrected accumulation converts to pattern",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-sti-separate-ledger",
+   "article": "II",
+   "lines": "165-166",
+   "label": "STI: separate reputational ledger for non-criminal trust violations",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-tiered-visibility",
+   "article": "II",
+   "lines": "166",
+   "label": "Tiered visibility: minor violations private, major violations public",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-trust-threshold-domain-gating",
+   "article": "II",
+   "lines": "166",
+   "label": "STI gates access to Trust Threshold Domains",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-no-vmss-crossover",
+   "article": "II",
+   "lines": "166",
+   "label": "No STI crossover to VMSS layer reassignment",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-cognition-non-penalized",
+   "article": "II",
+   "lines": "166",
+   "label": "STI dips only on outwardly expressed actions; cognition carries no penalties or gains",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-penalty-recovery-ratio",
+   "article": "II",
+   "lines": "167",
+   "label": "10:1 penalty-to-recovery ratio; asymmetry closes boundary-riding exploit",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "10:1 penalty-to-recovery ratio",
+    "approximately ten times harder",
+    "years of accumulated trust in hours",
+    "years of sustained good conduct"
+   ]
+  },
+  {
+   "id": "ii-formula-character",
+   "article": "II",
+   "lines": "168",
+   "label": "STI formula proprietary, classified, dynamic; weighted on best outcomes; three defenses",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": [
+    "Three layers of anti-gaming defense"
+   ]
+  },
+  {
+   "id": "ii-formula-proprietary",
+   "article": "II",
+   "lines": "170",
+   "label": "Formula not published to population; opacity forces genuine conduct",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-formula-classified",
+   "article": "II",
+   "lines": "171",
+   "label": "Formula internals need top-secret clearance; Meritboard audits via output analysis only",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-formula-dynamic",
+   "article": "II",
+   "lines": "172",
+   "label": "Formula self-adjusts at AI governance level; seven fixed dimensions, evolving weights",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "seven dimensions"
+   ]
+  },
+  {
+   "id": "ii-public-rating-layer-context",
+   "article": "II",
+   "lines": "174",
+   "label": "Public rating scored by layer population against its ambient standard",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "ii-juvenile-null-status",
+   "article": "II",
+   "lines": "175",
+   "label": "Under-18: null STI; ledger records from birth; no score computed or published",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "under the age of 18"
+   ]
+  },
+  {
+   "id": "ii-null-blocks-phasing",
+   "article": "II",
+   "lines": "175",
+   "label": "Phasing thresholds cannot evaluate null; 85-point Sanctuary floor does not trigger",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "85-point Sanctuary eligibility floor"
+   ]
+  },
+  {
+   "id": "ii-sti-initialization-at-18",
+   "article": "II",
+   "lines": "175",
+   "label": "At 18 STI initializes from full birth ledger; score sets immediate layer eligibility",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": [
+    "At 18"
+   ]
+  },
+  {
+   "id": "ii-juvenile-criminal-exemption",
+   "article": "II",
+   "lines": "175",
+   "label": "Qualifying events exempt from null protection; flagged on Track 2 regardless of age",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "Track 2"
+   ]
+  },
+  {
+   "id": "iii-i-ubi-grant",
+   "article": "III.I",
+   "lines": "178-179",
+   "label": "Automation Dividend Treasury funds UBI for all citizens across all layers; birthright",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-i-ubi-baseline-schedule",
+   "article": "III.I",
+   "lines": "180-185",
+   "label": "UBI baselines by layer: $10,000 / $5,000 / $2,500 / $1,250 per month",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "$10,000/month",
+    "indexed to 2025 Earth values",
+    "$5,000/month",
+    "$2,500/month",
+    "$1,250/month"
+   ]
+  },
+  {
+   "id": "iii-i-no-starvation-halving",
+   "article": "III.I",
+   "lines": "186",
+   "label": "No layer permits starvation; halving structure incentivizes compliance with dignity",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": [
+    "halving structure"
+   ]
+  },
+  {
+   "id": "iii-ii-pjs-grant",
+   "article": "III.II",
+   "lines": "188-189",
+   "label": "PJS: supplement for one qualifying job of 20+ hrs/week; time dividend",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": [
+    "one qualifying job",
+    "20 or more hours per week",
+    "20 qualifying hours"
+   ]
+  },
+  {
+   "id": "iii-ii-pjs-amounts-mirror-ubi",
+   "article": "III.II",
+   "lines": "189",
+   "label": "PJS baseline amounts mirror UBI by layer",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-ii-no-minimum-wage",
+   "article": "III.II",
+   "lines": "190",
+   "label": "No minimum wage in VMSS; employers set market wages freely",
+   "kindHint": "right-grant-principle",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-ii-overtime-premium-protocol",
+   "article": "III.II",
+   "lines": "190",
+   "label": "Hours beyond 20/week trigger employer-paid overtime premium; never civilization-funded",
+   "kindHint": "operative-parameter",
+   "deontic": "entitlement",
+   "magnitudes": [
+    "beyond 20 per week",
+    "hours beyond 20"
+   ]
+  },
+  {
+   "id": "iii-ii-overtime-rate-schedule",
+   "article": "III.II",
+   "lines": "190",
+   "label": "Overtime rates: $125/hr Main, $62.50 -1, $31.25 -2, $15.63 -3; weekly = monthly/4",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "monthly subsidy divided by four weeks",
+    "$10,000 monthly subsidy",
+    "weekly value $2,500",
+    "$125 per hour",
+    "$62.50/hr",
+    "$31.25/hr",
+    "$15.63/hr",
+    "30 hours",
+    "$1,250 in overtime"
+   ]
+  },
+  {
+   "id": "iii-ii-qualifying-work-definition",
+   "article": "III.II",
+   "lines": "191",
+   "label": "Qualifying work = critical infrastructure; non-qualifying work free",
+   "kindHint": "descriptive",
+   "deontic": "standard",
+   "magnitudes": [
+    "millions"
+   ]
+  },
+  {
+   "id": "iii-ii-qualifying-threshold-scaling",
+   "article": "III.II",
+   "lines": "192",
+   "label": "Qualifying thresholds scale with layer institutional intensity: stricter up, looser down",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iii-progressive-taxation-principle",
+   "article": "III.III",
+   "lines": "194-195",
+   "label": "Progressive taxation in all layers, scaled to institutional benefits each layer receives",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iii-rate-delegation-to-federal-law",
+   "article": "III.III",
+   "lines": "196",
+   "label": "Top marginal rates set via Article XXV.VI ladder as federal law; Charter reaches no rate",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iii-ubi-pjs-untaxed",
+   "article": "III.III",
+   "lines": "197",
+   "label": "UBI and PJS untaxed in every layer, unconditionally and without exception",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iii-taxable-base",
+   "article": "III.III",
+   "lines": "197",
+   "label": "Tax applies to earned income above UBI/PJS: gains, revenue, profits, wages",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iii-scm-tax-separation",
+   "article": "III.III",
+   "lines": "197",
+   "label": "SCM is separate anti-hoarding instrument; tax funds treasury; neither substitutes",
+   "kindHint": "descriptive",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iv-currency-silo-structure",
+   "article": "III.IV",
+   "lines": "199-200",
+   "label": "Per-layer currencies; +1 and 0 share one currency; -1, -2, -3 each separate",
+   "kindHint": "machinery",
+   "deontic": "schedule",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iv-upward-conversion-ban",
+   "article": "III.IV",
+   "lines": "201",
+   "label": "Currency non-convertible across boundaries; upward conversion prohibited without exception",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iv-downward-conversion-channel",
+   "article": "III.IV",
+   "lines": "201",
+   "label": "Downward conversion only via authorized channels at 90-99% forfeiture",
+   "kindHint": "operative-parameter",
+   "deontic": "grant",
+   "magnitudes": [
+    "90-99% forfeiture"
+   ]
+  },
+  {
+   "id": "iii-iv-siloing-rationale",
+   "article": "III.IV",
+   "lines": "201",
+   "label": "Siloing protects upper-layer funding of socialized systems from arbitrage destabilization",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iv-downward-transfer-grant",
+   "article": "III.IV",
+   "lines": "202",
+   "label": "Visitors/elective residents may transfer via retention schedule (10% to 1%)",
+   "kindHint": "operative-parameter",
+   "deontic": "grant",
+   "magnitudes": [
+    "10% retained on the first $1M",
+    "scaling down to 1% above $1B"
+   ]
+  },
+  {
+   "id": "iii-iv-purchasing-power-gradient",
+   "article": "III.IV",
+   "lines": "202",
+   "label": "Purchasing power gradient: ~1.3-1.8x, ~1.8-2.5x, ~2.5-4x; emergent by district",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "approximately 1.3\u20131.8x",
+    "approximately 1.8\u20132.5x",
+    "approximately 2.5\u20134x"
+   ]
+  },
+  {
+   "id": "iii-iv-retire-and-issue-mechanics",
+   "article": "III.IV",
+   "lines": "202",
+   "label": "At conversion origin currency retired, destination issued; no cross-economy transfer",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-iv-midpoint-illustration",
+   "article": "III.IV",
+   "lines": "202",
+   "label": "Illustration: $10,000 Main yields ~6,700 (-1), 4,700 (-2), 3,100 (-3) tokens",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": [
+    "$10,000 in Main value",
+    "roughly 6,700 compliance tokens",
+    "4,700 lower-restrictions tokens",
+    "3,100 freedom tokens"
+   ]
+  },
+  {
+   "id": "iii-iv-transfer-cap-neutrality",
+   "article": "III.IV",
+   "lines": "202",
+   "label": "Transfer capped per retention schedule; untransferred assets stay; zero-transfer = neutral",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-involuntary-liquidation",
+   "article": "III.V",
+   "lines": "204-205",
+   "label": "Involuntary descent: all assets liquidated at market value; 100% of proceeds to Treasury",
+   "kindHint": "operative-parameter",
+   "deontic": "procedure",
+   "magnitudes": [
+    "One hundred percent"
+   ]
+  },
+  {
+   "id": "iii-v-joint-asset-treatment",
+   "article": "III.V",
+   "lines": "206",
+   "label": "Joint assets liquidated in full; innocent party's share returned in cash at market value",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-restitution-priority",
+   "article": "III.V",
+   "lines": "206",
+   "label": "Victim restitution and prior family binding agreements honored before treasury absorption",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-involuntary-clawback-24mo",
+   "article": "III.V",
+   "lines": "206",
+   "label": "Assets moved to lower layer within 24 months pre-reassignment liquidated on same schedule",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "24 months"
+   ]
+  },
+  {
+   "id": "iii-v-vpr-status-relinquishment",
+   "article": "III.V",
+   "lines": "208",
+   "label": "VPR filing permanently relinquishes origin-layer status; upward pathway closes at filing",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-vpr-progressive-liquidation-grant",
+   "article": "III.V",
+   "lines": "208",
+   "label": "VPR assets liquidated on progressive scale; must stay economically viable, capture value",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-vpr-retention-schedule",
+   "article": "III.V",
+   "lines": "209-215",
+   "label": "VPR retention bands: 90-99% to treasury, 10-1% retained across $1M to $1B+ tiers",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "Net assets up to $1,000,000",
+    "90% to treasury",
+    "10% retained",
+    "$1,000,001 to $10,000,000",
+    "93% to treasury",
+    "7% retained",
+    "$10,000,001 to $100,000,000",
+    "96% to treasury",
+    "4% retained",
+    "$100,000,001 to $1,000,000,000",
+    "98% to treasury",
+    "2% retained",
+    "exceeding $1,000,000,000",
+    "99% to treasury",
+    "1% retained"
+   ]
+  },
+  {
+   "id": "iii-v-vpr-execution-terms",
+   "article": "III.V",
+   "lines": "216",
+   "label": "Liquidation at market value at filing; retained proceeds converted; joint rules identical",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-vpr-clawback-24mo",
+   "article": "III.V",
+   "lines": "216",
+   "label": "Assets moved to destination within 24 months pre-filing subject to same schedule",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "24 months"
+   ]
+  },
+  {
+   "id": "iii-v-elective-residency-grant",
+   "article": "III.V",
+   "lines": "218",
+   "label": "Elective residency keeps origin status and assets; transfers allowed; return anytime",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-elective-enforcement-posture",
+   "article": "III.V",
+   "lines": "218",
+   "label": "Elective residents keep origin enforcement posture; breach = standard consequence",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-visitation-retention",
+   "article": "III.V",
+   "lines": "220",
+   "label": "Visitation temporary; origin status and assets kept; no liquidation",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-v-visitation-origin-standards",
+   "article": "III.V",
+   "lines": "220",
+   "label": "Visitor acts ledger-recorded anywhere, judged by origin thresholds; breach = reassignment",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vi-elective-return-right",
+   "article": "III.VI",
+   "lines": "222-223",
+   "label": "Elective residents may return to origin or any higher layer anytime; assets accessible",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vi-vpr-ceiling-sealed",
+   "article": "III.VI",
+   "lines": "224",
+   "label": "Voluntary permanent residency permanently closes upward pathway; sealed at filing",
+   "kindHint": "membership-criteria",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vi-punitive-descent-permanent",
+   "article": "III.VI",
+   "lines": "225",
+   "label": "Punitive reassignment closes upward pathway permanently; seals ceiling, not floor",
+   "kindHint": "membership-criteria",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vi-sti-no-upward-restoration",
+   "article": "III.VI",
+   "lines": "225",
+   "label": "STI recovery in punitive layer yields local standing only, never upward eligibility",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-scm-scope-principle",
+   "article": "III.VII",
+   "lines": "227-228",
+   "label": "SCM applies in all layers proportional to institutional presence; anti-hoarding purpose",
+   "kindHint": "right-grant-principle",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-population-denominator-rule",
+   "article": "III.VII",
+   "lines": "228",
+   "label": "Trigger population denominators use registered home address on implant ledger",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-pulse-at-start",
+   "article": "III.VII",
+   "lines": "228",
+   "label": "Garnishing computed on balance at cycle start; obligation locks at pulse; anti-spend-down",
+   "kindHint": "operative-parameter",
+   "deontic": "procedure",
+   "magnitudes": [
+    "$100,000",
+    "monthly cycle",
+    "10%"
+   ]
+  },
+  {
+   "id": "iii-vii-main-garnish-trigger",
+   "article": "III.VII",
+   "lines": "230",
+   "label": "Main/+1 trigger: 90-day rolling avg district savings at $100B (~1M citizens, $100k avg)",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "90-day rolling average",
+    "approximately one million citizens",
+    "$100 billion",
+    "population-average of $100,000",
+    "90 days"
+   ]
+  },
+  {
+   "id": "iii-vii-main-garnish-rate",
+   "article": "III.VII",
+   "lines": "230",
+   "label": "Active cycle garnishes 10% of total savings per month; no floor, exemptions, means testing",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "10% of each citizen's total savings balance per month",
+    "$10,000",
+    "$10 million"
+   ]
+  },
+  {
+   "id": "iii-vii-main-equilibrium-mechanic",
+   "article": "III.VII",
+   "lines": "230",
+   "label": "Self-correcting equilibrium at $100,000 balance under $10,000/month UBI",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": [
+    "$10,000/month UBI",
+    "$100,000",
+    "loses $10,000/month",
+    "receives $10,000/month"
+   ]
+  },
+  {
+   "id": "iii-vii-equity-market-exclusion",
+   "article": "III.VII",
+   "lines": "230",
+   "label": "Stock speculation and equity markets excluded from upper layers as complementary measure",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-neg1-garnish-schedule",
+   "article": "III.VII",
+   "lines": "232",
+   "label": "-1 Noncompliance garnishing trigger and rate schedule",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "$50 billion district aggregate",
+    "approximately one million citizens",
+    "5% of each citizen's total savings balance per month",
+    "no floor, no exemptions",
+    "$5,000/month UBI baseline"
+   ]
+  },
+  {
+   "id": "iii-vii-neg1-equilibrium",
+   "article": "III.VII",
+   "lines": "232",
+   "label": "-1 equilibrium illustration and whale-correction dynamics",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": [
+    "$50,000",
+    "$2,500/month",
+    "$5,000/month in UBI"
+   ]
+  },
+  {
+   "id": "iii-vii-neg23-private-gains-exclusion",
+   "article": "III.VII",
+   "lines": "234",
+   "label": "-2/-3 mandate limited to VMSS-distributed funds; private earnings excluded",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-neg23-trigger-schedule",
+   "article": "III.VII",
+   "lines": "235",
+   "label": "-2/-3 UBI-origin trigger thresholds and garnishing rate",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "$25 billion aggregate UBI-origin savings in -2",
+    "$10 billion aggregate UBI-origin savings in -3",
+    "5% of the UBI-attributable portion"
+   ]
+  },
+  {
+   "id": "iii-vii-prorata-attribution",
+   "article": "III.VII",
+   "lines": "235",
+   "label": "Pro-rata UBI attribution method, implant-agnostic by design",
+   "kindHint": "operative-parameter",
+   "deontic": "procedure",
+   "magnitudes": [
+    "24-month rolling window of UBI and subsidy receipts",
+    "24-month cumulative UBI receipts"
+   ]
+  },
+  {
+   "id": "iii-vii-auto-deactivation",
+   "article": "III.VII",
+   "lines": "237",
+   "label": "Cycles deactivate automatically when aggregate drops below trigger",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-circulation-loop",
+   "article": "III.VII",
+   "lines": "237",
+   "label": "Garnished funds return to Automation Dividend Treasury as UBI; corrective pulse",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-stored-value-principle",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "Savings base follows stored value regardless of form (LP-069)",
+   "kindHint": "operative-parameter",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-primary-residence-exemption",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "Main Layer primary residence of record unconditionally exempt",
+   "kindHint": "operative-parameter",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-additional-residence-attribution",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "Additional residences attribute at assessed value; occupied-primary exception; vacant full",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-dormant-commercial-attribution",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "Dormant commercial property attributes via central-bank clearing record as sole sensor",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "a sustained period"
+   ]
+  },
+  {
+   "id": "iii-vii-liquidity-attribution-lock",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "Attribution locks at liquidity: collateral, loans, in-kind exchange at fair value",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-no-additional-rate",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "No additional rate created; attribution feeds existing pulse mechanics",
+   "kindHint": "descriptive",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-vii-sanctuary-property-cap",
+   "article": "III.VII",
+   "lines": "239",
+   "label": "+1 Sanctuary property cap in place of residential attribution",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "one-primary-and-one-vacation-residence property cap"
+   ]
+  },
+  {
+   "id": "iii-viii-neg3-econ-autonomy",
+   "article": "III.VIII",
+   "lines": "242",
+   "label": "-3 free of ordinary VMSS institutional economic presence and oversight",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-viii-neg3-mandate-restatement",
+   "article": "III.VIII",
+   "lines": "242",
+   "label": "-3 Savings Circulation Mandate restated: UBI-origin savings only",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "$10 billion district aggregate trigger",
+    "5% monthly rate"
+   ]
+  },
+  {
+   "id": "iii-viii-neg3-base-tax",
+   "article": "III.VIII",
+   "lines": "242",
+   "label": "Base tax funds partitioned -3 treasury for minimal federal infrastructure",
+   "kindHint": "machinery",
+   "deontic": "schedule",
+   "magnitudes": [
+    "a base tax rate (unenumerated)"
+   ]
+  },
+  {
+   "id": "iii-viii-free-markets",
+   "article": "III.VIII",
+   "lines": "243",
+   "label": "Traditional markets and private institutions operate freely in -3",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iii-viii-currency-siloing",
+   "article": "III.VIII",
+   "lines": "244",
+   "label": "Currency siloing: terminal realm wealth cannot convert upward",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iv-scope-summary",
+   "article": "IV",
+   "lines": "246",
+   "label": "Article IV scope summary: implants, augmentation, vessels, enforcement protocol",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": []
+  },
+  {
+   "id": "iv-fabrication-monopoly",
+   "article": "IV",
+   "lines": "247",
+   "label": "Backup vessel fabrication sovereign, proprietary, non-transferable",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iv-fabrication-proxies",
+   "article": "IV",
+   "lines": "247",
+   "label": "-1/-2 continuity serviced via closed VMSS fabrication proxy installations",
+   "kindHint": "machinery",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "iv-neg3-final-death",
+   "article": "IV",
+   "lines": "247",
+   "label": "-3: no proxy; implant severs vessel link at terminal reassignment; death final",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "iv-continuity-trichotomy",
+   "article": "IV",
+   "lines": "248",
+   "label": "Three continuity layers; doctrine binds primarily to ledger continuity",
+   "kindHint": "descriptive",
+   "deontic": "principle",
+   "magnitudes": [
+    "Three layers of continuity"
+   ]
+  },
+  {
+   "id": "iv-revival-binary",
+   "article": "IV",
+   "lines": "248",
+   "label": "Revival is binary: full fidelity or failure, no partial state",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "binary \u2014 full fidelity or failure"
+   ]
+  },
+  {
+   "id": "iv-sti-dimension-lock",
+   "article": "IV",
+   "lines": "248",
+   "label": "STI weight refinement is maintenance; dimension-set change requires Article XI",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "fixed seven-dimension structure"
+   ]
+  },
+  {
+   "id": "v-free-speech",
+   "article": "V",
+   "lines": "251",
+   "label": "Freedom of speech unless harm threshold crossed",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": [
+    "harm threshold (unenumerated)"
+   ]
+  },
+  {
+   "id": "v-prostitution",
+   "article": "V",
+   "lines": "252",
+   "label": "Consensual adult prostitution permitted",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "v-body-transmutation",
+   "article": "V",
+   "lines": "253",
+   "label": "All body transmutations permitted",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "v-abortion-prohibition",
+   "article": "V",
+   "lines": "254",
+   "label": "Abortion illegal, treated as murder under VMSS law",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "v-fetus-reincarnation",
+   "article": "V",
+   "lines": "254",
+   "label": "Linked fetus reincarnated in Main autoparenting with neutral status, full dignity",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "v-unimplanted-no-link",
+   "article": "V",
+   "lines": "254",
+   "label": "No maternal implant, no vessel link: continuity provision does not reach fetus",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "v-foreign-national-jurisdiction",
+   "article": "V",
+   "lines": "254",
+   "label": "Unimplanted foreign nationals under VMSS jurisdiction; ledger opened at adjudication",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "v-automated-services",
+   "article": "V",
+   "lines": "255",
+   "label": "Automated daycare, education, medical services (except -3)",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": []
+  },
+  {
+   "id": "v-child-residence-default",
+   "article": "V",
+   "lines": "256",
+   "label": "Children born in lower layers remain with parents; autoparenting a choice, not default",
+   "kindHint": "right-grant-principle",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "v-child-relocation-right",
+   "article": "V",
+   "lines": "256",
+   "label": "Standing human right to relocate to Main Layer, implant-enforceable",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": [
+    "any age"
+   ]
+  },
+  {
+   "id": "vi-heaven-preintervention",
+   "article": "VI",
+   "lines": "260",
+   "label": "Heaven Layers: pre-intervention halts acts mid-execution; no harm completes",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "vi-post-intervention-restoration",
+   "article": "VI",
+   "lines": "261",
+   "label": "Main/-1/-2: post-intervention; victims revived (murder) or treated (other harm)",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "vi-perpetrator-reassignment",
+   "article": "VI",
+   "lines": "261",
+   "label": "Perpetrators face immediate layer reassignment",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "vi-neg3-no-intervention",
+   "article": "VI",
+   "lines": "262",
+   "label": "-3: no daily intervention or revival; acts complete freely, death final",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "vi-neg3-federal-floor-triggers",
+   "article": "VI",
+   "lines": "262",
+   "label": "-3 federal floor activates only on two triggers; self-ordering sovereign below them",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "two triggers",
+    "Articles XXV.I\u2013XXV.III"
+   ]
+  },
+  {
+   "id": "vii-earned-ascension",
+   "article": "VII",
+   "lines": "266",
+   "label": "Upward movement earned; two distinct mobility mechanisms",
+   "kindHint": "membership-criteria",
+   "deontic": "principle",
+   "magnitudes": [
+    "two distinct mobility mechanisms"
+   ]
+  },
+  {
+   "id": "vii-phasing-mechanism",
+   "article": "VII",
+   "lines": "266",
+   "label": "Phasing 0/+1: STI-driven, reversible; phase-back below floor or on trust violation",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": [
+    "85-point eligibility floor"
+   ]
+  },
+  {
+   "id": "vii-punitive-reassignment",
+   "article": "VII",
+   "lines": "266",
+   "label": "Reassignment into -1/-2/-3: federal-violation triggered, immediate, permanent",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "vii-downward-visitation",
+   "article": "VII",
+   "lines": "267",
+   "label": "Downward visitation temporary; origin status, assets, relationship retained",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "vii-elective-residency",
+   "article": "VII",
+   "lines": "267",
+   "label": "Elective residency indefinite with right of return at any time",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "vii-voluntary-permanent-residency",
+   "article": "VII",
+   "lines": "267",
+   "label": "Voluntary permanent residency: filing, III.V liquidation, screening, upward waiver",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "vii-downward-only",
+   "article": "VII",
+   "lines": "268",
+   "label": "Visitation and elective residency flow downward only; no upward visitation rights",
+   "kindHint": "membership-criteria",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "vii-layer-equality",
+   "article": "VII",
+   "lines": "269",
+   "label": "Layers are distinct environments, not a hierarchy of suffering; gradient one-way up",
+   "kindHint": "descriptive",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-fetal-vessel-linkage",
+   "article": "VIII",
+   "lines": "271",
+   "label": "Automatic fetal backup vessel linkage at detected pregnancy via mother's implant",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-unimplanted-no-link",
+   "article": "VIII",
+   "lines": "271",
+   "label": "Mother without active implant produces no link; provision does not extend",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-instrumentation-extension",
+   "article": "VIII",
+   "lines": "271",
+   "label": "Continuity link instrumentation-bearing: any implant-grade apparatus extends it",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-termination-reincarnation",
+   "article": "VIII",
+   "lines": "271",
+   "label": "Linked fetus reincarnated into own vessel in Main autoparenting, neutral status",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-abortion-classification",
+   "article": "VIII",
+   "lines": "271",
+   "label": "Abortion illegal, classified as murder; mother faces layer consequences",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-no-auto-relocation",
+   "article": "VIII",
+   "lines": "272",
+   "label": "Children remain with parents; no automatic relocation at birth",
+   "kindHint": "right-grant-principle",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-relocation-right",
+   "article": "VIII",
+   "lines": "272",
+   "label": "Relocation to Main a standing human right, no parental consent required",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": [
+    "any age"
+   ]
+  },
+  {
+   "id": "viii-ai-legal-advocate",
+   "article": "VIII",
+   "lines": "272",
+   "label": "Independent AI legal advocate for every child",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": [
+    "from birth"
+   ]
+  },
+  {
+   "id": "viii-autoparenting-choice",
+   "article": "VIII",
+   "lines": "272",
+   "label": "Autoparenting a freely chosen destination, not a condition imposed",
+   "kindHint": "right-grant-principle",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "viii-parental-non-dominion",
+   "article": "VIII",
+   "lines": "273",
+   "label": "Parents hold no institutional dominion over children's right of exit",
+   "kindHint": "right-grant-principle",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "ix-sad-definition",
+   "article": "IX",
+   "lines": "275",
+   "label": "SADs: voluntary, revocable, metric-gated domains nested in Heaven Layers",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "a single measurable criterion"
+   ]
+  },
+  {
+   "id": "ix-sad-exclusion",
+   "article": "IX",
+   "lines": "275",
+   "label": "SAD violation: automatic exclusion to layer below; no reassignment or punishment",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "x-exit-permitted",
+   "article": "X",
+   "lines": "277",
+   "label": "Exit always permitted from Main Layer and above",
+   "kindHint": "right-grant-principle",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "x-reentry-accounting",
+   "article": "X",
+   "lines": "277",
+   "label": "Re-entry requires moral accounting: STI evaluation, screening, prior crimes counted",
+   "kindHint": "membership-criteria",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "x-neg3-no-exit",
+   "article": "X",
+   "lines": "277",
+   "label": "Exit from -3 impossible \u2014 terminal",
+   "kindHint": "membership-criteria",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-supremacy",
+   "article": "XI",
+   "lines": "278-281",
+   "label": "Article XI sole Charter amendment mechanism; only nation-wide instrument",
+   "kindHint": "machinery",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-sequential-gates",
+   "article": "XI",
+   "lines": "282",
+   "label": "Amendment must clear every gate in sequence; failure at any gate terminates",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-meritboard-floor",
+   "article": "XI",
+   "lines": "284",
+   "label": "Meritboard filibuster floor gate against incoherence",
+   "kindHint": "machinery",
+   "deontic": "schedule",
+   "magnitudes": [
+    "70% of the Meritboard's active ranking"
+   ]
+  },
+  {
+   "id": "xi-supreme-court-gate",
+   "article": "XI",
+   "lines": "285",
+   "label": "Supreme Court constitutional review gate",
+   "kindHint": "machinery",
+   "deontic": "schedule",
+   "magnitudes": [
+    "7/10 justice majority"
+   ]
+  },
+  {
+   "id": "xi-core-disclosure",
+   "article": "XI",
+   "lines": "285",
+   "label": "Core-reaching amendments flagged with scope disclosed; evasive drafts struck",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-ratification-thresholds",
+   "article": "XI",
+   "lines": "286",
+   "label": "Population ratification: Sanctuary consensus plus gravity-scaled Main supermajority",
+   "kindHint": "machinery",
+   "deontic": "schedule",
+   "magnitudes": [
+    "consensus \u2014 not a supermajority, full agreement \u2014 in +1 Sanctuary",
+    "80\u201390% supermajority of Main Layer"
+   ]
+  },
+  {
+   "id": "xi-consensus-window",
+   "article": "XI",
+   "lines": "286",
+   "label": "Consensus as window deliberation; every vote rescindable until window close",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-abstention-quorum",
+   "article": "XI",
+   "lines": "286",
+   "label": "Consensus measured among cast votes; abstention not dissent; no quorum",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": [
+    "no minimum participation quorum"
+   ]
+  },
+  {
+   "id": "xi-rescission-extension",
+   "article": "XI",
+   "lines": "286",
+   "label": "Rescission rule extends to Main, XXV.VI federal, and XXVIII ratification votes",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-lower-layer-no-vote",
+   "article": "XI",
+   "lines": "286",
+   "label": "Lower layers (-1/-2/-3) hold no Charter amendment vote; other rights retained",
+   "kindHint": "membership-criteria",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-presidential-veto",
+   "article": "XI",
+   "lines": "287",
+   "label": "Final presidential veto; no override in cycle; redraft restarts from Meritboard",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-core-load-bearing",
+   "article": "XI",
+   "lines": "289-290",
+   "label": "Founding core load-bearing, not immutable; protection structural, not textual",
+   "kindHint": "descriptive",
+   "deontic": "principle",
+   "magnitudes": [
+    "80\u201390% supermajority"
+   ]
+  },
+  {
+   "id": "xi-no-unilateral-revision",
+   "article": "XI",
+   "lines": "291",
+   "label": "No single body, including Chief Architect, may unilaterally rewrite the Charter",
+   "kindHint": "machinery",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-layer-criteria-reserved",
+   "article": "XI",
+   "lines": "292",
+   "label": "Layer entry/remain/removal criteria changes require full Article XI, beyond XXVIII",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xi-suspension-power",
+   "article": "XI",
+   "lines": "293",
+   "label": "Supreme Court emergency suspension: one-case, time-limited, auto-expiring",
+   "kindHint": "machinery",
+   "deontic": "grant",
+   "magnitudes": [
+    "one-case",
+    "time-limited"
+   ]
+  },
+  {
+   "id": "xi-federal-law-ladder",
+   "article": "XI",
+   "lines": "294",
+   "label": "Federal law (XXV.VI) mirrors Article XI at proportionally relaxed thresholds",
+   "kindHint": "machinery",
+   "deontic": "schedule",
+   "magnitudes": [
+    "60% Meritboard floor",
+    "6/10 Supreme Court majority",
+    "90% Sanctuary supermajority",
+    "70\u201380% Main Layer supermajority",
+    "70\u201380% lower-layer aggregate supermajority"
+   ]
+  },
+  {
+   "id": "xi-repeal-symmetry",
+   "article": "XI",
+   "lines": "295",
+   "label": "Repeal of ratified amendment follows the same full Article XI process",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xii-multifactor-rule",
+   "article": "XII",
+   "lines": "298",
+   "label": "No single metric may unilaterally determine punitive assignment or descent",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": [
+    "single metric"
+   ]
+  },
+  {
+   "id": "xii-phasing-exemption",
+   "article": "XII",
+   "lines": "298",
+   "label": "Phasing exempt: single-metric threshold trigger permitted as return to baseline",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": [
+    "single-metric threshold"
+   ]
+  },
+  {
+   "id": "xiii-signal-separation",
+   "article": "XIII",
+   "lines": "300",
+   "label": "Metrics are signals; punitive decisions structurally independent of any one metric",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xiii-phasing-exemption",
+   "article": "XIII",
+   "lines": "300",
+   "label": "Phasing exempt as non-punitive return to previously qualified layer",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xiv-proportionality",
+   "article": "XIV",
+   "lines": "302",
+   "label": "System responses must scale proportionally to behavior and context",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xiv-three-axes",
+   "article": "XIV",
+   "lines": "302",
+   "label": "Three axes defined: severity, pattern, reversibility (victim-restorability reading)",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "three axes"
+   ]
+  },
+  {
+   "id": "xiv-axis-schedule",
+   "article": "XIV",
+   "lines": "302",
+   "label": "Axis-count ladder: corrective, multi-factor evaluation, qualifying event",
+   "kindHint": "operative-parameter",
+   "deontic": "schedule",
+   "magnitudes": [
+    "single-axis violation",
+    "two-axis violation",
+    "three-axis violation"
+   ]
+  },
+  {
+   "id": "xiv-overcorrection",
+   "article": "XIV",
+   "lines": "302",
+   "label": "No response may exceed axis profile; overcorrection is failure under Article XX",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "xv-clearable-infractions",
+   "article": "XV",
+   "lines": "304",
+   "label": "Minor Main Layer infractions clearable; full agency to remediate",
+   "kindHint": "membership-criteria",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "xv-trajectory-evaluation",
+   "article": "XV",
+   "lines": "304",
+   "label": "-1 reassignment threshold is trajectory evaluation, not a countdown",
+   "kindHint": "membership-criteria",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xv-no-return",
+   "article": "XV",
+   "lines": "305",
+   "label": "No pathway back after punitive reassignment; STI serves in-layer life only",
+   "kindHint": "membership-criteria",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "xv-institutional-error-remedy",
+   "article": "XV",
+   "lines": "306",
+   "label": "Supreme Court remedial authority for verified institutional error; no appeals path",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xvi-stability",
+   "article": "XVI",
+   "lines": "308",
+   "label": "Long-term stability prioritized; volatility structurally minimized",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xvii-anti-exploitation",
+   "article": "XVII",
+   "lines": "310",
+   "label": "Design must minimize manipulation, gaming, and strategic abuse incentives",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xviii-contextual-evaluation",
+   "article": "XVIII",
+   "lines": "312",
+   "label": "Assessments consider cumulative behavior, context, and network dynamics",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xviii-beneficiary-attribution",
+   "article": "XVIII",
+   "lines": "312",
+   "label": "Statistically anomalous beneficiary patterns accumulate on leader's ledger",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xviii-architect-distinction",
+   "article": "XVIII",
+   "lines": "312",
+   "label": "Active architects accrue aggregate harm; passive beneficiaries only direct acts",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xviii-temporal-clustering",
+   "article": "XVIII",
+   "lines": "313",
+   "label": "Temporal clustering read as coordination; aggregate axis profile applies to each",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "Twenty actors",
+    "one-axis act",
+    "within hours",
+    "one coordinated event with twenty contributors"
+   ]
+  },
+  {
+   "id": "xix-feedback-awareness",
+   "article": "XIX",
+   "lines": "315",
+   "label": "Continuous evaluation of how outputs influence future behavior",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xx-accountability",
+   "article": "XX",
+   "lines": "317",
+   "label": "Internal review, correction, and adaptation mechanisms required",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xx-participation-audit",
+   "article": "XX",
+   "lines": "318",
+   "label": "Participation anomalies feed mandatory public Meritboard audit assessment",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxi-court-composition",
+   "article": "XXI",
+   "lines": "321",
+   "label": "Court of 10 justices from legal-interpretation ranking, President-appointed",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": [
+    "10 justices"
+   ]
+  },
+  {
+   "id": "xxi-metric-separation",
+   "article": "XXI",
+   "lines": "322",
+   "label": "Judicial independence via metric separation, not pool separation",
+   "kindHint": "machinery",
+   "deontic": "principle",
+   "magnitudes": [
+    "two unrelated competence metrics"
+   ]
+  },
+  {
+   "id": "xxi-edge-case-jurisdiction",
+   "article": "XXI",
+   "lines": "323",
+   "label": "Jurisdiction limited to edge cases; no legislation, no routine arbitration",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xxi-categorical-reassignment",
+   "article": "XXI",
+   "lines": "323",
+   "label": "Layer reassignment categorical; same profile, same outcome; no judicial discretion",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": [
+    "three-axis proportionality assessment (severity, pattern, reversibility)"
+   ]
+  },
+  {
+   "id": "xxi-novelty-filter",
+   "article": "XXI",
+   "lines": "324",
+   "label": "AI-administered novelty filter gates Court access; deterministic cases rejected",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxi-precedent-integration",
+   "article": "XXI",
+   "lines": "324",
+   "label": "Rulings auto-integrate as settled precedent; novelty extinction",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxi-suspension-authority",
+   "article": "XXI",
+   "lines": "325",
+   "label": "Suspension power during verified emergencies, subject to Article XI bounds",
+   "kindHint": "machinery",
+   "deontic": "grant",
+   "magnitudes": []
+  },
+  {
+   "id": "xxi-justice-tenure",
+   "article": "XXI",
+   "lines": "325",
+   "label": "Renewable terms; presidential replacement on performance or outranking",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxi-ruling-revisability",
+   "article": "XXI",
+   "lines": "325",
+   "label": "Rulings wrong in retrospect are revisable; authority not infallible",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-meritboard-definition",
+   "article": "XXII",
+   "lines": "328",
+   "label": "Meritboard: continuously updating competence ranking with functional sub-rankings",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-active-ranking",
+   "article": "XXII",
+   "lines": "329",
+   "label": "Active standing by willingness; withdrawal anytime without consequence",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-role-filling",
+   "article": "XXII",
+   "lines": "330",
+   "label": "Roles filled from top of active ranking; no campaigns, nominations, or politics",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-presidential-role",
+   "article": "XXII",
+   "lines": "331",
+   "label": "President: executive-doctrinal duties and living interpretive authority",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-step-off-deputy",
+   "article": "XXII",
+   "lines": "331",
+   "label": "President steps off ranking on appointment; deputy pre-designated for succession",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-audit-triangle",
+   "article": "XXII",
+   "lines": "332",
+   "label": "Mutual audit structure: Meritboard, AI governance, Court, President",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": [
+    "two branches"
+   ]
+  },
+  {
+   "id": "xxii-metric-design-separation",
+   "article": "XXII",
+   "lines": "332",
+   "label": "No ranked entity designs its own metric; calibration operational, not unilateral",
+   "kindHint": "machinery",
+   "deontic": "prohibition",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-ii-decennial-review",
+   "article": "XXII.II",
+   "lines": "334",
+   "label": "Ten-year blinded review challenge via Court-appointed Review Panel",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "Every ten years"
+   ]
+  },
+  {
+   "id": "xxii-ii-evaluation-inputs",
+   "article": "XXII.II",
+   "lines": "335",
+   "label": "Two blinded inputs: public sentiment polling and Panel assessment, panel-weighted",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "two inputs"
+   ]
+  },
+  {
+   "id": "xxii-ii-succession",
+   "article": "XXII.II",
+   "lines": "336",
+   "label": "Immediate succession if challenger surpasses; no consecutive-term limit",
+   "kindHint": "machinery",
+   "deontic": "procedure",
+   "magnitudes": [
+    "ten-year review cycle",
+    "another ten-year cycle",
+    "no limit on consecutive terms"
+   ]
+  },
+  {
+   "id": "xxii-ii-unseated-return",
+   "article": "XXII.II",
+   "lines": "337",
+   "label": "Unseated President returns to ranking without stigma, eligible for re-selection",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xxii-ii-blind-rationale",
+   "article": "XXII.II",
+   "lines": "338",
+   "label": "Blind factor prevents review optimization and perpetual doctrinal lock",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": [
+    "leaders live for centuries"
+   ]
+  },
+  {
+   "id": "xxii-merit-governance",
+   "article": "XXII",
+   "lines": "340",
+   "label": "Measured achievement sorts leadership; breadth prevents domain capture",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": [
+    "4.3 billion residents"
+   ]
+  },
+  {
+   "id": "xxiii-leakage-definition",
+   "article": "XXIII",
+   "lines": "343",
+   "label": "Leakage: gap between stated and actual consequence; compounds across systems",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": []
+  },
+  {
+   "id": "xxiii-zero-aspiration",
+   "article": "XXIII",
+   "lines": "344",
+   "label": "Founding aspiration: 0% leakage across all categories \u2014 a direction, not a promise",
+   "kindHint": "aspiration",
+   "deontic": "principle",
+   "magnitudes": [
+    "0% leakage"
+   ]
+  },
+  {
+   "id": "xxiii-formative-acceptance",
+   "article": "XXIII",
+   "lines": "345",
+   "label": "~25% leakage anticipated and accepted in formative phases",
+   "kindHint": "aspiration",
+   "deontic": "description",
+   "magnitudes": [
+    "approximately 25%",
+    "21st and 22nd centuries"
+   ]
+  },
+  {
+   "id": "xxiii-trajectory-table",
+   "article": "XXIII",
+   "lines": "346-359",
+   "label": "Dated leakage reduction trajectory 2150\u20133000",
+   "kindHint": "aspiration",
+   "deontic": "schedule",
+   "magnitudes": [
+    "2150: ~25%",
+    "2250: ~15%",
+    "2350: ~8%",
+    "2450: ~4%",
+    "2550: ~2%",
+    "2650: ~1%",
+    "2750: ~0.5%",
+    "2800: ~0.3%",
+    "2850: ~0.1%",
+    "2900: ~0.05%",
+    "2950: ~0.02%",
+    "3000: ~0.01%"
+   ]
+  },
+  {
+   "id": "xxiii-parabolic-convergence",
+   "article": "XXIII",
+   "lines": "360-361",
+   "label": "Final-150-year parabolic convergence; generational tightening of the framework",
+   "kindHint": "aspiration",
+   "deontic": "description",
+   "magnitudes": [
+    "0.01%",
+    "final 150 years",
+    "3000",
+    "2150"
+   ]
+  },
+  {
+   "id": "xxiv-weighted-average",
+   "article": "XXIV",
+   "lines": "364",
+   "label": "0.01% target is weighted average across layers/categories, not uniform promise",
+   "kindHint": "operative-parameter",
+   "deontic": "standard",
+   "magnitudes": [
+    "0.01% leakage target by 3000",
+    "five-layer architecture"
+   ]
+  },
+  {
+   "id": "xxiv-heaven-leakage",
+   "article": "XXIV",
+   "lines": "365",
+   "label": "Heaven Layer leakage approaches theoretical zero; anomaly-scale by 3000",
+   "kindHint": "aspiration",
+   "deontic": "description",
+   "magnitudes": [
+    "theoretical zero",
+    "by 3000",
+    "fractions of a million events"
+   ]
+  },
+  {
+   "id": "xxiv-heaven-medical-guarantee",
+   "article": "XXIV",
+   "lines": "365",
+   "label": "Heaven medical infrastructure guaranteed, immediate, comprehensive",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": []
+  },
+  {
+   "id": "xxiv-neg3-federal-floor",
+   "article": "XXIV",
+   "lines": "366",
+   "label": "-3 federal floor only; no guaranteed medical; private market determines access",
+   "kindHint": "machinery",
+   "deontic": "standard",
+   "magnitudes": []
+  },
+  {
+   "id": "xxiv-neg3-leakage-floor",
+   "article": "XXIV",
+   "lines": "366",
+   "label": "-3 structural leakage floor persists at civilizational maturity",
+   "kindHint": "aspiration",
+   "deontic": "description",
+   "magnitudes": [
+    "approximately 1%"
+   ]
+  },
+  {
+   "id": "xxiv-intermediate-gradient",
+   "article": "XXIV",
+   "lines": "367",
+   "label": "-1/-2 gradient: partial, uneven medical coverage; never near-zero",
+   "kindHint": "descriptive",
+   "deontic": "description",
+   "magnitudes": []
+  },
+  {
+   "id": "xxiv-medical-completeness",
+   "article": "XXIV",
+   "lines": "368",
+   "label": "Medical completeness aspiration with standing equal to zero leakage",
+   "kindHint": "aspiration",
+   "deontic": "principle",
+   "magnitudes": []
+  },
+  {
+   "id": "xxiv-minimum-guarantees",
+   "article": "XXIV",
+   "lines": "368",
+   "label": "Charter floor: no layer permits starvation; every citizen begins with full dignity",
+   "kindHint": "right-grant-principle",
+   "deontic": "entitlement",
+   "magnitudes": []
+  }
+ ]
+}
