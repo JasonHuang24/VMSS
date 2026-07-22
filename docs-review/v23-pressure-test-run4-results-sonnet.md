@@ -1,7 +1,7 @@
 # v23 Pressure Test — Run 4 Results (Claude/Sonnet, fabrication-floor test)
 
 **Date pasted:** 2026-07-22
-**Config (stamped 2026-07-22, per Jason):** **Claude Sonnet 5, HIGH (extended) thinking.** Protocol deviation: the registered design called for default/untouched thinking; the run actually used high. Run 4 therefore isolates model tier at fixed high effort (clean pair with run 1's frontier-high) — which also explains this run's Opus-like altitude and heavy verbatim quoting. (Run-3 exact setting strings still unrecorded.)
+**Config (stamped 2026-07-22, per Jason):** **Claude Sonnet 5, HIGH (extended) thinking.** Protocol deviation: the registered design called for default/untouched thinking; the run actually used high. Run 4 therefore isolates model tier at fixed high effort (clean pair with run 1's frontier-high) — which also explains this run's Opus-like altitude and heavy verbatim quoting. (Run-3 settings closed as "low," exact strings never recorded.)
 **Saved verbatim below the divider.** The paste began with the bare label "Sonnet," excluded here.
 
 **Pre-verification observations (mine, recorded before the pipeline ran):**

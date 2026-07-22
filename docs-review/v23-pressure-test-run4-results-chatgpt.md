@@ -1,7 +1,7 @@
 # v23 Pressure Test — Run 4 Results (ChatGPT, fabrication-floor test)
 
 **Date pasted:** 2026-07-22
-**Config (stamped 2026-07-22, per Jason):** **GPT 5.6 Terra, HIGH reasoning.** Protocol deviation: the registered design called for default/untouched reasoning; the run actually used high. Run 4 therefore isolates model tier at fixed high effort (clean pair with run 1's frontier-high), rather than testing the deploy-default config. (Run-3 exact setting strings still unrecorded.)
+**Config (stamped 2026-07-22, per Jason):** **GPT 5.6 Terra, HIGH reasoning.** Protocol deviation: the registered design called for default/untouched reasoning; the run actually used high. Run 4 therefore isolates model tier at fixed high effort (clean pair with run 1's frontier-high), rather than testing the deploy-default config. (Run-3 settings closed as "low," exact strings never recorded.)
 **Saved verbatim below the divider.** The paste began with the bare UI label "ChatGPT," excluded here.
 
 **Pre-verification observations (mine, recorded before the pipeline ran):**

@@ -1,7 +1,7 @@
 # v23 Pressure Test — Run 3 Results (Claude/Opus, low effort)
 
 **Date:** 2026-07-22
-**Model/config:** Claude Opus 4.8, low-effort run (exact setting not recorded at paste time — confirm with Jason: fast mode vs. minimal thinking budget)
+**Model/config:** Claude Opus 4.8, low-effort run. Exact setting string (fast mode vs. minimal thinking budget) was never recorded; closed as "low" at campaign closure 2026-07-22.
 **Corpus attached:** post-enactment v23.1.0 (charter.html, laws.html, law-polling.html — includes LP-077–079)
 **Protocol note:** byte-identical prompt from `v23-pressure-test-handoff-claude.md`; only the effort knob moved.
 **Transcription note:** saved verbatim from Jason's paste, including the model's own tool-use narration lines at top (it ran in an environment with file tools and extracted the corpora to plain text before reading).

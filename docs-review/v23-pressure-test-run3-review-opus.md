@@ -3,7 +3,7 @@
 **Date:** 2026-07-22
 **Raw results:** `v23-pressure-test-run3-results-opus.md` (saved verbatim)
 **Verification:** 6 parallel subagents — four citation batches (S1–S5, S6–S10, S11–S15, S16–S20), a three-stage adjudicator on the S19 GAP claim (verify → adversarial → steelman, whitepaper included), and a steelman adjudicator on the S17/S6 frictions. ~200 citations checked.
-**Config caveat:** exact low-effort setting not recorded at paste time — pending Jason's confirmation. The run's own preamble shows it ran agentically (extracted the HTML corpora to plaintext before reading).
+**Config caveat:** exact low-effort setting never recorded; closed as "low" at campaign closure 2026-07-22. The run's own preamble shows it ran agentically (extracted the HTML corpora to plaintext before reading).
 
 ## Headline
 

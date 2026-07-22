@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-22
 **Raw results:** `v23-pressure-test-run4-results-chatgpt.md` (saved verbatim)
-**Config (stamped 2026-07-22, per Jason):** **GPT 5.6 Terra, HIGH reasoning.** Protocol deviation: registered design was default/untouched reasoning; actual was high. Consequence for interpretation: run 4 isolates model tier at fixed high effort (pairing with run 1's frontier-high), and the deploy-default fabrication floor remains untested. The floor result stands on its own terms — sub-frontier-at-high holds it. (Run-3 exact settings for both models still open.)
+**Config (stamped 2026-07-22, per Jason):** **GPT 5.6 Terra, HIGH reasoning.** Protocol deviation: registered design was default/untouched reasoning; actual was high. Consequence for interpretation: run 4 isolates model tier at fixed high effort (pairing with run 1's frontier-high), and the deploy-default fabrication floor remains untested. The floor result stands on its own terms — sub-frontier-at-high holds it. (Run-3 settings closed as "low," exact strings never recorded.)
 **Verification:** 5 parallel subagents — four citation batches (S1–S5, S6–S10, S11–S15, S16–S20) and a three-stage adjudicator on the S14 GAP claim (verify → adversarial → steelman, whitepaper included). ~230 citations checked.
 
 ## Headline

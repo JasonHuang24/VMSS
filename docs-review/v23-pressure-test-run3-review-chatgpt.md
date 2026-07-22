@@ -3,7 +3,7 @@
 **Date:** 2026-07-22
 **Raw results:** `v23-pressure-test-run3-results-chatgpt.md` (saved verbatim)
 **Verification:** 5 parallel subagents — four citation batches (S1–S5, S6–S10, S11–S15, S16–S20) + one dedicated instrument-existence/number sweep (26 instrument names, ~25 numeric parameters). ~200 citations checked against charter.html / laws.html / law-polling.html only.
-**Config caveat:** exact low-effort setting not recorded at paste time (GPT-5 Instant vs. Thinking-at-minimal) — pending Jason's confirmation.
+**Config caveat:** exact low-effort setting never recorded (GPT-5 Instant vs. Thinking-at-minimal); closed as "low" at campaign closure 2026-07-22.
 
 ## Headline
 

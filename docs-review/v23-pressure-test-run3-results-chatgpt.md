@@ -1,7 +1,7 @@
 # v23 Pressure Test — Run 3 Results (ChatGPT, low effort)
 
 **Date:** 2026-07-22
-**Model/config:** ChatGPT, low-effort run (exact setting not recorded at paste time — confirm with Jason: GPT-5 Instant vs. minimal reasoning)
+**Model/config:** ChatGPT (GPT-5), low-effort run. Exact UI setting string was never recorded; closed as "low" at campaign closure 2026-07-22.
 **Corpus attached:** post-enactment v23.1.0 (charter.html, laws.html, law-polling.html — includes LP-077–079)
 **Protocol note:** byte-identical prompt from `v23-pressure-test-handoff-chatgpt.md`; only the effort knob moved.
 **Transcription note:** saved verbatim from Jason's paste; the paste arrived with Windows-1252 mojibake (`â€”` etc.) which has been restored to the original Unicode punctuation. No words altered.
