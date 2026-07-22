@@ -784,4 +784,37 @@ after landing; `npm run build:css` produced no diff (all classes reused).
 **Left as ratified:** N-7, N-8, LAYERS-CITE (no action). Guard-safety verified: no edit touches a
 (f2b) pinned phrasing — faq.html:634's `10% retained on the first $1M…` and whitepaper.html:905's
 `within 24 months prior to filing` sit on non-charter-tier surfaces (guard-neutral) and were left
-byte-identical; the $2,500/$1,250 baselines are III.I keeps, not relocated magnitudes.
+byte-identical; the $2,500/$1,250 baselines are III.I keeps, not relocated magnitudes. Pushed
+`8a14c72`.
+
+## W5 — F-6 option 2 + N-5 (`charter.html:258`, `laws.html:895`)
+
+**F-6 option 2** (charter.html:258) — the External Force Doctrine's dangling Charter reference.
+Charter :258 lists two -3 federal-floor triggers; the first carries a precise cite (Articles
+XXV.I–XXV.III), the second (the External Force Doctrine) carried none, the sole invoked instrument
+that did not resolve. Added a one-clause pointer using the Charter's own "consolidated in VMSS
+Laws" idiom (the pattern at :190/:196/:209/:235/:419), targeting the founding instrument's anchor:
+
+| Site | Before → after |
+|---|---|
+| `charter.html:258` | "…or activity triggering the External Force Doctrine. Below these triggers…" → "…or activity triggering the External Force Doctrine, **the founding instrument consolidated in [VMSS Laws](laws.html#code-fc-external-force-doctrine)**. Below these triggers…" |
+
+**[VETO-READ — F-6 clause]** — one clause, strippable at the veto read at zero cost if Jason wants
+the Doctrine left as a doctrine question instead. Anchor verified: `code-fc-external-force-doctrine`
+exists at laws.html:1994 (the founding instrument "The External Force Doctrine"). Guard-safe: the
+clause adds no `LP-` token, so charter purity's LP whitelist stays empty (verified: charter.html
+carries zero LP references); no heading/anchor/Tier-1 change (the clause sits inside Article VI's
+-3-Terminal `<li>` body).
+
+**N-5** (laws.html:895) — cured in F-6's direction. LP-005.3's Charter anchor glossed Article
+XXV.IV as "(External Force Doctrine)"; charter.html:381 titles XXV.IV the *Enforcement Escalation
+Ladder*, and LP-005.3 (Sovereignty Breach — national-defense track) genuinely rests on XXV.IV's
+national-defense track, so the article citation is right and only its gloss was wrong.
+
+| Site | Before → after |
+|---|---|
+| `laws.html:895` | "Articles XXV.IV (External Force Doctrine), XIV" → "Articles XXV.IV (Enforcement Escalation Ladder), XIV; the External Force Doctrine (founding instrument)" |
+
+XXV.IV re-glossed to its true title; the External Force Doctrine surfaced separately as the
+founding instrument it is (the drafter's evident intent, now pointed at its real home rather than
+mislabelled onto the nearest article). check-canon **137/0**; no CSS diff.
