@@ -1,7 +1,9 @@
 # VMSS v23 Law Pressure Test — Handoff Prompt (ChatGPT)
 
 **Run 1 (complete, verified):** GPT-5 Thinking, extended reasoning. Results: `v23-pressure-test-results-chatgpt.md`; review: `v23-pressure-test-review-chatgpt.md`.
-**Run 2 (effort experiment):** same model, **reasoning effort: standard/medium** (not extended). The prompt below stays byte-identical — the only variable is reasoning effort. Purpose: measure whether defect rate, false-gap rate, and finding selection shift when the model thinks less. Note: LP-077/LP-078 were enacted after run 1; if run 2 attaches updated corpus files, finding the fork/MGD-sensor territory covered is a valid result, not an error.
+**Run 2 (complete, verified):** GPT-5 Thinking, standard/medium reasoning, post-enactment corpus. Results: `v23-pressure-test-run2-results-chatgpt.md`; review: `v23-pressure-test-run2-review-chatgpt.md`. Signature degradation: envelope-sweep depth — 3 overbroad GAP claims all narrowed under the steelman protocol; 1 fabricated number; citation hygiene otherwise excellent.
+**Run 3 (complete, verified):** GPT-5 low effort (exact setting string never recorded; closed as "low" at campaign closure). Results: `v23-pressure-test-run3-results-chatgpt.md`; review: `v23-pressure-test-run3-review-chatgpt.md`. Cleanest citation record of the campaign (2–3 name/scope-collision defects, 0 fabrications, 0 gaps filed, 0 superseded); all predictions failed — low-effort degradation was ambition, not hygiene. Zero discovery: known territory only.
+**Run 4 (complete, verified — fabrication-floor test):** **GPT 5.6 Terra, HIGH reasoning** (protocol deviation: registered design was default; run 4 thus isolates tier at fixed high effort, pairing with run 1 — deploy-default floor untested; run-3 settings still open). Results: `v23-pressure-test-run4-results-chatgpt.md`; review: `v23-pressure-test-run4-review-chatgpt.md`. **FLOOR HELD — success criterion met:** 0 fabricated instruments, 0 fabricated numbers, 0 superseded passes; ~1 outcome-neutral misquote in ~230 citations — cleanest run of the campaign. Predictions failed a third consecutive wave; both name-collision traps navigated correctly (LP-074 = RATIFY-TAX-50-II; LP-076 dual-register). S14 GAP narrowed = rediscovery of held queue item 7 (pre-act intra-layer divestiture), now double-signaled. Tier half-qualifies for cheap regression sweeps pending the Claude/Sonnet half; steelman adjudication stays mandatory.
 **Attach:** `laws.html`, `law-polling.html`, `charter.html` (adjudicate strictly from these three files — do not import outside assumptions).
 
 ---
@@ -11,7 +13,7 @@
 You are a hostile compliance auditor for VMSS, a fictional constructed society (an ~2290s multi-layer orbital settlement system). Attached are its three governing corpora:
 
 1. **`charter.html`** — Tier 1, the Charter. Supreme over everything else.
-2. **`laws.html`** — the consolidated code: Tier 2 Federal Law organized by subject cluster (Taxation & Rate Law; Economy, SCM & Anti-Concentration; Defense, Force & Visitation; Technology, Implants & Continuity; Governance, Process & Disclosure; Justice & Enforcement; Population & Family; plus the Founding Corpus acts) and Tier 3 Regulatory.
+2. **`laws.html`** — the consolidated code: Tier 2 Federal Law organized by subject cluster (Taxation & Rate Law; Economy, SCM & Anti-Concentration; Defense, Force & Visitation; Technology, Implants & Continuity; Governance, Process & Disclosure; Justice & Enforcement; Population & Family; plus the Founding Corpus acts), Tier 3 Layer-Wide Regulation, and Tier 4 District Regulation. *(Erratum fixed 2026-07-22 post-campaign: earlier revisions said "Tier 3 Regulatory" and omitted Tier 4 — runs 1–4 saw the old wording.)*
 3. **`law-polling.html`** — the ratification record. Every statute has an LP number (LP-001 through LP-076), including redraft chains (e.g. LP-047 → 047.2 → 047.3) and failed proposals.
 
 **Read all three files before writing anything.**
