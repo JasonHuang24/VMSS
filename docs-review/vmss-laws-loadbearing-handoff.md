@@ -538,3 +538,13 @@ When W1–W7 are pushed with 138/0, STOP. No PR, no merge, never main. The archi
 Part V review, Jason takes the veto read (including every [VETO-READ] fact and the F-6 clause),
 and only then does the squash-and-tag as canon v23.0.0 happen — outside your session.
 ```
+
+### 19.9 Veto read: PASSED (2026-07-22)
+
+Jason, verbatim: **"Going with architects reccomendations"** — after the Part V report enumerating
+the six [VETO-READ] facts. All six stand as drafted (Sanctuary 98/0/2 tally · 75% Main federal
+point · 82%/75% lower-layer aggregate · Presidential certification framing · the F-6 clause · the
+W2 scope clause). Every project gate is now closed: Sol review cured (Part IV), L3b executed and
+architect-accepted with no errata (Part V), veto read passed. Remaining sequence is mechanical:
+PR → squash-merge to main as `canon v23.0.0` (E-F2 convention) → Jason pushes the v22.8.0 and
+v23.0.0 tags from his full clone (this environment cannot push tags).
