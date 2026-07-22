@@ -758,4 +758,30 @@ still exactly **1** in `code-lp-076`; no guard counts bare `$15.63` or `$15.625`
 required.** All 5 code-lp-076 pinned phrasings preserved (`overtime rate of $125 per hour`,
 `$62.50/hr in -1`, `$31.25/hr in -2`, `$15.63/hr in -3`, `owes $1,250 in overtime`). check-canon
 **137/0**. Not [VETO-READ] — $15.625 is the exact pre-rounding derivation value, not an authored
-in-world fact.
+in-world fact. Pushed `7fa3b57`.
+
+## W6 — the ratified cleanup round (proposal §6, as ratified §19.2)
+
+Eleven edits across six live surfaces; no authored in-world fact, so **no [VETO-READ]** in W6.
+All tier reattributions use the systems.html:263 negative-citation pattern. check-canon **137/0**
+after landing; `npm run build:css` produced no diff (all classes reused).
+
+| Item | Site | Before → after |
+|---|---|---|
+| **F-5 opt 1** | `world.html:1156` | "Article XXII substrate neutrality establishes the constitutional premise: personhood is defined by…" → "Substrate neutrality (Articles XXI–XXII) establishes the constitutional premise: personhood…" (removes the false XXII-defines-personhood claim; matches whitepaper.html:1993's convention; one sentence, zero new anchors) |
+| **Case-A** | `whitepaper.html:805` | +1 sentence: XXV.I–XXV.III (clean-energy / nuclear / implant-hacking absolutes) sit at Charter tier by deliberate design, entrenched like the treason clause above, functioning as ceilings, not the prohibition list, which is federal and grows through XXV.VI. Repairs §10.6.1 (the anchor LP-076's justification cites); strengthens the :804 US-Constitution analogy |
+| **N-1** | `faq.html:829` | "Article XXVII establishes a replenishment tax…" → "Article XXVII establishes the replenishment-tax architecture…; the escalation rate that follows is a federal-tier schedule under LP-064, not Charter text" (mirrors cured comparator systems.html:343) |
+| **N-2** | `systems.html:281` | "Full schedule in Article III.V of the Charter." → "Full schedule at federal tier under LP-076, consolidated in the Central Banking Authority, not Charter text — Article III.V retains the principle and reaches no band." |
+| **N-3** | `faq.html:227` | "…under LP-076, with Articles III.IV–III.V retaining…" → "…under LP-076, **consolidated in the Central Banking Authority**, with Articles III.IV–III.V retaining…" |
+| **N-3** | `faq.html:634` | "…under LP-076, not Charter text (10% retained on the first $1M…)" → "…under LP-076, **consolidated in the Central Banking Authority**, not Charter text (…)" (pinned E-L1 endpoint string untouched) |
+| **N-3** | `whitepaper.html:905` | "…under LP-076, not Charter text —" → "…under LP-076, **consolidated in the Central Banking Authority**, not Charter text —" (pinned `within 24 months prior to filing` untouched) |
+| **N-4** | `layer--3.html:154` | "under the charter's pre-positioning provisions." → "under the pre-positioning lookback the Central Banking Authority administers under LP-076 — the Charter retaining only the principle." |
+| **N-4** | `simulations.html:2712` | identical sentence, identical fix |
+| **N-6** | `why-vmss.html:532` | "The Article III.V provisions convert upper-layer holdings to terminal-layer tokens at a punitive ratio…" → "The Article III.IV conversion gradient renders upper-layer holdings into terminal-layer tokens at a punitive ratio…" (this branch's own F-2 regression; the conversion ratio is III.IV's purchasing-power gradient, and III.V post-LP-076 reaches no band) |
+| **LAYER-ALIGN opt 2** | `layer--2.html:57` | "Reduced UBI plus Primary Job Subsidy…" → "Reduced UBI — a $2,500/month floor — plus Primary Job Subsidy…" (III.I baseline LP-076 left in the Charter, charter.html:183; matches layer--1.html:57 pattern) |
+| **LAYER-ALIGN opt 2** | `layer--3.html:59` | "Minimal UBI distributed in -3 currency." → "Minimal UBI — a $1,250/month floor — distributed in -3 currency." (III.I baseline, charter.html:184) |
+
+**Left as ratified:** N-7, N-8, LAYERS-CITE (no action). Guard-safety verified: no edit touches a
+(f2b) pinned phrasing — faq.html:634's `10% retained on the first $1M…` and whitepaper.html:905's
+`within 24 months prior to filing` sit on non-charter-tier surfaces (guard-neutral) and were left
+byte-identical; the $2,500/$1,250 baselines are III.I keeps, not relocated magnitudes.
