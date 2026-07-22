@@ -231,6 +231,44 @@ const statusOfLp = (id) => {
     lp076 ? (lp076Ok ? 'entry present, titled the Enabling Consolidation Amendment' : 'lp-076 entry is not the amendment, or carries RATIFY-TAX-50 subject matter') : 'no lp-076 entry');
 }
 
+/* (f2c) DUAL-TRACK BALLOT COMPLETENESS (LP-076, v23.0.0, Cure B — Sol S1-F1/F2/F3).
+   Cure B recast LP-076 as a paired instrument: it ran the Article XI amendment
+   ladder AND a concurrent Article XXV.VI federal-enactment ladder in one window.
+   The federal receivers (the Overtime Premium Protocol, the Central Banking
+   Authority, LP-064/069/070) are federal law and could only be enacted by the
+   five-layer XXV.VI electorate — the very layers Article XI excludes. The
+   record therefore MUST publish the two rows that electorate adds, the
+   lower-layer aggregate and the Presidential disposition, and it must certify
+   the Sanctuary close as full agreement with zero standing no — the single
+   count that serves both the consensus gate and the 90% federal Sanctuary
+   floor. Deleting any of the three re-opens the exact blocker (S1-F1) Cure B
+   closed: a Charter vote that removed the schedules while the federal
+   replacements were never enacted by their required constituency.
+
+   Occurrence-counting per phrasing (design note (4) of (f2b)): a duplicated
+   lower-layer row, a dropped Presidential row, or a Sanctuary cell that no
+   longer prints the zero-no tally each go red for their own reason. Scoped to
+   the LP-076 register block so other entries' identically-labelled rows are
+   invisible here. Counted on the raw block because `normalizedText` is not in
+   scope this early in the file and the pinned strings are exact HTML anyway. */
+{
+  const lp076Rec = law.split(/(?=<article class="law-entry)/).find((b) => b.includes('id="lp-076"')) || '';
+  const occ = (h, n) => h.split(n).length - 1;
+  const DUAL_TRACK = [
+    ['lower-layer aggregate row (the federal electorate Article XI excludes)', '<th scope="row">Lower-Layer Aggregate</th>', 1],
+    ['Presidential disposition row (veto + consultation certification)', '<th scope="row">Presidential Disposition</th>', 1],
+    ['Sanctuary zero-standing-no certification (consensus + 90% federal floor)', '0 no votes', 1],
+  ];
+  const dualTrackMiss = DUAL_TRACK.flatMap(([label, needle, want]) => {
+    const n = occ(lp076Rec, needle);
+    return n === want ? [] : [`${label}: "${needle}" × ${n}, expected ${want}`];
+  });
+  check(dualTrackMiss.length === 0,
+    'LP-076 dual-track record carries both federal-electorate rows and certifies Sanctuary zero standing no (Cure B, occurrence-counting)',
+    dualTrackMiss.length ? dualTrackMiss.join('; ')
+      : 'dual-track block complete: lower-layer + Presidential rows present once, Sanctuary tally certifies 0 no');
+}
+
 /* (b) The deregistered texts survive verbatim off-register. Deregistration is
    relocation, not deletion; this is the guard that keeps it honest. */
 {

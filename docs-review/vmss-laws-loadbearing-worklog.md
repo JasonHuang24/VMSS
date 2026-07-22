@@ -633,3 +633,71 @@ orphaned nothing. That is the null result's structural cause and it is stated in
 Proposal committed and pushed. **STOP.** Jason personally ratifies the mapping, the instrument
 design, and the cleanup dispositions — F-6 explicitly carries no recommendation from this run —
 before any L3b enactment exists. No PR, no merge, never main.
+
+---
+
+# Run L3b — the final content run (§19–§20)
+
+Executed 2026-07-21 on `feat/vmss-laws-v23.0.0`, entered at origin tip `9b6da2d` (fast-forward,
+no rewrite/force-push/tag). Baseline entering: **check-canon 136 passed / 0 failed.** Content
+authorities in order: handoff §19–§20 · loadbearing-review Part IV (its §IV.3 caveats override
+Sol's literal cure text) · sol-review-findings (verbatim) · codification-proposal §6. Sequencing
+executed as specified: **W1 → G2 → W2 → W3 → W6 → W5 → W4 → G1.** check-canon green after every
+work item; guard pin changes land in the same commit as their cause and are mutation-tested red
+for the reason under test. Every authored in-world fact is flagged **[VETO-READ]** and collected
+in the consolidated block at the end of this section.
+
+## W1 — Cure B: LP-076 recast as a paired dual-track instrument (+ G2 guard)
+
+The 2296 filing now reads as one instrument that ran the Article XI amendment ladder **and** the
+concurrent Article XXV.VI federal-enactment ladder in one window, each gate certified
+independently. This cures Sol S1-F1 (BLOCKER — federal receivers never cleared XXV.VI), S1-F2
+(Sanctuary tally not certified), S1-F3 (no veto/consultation certification), and S2-F1 (the "no
+right / only the register" holding misstated the legal incidence). No magnitude changed anywhere
+in W1; register count untouched (90 = 8/60/22); charter.html untouched.
+
+Census — `law-polling.html`, LP-076 record:
+
+| Sub | Site | Before → after |
+|---|---|---|
+| W1.4 first ¶ | `law-polling.html:659` | added the dual-track framing sentence: two ladders, one window, five-layer population ratifies the receivers |
+| W1.4 second ¶ | `:660` | "was already being recalibrated by federal instruments" → "already sat beside a federal instrument … administered the adjacent mechanics and specified around the rates, though the rates themselves stood as Charter text until this filing" (Sol S2-F1 over-breadth softened to what the record proves) |
+| W1.4 third ¶ | `:661` | holding "changes no number and no right … only effect … which register a schedule is read from" **replaced** with the S2-F1 incidence statement (no present magnitude/entitlement changes; competent tier, ratification constituency, entrenchment do). Meritboard reservation closer kept verbatim |
+| W1.1 Scope | `:663` | "Charter Amendment (Article XI)" → "Paired dual-track instrument — Charter Amendment (Article XI) filed with a concurrent Federal Enactment (Article XXV.VI), gated in one window" |
+| W1.2 Threshold | `:667` | now carries both ladders: the amendment line unchanged + federal (60% MB · 6/10 Court · Sanctuary 90% · Main 70–80% point-set · lower-layer 70–80% point-set · Presidential veto) |
+| W1.3 Results | `:673–678` | 4-row → 6-row dual block: Meritboard 88% (both floors), Court 9/10 (rewritten dual-scope note per S2-F1), Main 81% (80% amendment + 75% federal point), **Sanctuary closing tally 98% yes · 0 no votes · 2% abstaining** [VETO-READ], **Lower-Layer Aggregate 82% yes vs 75% federal point** [VETO-READ], **Presidential Disposition — veto not exercised, points fixed at filing 2296, certified at close 2299** [VETO-READ] |
+| W1.5 footnote | `:680` | still 1-for-8/first-success; incidence statement echoed; added widest-ballot-in-register-history (five layers, from the paired federal track); "lowest point ever set" → "lowest **amendment** point ever set" (scoped to the amendment track) |
+
+Census — W1.6 receiver-provenance audit, `laws.html`:
+
+| Site | Before → after |
+|---|---|
+| `laws.html:710` (LP-064 header) | "received … by the Enabling Consolidation Amendment" → "received … through the Enabling Consolidation Amendment's Article XXV.VI federal track" |
+| `:714` (LP-064 Amended meta) | "received … by LP-076, the Enabling Consolidation Amendment" → "received … through the concurrent Article XXV.VI federal-enactment track of LP-076, the Enabling Consolidation Amendment" |
+| `:815` (LP-069 header) / `:819` (LP-069 meta) | same reframe as above |
+| `:835` (LP-070 header) / `:839` (LP-070 meta) | same reframe |
+| `:852` (Overtime Protocol summary) | "the Enabling Consolidation Amendment stands up to receive" → "the Enabling Consolidation Amendment mints on its concurrent Article XXV.VI federal track to receive" |
+| `:1448` (Central Banking Authority Amended meta) | same reframe; "The founding instrument is otherwise untouched." kept |
+
+**Deviation flagged:** §20 W1.6 also lists "law-polling.html LP-064 / LP-069 / LP-070 entries" as
+provenance-audit targets. Verified at source: those three ballot records (`law-polling.html:2143`,
+`:2293`, `:2324`) carry **no** "received … by LP-076" row and no 2299/Enabling reference at all —
+they are the original enactment records (2206 / 2220 / 2211); the 2299 relationship lives only in
+the Code entries (audited above). No edit made there; fabricating a 2299 provenance row in a
+historical ballot record would be anachronistic and unrequested. Recorded, not authored.
+
+### G2 — dual-track ballot completeness guard (`tools/check-canon.mjs`, (f2c), lands with W1)
+
+New guard, scoped to the LP-076 register block, occurrence-counting per phrasing: exactly one
+`Lower-Layer Aggregate` row, exactly one `Presidential Disposition` row, and the Sanctuary tally
+printing `0 no votes` exactly once (the count that serves both the consensus gate and the 90%
+federal Sanctuary floor). Deleting any one re-opens the S1-F1 blocker. **Mutation-tested (both
+red-for-the-reason, then reverted):**
+- Probe 1 — retargeted the Presidential row's label to `Lower-Layer Aggregate`: FAIL "lower-layer …
+  × 2, expected 1; Presidential … × 0, expected 1" (bites the exactly-one lower-layer pin on a
+  duplicate AND the Presidential pin on absence).
+- Probe 2 — `0 no votes` → `0 dissenting votes`: FAIL "Sanctuary zero-standing-no certification …
+  × 0, expected 1".
+
+**check-canon after W1+G2: 137 passed / 0 failed** (136 + G2). `law 8/60/22 of 90`, founding count
+60, Tier-1 30 — all unmoved. No CSS class added (existing classes reused; no build:css needed).
