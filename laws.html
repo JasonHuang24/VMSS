@@ -706,7 +706,7 @@
 
 <h3 class="code-subject" id="subject-taxation">Taxation &amp; Rate Law</h3>
 
-<div class="code-preamble" data-r22="taxation-preamble" data-cat="federal-lp">
+<div class="code-preamble" data-r22="taxation-preamble">
   <div class="code-preamble-label">Restatement &amp; Consolidation</div>
   <p>The schedule of top marginal rates is federal law. It is enacted and recalibrated through the <a href="charter.html#article-xxv-vi">Article XXV.VI</a> federal petition ladder rather than through Charter amendment, and it is consolidated here. The Charter fixes the principle &mdash; progressive burden scaled to institutional benefit &mdash; and reaches no rate.</p>
   <p>The schedule in force, on earned income exceeding $10 million annually, active from 2295:</p>
@@ -1501,7 +1501,7 @@
   </div>
 </article>
 
-<div class="code-preamble" id="founding-corpus" data-fc="founding-corpus-intro" data-cat="founding">
+<div class="code-preamble" id="founding-corpus" data-fc="founding-corpus-intro">
   <div class="code-preamble-label">Founding Corpus &mdash; law latent in the Founding Treaty</div>
   <p>The instruments below carry full in-world legal force but never carried an instrument&rsquo;s name: they were enacted whole with the <a href="charter.html#preamble">Founding Treaty</a> rather than through the <a href="charter.html#article-xxv-vi">Article XXV.VI</a> ladder, so they have no polling record. Naming them is declaratory codification under <a href="pending-ratification.html">Process ruling R23</a> &mdash; the rule was always in force; the name is publication apparatus, and content controls over name. Each entry states the current-force rule and cites its governing canon surface; the complete provision-level inventory with verbatim sources is the latent-corpus sweep&rsquo;s working record. Where an instrument is a specification beneath a Charter article rather than a standalone founding act, its parent authority is named.</p>
 </div>
@@ -2937,9 +2937,13 @@
       }
       h.style.display = any ? '' : 'none';
     });
-    /* Preambles carry their own category (data-cat). */
+    /* Preambles derive their category from their existing structural
+       markers (data-fc = founding-corpus intro, data-r22 = register
+       taxation preamble) — no extra attribute, so the check-canon
+       apparatus-marker guards keep matching the tags byte-for-byte. */
     document.querySelectorAll('.code-preamble').forEach((p) => {
-      p.style.display = (f === 'all' || f === p.dataset.cat) ? '' : 'none';
+      const cat = p.dataset.fc ? 'founding' : 'federal-lp';
+      p.style.display = (f === 'all' || f === cat) ? '' : 'none';
     });
     /* Tier headers (and their subtitle/note lines) follow their entries. */
     document.querySelectorAll('h2.law-section-header').forEach((h) => {
