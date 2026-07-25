@@ -93,9 +93,19 @@ check(missingCat.length === 0, 'every card section has a category <option>',
 check(missingSnap.length === 0, 'every card version has a snapshot <option>',
   missingSnap.length ? `missing: ${missingSnap.join(', ')}` : `${cardVersions.size} versions`);
 
-/* Every simulation card carries a Doctrine Snapshot stamp. */
+/* Every simulation card carries a Doctrine Snapshot stamp. Asserted per card,
+   not as a page-wide total: `stamps >= cards` is satisfied by a card that lost
+   its stamp while another grew a second one, which is exactly the shape an
+   editorial sweep produces when it moves a stamp instead of copying it. The
+   page-wide total is kept in the detail line because it is what a reader of a
+   failure wants to see next. */
 const stamps = (hub.match(/Doctrine Snapshot:/g) || []).length;
-check(stamps >= cards, 'archive stamps cover cards', `${stamps} stamps / ${cards} cards`);
+const unstamped = cardBlocks
+  .map((b, i) => (b.includes('Doctrine Snapshot:') ? null : i + 1))
+  .filter(Boolean);
+check(unstamped.length === 0, 'archive stamps cover cards',
+  unstamped.length ? `card(s) with no Doctrine Snapshot stamp: ${unstamped.join(', ')} (${stamps} stamps / ${cards} cards)`
+    : `${stamps} stamps / ${cards} cards`);
 
 /* Advertised total in intro prose + the server-rendered count line. */
 check(hub.includes(`All ${cards} simulations`), 'archive intro count', `expects "All ${cards} simulations"`);
@@ -143,18 +153,55 @@ check(statCard(charter, 'Charter'), 'stat card: Charter', `expects ${charter}`);
 check(statCard(federal, 'Federal'), 'stat card: Federal', `expects ${federal}`);
 check(statCard(regulatory, 'Regulatory'), 'stat card: Regulatory', `expects ${regulatory}`);
 
+/* Per entry, not page-wide (v23.5 code audit). The old `badges === entries`
+   total is satisfied by an entry that lost its badge while a stray badge
+   elsewhere on the page restored the count — and an entry with no badge is
+   invisible to statusOfLp(), to the vote-outcome guard, and to code integrity
+   (a1)/(a2), all of which read the first badge in the block. */
+const entryBlocks = law.split(/(?=<article class="law-entry)/).slice(1);
 const badges = (law.match(/class="status-badge status-[a-z]+"/g) || []).length;
-check(badges === entries, 'status badges = entries', `${badges} badges / ${entries} entries`);
+const unbadged = entryBlocks
+  .map((b, i) => (/class="status-badge status-[a-z]+"/.test(b) ? null : ((b.match(/id="(lp-[\w-]+)"/) || [])[1] || `entry ${i + 1}`)))
+  .filter(Boolean);
+check(unbadged.length === 0, 'status badges = entries',
+  unbadged.length ? `no status badge on: ${unbadged.join(', ')} (${badges} badges / ${entries} entries)`
+    : `${badges} badges / ${entries} entries`);
 
+/* Identity, not merely count. A count-only assertion is satisfied by a pillar
+   label that migrated to the wrong entry, or off the entries entirely into page
+   chrome — either leaves the designated set wrong under a green build. The seven
+   designated entries are pinned by anchor id in canon.json; the count assertion
+   is kept beside it because that is what fails first when a label is simply
+   dropped, and it names the manifest constant the identity set must agree with. */
+const pillarIds = entryBlocks
+  .filter((b) => /class="pillar-label"/.test(b))
+  .map((b) => (b.match(/id="(lp-[\w-]+)"/) || [])[1])
+  .filter(Boolean);
 const pillars = (law.match(/class="pillar-label"/g) || []).length;
 check(pillars === manifest.pillarFederalLaws, 'pillar law count', `${pillars} marked / ${manifest.pillarFederalLaws} canonical`);
+check(setEq(new Set(pillarIds), new Set(manifest.pillarFederalLawIds)),
+  'pillar law identity: the marked entries are the designated seven',
+  `marked {${[...pillarIds].sort().join(',')}} vs canonical {${[...manifest.pillarFederalLawIds].sort().join(',')}}`);
 
 const entryIds = [...law.matchAll(/<article class="law-entry[^"]*" id="(lp-[\w-]+)"/g)].map((m) => m[1]);
 check(entryIds.length === entries, 'every entry has an anchor id', `${entryIds.length}/${entries}`);
 check(new Set(entryIds).size === entryIds.length, 'entry anchor ids unique');
 
+/* Per item, matching the shape the Code's ToC guard has used since v22.7.0.
+   The old page-wide `class="toc-link"` total was satisfied by an entry dropping
+   out of the index while a stray toc-link elsewhere held the count — so the
+   register's index could lose a law under a green build, which is precisely
+   what this guard was written to prevent. Orphans and unindexed entries are
+   reported separately because they call for different fixes. */
+const tocTargets = [...law.matchAll(/<a href="#(lp-[\w.-]+)" class="toc-link"/g)].map((m) => m[1]);
 const tocLinks = (law.match(/class="toc-link"/g) || []).length;
-check(tocLinks === entries, 'ToC links = entries (else run tools/build-law-toc.mjs)', `${tocLinks} links / ${entries} entries`);
+const tocOrphans = tocTargets.filter((id) => !entryIds.includes(id));
+const tocUnindexed = entryIds.filter((id) => !tocTargets.includes(id));
+check(tocLinks === entries && tocTargets.length === entries && !tocOrphans.length && !tocUnindexed.length,
+  'ToC links = entries (else run tools/build-law-toc.mjs)',
+  (tocOrphans.length || tocUnindexed.length)
+    ? `orphan links: ${tocOrphans.join(', ') || 'none'}; unindexed entries: ${tocUnindexed.join(', ') || 'none'}`
+    : `${tocLinks} links / ${entries} entries`);
 
 /* The filter's own count line. The stat cards above were checked against the
    derived total from the start; this line was not, and it spent v22.3 and v22.4
@@ -1340,15 +1387,24 @@ const WY = catFilterPage('why-vmss.html', 'why-card', 'entries');
     wacs.push(ac);
     if (!b.includes(`id="${ac}"`)) bad.push(`why card ${i + 1}: aria-controls "${ac}" has no in-block id`);
   });
-  check(bad.length === 0 && wacs.length === why && new Set(wacs).size === wacs.length,
+  check(why > 0 && bad.length === 0 && wacs.length === why && new Set(wacs).size === wacs.length,
     'why-vmss accordions: aria-controls resolve + unique',
     bad.length ? bad.slice(0, 6).join('; ') : `${why} cards`);
 }
 
+let techCards = 0;
 {
   const src = read('technologies.html');
-  const tech = (src.match(/class="tech-card/g) || []).length;
-  const tblocks = src.split(/(?=<div class="tech-card)/).slice(1);
+  /* Class-position-independent (v23.5 code audit). technologies.html writes
+     `class="bg-… border-… tech-card overflow-hidden"`, so the old anchored
+     `class="tech-card` matched ZERO of the page's eleven accordions and this
+     guard passed vacuously on an empty set for as long as that markup has
+     stood. why-vmss.html happens to put its class first, which is why the
+     sibling guard above never showed the same symptom. Match the token
+     anywhere in the attribute, and assert a non-empty census below so a
+     future rename goes red instead of going quiet. */
+  const tech = (src.match(/class="[^"]*\btech-card\b/g) || []).length;
+  const tblocks = src.split(/(?=<div class="[^"]*\btech-card\b)/).slice(1);
   const tacs = [];
   const bad = [];
   tblocks.forEach((b, i) => {
@@ -1357,9 +1413,27 @@ const WY = catFilterPage('why-vmss.html', 'why-card', 'entries');
     tacs.push(ac);
     if (!b.includes(`id="${ac}"`)) bad.push(`tech card ${i + 1}: aria-controls "${ac}" has no in-block id`);
   });
-  check(bad.length === 0 && tacs.length === tech && new Set(tacs).size === tacs.length,
+  techCards = tech;
+  check(tech > 0 && bad.length === 0 && tacs.length === tech && new Set(tacs).size === tacs.length,
     'technologies accordions: aria-controls resolve + unique',
     bad.length ? bad.slice(0, 6).join('; ') : `${tech} cards`);
+}
+
+/* ---- 11. Census floor ----
+   Every count this script derives comes from matching a class name against a
+   page. A renamed or re-ordered class does not fail the guards that consume the
+   count — it drops the census to zero, and every comparison over an empty set
+   passes. That is exactly how the technologies accordion guard sat vacuously
+   green while eleven real accordions went unchecked. This is the backstop for
+   the whole class: no derived census may be empty. It is deliberately dumb, and
+   it is the one check here that cannot itself go vacuous. */
+{
+  const censuses = [['archive cards', cards], ['law entries', entries], ['faq cards', F],
+    ['why-vmss cards', WY], ['technologies cards', techCards]];
+  const empty = censuses.filter(([, n]) => !n).map(([k]) => k);
+  check(empty.length === 0, 'census floor: no derived count is empty (a renamed class must fail loudly, not quietly)',
+    empty.length ? `EMPTY: ${empty.join(', ')} — a class rename has silently disabled the guards that read them`
+      : censuses.map(([k, n]) => `${k}=${n}`).join(', '));
 }
 
 /* ---- Report ---- */

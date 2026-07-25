@@ -98,7 +98,11 @@ const markerRe = /<!-- LAW-TOC:BEGIN[\s\S]*?<!-- LAW-TOC:END -->/;
 if (markerRe.test(html)) {
   html = html.replace(markerRe, toc);
 } else {
-  const anchor = /(<p class="law-filter-count" data-law-count>[^<]*<\/p>)/;
+  /* Attribute-tolerant. The register's count line carries role/aria-live after
+     data-law-count, so the old attribute-adjacent form matched nothing and this
+     first-install path could only ever throw "anchor not found". Unreachable
+     while the markers stand, which is why it went unnoticed. */
+  const anchor = /(<p class="law-filter-count" data-law-count\b[^>]*>[^<]*<\/p>)/;
   if (!anchor.test(html)) throw new Error('filter-count anchor not found');
   html = html.replace(anchor, `$1\n\n${toc}`);
 }

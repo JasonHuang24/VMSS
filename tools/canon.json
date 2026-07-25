@@ -1,6 +1,7 @@
 {
   "comment": "Canonical constants that cannot be derived from the pages themselves. Everything derivable is computed live by check-canon.mjs and cross-checked against advertised values.",
   "pillarFederalLaws": 7,
+  "pillarFederalLawIds": ["lp-005-3", "lp-007-2", "lp-039", "lp-041", "lp-045-2", "lp-047-3", "lp-048-3"],
   "charterLatestArticle": "XXVIII",
   "currencyZones": 4,
   "taxCanon": {
