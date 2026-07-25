@@ -110,6 +110,16 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 └── robots.txt
 ```
 
+The two `documents/` PDFs are regenerated via Chrome headless print-to-pdf:
+
+```
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="F:\Programming\VMSS\VMSS Website\documents\vmss-academy-course-packet.pdf" --no-margins "file:///F:/Programming/VMSS/VMSS Website/documents/academy-source.html"
+
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="F:\Programming\VMSS\VMSS Website\documents\vmss-academic-resources.pdf" --no-margins "file:///F:/Programming/VMSS/VMSS Website/documents/resources-source.html"
+```
+
+After regeneration, bump the cache-busting query string on the iframe `src` in `simulations-academy.html` / `simulations-resources.html` to match.
+
 ---
 
 ## Key Concepts
