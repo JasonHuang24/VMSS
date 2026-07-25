@@ -1,0 +1,47 @@
+name: Guard mutation suites
+
+# Tests the tests. canon-check.yml proves the canon is consistent; these two
+# suites prove the checker would NOTICE if it were not — each corrupts a guarded
+# property in a throwaway copy of the repo and asserts the checker goes red for
+# that specific guard.
+#
+# Split out of canon-check.yml rather than appended to it because these are
+# minutes where that job is seconds: the canon-guard suite runs check-canon.mjs
+# ~90 times. The two jobs here run in parallel with each other and with
+# canon-check, so wall-clock stays close to the slowest single suite.
+#
+# The founding-guard suite was previously reachable only by hand
+# (`npm run test:code-guards`) despite check-canon.mjs citing it in-source as
+# what mutation-tests code integrity guards (i)-(v). It runs on every push now.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  canon-guards:
+    name: check-canon guard mutations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Every guard family must go red under corruption
+        run: node tools/test-canon-guard-mutations.mjs
+
+  founding-guards:
+    name: founding-corpus guard mutations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Founding-corpus guards must bite exactly as specified
+        run: node tools/test-code-founding-guards.mjs
