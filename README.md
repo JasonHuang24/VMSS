@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 23.3.0
+**Version:** 23.4.0
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -53,7 +53,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ## Stack
 
 - HTML Â· CSS Â· Vanilla JavaScript
-- Tailwind CSS (CDN)
+- Tailwind CSS (compiled ahead of time to `assets/css/tailwind.css` via `npm run build:css`)
 - Font Awesome (CDN)
 - Supabase (join form backend)
 - Headless Chrome (PDF generation for Academy course packet and Academic Resources)
