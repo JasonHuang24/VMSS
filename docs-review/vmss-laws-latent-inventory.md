@@ -4,6 +4,16 @@
 Sweep run 2026-07-20 on branch `feat/vmss-laws-latent-corpus` (from `feat/vmss-laws-v22.7.0`).
 Controlling spec: `docs-review/vmss-laws-latent-handoff.md`. Architecture: `docs-review/vmss-laws-architecture.md` §2/§5.
 
+> **Repo-residue-purge correction (2026-07-24, commit `2d326fd`).** The controlling spec
+> (`vmss-laws-latent-handoff.md`), the architecture doc (`vmss-laws-architecture.md`), and the entire
+> `docs-review/vmss-laws-latent-mining/` annex — every `mine-*.md` reader, `charter-home-index.md`,
+> `existing-names-index.md`, `cluster-subject.md`, `cluster-architecture.md`, and
+> `accounting-recheck.json`/`.mjs` — were deleted from the repo as process residue; this inventory file
+> was the sole keeper (`tools/check-canon.mjs:1015` reads only its PART 1 heading count, not the annex).
+> Every citation to those paths below, including the Fix Pack instruction to re-run
+> `accounting-recheck.mjs`, is now historical: the files exist only in git history at or before
+> `2d326fd`, not at any current path.
+
 ---
 
 ## What this file is
