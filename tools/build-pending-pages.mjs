@@ -367,11 +367,34 @@ const statuteBanner = () => `
 /* The section's Process-tier declaration (R13, v22.2). Carried by the hub, at
    the top, before anything else: this section is drafting archive and reads as
    out-of-world authorship. It says so about its own interventions too — the
-   record includes the ones that were made and then withdrawn. */
+   record includes the ones that were made and then withdrawn.
+
+   The registered process rulings follow it (R22 v22.7.0, R23 v22.8.0). They
+   live here rather than in the output because check-canon pins both — the R22
+   and R23 "registered on the Ratification Record" checks read this page for the
+   ruling number and the doctrine name. Until v23.4.0 they existed only as hand
+   edits to the generated file, so re-running this generator deleted them and
+   failed those two checks; anyone following the documented "edit the source,
+   re-run the generator" workflow tripped it. Emitting them from here makes the
+   build idempotent and keeps the pins satisfied by construction. */
 const processFrame = () => `
         <div class="process-frame" role="note" aria-label="Record tier">
           <span class="pf-label">Process Record — drafting archive, not world canon</span>
           <p>This section is the <strong>drafting archive</strong>: the out-of-world authorship history behind the civilization's fiscal law. It is not a page of the world's own record and nothing in it is in force. The archive keeps <strong>interventions and their withdrawal alike</strong>. In world, <strong>RATIFY-TAX-50 failed</strong>; the later LP-074 conditional successor was enacted separately and both schedules certified in 2294. LP-073&rsquo;s 70 / 35 / 17 / 8 schedule is historical after 2295.</p>
+        </div>
+
+        <div class="process-frame" role="note" aria-label="Process ruling R22">
+          <span class="pf-label">Process ruling R22 — registered 2026-07-20</span>
+          <p><strong>Process ruling R22 &mdash; The Restatement &amp; Consolidation Doctrine</strong> (registered 2026-07-20, process record; ratified with the v22.7.0 restructure).</p>
+          <p>(a) Numeric restatements of subordinate-tier law appearing on the Charter page were always publication apparatus, never enacted constitutional text; relocating them amends nothing.</p>
+          <p>(b) VMSS Laws (<a href="laws.html">laws.html</a>) is established as publication apparatus of the ledger&rsquo;s enforcement state, classified secondary authority under LP-042.</p>
+          <p>(c) The former designation of Whitepaper §12.1 as &ldquo;the binding schedule&rdquo; is reclassified as apparatus superseded by consolidation; §12.1 retains specification weight under LP-042.</p>
+          <p>The in-world anchor for (a) predates this ruling: LP-070&rsquo;s dual-key tier ruling (2211) already held that Charter III.III&rsquo;s rate figures were &ldquo;restatement … not Charter-tier engraving.&rdquo;</p>
+        </div>
+
+        <div class="process-frame" role="note" aria-label="Process ruling R23">
+          <span class="pf-label">Process ruling R23 — registered 2026-07-20</span>
+          <p><strong>Process ruling R23 &mdash; The Codification Sweep</strong> (registered 2026-07-20, process record). Naming an instrument latent in the founding corpus is declaratory codification: the rule was always in force; the name is publication apparatus. Content controls over name. The sweep changes no rule, magnitude, right, or history, and creates no ladder record. Founding-corpus instruments are consolidated in <a href="laws.html">VMSS Laws</a> with their canon anchors as source; the Law Polling record remains the complete record of ladder enactments.</p>
         </div>`;
 
 function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing, statusBanner, extraStyle }) {

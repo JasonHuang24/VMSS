@@ -491,7 +491,7 @@ const built = [];
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Schedule status">
           <i class="fas fa-list-ol" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Adopted with the Charter · No valid 2294 application</span>
+            <span class="pb-label">Adopted with the Charter · Applied by the 2294 certification</span>
             <p><strong>PART OF THE CHARTER (§10.4).</strong> This Schedule enumerates the welfare measures, interval families, and preprocessing methods the audit may select from, and is part of the <a href="${CHARTER}#s-10-4">Path 2 Charter</a> for every purpose of §13.1. Its residues are engraved at the <a href="${REGISTER}#rr-9">Register</a> (RR-9 through RR-12). The complete <a href="${CERTIFICATION}">2294 record</a> applied this Schedule to explicit treatment/counterfactual contrasts. Findings I&ndash;IV passed and Schedule A certified; B1&ndash;B6 were then independently evaluated and Schedule B certified.</p>
           </div>
         </div>`,
