@@ -64,6 +64,14 @@
     if (dur.includes('week'))  return n * 7;
     return n; // days
   }
+  /* The interpretation panel is assembled as an HTML string and written through
+     innerHTML/insertAdjacentHTML, which is correct for the authored markup it
+     carries. Any value that arrives from state rather than from this file goes
+     through here first. */
+  const escapeHtml = (s) => s
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
   const randItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const randRange = (base, spread) => base + Math.floor(Math.random() * (spread * 2 + 1)) - spread;
 
@@ -327,8 +335,14 @@
     const notes = [];
     const { trajectory = 'neutral', eventLog: log = [], isLocked: locked = false, assignedLayer: aLayer = '0' } = ctx;
 
-    // Most recent event
-    if (eventLabel) notes.push(eventLabel + '.');
+    // Most recent event. The other notes below are authored HTML on purpose;
+    // this one is data, and it is the only entry here that is not. It arrives
+    // from window.VMSS state, which script.js rehydrates from
+    // localStorage['vmss_state'] with an unvalidated spread — and every note in
+    // this array is joined into an innerHTML/insertAdjacentHTML sink. Escaped so
+    // the one data-carrying entry cannot become markup. Every legitimate label
+    // is plain text, so rendering is unchanged.
+    if (eventLabel) notes.push(escapeHtml(String(eventLabel)) + '.');
 
     // Reassignment lock (Article XV one-way door)
     if (locked)

@@ -76,8 +76,11 @@ begin
 end;
 $$;
 
--- Only the Edge Function (service role) should ever call this.
-revoke execute on function public.check_submission_rate_limit(text, integer, text) from public;
+-- Only the Edge Function (service role) should ever call this. Revoking from
+-- PUBLIC is not enough: Supabase grants EXECUTE to anon and authenticated
+-- directly, and a direct grant survives a PUBLIC revoke. Named explicitly, the
+-- same way the table is protected at line 29.
+revoke execute on function public.check_submission_rate_limit(text, integer, text) from public, anon, authenticated;
 grant  execute on function public.check_submission_rate_limit(text, integer, text) to service_role;
 
 -- 3 ─ After submit-application is deployed AND verified -----------------------

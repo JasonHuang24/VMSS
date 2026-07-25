@@ -65,7 +65,15 @@ if (!all.length) throw new Error('no entries matched');
 const totalArticles = (html.match(/<article class="law-entry/g) || []).length;
 if (all.length !== totalArticles) throw new Error(`extraction mismatch: ${all.length} parsed vs ${totalArticles} articles`);
 
-const bounds = SECTIONS.map(([id]) => html.indexOf(`id="${id}"`));
+/* Throw on a missing section, matching the Code half's guard below. Without
+   this, renaming a section anchor made indexOf return -1, every entry compared
+   greater than it, and the register silently re-filed the whole Charter block
+   under Federal Laws — and wrote the file. */
+const bounds = SECTIONS.map(([id]) => {
+  const at = html.indexOf(`id="${id}"`);
+  if (at === -1) throw new Error(`register section ${id} not found`);
+  return at;
+});
 const grouped = SECTIONS.map(([id, name], i) => ({
   id,
   name,
@@ -94,6 +102,16 @@ ${g.entries.map(link).join('\n')}
 </div>
 <!-- LAW-TOC:END -->`;
 
+/* The replace region is lazy on the right but unanchored on the left: it runs
+   from the FIRST BEGIN token in the file, so any earlier mention of the marker
+   string — a maintainer note, a merge artifact — silently swallows every line
+   between it and the real block. Refuse to write rather than guess which one is
+   the index. */
+const beginCount = (html.match(/<!-- LAW-TOC:BEGIN/g) || []).length;
+const endCount = (html.match(/<!-- LAW-TOC:END -->/g) || []).length;
+if (beginCount > 1 || endCount > 1) {
+  throw new Error(`ambiguous LAW-TOC markers: ${beginCount} BEGIN / ${endCount} END (expected at most one of each)`);
+}
 const markerRe = /<!-- LAW-TOC:BEGIN[\s\S]*?<!-- LAW-TOC:END -->/;
 if (markerRe.test(html)) {
   html = html.replace(markerRe, toc);
@@ -186,8 +204,17 @@ function buildCodeToc() {
     if (wrong.length) throw new Error(`data-tier disagrees with its section for: ${wrong.map((e) => e.id).join(', ')}`);
   }
 
+  /* Scoped to the Tier 2 region, not the whole document. Only Federal Law is
+     subdivided by subject and tierBody() renders these under tier-federal
+     alone, so a code-subject heading added to any other tier was still
+     collected here and emitted as a phantom empty subject row inside Federal
+     Law. The `covered !== g.entries.length` assert below cannot see it: the
+     phantom holds zero entries, so entry conservation still balances. */
+  const federalStart = bounds[1];
+  const federalEnd = bounds[2];
   const subjects = [...html.matchAll(/<h3 class="code-subject" id="([\w-]+)">([\s\S]*?)<\/h3>/g)]
-    .map((m) => ({ id: m[1], name: m[2].trim(), pos: m.index }));
+    .map((m) => ({ id: m[1], name: m[2].trim(), pos: m.index }))
+    .filter((s) => s.pos > federalStart && s.pos < federalEnd);
 
   const link = (e) =>
     `        <a href="#${e.id}" class="toc-link" data-tier="${e.tier}"><span class="toc-num">${e.num}</span> <span class="toc-txt">${e.txt}</span></a>`;

@@ -147,7 +147,15 @@ const federal = sectionCount('federal-laws', 'regulatory-petitions');
 const regulatory = sectionCount('regulatory-petitions', null);
 
 check(charter + federal + regulatory === entries, 'law sections sum to total', `${charter}+${federal}+${regulatory} vs ${entries}`);
-const statCard = (n, label) => new RegExp(`>${n}</p>\\s*<p class="text-xs text-\\[var\\(--text-muted\\)\\]">${label}<`).test(law);
+/* Agreement, not existence. `.test()` is satisfied by the labelled card
+   appearing with the right number ANYWHERE on the page, so a second card
+   carrying a stale number sat beside the correct one undetected. Harvest every
+   card with this label and require all of them to state the derived value. */
+const statCard = (n, label) => {
+  const found = [...law.matchAll(new RegExp(`>(\\d+)</p>\\s*<p class="text-xs text-\\[var\\(--text-muted\\)\\]">${label}<`, 'g'))]
+    .map((m) => Number(m[1]));
+  return found.length > 0 && found.every((v) => v === n);
+};
 check(statCard(entries, 'Entries'), 'stat card: Entries', `expects ${entries}`);
 check(statCard(charter, 'Charter'), 'stat card: Charter', `expects ${charter}`);
 check(statCard(federal, 'Federal'), 'stat card: Federal', `expects ${federal}`);
@@ -222,7 +230,11 @@ check(Number(countLine) === entries, 'filter count line = entries',
   for (const b of blocks) {
     const id = (b.match(/id="(lp-[\w-]+)"/) || [])[1] || '?';
     const status = (b.match(/class="status-badge (status-[a-z]+)"/) || [])[1];
-    const fails = (b.match(/<td class="fail"/g) || []).length;
+    /* Class-list aware. `<td class="fail"` requires the token to be the entire
+       attribute, so a cell restyled to `class="fail is-narrow"` stopped counting
+       as a failing gate and an enacted entry could carry one invisibly. */
+    const fails = [...b.matchAll(/<td\b[^>]*?\sclass="([^"]*)"/g)]
+      .filter((m) => m[1].trim().split(/\s+/).includes('fail')).length;
     if (status === 'status-enacted' && fails > 0) bad.push(`${id}: enacted but ${fails} failing gate(s)`);
     if (status === 'status-failed' && fails === 0) bad.push(`${id}: failed but no failing gate shown`);
   }
@@ -437,7 +449,12 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     ['inline citation links', /class="ls-cite"/],
     ['statute text block', /class="law-statute"/],
     ['citation key', /Citation key/i],
-    ['statute typography', /class="ls-(h|p|list|quote|hr)\b/],
+    /* The alternation has to cover the statute typography that actually exists,
+       and match the token anywhere in the attribute rather than only when it
+       leads. ls-code, ls-table and ls-ruling were all published forms the guard
+       could not see. (ls-table\b already covers ls-table-wrap, since '-' is a
+       non-word character; ls-cite has its own labelled entry above.) */
+    ['statute typography', /class="[^"]*\bls-(?:h|p|list|quote|hr|code|table|ruling)\b/],
   ];
   const blocks = law.split(/(?=<article class="law-entry)/).slice(1);
   const offenders = [];
@@ -508,7 +525,12 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     .replace(/<[^>]+>/g, ' ')
     .replace(/&(?:nbsp|thinsp);/gi, ' ')
     .replace(/&(?:rarr|rightarrow);/gi, '→')
-    .replace(/&(?:ndash|mdash);/gi, '–')
+    /* An em dash must decode to an EM dash. Folding both entities onto U+2013
+       meant an entity-only, rendering-identical edit (— rewritten as &mdash;)
+       broke every pin that quotes an em dash — the conflicts-clause pin went red
+       on a change that altered nothing a reader can see. */
+    .replace(/&mdash;/gi, '—')
+    .replace(/&ndash;/gi, '–')
     .replace(/\s+/g, ' ')
     .trim();
   const tax = manifest.taxCanon;
@@ -749,7 +771,18 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
       { id: 'XXVII trailing illustration past the quoted span (E-L2)', to: 'code-lp-064', alts: [
         'under 60–90% escalation to survive long at 135%'] },
     ];
-    const occurrences = (haystack, needle) => haystack.split(needle).length - 1;
+    /* (6) DASH-INSENSITIVE, SYMMETRICALLY. normalizedText resolves the dash
+       ENTITIES but leaves the resulting characters distinct, and charter.html
+       writes every numeric range with a literal en dash while this table is
+       typed with ASCII hyphens. So "90-99% forfeiture that prevents arbitrage"
+       could be re-typed as "90–99%" — visually identical, and the form the
+       Charter actually uses — and walk straight past the absence half of this
+       guard. Folded on both sides so the table stays the single source and the
+       two halves cannot disagree about what counts as the same string.
+       Design note (2) is untouched: this normalizes the character axis only,
+       the counting stays counting. */
+    const foldDashes = (s) => s.replace(/[‐-―−]/g, '-');
+    const occurrences = (haystack, needle) => foldDashes(haystack).split(foldDashes(needle)).length - 1;
     const relocatedPhrasings = RELOCATED.reduce((n, r) => n + r.alts.length, 0);
 
     /* (i) Charter side: zero occurrences of any relocated rule. Counting, not
@@ -1080,7 +1113,11 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     const charterHeads = [...read('charter.html').matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)]
       .map((m) => ({ id: m[1], title: m[2].trim() }));
     const articleHeads = (read('charter.html').match(/<h2 id="article-/g) || []).length;
-    const expectedRows = articleHeads + 2; // + Preamble + Founding Affirmation
+    /* Derived from the headings themselves, not from the article count plus a
+       hand-written 2. The literal encoded an assumption — exactly two non-article
+       <h2 id> headings — that a new front- or back-matter heading would silently
+       falsify. Numerically identical today (30 = 28 + 2). */
+    const expectedRows = charterHeads.length; // every <h2 id> on the Charter page
     const indexRows = [...laws.matchAll(/<article class="code-entry[^"]*" id="[\w.-]+" data-tier="charter" data-source="([^"]+)">\s*<a class="code-index-title" href="charter\.html#([^"]+)">([\s\S]*?)<\/a>/g)]
       .map((m) => ({ source: m[1], href: m[2], title: m[3].trim() }));
     check(indexRows.length === expectedRows, 'code integrity (d1): Tier 1 indexes every Charter heading',
@@ -1099,7 +1136,11 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        asserts what the sitemap must NOT contain — so a new primary doctrine
        surface could ship unlisted forever. The Code is indexable by design
        (unlike rate-history/deregistered), so absence is a defect. */
-    check(read('sitemap.xml').includes('laws.html'), 'code integrity (e): sitemap.xml lists laws.html');
+    /* A real <loc>, not a substring. `includes('laws.html')` was satisfied by
+       the string appearing in a comment, or inside deregistered-statutes.html's
+       own url — neither of which lists the Code for indexing. */
+    check(/<loc>[^<]*\/laws\.html<\/loc>/.test(stripComments(read('sitemap.xml'))),
+      'code integrity (e): sitemap.xml lists laws.html');
 
     /* R22 durability pin (v22.7.1). The Code's title, its secondary-authority
        classification, and the Charter trim all rest on R22 being registered in
@@ -1107,9 +1148,14 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        nothing but this pin stops a later edit from removing the ruling while
        leaving everything that depends on it standing. Pinned in the entity form
        the page actually uses. */
-    const record = read('pending-ratification.html');
+    /* Word-bounded, and read as rendered text. A bare substring test for "R22"
+       is satisfied by "R220", by a hex colour, or by the ruling surviving only
+       inside an HTML comment — none of which is the ruling being registered on
+       the record a reader sees. */
+    const recordRendered = stripComments(read('pending-ratification.html'));
+    const record = recordRendered;
     const r22 = [
-      ['ruling number', record.includes('R22')],
+      ['ruling number', /\bR22\b/.test(record)],
       ['doctrine name', record.includes('Restatement &amp; Consolidation Doctrine')],
     ].filter(([, ok]) => !ok).map(([k]) => k);
     check(r22.length === 0, 'R22 is registered on the Ratification Record (process record)',
@@ -1121,7 +1167,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
        form the page uses so a later edit cannot remove the ruling while leaving
        the 60 founding entries that depend on it standing. */
     const r23 = [
-      ['ruling number', record.includes('R23')],
+      ['ruling number', /\bR23\b/.test(record)],
       ['doctrine name', record.includes('The Codification Sweep')],
     ].filter(([, ok]) => !ok).map(([k]) => k);
     check(r23.length === 0, 'R23 is registered on the Ratification Record (process record)',
@@ -1185,7 +1231,14 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
   try {
     const out = execFileSync(process.execPath, [join(ROOT, 'tools/test-path2-certification-mutations.mjs')], { encoding: 'utf8' });
     const summary = out.trim().split('\n');
-    check(/\d+ hostile mutations rejected, 0 accepted; positive control passed/.test(out), 'hostile certification mutation suite', summary[summary.length - 1]);
+    /* Floor the count, do not just pattern-match it. "0 hostile mutations
+       rejected, 0 accepted" satisfies the shape while proving nothing, so a
+       suite that lost its mutation table — or never built one — reported green.
+       A floor rather than an equality pin because the suite is meant to GROW;
+       2023 of today's 2272 come from the two leaf enumerators alone, so 2000
+       only trips when coverage is actually lost. */
+    const counted = out.match(/(\d+) hostile mutations rejected, 0 accepted; positive control passed/);
+    check(!!counted && Number(counted[1]) >= 2000, 'hostile certification mutation suite', summary[summary.length - 1]);
   } catch (error) {
     check(false, 'hostile certification mutation suite', String(error.stdout || error.message));
   }
