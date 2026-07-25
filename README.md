@@ -89,6 +89,8 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 ├── script.js            # Global state engine, theme, mobile menu, modals
 ├── styles.css           # Full design system
 ├── assets/
+│   ├── css/
+│   │   └── tailwind.css    # Compiled Tailwind artifact — committed, CI-gated
 │   └── js/
 │       ├── diagrams.js     # Interactive SVG ring diagram
 │       ├── sti-sim.js      # STI simulation console
