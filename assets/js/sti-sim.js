@@ -521,18 +521,6 @@
     let assignedLayer = '0';  // starts at Main Layer
     let isLocked = false;     // true after punitive reassignment — cannot return
 
-    /**
-     * Resolves the effective layer from score and assignment state.
-     * - If locked (punitive reassignment): layer is fixed at assignedLayer
-     * - If not locked: phasing between 0 and +1 based on score threshold
-     */
-    function resolveLayer(score) {
-      if (isLocked) return layerForScore(0); // use layerForScore just for the label/tone lookup
-      // Score-based phasing between Main and Sanctuary only
-      if (score >= 85) return layerForScore(85);
-      return layerForScore(70); // Main Layer baseline
-    }
-
     /** Returns the full layer descriptor for the current assignment state. */
     function getEffectiveLayer(score) {
       if (isLocked) {
