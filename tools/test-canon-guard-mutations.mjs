@@ -409,7 +409,10 @@ if (base.code !== 0) {
   process.exit(1);
 }
 
+/* The scratch tree is a full copy of the repo, so it is cleaned up in a finally:
+   an unexpected throw mid-probe must not leave one behind in the temp dir. */
 const results = [];
+try {
 for (const probe of PROBES) {
   let specError = null;
   for (const e of probe.edits) {
@@ -452,8 +455,9 @@ for (const probe of PROBES) {
   });
   restoreAll();
 }
-
-rmSync(TMP, { recursive: true, force: true });
+} finally {
+  rmSync(TMP, { recursive: true, force: true });
+}
 
 const failed = results.filter((r) => !r.ok);
 for (const r of results) console.log(`  ${r.ok ? 'PASS' : 'FAIL'}  ${r.family} — ${r.detail}`);
