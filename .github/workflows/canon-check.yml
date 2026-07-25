@@ -10,10 +10,50 @@ on:
   pull_request:
   workflow_dispatch: {}
 
+# Read-only. This job needs the tree and nothing else, and it runs on
+# pull_request — where the default token would otherwise be broader than
+# anything the checker has any use for.
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      # Pinned rather than inherited from the runner image: the checker uses
+      # .at(), ??, matchAll and optional chaining, and "whatever ubuntu-latest
+      # ships today" is not a version contract.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Run canon checker
         run: node tools/check-canon.mjs
+
+  generated-pages:
+    name: Generated pages match their generators
+    runs-on: ubuntu-latest
+    # Same guard tailwind-check.yml applies to the compiled CSS, applied to the
+    # eleven pages the two unwired generators own. build-path2-certification-page
+    # and build-path2-record-annexes carry --check modes that check-canon already
+    # calls; build-path2-pages, build-pending-pages and build-law-toc do not, so
+    # until now a canon edit could land without re-running them and nothing would
+    # say so. Re-running a generator and diffing is the cheapest way to say it.
+    #
+    # All five are idempotent on the committed tree — verified byte-for-byte — so
+    # a diff here means a generator was not re-run, not that a generator is
+    # unstable.
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Regenerate every generated page
+        run: |
+          node tools/build-law-toc.mjs
+          node tools/build-path2-pages.mjs
+          node tools/build-pending-pages.mjs
+          node tools/build-path2-certification-page.mjs
+          node tools/build-path2-record-annexes.mjs
+      - name: Generated output must match the committed files
+        run: git diff --exit-code
