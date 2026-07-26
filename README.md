@@ -95,12 +95,22 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 │       ├── diagrams.js     # Interactive SVG ring diagram
 │       ├── sti-sim.js      # STI simulation console
 │       └── card-filter.js  # Shared search/chip/select filter (simulations, faq, why-vmss)
-├── documents/
+├── documents/                       # Published record annex + generator sources — not drafts
 │   ├── design-principles.md         # The reasoning patterns behind the doctrine (companion to whitepaper §12, §28.0; Charter XI)
 │   ├── academy-source.html          # Source for the Academy course packet PDF
 │   ├── resources-source.html        # Source for the Academic Resources PDF
 │   ├── vmss-academy-course-packet.pdf
-│   └── vmss-academic-resources.pdf
+│   ├── vmss-academic-resources.pdf
+│   ├── path-2-*-source.md               # 5 verbatim sources → path-2-{charter,schedule,risk-register}.html + pending-ratify-tax-50-rulings.html (npm run build:path2-pages)
+│   ├── ratify-tax-50-ii-statute-source.html  # Source → pending-ratify-tax-50-ii-statute.html (npm run build:pending)
+│   ├── path-2-certification-2294-data.json   # Controlling machine-readable certification dataset (with path-2-effective-notice-2295.json)
+│   ├── path-2-*-data.json / *-annex.json     # Machine annexes derived from the dataset (npm run build:path2-record)
+│   ├── path-2-*-2294.md / *-2292.md / lp-075-section-13-review-set.md  # Published raw-Markdown record artifacts, linked from path-2-certification-2294.html
+│   └── lp-073-editorial-corrigendum.md       # One-paragraph archival note, linked from law-polling.html#lp-073
+├── docs-review/                     # Generator sources + CI inputs (pruned to 7 keepers 2026-07-24; git history holds the rest)
+│   ├── RATIFY-TAX-50-*.md, AFFIRM-TAX-50-*.md  # 5 verbatim sources → the pending-ratify-tax-50-* pages (npm run build:pending)
+│   ├── RATIFY-TAX-50-II-petition.md  # Retained drafting history — deliberately NOT a build source (statute page builds from documents/)
+│   └── vmss-laws-latent-inventory.md # CI gate: check-canon parses its PART 1 heading count against laws.html founding entries
 ├── images/
 │   ├── emblem.jpg
 │   ├── hero-rings.png       # Homepage hero
@@ -119,6 +129,8 @@ The two `documents/` PDFs are regenerated via Chrome headless print-to-pdf:
 ```
 
 After regeneration, bump the cache-busting query string on the iframe `src` in `simulations-academy.html` / `simulations-resources.html` to match.
+
+Editing any generator source (`documents/path-2-*-source.md`, `documents/ratify-tax-50-ii-statute-source.html`, `docs-review/RATIFY-TAX-50-*.md`, `docs-review/AFFIRM-TAX-50-*.md`) requires re-running the matching `npm run build:*` script — CI regenerates every generated page and fails on any diff.
 
 ---
 

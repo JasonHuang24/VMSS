@@ -1,6 +1,11 @@
 # VMSS Laws — Latent-Corpus Inventory (the naming assignment)
 
-**Status: PROPOSED — awaiting Jason's doctrinal veto. Nothing here is authored into canon yet.**
+**Status: EXECUTED — veto cleared; authored into canon as v22.8.0 (commit `9638212`).** 60 of the
+61 PART 1 instruments are live on `laws.html` as founding-corpus entries; instrument 55 is held
+(`HELD_FROM_FOUNDING`, `tools/check-canon.mjs`). This file remains the CI count gate: check-canon
+parses the PART 1 heading count against the published founding entries. The PROPOSED framing in the
+prose below ("does not begin until this inventory is ratified") is the pre-execution state, preserved
+as written.
 Sweep run 2026-07-20 on branch `feat/vmss-laws-latent-corpus` (from `feat/vmss-laws-v22.7.0`).
 Controlling spec: `docs-review/vmss-laws-latent-handoff.md`. Architecture: `docs-review/vmss-laws-architecture.md` §2/§5.
 

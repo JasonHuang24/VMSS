@@ -1,9 +1,14 @@
 # RATIFY-TAX-50-II — Conditional Successor Petition
 
-> **ARCHIVE / ENACTED TEXT PRESERVED.** This source preserves the petition and
-> its conditional clauses verbatim. It changed no rate on passage. The later
-> complete 2294 Schedule A and separate Schedule B records satisfied those
-> clauses, activating **50 / 25 / 12.5 / 6.25** in 2295. SCM is unchanged.
+> **ARCHIVE / SUPERSEDED DRAFT — drafting history, not the text of record.** This
+> draft preserves the petition as filed. It is deliberately NOT the source of the
+> published statute page: `pending-ratify-tax-50-ii-statute.html` builds from
+> `documents/ratify-tax-50-ii-statute-source.html`, whose R13/R15-cured rendering
+> is authoritative where the two diverge (see `tools/build-pending-pages.mjs` and
+> the divergence note on `pending-ratify-tax-50-record.html`). The petition changed
+> no rate on passage. The later complete 2294 Schedule A and separate Schedule B
+> records satisfied its clauses, activating **50 / 25 / 12.5 / 6.25** in 2295. SCM
+> is unchanged.
 
 **Filed:** approximately Y175, under the Trajectory Doctrine. This is a new
 petition line filed approximately sixty-three years after the Y112 failure of
