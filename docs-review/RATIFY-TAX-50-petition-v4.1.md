@@ -1,5 +1,7 @@
 # RATIFY-TAX-50 — Petition v4.1 (DRAFT — NOT RATIFIED)
 
+> **ARCHIVE / NON-OPERATIVE.** Failed petition preserved verbatim as the ballot of record; superseded by RATIFY-TAX-50-II.
+
 Status: docs-review only. Runs as a REAL federal LP vote, allowed to
 fail; a failed outcome is a boundary marker per LP-062/LP-065 doctrine.
 Supersedes v3 (Sol pass four: NOT-RATIFIABLE; all findings repaired,

@@ -530,6 +530,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.ballot),
   verbatim: { md: md.ballot },
+  framing: true,
 }));
 
 /* Opposition brief — the case that held two chambers at both adjudications. */
@@ -548,6 +549,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.opp),
   verbatim: { md: md.opp },
+  framing: true,
 }));
 
 /* Advocacy brief — the affirmative review that re-ran the vote at 3–2. */
@@ -566,6 +568,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.adv),
   verbatim: { md: md.adv },
+  framing: true,
 }));
 
 /* Supplemental steelman — registered after adjudication; did not reopen it. */
@@ -584,6 +587,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.supp),
   verbatim: { md: md.supp },
+  framing: true,
 }));
 
 /* Session record — provenance. */
