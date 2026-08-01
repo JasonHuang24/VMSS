@@ -76,6 +76,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Long document titles and doctrine terms must be allowed to wrap on narrow
+   screens instead of extending beyond their content column. */
+h1,
+h2,
+h3,
+.pending-doc {
+  overflow-wrap: anywhere;
+}
+
 /* Layered radial + linear gradient gives the page a subtle warm glow
    at the top without a harsh edge. Transitions smoothly on theme change. */
 body {
@@ -89,6 +98,10 @@ body {
 
 .vmss-page-shell {
   position: relative;
+}
+
+.vmss-hero-grid > * {
+  min-width: 0;
 }
 
 /* Ambient glow orbs — fixed pseudo-elements behind all page content.
@@ -152,6 +165,20 @@ main {
   width: 100%;
 }
 
+/* The legacy 70% content utility was designed against 4K screens. At laptop
+   and standard desktop widths it made two-column layouts much narrower than
+   their own responsive breakpoints expected. Keep a readable fixed ceiling
+   below 1920px, while preserving the original 70% presentation on 4K. */
+@media (min-width: 1024px) and (max-width: 1919px) {
+  .lg\:max-w-\[70\%\] {
+    max-width: 80rem !important;
+  }
+
+  .lg\:max-w-\[70\%\].max-w-4xl {
+    max-width: 56rem !important;
+  }
+}
+
 /* ----- 4. NAVBAR ----- */
 .hero-bg {
   background:
@@ -200,10 +227,9 @@ main {
   color: var(--accent);
 }
 
-/* styles.css loads after the generated Tailwind bundle, so the component's
-   display declaration must preserve the responsive `xl:hidden` contract. */
-@media (min-width: 1280px) {
-  .vmss-icon-button.xl\:hidden {
+/* Preserve the navigation toggle breakpoint even when stylesheet order changes. */
+@media (min-width: 1366px) {
+  .vmss-icon-button.min-\[1366px\]\:hidden {
     display: none;
   }
 }
@@ -259,6 +285,19 @@ main {
   .vmss-nav > div:first-child > div > div:last-child {
     gap: 0.5rem;
     flex-shrink: 0;
+  }
+}
+
+@media (max-width: 374px) {
+  .vmss-nav .vmss-nav-kicker {
+    display: none;
+  }
+
+  .home-page .vmss-hero-kicker {
+    gap: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    letter-spacing: 0.1em;
   }
 }
 

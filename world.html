@@ -304,6 +304,11 @@
       .page-btn.num, .ellipsis { display: none; }
       .page-btn.nav { flex: 1; min-width: 0; font-size: 0.95rem; }
     }
+    @media (max-width: 360px) {
+      .stat-row { gap: 6px; }
+      .stat-card { padding: 12px 8px; }
+      .stat-card .stat-label { letter-spacing: 0.08em; }
+    }
   </style>
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen vmss-page-shell"><a href="#main-content" class="sr-only-focusable">Skip to content</a>
