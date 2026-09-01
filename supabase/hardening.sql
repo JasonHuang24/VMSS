@@ -1,12 +1,11 @@
 -- Supabase hardening for the VMSS entry-application backend.
 --
 -- Run this ONCE in the Supabase SQL editor (dashboard → SQL) after the
--- project is restored. The site code (script.js) and the keep-alive
--- workflow both assume these objects exist:
+-- project is restored. The site code (script.js) assumes these objects
+-- exist:
 --
 --   * public.application_count()          — RPC used by loadApplicantCount()
 --   * public.recent_applicant_locations   — view used by loadRecentApplicants()
---                                           and the keep-alive ping
 --
 -- What this fixes (2026-07 security audit, findings 1 and 2):
 --   1. Anonymous clients could SELECT every column of applications —
@@ -44,7 +43,7 @@ $$;
 revoke execute on function public.application_count() from public;
 grant execute on function public.application_count() to anon, authenticated;
 
--- 2b ─ Sanitized recent-locations view (loadRecentApplicants + keep-alive) ---
+-- 2b ─ Sanitized recent-locations view (loadRecentApplicants) --------------
 -- Owner-rights view (the Postgres 15+ default): it bypasses RLS
 -- deliberately, and exposes ONLY city/country/created_at — never names,
 -- phones, or motivations.
