@@ -25,6 +25,8 @@
   document.documentElement.setAttribute('data-theme', saved);
 </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="styles.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
@@ -51,7 +53,7 @@
 <section class="pt-32 pb-24">
   <div class="lg:max-w-[70%] mx-auto px-6">
     <div class="text-center mb-16">
-      <h1 class="text-6xl md:text-7xl font-bold text-[var(--text-primary)]">Why VMSS?</h1>
+      <h1 class="font-bold text-[var(--text-primary)]">Why VMSS?</h1>
       <p class="text-2xl text-[var(--text-muted)] mt-6 max-w-4xl mx-auto">
         A civilization built around moral causality, technological abundance, and behavioral accountability.
       </p>
@@ -79,6 +81,9 @@
       <button class="law-chip" data-filter="philosophy" type="button" aria-pressed="false">Philosophy &amp; Design</button>
     </div>
     <p class="law-filter-count" data-why-count role="status" aria-live="polite">Showing all 32 entries</p>
+    <div class="flex justify-end mb-6">
+      <button type="button" class="law-chip" data-expand-all aria-expanded="false">Expand all</button>
+    </div>
 
     <div class="grid gap-8" id="why-grid">
       <div class="why-card bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] overflow-hidden" data-cat="justice">
@@ -636,10 +641,13 @@
     </div>
   </div>
 </section>
+<p data-empty-state class="text-center text-[var(--text-muted)] py-16 px-6" hidden>No entries match that search. Clear the box or pick a different category.</p>
 </main>
-<script src="assets/js/card-filter.js"></script>
+<script src="assets/js/card-filter.js" defer></script>
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
   initCardFilter({
+    empty: { el: '[data-empty-state]' },
     cards: '#why-grid .why-card',
     search: { el: '#why-q' },
     radios: { container: '#why-filter-bar', attr: 'data-cat' },
@@ -648,6 +656,7 @@
       all: 'Showing all {total} entries',
       some: 'Showing {shown} of {total} entries'
     }
+  });
   });
 </script>
 <!-- Accordion Script -->
@@ -671,5 +680,28 @@
 <script src="script.js" defer></script>
 <!-- footer.html is fetched and injected here by script.js Promise.all. -->
 <div id="footer-placeholder"></div>
+<script>
+  (function () {
+    const btns = Array.from(document.querySelectorAll('button[aria-controls^="why-content-"]'));
+    const all = document.querySelector('[data-expand-all]');
+    if (!btns.length || !all) return;
+    if (!window.location.hash && btns[0].getAttribute('aria-expanded') !== 'true') toggleWhy(btns[0]);
+    const sync = () => {
+      const open = btns.filter((b) => b.getAttribute('aria-expanded') === 'true').length;
+      const full = open === btns.length;
+      all.textContent = full ? 'Collapse all' : 'Expand all';
+      all.setAttribute('aria-expanded', full ? 'true' : 'false');
+    };
+    all.addEventListener('click', () => {
+      const expand = all.getAttribute('aria-expanded') !== 'true';
+      btns.forEach((b) => { if ((b.getAttribute('aria-expanded') === 'true') !== expand) toggleWhy(b); });
+      sync();
+    });
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('button[aria-controls^="why-content-"]')) setTimeout(sync, 0);
+    });
+    sync();
+  })();
+</script>
 </body>
 </html>

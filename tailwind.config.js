@@ -6,7 +6,8 @@ module.exports = {
   // renders the STI console markup the same way.
   content: [
     './*.html',
-    './script.js',
+    './documents/*.html',
+    './*.js',
     './assets/js/**/*.js',
   ],
   theme: {

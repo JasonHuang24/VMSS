@@ -1,4 +1,5 @@
-/* VMSS Global Styles — Version 20.4
+/* VMSS Global Styles
+   (version stamps live in README.md and footer.html only)
    ===================================
    Table of Contents:
    1. FONT IMPORT & HEADING FONT
@@ -20,6 +21,9 @@
    17. HUD / LIVE STATE PANEL
    18. ACCESSIBILITY
    19. DENSITY OVERRIDES (Tailwind inline class overrides)
+   20. LP CITATION LINKS
+   21. BACK TO TOP
+   22. RESPONSIVE + HUD REPAIRS (2026-09 audit)
    =================================== */
 
 /* ----- 1. FONT IMPORT & HEADING FONT ----- */
@@ -2082,7 +2086,8 @@ body.vmss-ui-ready {
 }
 
 /* ----- 19. DENSITY OVERRIDES -----
-   Must be at end of file to override Tailwind CDN inline classes.
+   Overrides utility classes from the compiled Tailwind bundle
+   (assets/css/tailwind.css), which loads after this file — hence !important.
    Proportional tightening: smaller text, tighter gaps, same containers. */
 
 /* Prose content headings */
@@ -2193,4 +2198,31 @@ body.vmss-ui-ready {
 }
 @media (prefers-reduced-motion: reduce) {
   .vmss-back-to-top { transition: none; }
+}
+
+/* ----- 22. RESPONSIVE + HUD REPAIRS (2026-09 audit) ----- */
+
+/* Homepage hero: .vmss-main-section adds 8.75rem of top padding on top of
+   the hero's own py-28, leaving ~250px of empty band above the title. */
+.home-page .hero-bg.vmss-main-section {
+  padding-top: 3rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* The fixed HUD covered the footer's link column at 1440px. It steps aside
+   while the footer is in view (class toggled by an IntersectionObserver in
+   initVmssHud) and returns as soon as the reader scrolls back up. */
+.vmss-hud.is-footer-clear {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+}
+
+/* Technology-card titles broke mid-word ("Technoneural") at 360px: 36px
+   type plus a 48px icon inside 40px button padding left no room. Scale the
+   header down on phones; overflow-wrap:anywhere stays as the fallback. */
+@media (max-width: 639px) {
+  .tech-card > button { padding: 1.25rem !important; gap: .75rem; }
+  .tech-card h2 { min-width: 0; font-size: 1.5rem !important; line-height: 2rem !important; gap: .5rem !important; }
+  .tech-card h2 > i { font-size: 1.875rem !important; flex-shrink: 0; }
 }

@@ -97,6 +97,8 @@ export function buildCertificationHtml(data, notice) {
     document.documentElement.setAttribute('data-theme', saved);
   </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="styles.css" rel="stylesheet"/>
   <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>

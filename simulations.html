@@ -26,6 +26,8 @@
     document.documentElement.setAttribute('data-theme', saved);
   </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="styles.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
@@ -39,7 +41,7 @@
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
-<h1 class="text-6xl font-bold text-center mb-6 text-[var(--text-primary)]">Simulations Archive</h1>
+<h1 class="font-bold text-center mb-6 text-[var(--text-primary)]">Simulations Archive</h1>
 <p class="text-center text-2xl text-[var(--text-muted)] mb-6">Interactive trust scoring, layer movement, and behavioral case studies under VMSS rules — full narrative detail</p>
 <p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-16">Best read after <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a> and <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>. This page shows a prototype interpretation layer: first inspect the console, then compare that logic against the longer historical case studies below.</p>
 <p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-8"><strong>Current-rate frame:</strong> LP-074&rsquo;s <strong>50 / 25 / 12.5 / 6.25</strong> exact halving cascade is active from 2295 after the 2294 Path 2 certification. Older Doctrine-Snapshot narratives remain era-pinned historical artifacts and are not recalculated.</p>
@@ -3870,6 +3872,7 @@ Key lesson: The architecture's hardest cases are not the ones where it fails —
   or <a href="join.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">begin the entry process</a>.
 </div>
 
+<p data-empty-state class="text-center text-[var(--text-muted)] py-16 px-6" hidden>No simulations match that search. Clear the box or widen the filters.</p>
 </main>
 
 <!-- Accordion Script -->
@@ -3922,9 +3925,11 @@ Key lesson: The architecture's hardest cases are not the ones where it fails —
   });
 </script>
 <!-- Archive filter: search + dossier toggles + category/snapshot selects. -->
-<script src="assets/js/card-filter.js"></script>
+<script src="assets/js/card-filter.js" defer></script>
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
   initCardFilter({
+    empty: { el: '[data-empty-state]' },
     cards: '#sim-archive .simulation-card',
     search: { el: '#sim-idx-q', within: 'button' },
     toggles: [
@@ -3940,6 +3945,7 @@ Key lesson: The architecture's hardest cases are not the ones where it fails —
       { selector: '#sim-archive [data-section-header]', headerAttr: 'data-section-header', cardAttr: 'data-section' },
       { selector: '#sim-archive [data-collection-header]', headerAttr: 'data-collection-header', cardAttr: 'data-collection' }
     ]
+  });
   });
 </script>
 <script src="script.js" defer></script>

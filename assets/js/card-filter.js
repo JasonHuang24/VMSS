@@ -29,6 +29,9 @@
  *             elements. headerAttr holds space-separated group values; a header
  *             is visible iff at least one currently-visible card has its
  *             [cardAttr] value among those group values.
+ *   empty   : { el } — element revealed (hidden attribute cleared) when the
+ *             filter matches zero cards, so a search miss below the fold shows
+ *             a message instead of a blank region. Absent key = old behaviour.
  */
 (function () {
   'use strict';
@@ -61,6 +64,7 @@
     });
     var headers = cfg.headers || [];
     var countEl = cfg.count ? resolveEl(cfg.count.el) : null;
+    var emptyEl = cfg.empty ? resolveEl(cfg.empty.el) : null;
 
     /* Cache one lowercased/collapsed haystack per card. */
     var haystacks = cards.map(function (card) {
@@ -125,6 +129,7 @@
         var total = cards.length;
         countEl.textContent = fill(shown === total ? cfg.count.all : cfg.count.some, shown, total);
       }
+      if (emptyEl) emptyEl.hidden = shown !== 0;
     }
 
     if (searchEl) searchEl.addEventListener('input', render);

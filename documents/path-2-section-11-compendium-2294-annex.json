@@ -3933,8 +3933,8 @@
     "certificationPageGenerator": {
       "path": "tools/build-path2-certification-page.mjs",
       "algorithm": "sha256",
-      "digest": "addad30ec0335481f70feeb8ec1d4378aabded382c23ec89e40c126a36f6f780",
-      "bytes": 16947
+      "digest": "eecb3345840b324b214aae8c37ef1a5162b28d9b2d3cc1ba680d16c64bcf1fb1",
+      "bytes": 17080
     },
     "restatement": {
       "path": "documents/path-2-charter-restatement-2292-data.json",

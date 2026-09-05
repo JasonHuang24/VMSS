@@ -356,6 +356,15 @@ function initVmssHud() {
   ['mouseenter', 'mousemove', 'focusin', 'touchstart'].forEach((evt) => {
     hud.addEventListener(evt, scheduleIdle, { passive: true });
   });
+  /* Step aside while the footer is in view so the panel never covers the
+     footer's link column (observed at 1440px). The placeholder exists before
+     the footer is injected; the observer picks the injected height up. */
+  const footerHost = document.getElementById('footer-placeholder');
+  if (footerHost && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      hud.classList.toggle('is-footer-clear', entries.some((en) => en.isIntersecting));
+    }, { threshold: 0 }).observe(footerHost);
+  }
   const apply = (state = window.VMSS?.getState?.() || VMSS_DEFAULT_STATE) => {
     const layer = vmssLayerDescriptor(state.selectedLayer);
     hud.dataset.layer = layer.key;

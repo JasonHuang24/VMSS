@@ -26,6 +26,8 @@
     document.documentElement.setAttribute('data-theme', saved);
   </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="styles.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
@@ -39,8 +41,11 @@
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
-<h1 class="text-6xl md:text-7xl font-bold text-center mb-6 text-[var(--text-primary)]">Core Technologies</h1>
-<p class="text-center text-2xl text-[var(--text-muted)] mb-20">The technological foundation that makes moral causality possible</p>
+<h1 class="font-bold text-center mb-6 text-[var(--text-primary)]">Core Technologies</h1>
+<p class="text-center text-2xl text-[var(--text-muted)] mb-12">The technological foundation that makes moral causality possible</p>
+<div class="flex justify-end mb-6">
+  <button type="button" class="law-chip" data-expand-all aria-expanded="false">Expand all</button>
+</div>
 <div class="space-y-8">
 <!-- 1. Technoneural Implants -->
 <div class="bg-[var(--bg-secondary)] rounded-3xl border border-[var(--border)] tech-card overflow-hidden">
@@ -519,5 +524,31 @@ STI serves as the primary accountability layer for most social behavior. Conduct
 
 <script src="script.js" defer></script>
 <!-- footer.html is fetched and injected here by script.js Promise.all. -->
-<div id="footer-placeholder"></div></body>
+<div id="footer-placeholder"></div><script>
+  /* First panel opens on a plain load (a deep link is handled by script.js
+     initHashReveal instead); the Expand all / Collapse all control drives
+     every accordion through toggleTech so aria-expanded and chevrons follow. */
+  (function () {
+    const btns = Array.from(document.querySelectorAll('button[aria-controls^="tech-content-"]'));
+    const all = document.querySelector('[data-expand-all]');
+    if (!btns.length || !all) return;
+    if (!window.location.hash && btns[0].getAttribute('aria-expanded') !== 'true') toggleTech(btns[0]);
+    const sync = () => {
+      const open = btns.filter((b) => b.getAttribute('aria-expanded') === 'true').length;
+      const full = open === btns.length;
+      all.textContent = full ? 'Collapse all' : 'Expand all';
+      all.setAttribute('aria-expanded', full ? 'true' : 'false');
+    };
+    all.addEventListener('click', () => {
+      const expand = all.getAttribute('aria-expanded') !== 'true';
+      btns.forEach((b) => { if ((b.getAttribute('aria-expanded') === 'true') !== expand) toggleTech(b); });
+      sync();
+    });
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('button[aria-controls^="tech-content-"]')) setTimeout(sync, 0);
+    });
+    sync();
+  })();
+</script>
+</body>
 </html>
