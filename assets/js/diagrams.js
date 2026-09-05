@@ -162,12 +162,13 @@
     // =========================
 
     nodes.forEach((node) => {
-      // Click: select ring, then blur to prevent the browser's default
-      // rectangular focus outline from appearing on SVG <g> elements
-      node.addEventListener('click', (e) => { sync(node.dataset.layer); e.currentTarget.blur(); });
+      // Click: select ring. Blur only for real pointer clicks (e.detail > 0)
+      // so the default rectangular outline never lingers on SVG <g> elements;
+      // keyboard-synthesized clicks (Enter on role="button") have detail === 0
+      // and must keep focus on the ring so Tab continues from it.
+      node.addEventListener('click', (e) => { sync(node.dataset.layer); if (e.detail > 0) e.currentTarget.blur(); });
 
-      // Focus (keyboard Tab): select the focused ring
-      node.addEventListener('focus', () => sync(node.dataset.layer));
+      // Focus (keyboard Tab) does not commit: selection is Enter/Space/click.
 
       // Keyboard activation: Enter and Space trigger selection
       node.addEventListener('keydown', (e) => {

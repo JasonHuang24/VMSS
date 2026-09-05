@@ -281,7 +281,8 @@
   [data-theme="light"] .tier-layer { background: rgba(23, 92, 211, 0.07); color: #175cd3; border-color: rgba(23, 92, 211, 0.35); }
   [data-theme="light"] .tier-district { background: rgba(126, 34, 206, 0.07); color: #7e22ce; border-color: rgba(126, 34, 206, 0.35); }
   [data-theme="light"] .toc-toggle:hover { background: rgba(14, 23, 40, 0.04); }
-  [data-theme="light"] .vote-table td { border-bottom-color: rgba(14, 23, 40, 0.06); }
+  [data-theme="light"] .vote-table td,
+  [data-theme="light"] .vote-table th { border-bottom-color: rgba(14, 23, 40, 0.06); }
   [data-theme="light"] .law-meta-grid, [data-theme="light"] .law-vote { border-top-color: rgba(14, 23, 40, 0.08); }
 </style>
 </head>
@@ -345,7 +346,7 @@
 <div class="law-toc" id="lawsToc">
   <button class="toc-toggle" id="lawsTocToggle" aria-expanded="false" aria-controls="lawsTocBody">
     <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">154 provisions &middot; The Charter of VMSS &middot; Federal Law &middot; Layer-Wide Regulation &middot; District Regulation</span></span>
-    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
   </button>
   <div class="toc-body" id="lawsTocBody">
       <div class="toc-tier">

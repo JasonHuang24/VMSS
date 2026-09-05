@@ -52,10 +52,10 @@ function vmssStorageSet(key, value) {
  * always has a valid fallback value.
  */
 const VMSS_DEFAULT_STATE = {
-  selectedLayer: '-2', // must match the band vmssLayerForScore() gives stiScore
+  selectedLayer: '0', // placement is independent of the score (Articles XII–XIII)
   stiScore: 43,
   profile: 'Balanced baseline',
-  tone: 'Containment threshold engaged',
+  tone: 'Stable civic baseline',
   lastEvent: 'Baseline loaded',
   values: {
     civic: 11,
@@ -84,6 +84,22 @@ function vmssLayerForScore(score) {
   if (score >= 50) return { key:'-1', label:'-1 Noncompliance', short:'-1 Noncompliance', band:'50–69' };
   if (score >= 30) return { key:'-2', label:'-2 Violent Offense', short:'-2 Violent Offense', band:'30–49' };
   return { key:'-3', label:'-3 Terminal', short:'-3 Terminal', band:'0–29' };
+}
+
+/**
+ * vmssLayerDescriptor — label for an explicit placement key. Used by every
+ * renderer that shows "which layer": placement comes from state.selectedLayer,
+ * never from the score. Unknown/missing keys fall back to Main Layer.
+ */
+const VMSS_LAYER_DESCRIPTORS = {
+  '+1': { key:'+1', label:'+1 Sanctuary',      short:'+1 Sanctuary' },
+  '0':  { key:'0',  label:'Main Layer (0)',    short:'Layer 0' },
+  '-1': { key:'-1', label:'-1 Noncompliance',  short:'-1 Noncompliance' },
+  '-2': { key:'-2', label:'-2 Violent Offense', short:'-2 Violent Offense' },
+  '-3': { key:'-3', label:'-3 Terminal',       short:'-3 Terminal' }
+};
+function vmssLayerDescriptor(key) {
+  return VMSS_LAYER_DESCRIPTORS[String(key)] || VMSS_LAYER_DESCRIPTORS['0'];
 }
 
 /**
@@ -168,9 +184,9 @@ window.vmssAnimateNumber = vmssAnimateNumber;
         ...patch,
         values: { ...this.state.values, ...(patch.values || {}) }
       };
-      if (patch.stiScore !== undefined && patch.selectedLayer === undefined) {
-        next.selectedLayer = vmssLayerForScore(Number(next.stiScore) || 0).key;
-      }
+      /* A score-only patch never moves placement: STI is a trust ledger,
+         layer assignment follows qualifying behavior (Charter XII–XIII).
+         Callers that reassign pass selectedLayer explicitly. */
       this.state = next;
       safeSave(this.state);
       document.dispatchEvent(new CustomEvent('vmss:state-change', { detail: { state: this.getState(), meta } }));
@@ -293,7 +309,7 @@ function initVmssHud() {
       <button class="vmss-hud-toggle" type="button" aria-expanded="true" aria-label="Minimize live state panel">−</button>
     </div>
     <div class="vmss-hud-body">
-      <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>-2 Violent Offense</strong></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>Main Layer (0)</strong></div>
       <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>43</strong></div>
       <div class="vmss-hud-row"><span class="vmss-hud-label">Profile</span><span data-vmss-hud-profile>Balanced baseline</span></div>
       <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span class="vmss-hud-event" data-vmss-hud-event>Baseline loaded</span></div>
@@ -341,8 +357,8 @@ function initVmssHud() {
     hud.addEventListener(evt, scheduleIdle, { passive: true });
   });
   const apply = (state = window.VMSS?.getState?.() || VMSS_DEFAULT_STATE) => {
-    const layer = window.VMSS?.layerForScore?.(Number(state.stiScore) || 0) || vmssLayerForScore(Number(state.stiScore) || 0);
-    hud.dataset.layer = state.selectedLayer || layer.key;
+    const layer = vmssLayerDescriptor(state.selectedLayer);
+    hud.dataset.layer = layer.key;
     if (layerTarget) layerTarget.textContent = layer.label;
     if (scoreTarget) window.vmssAnimateNumber(scoreTarget, Number(state.stiScore) || 0, { duration: 420 });
     if (profileTarget) profileTarget.textContent = state.profile || 'Balanced baseline';
@@ -401,13 +417,66 @@ function initVmssLayerEcho() {
   if (!window.VMSS) return;
   const apply = () => {
     const state = window.VMSS.getState();
-    const layer = window.VMSS.layerForScore(state.stiScore);
+    const layer = vmssLayerDescriptor(state.selectedLayer);
     layerTargets.forEach((el) => el.textContent = layer.label);
     scoreTargets.forEach((el) => el.textContent = String(state.stiScore));
     eventTargets.forEach((el) => el.textContent = state.lastEvent || 'Baseline loaded');
   };
   apply();
   document.addEventListener('vmss:state-change', apply);
+}
+
+/**
+ * vmssRevealHashTarget — make a fragment target visible before scrolling.
+ *
+ * Deep links land inside collapsed accordions (technologies, why-vmss, faq)
+ * and inside law-polling entries hidden by a status filter. The browser
+ * scrolls to a hidden target's position but shows nothing. This walks up
+ * from the target: any `.hidden` ancestor controlled by an [aria-controls]
+ * trigger is opened through that trigger (so aria-expanded and the chevron
+ * follow), and a filtered-out `.law-entry` asks the page to reset its
+ * filter through the window.vmssApplyLawFilter hook it exposes.
+ */
+function vmssRevealHashTarget() {
+  const raw = (window.location.hash || '').slice(1);
+  if (!raw) return;
+  let id = raw;
+  try { id = decodeURIComponent(raw); } catch (e) { /* keep raw */ }
+  const target = document.getElementById(id);
+  if (!target) return;
+  let changed = false;
+  let el = target;
+  while (el && el !== document.body) {
+    if (el.classList.contains('hidden') && el.id) {
+      const trigger = document.querySelector(`[aria-controls="${window.CSS && CSS.escape ? CSS.escape(el.id) : el.id}"]`);
+      if (trigger && trigger.getAttribute('aria-expanded') !== 'true') {
+        trigger.click();
+        changed = true;
+      }
+    }
+    el = el.parentElement;
+  }
+  const entry = target.closest('.law-entry');
+  if (entry && entry.style.display === 'none' && typeof window.vmssApplyLawFilter === 'function') {
+    window.vmssApplyLawFilter('all');
+    changed = true;
+  }
+  if (changed) {
+    requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+  }
+}
+
+function initHashReveal() {
+  vmssRevealHashTarget();
+  window.addEventListener('hashchange', vmssRevealHashTarget);
+  /* Re-clicking a same-document link whose hash already matches fires no
+     hashchange; handle it so a second click still reveals the target. */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a && a.getAttribute('href') === window.location.hash) {
+      setTimeout(vmssRevealHashTarget, 0);
+    }
+  });
 }
 
 /**
@@ -419,7 +488,10 @@ function initVmssLayerEcho() {
  * state, so the HUD and ring map reflect the selection immediately.
  */
 function initVmssLayerLinks() {
-  const links = Array.from(document.querySelectorAll('[data-layer]'));
+  /* The floating HUD also carries data-layer (as a style hook written by
+     initVmssHud), so it must be excluded or it becomes a permanent
+     "current" link that rewrites state when its chrome is clicked. */
+  const links = Array.from(document.querySelectorAll('[data-layer]:not(#vmss-hud)'));
   if (!links.length || !window.VMSS) return;
   const apply = () => {
     const state = window.VMSS.getState();
@@ -657,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
          alone (colorblind users) and doesn't rely on the red text. */
       messageEl.textContent = isError ? `⚠ ${text}` : text;
       messageEl.classList.remove('hidden');
-      messageEl.style.color = isError ? '#f87171' : '';
+      messageEl.style.color = isError ? 'var(--text-error)' : '';
     };
 
     const clearMessage = () => {
@@ -801,8 +873,12 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Replace modal content with success state */
         const modalBody = entryModal.querySelector('.entry-modal-scroll') || entryModal.querySelector('.overflow-y-auto');
         if (modalBody) {
+          /* The wrapper takes over the dialog's aria-labelledby target (the
+             original #entry-modal-title lives inside the replaced body), is a
+             live region so the result is announced, and receives focus so the
+             trap stays inside the dialog. */
           modalBody.innerHTML = `
-            <div class="flex flex-col items-center justify-center text-center py-8 px-6">
+            <div id="entry-modal-title" role="status" aria-live="polite" tabindex="-1" class="flex flex-col items-center justify-center text-center py-8 px-6 outline-none">
               <div class="text-5xl mb-5">✅</div>
               <h2 class="text-3xl font-bold text-[var(--accent)] mb-3">Application Received</h2>
               <p class="text-lg text-[var(--text-secondary)] mb-6">Welcome, citizen. Your application to The Five Rings has been recorded for review.</p>
@@ -853,6 +929,8 @@ document.addEventListener('DOMContentLoaded', () => {
              permanently scroll-locked — see lockPage/hideEntryForm.) */
           const successClose = modalBody.querySelector('#entry-success-close');
           if (successClose) successClose.addEventListener('click', hideEntryForm);
+          const successPanel = modalBody.firstElementChild;
+          if (successPanel) successPanel.focus();
         }
       } catch (err) {
         console.error('Submission error:', err);
@@ -1049,10 +1127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initThemeToggle();
         initMobileMenu();
         initActiveNav();
-        initVmssHud();
-        initVmssLayerEcho();
-        initVmssLayerLinks();
-        initJoinModal();
 
         if (document.getElementById('applicant-count')) {
           loadApplicantCount();
@@ -1069,4 +1143,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackArrows();
   initBackToTop();
   initReveal();
+  /* These four read only the page's own static markup and global state;
+     they must not wait on (or fail with) the navbar fetch. initVmssHud runs
+     before initVmssLayerLinks so the HUD's data-layer exists when the
+     link scan excludes it. */
+  initVmssHud();
+  initVmssLayerEcho();
+  initVmssLayerLinks();
+  initJoinModal();
+  initHashReveal();
 });

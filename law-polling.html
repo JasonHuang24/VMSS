@@ -260,7 +260,8 @@
   [data-theme="light"] .law-entry.cross-layer .vote-table td.pass::before { color: #1a7f37; }
   [data-theme="light"] .law-entry.cross-layer .vote-table td.advisory::before { color: #175cd3; }
   [data-theme="light"] .toc-toggle:hover { background: rgba(14, 23, 40, 0.04); }
-  [data-theme="light"] .vote-table td { border-bottom-color: rgba(14, 23, 40, 0.06); }
+  [data-theme="light"] .vote-table td,
+  [data-theme="light"] .vote-table th { border-bottom-color: rgba(14, 23, 40, 0.06); }
   [data-theme="light"] .law-meta-grid, [data-theme="light"] .law-vote { border-top-color: rgba(14, 23, 40, 0.08); }
 </style>
 </head>
@@ -310,7 +311,7 @@
 <div class="law-toc" id="lawToc">
   <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocBody">
     <span><span class="toc-toggle-label">Table of Contents</span><span class="toc-toggle-hint">96 entries &middot; Charter &middot; Federal &middot; Regulatory</span></span>
-    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+    <span class="toc-chevron" aria-hidden="true"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
   </button>
   <div class="toc-body" id="tocBody">
       <div class="toc-tier">
@@ -3339,16 +3340,16 @@
      only ever corrected itself once a reader clicked a chip, so the first
      paint — the one most readers only ever see — was the stale one. */
   if (countEl) countEl.textContent = `Showing all ${entries.length} entries`;
-  bar.addEventListener('click', (e) => {
-    const chip = e.target.closest('.law-chip');
-    if (!chip) return;
+  /* applyFilter(f) is the single body for chip clicks AND for the site-wide
+     hash resolver (script.js vmssRevealHashTarget), which calls it with
+     'all' when a deep link or an in-register supersession link points at
+     an entry the active status filter has hidden. */
+  const applyFilter = (f) => {
     bar.querySelectorAll('.law-chip').forEach((c) => {
-      c.classList.remove('is-active');
-      c.setAttribute('aria-pressed', 'false');
+      const on = c.dataset.filter === f;
+      c.classList.toggle('is-active', on);
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
-    chip.classList.add('is-active');
-    chip.setAttribute('aria-pressed', 'true');
-    const f = chip.dataset.filter;
     let shown = 0;
     entries.forEach((entry) => {
       const status = entry.querySelector('.status-badge')?.classList[1];
@@ -3370,6 +3371,12 @@
       const pill = tier.querySelector('.toc-count');
       if (pill) pill.textContent = visible;
     });
+  };
+  window.vmssApplyLawFilter = applyFilter;
+  bar.addEventListener('click', (e) => {
+    const chip = e.target.closest('.law-chip');
+    if (!chip) return;
+    applyFilter(chip.dataset.filter);
   });
 
   /* Table of Contents toggle — v20.5.5 behavior */

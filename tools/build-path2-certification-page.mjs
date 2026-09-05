@@ -81,7 +81,7 @@ export function buildCertificationHtml(data, notice) {
     .map((entry) => `<li><strong>${esc(entry.year ?? entry.years)}:</strong> ${esc(entry.event)}</li>`).join('');
 
   return `<!doctype html>
-<html lang="en">
+<html data-theme="dark" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -91,9 +91,17 @@ export function buildCertificationHtml(data, notice) {
   <meta name="description" content="The controlling ${auditYear} Path 2 certification: 30 annual observations, Findings I–IV, Schedule A A1–A8, and Schedule B B1–B6 passed; LP-074's ${activeSchedule} cascade entered force in ${effectiveYear}." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://jasonhchronicles.com/VMSS/${OUTPUT_FILE}" />
-  <link rel="stylesheet" href="assets/css/tailwind.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+  <script>
+    const saved = localStorage.getItem('theme') ||
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+<noscript><style>body{opacity:1}</style></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
   <style>
     .cert-shell{max-width:76rem;margin:0 auto}.cert-banner{border:1px solid color-mix(in srgb,var(--accent) 55%,var(--border));border-radius:14px;padding:1.25rem 1.4rem;background:color-mix(in srgb,var(--accent) 9%,var(--bg-secondary));color:var(--text-secondary);line-height:1.75}.cert-banner strong{color:var(--text-primary)}
     .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:1rem;margin:1.5rem 0 2.25rem}.cert-card{padding:1rem;border:1px solid var(--border);border-radius:12px;background:var(--bg-secondary);color:var(--text-secondary)}.cert-card .label{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.35rem}.cert-card .value{color:var(--text-primary);font-size:1.15rem;font-weight:700}

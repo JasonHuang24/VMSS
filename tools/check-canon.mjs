@@ -1429,6 +1429,26 @@ const F = catFilterPage('faq.html', 'faq-card', 'questions');
 const WY = catFilterPage('why-vmss.html', 'why-card', 'entries');
 
 {
+  /* faq.html was the one accordion surface the v21.0 aria-controls pass
+     (3bba222) left incomplete, and it had no guard, so the gap stayed green
+     until the 2026-09 audit. Same contract as why-vmss/technologies below. */
+  const src = read('faq.html');
+  const faq = (src.match(/class="faq-card/g) || []).length;
+  const fblocks = src.split(/(?=<div class="faq-card)/).slice(1);
+  const facs = [];
+  const bad = [];
+  fblocks.forEach((b, i) => {
+    const ac = (b.match(/aria-controls="([^"]+)"/) || [])[1];
+    if (!ac) { bad.push(`faq card ${i + 1}: no aria-controls`); return; }
+    facs.push(ac);
+    if (!b.includes(`id="${ac}"`)) bad.push(`faq card ${i + 1}: aria-controls "${ac}" has no in-block id`);
+  });
+  check(faq > 0 && bad.length === 0 && facs.length === faq && new Set(facs).size === facs.length,
+    'faq accordions: aria-controls resolve + unique',
+    bad.length ? bad.slice(0, 6).join('; ') : `${faq} cards`);
+}
+
+{
   const src = read('why-vmss.html');
   const why = (src.match(/class="why-card/g) || []).length;
   const wblocks = src.split(/(?=<div class="why-card)/).slice(1);

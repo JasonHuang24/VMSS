@@ -24,6 +24,7 @@
     document.documentElement.setAttribute('data-theme', saved);
   </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" imagesrcset="images/webp/hero-rings-640.webp 640w, images/webp/hero-rings-1280.webp 1280w, images/webp/hero-rings-1671.webp 1671w" imagesizes="(max-width: 1023px) 100vw, 640px" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
@@ -116,7 +117,7 @@
 				</h2>
 
             </div>
-            <img src="images/hero-rings.png" alt="The Five Rings — aerial view of concentric civilization rings" loading="lazy" decoding="async" class="emblem-logo mb-6 w-full object-contain opacity-95 drop-shadow-[0_0_25px_rgba(251,191,36,0.22)] rounded-2xl">
+            <picture><source type="image/webp" srcset="images/webp/hero-rings-640.webp 640w, images/webp/hero-rings-1280.webp 1280w, images/webp/hero-rings-1671.webp 1671w" sizes="(max-width: 1023px) 100vw, 640px"><img src="images/hero-rings.png" width="1671" height="940" alt="The Five Rings — aerial view of concentric civilization rings" class="emblem-logo mb-6 w-full object-contain opacity-95 drop-shadow-[0_0_25px_rgba(251,191,36,0.22)] rounded-2xl" fetchpriority="high" decoding="async"></picture>
             <div class="grid gap-3">
               <div class="vmss-mini-panel">
                 <div class="vmss-mini-title">Moral Causality</div>
@@ -149,7 +150,7 @@
 
 		<h2 class="text-4xl font-bold mb-12">Planetary Ring Structure</h2>
 
-		<svg viewBox="0 0 600 600" class="vmss-ring-diagram">
+		<svg viewBox="0 0 600 600" class="vmss-ring-diagram" role="img" aria-label="Five concentric governance rings, outermost to innermost: -3 Terminal, -2 Violent Offense, -1 Noncompliance, 0 Main, +1 Sanctuary">
 
 		<!-- Paths for text alignment -->
 		<defs>
@@ -193,7 +194,7 @@
 		</textPath>
 		</text>
 
-		<text class="ring-label"dy="-8">
+		<text class="ring-label" dy="-8">
 		<textPath href="#ring-noncompliance-path" startOffset="25%">
 		-1 NONCOMPLIANCE
 		</textPath>

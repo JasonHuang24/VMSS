@@ -31,9 +31,11 @@ h1, h2, h3 {
 
 /* ----- 2. DESIGN TOKENS ----- */
 :root {
+  color-scheme: dark;
   --bg-primary: #07090f;
   --bg-secondary: #101522;
   --bg-tertiary: #151c2d;
+  --text-error: #f87171;
   --bg-elevated: rgba(16, 21, 34, 0.84);
   --text-primary: #f7f8fb;
   --text-secondary: #c6cfdd;
@@ -48,13 +50,15 @@ h1, h2, h3 {
 }
 
 [data-theme="light"] {
+  color-scheme: light;
   --bg-primary: #f5f7fb;
   --bg-secondary: #ffffff;
   --bg-tertiary: #edf2f8;
+  --text-error: #b91c1c;
   --bg-elevated: rgba(255, 255, 255, 0.88);
   --text-primary: #0e1728;
   --text-secondary: #344156;
-  --text-muted: #607089;
+  --text-muted: #5a6a83; /* 4.9:1 on --bg-tertiary; #607089 measured 4.47:1 */
   /* #97650f ≈ 5.0:1 on white — passes WCAG AA for normal-size link text,
      where the previous #b7791f (≈3.6:1) failed. --accent-soft stays darker
      so hover remains a visible change. */
@@ -72,7 +76,10 @@ h1, h2, h3 {
   box-sizing: border-box;
 }
 
-html {
+/* Smooth only for in-page navigation (a focused link/control is inside the
+   document). Fragment navigation on load has nothing focused, so a deep
+   link into the 100k+ px register pages jumps instead of animating. */
+html:focus-within {
   scroll-behavior: smooth;
 }
 
@@ -777,6 +784,11 @@ a:hover {
 [data-theme="light"] .vmss-axis-value.is-irreversible { background: rgba(185, 28, 28, 0.08); color: #b91c1c; }
 [data-theme="light"] .vmss-tally-value.is-positive { color: #15803d; }
 [data-theme="light"] .vmss-tally-value.is-negative { color: #b91c1c; }
+/* #1a1403 was calibrated against the dark accent (#f3c15f, 10.9:1). The
+   light accent is dark gold (#97650f → #7a4f0d), so the same near-black text
+   sits at 2.6:1; white measures 5.0–7.1:1 across the gradient. */
+[data-theme="light"] .vmss-hud-btn.is-primary,
+[data-theme="light"] .vmss-dash-btn--accent { color: #ffffff; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.92); }
@@ -1499,7 +1511,7 @@ img {
    .is-strong adds a brighter glow when score >= 70 (Main Layer+). */
 .vmss-gauge { position:relative; width:min(280px,100%); aspect-ratio:1; margin:0 auto; }
 .vmss-gauge svg { width:100%; height:100%; }
-.vmss-gauge-track { fill:none; stroke:rgba(255,255,255,0.08); stroke-width:14; }
+.vmss-gauge-track { fill:none; stroke:color-mix(in srgb, var(--text-primary) 12%, transparent); stroke-width:14; }
 .vmss-gauge-progress { fill:none; stroke:var(--accent); stroke-width:14; stroke-linecap:round; transform:rotate(-90deg); transform-origin:50% 50%; transition:stroke-dashoffset .5s ease, stroke .3s ease; filter:drop-shadow(0 0 10px var(--shadow-accent)); }
 .vmss-gauge-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 .vmss-score-number { font-size:clamp(2.8rem,6vw,4rem); line-height:.95; font-weight:800; color:var(--text-primary); }
@@ -1705,7 +1717,7 @@ details[open].vmss-article-ref .vmss-article-ref-toggle::before { transform:rota
 .vmss-factor-row { display:grid; grid-template-columns:85px minmax(0,1fr) 52px 26px 26px; gap:.4rem; align-items:center; padding:.3rem .5rem; border-radius:.5rem; border:1px solid var(--border); background:rgba(255,255,255,0.02); }
 .vmss-factor-row.is-violation { border-color:rgba(248,113,113,0.15); }
 .vmss-factor-label { font-size:.74rem; font-weight:600; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.vmss-factor-track { position:relative; height:.5rem; border-radius:999px; background:rgba(255,255,255,0.06); overflow:hidden; cursor:pointer; }
+.vmss-factor-track { position:relative; height:.5rem; border-radius:999px; background:color-mix(in srgb, var(--text-primary) 10%, transparent); overflow:hidden; cursor:pointer; }
 .vmss-factor-fill { position:absolute; inset:0 auto 0 0; width:0%; border-radius:999px; background:linear-gradient(90deg,var(--accent-soft),var(--accent)); transition:width .35s ease; pointer-events:none; }
 .vmss-factor-row.is-violation .vmss-factor-fill { background:linear-gradient(90deg,#fca5a5,#f87171); }
 .vmss-factor-val { font-size:.72rem; font-weight:700; color:var(--text-primary); text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
