@@ -11,18 +11,19 @@
  *     anchors and always displayed with "~" — anchors are exact, everything
  *     between is visibly approximate. No new canon numbers are invented.
  *
- * Canonical anchors (source: phase records on this page):
- *   Weighted system trajectory + the five-layer gradient table milestones.
+ * Canonical anchors (source: Charter Article XXIII / whitepaper §29.1):
+ *   Headline system trajectory + the five-layer gradient table milestones.
+ *   The rail interpolates between anchors; interpolated years are not canon.
  */
 (function () {
   'use strict';
 
   /* ============ CANONICAL DATA ============ */
 
-  // Weighted system leakage trajectory: [year, %]
+  // Headline system leakage trajectory: [year, %]
   const HEADLINE = [
-    [2026, 90], [2070, 90], [2150, 25], [2350, 8], [2400, 4], [2450, 2],
-    [2500, 1.5], [2550, 1.2], [2600, 1], [2650, 1], [2750, 0.5], [2800, 0.3],
+    [2026, 90], [2070, 90], [2150, 25], [2250, 15], [2350, 8], [2450, 4],
+    [2550, 2], [2650, 1], [2750, 0.5], [2800, 0.3],
     [2850, 0.1], [2900, 0.05], [2950, 0.02], [3000, 0.01]
   ];
 
