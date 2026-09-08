@@ -1,54 +1,15 @@
-<!-- navbar.html -->
-<nav class="w-full vmss-nav z-40">
-  <div class="max-w-[100rem] min-[2560px]:max-w-[70%] mx-auto px-6">
-    <div class="flex items-center justify-between py-4 gap-4">
-		  <a href="index.html" class="flex items-center gap-2 group min-[1366px]:mr-3 min-[2560px]:mr-6" aria-label="The Five Rings home">
-	  <span class="vmss-nav-mark">⟐</span>
-	  <span class="vmss-nav-copy leading-tight whitespace-nowrap">
-		<span class="vmss-nav-kicker block text-xs uppercase tracking-[0.34em] text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition">
-		  VMSS Doctrine Portal
-		</span>
-		<span class="block text-lg md:text-xl font-semibold tracking-[0.08em] text-[var(--text-primary)]">
-		  The Five Rings
-		</span>
-	  </span>
-	</a>
-
-      <div class="hidden min-[1366px]:flex items-center gap-1.5 min-[2560px]:gap-7 text-sm font-medium">
-        <a href="index.html" class="nav-link hover:text-[var(--accent)] transition">Home</a>
-        <a href="layers.html" class="nav-link hover:text-[var(--accent)] transition">Layers</a>
-        <a href="technologies.html" class="nav-link hover:text-[var(--accent)] transition">Technologies</a>
-        <a href="sads.html" class="nav-link hover:text-[var(--accent)] transition">SADs</a>
-        <a href="systems.html" class="nav-link hover:text-[var(--accent)] transition">Systems</a>
-        <a href="simulations.html" class="nav-link hover:text-[var(--accent)] transition">Simulations</a>
-        <a href="why-vmss.html" class="nav-link hover:text-[var(--accent)] transition whitespace-nowrap">Why VMSS?</a>
-        <a href="faq.html" class="nav-link hover:text-[var(--accent)] transition">FAQ</a>
-        <a href="roadmap.html" class="nav-link hover:text-[var(--accent)] transition">Roadmap</a>
-        <a href="charter.html" class="nav-link hover:text-[var(--accent)] transition">Charter</a>
-        <a href="laws.html" class="nav-link hover:text-[var(--accent)] transition">Laws</a>
-        <a href="whitepaper.html" class="nav-link hover:text-[var(--accent)] transition">Whitepaper</a>
-        <a href="law-polling.html" class="nav-link hover:text-[var(--accent)] transition"><span class="min-[2560px]:hidden">Polling</span><span class="hidden min-[2560px]:inline">Law Polling</span></a>
-        <a href="world.html" class="nav-link hover:text-[var(--accent)] transition">World</a>
-        <a href="audiobook.html" class="nav-link hover:text-[var(--accent)] transition"><span class="min-[2560px]:hidden">Audio</span><span class="hidden min-[2560px]:inline">Audiobook</span></a>
-        <a href="join.html" class="nav-link nav-link-join">Join</a>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <button id="theme-toggle" class="vmss-icon-button" aria-label="Toggle theme">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </button>
-        <button id="menu-toggle" class="vmss-icon-button min-[1366px]:hidden" aria-label="Toggle menu" aria-expanded="false">
-          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+<!-- Shared civilization archive navigation -->
+<nav class="w-full vmss-nav z-40" aria-label="Main navigation">
+  <div class="archive-nav-inner">
+    <a href="index.html" class="archive-brand" aria-label="The Five Rings home">
+      <svg class="archive-brand-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="11"/><circle cx="24" cy="24" r="6"/><circle cx="24" cy="24" r="1"/></svg>
+      <span><span class="archive-brand-title">THE FIVE RINGS</span><span class="archive-brand-caption">VMSS CIVILIZATION</span></span>
+    </a>
+    <div class="archive-desktop-nav"><a href="layers.html" class="nav-link">Layers</a><a href="world.html" class="nav-link">World</a><a href="simulations.html" class="nav-link">Simulations</a><details class="archive-nav-group"><summary>Architecture <span aria-hidden="true">⌄</span></summary><div class="archive-nav-dropdown"><a href="systems.html" class="nav-link">Systems</a><a href="technologies.html" class="nav-link">Technologies</a><a href="sads.html" class="nav-link">Ascension domains</a><a href="roadmap.html" class="nav-link">Roadmap</a></div></details>
+<details class="archive-nav-group"><summary>Doctrine <span aria-hidden="true">⌄</span></summary><div class="archive-nav-dropdown"><a href="charter.html" class="nav-link">Charter</a><a href="laws.html" class="nav-link">VMSS Laws</a><a href="whitepaper.html" class="nav-link">Whitepaper</a><a href="law-polling.html" class="nav-link">Law Polling</a></div></details>
+<details class="archive-nav-group"><summary>Discover <span aria-hidden="true">⌄</span></summary><div class="archive-nav-dropdown"><a href="why-vmss.html" class="nav-link">Why VMSS?</a><a href="faq.html" class="nav-link">FAQ</a><a href="audiobook.html" class="nav-link">Audiobooks</a></div></details><a href="join.html" class="nav-link nav-link-join">Entry portal <span aria-hidden="true">↗</span></a></div>
+    <div class="archive-nav-actions"><button id="theme-toggle" class="vmss-icon-button" aria-label="Toggle theme"><i class="fas fa-moon" aria-hidden="true"></i></button><button id="menu-toggle" class="vmss-icon-button min-[1366px]:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"><svg id="hamburger-icon" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"/></svg><svg id="close-icon" class="hidden" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-width="1.5" d="m6 6 12 12M6 18 18 6"/></svg></button></div>
   </div>
-
   <div id="mobile-menu" class="hidden min-[1366px]:hidden border-t vmss-mobile-menu">
     <div class="max-w-[100rem] min-[2560px]:max-w-[70%] mx-auto px-6 py-7 flex flex-col gap-5 text-base font-medium">
       <a href="index.html" class="nav-link hover:text-[var(--accent)] transition">Home</a>

@@ -290,7 +290,7 @@ function loadRecentApplicants() {
  *   Any interaction (hover, focus, touch) resets the idle timer.
  *
  * Minimise/expand: persisted in localStorage so the preference survives
- *   page navigation. On mobile (<768px), auto-minimises on load unless
+ *   page navigation. On reading pages and mobile (<768px), auto-minimises on load unless
  *   the user has already set an explicit preference.
  *
  * The border glows gold when layer = +1 Sanctuary (via CSS [data-layer="+1"]).
@@ -305,7 +305,7 @@ function initVmssHud() {
   hud.setAttribute('aria-label', 'VMSS live state panel');
   hud.innerHTML = `
     <div class="vmss-hud-top">
-      <div class="vmss-hud-kicker">VMSS live state</div>
+      <div class="vmss-hud-kicker">Simulation state</div>
       <button class="vmss-hud-toggle" type="button" aria-expanded="true" aria-label="Minimize live state panel">−</button>
     </div>
     <div class="vmss-hud-body">
@@ -381,13 +381,15 @@ function initVmssHud() {
   };
   document.addEventListener('vmss:state-change', (event) => apply(event.detail?.state));
   const isMobile = () => window.innerWidth < 768;
+  const isInteractivePage = /(?:layers|simulations)\.html$/.test(window.location.pathname);
+  const defaultMinimized = () => isMobile() || !isInteractivePage;
 
-  /* Auto-minimise on mobile unless user has explicitly set a preference */
+  /* Auto-minimise for reading pages and mobile unless the user has a preference */
   const hasUserPref = vmssStorageGet('vmss_hud_minimized') !== null;
   if (hasUserPref) {
     setMinimized(savedHudMinimized);
   } else {
-    setMinimized(isMobile());
+    setMinimized(defaultMinimized());
   }
 
   /* Re-evaluate on resize — only when no user preference is stored */
@@ -396,7 +398,7 @@ function initVmssHud() {
     if (vmssStorageGet('vmss_hud_minimized') !== null) return;
     if (resizeRaf) return;
     resizeRaf = requestAnimationFrame(() => {
-      setMinimized(isMobile());
+      setMinimized(defaultMinimized());
       resizeRaf = null;
     });
   }, { passive: true });
@@ -600,6 +602,58 @@ function initMobileMenu() {
       menuToggle.focus();
     }
   });
+}
+
+/** Native disclosure navigation: one group at a time, with Escape and outside dismissal. */
+function initArchiveNavigation() {
+  const groups = Array.from(document.querySelectorAll('.archive-nav-group'));
+  groups.forEach((group) => {
+    group.classList.toggle('has-active-page', Boolean(group.querySelector('.nav-link-active')));
+    group.addEventListener('toggle', () => {
+      if (group.open) groups.forEach((other) => { if (other !== group) other.open = false; });
+    });
+    group.addEventListener('focusout', () => {
+      requestAnimationFrame(() => { if (!group.contains(document.activeElement)) group.open = false; });
+    });
+  });
+  document.addEventListener('click', (event) => groups.forEach((group) => {
+    if (!group.contains(event.target)) group.open = false;
+  }));
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const open = groups.find((group) => group.open);
+    if (open) { open.open = false; open.querySelector('summary').focus(); }
+  });
+  const desktop = window.matchMedia('(min-width: 1366px)');
+  desktop.addEventListener('change', (event) => {
+    groups.forEach((group) => { group.open = false; });
+    const toggle = document.getElementById('menu-toggle');
+    if (event.matches && toggle?.getAttribute('aria-expanded') === 'true') toggle.click();
+  });
+
+  if (document.body.classList.contains('home-page')) return;
+  const heading = document.querySelector('main h1') || document.querySelector('h1');
+  const host = document.getElementById('navbar-placeholder');
+  if (!heading || !host || document.querySelector('.archive-context')) return;
+  const context = document.createElement('div');
+  context.className = 'archive-context';
+  const path = document.createElement('div');
+  path.className = 'archive-context-path';
+  const home = document.createElement('a');
+  home.href = 'index.html';
+  home.textContent = 'VMSS';
+  const separator = document.createElement('span');
+  separator.textContent = '/';
+  separator.setAttribute('aria-hidden', 'true');
+  const current = document.createElement('span');
+  current.className = 'archive-context-page';
+  current.textContent = heading.textContent.trim();
+  path.append(home, separator, current);
+  const label = document.createElement('span');
+  label.className = 'archive-secondary-label';
+  label.textContent = 'Civilization archive';
+  context.append(path, label);
+  host.appendChild(context);
 }
 
 // =========================
@@ -1136,6 +1190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initThemeToggle();
         initMobileMenu();
         initActiveNav();
+        initArchiveNavigation();
 
         if (document.getElementById('applicant-count')) {
           loadApplicantCount();

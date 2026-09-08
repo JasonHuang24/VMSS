@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" imagesrcset="images/webp/hero-rings-640.webp 640w, images/webp/hero-rings-1280.webp 1280w, images/webp/hero-rings-1671.webp 1671w" imagesizes="(max-width: 1023px) 100vw, 640px" fetchpriority="high">
+  <link rel="preload" as="image" imagesrcset="images/webp/civilization-960.webp 960w, images/webp/civilization-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="assets/css/tailwind.css">
 <noscript><style>body{opacity:1}</style></noscript>
@@ -43,106 +43,28 @@
        HUD, layer links) run in a requestAnimationFrame after injection. -->
   <div id="navbar-placeholder"></div>
 
-  <!-- Lite site banner -->
-  <div class="w-full bg-[var(--bg-secondary)] border-b border-[var(--border)] px-6 py-3">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 text-sm">
-      <span class="text-[var(--text-muted)]">New to VMSS? The lite version covers the core doctrine in a faster, more focused read.</span>
-      <a href="https://jasonhuang24.github.io/VMSSLite/" class="shrink-0 text-[var(--accent)] hover:text-[var(--accent-soft)] font-semibold transition whitespace-nowrap">Visit Lite Site →</a>
-    </div>
-  </div>
-
   <main id="main-content" class="flex-1">
-    <section class="hero-bg relative overflow-hidden border-b border-[var(--border)]/60">
-      <div class="lg:max-w-[70%] mx-auto px-6 py-20 md:py-28">
-        <div class="vmss-hero-grid grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">
-          <div>
-            <div class="vmss-hero-kicker inline-flex items-center gap-3 rounded-full border border-[var(--border-strong)] bg-[var(--bg-tertiary)]/85 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--text-muted)]">
-              <span class="text-[var(--accent)]">⟐</span>
-              Civilization Framework Preview
-            </div>
-            <h1 class="mt-8 font-black tracking-[-0.06em] leading-[0.95] text-[var(--text-primary)]">
-              The Five Rings
-            </h1>
-            <p class="mt-5 text-2xl md:text-3xl text-[var(--accent-soft)] font-medium">A voluntary society of moral causality</p>
-            <p class="mt-8 max-w-3xl text-lg md:text-xl leading-8 text-[var(--text-secondary)]">
-              The Five Rings is a proposed civilization model built around layered governance, technological accountability, and consequence-bound freedom. Safety, abundance, continuity, and descent are not rhetorical promises here — they are structured outcomes tied to behavior.
-            </p>
-
-            <div class="mt-10 flex flex-wrap gap-4">
-              <a href="layers.html" class="vmss-cta-primary">Explore the Layers</a>
-              <a href="charter.html" class="vmss-cta-secondary">Read the Charter</a>
-              <a href="whitepaper.html" class="vmss-cta-secondary">Read the Whitepaper</a>
-            </div>
-            <p class="mt-5 text-sm md:text-base text-[var(--text-muted)] max-w-3xl leading-7">
-              New here? Follow this reading path:
-              <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a>
-              <span class="mx-2 text-[var(--border-strong)]">→</span>
-              <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>
-              <span class="mx-2 text-[var(--border-strong)]">→</span>
-              <a href="simulations.html#sti-console" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Simulation</a>
-              <span class="mx-2 text-[var(--border-strong)]">→</span>
-              <a href="charter.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Charter</a>
-              · Unfamiliar with a term? See the <a href="whitepaper.html#glossary" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">glossary section</a> of the whitepaper.
-            </p>
-
-            <!-- Key system metrics — static summary figures displayed on the hero.
-                 These are intentionally hardcoded rather than data-driven;
-                 they reflect the architectural constants of the VMSS framework. -->
-            <div class="mt-12 grid grid-cols-2 gap-4 min-[2560px]:grid-cols-4">
-              <div class="vmss-stat-card">
-                <div class="vmss-stat-value">5</div>
-                <div class="vmss-stat-label">Governance Rings</div>
-              </div>
-              <div class="vmss-stat-card">
-                <div class="vmss-stat-value">+1 to -3</div>
-                <div class="vmss-stat-label">Civic Gradient</div>
-              </div>
-              <div class="vmss-stat-card">
-                <div class="vmss-stat-value">24/7</div>
-                <div class="vmss-stat-label">Implant Mediation</div>
-              </div>
-              <div class="vmss-stat-card">
-                <div class="vmss-stat-value">Voluntary</div>
-                <div class="vmss-stat-label">Entry Principle</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="vmss-hero-surface">
-            <div class="flex items-center justify-between gap-4 mb-6 flex-wrap sm:flex-nowrap">
-				<div class="text-xs uppercase tracking-[0.35em] text-[var(--text-muted)]">
-				SYSTEM POSITIONING
-				</div>
-
-				<h2 class="text-2xl sm:text-3xl font-semibold sm:whitespace-nowrap">
-				Institutional overview
-				</h2>
-
-            </div>
-            <picture><source type="image/webp" srcset="images/webp/hero-rings-640.webp 640w, images/webp/hero-rings-1280.webp 1280w, images/webp/hero-rings-1671.webp 1671w" sizes="(max-width: 1023px) 100vw, 640px"><img src="images/hero-rings.png" width="1671" height="940" alt="The Five Rings — aerial view of concentric civilization rings" class="emblem-logo mb-6 w-full object-contain opacity-95 drop-shadow-[0_0_25px_rgba(251,191,36,0.22)] rounded-2xl" fetchpriority="high" decoding="async"></picture>
-            <div class="grid gap-3">
-              <div class="vmss-mini-panel">
-                <div class="vmss-mini-title">Moral Causality</div>
-                <p class="vmss-mini-copy">Rights, access, and insulation become legible consequences of conduct rather than ideology or inherited status.</p>
-              </div>
-              <div class="vmss-mini-panel">
-                <div class="vmss-mini-title">Technological Enforcement</div>
-                <p class="vmss-mini-copy">Brain implants, backup vessels, audits, and AI mediation make continuity and consequence operational.</p>
-              </div>
-              <div class="vmss-mini-panel">
-                <div class="vmss-mini-title">Layered Ascent</div>
-                <p class="vmss-mini-copy">Citizens move between five distinct civilizational environments based on what they actually do — each layer complete on its own terms.</p>
-              </div>
-              <div class="vmss-mini-panel">
-                <div class="vmss-mini-title">Petition-Based Lawmaking</div>
-                <p class="vmss-mini-copy">New laws are created through citizen petitions, expert drafting, and direct population ratification — no legislators, no representatives, no campaigns.</p>
-              </div>
-              <div class="vmss-mini-panel">
-                <div class="vmss-mini-title">Lifestyle Infrastructure</div>
-                <p class="vmss-mini-copy">Full sensory media, virtual reality without hardware, bioengineered companions, food synthesis, AGI assistants — governance tech that doubles as the richest entertainment platform in history.</p>
-              </div>
-            </div>
-          </div>
+    <section class="archive-hero" aria-labelledby="civilization-title">
+      <picture class="archive-hero-image"><source type="image/webp" srcset="images/webp/civilization-960.webp 960w, images/webp/civilization-1920.webp 1920w" sizes="100vw"><img src="images/civilization.jpg" width="1920" height="960" alt="Conceptual aerial view of a vast terrestrial civilization arranged in concentric walled rings at blue hour" fetchpriority="high" decoding="async"></picture>
+      <div class="archive-hero-content">
+        <div class="archive-eyebrow"><span class="archive-signal" aria-hidden="true"></span> VMSS / Civilization archive</div>
+        <h1 id="civilization-title">The Five<br><span>Rings.</span></h1>
+        <p class="archive-hero-deck">A world shaped<br>by consequence.</p>
+        <p class="archive-hero-description">A proposed voluntary civilization. Five distinct worlds of trust, technology, and freedom — connected by the consequences of what we do.</p>
+        <div class="archive-hero-actions"><a href="layers.html" class="vmss-cta-primary">Explore the rings <span aria-hidden="true">↗</span></a><a href="world.html" class="archive-text-link">Enter the world <span aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="archive-image-caption"><span>THE FIVE RINGS</span><span>Conceptual civilization study</span></div>
+      <div class="archive-hero-baseline"><span>Voluntary entry. Moral causality. Continuity.</span><a href="#civilization-overview">Begin exploration <span aria-hidden="true">↓</span></a></div>
+    </section>
+    <section class="archive-overview" id="civilization-overview" aria-labelledby="overview-title">
+      <div class="archive-container">
+        <div class="archive-section-heading"><span class="archive-eyebrow">01 / The premise</span><span class="archive-secondary-label">A civilization framework</span></div>
+        <div class="archive-premise-grid"><h2 id="overview-title">Freedom has<br><em>an architecture.</em></h2><div><p>The Five Rings is a proposed civilization model built around layered governance, technological accountability, and consequence-bound freedom. Safety, abundance, continuity, and descent are structured outcomes tied to behavior.</p><a class="archive-inline-link" href="why-vmss.html">Why build a world this way? <span aria-hidden="true">↗</span></a></div></div>
+        <div class="archive-principles">
+          <article><span class="archive-index">I</span><h3>Moral causality</h3><p>Rights, access, and insulation become legible consequences of conduct rather than ideology or inherited status.</p></article>
+          <article><span class="archive-index">II</span><h3>Technological enforcement</h3><p>Brain implants, backup vessels, audits, and AI mediation make continuity and consequence operational.</p></article>
+          <article><span class="archive-index">III</span><h3>Layered ascent</h3><p>Five distinct civilizational environments, each complete on its own terms. Movement depends on what citizens actually do.</p></article>
+          <article><span class="archive-index">IV</span><h3>Petition-based lawmaking</h3><p>Citizen petitions, expert drafting, and direct population ratification create the law.</p></article>
         </div>
       </div>
     </section>
@@ -150,7 +72,7 @@
 		<section class="vmss-diagram-section py-24">
 		<div class="lg:max-w-[70%] mx-auto text-center px-6">
 
-		<h2 class="text-4xl font-bold mb-12">Planetary Ring Structure</h2>
+		<div class="archive-section-heading"><span class="archive-eyebrow">02 / Spatial architecture</span><a class="archive-inline-link" href="layers.html">Open interactive map ↗</a></div><h2 class="archive-display-heading">One planet. Five worlds.</h2><p class="archive-diagram-intro">A gradient of institutional presence, from the protected center to the voluntary frontier.</p>
 
 		<svg viewBox="0 0 600 600" class="vmss-ring-diagram" role="img" aria-label="Five concentric governance rings, outermost to innermost: -3 Terminal, -2 Violent Offense, -1 Noncompliance, 0 Main, +1 Sanctuary">
 
@@ -231,9 +153,9 @@
   <div class="lg:max-w-[70%] mx-auto px-6">
     <div class="text-center mb-14">
       <div class="text-xs uppercase tracking-[0.35em] text-[var(--text-muted)]">
-        Flagship Mechanism
+        03 / Consequence architecture
       </div>
-      <h2 class="text-4xl md:text-5xl font-bold mt-3 text-[var(--text-primary)]">
+      <h2 class="archive-display-heading mt-3">
         VMSS Justice Flow
       </h2>
       <p class="max-w-3xl mx-auto mt-5 text-lg text-[var(--text-secondary)] leading-8">
@@ -397,9 +319,9 @@
       <div class="lg:max-w-[70%] mx-auto px-6 py-16 md:py-20">
         <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div>
-            <div class="vmss-eyebrow">Layer model at a glance</div>
-            <h2 class="vmss-section-title mt-3">Five distinct civilizational environments — each complete on its own terms, each with its own economy, social texture, and institutional character.</h2>
-            <p class="vmss-section-copy mt-6">This is the clearest conceptual entry point for new readers. Each layer changes not only material conditions, but also how enforcement, risk, and trust behave.</p>
+            <div class="vmss-eyebrow">04 / The civic gradient</div>
+            <h2 class="vmss-section-title mt-3">Every ring.<br>A different way to live.</h2>
+            <p class="vmss-section-copy mt-6">Each layer is complete on its own terms, with its own economy, social texture, and institutional character. Moving through the rings changes how enforcement, risk, and trust behave.</p>
             <div class="mt-8 flex flex-wrap gap-4">
               <a href="layers.html" class="vmss-cta-secondary">See full layer breakdown</a>
               <a href="systems.html" class="vmss-cta-secondary">Study systems model</a>
@@ -447,56 +369,26 @@
       </div>
     </section>
 
-    <section class="vmss-home-section">
-      <div class="lg:max-w-[70%] mx-auto px-6 py-16 md:py-20">
-        <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
-          <div class="vmss-panel reveal-item">
-            <div class="vmss-eyebrow">Go deeper</div>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mt-3">Where to go once the layers make sense</h2>
-            <div class="mt-8 grid gap-4 md:grid-cols-2">
-              <a href="charter.html" class="vmss-mini-panel block">
-                <div class="vmss-mini-title">1. Charter</div>
-                <p class="vmss-mini-copy">Read the governing premises and founding core principles.</p>
-              </a>
-              <a href="technologies.html" class="vmss-mini-panel block">
-                <div class="vmss-mini-title">2. Technologies</div>
-                <p class="vmss-mini-copy">See how implants, backups, audits, and walls actually make the model enforceable.</p>
-              </a>
-              <a href="simulations.html" class="vmss-mini-panel block">
-                <div class="vmss-mini-title">3. Simulations</div>
-                <p class="vmss-mini-copy">Study practical scenarios and edge cases inside the rings.</p>
-              </a>
-              <a href="join.html" class="vmss-mini-panel block">
-                <div class="vmss-mini-title">4. Entry path</div>
-                <p class="vmss-mini-copy">See what voluntary entry, implant consent, and early life in Main would look like.</p>
-              </a>
-            </div>
-            <!-- Whitepaper callout — the final step in the reading path.
-                 vmss-whitepaper-callout is a dedicated card style that spans
-                 full width to signal it as a primary destination. -->
-            <a href="whitepaper.html" class="vmss-whitepaper-callout reveal-item">
-              <div>
-                <div class="vmss-eyebrow">5. Whitepaper</div>
-                <h3 class="text-2xl font-semibold mt-3">Read the full institutional draft</h3>
-                <p class="mt-3 text-[var(--text-secondary)] leading-7">Move from site summary to full proposal. The whitepaper consolidates the architecture, governance logic, economy, and enforcement model into a single paginated document.</p>
-              </div>
-              <span class="vmss-whitepaper-arrow">→</span>
-            </a>
-          </div>
-
-          <div class="vmss-panel reveal-item bg-gradient-to-br from-[var(--accent-glow)] to-transparent">
-            <div class="vmss-eyebrow">Lite Version Available</div>
-            <h2 class="text-2xl md:text-3xl font-semibold mt-3">New to VMSS? Start with the lite site.</h2>
-            <p class="mt-5 text-[var(--text-secondary)] leading-7">The lite version delivers the core doctrine in a faster, more focused reading experience — condensed pages, no interactive widgets, essential content only. Ideal for a first read before going deeper here.</p>
-            <a href="https://jasonhuang24.github.io/VMSSLite/" class="inline-block mt-6 bg-[var(--accent)] hover:bg-amber-500 text-black font-bold px-8 py-3 rounded-2xl transition text-sm">Visit the Lite Site →</a>
-          </div>
-
-          <div class="vmss-panel reveal-item bg-gradient-to-br from-[var(--accent-glow)] to-transparent">
-            <div class="vmss-eyebrow">Entry principle</div>
-            <h2 class="text-2xl md:text-3xl font-semibold mt-3">VMSS is framed as a voluntary civil choice.</h2>
-            <p class="mt-5 text-[var(--text-secondary)] leading-7">Entry is opt-in. Citizens consent to implants, moral accounting, and the consequences of living inside a system where trust and risk are explicitly stratified.</p>
-          </div>
+    <section class="archive-world-feature" aria-labelledby="world-feature-title">
+      <div class="archive-container archive-world-grid">
+        <picture><source type="image/webp" srcset="images/webp/world-daily-life-640.webp 640w, images/webp/world-daily-life-1280.webp 1280w" sizes="(max-width: 800px) 100vw, 50vw"><img src="images/world-daily-life.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Concept art of daily life inside the VMSS civilization"></picture>
+        <div class="archive-world-copy"><div class="archive-eyebrow">Field notes / The world dossier</div><h2 id="world-feature-title">Beyond the walls,<br>life goes on.</h2><p>Full sensory media. Bioengineered companions. Food synthesis. AGI assistants. The same infrastructure that governs the rings also shapes the texture of everyday life.</p><a href="world.html" class="archive-inline-link">Discover life in VMSS <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+    <section class="archive-library" aria-labelledby="library-title">
+      <div class="archive-container">
+        <div class="archive-section-heading"><span class="archive-eyebrow">05 / Further exploration</span><span class="archive-secondary-label">From first principles to lived experience</span></div>
+        <h2 id="library-title" class="archive-display-heading">Continue into the archive.</h2>
+        <div class="archive-library-grid">
+          <a href="charter.html" class="archive-library-card"><span class="archive-index">DOC / 01 <span aria-hidden="true">↗</span></span><h3>The Charter</h3><p>The governing premises and founding core principles of the civilization.</p><span class="archive-card-type">Constitutional foundation</span></a>
+          <a href="technologies.html" class="archive-library-card"><span class="archive-index">SYS / 02 <span aria-hidden="true">↗</span></span><h3>Technologies</h3><p>Implants, backup vessels, neural diving, and the systems that make the model enforceable.</p><span class="archive-card-type">Technical dossier</span></a>
+          <a href="simulations.html" class="archive-library-card"><span class="archive-index">SIM / 03 <span aria-hidden="true">↗</span></span><h3>Simulations</h3><p>Resident stories, world scenarios, and the interactive Social Trust Index console.</p><span class="archive-card-type">Explore consequence</span></a>
+          <a href="whitepaper.html" class="archive-library-card"><span class="archive-index">DOC / 04 <span aria-hidden="true">↗</span></span><h3>The Whitepaper</h3><p>The full institutional draft: architecture, governance, economy, and enforcement in one document.</p><span class="archive-card-type">Complete framework</span></a>
+          <a href="audiobook.html" class="archive-library-card"><span class="archive-index">AUD / 05 <span aria-hidden="true">↗</span></span><h3>The narrated world</h3><p>Hear The Five Rings through the audiobook series, starting with the free introduction.</p><span class="archive-card-type">Audiobook collection</span></a>
+          <a href="https://jasonhuang24.github.io/VMSSLite/" class="archive-library-card"><span class="archive-index">REF / 06 <span aria-hidden="true">↗</span></span><h3>The essentials</h3><p>New to VMSS? The lite site offers a faster, more focused introduction to the core doctrine.</p><span class="archive-card-type">Visit the lite site</span></a>
         </div>
+        <div class="archive-entry"><div><span class="archive-eyebrow">The entry principle</span><h3>A voluntary civil choice.</h3><p>Entry is opt-in. Understand implant consent, moral accounting, and the consequences before taking the next step.</p></div><a href="join.html" class="vmss-cta-primary">Explore the entry path <span aria-hidden="true">↗</span></a></div>
+        <p class="archive-glossary">Unfamiliar with a term? Consult the <a href="whitepaper.html#glossary">whitepaper glossary</a>.</p>
       </div>
     </section>
   </main>

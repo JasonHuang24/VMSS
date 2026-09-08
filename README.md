@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 23.9.0
+**Version:** 24.0
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -49,6 +49,12 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `join.html` | Voluntary entry process and application form |
 
 ---
+
+## Interface
+
+The civilization archive combines cinematic ring-city artwork, a grouped navigation system, instrument-inspired dossier surfaces, and a responsive archive index. Both light and dark themes are supported. The simulation HUD defaults to collapsed on reading pages; saved preferences still take priority.
+
+The homepage artwork was generated with the built-in image generation tool and optimized into responsive WebP assets with a JPEG fallback. See [artwork provenance and exact prompt](images/civilization-artwork.md).
 
 ## Stack
 
@@ -113,7 +119,8 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 │   └── vmss-laws-latent-inventory.md # CI gate: check-canon parses its PART 1 heading count against laws.html founding entries
 ├── images/
 │   ├── emblem.jpg
-│   ├── hero-rings.png       # Homepage hero
+│   ├── hero-rings.png       # Existing social preview artwork
+│   ├── civilization.jpg     # New cinematic homepage hero (WebP variants in webp/)
 │   ├── world-*.png          # World page imagery (geography, military, alliance, etc.)
 │   └── Audiobook/           # Audiobook cover art (free intro + 5 volumes)
 ├── sitemap.xml
