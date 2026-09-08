@@ -500,3 +500,185 @@ Output composition: landscape, for 1200 × 600 pixels.
 
 Scene requirements: Structural register: calm dawn over thriving farmland, not orbit. Wall geometry is binding: 15 km above ground, a 1 km base tapering to an approximately 1 m knife edge; continuous sheer faces, no broad crest or road on top. The enormous wall dwarfs terrain and rises above low atmospheric cloud; farmland lies far below on both sides. No outward military works, no attacks, no radial roads across or through the wall, no rings in the sky. Foreign countryside is as healthy and peaceful as the interior farmland.
 ```
+
+
+## Second wave — 24.1.1
+
+Four lived-register replacements generated with the built-in image_gen tool, reviewed beside world-daily-life.png, and cropped/resized with Pillow ImageOps.fit (LANCZOS) to the original 1200 × 600 dimensions. Each existing 640px and 1200px WebP was regenerated at quality 86, method 6. The substrate series shares golden afternoon light, ordinary human-form citizens, cyan temple markers for AGI/ASI and visible human augmentation for cyborgs.
+
+### world-refugee.png
+
+- Final dimensions: 1200 × 600 px
+- Generated register: Lived — warm daylight
+- Attempts: 2
+- Review: Second attempt clears: one shared calm queue with families and luggage, open implant-fitting chairs, attendants and open desks; no signage, robot figures or security posture. First attempt added oversized architectural emblems; the retry removes them.
+- WebP variants: `world-refugee-640.webp`, `world-refugee-1200.webp`
+
+Exact selected generation prompt:
+
+```text
+Highly detailed, credible architectural science-fiction concept art, cinematic realism.
+Terrestrial setting on Earth, 22nd–23rd century.
+
+TONE RULE (overrides everything below): VMSS is a prosperous, voluntary, well-lit
+civilization, not a dystopia. Most of the site's existing keep-list images are
+daylight and warm (daily-life, entertainment, refugee, the substrate trio) and the
+replacements must sit beside them without a mood break. Use TWO registers:
+- Structural / civic scale (founding era, military, geography wall section,
+  territorial, travel gate): blue hour or dawn, steel blue + teal + amber, matching
+  `images/civilization.jpg`. Vast and calm, never grim, never ruined.
+- Lived / institutional interiors (alliance hall, tribunal, visitor fitting,
+  embodiment atelier, information plaza, climate valley, Earth-vs-VMSS street):
+  full daylight or warm golden interior light, natural greenery, ordinary people
+  at ease. Match the warmth of `world-daily-life.png`.
+No scene should read as oppressive, surveilled, or post-apocalyptic. HARD
+CONSTRAINTS: no text, labels, signage, logos, watermarks, or UI baked into the image;
+no real-world national flags, uniforms, insignia, or agency branding of any kind (no
+US/EU/China/Japan flags, no TSA/customs badges); no planetary rings in the sky, no
+space stations unless the section is orbital; no explosions or active combat. VMSS
+identity marker, when needed, is a small emblem of five concentric rings.
+
+Bright daylit intake hall with a garden atrium and
+tall windows, warm wood and pale stone. Applicants of many origins and ages
+wait together in one calm queue with luggage and children; a few sit in open
+implant-fitting chairs while ungloved attendants wearing a small five-ring
+chest emblem talk with them; others speak with staff at open desks. Everyone
+at ease, nothing urgent. No signage, no screens with text, no robots, no
+security posture.
+
+Scene-specific canon and series constraints: There is ONE shared voluntary-immigration queue for all applicants, never a separate refugee or urgent-priority lane. Clearly include open implant-fitting chairs with seated applicants and friendly attendants, plus open consultation desks. Staff clothing is casual and unbranded except the requested small chest emblem: exactly five separate CLOSED concentric circular outlines, no spiral. No booths, security devices, reticles, gloves or probes. The hall is spacious and tranquil, not packed or clinical.
+
+Output composition: wide landscape, for 1200 × 600 pixels. LIVED register. All surfaces are free of written text; no cold clinical or surveillance mood.
+
+Second-attempt correction: NO emblems or ring carvings on walls, ceilings, furniture or architecture. All architectural surfaces are plain wood or pale stone with greenery. The ONLY identity emblems are SMALL five-ring chest emblems on attendants: exactly five separate closed concentric outlines, never a spiral. Keep one shared orderly queue, varied families and single applicants, relaxed people in recognizable open implant-fitting chairs and at open desks. Include a tiny soft geometric temple light at one seated applicant to communicate implant fitting without probes, scans, reticles or clinical hardware. No signs, text, screens, robots, uniforms or security cues.
+```
+
+### world-agi.png
+
+- Final dimensions: 1200 × 600 px
+- Generated register: Lived — golden afternoon
+- Attempts: 2
+- Review: Second attempt clears: human-form AGI and marked passing couple, unmarked older human, ordinary café patrons, matching cyan temple markers. First attempt misplaced markers and added glowing ear hardware; the retry corrects those details.
+- WebP variants: `world-agi-640.webp`, `world-agi-1200.webp`
+
+Exact selected generation prompt:
+
+```text
+Highly detailed, credible architectural science-fiction concept art, cinematic realism.
+Terrestrial setting on Earth, 22nd–23rd century.
+
+TONE RULE (overrides everything below): VMSS is a prosperous, voluntary, well-lit
+civilization, not a dystopia. Most of the site's existing keep-list images are
+daylight and warm (daily-life, entertainment, refugee, the substrate trio) and the
+replacements must sit beside them without a mood break. Use TWO registers:
+- Structural / civic scale (founding era, military, geography wall section,
+  territorial, travel gate): blue hour or dawn, steel blue + teal + amber, matching
+  `images/civilization.jpg`. Vast and calm, never grim, never ruined.
+- Lived / institutional interiors (alliance hall, tribunal, visitor fitting,
+  embodiment atelier, information plaza, climate valley, Earth-vs-VMSS street):
+  full daylight or warm golden interior light, natural greenery, ordinary people
+  at ease. Match the warmth of `world-daily-life.png`.
+No scene should read as oppressive, surveilled, or post-apocalyptic. HARD
+CONSTRAINTS: no text, labels, signage, logos, watermarks, or UI baked into the image;
+no real-world national flags, uniforms, insignia, or agency branding of any kind (no
+US/EU/China/Japan flags, no TSA/customs badges); no planetary rings in the sky, no
+space stations unless the section is orbital; no explosions or active combat. VMSS
+identity marker, when needed, is a small emblem of five concentric rings.
+
+Café terrace in warm afternoon light. An AGI citizen in
+human form with a small luminous temple marker talks across a table with an
+unmarked older human; other patrons around them, a marked couple walking past.
+Nothing sets the AGI apart except the marker. Relaxed, ordinary.
+
+Scene-specific canon and series constraints: SERIES CONVENTION for all three substrate scenes: warm golden afternoon sunlight, leafy Main-layer surroundings, natural wood and pale stone, relaxed casual clothing. The AGI/ASI identifying marker is one SMALL luminous cyan diamond at the temple, not glowing eyes, facial circuitry or robot parts. Here the AGI at the table and both members of the passing couple have this same tiny cyan diamond; the older human is unmarked. Everyone has ordinary human skin and form. No unnecessary logos or architecture emblems, no shop lettering or signs.
+
+Output composition: wide landscape, for 1200 × 600 pixels. LIVED register. All surfaces are free of written text; no cold clinical or surveillance mood.
+
+Second-attempt correction: The AGI at the café table and BOTH people in the passing couple each have exactly ONE small luminous cyan diamond ON THE TEMPLE: the patch of skin between the outside of the eyebrow and the ear, ABOVE the cheekbone. Keep hair away from that small patch so the marker is visible. NO lights on ears, neck, jaw or collar; NO ear devices, earrings, glowing eyes, facial circuits or augmented body parts. They look completely human in every other respect. The older person across the table is unmarked. Preserve the relaxed café conversation, passing couple, other patrons and the same golden afternoon light as the council and market scenes.
+```
+
+### world-asi.png
+
+- Final dimensions: 1200 × 600 px
+- Generated register: Lived — golden afternoon
+- Attempts: 1
+- Review: First attempt clears: exactly five colleagues, two marked human-form ASI, one cyborg with visible augmented arm, two unmarked humans; terrain model without readable text, equal seating and warm garden-facing room.
+- WebP variants: `world-asi-640.webp`, `world-asi-1200.webp`
+
+Exact selected generation prompt:
+
+```text
+Highly detailed, credible architectural science-fiction concept art, cinematic realism.
+Terrestrial setting on Earth, 22nd–23rd century.
+
+TONE RULE (overrides everything below): VMSS is a prosperous, voluntary, well-lit
+civilization, not a dystopia. Most of the site's existing keep-list images are
+daylight and warm (daily-life, entertainment, refugee, the substrate trio) and the
+replacements must sit beside them without a mood break. Use TWO registers:
+- Structural / civic scale (founding era, military, geography wall section,
+  territorial, travel gate): blue hour or dawn, steel blue + teal + amber, matching
+  `images/civilization.jpg`. Vast and calm, never grim, never ruined.
+- Lived / institutional interiors (alliance hall, tribunal, visitor fitting,
+  embodiment atelier, information plaza, climate valley, Earth-vs-VMSS street):
+  full daylight or warm golden interior light, natural greenery, ordinary people
+  at ease. Match the warmth of `world-daily-life.png`.
+No scene should read as oppressive, surveilled, or post-apocalyptic. HARD
+CONSTRAINTS: no text, labels, signage, logos, watermarks, or UI baked into the image;
+no real-world national flags, uniforms, insignia, or agency branding of any kind (no
+US/EU/China/Japan flags, no TSA/customs badges); no planetary rings in the sky, no
+space stations unless the section is orbital; no explosions or active combat. VMSS
+identity marker, when needed, is a small emblem of five concentric rings.
+
+A sunlit council room with tall windows onto ring-city
+greenery. Five people around a wooden table reviewing a translucent
+terrain-and-data model; two are ASI citizens marked by the same temple mark
+and a discreet collar emblem, one is a cyborg with a visible augmented arm,
+two are unmarked humans. Equals at work, no podium, no hierarchy cues.
+
+Scene-specific canon and series constraints: SERIES CONVENTION: same warm golden afternoon sunlight, wood, pale stone and greenery as the café and market. Exactly FIVE people, all ordinary human-form: TWO ASI with one small luminous cyan diamond at the temple and a discreet collar emblem; ONE human cyborg with an obviously augmented arm but a natural human face; TWO ordinary unmarked humans. The collar emblems, if ring-shaped, have five separate closed concentric circles, never a spiral. The terrain/data model has only land contours and abstract nonalphabetic light geometry, no text, letters, digits, panels, graphs with labels or HUD. No background people, robots or hierarchical seating.
+
+Output composition: wide landscape, for 1200 × 600 pixels. LIVED register. All surfaces are free of written text; no cold clinical or surveillance mood.
+```
+
+### world-cyborg.png
+
+- Final dimensions: 1200 × 600 px
+- Generated register: Lived — golden afternoon
+- Attempts: 1
+- Review: First attempt clears: fully augmented arm in the handshake, human with partial facial augmentation, woman with augmented hands browsing produce, ordinary vendor and shoppers; no signage or robot bodies.
+- WebP variants: `world-cyborg-640.webp`, `world-cyborg-1200.webp`
+
+Exact selected generation prompt:
+
+```text
+Highly detailed, credible architectural science-fiction concept art, cinematic realism.
+Terrestrial setting on Earth, 22nd–23rd century.
+
+TONE RULE (overrides everything below): VMSS is a prosperous, voluntary, well-lit
+civilization, not a dystopia. Most of the site's existing keep-list images are
+daylight and warm (daily-life, entertainment, refugee, the substrate trio) and the
+replacements must sit beside them without a mood break. Use TWO registers:
+- Structural / civic scale (founding era, military, geography wall section,
+  territorial, travel gate): blue hour or dawn, steel blue + teal + amber, matching
+  `images/civilization.jpg`. Vast and calm, never grim, never ruined.
+- Lived / institutional interiors (alliance hall, tribunal, visitor fitting,
+  embodiment atelier, information plaza, climate valley, Earth-vs-VMSS street):
+  full daylight or warm golden interior light, natural greenery, ordinary people
+  at ease. Match the warmth of `world-daily-life.png`.
+No scene should read as oppressive, surveilled, or post-apocalyptic. HARD
+CONSTRAINTS: no text, labels, signage, logos, watermarks, or UI baked into the image;
+no real-world national flags, uniforms, insignia, or agency branding of any kind (no
+US/EU/China/Japan flags, no TSA/customs badges); no planetary rings in the sky, no
+space stations unless the section is orbital; no explosions or active combat. VMSS
+identity marker, when needed, is a small emblem of five concentric rings.
+
+An open-air market street in golden afternoon light.
+A cyborg citizen with a fully augmented arm shakes hands with an unmarked
+vendor; behind them a citizen with partial facial augmentation and a woman
+with augmented hands browse produce beside ordinary shoppers. Integrated,
+warm, unremarkable. No text on stalls.
+
+Scene-specific canon and series constraints: SERIES CONVENTION: same warm golden afternoon sunlight, leafy Main-layer surroundings, wood and pale stone. Preserve all three beats: foreground handshake using a visibly fully augmented arm; a background human with partial facial augmentation; a background woman with visibly augmented hands browsing produce. These are HUMAN citizens with natural human faces and recognizable ordinary clothing, not robot bodies. Use the same small luminous cyan diamond at the temple for the augmented citizens, consistent with the AGI/ASI set. The vendor is unmarked. No shop logos, signage, written price cards or symbols anywhere.
+
+Output composition: wide landscape, for 1200 × 600 pixels. LIVED register. All surfaces are free of written text; no cold clinical or surveillance mood.
+```
