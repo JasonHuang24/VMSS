@@ -1094,7 +1094,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const h1 = directChildren.find((el) => el.tagName === 'H1');
         const introP = h1 ? directChildren.find((el) => el.tagName === 'P') : null;
 
-        if (h1 && introP && !firstDiv.querySelector(':scope > .vmss-page-intro')) {
+        if (h1 && introP && !section.classList.contains('archive-hero') && !firstDiv.querySelector(':scope > .vmss-page-intro')) {
           const introWrap = document.createElement('div');
           introWrap.className = 'vmss-page-intro reveal-item';
           firstDiv.insertBefore(introWrap, h1);

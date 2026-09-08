@@ -1742,9 +1742,11 @@ body { background: linear-gradient(90deg, transparent 49.9%, var(--border) 50%, 
 .vmss-nav .vmss-icon-button { width: 40px; height: 40px; border-radius: 2px; background: transparent; }
 .archive-desktop-nav .nav-link-join { padding: .65rem 1rem; border-radius: 2px; color: var(--accent); background: var(--accent-glow); }
 .nav-link-active { color: var(--accent); }
-#mobile-menu > div { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; padding: 1rem 1.5rem; }
-#mobile-menu .nav-link { padding: .8rem; border-bottom: 1px solid var(--border); font-size: .9375rem; }
-#mobile-menu .nav-link-join { border-radius: 2px; }
+#mobile-menu > div { padding: 1rem 1.5rem 1.5rem; display: block; }
+#mobile-menu .nav-link { display: block; padding: .8rem 0; border-bottom: 1px solid var(--border); font-size: .9375rem; }
+#mobile-menu .archive-mobile-group { margin-top: 1.25rem; }
+#mobile-menu .archive-mobile-group .archive-eyebrow { display: block; padding-bottom: .5rem; }
+#mobile-menu .nav-link-join { margin-top: 1.25rem; border-bottom: 0; border-radius: 2px; padding: .8rem 1rem; color: var(--accent); background: var(--accent-glow); }
 @media (min-width: 1366px) { .archive-nav-actions #menu-toggle { display: none; } }
 @media (max-width: 1365px) { .archive-desktop-nav { display: none; } }
 .archive-container { width: min(100% - 5rem, 1360px); margin-inline: auto; }
@@ -1761,7 +1763,7 @@ body { background: linear-gradient(90deg, transparent 49.9%, var(--border) 50%, 
 .archive-hero .archive-eyebrow { color: #9bdae0; }
 .archive-hero h1, .archive-hero h1body .vmss-title { font-family: var(--archive-display); font-weight: 500; font-size: clamp(5rem,9.5vw,10rem); line-height: .86; letter-spacing: -.025em; text-transform: uppercase; margin: 2rem 0 1.6rem; max-width: 750px; text-align: left; }
 .archive-hero h1 span { color: #e9bb72; }
-.archive-hero-deck { font-family: 'Space Grotesk',sans-serif; font-size: clamp(1.35rem,2vw,1.9rem); line-height: 1.3; font-weight: 400; letter-spacing: -.025em; }
+.archive-hero-deck { font-family: 'Space Grotesk',sans-serif; font-size: clamp(1.35rem,2vw,1.9rem); line-height: 1.3; font-weight: 400; letter-spacing: -.025em; color: #eaf0ee; text-shadow: 0 1px 18px rgba(5,13,19,.85); }
 .archive-hero-description { max-width: 430px; margin-top: 1.4rem; font-size: 1rem; line-height: 1.8; color: #bdcbd0; }
 .archive-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.8rem; margin-top: 2rem; }
 .archive-hero .vmss-cta-primary { background: #e9bb72; color: #080f14 !important; }
