@@ -1836,11 +1836,6 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
 .vmss-hud.is-idle { opacity: .92; }
 .vmss-footer { background: var(--bg-secondary); margin-top: 0; }
 .archive-footer-rule { display: grid; grid-template-columns: repeat(5,1fr); font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); }
-.archive-footer-rule span { text-align: center; padding-top: .7rem; border-top: 2px solid #e9bb72; }
-.archive-footer-rule span:nth-child(2) { border-color: #a8c9d6; }
-.archive-footer-rule span:nth-child(3) { border-color: #f6a653; }
-.archive-footer-rule span:nth-child(4) { border-color: #e87575; }
-.archive-footer-rule span:nth-child(5) { border-color: #a83a47; }
 .vmss-footer h2 { font-family: var(--archive-display); font-size: 3rem; font-weight: 500; }
 .vmss-footer .rounded-full { border-radius: 2px; font-family: var(--archive-mono); }
 .archive-context { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; padding: .8rem 2.5rem; border-bottom: 1px solid var(--border); font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); letter-spacing: .025em; }
@@ -2099,6 +2094,19 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 .archive-library-grid { gap: 1rem; border: 0; }
 .archive-library-card { border: 1px solid var(--border); border-top-color: var(--ring-edge); border-radius: var(--shape-card); background-image: linear-gradient(168deg, var(--ring-wash), transparent 40%); }
 .archive-world-grid img { border-radius: var(--shape-panel); }
+
+/* Nav dropdown caret: a thin drawn chevron instead of a glyph. */
+.archive-caret { display: inline-block; width: 5px; height: 5px; margin-left: .15rem; border-right: 1.25px solid currentColor; border-bottom: 1.25px solid currentColor; opacity: .55; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
+.archive-nav-group[open] .archive-caret { transform: translateY(1px) rotate(-135deg); }
+
+/* Footer descent line: one continuous fall from Sanctuary light to Terminal dark. */
+.archive-footer-rule { position: relative; }
+.archive-footer-rule::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #f7e2b4, #e9bb72 22%, #d98a4e 46%, #b8454f 72%, #4a1119); }
+.archive-footer-rule span { text-align: center; padding-top: .7rem; }
+@media (max-width: 600px) { .archive-footer-rule { font-size: .625rem; } }
+
+/* Open accordions keep the card surface; the hover tint is for closed cards only. */
+body :is(.why-card, .faq-card, .simulation-card, .tech-card) > button:has(+ :not(.hidden)) { background: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   .vmss-page-intro::after { animation: none; }
