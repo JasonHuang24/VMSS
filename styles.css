@@ -1694,7 +1694,7 @@ body.vmss-ui-ready {
 /* The fixed HUD covered the footer's link column at 1440px. It steps aside
    while the footer is in view (class toggled by an IntersectionObserver in
    initVmssHud) and returns as soon as the reader scrolls back up. */
-.vmss-hud.is-footer-clear {
+.vmss-hud.is-footer-clear, .vmss-hud.is-idle.is-footer-clear {
   opacity: 0;
   pointer-events: none;
   transform: translateY(0.5rem);
@@ -1830,7 +1830,7 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
 .vmss-hud .vmss-hud-score { font-family: var(--archive-mono); }
 .vmss-hud.is-idle { opacity: .92; }
 .vmss-footer { background: var(--bg-secondary); margin-top: 0; }
-.archive-footer-rule { display: grid; grid-template-columns: repeat(5,1fr); font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); }
+.archive-footer-rule { font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); }
 .vmss-footer h2 { font-family: var(--archive-display); font-size: 3rem; font-weight: 500; }
 .vmss-footer .rounded-full { border-radius: 2px; font-family: var(--archive-mono); }
 .archive-context { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; padding: .8rem 2.5rem; border-bottom: 1px solid var(--border); font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); letter-spacing: .025em; }
@@ -2106,7 +2106,7 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 /* Footer descent line: one continuous fall from Sanctuary light to Terminal dark. */
 .archive-footer-rule { position: relative; }
 .archive-footer-rule::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #f7e2b4, #e9bb72 22%, #d98a4e 46%, #b8454f 72%, #4a1119); }
-.archive-footer-rule span { text-align: center; padding-top: .7rem; }
+.archive-footer-rule-labels { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; padding-top: .7rem; }
 @media (max-width: 600px) { .archive-footer-rule { font-size: .625rem; } }
 
 /* Open accordions keep the card surface; the hover tint is for closed cards only. */
