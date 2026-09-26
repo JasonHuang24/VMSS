@@ -15,7 +15,8 @@
     "test:certification": "node tools/test-path2-certification-mutations.mjs",
     "test:code-guards": "node tools/test-code-founding-guards.mjs",
     "test:guard-mutations": "node tools/test-canon-guard-mutations.mjs",
-    "check:canon": "node tools/check-canon.mjs"
+    "check:canon": "node tools/check-canon.mjs",
+    "check:css": "node tools/check-css-cascade.mjs"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.19"

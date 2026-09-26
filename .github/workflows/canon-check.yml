@@ -29,6 +29,10 @@ jobs:
           node-version: 20
       - name: Run canon checker
         run: node tools/check-canon.mjs
+      # Cascade guards: page-local <style> leaking into the shared navbar/footer,
+      # and later styles.css rules silently beating earlier state rules.
+      - name: Run CSS cascade guards
+        run: node tools/check-css-cascade.mjs
 
   generated-pages:
     name: Generated pages match their generators

@@ -10,4 +10,4 @@ Any other model: execute normally.
 
 A task is not complete until `git push` has succeeded and the push confirmation has been shown in the final output. Local commits do not count as done. Verify the remote branch exists before reporting completion.
 
-Work directly on main — no PRs, no release branches. Before every push: `node tools/check-canon.mjs` must pass, plus the certification/path2/code-guard suites when their files are touched, plus `npm run build:css` parity when Tailwind classes change. Never force-push main; fix forward with `git revert`.
+Work directly on main — no PRs, no release branches. Before every push: `node tools/check-canon.mjs` and `node tools/check-css-cascade.mjs` must pass, plus the certification/path2/code-guard suites when their files are touched, plus `npm run build:css` parity when Tailwind classes change. Never force-push main; fix forward with `git revert`.

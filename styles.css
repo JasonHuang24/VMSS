@@ -114,37 +114,6 @@ body {
   min-width: 0;
 }
 
-/* Ambient glow orbs — fixed pseudo-elements behind all page content.
-   Left orb: warm gold accent. Right orb: cool blue counterbalance.
-   Disabled on mobile to avoid paint cost on low-power devices. */
-.vmss-page-shell::before, .vmss-page-shell::after {
-  content: "";
-  position: fixed;
-  inset: auto;
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(80px);
-  opacity: 0.45;
-  will-change: opacity;
-  transform: translateZ(0);
-}
-
-.vmss-page-shell::before {
-  top: 8rem;
-  left: -4rem;
-  width: 14rem;
-  height: 14rem;
-  background: var(--accent-glow);
-}
-
-.vmss-page-shell::after {
-  right: -5rem;
-  bottom: 8rem;
-  width: 18rem;
-  height: 18rem;
-  background: rgba(89, 131, 255, 0.08);
-}
-
 main, section, footer, nav, #navbar-placeholder, #footer-placeholder {
   position: relative;
   z-index: 1;
@@ -603,7 +572,7 @@ main {
 /* ----- 10. BACK ARROW & MOBILE MENU ----- */
 .back-arrow {
   z-index: 60;
-  transition: opacity 0.3s ease, transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
   width: 3.1rem;
   height: 3.1rem;
   display: inline-flex;
@@ -985,11 +954,6 @@ a:hover {
 }
 
 /* ----- 15. PERFORMANCE & REDUCED MOTION ----- */
-@media (max-width: 768px) {
-  .vmss-page-shell::before, .vmss-page-shell::after {
-    display: none;
-  }
-}
 
 img {
   max-width: 100%;
@@ -1376,9 +1340,6 @@ body.vmss-ui-ready {
   transform-origin: bottom right;
   transition: transform .24s ease, opacity .24s ease, box-shadow .24s ease, border-color .24s ease, background-color .24s ease;
 }
-.vmss-hud.is-idle {
-  opacity: .78;
-}
 .vmss-hud.is-minimized {
   width: auto;
   min-width: 14rem;
@@ -1394,7 +1355,6 @@ body.vmss-ui-ready {
     min-width: 0;
     width: auto;
     padding: 0.45rem;
-    border-radius: 999px;
   }
   .vmss-hud.is-minimized .vmss-hud-kicker {
     display: none;
@@ -1406,7 +1366,6 @@ body.vmss-ui-ready {
   .vmss-hud.is-minimized .vmss-hud-toggle {
     width: 2.4rem;
     height: 2.4rem;
-    border-radius: 999px;
   }
 }
 .vmss-hud-top {
@@ -1761,7 +1720,7 @@ body { background: var(--bg-primary); font-size: 1rem; }
 .archive-hero-deck { font-family: 'Space Grotesk',sans-serif; font-size: clamp(1.35rem,2vw,1.9rem); line-height: 1.3; font-weight: 400; letter-spacing: -.025em; color: #eaf0ee; text-shadow: 0 1px 18px rgba(5,13,19,.85); }
 .archive-hero-description { max-width: 430px; margin-top: 1.4rem; font-size: 1rem; line-height: 1.8; color: #bdcbd0; }
 .archive-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.8rem; margin-top: 2rem; }
-.archive-hero .vmss-cta-primary { background: #e9bb72; color: #080f14 !important; }
+.archive-hero .vmss-cta-primary { color: #080f14 !important; }
 .archive-hero .archive-text-link { color: #eaf0ee; }
 .archive-text-link, .archive-inline-link { display: inline-flex; align-items: center; gap: 1.3rem; font-size: .9375rem; font-weight: 600; transition: color .2s; }
 .archive-text-link:hover, .archive-inline-link:hover { color: var(--accent); }
@@ -1823,10 +1782,8 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
 .vmss-diagram-stage { background: radial-gradient(circle at center,var(--accent-glow),transparent 62%),var(--bg-secondary); }
 .vmss-prose { background: var(--bg-secondary); }
 .vmss-prose h2 { border-bottom: 1px solid var(--border); padding-bottom: .8rem; }
-.vmss-prose p, .vmss-prose li { line-height: 1.85; }
 .vmss-hud { border-radius: 3px; border-top: 2px solid var(--instrument); background: var(--bg-secondary); box-shadow: 0 10px 35px #0003; backdrop-filter: none; }
 .vmss-hud-kicker { font-size: .75rem; color: var(--instrument); }
-.vmss-hud-toggle, .vmss-hud-btn, .vmss-back-to-top, .back-arrow { border-radius: 2px; }
 .vmss-hud .vmss-hud-score { font-family: var(--archive-mono); }
 .vmss-hud.is-idle { opacity: .92; }
 .vmss-footer { background: var(--bg-secondary); margin-top: 0; }
@@ -1922,7 +1879,6 @@ body .vmss-flow-box { border-radius: 2px; }
 @media (max-width: 600px) {
   body .world-main, body .whitepaper-main { padding-top: 1.5rem; }
   body .world-main .hero { padding: 3rem 1.25rem; }
-  .archive-context { min-height: 58px; align-items: center; }
 }
 
 /* Home archive index and the inhabited-world editorial spread. */
@@ -1933,11 +1889,10 @@ body .vmss-flow-box { border-radius: 2px; }
 .archive-world-copy h2 { font-family: var(--archive-display); font-size: clamp(2.8rem,4.5vw,4.5rem); font-weight: 500; line-height: 1; margin: 1.5rem 0; }
 .archive-world-copy p { font-size: 1rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 1.5rem; }
 .archive-library { background: var(--bg-primary); }
-.archive-library-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 2.5rem; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-.archive-library-card { display: flex; flex-direction: column; min-width: 0; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 2rem; background: var(--bg-secondary); transition: background .2s; }
+.archive-library-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 2.5rem; }
+.archive-library-card { display: flex; flex-direction: column; min-width: 0; padding: 2rem; background: var(--bg-secondary); transition: background .2s; }
 .archive-library-card:hover { background: var(--bg-tertiary); }
 .archive-library-card:hover h3 { color: var(--accent); }
-.archive-library-card .archive-index { display: flex; justify-content: space-between; margin-bottom: 2rem; }
 .archive-library-card h3 { font-family: var(--archive-display); font-weight: 500; font-size: 2rem; margin-bottom: .8rem; }
 .archive-library-card p { font-size: .9375rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.8rem; }
 .archive-card-type { font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; margin-top: auto; }
@@ -1962,7 +1917,6 @@ body .vmss-flow-box { border-radius: 2px; }
 @media (max-width: 600px) {
   .archive-world-grid, .archive-library-grid { grid-template-columns: 1fr; }
   .archive-library-card { padding: 1.5rem; }
-  .archive-library-card .archive-index { margin-bottom: 1.2rem; }
   .archive-entry { margin-top: 2.5rem; }
 }
 
@@ -1992,12 +1946,13 @@ body[data-ring="-3"] { --ring-light: #c24b5a; --ring-field-opacity: .32; }
   body { --shape-panel: 22px 4px; --shape-card: 14px 3px; --shape-btn: 10px 2px; }
   *, *::before, *::after { corner-shape: bevel; }
   .vmss-step-btn, .vmss-event-chip::before, .archive-signal { corner-shape: round; }
+  .archive-hero::after { border-radius: 36px 0; }
 }
 
 /* Five-ring field: the rings seen from above the core, fading down the page.
    Grain keeps flat fills from reading as plastic. */
 .vmss-page-shell::before, .vmss-page-shell::after {
-  display: block; position: fixed; inset: 0; width: auto; height: auto;
+  content: ""; display: block; position: fixed; inset: 0; width: auto; height: auto;
   filter: none; will-change: auto; transform: none; z-index: 0; pointer-events: none;
 }
 .vmss-page-shell::before {
@@ -2018,7 +1973,7 @@ body[data-ring="-3"] { --ring-light: #c24b5a; --ring-field-opacity: .32; }
 /* Chrome: glass over the field, a lit seam instead of a solid bar. */
 .vmss-nav { border-top: 0; background: color-mix(in srgb, var(--bg-primary) 76%, transparent); backdrop-filter: blur(16px) saturate(1.25); -webkit-backdrop-filter: blur(16px) saturate(1.25); border-bottom: 1px solid var(--border); }
 .vmss-nav::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--ring-light) 50%, transparent); box-shadow: 0 0 18px 1px var(--ring-glow); pointer-events: none; }
-.archive-nav-dropdown { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--ring-edge); background: color-mix(in srgb, var(--bg-secondary) 86%, transparent); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.archive-nav-dropdown { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--ring-edge); background: color-mix(in srgb, var(--bg-secondary) 96%, transparent); }
 .archive-nav-dropdown a { border-radius: var(--shape-btn); }
 .archive-context { background: color-mix(in srgb, var(--bg-primary) 60%, transparent); }
 .vmss-hud { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--instrument); background: color-mix(in srgb, var(--bg-secondary) 82%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 18px 50px -20px #000a, 0 0 0 1px color-mix(in srgb, var(--instrument) 10%, transparent); }
@@ -2088,7 +2043,7 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 @keyframes vmss-ring-drift { to { rotate: 360deg; } }
 
 /* Home: chamfered hero frame, separated library cards instead of a table grid. */
-.archive-hero::after { border-radius: 36px 0; border-color: #c5dce02a; }
+.archive-hero::after { border-color: #c5dce02a; }
 .archive-library-grid { gap: 1rem; border: 0; }
 .archive-library-card { border: 1px solid var(--border); border-top-color: var(--ring-edge); border-radius: var(--shape-card); background-image: linear-gradient(168deg, var(--ring-wash), transparent 40%); }
 .archive-world-grid img { border-radius: var(--shape-panel); }
@@ -2111,6 +2066,24 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 
 /* Open accordions keep the card surface; the hover tint is for closed cards only. */
 body :is(.why-card, .faq-card, .simulation-card, .tech-card) > button:has(+ :not(.hidden)) { background: transparent; }
+
+/* Dossier-style reading pages: paragraphs get breathing room. */
+body .page p, body .page li { line-height: 1.85; }
+body .page p + p, .vmss-prose p + p { margin-top: 1em; }
+
+/* Layer dossier intros centre like every other page intro, inside the ring arcs. */
+body[data-ring] .vmss-page-intro { text-align: center; }
+
+/* The intro paints below the content that follows it, so the arcs never cross the next panel. */
+.vmss-content-frame:has(> .vmss-page-intro) { isolation: isolate; }
+.vmss-page-intro { z-index: -1; }
+
+/* Links whose base colour is set after the global a:hover still need a hover. */
+.archive-context a:hover, .archive-hero-baseline a:hover, .archive-glossary a:hover { color: var(--accent-soft); }
+body .world-main .hero a:hover { color: #ffffff; }
+
+/* The back arrow stays hidden until script moves it into the breadcrumb row (no-JS pages keep it). */
+body.vmss-page-shell .back-arrow:not(.archive-context .back-arrow) { visibility: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .vmss-page-intro::after { animation: none; }
