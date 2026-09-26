@@ -568,6 +568,97 @@ main {
   margin-top: 1rem;
 }
 
+/* Reading measure: story text sits in a centred ~80-character column
+   inside the full-width card, so lines stay readable on wide screens. */
+.simulation-content > * {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Archive layout: cards at reading width; on wide screens a sticky rail
+   (assets/js/sim-rail.js) indexes every story in the freed space. */
+#sim-archive {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sim-rail {
+  display: none;
+}
+
+@media (min-width: 1536px) {
+  .sim-layout {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 52rem);
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .sim-layout #sim-archive {
+    margin: 0;
+  }
+
+  .sim-rail {
+    display: block;
+    position: sticky;
+    top: 110px;
+    align-self: start;
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+    margin-top: 4rem;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+  }
+
+  .sim-rail-collection {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 1.5rem 0 0.25rem;
+  }
+
+  .sim-rail-collection:first-child {
+    margin-top: 0;
+  }
+
+  .sim-rail-section {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0.9rem 0 0.25rem;
+  }
+
+  .sim-rail a {
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: var(--text-muted);
+    padding: 0.2rem 0 0.2rem 0.75rem;
+    border-left: 1px solid var(--border);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .sim-rail a:not([aria-current]):hover {
+    color: var(--text-primary);
+  }
+
+  .sim-rail a[aria-current] {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+}
+
+@media (min-width: 768px) {
+  .simulation-content > p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+}
+
 /* ----- 10. BACK ARROW & MOBILE MENU ----- */
 .back-arrow {
   z-index: 60;
