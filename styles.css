@@ -620,11 +620,6 @@ main {
   transform: translateY(-1px) scale(1.04);
 }
 
-.back-arrow.scrolled-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
 .emblem-logo {
   animation: none;
 }
@@ -1927,7 +1922,7 @@ body .vmss-flow-box { border-radius: 2px; }
 @media (max-width: 600px) {
   body .world-main, body .whitepaper-main { padding-top: 1.5rem; }
   body .world-main .hero { padding: 3rem 1.25rem; }
-  .archive-context { padding-left: 4.75rem; min-height: 58px; align-items: center; }
+  .archive-context { min-height: 58px; align-items: center; }
 }
 
 /* Home archive index and the inhabited-world editorial spread. */
@@ -2098,8 +2093,11 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 .archive-library-card { border: 1px solid var(--border); border-top-color: var(--ring-edge); border-radius: var(--shape-card); background-image: linear-gradient(168deg, var(--ring-wash), transparent 40%); }
 .archive-world-grid img { border-radius: var(--shape-panel); }
 
-/* Dossier back arrow sits over the breadcrumb bar; give the crumbs room at every width. */
-body:has(.back-arrow) .archive-context { padding-left: 5.5rem; }
+/* Dossier back arrow: first item of the breadcrumb row, one muted state, no scroll behaviour. */
+.archive-context { align-items: center; }
+.archive-context .back-arrow { position: static; width: 1.75rem; height: 1.75rem; padding: 0; font-size: .95rem; box-shadow: none; transform: none; background: transparent; border: 1px solid var(--border); color: color-mix(in srgb, var(--accent) 60%, var(--bg-primary)) !important; }
+.archive-context .back-arrow:hover { transform: none; border-color: var(--ring-edge); }
+[data-theme="light"] .archive-context .back-arrow { color: var(--accent) !important; }
 
 /* Nav dropdown caret: a thin drawn chevron instead of a glyph. */
 .archive-caret { display: inline-block; width: 5px; height: 5px; margin-left: .15rem; border-right: 1.25px solid currentColor; border-bottom: 1.25px solid currentColor; opacity: .55; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }

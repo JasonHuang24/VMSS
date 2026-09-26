@@ -15,7 +15,7 @@
  *   2. initVmssGlobal() runs as IIFE — sets up window.VMSS
  *   3. Supabase client initialised if library is present
  *   4. DOMContentLoaded fires:
- *      a. enhancePageLayout() + initBackArrows() + initReveal() run immediately
+ *      a. enhancePageLayout() + initReveal() run immediately
  *      b. navbar.html + footer.html fetched in parallel
  *      c. All nav-dependent inits run inside requestAnimationFrame after injection
  */
@@ -649,6 +649,9 @@ function initArchiveNavigation() {
   current.className = 'archive-context-page';
   current.textContent = heading.textContent.trim();
   path.append(home, separator, current);
+  // Dossier back arrows ride in the breadcrumb row instead of floating over it.
+  const back = document.querySelector('.back-arrow');
+  if (back) path.prepend(back);
   const label = document.createElement('span');
   label.className = 'archive-secondary-label';
   label.textContent = 'Civilization archive';
@@ -1009,29 +1012,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * initBackArrows — hides the floating back-arrow button when the user
-   * scrolls past 150px. Uses requestAnimationFrame to throttle scroll
-   * events and avoid layout thrash.
-   */
-  function initBackArrows() {
-    const backArrows = document.querySelectorAll('.back-arrow');
-    if (!backArrows.length) return;
-
-    let scrollRaf = null;
-    const handleScroll = () => {
-      if (scrollRaf) return;
-      scrollRaf = requestAnimationFrame(() => {
-        const hidden = window.scrollY > 150;
-        backArrows.forEach((arrow) => arrow.classList.toggle('scrolled-hidden', hidden));
-        scrollRaf = null;
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-  }
-
-  /**
    * initBackToTop — injects a floating back-to-top button (bottom-left,
    * opposite the HUD) that appears after ~1.5 viewport heights of scroll.
    * Site-wide: every doctrine page is long enough to want it.
@@ -1208,7 +1188,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch((err) => console.error('Failed to load layout components:', err));
 
   enhancePageLayout();
-  initBackArrows();
   initBackToTop();
   initReveal();
   /* These four read only the page's own static markup and global state;
