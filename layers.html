@@ -46,132 +46,68 @@
 <div class="lg:max-w-[70%] mx-auto px-6">
 <h1 class="font-bold text-center mb-6 text-[var(--text-primary)]">The Five Rings</h1>
 <p class="text-center text-2xl text-[var(--text-muted)] mb-6">
-          Five concentric terraced mega-rings on a single planet, separated by continuous boundary walls 15km above ground, 5km below, with a 1km base tapering to a ~1m crest.
+          Five concentric terraced mega-rings on a single planet, divided by continuous boundary walls 15&nbsp;km high.
         </p>
-<p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-16">
-  Start here for the structural overview. Select a ring, read the rights and risk posture, then continue to
-  <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>
-  to see how layer logic is enforced in practice.
-</p>
-
-<!-- INTERACTIVE RING DIAGRAM
-     Managed by assets/js/diagrams.js (initDiagram).
-     data-vmss-diagram is the root selector queried by that script.
-
-     Each .vmss-ring-node <g> contains:
-       .ring-hit   — wide invisible stroke that forms the clickable hit area
-       .ring-core  — thin visible stroke (the ring line itself)
-       .ring-label-chip — rounded rect behind the label text
-
-     The detail panel (aside.vmss-detail-panel) is populated by diagrams.js
-     via getElementById on the ids below. It is intentionally borderless/
-     backgroundless — see .vmss-detail-panel in styles.css.
-
-     ring-hit stroke-width is intentionally wide (44–62px) so the rings
-     are easy to click/tap without needing pixel-perfect aim.
--->
-<div class="mt-14 vmss-diagram-shell" data-vmss-diagram>
-  <div class="vmss-diagram-stage reveal-item">
-    <div class="vmss-ring-status">
-      <span class="vmss-kicker">Interactive Layer Map</span>
-      <span class="text-sm text-[var(--text-muted)]">Click a ring to inspect its trust environment</span>
+<!-- RING ATLAS
+     Driven by assets/js/diagrams.js (initAtlas); root id="ring-atlas".
+     data-atlas-* attributes are the script's DOM contract. The map SVG is
+     drawn by the script from the stage width; the ring buttons are the
+     keyboard route to the same selection. -->
+<section class="atlas reveal-item" id="ring-atlas" aria-labelledby="atlas-title">
+  <header class="atlas-head">
+    <p class="tc-eyebrow">Interactive map</p>
+    <h2 class="atlas-title" id="atlas-title">Ring Atlas</h2>
+    <p class="atlas-deck">The rings seen from above the Sanctuary core. Select a ring to read it as a place. Select a movement to see who crosses which wall, and in which direction.</p>
+  </header>
+  <div class="atlas-body">
+    <div class="atlas-map">
+      <div class="atlas-rings" role="group" aria-label="Select a ring">
+        <button type="button" class="atlas-ring-btn" data-atlas-ring="+1" data-tone="p1" aria-pressed="false"><b>+1</b><span>Sanctuary</span></button>
+        <button type="button" class="atlas-ring-btn" data-atlas-ring="0" data-tone="z" aria-pressed="true"><b>0</b><span>Main</span></button>
+        <button type="button" class="atlas-ring-btn" data-atlas-ring="-1" data-tone="m1" aria-pressed="false"><b>&minus;1</b><span>Noncompliance</span></button>
+        <button type="button" class="atlas-ring-btn" data-atlas-ring="-2" data-tone="m2" aria-pressed="false"><b>&minus;2</b><span>Violent Offense</span></button>
+        <button type="button" class="atlas-ring-btn" data-atlas-ring="-3" data-tone="m3" aria-pressed="false"><b>&minus;3</b><span>Terminal</span></button>
+      </div>
+      <div class="atlas-stage" data-atlas-stage>
+        <svg class="atlas-svg" data-atlas-svg role="img" aria-labelledby="atlas-svg-desc" viewBox="0 0 720 440"></svg>
+        <p class="sr-only" id="atlas-svg-desc" data-atlas-svg-desc>Map of the five rings seen from above the Sanctuary core.</p>
+      </div>
+      <div class="atlas-moves" role="group" aria-label="Show a movement">
+        <span class="tc-label">Movements</span>
+        <button type="button" class="atlas-move-btn" data-atlas-move="ascend" aria-pressed="false"><i class="atlas-swatch mv-ascend" aria-hidden="true"></i>Ascension</button>
+        <button type="button" class="atlas-move-btn" data-atlas-move="phase" aria-pressed="false"><i class="atlas-swatch mv-phase" aria-hidden="true"></i>Phase-back</button>
+        <button type="button" class="atlas-move-btn" data-atlas-move="relocate" aria-pressed="false"><i class="atlas-swatch mv-relocate" aria-hidden="true"></i>Child relocation</button>
+        <button type="button" class="atlas-move-btn" data-atlas-move="reassign" aria-pressed="false"><i class="atlas-swatch mv-reassign" aria-hidden="true"></i>Reassignment</button>
+        <button type="button" class="atlas-move-btn" data-atlas-move="visit" aria-pressed="false"><i class="atlas-swatch mv-visit" aria-hidden="true"></i>Visitation</button>
+        <button type="button" class="atlas-move-btn" data-atlas-move="elective" aria-pressed="false"><i class="atlas-swatch mv-elective" aria-hidden="true"></i>Elective residency</button>
+        <button type="button" class="atlas-move-btn" data-atlas-move="vpr" aria-pressed="false"><i class="atlas-swatch mv-vpr" aria-hidden="true"></i>Permanent residency</button>
+      </div>
+      <p class="atlas-rule" data-atlas-move-rule aria-live="polite">All routes shown. Select a movement to read its rule.</p>
+      <p class="atlas-key"><i class="atlas-key-dot" aria-hidden="true"></i>Your simulated citizen, from the <a href="simulations.html#sti-console">Trust Console</a></p>
     </div>
-    <svg viewBox="0 0 760 760" role="img" aria-label="Interactive Five Rings diagram" class="vmss-ring-svg">
-      <defs>
-        <linearGradient id="ringGold" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#f7d68c"></stop>
-          <stop offset="100%" stop-color="#f3c15f"></stop>
-        </linearGradient>
-        <linearGradient id="ringWhite" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#e2e8f0"></stop>
-          <stop offset="100%" stop-color="#94a3b8"></stop>
-        </linearGradient>
-        <linearGradient id="ringOrange" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#fdba74"></stop>
-          <stop offset="100%" stop-color="#ea580c"></stop>
-        </linearGradient>
-        <linearGradient id="ringCrimson" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#fca5a5"></stop>
-          <stop offset="100%" stop-color="#dc2626"></stop>
-        </linearGradient>
-        <linearGradient id="ringBlood" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#f87171"></stop>
-          <stop offset="100%" stop-color="#7f1d1d"></stop>
-        </linearGradient>
-      </defs>
-      <g class="vmss-ring-node vmss-ring-outer" data-layer="-3" tabindex="0" role="button" aria-pressed="false" aria-label="-3 Terminal: Capital offense layer. Minimal institutional presence, no restoration, no revival.">
-        <circle class="ring-hit" cx="380" cy="380" r="340" fill="none" stroke="transparent" stroke-width="70"></circle>
-        <circle class="ring-core" cx="380" cy="380" r="340" fill="none" stroke="url(#ringBlood)" stroke-width="12" stroke-opacity="0.7"></circle>
-      </g>
-      <g class="vmss-ring-node vmss-ring-outer" data-layer="-2" tabindex="0" role="button" aria-pressed="false" aria-label="-2 Violent Offense: Severe harm tier with reduced institutional presence and predominantly private economy.">
-        <circle class="ring-hit" cx="380" cy="380" r="272" fill="none" stroke="transparent" stroke-width="62"></circle>
-        <circle class="ring-core" cx="380" cy="380" r="272" fill="none" stroke="url(#ringCrimson)" stroke-width="12" stroke-opacity="0.7"></circle>
-      </g>
-      <g class="vmss-ring-node vmss-ring-outer" data-layer="-1" tabindex="0" role="button" aria-pressed="false" aria-label="-1 Noncompliance: Partial institutional presence. Lower-harm breach tier — material floor intact, trust and access contract.">
-        <circle class="ring-hit" cx="380" cy="380" r="206" fill="none" stroke="transparent" stroke-width="56"></circle>
-        <circle class="ring-core" cx="380" cy="380" r="206" fill="none" stroke="url(#ringOrange)" stroke-width="12" stroke-opacity="0.7"></circle>
-      </g>
-      <g class="vmss-ring-node" data-layer="0" tabindex="0" role="button" aria-pressed="false" aria-label="Main Layer 0: The Metropolis. Full life and agency, with post-intervention enforcement.">
-        <circle class="ring-hit" cx="380" cy="380" r="142" fill="none" stroke="transparent" stroke-width="50"></circle>
-        <circle class="ring-core" cx="380" cy="380" r="142" fill="none" stroke="url(#ringWhite)" stroke-width="12" stroke-opacity="0.7"></circle>
-      </g>
-      <g class="vmss-ring-node" data-layer="+1" tabindex="0" role="button" aria-pressed="false" aria-label="+1 Sanctuary: Highest-trust ring. Pre-intervention safety and maximum civic privileges.">
-        <circle class="ring-hit" cx="380" cy="380" r="80" fill="url(#ringGold)" fill-opacity="0.08" stroke="transparent" stroke-width="28"></circle>
-        <circle class="ring-core" cx="380" cy="380" r="80" fill="none" stroke="url(#ringGold)" stroke-width="12" stroke-opacity="0.85"></circle>
-      </g>
-    </svg>
+
+    <article class="atlas-panel" data-atlas-panel data-tone="z" aria-live="polite" aria-labelledby="atlas-panel-name">
+      <p class="atlas-panel-kicker" data-atlas-informal>The Metropolis · the proving ground</p>
+      <h3 class="atlas-panel-name" id="atlas-panel-name" data-atlas-name>Main Layer (0)</h3>
+      <p class="atlas-panel-summary" data-atlas-summary></p>
+      <dl class="atlas-facts" data-atlas-facts></dl>
+      <div class="atlas-sti">
+        <h4>What the STI does here</h4>
+        <p data-atlas-sti></p>
+      </div>
+      <div class="atlas-ways">
+        <div><h4>Ways in</h4><ul data-atlas-in></ul></div>
+        <div><h4>Ways out</h4><ul data-atlas-out></ul></div>
+      </div>
+      <p class="atlas-cites"><span class="tc-label">Doctrine</span> <span data-atlas-cites></span></p>
+      <p class="atlas-citizen-line" data-atlas-citizen></p>
+      <div class="atlas-actions">
+        <a class="atlas-btn atlas-btn--primary" data-atlas-dossier href="layer-0.html">Open the Main dossier</a>
+        <a class="atlas-btn" data-atlas-sim href="simulations.html?start=0#sti-console">Simulate a resident here</a>
+      </div>
+    </article>
   </div>
-  <!-- DETAIL PANEL — populated by diagrams.js sync() on each ring selection.
-       All ids below are queried by that script; content is replaced in place. -->
-  <aside class="vmss-detail-panel vmss-detail-panel--card reveal-item">
-    <span class="vmss-kicker">Active Ring</span>
-    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-[var(--text-primary)] mt-3 leading-tight" id="vmss-layer-title">+1 Sanctuary</h2>
-    <p class="text-[var(--accent)] font-semibold mt-2 text-sm tracking-wide" id="vmss-layer-range">STI Floor: 85</p>
-    <p class="text-[var(--text-secondary)] leading-relaxed mt-4 text-[.92rem]" id="vmss-layer-summary">The highest-trust ring. Pre-intervention safety, elite access, and the most selective civic privileges exist here.</p>
-    <dl class="vmss-detail-stat">
-      <div><dt>Rights profile</dt><dd id="vmss-layer-rights">Maximum autonomy, highest safety, premium domains</dd></div>
-      <div><dt>Core doctrine</dt><dd id="vmss-layer-doctrine">Trust is preserved before harm completes.</dd></div>
-      <div class="md:col-span-2"><dt>System risk posture</dt><dd id="vmss-layer-risk">Loss of access is immediate once severe trust is broken.</dd></div>
-    </dl>
-    <div class="vmss-layer-pills mt-6">
-      <span class="vmss-layer-pill">Civilizational clarity</span>
-      <span class="vmss-layer-pill">Permanent consequence logic</span>
-      <span class="vmss-layer-pill">Environment as justice</span>
-    </div>
-    <div class="vmss-action-row mt-6">
-      <a class="vmss-dash-btn vmss-dash-btn--lg vmss-dash-btn--accent" id="vmss-layer-link" href="layer-+1.html">Open layer dossier</a>
-      <a class="vmss-dash-btn vmss-dash-btn--lg" href="simulations.html#sti-console">Open STI simulation</a>
-    </div>
-  </aside>
-</div>
-
-<div class="grid md:grid-cols-5 gap-5 mt-20">
-<a data-layer="+1" class="layer-card layer-card--gold bg-[var(--bg-secondary)] rounded-2xl p-6 text-center border border-[var(--border)] cursor-pointer" href="layer-+1.html">
-<div class="text-4xl mb-4">🌟</div>
-<h2 class="text-xl font-bold text-[var(--accent)] mb-1">+1 Sanctuary</h2>
-<p class="text-xs text-[var(--text-muted)] leading-relaxed">Pre-Intervention</p>
-</a>
-<a data-layer="0" class="layer-card layer-card--white bg-[var(--bg-secondary)] rounded-2xl p-6 text-center border border-[var(--border)] cursor-pointer" href="layer-0.html">
-<div class="text-4xl mb-4">🏙️</div>
-<h2 class="text-xl font-bold text-[var(--accent)] mb-1">Main Layer (0)</h2>
-<p class="text-xs text-[var(--text-muted)] leading-relaxed">The Metropolis</p>
-</a>
-<a data-layer="-1" class="layer-card layer-card--orange bg-[var(--bg-secondary)] rounded-2xl p-6 text-center border border-[var(--border)] cursor-pointer" href="layer--1.html">
-<div class="text-4xl mb-4">⚠️</div>
-<h2 class="text-xl font-bold text-[var(--accent)] mb-1">-1 Noncompliance</h2>
-<p class="text-xs text-[var(--text-muted)] leading-relaxed">Low-Harm Offense</p>
-</a>
-<a data-layer="-2" class="layer-card layer-card--red bg-[var(--bg-secondary)] rounded-2xl p-6 text-center border border-[var(--border)] cursor-pointer" href="layer--2.html">
-<div class="text-4xl mb-4">🛡️</div>
-<h2 class="text-xl font-bold text-[var(--accent)] mb-1">-2 Violent Offense</h2>
-<p class="text-xs text-[var(--text-muted)] leading-relaxed">Severe Harm Tier</p>
-</a>
-<a data-layer="-3" class="layer-card layer-card--red bg-[var(--bg-secondary)] rounded-2xl p-6 text-center border border-[var(--border)] cursor-pointer" href="layer--3.html">
-<div class="text-4xl mb-4">🌑</div>
-<h2 class="text-xl font-bold text-[var(--accent)] mb-1">-3 Terminal</h2>
-<p class="text-xs text-[var(--text-muted)] leading-relaxed">Capital Offense</p>
-</a>
-</div>
+</section>
 
 <div class="mt-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-10">
   <div class="bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)]">

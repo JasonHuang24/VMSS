@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
 <title>Simulations + STI Console • The Five Rings</title>
-  <meta name="description" content="Interactive STI trust scoring console plus the complete VMSS simulation archive — every world scenario and resident story in one searchable page. Adjust civic variables, trigger events, and watch layer placement shift in real time." />
+  <meta name="description" content="Interactive STI Trust Console plus the complete VMSS simulation archive — every world scenario and resident story in one searchable page. Run one citizen through the justice flow and watch each act take the social path or the criminal path." />
   <meta property="og:title" content="Simulations + STI Console — The Five Rings" />
   <meta property="og:description" content="Run the prototype STI simulator, then browse the full archive of world scenarios and resident stories across the Five Rings." />
   <meta property="og:image" content="https://jasonhchronicles.com/VMSS/images/civilization.jpg" />
@@ -42,153 +42,170 @@
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
 <h1 class="font-bold text-center mb-6 text-[var(--text-primary)]">Simulations Archive</h1>
-<p class="text-center text-2xl text-[var(--text-muted)] mb-6">Interactive trust scoring, layer movement, and behavioral case studies under VMSS rules — full narrative detail</p>
-<p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-16">Best read after <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a> and <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>. This page shows a prototype interpretation layer: first inspect the console, then compare that logic against the longer historical case studies below.</p>
-<p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-8"><strong>Current-rate frame:</strong> LP-074&rsquo;s <strong>50 / 25 / 12.5 / 6.25</strong> exact halving cascade is active from 2295 after the 2294 Path 2 certification. Older Doctrine-Snapshot narratives remain era-pinned historical artifacts and are not recalculated.</p>
+<p class="text-center text-2xl text-[var(--text-muted)] mb-6">Trust scoring, layer movement and behavioural case studies under VMSS rules. Run one citizen through the Trust Console, then read the cases it draws on. Best read after <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a> and <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>.</p>
 
-<!-- STI SIMULATION CONSOLE
-     Initialized by assets/js/sti-sim.js (initSimulator).
-     id="sti-console" is the root element queried by that script.
-     All data-* attributes inside are read/written by the console:
-       data-sti-score, data-sti-layer, data-sti-tone  — live readouts
-       data-profile-name, data-overall-shift, data-stability-band — readout tiles
-       data-gauge-progress  — SVG arc stroke-dashoffset
-       data-sti-live        — aria-live region for screen reader announcements
-       data-event-feed      — visible event log line
-       data-sti-reasoning   — system interpretation panel
--->
-<p class="text-sm text-[var(--text-secondary)] max-w-3xl mx-auto text-center leading-relaxed mb-2">Adjust civic factors, trigger events, and watch the STI score respond under asymmetric penalty rules. This console illustrates the scoring model, trajectory evaluation, proportional response, and infraction classification from Articles II, XII&ndash;XV, and XIX. It is a prototype, not a backend enforcement engine.</p>
-<p class="text-xs text-[var(--text-muted)] max-w-3xl mx-auto text-center leading-relaxed mb-6"><strong class="text-[var(--text-secondary)]">Simulation Note:</strong> STI does not directly determine layer assignment. Final placement is based on multi-factor evaluation (<a href="charter.html#article-xii" class="text-[var(--accent)] hover:underline">Article XII</a>, <a href="charter.html#article-xiii" class="text-[var(--accent)] hover:underline">XIII</a>).</p>
-<div class="vmss-dash" id="sti-console">
-  <!-- ===== HEADER BAR ===== -->
-  <div class="vmss-dash-header reveal-item">
-    <span class="vmss-kicker">v17.6 STI Simulation Console</span>
-    <div class="vmss-dash-controls">
-      <select class="vmss-dash-select" data-preset-select aria-label="Load preset profile">
-        <option value="" disabled selected>Presets</option>
-        <option value="contributor">High Contributor</option>
-        <option value="stable">Stable Citizen</option>
-        <option value="risk">At-Risk Actor</option>
-        <option value="recovery">Recovering Participant</option>
-      </select>
-      <button class="vmss-dash-btn" data-randomize-sim type="button">Randomize</button>
-      <button class="vmss-dash-btn" data-reset-sim type="button">Reset</button>
+<!-- TRUST CONSOLE
+     Driven by assets/js/sti-sim.js (initConsole); root id="sti-console".
+     The data-tc-* attributes are the script's whole DOM contract. Text in the
+     markup is the first-paint state; the script owns it after. -->
+<section class="tc reveal-item" id="sti-console" data-mode="simple" aria-labelledby="tc-title">
+  <header class="tc-head">
+    <div class="tc-head-copy">
+      <p class="tc-eyebrow">Social Trust Index</p>
+      <h2 class="tc-title" id="tc-title">Trust Console</h2>
+      <p class="tc-deck">One simulated citizen, one act at a time. Every act runs the justice flow and then takes one of two paths. The social path moves the STI and never the ring. The criminal path moves the ring and never waits on the score.</p>
     </div>
-  </div>
-
-  <!-- ===== MAIN DASHBOARD GRID ===== -->
-  <div class="vmss-dash-body reveal-item">
-    <!-- LEFT: Score gauge + ladder -->
-    <div class="vmss-dash-score">
-      <div class="vmss-gauge vmss-gauge--sm"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="vmss-gauge-track" cx="60" cy="60" r="47"></circle><circle class="vmss-gauge-progress" cx="60" cy="60" r="47" data-gauge-progress></circle></svg><div class="vmss-gauge-center"><div class="vmss-score-number" data-sti-score aria-label="STI score">43</div><div class="vmss-score-caption">STI score</div></div></div>
-      <div class="vmss-ratio-badge">10:1 ratio <span class="text-[var(--text-muted)]">(<a href="charter.html#article-ii" class="text-[var(--accent)] hover:underline">Article II</a>)</span></div>
-      <div aria-live="polite" aria-atomic="true" class="sr-only" data-sti-live></div>
-      <div class="vmss-ladder vmss-ladder--compact">
-        <div class="vmss-ladder-step" data-layer="+1"><strong>+1</strong> Sanctuary<span class="step-range">85&ndash;100</span></div>
-        <div class="vmss-ladder-step" data-layer="0"><strong>0</strong> Main Layer<span class="step-range">70&ndash;84</span></div>
-        <div class="vmss-ladder-step" data-layer="-1"><strong>-1</strong> Noncompliance<span class="step-range">50&ndash;69</span></div>
-        <div class="vmss-ladder-step" data-layer="-2"><strong>-2</strong> Violent Offense<span class="step-range">30&ndash;49</span></div>
-        <div class="vmss-ladder-step" data-layer="-3"><strong>-3</strong> Terminal<span class="step-range">0&ndash;29</span></div>
+    <div class="tc-controls">
+    <div class="tc-controls-row">
+      <div class="tc-mode" role="group" aria-label="Console view">
+        <button type="button" class="tc-mode-btn" data-tc-mode="simple" aria-pressed="true">Simple</button>
+        <button type="button" class="tc-mode-btn" data-tc-mode="full" aria-pressed="false">Full</button>
       </div>
-      <p class="text-xs text-[var(--text-muted)] mt-2">Typical STI ranges; punitive placement follows qualifying behavior, not a score cutoff.</p>
-      <div class="vmss-day-tally" data-day-tally>
-        <div class="vmss-tally-row"><span class="vmss-tally-label">Positive days</span><span class="vmss-tally-value" data-tally-pos>&mdash;</span></div>
-        <div class="vmss-tally-row"><span class="vmss-tally-label">Negative days</span><span class="vmss-tally-value" data-tally-neg>&mdash;</span></div>
-        <div class="vmss-tally-row vmss-tally-net"><span class="vmss-tally-label">Net impact</span><span class="vmss-tally-value" data-tally-net>&mdash;</span></div>
+      <button type="button" class="tc-restart" data-tc-restart>Restart</button>
+    </div>
+    <div class="tc-start tc-full" role="group" aria-labelledby="tc-start-label">
+      <span class="tc-label" id="tc-start-label">Start as a resident of</span>
+      <div class="tc-start-btns">
+        <button type="button" class="tc-start-btn" data-tc-start="+1" data-tone="p1" aria-pressed="false"><b>+1</b><span>Sanctuary</span></button>
+        <button type="button" class="tc-start-btn" data-tc-start="0" data-tone="z" aria-pressed="true"><b>0</b><span>Main</span></button>
+        <button type="button" class="tc-start-btn" data-tc-start="-1" data-tone="m1" aria-pressed="false"><b>&minus;1</b><span>Noncompliance</span></button>
+        <button type="button" class="tc-start-btn" data-tc-start="-2" data-tone="m2" aria-pressed="false"><b>&minus;2</b><span>Violent Offense</span></button>
+        <button type="button" class="tc-start-btn" data-tc-start="-3" data-tone="m3" aria-pressed="false"><b>&minus;3</b><span>Terminal</span></button>
       </div>
     </div>
+    </div>
+  </header>
 
-    <!-- RIGHT: Factor bars + panels -->
-    <div class="vmss-dash-main">
-      <!-- Terminal banner (hidden until simulation ends) -->
-      <div class="vmss-terminal-banner" data-terminal-banner>
-        <span>Simulation ended</span>
-        <button class="vmss-dash-btn vmss-dash-btn--accent" data-reset-terminal type="button">Reset to try again</button>
-      </div>
-      <!-- Event pills -->
-      <div class="vmss-event-pills">
-        <button class="vmss-pill" data-sti-event="service" type="button">Civic service</button>
-        <button class="vmss-pill" data-sti-event="credential" type="button">Credential</button>
-        <button class="vmss-pill" data-sti-event="endorsement" type="button">Endorsement</button>
-        <button class="vmss-pill" data-sti-event="leadership" type="button">Leadership</button>
-        <button class="vmss-pill" data-sti-event="rehab" type="button">Rehab</button>
-        <span class="vmss-pill-sep" aria-hidden="true"></span>
-        <button class="vmss-pill vmss-pill--mild" data-sti-event="violation" type="button">Violation</button>
-        <button class="vmss-pill vmss-pill--mild" data-sti-event="audit" type="button">Audit fail</button>
-        <button class="vmss-pill vmss-pill--mild" data-sti-event="neglect" type="button">Neglect</button>
-        <span class="vmss-pill-sep" aria-hidden="true"></span>
-        <button class="vmss-pill vmss-pill--severe" data-sti-event="exploitation" type="button">Exploitation</button>
-        <button class="vmss-pill vmss-pill--severe" data-sti-event="predatory" type="button">Predatory act</button>
-        <button class="vmss-pill vmss-pill--severe" data-sti-event="trafficking" type="button">Trafficking</button>
-        <button class="vmss-pill vmss-pill--severe" data-sti-event="capital" type="button">Capital offense</button>
-      </div>
-      <!-- Interactive factor bars -->
-      <div class="vmss-factor-grid">
-        <div class="vmss-factor-row" data-factor="civic"><span class="vmss-factor-label">Civic</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>11/20</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease civic">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase civic">+</button><input type="hidden" name="civic" value="11" min="0" max="20"></div>
-        <div class="vmss-factor-row" data-factor="contribution"><span class="vmss-factor-label">Contribution</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>11/20</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease contribution">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase contribution">+</button><input type="hidden" name="contribution" value="11" min="0" max="20"></div>
-        <div class="vmss-factor-row" data-factor="conduct"><span class="vmss-factor-label">Conduct</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>8/20</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease conduct">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase conduct">+</button><input type="hidden" name="conduct" value="8" min="0" max="20"></div>
-        <div class="vmss-factor-row" data-factor="competence"><span class="vmss-factor-label">Competence</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>8/20</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease competence">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase competence">+</button><input type="hidden" name="competence" value="8" min="0" max="20"></div>
-        <div class="vmss-factor-row" data-factor="endorsement"><span class="vmss-factor-label">Peer trust</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>6/10</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease peer trust">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase peer trust">+</button><input type="hidden" name="endorsement" value="6" min="0" max="10"></div>
-        <div class="vmss-factor-row" data-factor="recovery"><span class="vmss-factor-label">Recovery</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>5/10</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease recovery">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase recovery">+</button><input type="hidden" name="recovery" value="5" min="0" max="10"></div>
-        <div class="vmss-factor-row is-violation" data-factor="violations"><span class="vmss-factor-label">Violations</span><div class="vmss-factor-track" data-factor-track><div class="vmss-factor-fill" data-factor-fill></div></div><span class="vmss-factor-val" data-factor-val>&minus;6/20</span><button class="vmss-step-btn" data-step="-1" type="button" aria-label="Decrease violations">&minus;</button><button class="vmss-step-btn" data-step="+1" type="button" aria-label="Increase violations">+</button><input type="hidden" name="violations" value="6" min="0" max="20"></div>
-      </div>
+  <dl class="tc-status">
+    <div class="tc-stat tc-stat--ring" data-tc-stat="ring" data-tone="z"><dt>Placement</dt><dd><span class="tc-stat-val" data-tc-ring>Main Layer (0)</span><small data-tc-ring-basis>Resident</small></dd></div>
+    <div class="tc-stat tc-stat--sti"><dt>STI &middot; track 1</dt><dd><span class="tc-sti" data-tc-sti>76</span><small data-tc-sti-note>9 below the Sanctuary floor</small></dd></div>
+    <div class="tc-stat"><dt>Record &middot; track 2</dt><dd><span class="tc-stat-val" data-tc-record>Clean</span><small>Criminal record log</small></dd></div>
+    <div class="tc-stat tc-full"><dt>Sanctuary standing</dt><dd><span class="tc-stat-val" data-tc-sanctuary>Below the floor</span><small data-tc-sanctuary-note>Eligibility opens at an STI of 85.</small></dd></div>
+    <div class="tc-stat tc-full"><dt>Simulated time</dt><dd><span class="tc-stat-val" data-tc-year>Year 0</span><small class="tc-traj" data-tc-trajectory data-state="forming">Trajectory forming</small></dd></div>
+  </dl>
 
-      <!-- Readout tiles (compact row) -->
-      <div class="vmss-readouts vmss-readouts--compact">
-        <div class="vmss-readout-tile"><div class="vmss-readout-label">Profile</div><div class="vmss-readout-value" data-profile-name>Balanced baseline</div></div>
-        <div class="vmss-readout-tile"><div class="vmss-readout-label">Momentum</div><div class="vmss-readout-value" data-overall-shift>Mixed pressure</div></div>
-        <div class="vmss-readout-tile"><div class="vmss-readout-label">Coherence</div><div class="vmss-readout-value" data-stability-band>Mixed coherence</div></div>
-        <div class="vmss-readout-tile"><div class="vmss-readout-label">Direction</div><div class="vmss-readout-value" data-trajectory><span class="vmss-trajectory-arrow is-neutral">&mdash;</span> Awaiting data</div></div>
+  <div class="tc-body">
+    <div class="tc-acts" role="group" aria-label="Acts">
+      <div class="tc-act-group" data-kind="conduct">
+        <h3 class="tc-group-title">Conduct <span>time passes</span></h3>
+        <button type="button" class="tc-act" data-tc-act="steady"><span class="tc-act-name">A steady year</span><span class="tc-act-sub">one year</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="service"><span class="tc-act-name">Civic service</span><span class="tc-act-sub">a season</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="crisis"><span class="tc-act-name">Crisis response</span><span class="tc-act-sub">one emergency</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="endorse"><span class="tc-act-name">Peer endorsements</span><span class="tc-act-sub">amplifier only</span></button>
+        <button type="button" class="tc-act" data-tc-act="remediate" disabled><span class="tc-act-name">Remediate</span><span class="tc-act-sub">clear open items</span></button>
       </div>
-
-      <!-- Proportional response + Interpretation side by side -->
-      <div class="vmss-dash-bottom">
-        <div class="vmss-dash-card">
-          <div class="vmss-dash-card-label">Proportional response <span class="text-[var(--text-muted)]">(<a href="charter.html#article-xiv" class="text-[var(--accent)] hover:underline">Article XIV</a>)</span></div>
-          <div class="vmss-axis-panel" data-axis-panel>
-            <div class="vmss-axis-row"><span class="vmss-axis-label">Severity</span><span class="vmss-axis-value is-low">low</span></div>
-            <div class="vmss-axis-row"><span class="vmss-axis-label">Pattern</span><span class="vmss-axis-value is-isolated">isolated</span></div>
-            <div class="vmss-axis-row"><span class="vmss-axis-label">Reversibility</span><span class="vmss-axis-value is-reversible">reversible</span></div>
-            <div class="vmss-axis-divider"></div>
-            <div class="vmss-axis-response is-level-0"><strong>0-axis:</strong> No elevated response</div>
-          </div>
+      <div class="tc-act-group" data-kind="social">
+        <h3 class="tc-group-title">Social breaches <span>track 1</span></h3>
+        <div class="tc-act tc-act-umbrella tc-simple" role="group" aria-labelledby="tc-umbrella-name">
+          <span class="tc-act-name" id="tc-umbrella-name">STI breach</span>
+          <span class="tc-umbrella-opts">
+            <button type="button" class="tc-umbrella-opt" data-tc-act="infraction" aria-label="Minor STI breach: speeding">Minor</button>
+            <button type="button" class="tc-umbrella-opt" data-tc-act="breach" aria-label="Major STI breach: infidelity">Major</button>
+          </span>
         </div>
-        <div class="vmss-dash-card">
-          <div class="vmss-dash-card-label">System interpretation</div>
-          <div class="vmss-insight-list" data-sti-reasoning></div>
-        </div>
+        <button type="button" class="tc-act tc-full" data-tc-act="infraction"><span class="tc-act-name">Minor infraction</span><span class="tc-act-sub">speeding</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="harass"><span class="tc-act-name">Harassment</span><span class="tc-act-sub">no law broken</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="breach"><span class="tc-act-name">Major trust breach</span><span class="tc-act-sub">infidelity</span></button>
+      </div>
+      <div class="tc-act-group" data-kind="criminal">
+        <h3 class="tc-group-title">Criminal acts <span>track 2</span></h3>
+        <button type="button" class="tc-act" data-tc-act="dui"><span class="tc-act-name">Impaired driving</span><span class="tc-act-sub">no one hurt</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="assault"><span class="tc-act-name">Assault</span><span class="tc-act-sub">a street fight</span></button>
+        <button type="button" class="tc-act tc-full" data-tc-act="fraud"><span class="tc-act-name">Fraud at scale</span><span class="tc-act-sub">dozens defrauded</span></button>
+        <button type="button" class="tc-act" data-tc-act="predatory"><span class="tc-act-name">Predatory violence</span><span class="tc-act-sub">sexual violence</span></button>
+        <button type="button" class="tc-act" data-tc-act="killing"><span class="tc-act-name">Killing</span><span class="tc-act-sub">capital harm</span></button>
+      </div>
+      <div class="tc-act-group" data-kind="move">
+        <h3 class="tc-group-title">Movement <span>phasing</span></h3>
+        <button type="button" class="tc-act" data-tc-act="ascend" disabled><span class="tc-act-name">Take up Sanctuary residency</span><span class="tc-act-sub">voluntary</span></button>
+        <p class="tc-act-note" data-tc-ascend-note>Opens at an STI of 85 or above.</p>
       </div>
     </div>
-  </div>
 
-  <!-- ===== IRREVERSIBLE HARM TOGGLE ===== -->
-  <label class="vmss-irrev-banner" for="reversibility-toggle">
-    <input type="checkbox" id="reversibility-toggle" data-reversibility-toggle>
-    <span>Irreversible harm</span>
-  </label>
-
-  <!-- ===== EVENT HISTORY (horizontal strip) ===== -->
-  <div class="vmss-dash-history reveal-item">
-    <span class="vmss-dash-card-label">Event history</span>
-    <div class="vmss-event-strip" data-event-history><span class="vmss-event-empty">No events recorded yet.</span></div>
-    <p class="sr-only" data-event-feed>Baseline loaded</p>
-  </div>
-
-  <!-- ===== ARTICLE REFERENCE ===== -->
-  <details class="vmss-article-ref reveal-item">
-    <summary class="vmss-article-ref-toggle">Doctrine articles illustrated by this console</summary>
-    <div class="vmss-article-ref-body">
-      <dl class="vmss-article-ref-list">
-        <div><dt><a href="charter.html#article-ii" class="hover:underline">Article II</a></dt><dd>10:1 penalty-to-recovery ratio, tiered visibility</dd></div>
-        <div><dt><a href="charter.html#article-xii" class="hover:underline">Article XII</a></dt><dd>No single metric unilaterally determines punitive assignment</dd></div>
-        <div><dt><a href="charter.html#article-xiii" class="hover:underline">Article XIII</a></dt><dd>STI is an evaluative signal, not a direct determinant</dd></div>
-        <div><dt><a href="charter.html#article-xiv" class="hover:underline">Article XIV</a></dt><dd>Three-axis proportional response: severity, pattern, reversibility</dd></div>
-        <div><dt><a href="charter.html#article-xv" class="hover:underline">Article XV</a></dt><dd>Clearable infractions &amp; trajectory evaluation</dd></div>
-        <div><dt><a href="charter.html#article-xix" class="hover:underline">Article XIX</a></dt><dd>System must prevent self-reinforcing negative cycles</dd></div>
-      </dl>
+    <div class="tc-fork" data-tc-fork data-path="none">
+      <div class="tc-event">
+        <p class="tc-label">Latest act</p>
+        <h3 class="tc-event-title" data-tc-event-title>Choose an act</h3>
+        <p class="tc-event-line" data-tc-event-line>Arrived in Main Layer. New entrants typically start between 70 and 84.</p>
+      </div>
+      <ol class="tc-chain tc-full">
+        <li><span class="tc-chain-name">Failsafe</span><span class="tc-chain-val" data-tc-failsafe>Implant warnings, motor overrides and restraint: the chance to stop.</span></li>
+        <li><span class="tc-chain-name">Detection</span><span class="tc-chain-val" data-tc-detect>The implant and AR context register what happened and who was involved.</span></li>
+        <li><span class="tc-chain-name">Classification</span><span class="tc-chain-val">
+          <span class="tc-axes" role="group" aria-label="Article XIV axes">
+            <span class="tc-axis" data-tc-axis="severity" data-lit="false"><span class="tc-axis-name">Severity</span> <span class="tc-axis-val">&mdash;</span></span>
+            <span class="tc-axis" data-tc-axis="pattern" data-lit="false"><span class="tc-axis-name">Pattern</span> <span class="tc-axis-val">&mdash;</span></span>
+            <span class="tc-axis" data-tc-axis="reversibility" data-lit="false"><span class="tc-axis-name">Reversibility</span> <span class="tc-axis-val">&mdash;</span></span>
+          </span>
+          <span class="tc-classify" data-tc-classify>Severity, pattern and reversibility decide which path the act takes.</span></span></li>
+      </ol>
+      <div class="tc-split" aria-hidden="true">
+        <svg viewBox="0 0 200 36" preserveAspectRatio="none"><path class="tc-split-trunk" d="M100 0 V12"/><path class="tc-split-social" d="M100 12 Q100 20 90 20 H60 Q50 20 50 28 V36"/><path class="tc-split-criminal" d="M100 12 Q100 20 110 20 H140 Q150 20 150 28 V36"/></svg>
+      </div>
+      <div class="tc-lanes">
+        <section class="tc-lane" data-tc-lane="social" data-state="idle" aria-labelledby="tc-lane-social">
+          <header class="tc-lane-head"><h4 id="tc-lane-social">Social consequence path</h4><p>Track 1 &middot; the STI score</p></header>
+          <p class="tc-lane-reason" data-tc-lane-reason>Trust damage without criminal enforcement. The STI moves; the ring does not.</p>
+          <p class="tc-lane-summary" data-tc-lane-summary>Trust damage without criminal enforcement. The STI moves; the ring does not.</p>
+          <dl class="tc-rows">
+            <div data-tc-row="ledger"><dt>Ledger</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="score"><dt>Score</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="fallout"><dt>Fallout</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="recovery"><dt>Recovery</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="placement"><dt>Placement</dt><dd class="tc-row-val">&mdash;</dd></div>
+          </dl>
+        </section>
+        <section class="tc-lane" data-tc-lane="criminal" data-state="idle" aria-labelledby="tc-lane-criminal">
+          <header class="tc-lane-head"><h4 id="tc-lane-criminal">Criminal escalation path</h4><p>Track 2 &middot; the criminal record log</p></header>
+          <p class="tc-lane-reason" data-tc-lane-reason>A qualifying act: enforcement, review, and reassignment set by the act.</p>
+          <p class="tc-lane-summary" data-tc-lane-summary>A qualifying act: enforcement, review, and reassignment set by the act.</p>
+          <dl class="tc-rows">
+            <div data-tc-row="threshold"><dt>Threshold</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="enforcement"><dt>Enforcement</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="review"><dt>Review</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="victim" data-tc-optional="true" hidden><dt>Victim</dt><dd class="tc-row-val">&mdash;</dd></div>
+            <div data-tc-row="placement"><dt>Placement</dt><dd class="tc-row-val">&mdash;</dd></div>
+          </dl>
+        </section>
+      </div>
+      <p class="tc-cites tc-full"><span class="tc-label">Doctrine</span><span class="tc-cite-list" data-tc-cites></span></p>
     </div>
+  </div>
+
+  <div class="tc-lower tc-full">
+    <figure class="tc-panel tc-timeline-panel">
+      <figcaption class="tc-panel-head"><span class="tc-label">Trust over time</span><span class="tc-legend"><i class="tc-key tc-key--line"></i>STI <i class="tc-key tc-key--t1"></i>track 1 entry <i class="tc-key tc-key--t2"></i>track 2 entry</span></figcaption>
+      <svg class="tc-timeline" data-tc-timeline role="img" aria-labelledby="tc-tl-summary" viewBox="0 0 640 210"></svg>
+      <p class="sr-only" id="tc-tl-summary" data-tc-timeline-summary>STI over 0 simulated years.</p>
+      <p class="tc-note">Drops land in a day; climbs take years. The band colour is the ring the citizen lived in.</p>
+    </figure>
+    <div class="tc-panel tc-ledger-panel">
+      <h3 class="tc-panel-head"><span class="tc-label">Ledger</span></h3>
+      <ol class="tc-ledger" data-tc-ledger></ol>
+    </div>
+  </div>
+
+  <details class="tc-panel tc-explain tc-full">
+    <summary class="tc-explain-toggle"><span class="tc-explain-title">What the STI can and cannot do</span><small>Lit for this citizen now &middot; notes on the numbers</small></summary>
+    <div class="tc-reach">
+      <div>
+        <h3 class="tc-reach-title">It can <small>lit where it applies to this citizen now</small></h3>
+        <ul class="tc-reach-list" data-tc-reach="can"></ul>
+      </div>
+      <div>
+        <h3 class="tc-reach-title">It cannot <small>lit where this citizen meets the limit</small></h3>
+        <ul class="tc-reach-list tc-reach-list--cannot" data-tc-reach="cannot"></ul>
+      </div>
+    </div>
+    <p class="tc-explain-note"><strong>Illustrative numbers.</strong> The real STI formula is proprietary, classified and dynamic (<a href="charter.html#article-ii">Article II</a>). This console reproduces its published properties, not its weights: a point lost costs one unit of harm and a point regained costs ten units of conduct; trajectory credit and penalty; public signals that amplify but never create. Starting scores outside Main are illustrative. Where <a href="charter.html#article-i">Article I</a> names an act as a single qualifying event (impaired driving, assault, meaningful fraud), the console follows Article I and <a href="#sim-content-12">The Threshold</a>, even where Article XIV&rsquo;s axes read only one.</p>
   </details>
-</div>
+
+  <footer class="tc-foot">
+    <p class="tc-simple">Full view adds the justice-flow stages, the Article XIV axes, more acts, a trust timeline, the ledger, and what the STI can and cannot do. Numbers are illustrative; the real formula is classified (<a href="charter.html#article-ii">Article II</a>).</p>
+    <a class="tc-map-link" data-tc-map-link href="layers.html#ring-atlas">See this citizen on the ring map &rarr;</a>
+  </footer>
+  <div class="sr-only" aria-live="polite" aria-atomic="true" data-tc-live></div>
+</section>
 
 <!-- ROUTING: Four-dossier split (World Scenarios / Resident Stories / The Academy / Academic Resources) -->
 <div class="mt-20 mb-16">
@@ -227,7 +244,8 @@
 </style>
 <div class="mt-20 mb-8" id="full-archive-index">
 <h2 class="text-4xl font-bold text-center text-[var(--text-primary)] mb-4">Full Archive Index</h2>
-<p class="text-center text-[var(--text-muted)] max-w-3xl mx-auto mb-10">All 94 simulations across both dossiers in one place — search titles, classifications, and outcome lines, or narrow by dossier, category, and doctrine snapshot. Each entry expands in place; deep links land pre-expanded.</p>
+<p class="text-center text-[var(--text-muted)] max-w-3xl mx-auto mb-4">All 94 simulations across both dossiers in one place — search titles, classifications, and outcome lines, or narrow by dossier, category, and doctrine snapshot. Each entry expands in place; deep links land pre-expanded.</p>
+<p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-10"><strong>Current-rate frame:</strong> LP-074&rsquo;s <strong>50 / 25 / 12.5 / 6.25</strong> exact halving cascade is active from 2295 after the 2294 Path 2 certification. Older Doctrine-Snapshot narratives remain era-pinned historical artifacts and are not recalculated.</p>
 <div class="sim-idx-controls">
 <input id="sim-idx-q" class="sim-idx-input" type="search" placeholder="Search title, classification, outcome&hellip;" aria-label="Search simulations">
 <button id="sim-idx-chip-world" class="sim-idx-chip" type="button" aria-pressed="true">World Scenarios</button>

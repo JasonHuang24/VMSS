@@ -1,1022 +1,1063 @@
 /**
- * sti-sim.js — STI Simulation Console
+ * sti-sim.js — the Trust Console on simulations.html (#sti-console).
  *
- * Powers the interactive Social Trust Index console on simulations.html.
- * Users can adjust seven civic factor sliders, trigger discrete events,
- * load preset profiles, or randomize to explore how scores and layer
- * placements change under the VMSS scoring model.
+ * One simulated citizen, one act at a time. Every act travels the published
+ * justice flow (failsafe → detection → classification) and then takes one of
+ * the two outcome paths the implant ledger keeps apart:
  *
- * Architecture:
- *   - Pure helper functions (layerForScore, scoreModel, etc.) at the top
- *   - buildRandomProfile() is isolated for clarity — it has non-trivial math
- *   - initSimulator() handles all DOM binding and the render cycle
- *   - All state changes are pushed to window.VMSS so the HUD and ring map stay in sync
+ *   Social consequence path — track 1, the STI score. Moves trust, gates
+ *     trust-dependent access, and has exactly one placement effect: Sanctuary
+ *     phasing, a condition that lapses below 85 (Charter VII, XII, XIII;
+ *     Whitepaper §6.5).
+ *   Criminal escalation path — track 2, the criminal record log. Qualifying
+ *     acts go to enforcement and review, and reassignment follows the act's
+ *     classification, never the score (Charter I, II, XII–XV; Whitepaper §5.4).
  *
- * Score model: civic + contribution + conduct + competence + endorsement + recovery - violations
- * Max possible score: 100 (all positive factors maxed, violations = 0)
+ * The real STI formula is proprietary, classified and dynamic (Charter II).
+ * The numbers here are illustrative; the model reproduces the formula's
+ * published properties, not its weights:
+ *   - 10:1 penalty-to-recovery: a point lost costs one unit of harm, a point
+ *     regained costs ten units of conduct credit (Charter II, §5.3).
+ *   - trajectory credit and penalty (Charter XV, §6.2).
+ *   - public signals amplify an existing trajectory and never create one (§5.6).
+ *   - in −3 the STI and public ledger keep running; only the institutional
+ *     response is withdrawn (Charter II, XXV; Whitepaper §4.2, §14.3).
+ *
+ * Two views share one session: Simple (default) shows the fork with one
+ * sentence per path; Full adds stages, axes, timeline, ledger and the
+ * can/cannot lists. The choice is a per-viewer preference (MODE_KEY).
+ *
+ * The console writes the citizen's summary to window.VMSS (placement, stiScore,
+ * record, lastEvent) for the HUD and the layer map; it never reads placement
+ * back from them. Its own session (ledger, timeline) lives in localStorage
+ * under SESSION_KEY.
  */
 
 (function () {
 
   // =========================
-  // CONSTANTS
+  // RINGS
   // =========================
 
-  /** Preset citizen profiles used by the sample profile buttons. */
-  const PROFILES = {
-    contributor: { civic:18, contribution:19, conduct:18, competence:17, endorsement:9, violations:2, recovery:8 },
-    stable:      { civic:14, contribution:13, conduct:12, competence:10, endorsement:7, violations:5, recovery:4 },
-    risk:        { civic:8,  contribution:6,  conduct:5,  competence:7,  endorsement:3, violations:15, recovery:1 },
-    recovery:    { civic:10, contribution:9,  conduct:9,  competence:8,  endorsement:5, violations:10, recovery:9 }
+  const ORDER = ['+1', '0', '-1', '-2', '-3'];
+  const RING = {
+    '+1': { label: '+1 Sanctuary',       tone: 'p1', colour: '#e9bb72' },
+    '0':  { label: 'Main Layer (0)',     tone: 'z',  colour: '#a8c9d6' },
+    '-1': { label: '-1 Noncompliance',   tone: 'm1', colour: '#f6a653' },
+    '-2': { label: '-2 Violent Offense', tone: 'm2', colour: '#e87575' },
+    '-3': { label: '-3 Terminal',        tone: 'm3', colour: '#c24b5a' }
+  };
+  const deeper = (a, b) => ORDER.indexOf(b) > ORDER.indexOf(a);
+
+  const SANCTUARY_FLOOR = 85;   // Charter II, VII; Whitepaper §5.9
+  const VISIBILITY_FLAG = 40;   // Whitepaper §5.2
+  const CREDIT_PER_POINT = 10;  // Charter II 10:1, expressed as conduct credit per point regained
+  const SESSION_KEY = 'vmss_console_v2';
+
+  // =========================
+  // STARTING POINTS
+  // =========================
+
+  /* Starting STI values are illustrative except Main (new entrants typically
+     arrive at 70–84, Whitepaper §4.2) and Sanctuary (the 85 floor). */
+  const STARTS = {
+    '0':  { sti: 76, punitive: false, profile: 'New entrant',
+            line: 'Arrived in Main Layer. New entrants typically start between 70 and 84.' },
+    '+1': { sti: 92, punitive: false, profile: 'Sanctuary resident',
+            line: 'Resident of Sanctuary on a sustained record above the 85 floor.' },
+    '-1': { sti: 41, punitive: true, profile: 'Reassigned resident',
+            line: 'Reassigned to −1 for fraud at meaningful scale. The placement is permanent.',
+            record: { label: 'Fraud at meaningful scale', status: 'record' } },
+    '-2': { sti: 22, punitive: true, profile: 'Reassigned resident',
+            line: 'Reassigned to −2 for predatory violence. The placement is permanent.',
+            record: { label: 'Predatory violence', status: 'permanent' } },
+    '-3': { sti: 8, punitive: true, profile: 'Terminal resident',
+            line: 'Reassigned to −3 for a killing. No revival and no daily institution; the public ledger travels with every resident.',
+            record: { label: 'Killing', status: 'permanent' } }
   };
 
-  /**
-   * Factor metadata: [display label, max value].
-   * Key order mirrors scoreModel addition/subtraction: positives first, violations last.
-   * CATEGORY_META is the single source of truth for factor maxes —
-   * the randomizer derives its constraints from here rather than hardcoding them.
-   */
-  const CATEGORY_META = {
-    civic:        ['Civic compliance',    20],
-    contribution: ['Contribution',        20],
-    conduct:      ['Public conduct',      20],
-    competence:   ['Verified competence', 20],
-    endorsement:  ['Peer trust',          10],
-    recovery:     ['Recovery modifier',   10],
-    violations:   ['Violation load',      20],
+  // =========================
+  // ACTS
+  // =========================
+
+  /* credits: conduct credit earned (10 credits = 1 point). points: harm units
+     (1 unit = 1 point lost). years: simulated time the act spans. */
+  const ACTS = {
+    steady:    { name: 'A steady year',       credits: 10, years: 1 },
+    service:   { name: 'Civic service',       credits: 12, years: 0.25 },
+    crisis:    { name: 'Crisis response',     credits: 15, years: 0.05 },
+    endorse:   { name: 'Peer endorsements',   credits: 6,  years: 0.05 },
+    remediate: { name: 'Remediation',         years: 0.1 },
+    infraction:{ name: 'Minor infraction',    points: 2,  years: 0.02, clearable: true, tier: 'private' },
+    harass:    { name: 'Harassment',          points: 4,  years: 0.02, clearable: true, tier: 'private' },
+    breach:    { name: 'Major trust breach',  points: 17, years: 0.02, tier: 'public' },
+    dui:       { name: 'Impaired driving',    points: 12, years: 0.02, dest: '-1', named: true },
+    assault:   { name: 'Assault',             points: 14, years: 0.02, dest: '-1', named: true, violent: true },
+    fraud:     { name: 'Fraud at scale',      points: 16, years: 0.02, dest: '-1', named: true },
+    predatory: { name: 'Predatory violence',  points: 30, years: 0.02, dest: '-2', violent: true, permanent: true },
+    killing:   { name: 'Killing',             points: 40, years: 0.02, dest: '-3', violent: true, permanent: true },
+    ascend:    { name: 'Sanctuary residency', years: 0.05 }
   };
 
-  /**
-   * Discrete civic events that apply deltas to the current factor values.
-   * v17.6: each event now carries Article XV classification:
-   *   clearable — removable from active record if trajectory improves
-   *   permanent — cannot be cleared regardless of subsequent behavior
-   */
-  /** Duration options for RNG display (cosmetic — adds flavor to event labels). */
-  const DURATIONS = ['1 day', '2 days', '3 days', '5 days', '1 week', '10 days', '2 weeks', '3 weeks', '1 month'];
-  const randDuration = () => DURATIONS[Math.floor(Math.random() * DURATIONS.length)];
-
-  /** Converts a duration string to approximate number of days. */
-  function parseDays(dur) {
-    if (!dur) return 1;
-    const n = parseInt(dur) || 1;
-    if (dur.includes('month')) return n * 30;
-    if (dur.includes('week'))  return n * 7;
-    return n; // days
-  }
-  /* The interpretation panel is assembled as an HTML string and written through
-     innerHTML/insertAdjacentHTML, which is correct for the authored markup it
-     carries. Any value that arrives from state rather than from this file goes
-     through here first. */
-  const escapeHtml = (s) => s
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-
-  const randItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
-  const randRange = (base, spread) => base + Math.floor(Math.random() * (spread * 2 + 1)) - spread;
-
-  /**
-   * Event definitions with RNG variants.
-   * Each event has: base values, classification, harmful flag, and a variants array.
-   * rollEvent() picks a random variant and jitters the delta values by ±1.
-   * Yellow (harmful+clearable) events have optional irrevChance (0-1) for RNG irreversibility.
-   */
-  const EVENT_DELTAS = {
-    violation: {
-      values: { violations: +5, conduct: -2, civic: -3, recovery: -1 }, classification: 'clearable', harmful: true, irrevChance: 0.08,
-      mild: ['Jaywalking citation logged', 'Late filing on civic paperwork', 'Minor noise complaint registered', 'Parking violation in restricted zone'],
-      harsh: ['Public disturbance with property damage', 'Verbal threats against civic officer', 'Unauthorized resource access — repeat offense', 'False declaration on civic filing under oath']
-    },
-    service: {
-      values: { contribution: +4, civic: +2, endorsement: +1, violations: -1 }, classification: 'clearable', harmful: false,
-      mild: ['Attended community cleanup event', 'Filed civic feedback report', 'Participated in district survey', 'Donated to public resource pool'],
-      harsh: ['Led emergency evacuation response', 'Completed full infrastructure rebuild shift', 'Organized district-wide relief campaign', 'Youth mentorship cycle — 6-month program']
-    },
-    endorsement: {
-      values: { endorsement: +3, conduct: +1, recovery: +1 }, classification: 'clearable', harmful: false,
-      mild: ['Casual peer trust signal received', 'Neighbor filed positive reference', 'Workplace acknowledgment logged'],
-      harsh: ['Cross-district commendation from leadership council', 'Multi-peer endorsement cluster registered', 'Unanimous workplace collective trust vote']
-    },
-    audit: {
-      values: { civic: -4, competence: -1, violations: +3, endorsement: -1 }, classification: 'clearable', harmful: true, irrevChance: 0.05,
-      mild: ['Minor documentation gap in audit', 'Credential renewal lapse — 3 days overdue', 'Marginal compliance score on routine check'],
-      harsh: ['Critical regulatory inspection failure', 'Systematic credential falsification discovered', 'Multi-point compliance audit failure — flagged for review']
-    },
-    rehab: {
-      values: { recovery: +4, violations: -2, conduct: +2 }, classification: 'clearable', harmful: false,
-      mild: ['Attended behavioral awareness seminar', 'Completed anger management module', 'Submitted self-correction progress report'],
-      harsh: ['Full supervised reintegration program completed', 'Structured 90-day rehabilitation cycle finished', 'Monitored recovery milestone — all metrics clear']
-    },
-    credential: {
-      values: { competence: +4, contribution: +2, violations: -1, recovery: +1 }, classification: 'clearable', harmful: false,
-      mild: ['Basic certification renewed', 'Standard competency reassessment passed', 'Routine skills verification cleared'],
-      harsh: ['Advanced specialist qualification earned', 'Systems architecture certification achieved', 'Cross-domain technical mastery verified']
-    },
-    neglect: {
-      values: { contribution: -4, competence: -2, civic: -1, endorsement: -1, violations: +2 }, classification: 'clearable', harmful: true, irrevChance: 0.1,
-      mild: ['Single missed shift — no coverage arranged', 'Late submission on assigned deliverable', 'Below-threshold performance rating'],
-      harsh: ['Sustained abandonment of critical infrastructure role', 'Chronic no-show pattern — 4th consecutive flag', 'Failure to maintain safety-critical system — damage resulted']
-    },
-    leadership: {
-      values: { conduct: +3, endorsement: +2, civic: +1, violations: -1 }, classification: 'clearable', harmful: false,
-      mild: ['Helped resolve minor neighbor dispute', 'Organized block meeting', 'Volunteered for district advisory input'],
-      harsh: ['Crisis de-escalation prevented physical harm', 'Led district coordination through infrastructure failure', 'Civic mediation resolved multi-party conflict']
-    },
-    predatory: {
-      values: { violations: +10, conduct: -6, civic: -5, endorsement: -4 }, classification: 'permanent', harmful: true, reassignment: '-2',
-      mild: ['Aggravated assault recorded', 'Domestic violence pattern confirmed', 'Violent assault causing serious injury', 'Premeditated attack on civilian'],
-      harsh: ['Armed robbery with weapon discharge', 'Stalking campaign — multiple victims identified', 'Kidnapping and unlawful detention', 'Attempted murder — victim survived', 'Coordinated gang violence — multiple casualties']
-    },
-    exploitation: {
-      values: { violations: +8, conduct: -4, competence: -3, endorsement: -3 }, classification: 'permanent', harmful: true, reassignment: '-1',
-      mild: ['Wage theft — single employer confirmed', 'Insurance fraud scheme traced', 'Identity fraud — single victim', 'Tax evasion scheme detected'],
-      harsh: ['Systematic tenant exploitation ring uncovered', 'Labor trafficking operation identified', 'Multi-layer financial fraud network dismantled', 'Organized identity theft ring — dozens affected', 'Government contract fraud — public funds misappropriated']
-    },
-    trafficking: {
-      values: { violations: +15, conduct: -8, civic: -8, endorsement: -6 }, classification: 'permanent', harmful: true, reassignment: '-3',
-      mild: ['Human trafficking — single operation dismantled'],
-      harsh: ['Cross-district trafficking network — systemic exploitation confirmed', 'Child trafficking ring uncovered']
-    },
-    capital: {
-      values: { violations: +20, conduct: -10, civic: -10, endorsement: -5 }, classification: 'permanent', harmful: true, reassignment: '-3',
-      mild: ['Murder committed — single victim'],
-      harsh: ['Mass violence perpetrated', 'Act of terrorism carried out', 'Serial predation confirmed — multiple victims']
-    }
+  const C = {
+    II:   ['Article II', 'charter.html#article-ii'],
+    I:    ['Article I', 'charter.html#article-i'],
+    VI:   ['Article VI', 'charter.html#article-vi'],
+    VII:  ['Article VII', 'charter.html#article-vii'],
+    IX:   ['Article IX', 'charter.html#article-ix'],
+    XII:  ['Article XII', 'charter.html#article-xii'],
+    XIII: ['Article XIII', 'charter.html#article-xiii'],
+    XIV:  ['Article XIV', 'charter.html#article-xiv'],
+    XV:   ['Article XV', 'charter.html#article-xv'],
+    XXV:  ['Article XXV', 'charter.html#article-xxv'],
+    XIX:  ['Article XIX', 'charter.html#article-xix'],
+    wp: (s) => [`Whitepaper ${s}`, 'whitepaper.html'],
+    dossier: (k) => [`${k} dossier`, `layer-${k.replace('−', '-')}.html`],
+    threshold: ['The Threshold', 'simulations.html#sim-content-12']
   };
-
-  /**
-   * Rolls a score-aware variant for an event.
-   * High STI (>60): picks from mild pool, tighter jitter (±0-1), lower irrev chance.
-   * Low STI (<40): picks from harsh pool, wider jitter (±1-2), higher irrev chance.
-   * Mid STI: random pool, standard ±1 jitter.
-   */
-  function rollEvent(eventKey, currentScore) {
-    const base = EVENT_DELTAS[eventKey];
-    if (!base) return null;
-    const score = currentScore ?? 50;
-
-    // Score-aware variant pool selection
-    const useMild = score > 60 ? Math.random() < 0.8 : score > 40 ? Math.random() < 0.5 : Math.random() < 0.15;
-    const pool = useMild ? base.mild : base.harsh;
-    const variant = randItem(pool);
-    const duration = randDuration();
-
-    // Score-aware jitter: high STI → tighter (±0-1), low STI → wider (±1-2)
-    const spread = score > 60 ? 1 : score > 40 ? 1 : 2;
-    const jittered = {};
-    Object.entries(base.values).forEach(([k, v]) => {
-      if (v === 0) { jittered[k] = 0; return; }
-      const j = randRange(v, spread);
-      jittered[k] = v > 0 ? Math.max(1, j) : Math.min(-1, j);
-    });
-
-    // Score-aware irrev chance: low STI → higher chance
-    const irrevMult = score > 60 ? 0.5 : score > 40 ? 1.0 : 2.0;
-    const triggerIrrev = base.irrevChance ? Math.random() < (base.irrevChance * irrevMult) : false;
-
-    return {
-      label: variant,
-      values: jittered,
-      duration,
-      classification: base.classification,
-      harmful: base.harmful,
-      reassignment: base.reassignment,
-      triggerIrrev
-    };
-  }
-
-  /**
-   * Thresholds for the "coherence" readout.
-   * Positive pressure = civic + contribution + conduct (the three behavioural pillars).
-   * Named constants avoid magic numbers scattered through the render function.
-   */
-  const COHERENCE_HIGH = 40;
-  const COHERENCE_MID  = 28;
-
-  /**
-   * Positive factor keys and maxes derived from CATEGORY_META.
-   * Used by buildRandomProfile — if maxes change in CATEGORY_META,
-   * the randomizer automatically picks up the new values.
-   */
-  const POS_FACTORS = Object.entries(CATEGORY_META)
-    .filter(([key]) => key !== 'violations')
-    .map(([key, [, max]]) => [key, max]);
-
-  /**
-   * Layer consequence definitions — triggered by sustained behavior within a layer.
-   * Negative consequences escalate by layer depth. Positive consequences reward growth.
-   */
-  /**
-   * Consequence pools. Entries can be strings (normal) or objects with
-   * { text, terminal: true } to end the simulation permanently.
-   */
-  const CONSEQUENCES_NEGATIVE = {
-    '0':  [
-      'Formal warning issued by district authority',
-      'Civic privilege review scheduled',
-      'Trust Threshold Domain access suspended'
-    ],
-    '-1': [
-      'Fined 500 credits for repeated noncompliance',
-      'Community service order — 30 days mandatory',
-      'Restricted to residential zone — transit privileges revoked',
-      'Financial assets partially frozen pending review',
-      { text: 'Sentenced to lifetime civic probation — permanent monitoring, no unsupervised movement', terminal: true }
-    ],
-    '-2': [
-      'Placed in administrative detention — 90 days',
-      'Confined to designated housing block',
-      'All civic privileges permanently revoked',
-      'Solitary confinement order — behavioral reset protocol',
-      { text: 'Sentenced to permanent confinement — no release pathway exists', terminal: true }
-    ],
-    '-3': [
-      'Vigilante retaliation reported — no system intervention',
-      'Targeted by terminal-layer population — survived with injuries',
-      'Resource access severed — survival on scavenged allocation only',
-      { text: 'Found dead in housing block — cause undetermined. Simulation ended.', terminal: true },
-      { text: 'Killed by vigilante group — system logged, no intervention. Simulation ended.', terminal: true }
-    ]
-  };
-
-  const CONSEQUENCES_POSITIVE = {
-    titles: [
-      'Awarded District Merit Citation',
-      'Promoted to Senior Civic Contributor',
-      'Named Community Steward of the Quarter',
-      'Received Meritboard Commendation',
-      'Granted Trust Threshold Domain access',
-      'Selected for District Leadership Council'
-    ],
-    elite: [
-      'Nominated for Meritboard advisory role',
-      'Granted Sanctuary evaluation candidacy',
-      'Awarded Founders\u2019 Recognition — highest civic honor',
-      'Invited to inter-district governance summit',
-      { text: 'Appointed to Meritboard — supreme civic leadership attained. Simulation complete.', terminal: true },
-      { text: 'Elected District Superintendent — highest public office achieved. Simulation complete.', terminal: true }
-    ]
-  };
-
-  /**
-   * Event sources that originate from within this module.
-   * The global state-change listener ignores these to prevent re-entry
-   * loops where a render triggers a state change that triggers another render.
-   */
-  const INTERNAL_SOURCES = new Set(['sti-sim', 'sti-event', 'profile', 'manual', 'reset', 'randomize']);
 
   // =========================
   // PURE HELPERS
   // =========================
 
-  /**
-   * Maps a numeric STI score to its layer descriptor.
-   * Returns key, label, tone, and range string.
-   * Note: this duplicates the threshold logic in vmssLayerForScore (script.js)
-   * but returns a richer object with .tone — used only by this module.
-   */
-  function layerForScore(score) {
-    if (score >= 85) return { key: '+1', label: '+1 Sanctuary',      tone: 'High-trust access unlocked',     range: '85\u2013100' };
-    if (score >= 70) return { key: '0',  label: 'Main Layer (0)',    tone: 'Stable civic baseline',          range: '70\u201384'  };
-    if (score >= 50) return { key: '-1', label: '-1 Noncompliance',  tone: 'Monitored trust deficit',        range: '50\u201369'  };
-    if (score >= 30) return { key: '-2', label: '-2 Violent Offense',tone: 'Containment threshold engaged',  range: '30\u201349'  };
-    return             { key: '-3', label: '-3 Terminal',             tone: 'Terminal trust collapse',        range: '0\u201329'   };
-  }
+  const round1 = (n) => Math.round(n * 10) / 10;
+  const clampSti = (n) => Math.max(0, Math.min(100, round1(n)));
+  const fmt = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(1));
+  const signed = (n) => (n > 0 ? `+${fmt(n)}` : n < 0 ? `−${fmt(Math.abs(n))}` : '0');
+  const minus = (s) => String(s).replace('-', '−');
+  const ringName = (k) => minus(RING[k].label);
 
-  /**
-   * Computes the STI score from a values object. Clamped to [0, 100].
-   *
-   * v17.6 asymmetric model — reflects the 10:1 penalty-to-recovery ratio
-   * from Article II. Violations bite progressively harder via a convex
-   * penalty curve (low violations are roughly 1:1, high violations scale
-   * toward ~2.5x). Recovery has diminishing returns (first points worth
-   * full value, later points worth ~40%). The net effect: trust is far
-   * harder to rebuild than it is to lose, matching doctrinal intent
-   * without making moderate profiles unplayable.
-   *
-   * Raw positive max ≈ 90 + 6.3 = 96.3 (all positives maxed, recovery diminished)
-   * Raw penalty max  ≈ 38.7 (violations=20 through convex curve)
-   * Effective range maps naturally to 0–100 after clamping.
-   */
-  function scoreModel(v) {
-    // Positive factors — recovery has diminishing returns (sqrt curve, max still 10)
-    const recoveryEffective = Math.sqrt(v.recovery / 10) * 10; // sqrt gives diminishing returns; max 10
-    const rawPositive = v.civic + v.contribution + v.conduct + v.competence
-                      + v.endorsement + recoveryEffective;
-
-    // Violation penalty — convex curve: penalty = max * (v/max)^1.45
-    // At 5/20: ~8.1 (1.6x). At 10/20: ~18.8 (1.9x). At 20/20: ~38.7 (1.9x).
-    const vNorm = v.violations / 20;
-    const rawPenalty = 38.7 * Math.pow(vNorm, 1.45);
-
-    return Math.max(0, Math.min(100, Math.round(rawPositive - rawPenalty)));
-  }
-
-  /** Clamps all factor values to their valid ranges as defined in CATEGORY_META. */
-  function clampValues(v) {
-    const next = { ...v };
-    Object.entries(CATEGORY_META).forEach(([key, [, max]]) => {
-      next[key] = Math.max(0, Math.min(max, Number(next[key]) || 0));
-    });
-    return next;
-  }
-
-  /**
-   * Generates up to 4 human-readable signal lines for the System Interpretation panel.
-   * v17.6: doctrine-aware — references Articles XII-XV, XIX and accounts for
-   * trajectory, event log classification, feedback loops, and 10:1 asymmetry.
-   *
-   * @param {number} score
-   * @param {object} values - factor values
-   * @param {string} eventLabel - most recent event label
-   * @param {object} ctx - { trajectory, eventLog } from module state
-   */
-  function buildExplanation(score, values, eventLabel, ctx = {}) {
-    const notes = [];
-    const { trajectory = 'neutral', eventLog: log = [], isLocked: locked = false, assignedLayer: aLayer = '0' } = ctx;
-
-    // Most recent event. The other notes below are authored HTML on purpose;
-    // this one is data, and it is the only entry here that is not. It arrives
-    // from window.VMSS state, which script.js rehydrates from
-    // localStorage['vmss_state'] with an unvalidated spread — and every note in
-    // this array is joined into an innerHTML/insertAdjacentHTML sink. Escaped so
-    // the one data-carrying entry cannot become markup. Every legitimate label
-    // is plain text, so rendering is unchanged.
-    if (eventLabel) notes.push(escapeHtml(String(eventLabel)) + '.');
-
-    // Reassignment lock (Article XV one-way door)
-    if (locked)
-      notes.push(`<em><a href="charter.html#article-xv">Article XV</a>:</em> Punitive reassignment to Layer ${aLayer} is permanent. STI improvement serves quality of life here, not as a return mechanism.`);
-
-    // Trajectory-aware signals (Article XV)
-    if (trajectory === 'improving' && score < 70)
-      notes.push('<em><a href="charter.html#article-xv">Article XV</a>:</em> Sustained improvement detected \u2014 trajectory credit applies. Clearable infractions eligible for removal.');
-    if (trajectory === 'declining' && score >= 50)
-      notes.push('<em><a href="charter.html#article-xv">Article XV</a>:</em> Declining trajectory \u2014 correction window still open within Main Layer.');
-    if (trajectory === 'declining' && score < 50)
-      notes.push('<em><a href="charter.html#article-xv">Article XV</a>:</em> Declining trajectory below civic trust baseline \u2014 pattern evaluation escalating.');
-
-    // 10:1 asymmetry signal (Article II)
-    if (values.recovery >= 7 && values.violations >= 8)
-      notes.push('<em><a href="charter.html#article-ii">Article II</a>:</em> Recovery signals soften the descent but 10:1 ratio means prior harm compounds faster than repair.');
-
-    // Clearable infraction callout (Article XV)
-    const clearableCount = log.filter(e => e.classification === 'clearable' && e.delta < 0).length;
-    const permanentCount = log.filter(e => e.classification === 'permanent').length;
-    if (clearableCount >= 2 && trajectory !== 'declining')
-      notes.push(`<em><a href="charter.html#article-xv">Article XV</a>:</em> ${clearableCount} clearable infractions on record \u2014 remediation would reset trajectory.`);
-    if (permanentCount >= 1)
-      notes.push(`<em><a href="charter.html#article-xv">Article XV</a>:</em> ${permanentCount} permanent flag${permanentCount > 1 ? 's' : ''} on record \u2014 cannot be cleared regardless of subsequent conduct.`);
-
-    // Feedback loop detection (Article XIX)
-    if (score < 40 && values.violations >= 10 && values.contribution <= 5 && values.endorsement <= 3)
-      notes.push('<em><a href="charter.html#article-xix">Article XIX</a>:</em> Potential feedback loop \u2014 low score restricts trust-gated opportunities, limiting recovery pathways. System should provide correction channel.');
-
-    // Non-deterministic evaluation reminder (Article XII)
-    if (score < 30 || score >= 85)
-      notes.push('<em><a href="charter.html#article-xii">Article XII</a>:</em> STI is one weighted input, not the sole determinant. Final placement requires multi-factor evaluation.');
-
-    // Factor pattern signals
-    if (values.violations >= 14)
-      notes.push('Heavy violation load is overpowering positive inputs under asymmetric penalty curve.');
-    if (values.civic >= 15 && values.conduct >= 12)
-      notes.push('Compliance and public conduct are stabilizing the score.');
-    if (values.contribution >= 16 && values.competence >= 12)
-      notes.push('Productive contribution is boosting access and system confidence.');
-
-    if (!notes.length)
-      notes.push('This profile sits near the middle because strengths and liabilities are balancing out.');
-
-    return notes.slice(0, 4);
-  }
-
-  /** Builds the event feed message describing the most recent score change. */
-  function buildDeltaMessage(previousScore, nextScore, layer, eventLabel) {
-    const delta     = nextScore - previousScore;
-    const direction = delta > 0 ? 'rose' : delta < 0 ? 'fell' : 'held steady';
-    const amount    = delta === 0 ? '' : ` by ${Math.abs(delta)} points`;
-    const cause     = eventLabel ? ` after ${eventLabel.toLowerCase()}` : '';
-    return `STI ${direction}${amount}${cause}. Current placement: ${layer.label}.`;
-  }
-
-  /** Briefly flashes an element using the vmss-flash CSS animation. */
-  function pulseElement(element) {
-    if (!element) return;
-    element.classList.remove('vmss-flash');
-    void element.offsetWidth; // force reflow to restart the animation
-    element.classList.add('vmss-flash');
-    setTimeout(() => element.classList.remove('vmss-flash'), 520);
-  }
-
-  // =========================
-  // RANDOMIZER
-  // =========================
-
-  /**
-   * Generates a random factor profile with a layer distribution proportional
-   * to each band's STI width:
-   *   ~30% in -3 Terminal     (0–29,  30-point band)
-   *   ~20% in -2 Violent      (30–49, 20-point band)
-   *   ~20% in -1 Noncompliance(50–69, 20-point band)
-   *   ~15% in Main Layer (0)  (70–84, 15-point band)
-   *   ~15% in +1 Sanctuary    (85–100,16-point band)
-   *
-   * Algorithm (score-first):
-   *   1. Pick a target score uniformly from 0–100.
-   *   2. Pick violations randomly within the range that allows hitting that score.
-   *   3. Fill positive factors to sum to (target + violations), respecting each max.
-   *
-   * This guarantees the target score is always achievable given the generated
-   * violations value, unlike naive uniform random which clusters around score ~40
-   * and makes Sanctuary nearly unreachable.
-   */
-  function buildRandomProfile() {
-    const target  = Math.floor(Math.random() * 101);
-    const violMax = Math.min(20, 100 - target); // violations can't push score below 0
-    const viol    = Math.floor(Math.random() * (violMax + 1));
-
-    // Distribute (target + violations) across positive factors
-    const next = {};
-    let remaining = Math.min(target + viol, 100);
-
-    POS_FACTORS.forEach(([key, max], i) => {
-      // futureMax: maximum the remaining factors could absorb
-      const futureMax = POS_FACTORS.slice(i + 1).reduce((s, [, m]) => s + m, 0);
-      // lo: minimum this factor must take so remaining factors can cover the rest
-      const lo  = Math.max(0, remaining - futureMax);
-      const hi  = Math.min(max, remaining);
-      const val = lo >= hi ? lo : lo + Math.floor(Math.random() * (hi - lo + 1));
-      next[key] = val;
-      remaining -= val;
-    });
-
-    next.violations = viol;
-    return next;
-  }
-
-  // =========================
-  // SIMULATOR INIT
-  // =========================
-
-  function initSimulator() {
-    const root = document.getElementById('sti-console');
-    if (!root) return; // console not present on this page
-
-    // --- DOM refs --------------------------------------------------------
-    const inputs       = Array.from(root.querySelectorAll('input[type="hidden"]'));
-    const factorRows   = Array.from(root.querySelectorAll('.vmss-factor-row'));
-    const scoreEl      = root.querySelector('[data-sti-score]');
-    const layerEl      = root.querySelector('[data-sti-layer]');
-    const toneEl       = root.querySelector('[data-sti-tone]');
-    const reasoningEl  = root.querySelector('[data-sti-reasoning]');
-    const liveRegion   = root.querySelector('[data-sti-live]');
-    const gauge        = root.querySelector('[data-gauge-progress]');
-    const layerSteps   = Array.from(root.querySelectorAll('.vmss-ladder-step'));
-    const presetSelect  = root.querySelector('[data-preset-select]');
-    const eventButtons  = Array.from(root.querySelectorAll('[data-sti-event]'));
-    const profileName  = root.querySelector('[data-profile-name]');
-    const overallShift = root.querySelector('[data-overall-shift]');
-    const stability    = root.querySelector('[data-stability-band]');
-    const eventFeed    = root.querySelector('[data-event-feed]');
-    const randomizeBtn = root.querySelector('[data-randomize-sim]');
-    const resetBtn     = root.querySelector('[data-reset-sim]');
-    const resetTermBtn = root.querySelector('[data-reset-terminal]');
-
-    const trajectoryEl   = root.querySelector('[data-trajectory]');
-    const eventHistoryEl = root.querySelector('[data-event-history]');
-    const axisPanel      = root.querySelector('[data-axis-panel]');
-    const reversToggle   = root.querySelector('[data-reversibility-toggle]');
-    const tallyPos       = root.querySelector('[data-tally-pos]');
-    const tallyNeg       = root.querySelector('[data-tally-neg]');
-    const tallyNet       = root.querySelector('[data-tally-net]');
-
-    // SVG gauge setup
-    const circumference = 2 * Math.PI * 47; // r=47 as defined in the SVG
-    let lastLayerKey      = null; // tracks previous layer to detect transitions
-    let currentEventLabel = '';   // label of the most recent event (used in explanations)
-    let lastRenderedScore = null; // previous score — tracked in JS, not DOM, for reliable delta calc
-
-    /** Trajectory state — tracks last 8 score deltas for Article XV trajectory evaluation. */
-    let scoreHistory = [];
-    const TRAJECTORY_WINDOW = 5; // evaluate direction from last 5 changes
-
-    /** Event log — tracks last 10 discrete events with Article XV classification. */
-    let eventLog = [];
-    const EVENT_LOG_MAX = 10;
-
-    /** Consequence state — tracks streaks and terminal outcomes. */
-    let lastConsequence = '';
-    let isTerminal = false; // true = simulation ended (death, imprisonment, or peak achievement)
-
-    /** Cumulative day tallies — persist across eventLog shifts. */
-    let totalPosDays = 0;
-    let totalNegDays = 0;
-
-    /**
-     * Layer assignment state — decoupled from STI score per Articles XII/XIII.
-     * Score informs but does not determine layer. Qualifying events trigger
-     * punitive reassignment which is permanent (Art. XV one-way door).
-     * Score-based phasing only operates between Main Layer (0) and +1 Sanctuary.
-     */
-    let assignedLayer = '0';  // starts at Main Layer
-    let isLocked = false;     // true after punitive reassignment — cannot return
-
-    /** Returns the full layer descriptor for the current assignment state. */
-    function getEffectiveLayer(score) {
-      if (isLocked) {
-        // Return the locked layer's descriptor
-        const thresholds = { '+1': 90, '0': 75, '-1': 55, '-2': 35, '-3': 10 };
-        return layerForScore(thresholds[assignedLayer] ?? 10);
-      }
-      // Not locked: phasing only between 0 and +1
-      return score >= 85 ? layerForScore(90) : layerForScore(75);
+  function freshSession(ring) {
+    const start = STARTS[ring];
+    const s = {
+      ring, punitive: start.punitive, sti: start.sti, year: 0,
+      profile: start.profile, ledger: [], history: [], recent: [],
+      warned: false, warnBase: 0, credentialed: ring === '+1', seq: 0
+    };
+    if (start.record) {
+      s.ledger.push({ id: s.seq++, year: 0, label: start.record.label, track: 2, tier: 'public', status: start.record.status, delta: null });
     }
+    s.history.push({ year: 0, sti: s.sti, ring });
+    return s;
+  }
 
-    if (gauge) {
-      gauge.style.strokeDasharray  = `${circumference}`;
-      gauge.style.strokeDashoffset = `${circumference}`; // starts at 0 (full circle hidden)
+  /* Session restore reads localStorage — outside input. Anything that does not
+     match the shape this file writes is dropped and a fresh session starts. */
+  function loadSession() {
+    try {
+      const raw = localStorage.getItem(SESSION_KEY);
+      if (!raw) return null;
+      const s = JSON.parse(raw);
+      const okSti = (v) => typeof v === 'number' && v >= 0 && v <= 100;
+      if (!s || !RING[s.ring] || !okSti(s.sti) || typeof s.year !== 'number'
+          || !Array.isArray(s.ledger) || !Array.isArray(s.history) || !Array.isArray(s.recent)) return null;
+      s.ledger = s.ledger.filter((e) => e && typeof e.label === 'string' && (e.track === 1 || e.track === 2)).slice(-60);
+      s.history = s.history.filter((h) => h && typeof h.year === 'number' && okSti(h.sti) && RING[h.ring]).slice(-400);
+      if (!s.history.length) return null;
+      s.seq = s.ledger.reduce((m, e) => Math.max(m, Number(e.id) || 0), 0) + 1;
+      return s;
+    } catch (e) {
+      return null;
     }
+  }
 
-    // --- Input helpers ---------------------------------------------------
+  function saveSession(s) {
+    try { localStorage.setItem(SESSION_KEY, JSON.stringify(s)); } catch (e) { /* private mode: session just won't persist */ }
+  }
 
-    /** Read all slider values into a plain object keyed by input name. */
-    const getValues = () =>
-      inputs.reduce((acc, input) => (acc[input.name] = Number(input.value), acc), {});
+  const activeClearable = (s) => s.ledger.filter((e) => e.clearable && e.status === 'active');
+  const trackTwo = (s) => s.ledger.filter((e) => e.track === 2);
 
-    /** Write a values object back to the sliders. */
-    const setValues = (values) =>
-      inputs.forEach((input) => {
-        if (values[input.name] !== undefined) input.value = String(values[input.name]);
-      });
+  function trajectory(s) {
+    const last = s.recent.slice(-3);
+    if (last.length < 2) return 'forming';
+    if (last.filter((x) => x === '-').length >= 2) return 'declining';
+    if (last.length === 3 && last.every((x) => x === '+')) return 'improving';
+    return 'mixed';
+  }
 
-    /** Update factor bar fills and value labels from hidden input values. */
-    const setInputVisuals = () =>
-      factorRows.forEach((row) => {
-        const key  = row.dataset.factor;
-        const input = row.querySelector('input[type="hidden"]');
-        if (!input) return;
-        const val  = Number(input.value) || 0;
-        const max  = Number(input.max) || 20;
-        const fill = row.querySelector('[data-factor-fill]');
-        const label = row.querySelector('[data-factor-val]');
-        if (fill) fill.style.width = `${(val / max) * 100}%`;
-        if (label) label.textContent = key === 'violations' ? `\u2212${val}/${max}` : `${val}/${max}`;
-      });
+  /* The score is already a trajectory-weighted record (Whitepaper §5.11), and
+     the threshold is the layer's qualifying condition (§5.9): at 85 or above a
+     non-punitive citizen is eligible, including straight after a phase-back.
+     Moving in stays a choice (elective residency, +1 dossier). */
+  function isEligible(s) {
+    return !s.punitive && s.sti >= SANCTUARY_FLOOR;
+  }
 
-    // --- Render cycle ----------------------------------------------------
+  function recordSummary(s) {
+    const t2 = trackTwo(s);
+    const perm = t2.find((e) => e.status === 'permanent');
+    if (perm) return `Permanent flag: ${perm.label}`;
+    if (t2.length) return `On record: ${t2[t2.length - 1].label}`;
+    const open = activeClearable(s).length;
+    if (s.warned) return `Pattern warning · ${open} open`;
+    if (open) return `${open} clearable open`;
+    return 'Clean';
+  }
 
-    /**
-     * render(sourceLabel, options) — the main update function.
-     * Reads current slider values, computes the score, and updates every
-     * visual element in the console: gauge, score number, layer label, tone,
-     * factor bars, readout tiles, ladder steps, reasoning panel, event feed,
-     * and the aria-live region for screen readers.
-     *
-     * @param {string} sourceLabel - Profile name shown in the readout tile
-     * @param {object} options     - { source } passed through to VMSS.setState
-     */
-    const render = (sourceLabel, options = {}) => {
-      const values        = clampValues(getValues());
-      setValues(values);
-      setInputVisuals();
+  function sanctuaryStanding(s) {
+    if (s.punitive) return ['Closed', 'Punitive placement ends the upward path (Article XV).'];
+    if (s.ring === '+1') return ['Resident', `Held while STI stays at ${SANCTUARY_FLOOR}+ and no high-impact breach occurs.`];
+    if (s.ring !== '0') return ['Not applicable', 'Elective and voluntary residents keep their origin standing.'];
+    if (isEligible(s)) return ['Eligible', 'Credentialed. Taking up residency is a choice; many stay in Main.'];
+    return ['Below the floor', `Eligibility opens at an STI of ${SANCTUARY_FLOOR}.`];
+  }
 
-      const score         = scoreModel(values);
-      const layer         = getEffectiveLayer(score);
-      const dashoffset    = circumference - (score / 100) * circumference;
-      const posPressure   = values.civic + values.contribution + values.conduct;
+  // =========================
+  // OUTCOMES
+  // =========================
 
-      // Use module-level tracking for reliable delta calculation
-      // (DOM dataset.currentValue lags behind during animations)
-      const previousScore = lastRenderedScore !== null ? lastRenderedScore : score;
+  /* An outcome is plain data the renderer paints. Lanes: state is
+     'lit' (the path this act took), 'side' (recorded here as a side effect),
+     'watch' (under evaluation) or 'off'. */
+  function blankOutcome(act) {
+    return {
+      act, title: '', line: '',
+      failsafe: '', detect: '', axes: null, classify: '',
+      social:   { state: 'off', reason: '', rows: {} },
+      criminal: { state: 'off', reason: '', rows: {} },
+      destTone: null, cites: [], announce: ''
+    };
+  }
 
-      // Score number — animated if vmssAnimateNumber is available
-      if (scoreEl) window.vmssAnimateNumber
-        ? window.vmssAnimateNumber(scoreEl, score, { duration: 460 })
-        : (scoreEl.textContent = score);
+  const detectLine = (ring) => ({
+    '+1': 'Implant telemetry and AR context log it in real time.',
+    '0':  'Implant telemetry and AR context log it in real time.',
+    '-1': 'Logging-only AI tracking records it; drone response is slower here.',
+    '-2': 'The implant logs it. No routine drone protection in −2.',
+    '-3': 'No AI monitoring or drone patrol. The implant ledger still records what the resident\'s implant captures.'
+  })[ring];
 
-      if (layerEl)      layerEl.textContent     = layer.label;
-      if (toneEl)       toneEl.textContent       = `${layer.tone} \u2022 STI band ${layer.range}`;
-      if (profileName)  profileName.textContent  = sourceLabel || 'Custom profile';
-      if (overallShift) overallShift.textContent = score >= 70 ? 'Upward pressure' : score >= 50 ? 'Friction zone' : 'Downward pressure';
-      if (stability)    stability.textContent    = posPressure >= COHERENCE_HIGH ? 'High coherence' : posPressure >= COHERENCE_MID ? 'Mixed coherence' : 'Low coherence';
+  /* Applies a harm: registers the drop with the trajectory penalty and
+     returns the numbers the lanes report. */
+  function applyHarm(s, units) {
+    const traj = trajectory(s);
+    const mult = traj === 'declining' ? 1.25 : 1;
+    const before = s.sti;
+    s.sti = clampSti(s.sti - units * mult);
+    s.recent.push('-');
+    return { before, delta: round1(s.sti - before), compounded: mult > 1 };
+  }
 
-      // Trajectory tracking (Article XV) — evaluate direction from recent score changes
-      const delta = score - previousScore;
-      if (delta !== 0) {
-        scoreHistory.push(delta);
-        if (scoreHistory.length > 8) scoreHistory.shift();
-      }
-      const recentDeltas = scoreHistory.slice(-TRAJECTORY_WINDOW);
-      const posCount = recentDeltas.filter(d => d > 0).length;
-      const negCount = recentDeltas.filter(d => d < 0).length;
-      const trajectory = recentDeltas.length < 2 ? 'neutral'
-                       : posCount >= 3 ? 'improving'
-                       : negCount >= 3 ? 'declining'
-                       : 'stable';
-      const trajectoryLabels = {
-        neutral:   ['—', 'Trajectory: Awaiting data'],
-        improving: ['\u2191', 'Trajectory: Improving'],
-        declining: ['\u2193', 'Trajectory: Declining'],
-        stable:    ['\u2194', 'Trajectory: Stable']
+  function applyCredit(s, credits) {
+    const traj = trajectory(s);
+    const mult = traj === 'improving' ? 1.25 : 1;
+    const before = s.sti;
+    s.sti = clampSti(s.sti + (credits * mult) / CREDIT_PER_POINT);
+    s.recent.push('+');
+    return { before, delta: round1(s.sti - before), boosted: mult > 1 };
+  }
+
+  function rebuildLine(points) {
+    const steadyYears = Math.ceil(points);
+    const serviceYears = Math.max(1, Math.ceil(points * CREDIT_PER_POINT / 48));
+    return `${fmt(round1(points))} points lost at once need ${fmt(round1(points * CREDIT_PER_POINT))} units of conduct to rebuild: about ${steadyYears} steady year${steadyYears === 1 ? '' : 's'}, or ${serviceYears} with sustained service.`;
+  }
+
+  function addLedger(s, entry) {
+    s.ledger.push({ id: s.seq++, year: round1(s.year), ...entry });
+  }
+
+  function phaseBackIfDue(s, o, cause) {
+    if (s.ring !== '+1' || s.punitive) return false;
+    if (cause !== 'breach' && s.sti >= SANCTUARY_FLOOR) return false;
+    s.ring = '0';
+    s.credentialed = false;
+    o.social.rows.placement = cause === 'breach'
+      ? 'Phased back to Main: a high-impact trust violation ends Sanctuary residency. Condition-based, not punitive.'
+      : `Phased back to Main: STI fell below the ${SANCTUARY_FLOOR} floor. Condition-based, not punitive; ascension can be re-earned.`;
+    o.phased = true;
+    o.cites.push(C.VII, C.XII, C.wp('§6.5'));
+    return true;
+  }
+
+  // ----- positive conduct -----
+
+  function conductOutcome(s, key) {
+    const act = ACTS[key];
+    const o = blankOutcome(key);
+    o.title = act.name;
+    o.failsafe = 'Nothing to stop: no harm threshold approached.';
+    o.detect = 'The ledger records outwardly expressed conduct; thoughts never enter it.';
+    o.classify = 'Positive conduct. The recovery dimension reads it as trajectory.';
+    o.criminal.reason = 'Nothing to evaluate. The criminal record track only receives qualifying acts.';
+    s.year = round1(s.year + act.years);
+
+    o.line = {
+      steady: 'A year of ordinary, non-harmful conduct: work, care, obligations kept.',
+      service: 'A season of measurable contribution to the district.',
+      crisis: 'Stayed and helped when an emergency hit the block.',
+      endorse: 'Neighbours and colleagues signal approval of visible conduct.'
+    }[key];
+
+    if (key === 'endorse' && trajectory(s) !== 'improving') {
+      o.social.state = 'lit';
+      o.social.rows = {
+        ledger: 'Signals received.',
+        score: 'No movement.',
+        fallout: 'Public signals only speed up what the behavioural record already shows.',
+        recovery: 'Build a positive trajectory first; endorsements then accelerate it.',
+        placement: 'None.'
       };
-      if (trajectoryEl) {
-        const [arrow, label] = trajectoryLabels[trajectory];
-        trajectoryEl.innerHTML = `<span class="vmss-trajectory-arrow is-${trajectory}">${arrow}</span> ${label}`;
+      o.cites.push(C.wp('§5.6'));
+      s.recent.push('0');
+      o.announce = 'Peer endorsements. No movement: public signals amplify a trajectory, they never create one.';
+      return o;
+    }
+
+    const r = applyCredit(s, act.credits);
+    o.social.state = 'lit';
+    o.social.rows = {
+      ledger: 'Positive record, visible to peers.',
+      score: `${signed(r.delta)} (${Math.round(r.before)} → ${Math.round(s.sti)})${r.boosted ? ' · trajectory credit applied' : ''}`,
+      fallout: key === 'endorse' ? 'Endorsements accelerate a rise the conduct already produced.' : 'Trust-dependent access widens gradually.',
+      recovery: `${act.credits} units of conduct${r.boosted ? ' plus trajectory credit' : ''} buy ${fmt(round1(r.delta))} point${r.delta === 1 ? '' : 's'}: rebuilding runs at a tenth of the speed of loss.`,
+      placement: s.ring === '-3'
+        ? 'Standing inside −3 improves: market associations, cooperatives and compounds read the public ledger. It is not a way out.'
+        : s.ring === '-1' || s.ring === '-2'
+        ? 'Local standing improves: districts, cooperatives, private domains. It is not a way back up.'
+        : 'None. STI moves trust, not rings.'
+    };
+    o.cites.push(C.II, C.XV);
+    if (key === 'endorse') o.cites.push(C.wp('§5.6'));
+    if (s.punitive) o.cites.push(C.XV);
+    if (s.ring === '-3') o.cites.push(C.XXV, C.dossier('−3'));
+
+    // Trajectory credit clears the oldest open clearable item (Whitepaper §6.2).
+    const open = activeClearable(s);
+    if (trajectory(s) === 'improving' && open.length && key !== 'endorse') {
+      open[0].status = 'cleared';
+      o.social.rows.ledger = `Trajectory credit: "${open[0].label}" leaves the active record (the history keeps it).`;
+      if (!activeClearable(s).length) s.warned = false;
+      o.cites.push(C.wp('§6.2'));
+    }
+    o.announce = `${act.name}. STI ${signed(r.delta)}, now ${Math.round(s.sti)}.`;
+    return o;
+  }
+
+  function remediateOutcome(s) {
+    const o = blankOutcome('remediate');
+    const open = activeClearable(s);
+    s.year = round1(s.year + ACTS.remediate.years);
+    open.forEach((e) => { e.status = 'cleared'; });
+    const wasWarned = s.warned;
+    s.warned = false;
+    s.recent.push('+');
+    o.title = 'Remediation';
+    o.line = `Fines paid and conduct corrected on ${open.length} open item${open.length === 1 ? '' : 's'}.`;
+    o.failsafe = 'Nothing to stop.';
+    o.detect = 'The ledger records the corrective signal.';
+    o.classify = 'Correction. Clearing the record is the behaviour the system exists to reward, not a loophole.';
+    o.social.state = 'lit';
+    o.social.rows = {
+      ledger: 'Items leave the active profile; the historical ledger keeps them.',
+      score: 'Unchanged. Remediation clears the record; conduct rebuilds the score.',
+      fallout: 'Trust-gated access no longer reads the cleared items.',
+      recovery: 'Correction resets the trajectory.',
+      placement: 'None.'
+    };
+    o.criminal.reason = wasWarned
+      ? 'Pattern evaluation stands down: the correction opportunity was taken.'
+      : 'Nothing to evaluate.';
+    if (wasWarned) o.criminal.state = 'watch';
+    o.cites.push(C.XV, C.wp('§6.2–6.3'));
+    o.announce = `Remediation. ${open.length} item${open.length === 1 ? '' : 's'} cleared; trajectory reset.`;
+    return o;
+  }
+
+  function ascendOutcome(s) {
+    const o = blankOutcome('ascend');
+    s.year = round1(s.year + ACTS.ascend.years);
+    s.ring = '+1';
+    s.credentialed = true;
+    o.title = 'Took up Sanctuary residency';
+    o.line = 'Eligible, and chose to move. Many eligible residents stay in Main by choice.';
+    o.failsafe = 'Not applicable.';
+    o.detect = `Eligibility read from the STI: ${Math.round(s.sti)}, at or above the ${SANCTUARY_FLOOR} floor.`;
+    o.classify = 'Phasing: the STI-driven, reversible movement between Main and Sanctuary.';
+    o.social.state = 'lit';
+    o.social.rows = {
+      ledger: 'No entry. Moving is not conduct.',
+      score: `Unchanged at ${Math.round(s.sti)}.`,
+      fallout: 'Pre-intervention now applies: harmful acts halt before completion. The implant is mandatory here.',
+      recovery: 'Residency is upkeep, not a prize: it holds only while the condition holds.',
+      placement: `Moved to +1 Sanctuary. Below ${SANCTUARY_FLOOR}, or after a high-impact breach, the citizen phases back.`
+    };
+    o.criminal.reason = 'Nothing to evaluate.';
+    o.destTone = RING['+1'].tone;
+    o.cites.push(C.VII, C.wp('§4.2'), C.dossier('+1'));
+    o.announce = 'Moved to +1 Sanctuary through phasing.';
+    return o;
+  }
+
+  // ----- social breaches -----
+
+  function socialOutcome(s, key) {
+    const act = ACTS[key];
+    const o = blankOutcome(key);
+    const lines = {
+      infraction: 'Logged at 94 km/h in a 60 zone. No one was hurt.',
+      harass: 'Repeated demeaning messages to a colleague. No law broken.',
+      breach: 'Sexual contact outside a registered exclusive partnership. No law broken.'
+    };
+    o.title = act.name;
+    o.line = lines[key];
+    o.failsafe = 'Not engaged: no harm threshold is approached.';
+    o.detect = detectLine(s.ring);
+    const repeated = s.ledger.some((e) => e.kind === key && e.status === 'active');
+    o.axes = { severity: key === 'breach' ? 'moderate' : 'low', pattern: repeated ? 'repeated' : 'isolated', reversibility: 'reversible' };
+    o.cites.push(C.XIV);
+    s.year = round1(s.year + act.years);
+
+    o.classify = key === 'breach'
+      ? 'Major non-criminal breach. Serious enough for real consequence, not for enforcement.'
+      : 'Minor, clearable. Correction happens inside the ring.';
+    const r = applyHarm(s, act.points);
+    addLedger(s, { label: act.name, kind: key, track: 1, tier: act.tier, status: act.clearable ? 'active' : 'entry', clearable: !!act.clearable, delta: r.delta });
+
+    o.social.state = 'lit';
+    o.social.rows = {
+      ledger: act.tier === 'public' ? 'Public ledger entry: major violations are publicly visible.' : 'Private ledger tier: minor violations stay private.',
+      score: `${signed(r.delta)} (${Math.round(r.before)} → ${Math.round(s.sti)})${r.compounded ? ' · trajectory penalty compounds it' : ''}`,
+      fallout: {
+        infraction: 'A fine. Nothing else follows while the record is corrected.',
+        harass: repeated ? 'Repeated: the pattern is now socially legible even without enforcement.' : 'Colleagues who read the profile adjust.',
+        breach: 'The partner can read the entry; endorsements tied to the relationship get withdrawn.'
+      }[key],
+      recovery: rebuildLine(Math.abs(r.delta)),
+      placement: 'None. STI moves trust, not rings.'
+    };
+    o.cites.push(C.II, C.wp('§5.3'));
+    if (s.sti < VISIBILITY_FLAG && r.before >= VISIBILITY_FLAG) {
+      o.social.rows.fallout += ` Below ${VISIBILITY_FLAG}: automatic social visibility flag.`;
+      o.cites.push(C.wp('§5.2'));
+    }
+    o.criminal.reason = 'Not reached. No qualifying act; the criminal record track receives nothing.';
+
+    if (s.ring === '-3') {
+      o.classify = 'No institution reads it in −3. The public ledger still carries it.';
+      o.social.rows.fallout = 'Rated by −3\'s peers against the layer\'s ambient standard; associations, cooperatives and compounds read the ledger.';
+      o.cites.push(C.wp('§14.3'), C.dossier('−3'));
+    }
+    if (s.ring === '+1') phaseBackIfDue(s, o, key === 'breach' ? 'breach' : 'score');
+
+    // Main Layer pattern reading (Charter I second pathway, XV; Whitepaper §6.3).
+    if (s.ring === '0' && !s.punitive && act.clearable) {
+      const open = activeClearable(s).length;
+      if (!s.warned && open >= 3) {
+        s.warned = true;
+        s.warnBase = open;
+        o.criminal.state = 'watch';
+        o.criminal.reason = 'Watching, not escalating.';
+        o.criminal.rows = {
+          threshold: `Pattern warning: ${open} uncorrected items. A documented correction opportunity; remediation resets it.`,
+          enforcement: 'None.',
+          review: 'Trajectory under evaluation. This is not a countdown.',
+          placement: 'Unchanged.'
+        };
+        o.cites.push(C.I, C.XV, C.wp('§6.3'));
+      } else if (s.warned && open >= s.warnBase + 2) {
+        return patternReassignment(s, o);
+      } else if (s.warned) {
+        o.criminal.state = 'watch';
+        o.criminal.reason = 'Pattern warning outstanding. Remediate to reset the trajectory.';
       }
+    }
+    o.announce = `${act.name}. Social path. STI ${signed(r.delta)}, now ${Math.round(s.sti)}.${o.phased ? ' Phased back to Main Layer.' : ''}`;
+    return o;
+  }
 
-      // Three-axis proportional response (Article XIV)
-      // This IS the multi-factor evaluation — axes escalate as a warning,
-      // and at 2-axis+ the system triggers pattern-based reassignment.
-      const severity = values.violations >= 14 ? 'high'
-                     : values.violations >= 7  ? 'moderate'
-                     : 'low';
+  function patternReassignment(s, o) {
+    const stiNow = Math.round(s.sti);
+    s.ring = '-1';
+    s.punitive = true;
+    s.credentialed = false;
+    addLedger(s, { label: 'Unremediated pattern', track: 2, tier: 'public', status: 'record', delta: null });
+    o.title = `${o.title}: the pattern crosses`;
+    o.axes.pattern = 'repeated';
+    o.classify = 'Unremediable pattern: accumulation continued after a documented correction opportunity.';
+    o.criminal.state = 'lit';
+    o.criminal.reason = '';
+    o.criminal.rows = {
+      threshold: 'Crossed by pattern: correction opportunities given, trajectory documented, no response.',
+      enforcement: 'No force needed: identified and transported to intake.',
+      review: 'Multi-factor evaluation of behaviour, context and cumulative history.',
+      placement: 'Reassigned to −1 Noncompliance. Immediate and permanent.'
+    };
+    o.social.state = 'side';
+    o.social.rows.placement = `None. STI stood at ${stiNow}: the pattern of acts decided this, not the score.`;
+    o.destTone = RING['-1'].tone;
+    o.cites.push(C.I, C.XII, C.XV, C.wp('§6.3'));
+    o.announce = `Unremediated pattern. Criminal path. Reassigned to −1 Noncompliance with STI at ${stiNow}.`;
+    return o;
+  }
 
-      const harmfulCount = eventLog.filter(e => e.harmful).length;
-      const pattern = trajectory === 'declining' && harmfulCount >= 3 ? 'established'
-                    : harmfulCount >= 2 || trajectory === 'declining' ? 'emerging'
-                    : 'isolated';
+  // ----- criminal acts -----
 
-      const irreversible = reversToggle?.checked || false;
+  function criminalOutcome(s, key) {
+    const act = ACTS[key];
+    const o = blankOutcome(key);
+    const lines = {
+      dui: 'Drove after drinking. The implant warned first; the warning was dismissed.',
+      assault: 'Struck a stranger in a dispute outside a bar.',
+      fraud: 'Ran a false-invoicing scheme across dozens of clients.',
+      predatory: 'Sexual violence against another resident.',
+      killing: 'Killed another resident.'
+    };
+    o.title = act.name;
+    o.line = lines[key];
+    o.detect = detectLine(s.ring);
+    s.year = round1(s.year + act.years);
+    const prior = s.ledger.some((e) => e.track === 2 && e.kind === key);
+    const irreversible = key === 'predatory' || key === 'killing';
+    o.axes = { severity: 'high', pattern: prior ? 'repeated' : 'isolated', reversibility: irreversible ? 'irreversible' : 'reversible' };
+    const axisCount = 1 + (prior ? 1 : 0) + (irreversible ? 1 : 0);
+    o.cites.push(C.XIV);
 
-      const axes = (severity === 'high' ? 1 : 0)
-                 + (pattern !== 'isolated' ? 1 : 0)
-                 + (irreversible ? 1 : 0);
+    o.failsafe = act.violent
+      ? (s.ring === '+1'
+        ? 'Threshold Inhibition Protocol: motor inhibition and drones halt the act. No harm completes.'
+        : s.ring === '-3' ? 'No failsafe network in daily −3 life.'
+        : 'The failsafe warned as intent built; the citizen overrode it. Disabling it is itself logged.')
+      : key === 'dui' ? (s.ring === '-3' ? 'No failsafe network in daily −3 life.' : 'The implant warned before the vehicle moved. The warning was dismissed.')
+      : 'No motor failsafe applies to a non-violent act.';
+    if (s.ring === '+1' && act.violent) o.cites.push(C.VI, C.dossier('+1'));
 
-      const responses = [
-        'No elevated response',
-        'Corrective intervention within current layer',
-        'Formal multi-factor evaluation triggered \u2014 reassignment threshold reached',
-        'Qualifying event for reassignment'
-      ];
+    const r = applyHarm(s, act.points);
+    addLedger(s, { label: act.name, kind: key, track: 2, tier: 'public', status: act.permanent ? 'permanent' : 'record', delta: r.delta });
 
-      // Pattern-based -1 reassignment (Art. XV accumulation path)
-      // Path 1: All three axes active (severity + pattern + irreversible) via harmful event
-      // Path 2: Extreme sustained refusal to correct — STI ≤ 5 with 6+ consecutive harmful events
-      //         The pattern itself becomes evidence of irreversible civic failure (Art. XV)
-      const isHarmfulEvent = options.source === 'sti-event' && options.harmful;
-      const consecutiveHarmful = eventLog.length >= 6 && eventLog.slice(-6).every(e => e.harmful);
-      const extremePattern = isHarmfulEvent && !isLocked && score <= 5 && consecutiveHarmful && severity === 'high';
+    // −3: the institution has withdrawn from daily conduct; the ledger has not.
+    if (s.ring === '-3') {
+      o.classify = 'Unclassified institutionally. The federal floor acts only on absolute federal law or the External Force Doctrine.';
+      o.social.state = 'side';
+      o.social.rows = {
+        ledger: 'Public ledger entry: −3\'s associations, cooperatives and crews read it.',
+        score: `${signed(r.delta)} (${Math.round(r.before)} → ${Math.round(s.sti)})`,
+        fallout: 'Rated by −3\'s peers against the layer\'s ambient standard. No institution acts on it.',
+        recovery: rebuildLine(Math.abs(r.delta)),
+        placement: 'None. There is no ring below −3.'
+      };
+      o.criminal.state = 'side';
+      o.criminal.reason = 'No daily institutional response. Private order answers, however the layer\'s organic order decides.';
+      o.criminal.rows = {
+        threshold: 'Below the federal floor triggers.',
+        enforcement: 'None from the institution.',
+        review: 'None.',
+        victim: key === 'killing' ? 'Not revived. Death in −3 is final.' : 'No institutional restoration.',
+        placement: 'Unchanged. There is no ring below −3.'
+      };
+      o.cites.push(C.VI, C.II, C.XXV, C.dossier('−3'));
+      o.announce = `${act.name} in −3. No institutional response; the public ledger records it. STI ${signed(r.delta)}.`;
+      return o;
+    }
 
-      if (!isLocked && isHarmfulEvent && axes >= 3 && severity === 'high' && pattern === 'established' && irreversible) {
-        assignedLayer = '-1';
-        isLocked = true;
-        currentEventLabel += ' \u2014 3-axis evaluation: pattern-based reassignment to -1 (Article XIV/XV)';
-      } else if (extremePattern) {
-        assignedLayer = '-1';
-        isLocked = true;
-        if (reversToggle) reversToggle.checked = true;
-        currentEventLabel += ' \u2014 Sustained refusal to correct: pattern-based reassignment to -1 (Article XV)';
+    // Where does this act land from this ring?
+    let dest = null;
+    let destWhy = '';
+    if (s.ring === '+1' || s.ring === '0') {
+      dest = act.dest;
+      destWhy = act.named
+        ? 'Article I names this act a single qualifying event for −1: the threshold is categorical, not a count.'
+        : axisCount >= 3 ? 'Three axes: a qualifying event.'
+        : 'Severe and irreversible: formal multi-factor evaluation, and the act\'s class sets the destination.';
+    } else if (s.ring === '-1') {
+      /* −1 dossier: a bar fight reads one axis (corrective, STI hit); violence
+         "moves a resident toward −2"; a patterned coercion operation qualifies
+         for −2. The console reads a repeat act of violence as the pattern axis. */
+      const priorViolence = s.ledger.slice(0, -1).some((e) => e.track === 2 && (e.kind === 'assault' || e.kind === 'predatory'));
+      if (key === 'killing') { dest = '-3'; destWhy = 'Capital harm: reassignment to −3.'; }
+      else if (key === 'predatory') { dest = '-2'; destWhy = 'Predatory violence: severe and irreversible, the class −2 exists for.'; }
+      else if (key === 'assault' && priorViolence) { dest = '-2'; destWhy = 'Repeated violence in −1: severe and patterned. Formal evaluation moves the resident to −2.'; }
+    } else if (s.ring === '-2') {
+      if (key === 'killing') { dest = '-3'; destWhy = 'Killing is −2\'s one law: immediate reassignment to −3.'; }
+    }
+
+    o.social.state = 'side';
+    o.social.reason = '';
+    o.social.rows = {
+      ledger: 'Public entry: the violations dimension registers the hard flag.',
+      score: `${signed(r.delta)} (${Math.round(r.before)} → ${Math.round(s.sti)})`,
+      fallout: 'Recorded on both tracks. The score falls, but it did not decide anything.',
+      recovery: s.ring === '0' || s.ring === '+1' ? 'Whatever the score does next, it cannot undo a reassignment.' : rebuildLine(Math.abs(r.delta)),
+      placement: 'None. STI has no crossover to reassignment.'
+    };
+    o.cites.push(C.II);
+
+    if (dest) {
+      const from = s.ring;
+      const halted = s.ring === '+1' && act.violent;
+      o.classify = destWhy;
+      o.criminal.state = 'lit';
+      o.criminal.rows = {
+        threshold: halted ? 'Crossed by the attempt: intent plus execution is enough.' : 'Crossed. The act qualifies for the criminal escalation path.',
+        enforcement: act.violent
+          ? (halted ? 'Subdued on the spot by inhibition and drones.' : 'Enforcement drones respond; sedation and restraint if needed; drone transport.')
+          : 'Identified from implant telemetry and transported to intake.',
+        review: 'Evidence, telemetry, context and severity reviewed. Minutes to hours; no plea, no bail.',
+        placement: `Reassigned to ${ringName(dest)}. Immediate and permanent.`
+      };
+      if (key === 'killing' || key === 'predatory' || key === 'assault') {
+        o.criminal.rows.victim = halted ? 'Unharmed: the act never completed. Neural therapy offered.'
+          : key === 'killing'
+            ? ({ '0': 'Revived by backup vessel at full fidelity.', '-1': 'Revived at full fidelity through a VMSS proxy installation.', '-2': 'Revived through a proxy installation (about 1 in 1,000 revivals fail).' })[from]
+            : 'Treated and restored; therapy provided.';
       }
-
-      if (axisPanel) {
-        axisPanel.innerHTML =
-          `<div class="vmss-axis-row"><span class="vmss-axis-label">Severity</span><span class="vmss-axis-value is-${severity}">${severity}</span></div>` +
-          `<div class="vmss-axis-row"><span class="vmss-axis-label">Pattern</span><span class="vmss-axis-value is-${pattern}">${pattern}</span></div>` +
-          `<div class="vmss-axis-row"><span class="vmss-axis-label">Reversibility</span><span class="vmss-axis-value is-${irreversible ? 'irreversible' : 'reversible'}">${irreversible ? 'irreversible' : 'reversible'}</span></div>` +
-          `<div class="vmss-axis-divider"></div>` +
-          `<div class="vmss-axis-response is-level-${axes}"><strong>${axes}-axis:</strong> ${responses[axes]}</div>`;
+      if (key === 'fraud') o.criminal.rows.victim = 'Restitution is automated from the perpetrator\'s assets.';
+      s.ring = dest;
+      s.punitive = true;
+      s.credentialed = false;
+      if (dest === '-3') {
+        o.social.rows.recovery = 'Terminal reassignment severs the backup vessel link. The score and the public ledger travel on into −3.';
       }
-
-      // SVG gauge arc
-      if (gauge) {
-        gauge.style.strokeDashoffset = `${dashoffset}`;
-        gauge.classList.toggle('is-strong', score >= 70); // stronger glow above Main Layer
+      o.destTone = RING[dest].tone;
+      o.cites.push(act.named ? C.I : C.XIV, C.VII, C.XII, C.XIII, C.XV);
+      if (act.named && from === '0') o.cites.push(C.threshold);
+      if (from === '-1') o.cites.push(C.dossier('−1'));
+      if (from === '-2') o.cites.push(C.dossier('−2'));
+      o.announce = `${act.name}. Criminal path. Reassigned to ${ringName(dest)}. STI did not decide it.`;
+    } else if (s.ring === '-2') {
+      o.classify = 'Below the killing line.';
+      o.criminal.state = 'side';
+      o.criminal.reason = 'Logged on the record track. Below the killing line, −2 brings no federal response: the ledger fills and private order answers.';
+      o.criminal.rows = { placement: 'Unchanged.' };
+      o.social.rows.fallout = 'Public ledger entry: every private operator deciding access can read it.';
+      o.cites.push(C.dossier('−2'));
+      o.announce = `${act.name} in −2. Logged; no federal response below the killing line. STI ${signed(r.delta)}.`;
+    } else {
+      // −1: a first fight, or a non-violent act canon gives no further ring step.
+      o.criminal.state = 'side';
+      if (key === 'assault') {
+        o.classify = 'One axis: severe, but isolated and reversible. Corrective intervention inside −1.';
+        o.criminal.reason = 'Logged on the record track. A first fight in −1 draws corrective intervention and an STI hit; repeated violence builds the pattern that moves a resident to −2.';
+      } else {
+        o.classify = 'Already at this act\'s tier.';
+        o.criminal.reason = 'Logged on the record track. Canon names no further ring step for this act inside −1, so placement holds; −1\'s private courts act within Article XIV proportionality.';
       }
+      o.criminal.rows = { placement: 'Unchanged.' };
+      o.cites.push(C.dossier('−1'));
+      o.announce = `${act.name} in −1. Logged; placement holds. STI ${signed(r.delta)}.`;
+    }
+    return o;
+  }
 
-      // Highlight the current layer in the ladder
-      layerSteps.forEach((step) => {
-        step.classList.toggle('is-current', step.dataset.layer === layer.key);
-        step.classList.toggle('is-locked', isLocked && step.dataset.layer === assignedLayer);
-      }
-      );
+  function runAct(s, key) {
+    if (['steady', 'service', 'crisis', 'endorse'].includes(key)) return conductOutcome(s, key);
+    if (key === 'remediate') return remediateOutcome(s);
+    if (key === 'ascend') return ascendOutcome(s);
+    if (ACTS[key].dest) return criminalOutcome(s, key);
+    return socialOutcome(s, key);
+  }
 
-      // System interpretation — accumulates history (newest at top), capped at 20
-      if (reasoningEl) {
-        const newSignals = buildExplanation(score, values, currentEventLabel, { trajectory, eventLog, isLocked, assignedLayer })
-          .map((line) => `<div class="vmss-insight-item"><strong>Signal:</strong> ${line}</div>`)
-          .join('');
+  /* After every act: keep the sustained-85 clock and the timeline. */
+  function settle(s) {
+    if (s.ring === '0') s.credentialed = isEligible(s);
+    s.history.push({ year: s.year, sti: s.sti, ring: s.ring });
+    if (s.history.length > 400) s.history.shift();
+    if (s.recent.length > 12) s.recent.splice(0, s.recent.length - 12);
+    if (s.ledger.length > 60) s.ledger.splice(0, s.ledger.length - 60);
+  }
 
-        // Layer consequences — check recent event streak for in-layer outcomes
-        let consequenceHtml = '';
+  // =========================
+  // REACH (what STI can and cannot do, for this citizen now)
+  // =========================
 
-        // Best-outcome terminal: all positive factors maxed, violations at 0
-        if (!isTerminal && values.violations === 0 &&
-            values.civic >= 18 && values.contribution >= 18 && values.conduct >= 18 &&
-            values.competence >= 18 && values.endorsement >= 9 && values.recovery >= 9) {
-          const layerLabels = { '+1': '+1 Sanctuary', '0': 'Main Layer', '-1': '-1 Noncompliance', '-2': '-2 Violent Offense', '-3': '-3 Terminal' };
-          const layerName = layerLabels[assignedLayer] || assignedLayer;
-          const bestText = isLocked
-            ? `Optimal civic profile achieved within ${layerName}. This is the best possible outcome for this layer. Simulation complete.`
-            : 'Optimal civic profile achieved \u2014 all factors at peak, zero violations. Sanctuary-grade citizen. Simulation complete.';
-          consequenceHtml = `<div class="vmss-insight-item vmss-consequence is-positive"><strong>Recognition:</strong> ${bestText} <span class="vmss-terminal-tag">\u2014 TERMINAL</span></div>`;
-          isTerminal = true;
-          root.classList.add('is-terminal');
-        }
+  const REACH = [
+    { k: 'gate',     can: true,  on: (s) => s.ring === '+1' || s.ring === '0',
+      text: 'Opens or narrows trust-dependent access: Trust Threshold Domains, contracts, partnerships, positions.', cite: [C.II, C.wp('§5.2')] },
+    { k: 'standing', can: true,  on: (s) => s.ring === '-1' || s.ring === '-2' || s.ring === '-3',
+      text: 'Sets standing inside a lower ring: better districts, security cooperatives, market associations, private domains.', cite: [C.XXV, C.dossier('−1'), C.dossier('−2'), C.dossier('−3')] },
+    { k: 'ascent',   can: true,  on: (s) => s.ring === '0' && !s.punitive,
+      text: `Opens Sanctuary eligibility at ${SANCTUARY_FLOOR} or above, including after a phase-back. The move is the citizen's choice.`, cite: [C.VII, C.wp('§5.2')] },
+    { k: 'phase',    can: true,  on: (s) => s.ring === '+1',
+      text: `Returns a Sanctuary resident to Main below ${SANCTUARY_FLOOR}. A condition lapsing, not a punishment: its only placement effect.`, cite: [C.VII, C.XII, C.XIII] },
+    { k: 'flag',     can: true,  on: (s) => s.sti < VISIBILITY_FLAG,
+      text: `Below ${VISIBILITY_FLAG}, raises automatic social visibility flags.`, cite: [C.wp('§5.2')] },
+    { k: 'input',    can: true,  on: (s) => s.ring !== '-3',
+      text: 'Feeds multi-factor evaluation as one weighted input beside behaviour, context and history.', cite: [C.XII, C.wp('§5.10')] },
+    { k: 'reassign', can: false, on: () => true,
+      text: 'Reassign anyone below Main. That takes a qualifying act on the criminal record track, then review.', cite: [C.II, C.XII, C.XIII] },
+    { k: 'return',   can: false, on: (s) => s.punitive,
+      text: 'Lift a punitive resident back up. Improvement serves life in the ring, not a way out.', cite: [C.XV] },
+    { k: 'thought',  can: false, on: () => true,
+      text: 'Read thought. Only outwardly expressed actions move it; cognition is non-public.', cite: [C.II] },
+    { k: 'crowd',    can: false, on: () => true,
+      text: 'Move against conduct. Public approval and disapproval amplify a trajectory; they never create one.', cite: [C.wp('§5.6')] },
+    { k: 'terminal', can: false, on: (s) => s.ring === '-3',
+      text: 'Summon an institution in −3. The score and ledger travel with the resident; daily conduct meets private order.', cite: [C.VI, C.dossier('−3')] }
+  ];
 
-        if (eventLog.length >= 3 && !isTerminal) {
-          const recent = eventLog.slice(-3);
-          const allHarmful = recent.every(e => e.harmful);
-          const allPositive = recent.every(e => !e.harmful);
-          const streak5 = eventLog.length >= 5 && eventLog.slice(-5).every(e => !e.harmful);
+  // =========================
+  // DOM
+  // =========================
 
-          let picked = null;
-          let type = '';
-          if (allHarmful) {
-            const pool = CONSEQUENCES_NEGATIVE[assignedLayer] || CONSEQUENCES_NEGATIVE['0'];
-            picked = randItem(pool);
-            type = 'negative';
-          } else if (streak5 && score >= 85 && !isLocked) {
-            // Elite recognition only at STI 85+ and not locked in a lower layer
-            picked = randItem(CONSEQUENCES_POSITIVE.elite);
-            type = 'positive';
-          } else if (allPositive && score >= 85 && !isLocked) {
-            // Title recognition only at STI 85+ and not locked
-            picked = randItem(CONSEQUENCES_POSITIVE.titles);
-            type = 'positive';
-          } else if (allPositive && isLocked) {
-            // Locked in lower layer: acknowledge improvement but no leadership
-            picked = `Positive conduct noted within ${assignedLayer} \u2014 quality of life improving but layer assignment is permanent.`;
-            type = 'positive';
-          }
+  function initConsole() {
+    const root = document.getElementById('sti-console');
+    if (!root) return;
 
-          if (picked) {
-            const isObj = typeof picked === 'object';
-            const text = isObj ? picked.text : picked;
-            const terminal = isObj && picked.terminal;
-            if (text !== lastConsequence) {
-              lastConsequence = text;
-              const label = type === 'negative' ? 'Consequence' : 'Recognition';
-              const terminalTag = terminal ? ' <span class="vmss-terminal-tag">\u2014 TERMINAL</span>' : '';
-              consequenceHtml = `<div class="vmss-insight-item vmss-consequence is-${type}"><strong>${label}:</strong> ${text}${terminalTag}</div>`;
-              if (terminal) {
-                isTerminal = true;
-                root.classList.add('is-terminal');
-              }
-            }
-          }
-        }
-
-        if (isTerminal && consequenceHtml) {
-          // Terminal state: show only the terminal consequence, clear the rest
-          reasoningEl.innerHTML = consequenceHtml;
-        } else if (!isTerminal) {
-          reasoningEl.insertAdjacentHTML('afterbegin', consequenceHtml + newSignals);
-          while (reasoningEl.children.length > 30) reasoningEl.removeChild(reasoningEl.lastChild);
-        }
-      }
-
-      // Day tally — cumulative positive vs negative days (demonstrates 10:1 asymmetry)
-      if (tallyPos && tallyNeg && tallyNet) {
-        if (totalPosDays === 0 && totalNegDays === 0) {
-          tallyPos.textContent = tallyNeg.textContent = tallyNet.textContent = '\u2014';
-          tallyPos.className = tallyNeg.className = tallyNet.className = 'vmss-tally-value';
-        } else {
-          const net = totalPosDays - totalNegDays;
-          tallyPos.textContent = `+${totalPosDays}d`;
-          tallyPos.className = 'vmss-tally-value is-positive';
-          tallyNeg.textContent = `\u2212${totalNegDays}d`;
-          tallyNeg.className = 'vmss-tally-value is-negative';
-          tallyNet.textContent = (net >= 0 ? `+${net}d` : `\u2212${Math.abs(net)}d`);
-          tallyNet.className = `vmss-tally-value ${net >= 0 ? 'is-positive' : 'is-negative'}`;
-        }
-      }
-
-      // Factor bars are updated by setInputVisuals() above (merged input + display)
-
-      // Event feed and aria-live announcement
-      const layerChanged = lastLayerKey && lastLayerKey !== layer.key;
-      const feedMsg = layerChanged
-        ? `Layer transition: ${layer.label}`
-        : buildDeltaMessage(previousScore, score, layer, currentEventLabel);
-
-      if (eventFeed)  eventFeed.textContent  = feedMsg;
-      if (liveRegion) liveRegion.textContent = layerChanged
-        ? `Layer transition: now in ${layer.label}. STI ${score}.`
-        : `STI ${score}. ${layer.label}.`;
-
-      // Flash score card on layer transition
-      if (layerChanged) pulseElement(root.querySelector('.vmss-dash-score'));
-      lastLayerKey = layer.key;
-
-      lastRenderedScore = score;
-
-      // Push to global VMSS state so HUD and ring map stay in sync
-      if (window.VMSS) {
-        window.VMSS.setState({
-          stiScore:      score,
-          selectedLayer: layer.key,
-          profile:       sourceLabel || 'Custom profile',
-          tone:          layer.tone,
-          lastEvent:     currentEventLabel || 'Manual slider adjustment',
-          values
-        }, { source: options.source || 'sti-sim' });
-      }
+    const q = (sel) => root.querySelector(sel);
+    const qa = (sel) => Array.from(root.querySelectorAll(sel));
+    const el = {
+      startBtns: qa('[data-tc-start]'),
+      restart: q('[data-tc-restart]'),
+      modeBtns: qa('[data-tc-mode]'),
+      acts: qa('[data-tc-act]'),
+      ascendNote: q('[data-tc-ascend-note]'),
+      moveGroup: q('.tc-act-group[data-kind="move"]'),
+      ring: q('[data-tc-ring]'),
+      ringBasis: q('[data-tc-ring-basis]'),
+      ringStat: q('[data-tc-stat="ring"]'),
+      sti: q('[data-tc-sti]'),
+      stiNote: q('[data-tc-sti-note]'),
+      record: q('[data-tc-record]'),
+      sanct: q('[data-tc-sanctuary]'),
+      sanctNote: q('[data-tc-sanctuary-note]'),
+      year: q('[data-tc-year]'),
+      traj: q('[data-tc-trajectory]'),
+      fork: q('[data-tc-fork]'),
+      evTitle: q('[data-tc-event-title]'),
+      evLine: q('[data-tc-event-line]'),
+      failsafe: q('[data-tc-failsafe]'),
+      detect: q('[data-tc-detect]'),
+      axes: qa('[data-tc-axis]'),
+      classify: q('[data-tc-classify]'),
+      lanes: { social: q('[data-tc-lane="social"]'), criminal: q('[data-tc-lane="criminal"]') },
+      cites: q('[data-tc-cites]'),
+      timeline: q('[data-tc-timeline]'),
+      timelineSummary: q('[data-tc-timeline-summary]'),
+      reachCan: q('[data-tc-reach="can"]'),
+      reachCannot: q('[data-tc-reach="cannot"]'),
+      ledger: q('[data-tc-ledger]'),
+      mapLink: q('[data-tc-map-link]'),
+      live: q('[data-tc-live]')
     };
 
-    // --- Event actions ---------------------------------------------------
+    const narrow = window.matchMedia('(max-width: 900px)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('start');
+    let s = (requested && RING[requested]) ? freshSession(requested) : (loadSession() || freshSession('0'));
+    let startRing = requested && RING[requested] ? requested : (s.history[0] ? s.history[0].ring : '0');
+    let last = null;
 
-    /** Renders event history as horizontal chips in the event strip. */
-    const renderEventHistory = () => {
-      if (!eventHistoryEl) return;
-      if (!eventLog.length) {
-        eventHistoryEl.innerHTML = '<span class="vmss-event-empty">No events recorded yet.</span>';
+    // ---------- renderers ----------
+
+    function renderStatus() {
+      el.ring.textContent = ringName(s.ring);
+      el.ringStat.dataset.tone = RING[s.ring].tone;
+      el.ringBasis.textContent = s.punitive ? 'Punitive placement · permanent'
+        : s.ring === '+1' ? 'Phasing · held while the condition holds'
+        : 'Resident';
+      if (window.vmssAnimateNumber) window.vmssAnimateNumber(el.sti, Math.round(s.sti), { duration: 420 });
+      else el.sti.textContent = String(Math.round(s.sti));
+      el.stiNote.textContent = s.sti >= SANCTUARY_FLOOR ? `At or above the ${SANCTUARY_FLOOR} Sanctuary floor`
+        : s.sti < VISIBILITY_FLAG ? `Below ${VISIBILITY_FLAG}: visibility flag`
+        : `${SANCTUARY_FLOOR - Math.round(s.sti)} below the Sanctuary floor`;
+      el.record.textContent = recordSummary(s);
+      const [standing, note] = sanctuaryStanding(s);
+      el.sanct.textContent = standing;
+      el.sanctNote.textContent = note;
+      el.year.textContent = `Year ${fmt(round1(s.year))}`;
+      const t = trajectory(s);
+      el.traj.textContent = { forming: 'Trajectory forming', improving: 'Trajectory improving', declining: 'Trajectory declining', mixed: 'Trajectory mixed' }[t];
+      el.traj.dataset.state = t;
+      el.startBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tcStart === startRing)));
+      if (el.mapLink) el.mapLink.href = `layers.html?ring=${encodeURIComponent(s.ring)}#ring-atlas`;
+    }
+
+    function renderActs() {
+      const open = activeClearable(s).length;
+      el.acts.forEach((b) => {
+        const key = b.dataset.tcAct;
+        let disabled = false;
+        if (key === 'remediate') disabled = open === 0;
+        if (key === 'ascend') {
+          b.hidden = s.ring !== '0' || s.punitive;
+          disabled = !isEligible(s);
+        }
+        b.disabled = disabled;
+      });
+      if (el.moveGroup) el.moveGroup.hidden = s.ring !== '0' || s.punitive;
+      if (el.ascendNote) {
+        el.ascendNote.textContent = isEligible(s)
+          ? 'Eligible. Moving up is a choice.'
+          : `Opens at an STI of ${SANCTUARY_FLOOR} or above.`;
+      }
+    }
+
+    function setLane(name, lane) {
+      const node = el.lanes[name];
+      node.dataset.state = lane.state;
+      node.querySelector('[data-tc-lane-reason]').textContent = lane.reason || '';
+      node.querySelectorAll('[data-tc-row]').forEach((row) => {
+        const val = lane.rows[row.dataset.tcRow];
+        row.hidden = !val && row.dataset.tcOptional === 'true';
+        row.querySelector('.tc-row-val').textContent = val || '—';
+        row.dataset.filled = val ? 'true' : 'false';
+      });
+      node.querySelector('[data-tc-lane-summary]').textContent = laneSummary(name, lane);
+    }
+
+    /* Simple view: one sentence per lane, built from the same rows. */
+    function laneSummary(name, lane) {
+      const r = lane.rows;
+      if (name === 'social') {
+        if (!r.score) return lane.reason;
+        const score = /^([+−]|0 \()/.test(r.score) ? `STI ${r.score}.` : r.score;
+        const rest = r.placement && r.placement !== 'None.' ? r.placement.replace(/^None\. /, '') : r.fallout;
+        return `${score} ${rest || ''}`.trim();
+      }
+      if (lane.state === 'lit') return r.placement || lane.reason;
+      if (lane.state === 'watch') return r.threshold || lane.reason;
+      return lane.reason;
+    }
+
+    function renderFork(o) {
+      if (!o) return;
+      el.fork.dataset.path = o.criminal.state === 'lit' ? 'criminal' : o.social.state === 'lit' ? 'social' : 'none';
+      el.fork.dataset.destTone = o.destTone || '';
+      el.evTitle.textContent = o.title;
+      el.evLine.textContent = o.line;
+      el.failsafe.textContent = o.failsafe;
+      el.detect.textContent = o.detect;
+      el.classify.textContent = o.classify;
+      el.axes.forEach((chip) => {
+        const axis = chip.dataset.tcAxis;
+        const val = o.axes ? o.axes[axis] : null;
+        chip.querySelector('.tc-axis-val').textContent = val || '—';
+        const lit = val && ((axis === 'severity' && val === 'high') || (axis === 'pattern' && val === 'repeated') || (axis === 'reversibility' && val === 'irreversible'));
+        chip.dataset.lit = lit ? 'true' : 'false';
+      });
+      setLane('social', o.social);
+      setLane('criminal', o.criminal);
+      el.cites.replaceChildren();
+      const seen = new Set();
+      o.cites.forEach(([label, href]) => {
+        if (seen.has(label)) return;
+        seen.add(label);
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = minus(label);
+        el.cites.appendChild(a);
+      });
+      el.fork.classList.remove('is-running');
+      void el.fork.offsetWidth;
+      el.fork.classList.add('is-running');
+    }
+
+    /* The reach lists are built once from REACH; renders only flip data-on. */
+    const reachItems = REACH.map((item) => {
+      const li = document.createElement('li');
+      li.className = 'tc-reach-item';
+      const text = document.createElement('span');
+      text.textContent = item.text;
+      const cites = document.createElement('span');
+      cites.className = 'tc-reach-cite';
+      item.cite.forEach(([label, href], i) => {
+        if (i) cites.append(' · ');
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = minus(label);
+        cites.appendChild(a);
+      });
+      li.append(text, cites);
+      (item.can ? el.reachCan : el.reachCannot).appendChild(li);
+      return [item, li];
+    });
+
+    function renderReach() {
+      reachItems.forEach(([item, li]) => { li.dataset.on = item.on(s) ? 'true' : 'false'; });
+    }
+
+    function renderLedger() {
+      el.ledger.replaceChildren();
+      const entries = s.ledger.slice().reverse();
+      if (!entries.length) {
+        const li = document.createElement('li');
+        li.className = 'tc-ledger-empty';
+        li.textContent = 'Nothing recorded yet. Positive conduct shows in the timeline, not here.';
+        el.ledger.appendChild(li);
         return;
       }
-      eventHistoryEl.innerHTML = eventLog.map((entry) => {
-        const short = entry.label.length > 24 ? entry.label.slice(0, 22) + '\u2026' : entry.label;
-        const deltaStr = entry.delta > 0 ? `+${entry.delta}` : String(entry.delta);
-        const dur = entry.duration ? ` \u00b7 ${entry.duration}` : '';
-        return `<span class="vmss-event-chip is-${entry.classification}" title="${entry.label}${dur} (${entry.classification})">` +
-          `<span>${short}</span>` +
-          `<span class="vmss-event-delta ${entry.delta >= 0 ? 'is-positive' : 'is-negative'}">${deltaStr}${dur}</span>` +
-        `</span>`;
-      }).reverse().join('');
-    };
-
-    /** Rolls an RNG event variant, applies its deltas, and re-renders. */
-    const applyEvent = (eventKey) => {
-      if (isTerminal) return; // simulation ended — no further events
-      const prevScore = lastRenderedScore !== null ? lastRenderedScore : scoreModel(clampValues(getValues()));
-      const rolled = rollEvent(eventKey, prevScore);
-      if (!rolled) return;
-      const values = getValues();
-      const next   = clampValues(
-        Object.fromEntries(Object.keys(values).map((key) => [key, values[key] + (rolled.values[key] || 0)]))
-      );
-      setValues(next);
-      const newScore = scoreModel(next);
-      currentEventLabel = `${rolled.label} (${rolled.duration})`;
-
-      // Push to event log + accumulate day tally
-      const eventDays = parseDays(rolled.duration);
-      if (rolled.harmful) totalNegDays += eventDays;
-      else totalPosDays += eventDays;
-
-      eventLog.push({
-        label: rolled.label,
-        classification: rolled.classification,
-        delta: newScore - prevScore,
-        score: newScore,
-        harmful: rolled.harmful,
-        duration: rolled.duration
+      entries.forEach((e) => {
+        const li = document.createElement('li');
+        li.className = 'tc-ledger-item';
+        li.dataset.track = String(e.track);
+        li.dataset.status = e.status;
+        const when = document.createElement('span');
+        when.className = 'tc-ledger-when';
+        when.textContent = `Yr ${fmt(Number(e.year) || 0)}`;
+        const label = document.createElement('span');
+        label.className = 'tc-ledger-label';
+        label.textContent = e.label;
+        const tags = document.createElement('span');
+        tags.className = 'tc-ledger-tags';
+        const statusText = { active: 'clearable · open', cleared: 'cleared · history only', entry: 'on ledger', record: 'on record', permanent: 'permanent' }[e.status] || e.status;
+        tags.textContent = `${e.track === 2 ? 'Track 2 · record' : 'Track 1 · STI'} · ${e.tier} · ${statusText}`;
+        li.append(when, label, tags);
+        el.ledger.appendChild(li);
       });
-      if (eventLog.length > EVENT_LOG_MAX) eventLog.shift();
+    }
 
-      // Permanent events automatically flag irreversible harm (Article XIV)
-      if (rolled.classification === 'permanent' && reversToggle) reversToggle.checked = true;
+    const SVG = 'http://www.w3.org/2000/svg';
+    const svgEl = (name, attrs) => {
+      const n = document.createElementNS(SVG, name);
+      Object.entries(attrs).forEach(([k, v]) => n.setAttribute(k, String(v)));
+      return n;
+    };
 
-      // Yellow harmful events: RNG chance of triggering irreversible harm
-      if (rolled.triggerIrrev && reversToggle) {
-        reversToggle.checked = true;
-        currentEventLabel += ' \u2014 irreversible harm flagged';
+    function renderTimeline() {
+      const svg = el.timeline;
+      const W = Math.max(280, Math.round(svg.getBoundingClientRect().width) || 640);
+      const H = W < 520 ? 180 : 210;
+      const m = { l: 30, r: 8, t: 10, b: 22 };
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.replaceChildren();
+      const h = s.history;
+      const maxYear = Math.max(6, (h[h.length - 1].year || 0) * 1.08);
+      const x = (yr) => m.l + (yr / maxYear) * (W - m.l - m.r);
+      const y = (v) => m.t + (1 - v / 100) * (H - m.t - m.b);
+
+      // Placement bands
+      for (let i = 0; i < h.length; i++) {
+        const x0 = x(h[i].year);
+        const x1 = i + 1 < h.length ? x(h[i + 1].year) : x(maxYear);
+        if (x1 - x0 < 0.3) continue;
+        svg.appendChild(svgEl('rect', { x: x0, y: m.t, width: x1 - x0, height: H - m.t - m.b, class: `tc-tl-band tone-${RING[h[i].ring].tone}` }));
       }
-
-      // Punitive reassignment — qualifying event locks the layer
-      if (rolled.reassignment) {
-        const layerOrder = ['+1', '0', '-1', '-2', '-3'];
-        const currentIdx = layerOrder.indexOf(assignedLayer);
-        const targetIdx  = layerOrder.indexOf(rolled.reassignment);
-        if (targetIdx > currentIdx) {
-          assignedLayer = rolled.reassignment;
-          isLocked = true;
-        }
-      }
-
-      render('Event-driven profile', { source: 'sti-event', harmful: rolled.harmful });
-      renderEventHistory();
-    };
-
-    /**
-     * Generates a random profile via buildRandomProfile() and renders it.
-     * The aria-live announcement uses the pre-computed score rather than
-     * reading scoreEl.textContent, which still shows the previous value
-     * while the number animation is in flight.
-     */
-    const randomize = () => {
-      const next = buildRandomProfile();
-      setValues(next);
-      currentEventLabel = 'Random profile generated';
-      scoreHistory = [];
-      lastRenderedScore = null;
-      eventLog = [];
-      assignedLayer = '0';
-      isLocked = false;
-      if (reversToggle) reversToggle.checked = false;
-      if (reasoningEl) reasoningEl.innerHTML = '';
-      isTerminal = false;
-      lastConsequence = '';
-      totalPosDays = 0;
-      totalNegDays = 0;
-      root.classList.remove('is-terminal');
-      const computedScore = scoreModel(next);
-      const computedLayer = getEffectiveLayer(computedScore);
-      render('Random profile', { source: 'randomize' });
-      renderEventHistory();
-      if (liveRegion) liveRegion.textContent =
-        `Random profile generated. STI score ${computedScore}, placing in ${computedLayer.label}.`;
-    };
-
-    const resetToDefaults = () => {
-      const defaults = { civic:11, contribution:11, conduct:8, competence:8, endorsement:6, recovery:5, violations:6 };
-      setValues(defaults);
-      currentEventLabel = 'Baseline loaded';
-      scoreHistory = [];
-      lastRenderedScore = null;
-      eventLog = [];
-      assignedLayer = '0';
-      isLocked = false;
-      if (reversToggle) reversToggle.checked = false;
-      if (reasoningEl) reasoningEl.innerHTML = '';
-      isTerminal = false;
-      lastConsequence = '';
-      totalPosDays = 0;
-      totalNegDays = 0;
-      root.classList.remove('is-terminal');
-      render('Balanced baseline', { source: 'reset' });
-      renderEventHistory();
-    };
-
-    /** Adjusts a single factor by delta, clamps, and re-renders. */
-    const stepFactor = (name, delta) => {
-      const input = inputs.find(i => i.name === name);
-      if (!input) return;
-      const max = Number(input.max) || 20;
-      input.value = String(Math.max(0, Math.min(max, Number(input.value) + delta)));
-      currentEventLabel = 'Manual factor adjustment';
-      render('Custom profile', { source: 'manual' });
-    };
-
-    /** Sets a factor to a value derived from click position on bar track. */
-    const setFactorFromClick = (name, track, clientX) => {
-      const input = inputs.find(i => i.name === name);
-      if (!input) return;
-      const rect = track.getBoundingClientRect();
-      const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-      const max = Number(input.max) || 20;
-      input.value = String(Math.round(ratio * max));
-      currentEventLabel = 'Manual factor adjustment';
-      render('Custom profile', { source: 'manual' });
-    };
-
-    // --- Bind listeners --------------------------------------------------
-
-    if (randomizeBtn) randomizeBtn.addEventListener('click', randomize);
-    if (resetBtn)     resetBtn.addEventListener('click', resetToDefaults);
-    if (resetTermBtn) resetTermBtn.addEventListener('click', resetToDefaults);
-    if (reversToggle) reversToggle.addEventListener('change', () => render('Custom profile', { source: 'manual' }));
-
-    // Preset dropdown
-    if (presetSelect) presetSelect.addEventListener('change', () => {
-      const val = presetSelect.value;
-      if (val === 'reset') { resetToDefaults(); }
-      else if (PROFILES[val]) {
-        setValues(PROFILES[val]);
-        currentEventLabel = 'Profile selected';
-        scoreHistory = [];
-        lastRenderedScore = null;
-        eventLog = [];
-        assignedLayer = '0';
-        isLocked = false;
-        if (reversToggle) reversToggle.checked = false;
-        render(presetSelect.options[presetSelect.selectedIndex].text, { source: 'profile' });
-        renderEventHistory();
-      }
-      presetSelect.selectedIndex = 0; // reset to placeholder
-    });
-
-    // Event pill buttons
-    eventButtons.forEach((btn) =>
-      btn.addEventListener('click', () => applyEvent(btn.dataset.stiEvent))
-    );
-
-    // Stepper buttons (+/−)
-    factorRows.forEach((row) => {
-      const name = row.dataset.factor;
-      row.querySelectorAll('.vmss-step-btn').forEach((btn) => {
-        btn.addEventListener('click', () => stepFactor(name, Number(btn.dataset.step)));
+      // Reference lines
+      [[SANCTUARY_FLOOR, `${SANCTUARY_FLOOR} Sanctuary floor`], [VISIBILITY_FLAG, `${VISIBILITY_FLAG} visibility flag`]].forEach(([v, label]) => {
+        svg.appendChild(svgEl('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: 'tc-tl-ref' }));
+        const t = svgEl('text', { x: W - m.r - 4, y: y(v) - 4, 'text-anchor': 'end', class: 'tc-tl-label' });
+        t.textContent = label;
+        svg.appendChild(t);
       });
-      // Click-on-bar-track to set value
-      const track = row.querySelector('[data-factor-track]');
-      if (track) track.addEventListener('click', (e) => setFactorFromClick(name, track, e.clientX));
-    });
+      // Axes
+      [0, 50, 100].forEach((v) => {
+        const t = svgEl('text', { x: m.l - 6, y: y(v) + 3, 'text-anchor': 'end', class: 'tc-tl-label' });
+        t.textContent = String(v);
+        svg.appendChild(t);
+      });
+      const step = maxYear > 40 ? 10 : maxYear > 16 ? 5 : maxYear > 8 ? 2 : 1;
+      for (let yr = 0; yr <= maxYear; yr += step) {
+        const t = svgEl('text', { x: x(yr), y: H - 6, 'text-anchor': yr === 0 ? 'start' : 'middle', class: 'tc-tl-label' });
+        t.textContent = yr === 0 ? 'yr 0' : String(yr);
+        svg.appendChild(t);
+      }
+      // STI line
+      const d = h.map((p, i) => `${i ? 'L' : 'M'}${x(p.year).toFixed(1)} ${y(p.sti).toFixed(1)}`).join(' ');
+      svg.appendChild(svgEl('path', { d, class: 'tc-tl-line' }));
+      // Ledger ticks
+      s.ledger.forEach((e) => {
+        const cx = x(Number(e.year) || 0);
+        svg.appendChild(svgEl('line', { x1: cx, x2: cx, y1: H - m.b, y2: H - m.b - (e.track === 2 ? 12 : 7), class: `tc-tl-tick track-${e.track}` }));
+      });
+      const lastP = h[h.length - 1];
+      svg.appendChild(svgEl('circle', { cx: x(lastP.year), cy: y(lastP.sti), r: 4, class: `tc-tl-dot tone-${RING[lastP.ring].tone}` }));
 
-    // The STI console is the primary input device — ignore all external state changes.
-    // Other modules (HUD, diagram, layer echo) read from VMSS global state but
-    // should never push state back into the console.
+      const rings = [...new Set(h.map((p) => ringName(p.ring)))].join(', then ');
+      el.timelineSummary.textContent = `STI over ${fmt(round1(lastP.year))} simulated years: from ${Math.round(h[0].sti)} to ${Math.round(lastP.sti)}. Placement: ${rings}.`;
+    }
 
-    // --- Initial render --------------------------------------------------
+    function publish(summaryEvent) {
+      if (!window.VMSS) return;
+      window.VMSS.setState({
+        placement: s.ring,
+        stiScore: Math.round(s.sti),
+        record: recordSummary(s),
+        profile: s.profile,
+        lastEvent: summaryEvent
+      }, { source: 'sti-console' });
+    }
 
-    // Restore from global state if it exists (e.g. user visited simulation before)
-    // Filter out diagram focus events — they're not STI console events
-    const initial = window.VMSS?.getState?.();
-    if (initial?.values) setValues(initial.values);
-    const initialEvent = initial?.lastEvent || '';
-    currentEventLabel = initialEvent.toLowerCase().includes('focused') ? 'Baseline loaded' : (initialEvent || 'Baseline loaded');
-    render(initial?.profile || 'Balanced baseline', { source: 'initial' });
-    // Start with a blank interpretation panel — signals populate on first interaction
-    if (reasoningEl) reasoningEl.innerHTML = '';
+    function renderAll() {
+      renderStatus();
+      renderActs();
+      renderReach();
+      renderLedger();
+      renderTimeline();
+    }
+
+    function introOutcome() {
+      const o = blankOutcome('intro');
+      o.title = 'Choose an act';
+      o.line = s.history.length > 1 ? 'Session restored. Choose the next act.' : STARTS[startRing].line;
+      o.social.state = 'idle';
+      o.criminal.state = 'idle';
+      o.failsafe = 'Implant warnings, motor overrides and restraint: the chance to stop.';
+      o.detect = 'The implant and AR context register what happened and who was involved.';
+      o.classify = 'Severity, pattern and reversibility decide which path the act takes.';
+      o.social.reason = 'Trust damage without criminal enforcement. The STI moves; the ring does not.';
+      o.criminal.reason = 'A qualifying act: enforcement, review, and reassignment set by the act.';
+      o.cites.push(C.II, C.XIV, C.XII);
+      return o;
+    }
+
+    function start(ring) {
+      startRing = ring;
+      s = freshSession(ring);
+      last = introOutcome();
+      saveSession(s);
+      renderAll();
+      renderFork(last);
+      publish(STARTS[ring].line.split('.')[0]);
+      el.live.textContent = `Started as ${STARTS[ring].profile.toLowerCase()}, ${ringName(ring)}. STI ${s.sti}.`;
+    }
+
+    function act(key) {
+      if (!ACTS[key]) return;
+      last = runAct(s, key);
+      settle(s);
+      saveSession(s);
+      renderAll();
+      renderFork(last);
+      publish(last.title);
+      el.live.textContent = last.announce;
+      // On a single-column layout the fork sits below the acts: bring the
+      // result of the tap into view.
+      if (narrow.matches && el.fork.getBoundingClientRect().top > window.innerHeight * 0.6) {
+        el.fork.scrollIntoView({ block: 'start', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+      }
+    }
+
+    // ---------- listeners ----------
+
+    el.acts.forEach((b) => b.addEventListener('click', () => act(b.dataset.tcAct)));
+    el.startBtns.forEach((b) => b.addEventListener('click', () => start(b.dataset.tcStart)));
+    el.restart.addEventListener('click', () => start(startRing));
+
+    // Simple / Full view. A per-viewer preference; the session is shared by both.
+    const MODE_KEY = 'vmss_console_mode';
+    function setMode(mode, save) {
+      root.dataset.mode = mode;
+      el.modeBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tcMode === mode)));
+      if (save) { try { localStorage.setItem(MODE_KEY, mode); } catch (e) { /* preference just won't persist */ } }
+      if (mode === 'full') renderTimeline();
+    }
+    let savedMode = null;
+    try { savedMode = localStorage.getItem(MODE_KEY); } catch (e) { /* storage blocked: default view */ }
+    setMode(savedMode === 'full' ? 'full' : 'simple', false);
+    el.modeBtns.forEach((b) => b.addEventListener('click', () => setMode(b.dataset.tcMode, true)));
+
+    if ('ResizeObserver' in window) {
+      let raf = 0;
+      new ResizeObserver(() => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(renderTimeline);
+      }).observe(el.timeline);
+    }
+
+    // ---------- first paint ----------
+    if (requested && RING[requested]) {
+      start(requested);
+    } else {
+      last = introOutcome();
+      renderAll();
+      renderFork(last);
+      publish(s.ledger.length ? `${s.profile}: session restored` : STARTS[startRing].line.split('.')[0]);
+    }
+    root.classList.add('is-ready');
   }
 
-  document.addEventListener('DOMContentLoaded', initSimulator);
+  document.addEventListener('DOMContentLoaded', initConsole);
 
 })();

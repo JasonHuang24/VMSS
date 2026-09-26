@@ -47,25 +47,28 @@ function vmssStorageSet(key, value) {
 // VMSS GLOBAL STATE
 // =========================
 /**
- * Default state shape. Also used as the merge base when loading
- * a partial or corrupted state from localStorage, so every key
- * always has a valid fallback value.
+ * Default state shape (contract v2). Also the merge base when loading a
+ * partial state from localStorage, so every key has a valid fallback.
+ *
+ *   placement  — the simulated citizen's ring. Written only by the STI console
+ *                (sti-sim.js), through phasing, ascension or reassignment.
+ *                Never derived from the score: STI is a separate ledger with no
+ *                crossover to reassignment (Charter Articles II, XII, XIII).
+ *   stiScore   — the citizen's STI, 0–100. It runs in every ring, −3
+ *                included (Charter II, XXV).
+ *   record     — one-line summary of the criminal record log (ledger track 2).
+ *   focusLayer — the ring a reader is browsing on the layer map. Browsing
+ *                never moves the citizen.
  */
+const VMSS_STATE_VERSION = 2;
 const VMSS_DEFAULT_STATE = {
-  selectedLayer: '0', // placement is independent of the score (Articles XII–XIII)
-  stiScore: 43,
-  profile: 'Balanced baseline',
-  tone: 'Stable civic baseline',
-  lastEvent: 'Baseline loaded',
-  values: {
-    civic: 11,
-    contribution: 11,
-    conduct: 8,
-    competence: 8,
-    endorsement: 6,
-    recovery: 5,
-    violations: 6,
-  }
+  v: VMSS_STATE_VERSION,
+  placement: '0',
+  stiScore: 76,
+  record: 'Clean',
+  profile: 'New entrant',
+  lastEvent: 'Arrived in Main Layer',
+  focusLayer: '0'
 };
 
 function vmssClone(value) {
@@ -73,23 +76,9 @@ function vmssClone(value) {
 }
 
 /**
- * Maps a numeric STI score to its layer descriptor.
- * Exposed on window.VMSS.layerForScore so external modules can call it.
- * sti-sim.js has its own copy that also returns a .tone field — this
- * version is intentionally minimal (key, label, short, band only).
- */
-function vmssLayerForScore(score) {
-  if (score >= 85) return { key:'+1', label:'+1 Sanctuary', short:'+1 Sanctuary', band:'85–100' };
-  if (score >= 70) return { key:'0', label:'Main Layer (0)', short:'Layer 0', band:'70–84' };
-  if (score >= 50) return { key:'-1', label:'-1 Noncompliance', short:'-1 Noncompliance', band:'50–69' };
-  if (score >= 30) return { key:'-2', label:'-2 Violent Offense', short:'-2 Violent Offense', band:'30–49' };
-  return { key:'-3', label:'-3 Terminal', short:'-3 Terminal', band:'0–29' };
-}
-
-/**
- * vmssLayerDescriptor — label for an explicit placement key. Used by every
- * renderer that shows "which layer": placement comes from state.selectedLayer,
- * never from the score. Unknown/missing keys fall back to Main Layer.
+ * vmssLayerDescriptor — label for an explicit placement key. Every renderer
+ * that shows "which ring" reads a key from state; none derives it from the
+ * score. Unknown/missing keys fall back to Main Layer.
  */
 const VMSS_LAYER_DESCRIPTORS = {
   '+1': { key:'+1', label:'+1 Sanctuary',      short:'+1 Sanctuary' },
@@ -147,24 +136,27 @@ window.vmssAnimateNumber = vmssAnimateNumber;
  *   .getState()           — returns a deep clone of current state
  *   .setState(patch, meta)— merges patch, saves to localStorage, fires vmss:state-change
  *   .reset()              — restores default state
- *   .layerForScore(score) — maps score to layer descriptor
  *
  * The vmss:state-change CustomEvent is the cross-component communication bus.
- * Every interactive component (HUD, diagram, STI console) listens for it and
- * fires it via setState, passing a source tag in meta to prevent feedback loops.
+ * The HUD, the layer map and the STI console listen for it; writers pass a
+ * source tag in meta so a component can ignore its own echo.
  */
 (function initVmssGlobal() {
   const STORAGE_KEY = 'vmss_state';
+  /* localStorage is outside input: a stored state from contract v1 (score
+     bands, selectedLayer) or a hand-edited one is discarded, and the ring
+     keys are checked against the known set. */
   const safeLoad = () => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return vmssClone(VMSS_DEFAULT_STATE);
       const parsed = JSON.parse(raw);
-      return {
-        ...vmssClone(VMSS_DEFAULT_STATE),
-        ...parsed,
-        values: { ...VMSS_DEFAULT_STATE.values, ...(parsed.values || {}) }
-      };
+      if (!parsed || parsed.v !== VMSS_STATE_VERSION) return vmssClone(VMSS_DEFAULT_STATE);
+      const state = { ...vmssClone(VMSS_DEFAULT_STATE), ...parsed };
+      if (!VMSS_LAYER_DESCRIPTORS[state.placement]) state.placement = '0';
+      if (!VMSS_LAYER_DESCRIPTORS[state.focusLayer]) state.focusLayer = state.placement;
+      if (typeof state.stiScore !== 'number' || !Number.isFinite(state.stiScore)) state.stiScore = VMSS_DEFAULT_STATE.stiScore;
+      return state;
     } catch (e) {
       console.warn('VMSS state load failed:', e);
       return vmssClone(VMSS_DEFAULT_STATE);
@@ -176,17 +168,9 @@ window.vmssAnimateNumber = vmssAnimateNumber;
   const state = safeLoad();
   window.VMSS = {
     state,
-    layerForScore: vmssLayerForScore,
     getState() { return vmssClone(this.state); },
     setState(patch = {}, meta = {}) {
-      const next = {
-        ...this.state,
-        ...patch,
-        values: { ...this.state.values, ...(patch.values || {}) }
-      };
-      /* A score-only patch never moves placement: STI is a trust ledger,
-         layer assignment follows qualifying behavior (Charter XII–XIII).
-         Callers that reassign pass selectedLayer explicitly. */
+      const next = { ...this.state, ...patch };
       this.state = next;
       safeSave(this.state);
       document.dispatchEvent(new CustomEvent('vmss:state-change', { detail: { state: this.getState(), meta } }));
@@ -283,8 +267,8 @@ function loadRecentApplicants() {
  * initVmssHud — creates and manages the floating live state panel.
  *
  * The HUD is injected into document.body as an <aside> element.
- * It displays the current STI score, layer, profile name, and last event,
- * updating whenever a vmss:state-change event fires.
+ * It shows the simulated citizen from the STI console: placement, STI,
+ * criminal-record summary and last event, updating on vmss:state-change.
  *
  * Idle behaviour: the HUD fades slightly after 2.6s of inactivity.
  *   Any interaction (hover, focus, touch) resets the idle timer.
@@ -305,25 +289,25 @@ function initVmssHud() {
   hud.setAttribute('aria-label', 'VMSS live state panel');
   hud.innerHTML = `
     <div class="vmss-hud-top">
-      <div class="vmss-hud-kicker">Simulation state</div>
+      <div class="vmss-hud-kicker">Simulated citizen</div>
       <button class="vmss-hud-toggle" type="button" aria-expanded="true" aria-label="Minimize live state panel">−</button>
     </div>
     <div class="vmss-hud-body">
-      <div class="vmss-hud-row"><span class="vmss-hud-label">Layer</span><strong data-vmss-hud-layer>Main Layer (0)</strong></div>
-      <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>43</strong></div>
-      <div class="vmss-hud-row"><span class="vmss-hud-label">Profile</span><span data-vmss-hud-profile>Balanced baseline</span></div>
-      <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span class="vmss-hud-event" data-vmss-hud-event>Baseline loaded</span></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Placement</span><strong class="vmss-hud-ring" data-vmss-hud-layer>Main Layer (0)</strong></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">STI</span><strong data-vmss-hud-score>76</strong></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Record</span><span data-vmss-hud-record>Clean</span></div>
+      <div class="vmss-hud-row"><span class="vmss-hud-label">Last event</span><span class="vmss-hud-event" data-vmss-hud-event>Arrived in Main Layer</span></div>
     </div>
     <div class="vmss-hud-actions">
-      <a class="vmss-hud-btn is-primary" href="simulations.html#sti-console">Open simulation</a>
-      <a class="vmss-hud-btn" href="layers.html">Open rings</a>
+      <a class="vmss-hud-btn is-primary" href="simulations.html#sti-console">Open console</a>
+      <a class="vmss-hud-btn" href="layers.html#ring-atlas">Open ring map</a>
     </div>
     <div aria-live="polite" aria-atomic="true" class="sr-only" data-vmss-hud-live></div>
   `;
   document.body.appendChild(hud);
   const layerTarget = hud.querySelector('[data-vmss-hud-layer]');
   const scoreTarget = hud.querySelector('[data-vmss-hud-score]');
-  const profileTarget = hud.querySelector('[data-vmss-hud-profile]');
+  const recordTarget = hud.querySelector('[data-vmss-hud-record]');
   const eventTarget = hud.querySelector('[data-vmss-hud-event]');
   const liveRegion = hud.querySelector('[data-vmss-hud-live]');
   const toggleBtn = hud.querySelector('.vmss-hud-toggle');
@@ -366,13 +350,13 @@ function initVmssHud() {
     }, { threshold: 0 }).observe(footerHost);
   }
   const apply = (state = window.VMSS?.getState?.() || VMSS_DEFAULT_STATE) => {
-    const layer = vmssLayerDescriptor(state.selectedLayer);
+    const layer = vmssLayerDescriptor(state.placement);
     hud.dataset.layer = layer.key;
-    if (layerTarget) layerTarget.textContent = layer.label;
-    if (scoreTarget) window.vmssAnimateNumber(scoreTarget, Number(state.stiScore) || 0, { duration: 420 });
-    if (profileTarget) profileTarget.textContent = state.profile || 'Balanced baseline';
-    if (eventTarget) eventTarget.textContent = state.lastEvent || 'Baseline loaded';
-    if (liveRegion) liveRegion.textContent = `STI score ${Number(state.stiScore) || 0}, ${layer.label}.`;
+    layerTarget.textContent = layer.label;
+    window.vmssAnimateNumber(scoreTarget, Number(state.stiScore), { duration: 420 });
+    recordTarget.textContent = state.record || 'Clean';
+    eventTarget.textContent = state.lastEvent || '';
+    if (liveRegion) liveRegion.textContent = `${layer.label}. STI ${state.stiScore}.`;
     hud.classList.remove('is-updating');
     void hud.offsetWidth;
     hud.classList.add('is-updating');
@@ -407,35 +391,8 @@ function initVmssHud() {
 }
 
 // =========================
-// LAYER ECHO & LAYER LINKS
+// HASH REVEAL
 // =========================
-
-/**
- * initVmssLayerEcho — syncs text elements marked with data-vmss-*-echo
- * to the current global state values.
- *
- * Any element with [data-vmss-layer-echo], [data-vmss-score-echo], or
- * [data-vmss-event-echo] will have its textContent updated whenever the
- * global state changes. Used on the systems.html page to show the live
- * STI layer and score in the cohesion layer banner without coupling
- * that page directly to the simulation console.
- */
-function initVmssLayerEcho() {
-  const layerTargets = Array.from(document.querySelectorAll('[data-vmss-layer-echo]'));
-  const scoreTargets = Array.from(document.querySelectorAll('[data-vmss-score-echo]'));
-  const eventTargets = Array.from(document.querySelectorAll('[data-vmss-event-echo]'));
-  if (!layerTargets.length && !scoreTargets.length && !eventTargets.length) return;
-  if (!window.VMSS) return;
-  const apply = () => {
-    const state = window.VMSS.getState();
-    const layer = vmssLayerDescriptor(state.selectedLayer);
-    layerTargets.forEach((el) => el.textContent = layer.label);
-    scoreTargets.forEach((el) => el.textContent = String(state.stiScore));
-    eventTargets.forEach((el) => el.textContent = state.lastEvent || 'Baseline loaded');
-  };
-  apply();
-  document.addEventListener('vmss:state-change', apply);
-}
 
 /**
  * vmssRevealHashTarget — make a fragment target visible before scrolling.
@@ -488,33 +445,6 @@ function initHashReveal() {
       setTimeout(vmssRevealHashTarget, 0);
     }
   });
-}
-
-/**
- * initVmssLayerLinks — highlights the layer link that matches the current
- * global selected layer.
- *
- * Any element with [data-layer] gets .is-vmss-current toggled to match the
- * active layer in global state. Clicking a layer link also updates the global
- * state, so the HUD and ring map reflect the selection immediately.
- */
-function initVmssLayerLinks() {
-  /* The floating HUD also carries data-layer (as a style hook written by
-     initVmssHud), so it must be excluded or it becomes a permanent
-     "current" link that rewrites state when its chrome is clicked. */
-  const links = Array.from(document.querySelectorAll('[data-layer]:not(#vmss-hud)'));
-  if (!links.length || !window.VMSS) return;
-  const apply = () => {
-    const state = window.VMSS.getState();
-    links.forEach((link) => link.classList.toggle('is-vmss-current', link.dataset.layer === state.selectedLayer));
-  };
-  links.forEach((link) => {
-    link.addEventListener('click', () => {
-      window.VMSS.setState({ selectedLayer: link.dataset.layer, lastEvent: `Focused ${link.dataset.layer} ring` }, { source: 'layer-link' });
-    });
-  });
-  apply();
-  document.addEventListener('vmss:state-change', apply);
 }
 
 // =========================
@@ -1190,13 +1120,9 @@ document.addEventListener('DOMContentLoaded', () => {
   enhancePageLayout();
   initBackToTop();
   initReveal();
-  /* These four read only the page's own static markup and global state;
-     they must not wait on (or fail with) the navbar fetch. initVmssHud runs
-     before initVmssLayerLinks so the HUD's data-layer exists when the
-     link scan excludes it. */
+  /* These read only the page's own static markup and global state;
+     they must not wait on (or fail with) the navbar fetch. */
   initVmssHud();
-  initVmssLayerEcho();
-  initVmssLayerLinks();
   initJoinModal();
   initHashReveal();
 });
