@@ -1905,7 +1905,10 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
 /* Page-local dossier styles are intentionally more specific than their
    inline legacy counterparts. Content and pagination remain unchanged. */
 body .world-main, body .whitepaper-main { padding-top: 3rem; }
-body .shell { max-width: 1440px; }
+/* World/Whitepaper shells track the shared content frame (lg:max-w-[70%] with the
+   80rem ceiling below 1920px) so every page lines up at every width. */
+body .shell { padding-inline: 1.5rem; }
+@media (min-width: 1024px) and (max-width: 1919px) { body .shell { max-width: 80rem; } }
 body .shell > .hero { border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
 body .shell > .hero h1 { font-family: var(--archive-display); font-size: clamp(3rem,6vw,6rem); font-weight: 500; letter-spacing: -.02em; }
 body .paper { border-radius: 3px; box-shadow: none; }
