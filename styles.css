@@ -25,6 +25,7 @@
    21. BACK TO TOP
    22. RESPONSIVE + HUD REPAIRS (2026-09 audit)
    23. CIVILIZATION ARCHIVE DESIGN
+   24. RING LIGHT (shape, light, depth)
    =================================== */
 
 /* ----- 1. FONT IMPORT & HEADING FONT ----- */
@@ -1718,8 +1719,7 @@ body.vmss-ui-ready {
    existing dossiers, controls, and generated records share one vocabulary. */
 :root { --instrument: #8bd3dc; --archive-mono: 'IBM Plex Mono', monospace; --archive-display: 'Barlow Condensed', 'Arial Narrow', sans-serif; }
 [data-theme="light"] { --instrument: #23616d; --bg-primary: #edf2f3; --bg-tertiary: #e2eaed; --border: rgba(43,76,89,.2); --border-strong: rgba(43,76,89,.4); }
-body { background: linear-gradient(90deg, transparent 49.9%, var(--border) 50%, transparent 50.1%) 0 0 / 160px 100%, var(--bg-primary); font-size: 1rem; }
-.vmss-page-shell::before, .vmss-page-shell::after { display: none; }
+body { background: var(--bg-primary); font-size: 1rem; }
 ::selection { background: var(--accent); color: #080f14; }
 :focus-visible { outline: 2px solid var(--instrument); outline-offset: 5px; }
 #navbar-placeholder { z-index: 40; }
@@ -1841,7 +1841,7 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
 .archive-footer-rule span:nth-child(3) { border-color: #f6a653; }
 .archive-footer-rule span:nth-child(4) { border-color: #e87575; }
 .archive-footer-rule span:nth-child(5) { border-color: #a83a47; }
-.vmss-footer h2 { font-family: var(--archive-display); font-size: 3rem; font-weight: 500; text-transform: uppercase; }
+.vmss-footer h2 { font-family: var(--archive-display); font-size: 3rem; font-weight: 500; }
 .vmss-footer .rounded-full { border-radius: 2px; font-family: var(--archive-mono); }
 .archive-context { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; padding: .8rem 2.5rem; border-bottom: 1px solid var(--border); font-family: var(--archive-mono); font-size: .75rem; color: var(--text-muted); letter-spacing: .025em; }
 .archive-context a { color: var(--instrument); }
@@ -1971,4 +1971,138 @@ body .vmss-flow-box { border-radius: 2px; }
   .archive-library-card { padding: 1.5rem; }
   .archive-library-card .archive-index { margin-bottom: 1.2rem; }
   .archive-entry { margin-top: 2.5rem; }
+}
+
+/* ----- 24. RING LIGHT -----
+   One material for every page: bevelled (cut) corners instead of rounded or
+   square ones, light that falls from the Sanctuary core and takes the colour
+   of the current ring, glass on chrome, opaque calm surfaces for reading.
+   Prose never gets the treatment — frames, controls and navigation do. */
+body {
+  --ring-light: var(--accent);
+  --ring-glow: color-mix(in srgb, var(--ring-light) 16%, transparent);
+  --ring-edge: color-mix(in srgb, var(--ring-light) 42%, var(--border));
+  --ring-wash: color-mix(in srgb, var(--ring-light) 7%, transparent);
+  --shape-panel: 6px;
+  --shape-card: 6px;
+  --shape-btn: 4px;
+  --ring-field-opacity: .38;
+}
+body[data-ring="+1"] { --ring-light: #e9bb72; }
+body[data-ring="0"] { --ring-light: #a8c9d6; }
+body[data-ring="-1"] { --ring-light: #f6a653; }
+body[data-ring="-2"] { --ring-light: #e87575; }
+body[data-ring="-3"] { --ring-light: #c24b5a; --ring-field-opacity: .32; }
+[data-theme="light"] body { --ring-field-opacity: .3; --ring-edge: color-mix(in srgb, var(--ring-light) 55%, var(--border)); }
+
+@supports (corner-shape: bevel) {
+  body { --shape-panel: 22px 4px; --shape-card: 14px 3px; --shape-btn: 10px 2px; }
+  *, *::before, *::after { corner-shape: bevel; }
+  .vmss-step-btn, .vmss-event-chip::before, .archive-signal { corner-shape: round; }
+}
+
+/* Five-ring field: the rings seen from above the core, fading down the page.
+   Grain keeps flat fills from reading as plastic. */
+.vmss-page-shell::before, .vmss-page-shell::after {
+  display: block; position: fixed; inset: 0; width: auto; height: auto;
+  filter: none; will-change: auto; transform: none; z-index: 0; pointer-events: none;
+}
+.vmss-page-shell::before {
+  opacity: var(--ring-field-opacity);
+  background:
+    radial-gradient(ellipse 55% 42% at 50% -6%, var(--ring-glow), transparent 72%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' fill='none' stroke-width='1.2'%3E%3Ccircle cx='800' cy='-260' r='520' stroke='%23e9bb72' stroke-opacity='.6'/%3E%3Ccircle cx='800' cy='-260' r='580' stroke='%23a8c9d6' stroke-opacity='.4' stroke-dasharray='1 13'/%3E%3Ccircle cx='800' cy='-260' r='640' stroke='%23a8c9d6' stroke-opacity='.45'/%3E%3Ccircle cx='800' cy='-260' r='760' stroke='%23f6a653' stroke-opacity='.38'/%3E%3Ccircle cx='800' cy='-260' r='820' stroke='%23f6a653' stroke-opacity='.24' stroke-dasharray='120 36 4 36'/%3E%3Ccircle cx='800' cy='-260' r='880' stroke='%23e87575' stroke-opacity='.32'/%3E%3Ccircle cx='800' cy='-260' r='1000' stroke='%23a83a47' stroke-opacity='.34'/%3E%3C/svg%3E") center top / max(1600px, 100vw) auto no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 30%, transparent 85%);
+  mask-image: linear-gradient(180deg, #000 0, #000 30%, transparent 85%);
+}
+.vmss-page-shell::after {
+  opacity: .05;
+  mix-blend-mode: overlay;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (max-width: 768px) { .vmss-page-shell::after { display: none; } }
+
+/* Chrome: glass over the field, a lit seam instead of a solid bar. */
+.vmss-nav { border-top: 0; background: color-mix(in srgb, var(--bg-primary) 76%, transparent); backdrop-filter: blur(16px) saturate(1.25); -webkit-backdrop-filter: blur(16px) saturate(1.25); border-bottom: 1px solid var(--border); }
+.vmss-nav::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--ring-light) 50%, transparent); box-shadow: 0 0 18px 1px var(--ring-glow); pointer-events: none; }
+.archive-nav-dropdown { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--ring-edge); background: color-mix(in srgb, var(--bg-secondary) 86%, transparent); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.archive-nav-dropdown a { border-radius: var(--shape-btn); }
+.archive-context { background: color-mix(in srgb, var(--bg-primary) 60%, transparent); }
+.vmss-hud { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--instrument); background: color-mix(in srgb, var(--bg-secondary) 82%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 18px 50px -20px #000a, 0 0 0 1px color-mix(in srgb, var(--instrument) 10%, transparent); }
+
+/* Surfaces. Lit top edge + faint wash from the light; opaque enough to read on. */
+.vmss-hero-surface, .vmss-panel, .vmss-enhanced-panel, .layer-card, .sad-card, .vmss-enhanced-card,
+.simulation-card, .faq-card, .why-card, .tech-card, .vmss-flow-shell, .vmss-detail-panel, .vmss-detail-panel--card, .vmss-diagram-stage, .vmss-whitepaper-callout,
+.vmss-dash-header, .vmss-dash-body, .vmss-layer-stack, body .paper, body .rounded-3xl, body .rounded-2xl {
+  border-radius: var(--shape-panel);
+}
+.vmss-mini-panel, .vmss-stat-card, .vmss-flow-node, .vmss-flow-branch, .vmss-dash-card, .vmss-dash-history, .vmss-readout-tile, .vmss-insight-item,
+.vmss-ladder-step, .vmss-article-ref, body .rounded-xl, body .callout, body .grid-card, body .stat-card, body .timeline-era, body .trade-flow-card,
+body .law-toc, body .pending-banner, body .act-banner, body .cert-banner, body .process-frame {
+  border-radius: var(--shape-card);
+}
+.vmss-panel, .vmss-enhanced-panel, .vmss-hero-surface, .vmss-detail-panel--card, body .paper,
+body .rounded-3xl.border, body .rounded-2xl.border {
+  border-top-color: var(--ring-edge);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ring-light) 14%, transparent), 0 30px 60px -38px var(--shadow);
+}
+.vmss-panel, .vmss-enhanced-panel, .vmss-hero-surface,
+body .rounded-3xl.bg-\[var\(--bg-secondary\)\], body .rounded-2xl.bg-\[var\(--bg-secondary\)\] {
+  background-image: linear-gradient(168deg, var(--ring-wash), transparent 34%);
+}
+.vmss-prose { background-image: none; }
+.layer-card:hover, .sad-card:hover, a.vmss-mini-panel:hover, .archive-library-card:hover, .vmss-flow-node:hover {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ring-light) 28%, transparent), 0 0 0 1px var(--ring-edge), 0 18px 44px -24px var(--ring-glow);
+}
+
+/* Controls. Cut corners on two sides; the primary action carries the light. */
+.vmss-cta-primary, .vmss-cta-secondary, button#open-entry-modal, button[type="submit"], .archive-desktop-nav .nav-link-join,
+#mobile-menu .nav-link-join, .vmss-nav .vmss-icon-button, .vmss-hud-toggle, .vmss-back-to-top, body .back-arrow, body .page-btn,
+.vmss-dash-btn, .vmss-hud-btn, .vmss-dash-select, .vmss-hud.is-minimized, .vmss-hud.is-minimized .vmss-hud-toggle, body .card-search, body .sim-idx-input,
+body .sim-idx-select, body .sim-idx-chip, body .law-chip, body .pending-crosslink, body .act-links a, body .cert-links a {
+  border-radius: var(--shape-btn);
+}
+.vmss-cta-primary, button#open-entry-modal, button[type="submit"] {
+  background: linear-gradient(180deg, #f3d59c, #e2ae5f); color: #111820 !important;
+  box-shadow: inset 0 1px 0 #fff6, 0 10px 28px -14px var(--shadow-accent);
+  transition: box-shadow .25s ease, filter .25s ease;
+}
+.vmss-cta-primary:hover, button#open-entry-modal:hover, button[type="submit"]:hover {
+  filter: brightness(1.06); box-shadow: inset 0 1px 0 #fff8, 0 0 0 1px #e9bb7255, 0 12px 36px -10px rgba(243,193,95,.45);
+}
+.archive-desktop-nav .nav-link-join { border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+.archive-desktop-nav .nav-link-join:hover { box-shadow: 0 0 22px -4px var(--accent-glow); }
+
+/* Headings and dividers. Display face for section heads; lines catch the light. */
+main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); font-weight: 500; letter-spacing: -.005em; }
+.archive-section-heading, .vmss-prose h2 { border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, var(--ring-edge), var(--border) 28%, transparent 92%) 1; }
+
+/* Page intro: the rings drift slowly behind every page title. */
+.vmss-page-intro { isolation: isolate; border-bottom: 0; }
+.vmss-page-intro::before { width: 5rem; border-top: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--ring-light), transparent); box-shadow: 0 0 14px var(--ring-glow); }
+.vmss-page-intro::after {
+  --ring-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' fill='none' stroke='%23000'%3E%3Ccircle cx='500' cy='500' r='250' stroke-dasharray='160 50 6 50'/%3E%3Ccircle cx='500' cy='500' r='310' stroke-width='1.5' stroke-dasharray='1.5 9'/%3E%3Ccircle cx='500' cy='500' r='380' stroke-dasharray='300 90'/%3E%3Ccircle cx='500' cy='500' r='460' stroke-width='.8'/%3E%3Ccircle cx='500' cy='500' r='476' stroke-dasharray='2 30'/%3E%3C/svg%3E");
+  content: ''; position: absolute; z-index: -1; left: 50%; top: 42%; width: min(980px, 100%); aspect-ratio: 1;
+  translate: -50% -50%; pointer-events: none; opacity: .3;
+  background: var(--ring-light);
+  -webkit-mask: var(--ring-mask) center / contain no-repeat, radial-gradient(closest-side, #000 55%, transparent);
+  -webkit-mask-composite: source-in;
+  mask: var(--ring-mask) center / contain no-repeat, radial-gradient(closest-side, #000 55%, transparent);
+  mask-composite: intersect;
+  animation: vmss-ring-drift 240s linear infinite;
+}
+[data-theme="light"] .vmss-page-intro::after { opacity: .22; }
+@keyframes vmss-ring-drift { to { rotate: 360deg; } }
+
+/* Home: chamfered hero frame, separated library cards instead of a table grid. */
+.archive-hero::after { border-radius: 36px 0; border-color: #c5dce02a; }
+.archive-library-grid { gap: 1rem; border: 0; }
+.archive-library-card { border: 1px solid var(--border); border-top-color: var(--ring-edge); border-radius: var(--shape-card); background-image: linear-gradient(168deg, var(--ring-wash), transparent 40%); }
+.archive-world-grid img { border-radius: var(--shape-panel); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vmss-page-intro::after { animation: none; }
+}
+@media print {
+  .vmss-page-shell::before, .vmss-page-shell::after, .vmss-page-intro::after, .vmss-nav::before { display: none; }
 }

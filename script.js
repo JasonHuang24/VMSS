@@ -1079,6 +1079,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function enhancePageLayout() {
     document.body.classList.add('vmss-page-shell');
 
+    // Layer dossiers tint the page light with their ring's colour.
+    const ring = decodeURIComponent(location.pathname).match(/layer-([+-]?\d)\.html$/);
+    if (ring) document.body.dataset.ring = ring[1];
+
     document.querySelectorAll('body > section, main > section').forEach((section) => {
       section.classList.add('vmss-main-section');
 
