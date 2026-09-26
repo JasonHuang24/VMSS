@@ -2098,6 +2098,9 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 .archive-library-card { border: 1px solid var(--border); border-top-color: var(--ring-edge); border-radius: var(--shape-card); background-image: linear-gradient(168deg, var(--ring-wash), transparent 40%); }
 .archive-world-grid img { border-radius: var(--shape-panel); }
 
+/* Dossier back arrow sits over the breadcrumb bar; give the crumbs room at every width. */
+body:has(.back-arrow) .archive-context { padding-left: 5.5rem; }
+
 /* Nav dropdown caret: a thin drawn chevron instead of a glyph. */
 .archive-caret { display: inline-block; width: 5px; height: 5px; margin-left: .15rem; border-right: 1.25px solid currentColor; border-bottom: 1.25px solid currentColor; opacity: .55; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
 .archive-nav-group[open] .archive-caret { transform: translateY(1px) rotate(-135deg); }
