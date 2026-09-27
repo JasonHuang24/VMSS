@@ -5,7 +5,8 @@ This guide comes from the pilot (`docs-review/prose-lift-pilot.md`) and two outs
 ## Frozen
 - **Metadata.** Title, Type, Classification and Snapshot never change. An AI-written Outcome line becomes a short, plain statement of what happened, with the same facts. Flag each change as old → new.
 - **Facts.** Keep every number, name, rate, threshold, layer fact, mechanism and outcome. Cut a fact only when the story no longer needs it, and ledger the cut.
-- **Era.** The Snapshot pins its era: use that era's mechanics, never current canon. Flag any conflict with a non-numeric Charter rule (for example, Art. VII's ban on upward visits) for Jason.
+- **Era.** The Snapshot pins its era's numbers and rates: never recalculate them. For non-numeric rules, the **current Charter wins** (Jason, 2026-09-27): a story that conflicts with a current non-numeric Charter rule gets fixed to match it. Examples: Art. VII bans upward visits; STI never sets placement (Art. II); Sanctuary eligibility at STI 85 is immediate; downward conversion runs only through authorized channels (Art. III.V). If fixing a conflict would break the story's premise, flag it for Jason.
+- **Standing rulings for stories:** a single DUI goes to −1 (Art. I side of T1). A −3 visitor keeps the backup-vessel link, because only terminal reassignment severs it. A −2 resident may file voluntary permanent residency into −3, with the psychological screening Art. VII requires.
 - **Also frozen:** hedges ("tends to", "usually"); R13 (no founder in-world); the layer stance (lower layers are not hell; -3 is chosen).
 - **Canon.** Work from the original. Open the charter or whitepaper only for a fact the original lacks.
 
