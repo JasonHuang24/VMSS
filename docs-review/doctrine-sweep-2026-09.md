@@ -2,7 +2,7 @@
 
 ## Rulings (Jason, 2026-09-27)
 
-Applied as v24.3.2, this commit.
+Applied as v24.3.2, main `eb016c8`.
 
 1. **Approved as proposed:** DS-01 to DS-05, DS-07 to DS-16, DS-18 to DS-23, DS-25 to DS-28 (25 findings). Each finding's proposed replacement from §2a applied exactly. DS-05 and whitepaper.html:440 keep their literal `8&ndash;12` / en-dash "8–12" byte-for-byte. DS-27 carries three edited spans; DS-18 carries two.
 2. **DS-17** (`layer-0.html:61`): ruled to the relocated-children reading — "and lower-layer-born children who relocated under Article VIII, building toward Sanctuary." (not the register's proposed "rebuilding toward Sanctuary from low scores" wording).
