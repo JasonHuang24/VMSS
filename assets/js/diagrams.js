@@ -115,7 +115,7 @@
   const MOVES = {
     ascend: {
       name: 'Ascension', from: '0', to: '+1', stops: ['+1'], up: true, slot: -0.7,
-      rule: 'Main to Sanctuary. Earned through sustained compliance and a demonstrated trajectory; a sustained STI above 85 is one factor, typically after 8 to 12 years of conduct. Voluntary: many eligible residents stay in Main.',
+      rule: 'Main to Sanctuary. Earned through sustained compliance and a demonstrated trajectory; an STI of 85 or above is the qualifying condition, typically earned over 8 to 12 years of conduct. Voluntary: many eligible residents stay in Main.',
       cites: [A('VII', 'vii'), WP('§4.2, §5.2')]
     },
     phase: {

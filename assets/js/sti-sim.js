@@ -225,7 +225,7 @@
     '0':  'Implant telemetry and AR context log it in real time.',
     '-1': 'Logging-only AI tracking records it; drone response is slower here.',
     '-2': 'The implant logs it. No routine drone protection in −2.',
-    '-3': 'No AI monitoring or drone patrol. The implant ledger still records what the resident\'s implant captures.'
+    '-3': 'No AI enforcement or drone patrol. The implant ledger still records what the resident\'s implant captures.'
   })[ring];
 
   /* Applies a harm: registers the drop with the trajectory penalty and
