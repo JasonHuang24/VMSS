@@ -576,6 +576,19 @@ main {
   margin-right: auto;
 }
 
+/* Off-canon stamp: simulations that depart from canon for flavor (see prose style guide). */
+.canon-chip {
+  display: inline-block;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 /* Archive layout: cards at reading width; on wide screens a sticky rail
    (assets/js/sim-rail.js) indexes every story in the freed space. */
 #sim-archive {
