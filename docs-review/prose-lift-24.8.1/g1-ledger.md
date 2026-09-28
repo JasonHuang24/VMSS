@@ -1,0 +1,397 @@
+# Prose lift 24.8.1, group 1 (Resources r3, r5): fidelity ledger
+
+Mode: clarity edit for both pages (triage register, docs-review/prose-lift-24.7-triage.md). The pages are copies of the `<div class="resource-page">` blocks in documents/resources-source.html. The source itself is untouched. `check-g1.mjs` (this folder) checks each page against the source block. It confirms that tags and attributes, table cells, headings and the set of numbers are identical, and that every ledger quote below appears in the edited page. Quotes are matched against the page text with tags stripped and entities decoded (’ and “ ” become straight quotes, `&sect;` becomes §, `&deg;` becomes °).
+
+Global notes:
+- Word counts cover the whole block, tags stripped. Only running prose was edited. The subtitle line, headings, figures, citations and quotations from other pages are frozen.
+- Sentences that carry a cross-resource clash or a doctrine flag were left verbatim, including any original reversal or em-dash, and are listed under Flags. In r3 these frozen paragraphs are the only ones that still contain more than one em-dash.
+- No approved doctrine change (R1 "no AI enforcement", R27/R28 LP-004.2) applies to r3 or r5, so none was applied.
+
+## r3 The Asymmetric War
+
+Claims ledger
+- Scope of analysis: `An analysis of conventional military engagement against a VMSS-era civilization.`
+- Unwinnable: `make conventional warfare against VMSS categorically unwinnable`
+- Doctrine limits force: `the doctrine that limits VMSS's own use of force`
+- Adversary calculus: `post-scarcity, backup-vessel-equipped, AI-governed civilization is survivable`
+- Shared mortality: `assumes a shared mortality constraint` / `both sides can die, and dead soldiers stay dead`
+- Permanent casualties: `casualties are permanent and cumulative`
+- 10,000 figure: `A commander who loses 10,000 soldiers has 10,000 fewer soldiers`
+- Attrition war: `the army that sustains fewer permanent losses wins the attrition war`
+- Lineage: `from Sun Tzu through Clausewitz to modern joint operations doctrine`
+- Hardware level: `VMSS breaks the assumption at the hardware level.`
+- Revival: `revived via backup vessel at full fidelity within hours`
+- Exception: `antimatter annihilation or equivalent total-molecular-destruction weaponry`
+- Memory: `The soldier returns with complete memory of the engagement`
+- Implant capture: `communication intercepts the implant captured in the moments before death`
+- Intelligence asset: `every VMSS combat death produces an intelligence asset`
+- Temporary inconvenience: `each kill the conventional enemy scores is a temporary inconvenience`
+- Category change: `The asymmetry is more than a force multiplier` / `it changes the category of the conflict`
+- Different physical rules: `faces an enemy operating under different physical rules`
+- Death asymmetry: `Its soldiers die permanently, while VMSS soldiers die temporarily.`
+- Intelligence by dying: `VMSS gathers it through dying`
+- No attrition model: `VMSS has no attrition model because attrition does not apply`
+- Five instruments: `VMSS deploys five distinct instruments` / `cannot contest on equivalent terms`
+- Citations: `publicly acknowledged (Charter Article XXV.V, Whitepaper §23)`
+- Classified specifics: `operational specifics are classified`
+- Acknowledgment as deterrent: `The public acknowledgment is itself the primary deterrent`
+- Hedge-like qualifier: `without knowing precisely how it would be deployed`
+- Kill switch authority: `hardware-level kill switch accessible only through national military command authority` / `at Sovereign classification`
+- Activation: `Activation is instantaneous and works simultaneously at any scale`
+- Scale: `one person or one million, with no delay between command and effect`
+- Clean: `no collateral damage, no emissions and no structural destruction` / `the cleanest military instrument available`
+- Kill-switch scope (verbatim, flagged): `operates on every implanted individual within range, regardless of citizenship status`
+- Foreign medical implants (verbatim, flagged): `has inadvertently placed its citizens inside the kill switch's operational envelope`
+- Selective targeting: `targeting is selective at the individual level, not broadcast`
+- Publicly known: `the existence of that capability is publicly known`
+- Deterrent implication: `requires no physical deployment, no logistics chain, no ammunition, and no warning`
+- Medical device: `It arrived as a medical device.`
+- Nanobots classified: `A classified technology for non-implanted threats.`
+- Lethality: `neutralize specific biological targets with near-instant lethality`
+- Discrimination: `biological markers, behavioral signatures and real-time identification`
+- AI-governance databases: `targeting databases maintained by AI governance`
+- Capacity: `Each capsule can neutralize thousands`
+- Contamination: `no environmental contamination beyond designated targets`
+- Evasion vector: `The nanobot plume closes the primary evasion vector.`
+- Implant removal: `orders its military personnel to remove their implants`
+- Complementary: `The two instruments are complementary by design`
+- Division of labour: `the kill switch handles implanted threats instantaneously`
+- Full coverage: `falls outside both instruments' coverage`
+- No protection: `cannot protect their troops by any combination of equipment removal or biological preparation`
+- Requirements: `The kill switch needs only an implant, and the nanobot plume needs only biology.`
+- No crews: `infantry combat unit carries a crew`
+- Operators: `commanded by neural-linked operators in secure positions within VMSS territory`
+- AI combat doctrine: `AI combat doctrine governs formation-level decisions at machine speed`
+- Speed: `faster than any human command chain can process`
+- Expendability: `The vehicles are expendable because no one is inside them`
+- Crew loss: `has killed everyone aboard`
+- 100-for-100: `destroys 100 VMSS vehicles at the cost of 100 of its own`
+- Fabrication replacement: `VMSS replaces its vehicles from fabrication capacity`
+- Finite population: `a finite, non-revivable population`
+- Infinite exchange rate: `The exchange rate is infinite in VMSS's favor`
+- One-sided lives: `cost human lives on only one side`
+- Morale: `Autonomous forces also eliminate the morale dimension.`
+- Morale factors: `troop morale, combat fatigue, shell shock and the psychological cost`
+- Operators: `physically safe, psychologically distant from the combat and rotated on regular schedules`
+- Platforms: `do not retreat, surrender, panic or make fear-based tactical errors`
+- Relaunch: `and then another platform launches`
+- Orbital platforms: `Defense platforms in sovereign VMSS orbital territory deliver kinetic bombardment`
+- Tungsten rods: `inert tungsten rods accelerated to terminal velocity with precision targeting`
+- No warhead: `no explosive warhead, no radioactive fallout and no chemical contamination`
+- Nuclear equivalence: `energy equivalent to a tactical nuclear weapon`
+- Precision: `The targeting precision is sub-meter`
+- Civilian calculus: `eliminates the civilian casualty calculation`
+- Neighborhood: `without harming the neighborhood`
+- Restraint is authorization: `What restrains orbital strike is authorization.`
+- Authority chain: `requires the full national military command authority chain`
+- No unilateral authority: `no individual, including the President, can authorize kinetic bombardment unilaterally`
+- Fixed targets: `with zero warning, at sub-meter precision and with no radiological consequence`
+- Hedge: `Mobile targets are harder but not immune`
+- Targeting updates: `targeting data is updated at the speed of light`
+- Depth defense: `whose only physical defense is depth`
+- Hedge: `which is considerable but finite`
+- Sub-lethal: `can also operate at sub-lethal levels`
+- Hedge: `in a world of increasing vehicle connectivity, is most of them`
+- Targeting corruption: `corruption of targeting data in enemy weapons systems`
+- Antenna: `nanobots interfering with radio transmission at the antenna`
+- Escalation: `in extreme escalation, direct neural interference with enemy combatants`
+- Effects: `disorientation, motor disruption, induced unconsciousness or sensory overload`
+- Thresholds: `below the lethality threshold of the neutralization plume` / `above the threshold of any conventional electronic warfare capability`
+- Disabled: `an instrument it cannot detect, counter or reciprocate`
+- Scenario: `a coordinated land, sea, and air assault by a non-allied nation-state` / `modern Earth-equivalent military capability`
+- Hour 0: `Ground forces begin movement toward the mega-wall perimeter.`
+- +3 min: `classifies the engagement as Tier 4 (civilizational defense)` / `The President is informed.` / `The Supreme Court convenes emergency session for post-hoc review.`
+- +8 min: `No crew aboard any VMSS vessel.` / `the conventional fleet is scoring kills that do not matter` / `Non-implanted crew members begin experiencing neural interference`
+- +15 min: `VMSS loses aircraft freely because there are no pilots inside` / `produce permanent pilot deaths`
+- +22 min: `Kinetic bombardment commences against the conventional force's fixed logistics infrastructure` / `destroyed before the first ground engagement begins`
+- +30 min, wall dimensions (verbatim, flagged): `15km above ground, 5km below ground, a 1km base tapering to a roughly 1m crest`
+- Breach speed: `cannot breach it at operationally useful speed`
+- +45 min (verbatim, flagged): `receive kill switch activation. Instantaneous. Selective. No collateral damage.` / `is decapitated`
+- Hour 1: `has not breached the wall` / `because there are no VMSS personnel in the combat zone` / `has already been replaced by fabrication`
+- +1:30: `The battle has become a cleanup operation.` / `cannot retreat faster than the autonomous pursuit`
+- Captive processing: `behavioral evaluation per §23.3 (wartime conduct)` / `Conscripts with clean records enter Main Layer if they choose to stay.` / `placed in the layer their conduct warrants`
+- Hour 2: `VMSS has sustained zero permanent casualties.` / `total permanent casualties among its deployed personnel` / `The war lasted two hours.`
+- Bounded by doctrine: `military capability is bounded by doctrine` / `the civilization can do more than it permits itself to do`
+- Published constraints: `The constraints are constitutional and published` / `that knowledge is itself a strategic instrument`
+- Defensive only: `does not wage wars of conquest, occupation, or regime change (§23.3)`
+- Threat neutralization: `overwhelming, temporary, and bounded by doctrine` / `military operations cease and the border restores`
+- War interest: `only in ensuring the adversary cannot threaten VMSS territory again`
+- External Force Doctrine: `The External Force Doctrine (§24)` / `four imminence tiers`
+- Tier 1: `Tier 1 (diplomatic/economic) uses sanctions and trade restriction.`
+- Tier 2: `Tier 2 (defensive mobilization) publicly demonstrates capability as deterrent.`
+- Tier 3: `Tier 3 (preemptive neutralization) targets verified, deployment-ready weapons systems` / `with Supreme Court emergency session and presidential signature`
+- Tier 4: `Tier 4 (civilizational defense) is the full response`
+- Published tiers: `Every tier and its threshold are published`
+- §24.2 line: `§24.2 draws an explicit line.`
+- Preemption: `imminent, verified, deployment-ready existential threat is permitted under Tier 3` / `with procedural checks`
+- Prevention forbidden: `bombing a research program, assassinating a scientist, sabotaging early-stage development` / `is doctrinally forbidden`
+- Test: `capability plus deployment intent plus imminence, verified through evidence`
+- Justification: `"They have built it and it is pointed at us" is a Tier 3 justification` / `"We are afraid of what they might build" is not.`
+- No expansion: `does not occupy territory, impose regime change, or extract reparations`
+- Border: `The border restores to pre-conflict position`
+- Hedge: `if one exists`
+- War aim: `war aim is negative (remove the threat), not positive (reshape the adversary)`
+- Economic credibility: `no economic incentive for conquest` / `Dyson-class energy trajectory` / `nothing to gain from occupying another nation's resources`
+- Captives: `Conscripts with no criminal history enter Main Layer if they choose to remain.`
+- Proportionality framework: `three-axis proportionality framework (severity, pattern, reversibility)` / `governs domestic layer reassignment`
+- Detention: `temporary and humane, and it terminates when the conflict ends`
+- No POWs: `no prisoners of war in the sustained sense` / `released, repatriated, or offered citizenship`
+- Calculus frame: `A rational non-allied actor considering military confrontation with VMSS must calculate:`
+- Can destroy: `VMSS hardware (replaceable from fabrication capacity)` / `depending on orbital strike vulnerability`
+- Wall figure (verbatim, flagged): `a 15km/5km/1km-base composite barrier`
+- Cannot destroy: `VMSS personnel (revivable)` / `carried in living leaders who revive after death` / `automated, distributed, and largely orbital` / `capsules that can be manufactured anywhere`
+- Will lose: `Every soldier committed to the engagement (permanently)` / `within minutes of the engagement's start` / `implanted-personnel kill switch activation` / `through orbital strike on production facilities`
+- Exchange: `permanent, irreplaceable assets` / `fabricated faster than it can be destroyed`
+- No favourable rate: `No exchange rate makes this trade favor the adversary.` / `VMSS never runs out of platforms`
+- Conclusion: `military confrontation with VMSS is suicide`
+- Threshold weapon: `total molecular destruction at civilizational scale` / `prevents backup vessel revival`
+- Q24 cannon: `The antimatter cannon in Q24's scenario is exactly this weapon.`
+- Below threshold: `temporary VMSS casualties and permanent adversary casualties` / `cannot be won`
+- MAD: `mutually assured destruction (MAD) model` / `MAD works because both sides can destroy each other.`
+- Non-reciprocity: `cannot reciprocate at equivalent scale`
+- Assured dominance: `Deterrence theorists would call this posture assured dominance`
+- Posture: `so disproportionately devastating, so structurally unreciprocable and so publicly documented` / `no rational actor initiates the exchange`
+- Mechanism: `The published nature of the capability is the mechanism.`
+- Hedge: `might miscalculate`
+- Citations: `Article XXV.V, §23, and §24`
+- Transparency: `Transparency makes the deterrence self-reinforcing.` / `leakage reduction trajectory`
+- Dates: `asymmetrically disadvantaged in 2200` / `catastrophically disadvantaged by 2500 and existentially disadvantaged by 2800`
+- Window: `narrows every year`
+- Rational response: `the current asymmetry already makes attack suicidal` / `"attack before they get stronger"` / `"negotiate the best possible relationship before the gap makes negotiation unnecessary."`
+- Q24 frame: `Q24 (The Annihilation Ultimatum) operates inside this strategic environment.`
+- Kessari cannon: `The Kessari's antimatter cannon is the only weapon type that changes the calculus` / `alone produces permanent VMSS casualties by preventing backup vessel revival`
+- Q24 question: `reaches across the asymmetry` / `this resource provides the baseline the question presupposes`
+- Empire counterfactual: `the most dangerous empire in human history` / `civilizational rather than imperial`
+- Conquest barred: `the doctrine prohibits territorial expansion`
+- Extraction: `a post-scarcity economy has nothing to extract`
+- Regime change: `limits engagement to threat neutralization and requires withdrawal when the threat is resolved`
+- §24.2 prevention: `§24.2 explicitly forbids prevention (attacking speculative future capability)` / `with Supreme Court and presidential authorization`
+- Architectural constraint: `architectural consequences of the civilization's design` / `do not depend on self-imposed virtue`
+- Empire motives: `resources, territory, labor, or strategic position`
+- VMSS needs none: `its resources are fabricated, its territory is bounded by the mega-wall` / `its labor is automated, and its strategic position is orbital`
+- No moral prohibition needed: `does not need a moral prohibition against it` / `formalizes what the architecture already makes pointless`
+- Wrong reading: `"they won't attack first because they say so"` / `is reading the wrong layer`
+- Correct reading: `nothing on our side of the wall that they need`
+- Credibility: `The doctrine is credible because the economics are.`
+- Rational restraint: `conquest produces no gain` / `governing occupied territory costs more than fabricating whatever the territory would have provided`
+- Student misreading: `has misread the architecture` / `VMSS is a military threat to anyone who attacks it.` / `a neighbor with a very large fence`
+
+Cut or merged (restatement, reversal or slogan only):
+- "The war lasted two hours. It was not close." became "The war lasted two hours." The Hour 2 paragraph above it already gives the result: zero VMSS losses against total permanent losses.
+- "military confrontation with VMSS is not a war. It is a suicide with extra steps." became "military confrontation with VMSS is suicide." "which is the definition of a war you cannot win" became "a war fought on those terms cannot be won".
+- "The asymmetry is not a force multiplier. It is a category change." became "more than a force multiplier: it changes the category of the conflict". "is not fighting an enemy with better equipment" was dropped because the different-physical-rules sentence carries the point. The six-sentence "conventional side / VMSS side" parallel was folded into three sentences with the same three contrasts.
+- "Every conventional enemy combat kill produces a temporary inconvenience" was kept as a clause.
+- "has not been defeated by a superior force" (a reversal) was dropped, and "has been disabled by an instrument" was kept.
+- "Everything below antimatter annihilation is a conventional weapon operating against a civilization that has structurally transcended conventional warfare" was cut. It restates the threshold sentence at the end of the Strategic Calculus section.
+- "Every enemy combatant has at least one of these" was cut. It restates "No configuration of enemy personnel ... falls outside both instruments' coverage" from the paragraph before.
+- "The doctrine constrains the capability because the architecture eliminated the motive" was cut. It restates the prohibition-formalizes sentence.
+- "A post-scarcity civilization's military restraint is not moral performance" was folded into "is rational behavior". The virtue point stays in the paragraph before ("do not depend on self-imposed virtue").
+- "This is not MAD" was cut because the paragraph before says the posture is "fundamentally different" from MAD.
+- "The doctrinal restraint is not capability but authorization" became "What restrains orbital strike is authorization."
+- "The engagement is no longer a battle. It is a cleanup operation." became "The battle has become a cleanup operation."
+- The Hour 0 timeline stays as briefing prose, as the triage asked. Only +8 min, +1:30 and Hour 2 were touched.
+
+Word counts: 3,584 → 3,407 (−4.9%). This is just under the 5% aim because about 400 words sit in frozen clash paragraphs: Instrument 1 paragraphs 2–3, the +30 and +45 min entries, and the three calculus lists.
+
+Flags:
+1. Wall thickness clash, R3 vs R16 (left unchanged). R3 gives "a 1km base tapering to a roughly 1m crest" (+30 min) and "a 15km/5km/1km-base composite barrier" (calculus). R16 says the wall is one hundred meters thick. Both kept verbatim for Jason's ruling.
+2. Kill-switch scope clash, R3 vs R15 (left unchanged). "The kill switch operates on every implanted individual within range, regardless of citizenship status." All of Instrument 1 paragraphs 2 and 3 are kept verbatim, including their original em-dash pairs and the "It arrived as a medical device" closer, because they depend on the scope claim. Also kept verbatim for the same reason: the +45 min entry (kill switch used on the adversary's implanted personnel), "the kill switch is inside citizens' heads" (calculus, cannot destroy), "implanted-personnel kill switch activation" (calculus, will lose) and "the kill switch handles implanted threats instantaneously" (Instrument 2).
+3. Possible internal tension (left unchanged). In the timeline, AI combat doctrine activates Tier 4 at +3 min, "The President is informed", and kinetic bombardment starts at +22 min. Instrument 4 says orbital strike "requires the full national military command authority chain". The timeline never shows that chain authorizing the strike. This may be implied, but it is not stated.
+4. Approved doctrine changes: none apply to r3, and none were applied.
+
+## r5 The Mega-Wall
+
+Claims ledger
+- Visibility: `the most visible infrastructure in the civilization and the least understood`
+- Dimensions (verbatim, flagged): `15km above ground, 5km below ground, a 1km base tapering to a roughly 1m crest`
+- Scale: `the largest continuous structures in human history` / `at a scale no prior civilization has attempted`
+- Disciplines: `materials science, geological engineering, internal transit architecture, active defense integration`
+- Inhabited: `The walls are inhabited infrastructure as well as barriers` / `vertical cities turned sideways and stretched across continents`
+- Stratosphere: `The stratosphere begins at approximately 12km`
+- Tropopause: `the wall tops sit 3km above the tropopause`
+- Temperature: `ambient temperature is approximately -55°C`
+- Pressure: `atmospheric pressure is less than 15% of sea level`
+- Wind (hedge "can"): `wind speeds can exceed 200 km/h in the jet stream layer`
+- Exits weather: `a building tall enough to exit the weather`
+- Mponeng: `Mponeng Gold Mine in South Africa, reaches approximately 4km`
+- Depth record (flagged): `exceeds the deepest point any human activity has penetrated`
+- Rock temperature: `approximately 60-70°C from geothermal gradient`
+- Gradient (hedge): `roughly 25-30°C per kilometer of depth`
+- Sub-surface constraints: `rock pressure, temperature and groundwater flow create engineering constraints`
+- Tunneling: `The depth also eliminates tunneling as a breach approach.`
+- Hedge kept: `Advanced technology might be able to tunnel to 5km`
+- Detection: `identifies any excavation activity at a fraction of that depth`
+- Taper (verbatim, flagged): `A 1km base tapering parabolically above the midpoint to a roughly 1m crest.`
+- Ratio inputs: `15,000m of above-ground height on a 1,000m base`
+- Ratio: `is 15:1, or 20:1 when the sub-surface section is included`
+- Skyscraper: `a typical skyscraper is approximately 7:1`
+- Pencil: `a pencil standing on its eraser is approximately 10:1`
+- Slenderness: `twice as slender as the pencil at twenty vertical kilometers`
+- Density (flagged): `atmospheric density at 15km is approximately 12% of sea level`
+- Bearing (flagged): `the mass above any point does the bearing for what is below`
+- Thermal gradient: `a 100°C+ temperature gradient from base to summit`
+- 2026 materials: `requires materials that do not exist in 2026`
+- Construction era: `a 22nd-24th century construction project rather than a founding-era one`
+- Material requirements: `compressive strength exceeding anything in the current engineering catalogue` / `tensile strength to resist wind shear at jet stream altitudes` / `enough flexibility to survive seismic events without catastrophic fracture`
+- Composites: `carbon nanotube or graphene-derived structural matrices with embedded active compensation systems`
+- Named mechanism: `"Active compensation" means`
+- Actuation: `redistributes load through actuated elements within the composite matrix`
+- Muscle analogy: `more like a muscle than a beam`
+- Profile figures: `15:1 at the base, 1m at the crest`
+- Passive fails: `where a passive material at this ratio fails`
+- Not solid: `The mega-wall is not solid.`
+- Hollow section: `carried by a hollow section with internal reinforcement`
+- Interior volume (verbatim, flagged): `a 1km-deep base interior per linear meter of wall` / `an enormous volume that the civilization uses`
+- Interior function: `makes the boundary system operational`
+- Maglev shafts: `controlled vertical maglev shafts integrated into the wall structure`
+- Only pathways: `the only physical pathways between adjacent layers` / `no surface-level gates, tunnels or aerial corridors`
+- All traffic: `every person and every piece of cargo`
+- Tubes: `evacuated or low-pressure tubes`
+- Base width (verbatim, flagged): `across the wall's 1km base width`
+- Different sky: `into a different sky`
+- Archive citation: `"walking through a transit shaft into a different sky."`
+- Discontinuity: `The environmental discontinuity is immediate and total`
+- Dual verification: `biometric identification (physical body, iris, DNA)` / `implant verification (identity confirmation, ledger status, layer authorization)`
+- Phasing threshold (verbatim, flagged): `only if their STI meets the phasing threshold and no active restrictions apply`
+- Upward transit (verbatim, flagged): `attempting to transit upward without meeting the destination layer's requirements is denied`
+- Capsule gate: `the capsule does not activate without dual verification clearance`
+- Spacing: `population density on both sides`
+- Hedge "may": `may have transit stations every few kilometers, rural sections every fifty or more`
+- Station: `security personnel, drone coverage and the full sensor suite`
+- No Earth border: `no customs hall, no passport line and no discretionary evaluation by a human officer`
+- Binary: `automated, instantaneous and binary: you are cleared or you are not`
+- Clearance: `requires security clearance`
+- Citation: `Security Classification System (§8)`
+- Keycards: `"Mega wall gate keycards" at the Confidential tier` / `operational personnel with need-to-know`
+- Turret operation: `"Mega wall turret remote operation" is also Confidential.`
+- Two gates: `transit between layers is gated by implant verification`
+- Separate systems: `The two systems run on different infrastructure for different purposes`
+- Keycard scope: `personnel who are already inside the wall`
+- Implant scope: `unauthorized crossing by anyone`
+- Staffing: `the Meritboard's federal-administration ranking`
+- Sovereign infrastructure: `sovereign VMSS infrastructure, assigned to no single layer`
+- Federal employees (flagged): `federal employees, not layer residents`
+- Classification system: `fabrication stations, defense platforms and enforcement drone patrol patterns`
+- Detection platform: `The wall is an active barrier and a continuous detection platform.`
+- Four systems: `Four sensor systems operate simultaneously`
+- Seismic: `tunneling, drilling or explosive excavation at distances measured in kilometers`
+- Natural vs artificial: `natural geological activity (earthquakes, settling)` / `rhythmic vibration patterns, directional propagation consistent with boring equipment`
+- 5km detection: `A tunneling attempt that begins 5km from the wall is detected at the first vibration.`
+- Radar map: `real-time three-dimensional map of every void, cavity, tunnel and anomaly`
+- Complement: `seismic detects activity (something is excavating)` / `radar detects results (a void exists where solid rock should be)`
+- Slow tunneling: `slow, quiet tunneling that might avoid seismic detection`
+- Drones: `patrol both sides of the wall at all altitudes from surface to wall-top`
+- Drone sensing: `visual, thermal and electromagnetic surveillance`
+- AI threat assessment: `evaluated by AI threat assessment before it reaches the wall surface`
+- Outer perimeter: `The drone swarms form the wall's outer perimeter`
+- Turret coverage: `covering both the exterior face and the wall-top`
+- AI targeting doctrine: `operate autonomously under AI targeting doctrine`
+- Authorization: `do not require human authorization for threat response within defined engagement parameters`
+- Non-lethal default: `Non-lethal options (foam, nets, sonic disorientation, sedative delivery) are the default response tier.`
+- Lethal escalation: `Lethal options exist in the engagement doctrine but require escalation through defined criteria.`
+- Active defense: `The turrets are the wall's active defense`
+- Duration: `approximately 200 years from groundbreaking to completion`
+- Three constraints: `material availability, geological survey requirements, and the phased nature of concentric ring construction`
+- Material era: `Material development (21st-22nd century).`
+- Founding Treaty: `do not exist at the time of the Founding Treaty`
+- Parallel research: `runs parallel to the civilization's early institutional buildout`
+- Founding generation: `funds without expecting to see the results`
+- Availability: `available for construction-scale manufacturing in the early 22nd century`
+- Survey era: `Geological survey (22nd century).`
+- Route: `thousands of kilometers per ring`
+- Resolution: `the resolution required for 5km-deep foundation engineering`
+- Survey content: `rock composition, fault lines, groundwater reservoirs, geothermal gradients, and sub-surface stability`
+- Fault engineering: `isolation joints, flexible connection segments and seismic dampening systems`
+- Phased era: `Phased construction (22nd-24th century).`
+- Four circuits: `four wall circuits (between +1/0, 0/-1, -1/-2, -2/-3)`
+- Order: `the Sanctuary/Main boundary first, the -2/-3 boundary last`
+- Circuit duration: `Each wall circuit takes 30-50 years from foundation to completion`
+- Overlap: `the second circuit begins before the first is complete`
+- Span (hedge): `spans approximately two centuries`
+- Automation: `The construction workforce is primarily automated`
+- Dyson analogy: `in the same sense that the Dyson swarm builds itself`
+- Division of labour: `autonomous systems do the physical construction`
+- Weather separation: `separates weather systems as well as populations`
+- Circulation: `block lower atmospheric circulation patterns entirely`
+- Height: `extends through the troposphere and into the stratosphere`
+- Timescale: `The effects accumulate over decades and centuries:`
+- Wind shadowing: `low-wind zones on the leeward side and accelerated wind corridors along the wall face`
+- Divergence: `diverge measurably`
+- Hedges: `develops characteristics of a sheltered microclimate` / `calmer, potentially warmer`
+- Orographic lift: `forced upward (orographic lift)`
+- Rain shadow: `rain-shadow conditions on the leeward side`
+- Hydrology: `aquifers on the leeward side receive less recharge`
+- Ecosystems: `the wall separates ecosystems as well as human populations`
+- Re-radiation: `re-radiates solar energy differently than the natural terrain it replaced`
+- Updrafts: `Dark composite surfaces on the sun-facing side create thermal updrafts.`
+- Radiation to space: `radiates heat into space at rates the surface cannot`
+- Convective currents: `convective air currents along the wall that do not exist in natural terrain`
+- Local effects: `cloud formation, fog patterns, and air quality`
+- Design feature: `a design feature, not unintended consequences`
+- Technologies quote: `"Environmental separation between layers is complete, not merely social and institutional."`
+- Whitepaper citation: `The whitepaper (§4.3) confirms`
+- Whitepaper quote: `producing distinct microclimates within each ring over civilizational timescales`
+- Physical distinction: `no policy, law or institutional arrangement could produce alone`
+- Forcefield start: `adds an energy barrier beginning in the 28th century`
+- Partial date: `Partial integration (~2800).`
+- Surplus: `surplus is directed to forcefield emitters integrated into the wall structure`
+- High-risk sections: `urban approaches, known smuggling corridors, sections with elevated breach attempt rates`
+- Partial effect: `Even partial coverage sharply reduces wall breach leakage`
+- Full date: `Full network (~2850).`
+- Dyson trigger: `As Dyson-class energy abundance arrives`
+- Placement: `in front of, behind, or integrated into the physical wall`
+- Simultaneous: `The two systems operate simultaneously.`
+- Wall role: `mass, foundation, and internal infrastructure`
+- Forcefield role: `occupies the space the breach would need to traverse`
+- Technologies quote: `"The mega-wall does not become obsolete when the forcefield arrives. It becomes its foundation."`
+- Mutual role: `The wall houses the forcefield, and the forcefield protects the wall.`
+- Redundancy (flagged): `Neither system is redundant.`
+- Impenetrable: `impenetrable by any means available to individuals or organized groups`
+- Division: `the physical wall resists kinetic force and the forcefield resists everything else`
+- By 3000 (flagged): `The boundary infrastructure is layered, redundant`
+- Convergence: `most mature convergence of materials engineering, energy infrastructure, and active defense`
+- 30th century: `by the 30th century`
+- Physical character: `defines the physical character of each ring`
+- Spec (verbatim, flagged): `15km, 5km, 1km base`
+- Fence misreading: `"that's a big fence"` / `A fence separates property; the wall separates civilizations.`
+- Founding claim: `a claim that no prior governance system has made`
+- Environment from conduct: `a person's environment should be the consequence of their demonstrated conduct`
+- Layers as mechanism: `The layers are the mechanism` / `they work only if they are physically real`
+- Movement: `controlled, verified and architecturally non-trivial`
+- Administrative: `"you now live in -1" is administrative`
+- Divergence: `centuries of microclimate divergence`
+- Experiential: `experiential rather than bureaucratic`
+- Archive quote (verbatim): `Consequence must be environmental, not administrative.` / `Labels can be lived with. Environments cannot be ignored.`
+- Oldest weakness: `the oldest weakness of every governance system on Earth`
+- The gap: `the gap between what the law says and what the citizen experiences`
+
+Cut or merged (restatement, reversal or slogan only):
+- "The walls are not barriers. They are inhabited infrastructure" became "inhabited infrastructure as well as barriers".
+- "Any structure at this height is not a wall in the conventional sense. It is a building..." became "less a wall in the conventional sense than a building...".
+- "The sub-surface section is not merely deep" was dropped. Its content (the pressure, temperature and groundwater constraints) is kept.
+- "not because tunneling to 5km is impossible ... but because" became "Advanced technology might be able to tunnel to 5km, but". The hedge is kept.
+- "A passive material at this ratio fails. An active material at this ratio adapts." became "where a passive material at this ratio fails". The adapting behaviour is already given by "continuously adjusting its internal stress distribution".
+- "The transit experience is not walking through a gate" was dropped. "The stations are not borders in the Earth sense" became "Unlike an Earth border".
+- The keycard example sentence ("A maintenance technician ... needs a Confidential-clearance keycard ...") was cut. It restates the gating sentence before it, and the Confidential tier is stated in the paragraph above.
+- "the sensors detect, the drones track, and the turrets respond" (a tricolon) became "responding to what the sensors detect and the drones track".
+- "human intelligence directs the program, machine capability executes it" was merged into the engineers/autonomous-systems sentence.
+- "The civilization does not merely separate populations by governance. It separates them by environment — different weather, different ecology, different sky." was cut. It restates the two quotations just before it.
+- "The mega-wall is not the final form of the boundary architecture. It is the foundation for..." became "The mega-wall is the foundation for a layered boundary system...".
+- The garbled sentence "The forcefield provides an energy barrier that the physical wall cannot be breached through" was rewritten as "The forcefield makes the physical wall impossible to breach, because it occupies the space the breach would need to traverse." The claim is unchanged.
+- "The wall is not a fence." was cut. The next sentence carries it.
+- "Earth changes your legal status. VMSS changes your sky." (slogan closer) was cut. It restates the gap sentence and the archive quotation.
+- "atmospherically" was dropped from the "tangibly, environmentally, atmospherically" tricolon.
+- The simulation-archive, technologies-page and whitepaper quotations are verbatim, including the archive's own "not an engineering relic — they are" reversal. The two technologies quotes and the §4.3 quote were confirmed present in technologies.html and whitepaper.html.
+
+Word counts: 2,922 → 2,765 (−5.4%).
+
+Flags:
+1. Wall thickness clash, R3/R16, with R5 as the third wall text (left unchanged). R5 gives a 1km base in five places: the intro, the taper paragraph ("15,000m ... on a 1,000m base"), the internal-architecture paragraph ("a 1km-deep base interior"), the shaft paragraph ("the wall's 1km base width") and "What the Wall Is For" ("15km, 5km, 1km base"). All are kept verbatim for Jason's ruling against R16's one hundred meters.
+2. Triage doctrine flag 3, phasing threshold (left unchanged). "passes through a Main-to-Sanctuary shaft only if their STI meets the phasing threshold and no active restrictions apply." Sanctuary eligibility is immediate at STI 85, and STI never sets placement. The sentence is kept verbatim.
+3. Triage doctrine flag 4, upward transit (left unchanged). "A citizen attempting to transit upward without meeting the destination layer's requirements is denied at the verification point". This implies upward crossing is allowed once requirements are met, which may conflict with downward-only mobility. The whole dual-verification paragraph is kept verbatim, including its em-dash.
+4. Related to the Dyson date clash, R4/R19 (left unchanged). The forcefield dates "Partial integration (~2800)" and "Full network (~2850)" are tied to Dyson swarm capacity and "Dyson-class energy abundance". These dates should follow whatever Dyson date Jason rules for R4/R19.
+5. Internal tension (left unchanged). "Neither system is redundant." (forcefield section) contradicts the next paragraph's "The boundary infrastructure is layered, redundant". It also sits oddly with the Redundant Envelope principle (whitepaper §28.0).
+6. Factual, depth record (left unchanged). "exceeds the deepest point any human activity has penetrated" holds for mines (Mponeng is about 4km) but not for boreholes: the Kola Superdeep Borehole reached about 12km.
+7. Factual, atmosphere (left unchanged). "atmospheric density at 15km is approximately 12% of sea level". About 12% is the standard-atmosphere pressure at 15km; density there is about 16%. Also, "the mass above any point does the bearing for what is below" reads backwards: the structure below bears the mass above. Both are kept verbatim.
+8. Possible and low-confidence (left unchanged). "federal employees, not layer residents" implies wall staff live in no layer. It may mean only that they are not layer-government staff.
+9. Approved doctrine changes: none apply to r5, and none were applied.

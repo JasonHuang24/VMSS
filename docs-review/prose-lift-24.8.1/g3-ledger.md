@@ -1,0 +1,310 @@
+# Prose lift 24.8.1, Resources group 3 (r15, r16) fidelity ledger
+
+Source: `documents/resources-source.html` (unchanged). Edited blocks: `r15.html` (clarity edit) and `r16.html` (light edit) in this folder. Verifier: `g3-verify.mjs`.
+
+Conventions:
+- Quotes are verbatim from the edited block after stripping tags, decoding entities (&rsquo; to ', &mdash; to —, &ndash; to –, &sect; to §) and collapsing whitespace. The verifier checks every backticked span in each page section against that page. Each quote is 15 words or fewer.
+- Frozen and untouched: every tag and attribute, the h2 title, the grey subtitle line, every h3 heading, every bold run-in label. Neither page has a table.
+- Word counts cover the whole block's visible text (headings included), counted by the verifier.
+- Em-dash cap: at most one per paragraph or intro block. Maximum after the edit is 1 on both pages (before: 3 on r15, 2 on r16).
+
+## r15
+
+Mode: clarity edit.
+
+Word count: 2,973 → 2,824 (−5.0%).
+
+Claims ledger:
+- Founding defenselessness list: `In 2026 VMSS had no military, no orbital assets, no autonomous forces`
+- UN opposition from day one: `Russia and China opposed at the United Nations from the first hour`
+- US as guarantor: `the United States chose to serve as its guarantor`
+- Window: `In the 2026–2036 window VMSS was militarily and diplomatically defenseless.`
+- Kill switch not yet at scale: `The implant kill switch had not yet reached population-scale deployment.`
+- Plumes: `in laboratory development, decades from operational maturity`
+- Autonomous forces: `Autonomous military forces were design-phase hardware with no production capacity.`
+- Orbital platforms: `Orbital kinetic platforms were a theoretical capability`
+- Wall status: `The mega-wall was not yet under construction.`
+- Population: `The population numbered in the low thousands`
+- Cession date: `after the 2028 operational cession`
+- Single-operation risk: `could have ended the project before its load-bearing architecture came online`
+- Russia, hedge "primarily": `Russia's opposition was primarily sovereignty-based`
+- China, hedge "primarily": `China's opposition was primarily demographic`
+- Brain drain: `would produce brain drain from any authoritarian state`
+- Isolation campaigns: `Both states ran diplomatic isolation campaigns against VMSS at the UN`
+- Only the US qualified: `Only the United States combined the military capability, geographic position, political alignment`
+- Europe: `No European state projected sufficient force.`
+- Asia: `No Asian state was politically compatible.`
+- Latin America / Africa: `No Latin American or African state had the alliance architecture in place.`
+- Federation Treaty adoption terms: `the four-ring or six-ring systems, the human rights baselines`
+- Citation R7: `the mutual defense commitment analyzed in R7`
+- Separate track: `The founding-ally relationship sits outside the Federation Treaty framework entirely`
+- Not adjacent: `The US is not an adjacent nation (which would imply partial VMSS architecture adoption)`
+- Not a member: `not a Federation Treaty member (which would require full adoption)`
+- Not non-allied: `not a non-allied state (which would disclaim the founding relationship)`
+- Category of one: `the category has exactly one member`
+- Daniel Chen: `Daniel Chen opened negotiations with the United States government`
+- Parallel tracks: `two parallel treaty tracks that had to resolve simultaneously or not at all`
+- Canada's condition: `Canada would not cede territory to a state that lacked external military guarantees`
+- Trilateral architecture: `a single trilateral architecture`
+- Conditional obligations: `each signatory's obligations were conditional on the other treaty's execution`
+- Chen led: `Chen led the US negotiations personally on the VMSS side.`
+- US team: `the sitting administration's national security team led`
+- Bipartisan requirement: `Chen insisted on bipartisan buy-in as a strategic requirement`
+- Ratification date: `The Founding Treaty's US ratification in March 2026`
+- Supermajorities: `supermajorities in both chambers of Congress, across both major political parties`
+- Five administrations: `five of them across the founding decade's full duration`
+- Institutional policy: `American institutional policy rather than any single administration's initiative`
+- Concessions documented: `substantial and publicly documented`
+- Autonomy for survival: `trading meaningful autonomy for survival`
+- Basing command: `The bases operated under US command with VMSS liaison presence.`
+- Basing sunset: `The basing rights sunset in 2046, twenty years after operational cession`
+- Defensive-only: `defensive-only by treaty requirement`
+- Offensive restriction sunset: `This restriction closed in 2046 alongside the basing rights`
+- Extradition: `were extraditable to the United States during the sunset window`
+- Absorption inverted: `This inverted the normal VMSS doctrine of absorption.`
+- Extradition sunset: `The sunset closed in 2041`
+- Consultation, plumes: `binding consultation with the United States before deploying nanobot neutralization plumes`
+- Consultation, orbital: `orbital kinetic platforms capable of reaching US territory`
+- Consultation, autonomous: `before projecting autonomous force assets across international boundaries`
+- Kill-switch scope (clash, kept): `it operates only on implanted VMSS citizens`
+- Consultation permanent: `The consultation rights on plumes and orbital platforms did not sunset.`
+- Permanent interface: `the permanent operational interface between the two civilizations' military postures`
+- Trade preference: `US commodity suppliers received preferred access to VMSS procurement contracts`
+- Trade sunset: `The preference sunset in 2041`
+- Hosting sunset: `This concession sunset in 2046`
+- Asylum replacement: `replaced by the standard VMSS asylum evaluation framework`
+- Citation Whitepaper §24.3: `Whitepaper §24.3's alliance reciprocity framework`
+- Public guarantee: `the guarantee was publicly documented rather than classified`
+- Forfeit condition: `would have forfeited US backing for that operation`
+- Allied parallel: `allied nations that initiated unprovoked aggression`
+- Defensive design: `The alliance was defensive by design`
+- Credibility argument: `an unlimited commitment becomes an implicit one neither party believes`
+- US self-interest (reworded from "not operating charitably"): `The United States entered the alliance for its own strategic interest.`
+- Mutual benefit: `durable mutual benefit rather than one-sided extraction`
+- Analyst prediction: `every serious analyst in 2026 correctly predicted`
+- Fifty-year forecast: `the most technologically advanced sovereign entity on Earth within fifty years`
+- Upside: `No other alliance in US history had offered comparable upside.`
+- Post-2050 position: `the center of the post-2050 geopolitical architecture`
+- WWII parallel: `the post-World War II international order, at a substantially higher ceiling`
+- US crises: `homelessness, mental health treatment capacity, correctional system overhead, and social fragmentation`
+- Emigration pathway: `an emigration pathway for US citizens who voluntarily chose VMSS`
+- Not primary: `not a primary policy objective of the alliance`
+- Secondary benefit: `a material secondary benefit documented across the founding decade`
+- Tech transfer: `fabrication technology, automation infrastructure, and selected medical systems at preferential terms`
+- Two-way flow: `The technology did not flow in a single direction.`
+- IP value: `would have required decades of independent research to replicate`
+- Calibration: `calibrated to avoid disrupting the US economy through too-rapid transformation`
+- Hedge "partially": `that the US itself had partially compromised across its history`
+- Civilizational parent: `the civilizational parent of the project`
+- Legacy: `The legacy value was substantial and durable.`
+- Contested-era window: `during the 2026–2046 window`
+- Vetoes: `The United States vetoed every such resolution across the contested era`
+- P5 coordination: `coordinated with its other permanent-member allies`
+- Rhetorical damage only: `did rhetorical damage but had no operational consequence`
+- No kinetic action: `No hostile state attempted kinetic action during the contested era`
+- Analyst attribution: `the prevailing analyst consensus attributed that restraint specifically to the US guarantor framework`
+- Sanctions dates: `coordinated economic sanctions on VMSS across 2027–2034`
+- Partners declined: `Europe and the Pacific declined to participate`
+- Sanctions collapse: `collapsed as unsustainable within their first trigger window`
+- Intel asymmetry: `The sharing was asymmetric during the founding decade`
+- Collection capability: `the infant civilization's limited collection capability`
+- Hedge "most": `closed by the sunset dates on most categories`
+- Inherited obligations: `Administrations that had not signed the treaty inherited its obligations`
+- Institutional memory: `embedded in US institutional memory`
+- Inversion date: `By 2100 the asymmetry had inverted.`
+- Autonomous reach: `operational deployment anywhere on Earth within hours`
+- Plume reach: `could saturate any biological target at any scale`
+- Orbital reach: `could reach any point on the planet within minutes`
+- Kill switch coverage: `an implant kill switch that covered its own population`
+- Lethality: `instantaneous, collateral-free lethality`
+- US retained: `its conventional military capability, its nuclear deterrent, and its economic weight`
+- Capability gap: `VMSS possessed the capability and the United States did not`
+- Hedge "typically": `Alliances built on power asymmetry typically collapse when the asymmetry shifts`
+- Collapse pattern: `the formerly dominant partner resists its demotion`
+- Sunset framing: `time-bounded accommodations to a vulnerability window both parties expected to close`
+- Not humiliations: `rather than as humiliations to be endured`
+- Century forecast: `VMSS would inevitably develop capabilities exceeding US instruments within a century`
+- US design intent (second reason, attributed to the US side): `and that the partnership's long-term value depended on the relationship persisting`
+- Values carried it: `Values alignment carried the alliance across the power shift.`
+- Shared values: `voluntary consent, meritocratic governance, free emigration, and structural restraint on coercive state action`
+- No dominance identity: `neither structured its identity around dominance`
+- Hedge "meaningfully": `was not meaningfully threatened by a more powerful VMSS`
+- US sovereignty: `VMSS had never sought to eliminate US sovereignty`
+- Puppet error: `has misread the sovereignty question`
+- Sunset vs subordination: `But a concession that sunsets differs from a subordination that persists.`
+- Specified constraints: `constrained in specified domains for specified durations`
+- All expired (internal defect, kept): `Every concession expired. Every restriction closed.`
+- Peers after 2046: `After 2046 the bilateral partnership was an alliance between peers`
+- Never subordinate: `at no point a subordination on either side`
+- US benefit summary: `strategic positioning at the center of the 21st–22nd century geopolitical order`
+- Trade summary: `It traded time-limited guarantees for permanent strategic value.`
+- Administrations concurred: `No subsequent administration, regardless of partisan orientation`
+- Hedge "almost": `almost no bilateral relationship in human history has achieved`
+- Roman-Greek: `The Roman-Greek relationship degraded.`
+- British-American: `degraded and then reformed as a new structure`
+- Soviet-Chinese: `The Soviet-Chinese relationship degraded.`
+- Hedge "usually": `the ones that do are usually transformed`
+- Full inversion: `from overwhelmingly US-favored to overwhelmingly VMSS-favored`
+- Transferable artifact: `the alliance's most transferable artifact`
+- Durability claim: `the most durable geopolitical relationship of the founding era`
+
+Flags:
+- CLASH, kill-switch scope (R3/R15), kept: r15 says the kill switch "operates only on implanted VMSS citizens" and "covered its own population"; R3 says it works on every implanted individual regardless of citizenship. Jason to rule.
+- CLASH, wall construction start (R15/R16), kept: r15 puts the mega-wall "not yet under construction" in the 2026–2036 window. R16 starts construction in mid-2030 and has the southern wall about 40% complete by 2036.
+- Internal defect, kept: the basing rights "sunset in 2046, twenty years after operational cession", but the same page dates operational cession to 2028. Twenty years runs from the March 2026 treaty, not from the cession.
+- Internal defect, kept: "five of them across the founding decade's full duration". Five US administrations do not fit a ten-year window of four-year terms, though they do fit the 2026–2046 contested era.
+- Internal defect, kept: the Student's Error says "Every concession expired. Every restriction closed.", but the consultation rights on plumes and orbital platforms "did not sunset" and are permanent.
+- Possible logic slip, kept: "VMSS in 2100 was not meaningfully threatened by US existence because VMSS had never sought to eliminate US sovereignty." The reason given does not support the conclusion.
+- Possible cross-resource tension (R15/R16), kept: r15's trade preference gives US commodity suppliers preferred procurement access during the construction phase. R16 says the Founding Treaty's trade-preference arrangements gave most construction contracts to Canadian firms. These may be separate categories (supply versus construction contracts).
+- Blanket superlatives that carry claims were kept: "every serious analyst in 2026 correctly predicted", "No other alliance in US history", "vetoed every such resolution", "almost no bilateral relationship in human history", "the most durable geopolitical relationship". Intensifiers with no claim behind them were cut ("in every dimension that mattered", "The United States was not one option among several. It was the only option.", "This fact is the resource's deepest observation").
+- Reworded claim, for review: "The United States was not operating charitably" became "The United States entered the alliance for its own strategic interest." The claim is the same, stated positively.
+- Kept as written: "The technology did not flow in a single direction." It is a claim, but the rest of the paragraph describes only VMSS-to-US flow, so the sentence reads oddly.
+- Frame change: "The deepest observation belongs to the student who notices" became "A third student reads it correctly, noticing that". The added "reads it correctly" keeps the third student from reading as a third error after the two "has misread" paragraphs. The three-student structure is unchanged.
+- Revision (verifier pass 2): the Asymmetry Inversion paragraph had split the US signatory administration's two reasons for accepting the sunset structure, turning the second reason into a narrator claim. Both reasons are now back in one sentence, attributed to the US side as in the original.
+- Approved doctrine changes: none apply. This page has no R1 AI-monitoring wording and no −3 visitor vessel content. None were applied.
+- Length: −5.0%, at the low end of the 5–15% clarity target. Most of the page is concession and benefit lists whose content is frozen.
+
+## r16
+
+Mode: light edit.
+
+Word count: 2,781 → 2,637 (−5.2%).
+
+Claims ledger:
+- Largest project: `The mega-wall is the single largest construction project in human history.`
+- Dimensions (clash on thickness, kept): `fifteen kilometers above ground, five kilometers below ground, one hundred meters thick`
+- Orders of magnitude: `exceed every prior engineering achievement by orders of magnitude`
+- Begun, not completed: `The founding decade began the wall but did not complete it.`
+- Categorical departure: `a categorical departure from existing construction technology`
+- Everest: `exceeds the summit of Mount Everest by more than six kilometers`
+- Stratosphere: `It penetrates the stratosphere, where commercial aviation does not operate`
+- Pressure, hedge "roughly": `atmospheric pressure drops to roughly ten percent of sea level`
+- Material limits: `begin to approach theoretical limits for any known material`
+- Mponeng: `the Mponeng Gold Mine in South Africa, at approximately four kilometers`
+- Bedrock gradients, hedge "meaningfully": `continental bedrock temperature gradients begin to meaningfully affect structural engineering`
+- Thickness comparison: `comparable to the base thickness of the Three Gorges Dam`
+- Perimeter: `extended continuously across thousands of kilometers of perimeter`
+- No analog: `No prior construction project provides useful analog.`
+- Great Wall height: `reaches roughly eight meters in its tallest standing sections`
+- Great Wall length: `approximately thirteen thousand kilometers across fragmented segments built over two millennia`
+- Pyramids: `The Great Pyramids reach one hundred and forty-six meters`
+- Three Gorges height: `The Three Gorges Dam reaches one hundred and eighty meters in height`
+- One percent: `approximately one percent of the mega-wall's vertical scale`
+- Interstate volume: `approximately the volume of a single kilometer of completed mega-wall`
+- Elena Voss: `a Meritboard-credentialed founding partner named Elena Voss`
+- Chen's authority: `working directly under Daniel Chen's strategic authority`
+- New engineering first: `new civil engineering had to be developed as a precondition for the construction itself`
+- Multi-century continuation: `continue the project at sustained pace across centuries`
+- No 2026 material: `No material available in 2026 could support the mega-wall's structural requirements.`
+- Concrete: `Steel-reinforced concrete, the dominant structural material of the prior century`
+- Carbon fiber: `Carbon-fiber composites offer tensile strength at low weight`
+- Ceramics: `Advanced ceramics handle compression but fracture under the tensional and torsional loads`
+- Material need: `The mega-wall required a material that did not exist.`
+- Named mechanism: `the Founding Composite`
+- Core: `a high-carbon aerogel lattice core`
+- Compression layer: `a nanofabricated ceramic-metal composite compression layer`
+- Skin: `a self-healing polymer-metallic skin capable of automated crack repair at the microscale`
+- Fabrication dependency: `could not be manufactured by any pre-VMSS industrial process`
+- Facility date: `became operational in late 2029`
+- Panels date: `The first validated composite panels were produced in early 2030.`
+- First segment: `was begun in mid-2030, approximately four years after the Founding Treaty was signed`
+- Materials gate: `the materials problem had been solved at production scale`
+- Licensing: `US allied firms licensed derivative versions of the composite technology`
+- Spillover sectors: `aerospace, naval construction, and terrestrial infrastructure`
+- Primary deployment: `though the mega-wall remained the primary deployment`
+- Outer first: `The outer perimeter was built first, for strategic reasons.`
+- Threat surface: `attempted sabotage, infiltration attempts, kinetic probing operations`
+- Security transition: `guarantor-dependent security (relying on the US umbrella) to sovereign self-defense`
+- Southern priority: `The southern segment was prioritized within the outer perimeter.`
+- No terrain anchor: `had no natural terrain anchor to supplement the physical wall`
+- Resource allocation: `the majority of its early-decade resources to the southern segment`
+- Start point: `Construction began in mid-2030 at the western end (near the BC/Yukon border)`
+- Parallel fronts: `proceeded eastward in parallel construction fronts`
+- Arctic next: `The Arctic maritime boundary was addressed next.`
+- Maritime systems: `submerged sensor networks, surface patrol drones, and ice-management systems`
+- No open water: `without attempting the open-water extensions`
+- Hudson Bay: `the bay itself remaining Canadian territory`
+- Rockies: `The Rocky Mountain anchor on the western boundary required minimal wall construction.`
+- Most efficient: `the most efficient segment of the outer perimeter`
+- Interior walls: `the barriers separating +1 Sanctuary from Main Layer, Main from -1, -1 from -2`
+- Not built: `and -2 from -3) were not built during the founding decade`
+- Staged interior: `staged the interior construction as a multi-century project`
+- 2036 progress: `By 2036, the southern outer wall was approximately forty percent complete.`
+- 2050 progress: `By 2050, it was approximately seventy percent complete.`
+- Perimeter closed: `not closed until the early 22nd century`
+- Canadian labour: `The labour force that built the founding-decade wall was overwhelmingly Canadian.`
+- Contract allocation: `contractually allocated the majority of construction contracts to Canadian firms`
+- Peak workforce: `At peak deployment in 2033, approximately two million workers were active`
+- Largest workforce: `the largest single construction workforce ever assembled at one time`
+- Construction cities: `Temporary construction cities of fifty to two hundred thousand residents`
+- Permanent settlements: `later became permanent Canadian settlements`
+- Wage multiples: `at multiples of comparable Canadian trade wages`
+- Trade incomes: `annual incomes in the hundreds of thousands of Canadian dollars`
+- Senior pay: `senior engineers and project managers earned in the millions`
+- Three decades: `the most lucrative employment category in the Canadian economy for nearly three decades`
+- Prime contractors, hedge "primarily": `The prime contracts went primarily to Canadian mining and heavy construction corporations`
+- Consortia: `purpose-built consortia assembled specifically to bid on mega-wall contracts`
+- Firm scale: `among the largest industrial enterprises in North America`
+- Index: `Mega-Wall Construction Index, established in 2031`
+- Index performance: `outperformed every other equity index on Earth across the founding-decade window`
+- Not passive: `never conceived as a passive physical barrier`
+- Embedded sensors: `sensors were embedded in the composite during fabrication`
+- Seismic: `seismic monitoring (detecting both surface approach and subsurface tunneling attempts)`
+- Radar: `ground-penetrating radar`
+- Chemical: `atmospheric chemical sensors`
+- Acoustic: `acoustic arrays`
+- Thermal: `thermal imaging (persistent day-night coverage of the approach zones)`
+- EM detection: `electromagnetic emission detection`
+- Drone swarms: `persistent drone swarms patrolling both sides of the wall's alignment`
+- Response time: `capable of deploying to sensor-flagged approach zones within seconds`
+- Mobile layer: `The drone swarms were the mobile layer.`
+- Fixed layer: `The turrets were the fixed-position layer.`
+- Escalation layer: `The mobile units were the escalation layer.`
+- Envelope: `a defensive envelope extending several kilometers on either side`
+- Anchor principle: `the wall was the anchor around which the defensive instruments operated`
+- Primary layer: `The active defenses were the primary layer.`
+- Backup role: `to serve as a redundant barrier if the active defenses failed`
+- Forcefield partial (Dyson clash, kept): `partial deployment around 2800 as Dyson-class energy becomes available`
+- Forcefield full: `with full network operation by 2850`
+- Layer relation: `The forcefield is a layer the mega-wall enables.`
+- 3000 state: `By 3000, both systems operate simultaneously`
+- Leakage: `sharply reduces breach leakage toward the theoretical minimum`
+- Foundation: `When the forcefield arrives, the wall becomes its foundation`
+- Effects onset: `measurable microclimate effects within the first three years of completed wall segments`
+- Hedge "partially": `prevailing northerly winds were partially blocked`
+- Canadian side: `produced colder and wetter conditions`
+- Temperature date: `By 2040, mean annual temperature`
+- Temperature gap: `three to five degrees Celsius warmer`
+- Precipitation, hedge "roughly": `roughly fifteen percent less annual precipitation`
+- Unanticipated: `The microclimate effects were not anticipated at the design phase.`
+- Hedge "fully": `without fully modeling its atmospheric consequences`
+- Settlement effect: `a net positive for population settlement`
+- Protocols date: `established retroactively in 2038`
+- Template: `the template for subsequent trans-boundary environmental coordination`
+- Barrier error: `rather than as the primary defensive instrument`
+- Harder problem: `has missed the more difficult problem`
+- Per-meter standard: `exceeded any prior construction standard`
+- Founding-decade share: `approximately forty percent of the southern outer-perimeter segment`
+- Hedge "perhaps": `perhaps fifteen percent of the total planned wall network`
+- Negligible fraction: `a negligible fraction when interior walls and forcefield integration are included`
+- Charter estimate: `The wall is a multi-century project by the Charter's own estimate.`
+- Completion: `the early 23rd century at the earliest`
+- Final maturation: `pushing the final maturation to the 29th century`
+- Statement of intent: `first physical statement of intent`
+- Implant invisible: `The implant infrastructure was initially invisible to external observers.`
+- Kill switch theoretical: `The kill switch was a theoretical capability before it had targets.`
+- Satellite date: `Satellite imagery from 2031 onward documented the wall's rise`
+- Diplomatic instrument: `the visible construction was itself a diplomatic instrument`
+- Endurance horizon: `the founding generation, the founding century, and the founding millennium`
+- Priority claim: `prioritized visible construction as highly as it prioritized the invisible institutional architecture`
+
+Flags:
+- CLASH, wall thickness (R3/R16), kept: r16 has "one hundred meters thick" (intro) and "The one-hundred-meter thickness" (Scale Problem). R3 has a 1 km base tapering to a crest of roughly 1 m. Jason to rule.
+- CLASH, Dyson date (R4/R19), kept, and r16 is a third text: r16 ties forcefield partial deployment "around 2800" to Dyson-class energy becoming available. R19 says Dyson-class stellar energy was "operational from approximately 2900 AD". R4 projects partial swarm segments by the 26th century.
+- CLASH, wall construction start (R15/R16), kept: see the r15 flag. r16 starts construction in mid-2030, while r15 says the wall was not under construction in 2026–2036.
+- Possible cross-resource tension (R15/R16), kept: r16 says the Founding Treaty's "trade-preference arrangements" gave most construction contracts to Canadian firms, while r15's trade preference favours US commodity suppliers. See the r15 flag.
+- Possible overreach, kept: the page still says the wall exceeds every prior engineering achievement "by orders of magnitude". Its own figures (a Great Wall of about 13,000 km against a perimeter of "thousands of kilometers") do not bear that out on length. I cut the blanket add-on "across every measurable dimension" as a habit and left the core claim.
+- Light-edit scope: I cut or rewrote the three lines the triage quotes ("The spillover was civilizational", "The scale is impressive. The integration is...", "The wall was the civilization's declaration...") and similar lines: two "not X. It is Y" reversals in the Scale Problem, "This decision was strategic, not merely practical", "not the defensive instrument — the wall was the anchor", "The forcefield is not a replacement...", "The wall does not become obsolete...", "The differential was not subtle", "The wall's existence was the proof that VMSS intended to endure" and "The deepest observation belongs to the student who notices" (now "A third student notices"). I also split three paired-em-dash parentheticals. The rest is unchanged.
+- Dropped as explanation after the point: "The wall itself was the backup." Its content survives as "to serve as a redundant barrier if the active defenses failed", and "The active defenses were the primary layer." was kept.
+- Merged: "every completed segment signaled that VMSS was not an ephemeral political experiment" was folded into the next sentence ("signaled that VMSS was building something that would outlast..."). The endurance claim is kept and the reversal removed.
+- Approved doctrine changes: none apply (no R1 wording, no −3 visitor vessel content). None were applied.
