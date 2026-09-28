@@ -1,0 +1,59 @@
+<div class="question-page" id="q20">
+  <div class="question-header">
+    <div class="question-number">Question 20</div>
+    <div class="question-title">The Treasury Audit</div>
+  </div>
+
+  <div class="question-box">
+    "Write a detailed report of the fiscal operations within each layer's treasury. Revenue streams: income tax, SCM garnishing, punitive liquidations, voluntary descent liquidations, downward transfer fees, reproduction levies. Expenditure: UBI, PJS, institutional services, federal infrastructure. Model the net balance of each treasury, the UBI runway per layer, the PPG and currency siloing implications, and the asymmetry from speculative markets in lower layers. Who governs which treasury? What does the Meritboard economics division actually do?"
+  </div>
+
+  <div class="tags">
+    <span class="tag tag-difficulty">Research-level. This is a doctoral thesis disguised as a homework assignment.</span>
+    <span class="tag tag-level">Graduate Seminar &middot; Professor's PhD Territory</span>
+  </div>
+
+  <div class="rubric-section">
+    <h3>Grade-Tier Responses</h3>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">F &mdash; no submission:</span>
+      <span class="grade-text"> The student who feeds the assignment to their dog and shows up with "it ate my homework." The professor has heard every version of this excuse across a career that produced a PhD on this exact problem. The F is for not having the respect to try, not for failing to solve the treasury model. The Meritboard doesn't rank people who didn't show up.</span>
+    </div>
+
+    <div class="grade-tier grade-d">
+      <span class="grade-label">D-grade understanding:</span>
+      <span class="grade-text"> Lists UBI by layer, multiplies by population, and calls it a budget: a single spreadsheet with no treasury separation and no revenue analysis beyond the obvious. Treats four siloed currencies as one, without understanding that you cannot add Main currency to Freedom Tokens. Gets overwhelmed by the scope, stops engaging, and doodles in the margins for the remaining two weeks. The doodling D is at least present in the room; the F didn't even bring the paper.</span>
+    </div>
+
+    <div class="grade-tier grade-c">
+      <span class="grade-label">C-grade understanding (the old A-):</span>
+      <span class="grade-text"> Maps cross-layer flows and produces bounded ranges with flagged unknowns. Identifies reproduction levy cascades from -2 and -3, tax escalation across +1/Main/-1, PPG distortion on real expenditure, and speculative market asymmetry. Recognizes the ADT as primary but not exclusive UBI funding. Understands dual-mode treasury operations (regulated budget in peacetime, warchest under turbulence). This was previously scored as an A-level response. On the professor's curve, identifying what you don't know is the <em>starting point</em>, not the finish line, and "unknowable" is academically lazy. The professor solved these problems and is watching to see who else can.</span>
+    </div>
+
+    <div class="grade-tier grade-b">
+      <span class="grade-label">B-grade response &mdash; algebraic modeling:</span>
+      <span class="grade-text"> Treats unknowns as equations instead of walls. Constructs algebraic relationships between revenue streams: if automation output A funds UBI across population P distributed by layer weights w<sub>i</sub>, and tax revenue T<sub>i</sub> supplements at rate r<sub>i</sub> on income above threshold, then the net treasury balance for layer i is expressible as a function of knowable and estimable variables. Produces plausible numbers for -3 private economic output by modeling it as a frontier economy with historical analogs (early American West, free trade zones, unregulated markets) scaled to population and PPG. Defends every number with methodology instead of hand-waving. The model is wrong in specifics but structurally sound in relationships.</span>
+    </div>
+
+    <div class="grade-tier grade-b" style="page-break-before: always; padding-top: 0.5in;">
+      <span class="grade-label">B+ &mdash; calculus enters the room:</span>
+      <span class="grade-text"> The B student built the algebraic skeleton, and the B+ student puts calculus on it. Derivatives model the instantaneous rate of change in each treasury's balance under varying population and economic conditions: dT<sub>i</sub>/dt captures how fast a layer's treasury is growing or shrinking at any given moment as a function of immigration rate, birth rate, reassignment volume, and economic output. Integrals compute cumulative UBI expenditure and tax revenue over fiscal periods: the total fiscal load across a quarter or a year rather than a point estimate for a single month, accounting for population, income distribution, and SCM activation status all changing continuously within the period. The SCM itself is modeled as a first-order differential equation: dS/dt = UBI &minus; (garnish_rate &times; S), where S is savings, UBI is the constant monthly input, and the garnish rate activates only when the district aggregate crosses the 90-day rolling threshold. Solving this yields the equilibrium savings level analytically ($100,000 at 10% garnishing with $10,000/month UBI in Main, $50,000 at 5% with $5,000/month in -1) and the time constants that describe how fast a citizen above equilibrium deflates back to it. The student models population dynamics with differential birth-rate and relocation equations and tests the current LP-074 exact cascade: 50% in Main and Sanctuary, 25% in -1, 12.5% in -2, and 6.25% in -3. The 2294 Path 2 certification passed both schedules, while the $10 million threshold and SCM parameters remained unchanged. The student tests whether each current rate sits above or below its layer-specific inflection point. The model produces continuous curves instead of snapshots, and every number is a solved equation rather than an estimate.</span>
+    </div>
+
+    <div class="grade-tier grade-a" style="page-break-before: always; padding-top: 0.5in;">
+      <span class="grade-label">A- (Effective Ceiling):</span>
+      <span class="grade-text"> Linear algebra enters the room. The B+ student solved individual treasury dynamics with calculus; the A- student couples them into a single system and analyzes its behavior as a whole. The five treasuries are modeled as a state vector <strong>T</strong> = [T<sub>+1</sub>, T<sub>0</sub>, T<sub>-1</sub>, T<sub>-2</sub>, T<sub>-3</sub>]<sup>T</sup>, and the inter-treasury flows are encoded in a transition matrix <strong>M</strong>. Each entry M<sub>ij</sub> is the flow rate from treasury j to treasury i, governed by doctrinal parameters: punitive liquidation rates, voluntary permanent residency retention schedules, downward transfer fees at PPG-adjusted conversion, reproduction levy cascade coefficients, and federal infrastructure cost allocations. The system evolves as d<strong>T</strong>/dt = <strong>M</strong> &middot; <strong>T</strong> + <strong>u</strong>, where <strong>u</strong> is the exogenous input vector (ADT automation output distributed by layer weight, immigration intake, speculative market revenue in lower layers). Eigenvalue analysis on <strong>M</strong> reveals the system's stability. If all eigenvalues have negative real parts, the coupled treasuries converge to a stable equilibrium under normal conditions: the regulated budget mode. If any eigenvalue has a positive real part, that mode represents a divergent treasury dynamic that will eventually require intervention. The dominant eigenvalue's magnitude determines how quickly the system returns to equilibrium after a perturbation: a measure of fiscal resilience. The student models the emergency stabilizer sequence as matrix perturbations. When a treasury balance crosses a critical threshold, the transition matrix is modified: accelerated tax escalation changes the diagonal entries (self-retention rates), SCM rate adjustment changes the garnishing flow entries, drone surplus deployment injects a temporary term into the <strong>u</strong> vector, and child limitation enforcement modifies the population dynamics that feed into the levy cascade entries. Each stabilizer is a circuit breaker that alters the matrix structure, and the student analyzes whether the perturbed matrix restores stability (all eigenvalues return to negative real parts) or merely delays divergence. Input-output analysis maps the interdependencies between layer treasuries. How much does a 10% increase in -3 reproduction affect Main's treasury through the levy cascade? The answer is a chain of matrix multiplications tracing the flow from -3 births through child relocation, Main UBI expenditure, ADT rebalancing and levy recovery. Each step is governed by a coefficient the student has either derived from doctrine or defended with methodology. Portfolio-style variance analysis applies to the ADT itself: the automation dividend is a distribution with variance driven by technological maturity, maintenance cycles, and capacity utilization, rather than a fixed number. The student models the ADT's output as a random variable with mean and variance, propagates that uncertainty through the transition matrix, and produces confidence intervals on each treasury's balance rather than point estimates. The Meritboard economics division flies the jet with exactly these matrices, eigenvalues and perturbation analyses, not by intuition. The student who builds this model is reverse-engineering the AI governance system's fiscal protocols from first principles. Even this response will contain assumptions the architect would correct, since the professor's PhD thesis solved what the student is approximating. The A- is earned by getting close enough that the corrections are calibration adjustments to coefficients rather than structural revisions to the model architecture.</span>
+    </div>
+  </div>
+
+  <div class="fail-section">
+    <h4>Where Students Fail Catastrophically</h4>
+    <p>The student who pastes the entire question into ChatGPT and submits the output. The professor recognizes it instantly: he used the same models to pressure-test his own thesis and knows exactly what shape a language model's attempt at this problem takes. It is always confident, always plausible-sounding, and always missing the cross-layer levy mechanics. He's seen the pattern and wrote a paper about it. The student who Googles "VMSS treasury model" hoping someone on the internet already solved it, and finds nothing, because the only person who has solved it is the man grading their paper. The search history itself is a confession. This question is the professor's PhD thesis disguised as a homework assignment. He isn't asking whether the students can solve it; he's watching how far they get before they stop fighting.</p>
+  </div>
+
+  <div class="deep-section">
+    <h4>The Deepest Layer</h4>
+    <p>This question is the professor's PhD thesis handed to students who don't know that yet. The fiscal architecture is where every other system in the doctrine meets material reality. The STI is behavioral and the Charter is legal; the economy is where both have to fund themselves. The professor solved the coupled treasury model, built the matrices, ran the sensitivity analysis, and defended plausible numbers for every variable the doctrine left at inference level. Now he's watching a room full of graduate students hit the same walls he hit, and grading them on whether they climb or describe. The student who builds a working fiscal simulation with algebraic relationships, scenario-dependent outputs, and defended estimates for every "unknowable" variable is doing what the professor did. The student who writes a report cataloguing what can't be known has written a literature review of the problem the professor already solved. One is a thesis; the other is a bibliography.</p>
+  </div>
+</div>
