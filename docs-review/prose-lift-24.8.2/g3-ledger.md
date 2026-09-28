@@ -1,0 +1,327 @@
+# Prose lift 24.8.2, Resources group 3 (r11, r13) fidelity ledger
+
+Source: `documents/resources-source.html` (unchanged). Edited blocks: `r11.html` (light edit) and `r13.html` (clarity edit) in this folder. Verifier: `g3-verify.mjs` (run from anywhere: `node "docs-review/prose-lift-24.8.2/g3-verify.mjs"`).
+
+Conventions:
+- Quotes are verbatim from the edited block after stripping tags, decoding entities (&rsquo; to ', &ldquo;/&rdquo; to ", &mdash; to —, &ndash; to –, &times; to ×, &rarr; to →, &sect; to §) and collapsing whitespace. The verifier checks every backticked span in each page section against that page. Each quote is 15 words or fewer.
+- Frozen and untouched: every tag and attribute, the h2 title, the grey subtitle line, every h3/h4 heading, every bold run-in label, r11's trajectory table (all 30 cells) and r11's credits block. The verifier compares tag sequence, table cells, and headings/labels/subtitle byte for byte.
+- Word counts cover the whole block's visible text (headings included), counted by the verifier. The triage's counts (3,526 and 3,244) use a different tokenizer.
+- Em-dash cap: at most one per paragraph, list item or intro block. The one remaining dash in r13's "Institutional response (immediate — minutes)" paragraph sits inside the frozen bold label; most remaining dashes in r11 are the frozen "label — definition" pattern.
+
+## r11
+
+Mode: light edit. Only the triage-quoted lines, lines like them, and em-dash clusters were touched; all other prose is byte-identical.
+
+Word count: 3,511 → 3,482 (−0.8%). Max em-dashes per paragraph: 4 → 1.
+
+What changed: removed the "cannot crash-program wisdom" closer, the "The AI must learn, and learning takes time" closer and the "not independent columns ... They are a network" reversal; reworded the two Article V reversals ("The blocker is not engineering. It is..." and "not in the laboratory. It is in the Charter") into direct statements with the same claim; reworded the "not a different number but a mechanistic explanation" and "not because ... but because" constructions; broke up nine em-dash clusters with colons, commas or full stops.
+
+Claims ledger:
+- Subtitle, roadmap span: `Leakage Category Dependency Mapping Across the 974-Year Roadmap`
+- Leakage endpoints: `~90% at founding, ~0.01% at maturity`
+- Origin (Q28): `capstone defense under Academy Q28 (The Research Map)`
+- First student contribution: `the Academy's first student-originated doctrinal contribution`
+- Framework citation, six categories: `The leakage framework (Charter Article XXIII, Whitepaper §28) identifies six categories`
+- Category 1 weight: `Category 1: Wall Breaches (~15% of total leakage weight)`
+- Wall dates: `Mega-wall construction (22nd–24th century)`
+- Wall dimensions: `15km/5km/1km-base continuous barrier, active compensation systems`
+- Construction span, hedge: `phased construction over ~200 years`
+- Serial delay, hedge "approximately": `Delay in materials science delays everything downstream by approximately the same duration.`
+- Sensor stack: `seismic monitoring, ground-penetrating radar, persistent drone swarms, automated turrets`
+- Sensors, hedge "partially": `Partially independent of the wall construction timeline.`
+- Forcefield dates: `Forcefield integration (28th–29th century)`
+- Forcefield chain: `Dyson swarm energy → forcefield emitter technology → integration with wall infrastructure`
+- Dyson dependency: `cannot operate at full coverage without Dyson-class energy abundance`
+- Partial coverage: `Partial coverage is possible with pre-Dyson energy sources but at reduced density.`
+- Forcefield effect: `drives wall breach leakage from ~0.5% to near-zero in the final 150 years`
+- Mercury dependency: `Dyson swarm depends on Mercury extraction infrastructure.`
+- Orbital dependency: `Mercury extraction depends on orbital fabrication capacity.`
+- Shared upstream: `advanced materials fabrication at civilizational scale`
+- Category 2 weights: `Category 2: Apprehension Failures (~10% weight in pre-intervention, ~5% weight in post-intervention)`
+- Implant telemetry: `real-time behavioral monitoring and identity anchoring`
+- Coverage at maturity: `coverage approaches 100% of implanted citizens`
+- AR fallback: `non-implanted citizens tracked via AR surveillance as a fallback`
+- Inverse scaling: `scales inversely with implant coverage`
+- Drone function: `autonomous platforms that physically intercept, sedate, and transport perpetrators`
+- Drone chain: `drone manufacturing capacity → deployment density → AI targeting doctrine maturity`
+- Rules vs judgment: `Early-generation AI governance applies rules. Mature AI governance applies judgment.`
+- No single technology: `No single technology reduces apprehension failure to near-zero alone.`
+- Fastest: `Implant coverage scales with population adoption (fastest).`
+- Moderate: `Drone density scales with manufacturing throughput (moderate).`
+- Slowest, centuries: `requires centuries of operation`
+- Binding constraint: `That slowest component, AI judgment maturity, is the binding constraint on the category.`
+- Category 3 weight: `Category 3: Drone Medical Rescue Failures (~5% weight)`
+- Minutes vs seconds: `Enforcement needs to arrive in minutes. Medical needs to arrive in seconds`
+- Worst-case positioning: `minimize worst-case response time across the entire territory`
+- Field stabilization kit: `nanite injectors, neural therapy modules, cellular repair systems`
+- Field reliability gap: `measured in decades of iterative engineering`
+- Hospital coverage gradient: `Upper layers reach full hospital coverage early.`
+- Withdrawal gradient: `consistent with institutional withdrawal gradient`
+- Shared bottleneck: `shares a manufacturing bottleneck with the enforcement drone category`
+- Category 4 weight: `Category 4: Backup Vessel Deaths (~25% weight — load-bearing)`
+- Fourth founding line: `the fourth founding line: "no life is ended."`
+- Vessel chain: `molecular-scale fabrication → biological substrate manufacturing → neural architecture reconstruction → mind-state transfer fidelity`
+- Maturation order: `Molecular fabrication matures first`
+- Hardest link: `Neural architecture reconstruction is the hardest`
+- Sync mechanism (clash, kept): `continuous encrypted backup from the implant to the fabrication facility`
+- Q22 gap: `A mind-state sync that misses 47 minutes (Q22's scenario)`
+- Sync requirement (clash, kept): `The sync must be continuous and lossless.`
+- Fabrication proxies: `closed, sovereign VMSS facilities in –1 and –2`
+- Proxy failure rates: `The elevated failure rates in –1 (~1 in 10,000) and –2 (~1 in 1,000)`
+- Five failure modes, citation: `Five failure modes beyond the technology itself (§17.1.2)`
+- Implant removal mode: `implant removal (citizen choice, no tech fix)`
+- Rejection mode: `biological rejection (irreducible biological floor)`
+- Effective death multiplier: `The effective death rate is 10–50x higher`
+- Founding delivery: `At ~0% delivery at founding`
+- Four frontiers: `four research frontiers that mature on independent timelines`
+- Floor: `a floor that no technology improvement can eliminate entirely`
+- Category 5 weight: `Category 5: Pre-Intervention Failures (~10% weight)`
+- Scope: `In Sanctuary and SADs`
+- Lab demonstration: `At laboratory scale, TIP has been demonstrated.`
+- Latency components: `implant processing speed (nanoseconds), neural inhibition transmission time (milliseconds)`
+- Drone latency: `drone countermeasure deployment (seconds)`
+- False positives vs Article V principle: `False positives (triggering on thoughts rather than imminent execution) violate the cognition-is-non-public principle.`
+- Ambient reach: `TIP must reach every location within the response latency`
+- Category-specific constraint: `the binding constraint specific to this category`
+- Category 6 weight: `Category 6: Supporting Systems (~10% weight combined)`
+- Category 6 contents: `Autoparenting infrastructure, UBI distribution reliability, biological augmentation safety`
+- Not load-bearing: `none is load-bearing in the way Categories 1–5 are`
+- Step functions: `step-function reductions in leakage rather than gradual improvement`
+- CP1 dates: `Convergence Point 1: Energy Threshold (~2600–2800)`
+- CP1 rank: `The energy threshold is the single most impactful convergence`
+- CP1 window: `from ~2% to ~0.5% in the 2650–2750 window`
+- CP2 dates: `Convergence Point 2: Neural Scanning Maturity (~2400–2600)`
+- Broadest scan: `Mind-state backup needs the broadest scan (the entire neural state).`
+- Fastest scan: `Intent detection needs the fastest scan`
+- Deepest scan: `Behavioral pattern reading needs the deepest scan`
+- CP3 dates: `Convergence Point 3: AI Governance Maturity (~2500–2700)`
+- Q30 cross-reference: `which is Q30's territory`
+- Not accelerable: `funding or engineering cannot accelerate`
+- Edge cases must occur: `the edge cases must actually occur before the AI can learn from them`
+- Network: `form a network rather than independent columns in a table`
+- Materials out-degree: `Bottleneck in materials fabrication propagates to five categories simultaneously.`
+- Energy out-degree: `Energy bottleneck propagates to three categories.`
+- Scanning out-degree: `Scanning bottleneck propagates to three categories.`
+- Serial wall/forcefield: `the forcefield requires the wall as its physical foundation`
+- Parallel pair: `Backup vessel technology and apprehension technology are parallel`
+- AI serial: `No parallel path exists.`
+- Critical path span, hedge: `This chain spans approximately 600 years (22nd century materials to 28th century forcefield).`
+- Priority: `earliest bottleneck, materials science, because that is where delay compounds most severely`
+- Classification: `Every technology dependency in the atlas is classified by blocker type.`
+- Scientific example (Q25): `the biological safety paradox in forcefield technology (Q25)`
+- Unschedulable: `The breakthrough cannot be scheduled.`
+- Engineering definition: `Known physics, unknown implementation at the required scale or fidelity.`
+- Engineering example: `is an engineering challenge, not a scientific one`
+- Ethical routing: `route through the Article XI amendment gauntlet or the Supreme Court's novelty jurisdiction`
+- Periodic capture (clash, kept): `the implant could capture continuously rather than periodically`
+- Article V blocker (clash, kept): `The blocker is Article V's cognition-is-non-public principle`
+- Feasible but barred: `The technology exists, but the doctrine does not permit its use.`
+- Amendment required: `requires an Article XI amendment, not a laboratory breakthrough`
+- Economic sequencing: `the Dyson swarm enables energy abundance that funds everything else`
+- Economic example: `fabrication proxy installations in –2 operate at elevated failure rates partly because`
+- Funding gap: `The funding for optimal deployment does not yet exist.`
+- Three reclassified: `Three blockers were reclassified from scientific to engineering upon deeper analysis.`
+- Strategy shift: `from "fund and hope" to "fund and schedule,"`
+- Two reclassified: `Two blockers were reclassified from engineering to ethical`
+- The two (clash, kept): `continuous mind-state backup and continuous behavioral recording at cognitive depth`
+- Article V collision: `both collide with Article V`
+- Charter obstacle: `the obstacle lies in the Charter`
+- Routing: `(Article XI or Supreme Court novelty)`
+- No projection change: `It does not change the leakage projections`
+- Timing of catch: `before the Meritboard defense`
+- Table 2026: `2026 ~90% Founding — blueprint established`
+- Table 2150: `2150 ~25% Three load-bearing categories cross critical thresholds`
+- Table 2350: `2350 ~8% Full wall network approaching completion`
+- Table 2550: `2550 ~2% Enforcement drone saturation`
+- Table 2650: `2650 ~1% AI governance approaching maturity`
+- Table 2750: `2750 ~0.5% Energy threshold convergence begins`
+- Table 2850: `2850 ~0.1% Full forcefield network operational`
+- Table 2950: `2950 ~0.02% Convergence of all mature technologies`
+- Table 3000: `3000 ~0.01% Mature VMSS — theoretical minimum approached`
+- Roadmap citation: `(Charter Article XXIII, Whitepaper §29.1)`
+- Validates, not revises: `The atlas validates the trajectory rather than revising it.`
+- Contribution: `Its contribution is a mechanistic explanation of why the number is what it is`
+- Archive: `Founders' Archive Domain (SAD)`
+- Credits: `Dr. Amara Okafor-Reyes`
+- Credits: `Kael Voss`
+- Credits: `Dr. Lian Xu`
+- Credits: `ARIA-7`
+- Credits: `Tomás Herrera-Nakamura`
+- Credits: `Dr. Sable Osei`
+- Credits: `Ren Ishikawa`
+- Credits: `Yuki Fontaine-Park`
+- Defense year: `Defended before the Meritboard Research Division Panel, Year 2847.`
+- Document number: `MRD-2847-0041`
+- Adoption: `Adopted into the Academy curriculum as Resource 11 by faculty vote, Year 2848.`
+
+Flags:
+- CLASH, left unchanged (continuous mind-state sync, R11 vs R28, plus R11's internal contradiction): Category 4 says sync is continuous and "must be continuous and lossless"; the Ethical blockers paragraph says the implant captures periodically and continuous backup is barred by Article V; the Honesty Audit lists continuous mind-state backup as an ethical blocker. r28 calls continuous sync doctrinal and treats the Q22 47-minute gap as a glitch. All of these claims survive as written. Assumption: I read "keep the text" as "do not resolve the contradiction", so the two triage-quoted Article V reversals ("The blocker is not engineering. It is..." and "the obstacle is not in the laboratory. It is in the Charter.") were reworded into direct statements with the same claim. If Jason wants clash paragraphs byte-identical until he rules, restore those two sentences from source.
+- CLASH, left unchanged (Dyson date, R4 vs R19): r11 dates the energy threshold ~2600–2800, forcefield integration to the 28th–29th century, and the table's forcefield prototype to 2750 and full network to 2850. That sides with R4 (Dyson abundance by the 28th century), not R19 (Dyson-class energy from approximately 2900).
+- CLASH, left unchanged (wall thickness, R3 vs R16): r11's "15km/5km/1km-base" matches R3's 1km base and conflicts with R16's "one hundred meters thick".
+- CLASH, left unchanged (R20 founding date): the table's founding row is 2026, matching the 2026 side of R20's 2026-vs-2030s contradiction.
+- INTERNAL, left unchanged: the category weights sum to about 75% (about 70% with Category 2's post-intervention 5%), not 100%.
+- INTERNAL, left unchanged: Convergence Point 1 attributes a ~2% to ~0.5% drop to the 2650–2750 window, but the table puts ~2% at 2550 and ~1% at 2650.
+- INTERNAL, left unchanged: the critical path runs "forcefield emitter integration → Dyson swarm energy", while Category 1 puts the Dyson swarm upstream of forcefield emitter technology. It reads as partial-then-full coverage, but the order is worth a check.
+- Triage note: the triage said Jason should rule on the sync clash "before any edit". Per this session's instructions the page was light-edited anyway, with the clash text's claims preserved and flagged here.
+- Approved doctrine changes: none apply to r11 (no −3 "AI monitoring" line, no −3 visitor-continuity passage). None applied.
+- Kill-switch scope/timing: not mentioned in r11.
+
+## r13
+
+Mode: clarity edit.
+
+Word count: 3,173 → 3,003 (−5.4%). Max em-dashes per paragraph: 5 → 1 (the remaining one is inside the frozen bold label "Institutional response (immediate — minutes).").
+
+What changed: removed the triage-quoted closers ("The earthquake does not care which layer it hits", "No layer fails to deliver what it promised", "The earthquake does not change that calculus. It reveals it"), plus "The incentive does the mobilization", "The workers are not volunteering. They are being paid...", "Every casualty is a permanent loss" and the "random citizens ... standing around" restatement; turned "not X. It is Y" reversals into direct statements; replaced em-dash asides with colons, commas, parentheses or full stops; trimmed the COVID paragraph's closing run without dropping its three claims.
+
+Claims ledger:
+- Magnitude and origin: `A magnitude 8.2 earthquake originates at a fault system`
+- Fault location: `runs beneath the mega-wall separating Main Layer from -1 Noncompliance`
+- Aftershocks: `aftershocks propagate into the -2 boundary zone`
+- Wall holds: `sensor networks reporting elevated stress, but no breach`
+- Layers affected: `Three layers are affected at once: Main Layer, -1, and the -2 border zone.`
+- Five responses: `produces five different civilizational responses`
+- Layer decides response: `The response depends entirely on which layer the damage falls in.`
+- Sanctuary unaffected: `This scenario does not directly affect Sanctuary.`
+- Geological separation: `geologically separated from the fault system by the Main Layer ring`
+- Ceiling: `the ceiling of what VMSS disaster infrastructure produces at maximum institutional density`
+- TIP extension: `the Threshold Inhibition Protocol extends to disaster prevention`
+- Precursors: `detect seismic precursors (micro-tremors, stress accumulation in fault systems)`
+- Densest sensors: `Sanctuary runs the civilization's densest sensor network`
+- Same AI: `the same AI that detects harmful intent in human behavior`
+- Pre-positioning: `Medical drones pre-position in projected impact zones.`
+- Vessel prep: `Fabrication facilities prepare backup vessel capacity for potential mass casualties.`
+- Drone redirection: `drones that normally patrol for harmful conduct are redirected to search-and-rescue`
+- PJS rate: `The $10,000/month PJS activates for qualifying hours`
+- Overtime threshold: `the overtime premium of $125/hr activates above 20 hours per week`
+- Sanctuary earnings: `$10,000 UBI + $10,000 PJS + $5,000 overtime premium`
+- Hedge "near-zero": `Casualties in Sanctuary are near-zero`
+- Detection, not prevention: `It does not prevent earthquakes, but it detects them early enough`
+- Rare cases: `Backup vessel capacity handles the rare cases where evacuation was incomplete.`
+- Drone speed: `Medical drones arrive at injury sites in seconds`
+- Outcome: `The earthquake produces property damage and no deaths.`
+- Main population: `three billion people across a continent-scale ring`
+- Footprint, hedge "approximately": `approximately 50–100 districts (50–100 million people)`
+- Disaster mode: `shifts enforcement infrastructure to disaster mode`
+- Response time: `in seconds to minutes, depending on drone density in the specific district`
+- First responder: `The medical drone network is the civilization's first responder.`
+- Earth comparison: `faster than any Earth-era emergency service`
+- No dispatch latency: `so there is no dispatch latency`
+- Telemetry: `A citizen trapped under rubble triggers implant telemetry alerts`
+- Queue, hedge "may": `The revival queue may extend from hours to days`
+- Throughput: `fabrication facilities have throughput limits`
+- Contingency: `overflow capacity at Sanctuary fabrication facilities and emergency fabrication at orbital stations`
+- Late aftershock, hedge "may": `one who dies in a late aftershock may wait days`
+- Triage order: `citizens with dependent children first, citizens with critical infrastructure roles second`
+- Triage order: `general population third`
+- No permanent death unless: `No citizen is permanently dead from a Main Layer earthquake unless`
+- Distribution safeguard: `the geographic distribution of fabrication facilities is designed to prevent`
+- Emergency declaration: `The Meritboard's federal-administration ranking declares the earthquake zone a critical infrastructure emergency.`
+- Qualifying list: `temporary shelter construction, and communication relay`
+- Main arithmetic: `$30,000 overtime premium (240 excess hours × $125/hr) = $50,000 in a single month`
+- No conscription: `The civilization neither conscripts disaster responders nor asks for volunteers`
+- Funding: `the Automation Dividend Treasury funds it`
+- Earth instruments (four): `military deployment (slow, logistically complex), volunteer organizations (unpredictable capacity)`
+- Pay comparison: `the rubble pile pays $50,000/month and the regular job pays $20,000/month`
+- End criteria: `buildings stabilized, utilities operational, medical backlog cleared, displaced citizens resettled`
+- Duration, hedge "likely": `likely remains active for weeks to months`
+- Hours: `sustained 60–80 hour weeks economically rational`
+- Burnout: `without the burnout-and-attrition cycle`
+- −1 private response, hedge: `the private response may or may not fill the gap`
+- −1 tracking: `-1 operates under logging-only AI tracking with slower drone coverage`
+- −1 response time: `Response time to injured citizens is minutes rather than seconds`
+- Periphery, hedge "may": `Districts on the -1 periphery may wait significantly longer.`
+- Proxies: `closed sovereign facilities within -1`
+- Failure rates: `The revival failure rate is ~1 in 10,000 (compared to ~1 in 1,000,000 in Main).`
+- −1 revival odds: `has a 99.99% chance of revival`
+- Main revival odds: `Main Layer's 99.9999%`
+- Main mass casualty: `kills 10,000 people in Main produces ~0 permanent deaths`
+- −1 mass casualty: `the same 10,000 deaths in -1 produce ~1 permanent death`
+- Scaling: `the gap widens proportionally`
+- −1 PJS rates: `PJS at $5,000/month, overtime premium at $62.50/hr`
+- −1 arithmetic: `$5,000 UBI + $5,000 PJS + $15,000 overtime = $25,000/month`
+- −1 PPG: `(approximately 1.3–1.8× Main)`
+- Private actors: `Reputation-based cooperatives, trade networks, and private security organizations`
+- Best case, hedge "may": `may produce disaster response comparable to Main Layer in speed and effectiveness`
+- Worst case: `receives the institutional minimum (whatever drones the federal deployment covers)`
+- Variation cause: `institutional coverage is uniform in Main and non-uniform in -1`
+- Preparedness pays: `are the districts that survive it best`
+- −2 presence: `-2 operates with substantially thinner institutional presence.`
+- −2 failure rate: `revival failure rate of ~1 in 1,000`
+- −2 deaths, hedge: `approximately 10 permanent deaths`
+- Body count: `now measurable in body count`
+- −2 governance: `Territorial cooperatives and private enforcement govern -2's social order.`
+- Revenue priority, hedge "may": `may prioritize restoring the infrastructure that generates its revenue`
+- Customers: `customers rather than its constituents`
+- −2 PJS rates: `$2,500/month PJS with $31.25/hr overtime`
+- −2 arithmetic: `$2,500 UBI + $2,500 PJS + $7,500 overtime = $12,500/month`
+- −2 PPG: `approximately 1.8–2.5× Main`
+- Competition: `competes with the private power structure (cooperative labor direction)`
+- Forced revival: `-2 permits forced revival as a private enforcement instrument`
+- Mechanism: `private operators can deny the escape of death by imposing backup vessel continuity`
+- Commercial revival, hedge "may": `revived by the cooperative specifically to return them to productive work`
+- Doctrinal character: `private justice operates within -2's architectural constraints`
+- Triage basis: `commercial priority rather than humanitarian triage`
+- −3 hypothetical: `unlikely in this specific scenario but doctrinally relevant`
+- Federal floor only: `the institutional response is the federal floor and nothing else`
+- Absences: `No enforcement drones, no institutional search-and-rescue, and no backup vessel coverage`
+- Finality: `death in -3 is final`
+- Founding promise: `"no life is ended," does not apply in -3`
+- Severance: `the implant severs the backup vessel link at the moment of terminal reassignment`
+- −3 UBI: `The $1,250/month payment is uninterrupted`
+- Independence: `operates independently of local conditions`
+- Federal trigger: `a damaged industrial facility releasing nuclear material`
+- Federal trigger: `a collapsed structure exposing implant hacking equipment`
+- Federal trigger: `organized groups exploiting the chaos to mount a sovereignty threat`
+- Limit of federal response: `it does not protect individual -3 residents`
+- Voluntary districts: `frontier entrepreneurs, the cooperative communities, the organized libertarian settlements`
+- Voluntary best case, hedge: `may produce disaster response comparable to -1's best districts`
+- Punitive districts, hedge: `which in many cases is nothing`
+- −3 PJS rates: `$1,250/month PJS with $15.63/hr overtime`
+- −3 arithmetic: `$1,250 UBI + $1,250 PJS + $3,750 overtime = $6,250/month`
+- −3 PPG: `approximately 2.5–4× Main`
+- Certification gap: `has minimal presence there`
+- Certification gap, hedge "may": `may not have the infrastructure to provide at granular level`
+- Implant retention: `(a fraction of the -3 population)`
+- Self-certification: `self-certification with post-hoc audit for citizens who have removed their implants`
+- Rationale: `the alternative is no mobilization incentive at all`
+- Sanctuary contrast: `produces zero permanent deaths in Sanctuary`
+- Cause: `which the layer system caused and the earthquake did not`
+- Doctrine's response: `the architecture operating as designed, not a failure`
+- Sanctuary promise: `Sanctuary promises maximum protection and delivers it, even against earthquakes.`
+- Main promise: `Main Layer promises post-intervention institutional response`
+- −1 promise: `partial institutional response supplemented by organic infrastructure`
+- −2 promise: `thin institutional response within a private-justice environment`
+- −3 promise: `-3 promises the federal floor and nothing else`
+- Delivery: `Every layer delivers exactly what it promised.`
+- Variables: `The earthquake is the control variable and the layer system is the experimental variable.`
+- Gradient: `a body-count gradient produced by the same seismic wave`
+- Two facts: `produces permanently different mortality outcomes from identical physical events`
+- Proportional outcomes: `The civilization promises proportional outcomes rather than equal ones.`
+- Behavioral record: `proportional to the behavioral record that placed the citizen in that layer`
+- Mobilization architecture: `It is the civilization's mobilization architecture`
+- Without coercion: `without conscription, without command hierarchy imposed on civilians`
+- Earth instruments (three): `professional first responders (paid before the disaster, deployed during)`
+- Limits: `military deployment takes days, and volunteers burn out`
+- Single instrument: `a single instrument, economic incentive at emergency scale`
+- Earning: `the workers are earning rather than sacrificing`
+- Defined tasks: `the defined critical infrastructure tasks that the Meritboard's emergency classification specifies`
+- Scale: `a catastrophic event across 100 districts activates PJS for 100 million citizens simultaneously`
+- Scale invariance: `operate identically at any scale`
+- Treasury purpose: `disaster response is civilizational infrastructure at its most urgent`
+- COVID: `During COVID-19, healthcare workers in many countries were asked to work extreme hours`
+- Bonuses: `modest hazard bonuses that did not compensate for the risk`
+- Compliance: `The workers complied out of professional obligation and personal ethics.`
+- Attrition: `many left the profession afterward`
+- Goodwill: `The system consumed their goodwill and did not replenish it.`
+- Market-clearing: `the PJS mechanism pays market-clearing rates`
+- Aligned worker: `The disaster response worker earning $50,000/month in Main Layer`
+- Design verdict: `has failed to make sacrifice and self-interest point in the same direction`
+
+Flags:
+- No cross-resource clash from the list (wall thickness, kill-switch scope or timing, Dyson date, founding date, mind-state sync) appears in r13.
+- −3 severance line kept unchanged in substance ("the implant severs the backup vessel link at the moment of terminal reassignment"). Per the triage it matches Charter wording and the LP-004.2 suspension, so it is not a doctrine flag. r13 does not discuss −3 visitors.
+- Approved doctrine changes: none apply to r13 (no "AI monitoring" line; r13's "No enforcement drones" in −3 already fits the "no AI enforcement" wording; "minimal presence" of the AI governance system in −3 does not deny STI or the public ledger running there). None applied.
+- INTERNAL, left unchanged: the Main Layer section lists four Earth instruments (first responders, military, volunteer organizations, individual goodwill), while the Mobilization section says Earth relies on three.
+- INTERNAL, left unchanged: Sanctuary casualties are hedged as "near-zero", but the paragraph ends on the absolute "no deaths" (the original "It does not produce death"). The Gradient section's "zero permanent deaths in Sanctuary" suggests the intended claim is no permanent deaths.
+- Arithmetic checked, no change: every PJS sum reconciles (240 excess hours per month at each layer's overtime rate); the −3 overtime line rounds 240 × $15.63 = $3,751.20 to $3,750.
