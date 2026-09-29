@@ -900,6 +900,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
         /* The register marks a -3 advisory outcome with an advisory cell in the
            entry's own outcome table, independently of the entry's status badge. */
         advisoryOutcome: /<td class="advisory"/.test(block),
+        enactedAtFederal: /Enacted at Federal/.test(block),
       });
     }
 
@@ -958,7 +959,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
       unresolved.length ? `unresolved: ${unresolved.join(', ')}` : `${registerEntries.length} register entries resolve (${foundingEntries.length} founding entries partitioned out)`);
 
     const notPublishable = registerEntries
-      .filter((e) => registerStatus.has(e.source) && !PUBLISHABLE.has(registerStatus.get(e.source).status))
+      .filter((e) => registerStatus.has(e.source) && !PUBLISHABLE.has(registerStatus.get(e.source).status) && !registerStatus.get(e.source).enactedAtFederal)
       .map((e) => `${e.source}=${registerStatus.get(e.source).status}`);
     check(notPublishable.length === 0, 'code integrity (a2): no code entry derives from a failed/superseded/rerouted filing',
       notPublishable.length ? `not publishable: ${notPublishable.join(', ')}` : `${registerEntries.length} entries within the §3.3 whitelist`);
@@ -968,7 +969,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
     check(duplicated.length === 0, 'code integrity (a3): no register entry is consolidated twice',
       duplicated.length ? `duplicated: ${duplicated.join(', ')}` : `${sources.length} distinct sources`);
 
-    const enactedIds = [...registerStatus.entries()].filter(([, v]) => v.status === 'status-enacted').map(([k]) => k);
+    const enactedIds = [...registerStatus.entries()].filter(([, v]) => v.status === 'status-enacted' || v.enactedAtFederal).map(([k]) => k);
     const unconsolidated = enactedIds.filter((id) => !sources.includes(id));
     check(unconsolidated.length === 0, 'code integrity (a4): every enacted register entry has a code entry (1:1)',
       unconsolidated.length ? `missing from the Code: ${unconsolidated.join(', ')}` : `${enactedIds.length} enacted entries consolidated`);
