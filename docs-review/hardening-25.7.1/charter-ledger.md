@@ -1,0 +1,81 @@
+# Hardening 25.7.1 — unit "charter" ledger
+
+Files: charter.html.
+Plan items matched (bucket fix/lift/broken, source_file in unit): 6. Applied 6, declined 0.
+Extra scope (strict mode): 21 reversals rewritten, body em-dashes 255 → 54, federal-law boilerplate declined (reason below).
+Checks after edits: check-canon 141/0, check-css-cascade clean, test:guard-mutations 98/98, Tailwind rebuild byte-identical to assets/css/tailwind.css.
+
+Frozen and verified by script against the pre-edit file: every id, href, class and tag (identical sequence); the number multiset (identical); the Article/LP citation multiset (one self-reference "Article IV" added by plan item 5); all four negative-magnitude pins at ×1; `advisory, not institutionally enforced`; the TOC census; every RELOCATED string still absent; every mutation find-string present.
+
+## Plan items
+
+1. **lift, III.VII savings base (charter:235).** "…not the form it takes — the specification is federal law…; every additional residence… except where another household…" → split by asset type: "follows stored value wherever it is held and whatever form it takes. The specification is federal law…" / residences / commercial property / "Attribution locks the instant value becomes liquid or priced: collateral pledged… An in-kind exchange… and the gain is treated as earned income under Article III.III." The byte-exact grant clause kept; no figure added.
+2. **lift, whole-page register (charter:321, XXIII, XXV.IV).** Em-dash parentheticals converted and reversals collapsed; itemised below. "The absence of a judge is not a gap — it is the design." left unchanged: simulations.html:3093 quotes it, and that file is outside this unit.
+3. **lift, Art II opener (charter:168).** "Separate reputational ledger… Gates Trust Threshold Domains. No crossover to VMSS reassignment." → "The STI is a separate reputational ledger…, with tiered visibility (minor entries private, major ones public). The score gates Trust Threshold Domains (high-trust contracts, partnerships, and professional positions) and never by itself triggers layer reassignment." Plan text, plus the house serial comma. Cognition sentence unchanged.
+4. **fix, III.IV splice (charter:203).** "…downward channels — a forfeiture that is federal law, enacted… VMSS Laws, that prevents arbitrage…" → "…downward channels, and it carries a forfeiture that prevents arbitrage while allowing citizens to arrive in lower layers with limited capital. The forfeiture band is federal law, enacted, amended, and recalibrated only through the Article XXV.VI ladder and consolidated in VMSS Laws." Links kept; no band figure.
+5. **lift, Art IV opener (charter:244).** "Implants, neural diving, … enforcement protocol (pre in Heaven, post in Main/below)." → "Article IV governs implants, neural diving, biological augmentation, backup vessels (whose revival reliability is graduated by layer), and the enforcement protocol: pre-intervention in the Heaven Layers, post-intervention in Main Layer and below." I used the defined terms in place of the plan example's "preventive / after the fact". The closing STI seven-dimension sentence stays in Art IV (see flag 1).
+6. **lift, Founding Lines note (charter:157).** "they are the room inside which every subsequent article argues with itself" → "every later article is written within the frame they set". The "how / what for" pair kept; "immutable —" became "immutable:".
+
+## Reversals rewritten (extra scope; 21)
+
+Where the negation excludes something doctrinally, it is kept in trailing form; only the negation-first shape changed.
+
+R1. II:169 "The asymmetry is not punitive — it is calibrated to how trust actually operates." → "The asymmetry is calibrated to how trust actually operates and is not punitive."
+R2. III.IV:204 "The gradient is not a fixed exchange rate — it emerges from scarcity…" → "The gradient emerges from scarcity… and varies by district within each layer; it is not a fixed exchange rate."
+R3. VII:267 "— not because lower layers are lesser, but because higher layers require…" → "…because higher layers require a demonstrated record that lower layers do not, and not because lower layers are lesser."
+R4. XI:283 "is not automatically struck — it is flagged, its scope named explicitly" → "is flagged rather than automatically struck: its scope is named explicitly, and it is returned…"
+R5. XI:287 "The founding core is not untouchable." → "The founding core is reachable." ("reachable" is the Charter's own word, XXV.VI:399.)
+R6. XI:288 "is not immutable — it is load-bearing." → "is load-bearing, not immutable."
+R7. XI:289 "What Article XI protects is not the specific founding text. It is the principle that…" → "Article XI protects a principle rather than the specific founding text: revision must pass through every body…" ("a single body… cannot" → "no single body… can".)
+R8. XVIII:311 "are not twenty isolated incidents. They are one coordinated event…" → "form one coordinated event with twenty contributors, not twenty isolated incidents, and the aggregate axis profile applies to each."
+R9. XXI:320 "The Meritboard is not a fixed appointed body… — it is the civilization's continuously updating competence ranking" → "The Meritboard is the civilization's continuously updating competence ranking…, rather than a fixed appointed body…"
+R10. XXI:323 "the system does not treat judicial authority as infallible, only as the best available judgment" → "The system treats judicial authority only as the best available judgment at the time of decision, not as infallible."
+R11. XXII:326 "It is not a legislature, not an appointed body, and not a fixed membership. It is a dynamic…" → "It is a dynamic merit-based ranking system, not a legislature, an appointed body, or a fixed membership."
+R12. XXII.II:334 "The mechanism does not penalize longevity; it prevents complacency." → "The mechanism prevents complacency without penalizing longevity."
+R13. XXIII:358 "The civilization does not claim perfection. It claims direction…" → "The civilization claims direction, commitment, and the long-horizon architecture to approach perfection, not perfection itself."
+R14. XXIV:362 "that graduation is not a deficiency. It is the direct expression…" → "that graduation is the direct expression of each layer's design philosophy, not a deficiency."
+R15. XXIV:364 "This is not a failure of the civilization's technology. It is the consequence…" → "This is the consequence of the Freedom Layer's own logic applied to daily life, not a failure of the civilization's technology."
+R16. XXV:371 "— not because VMSS governs daily life in -3, but because their violation produces externalities…" → "…without exception because their violation produces externalities…, not because VMSS governs daily life in -3."
+R17. XXV.IV:385 "This is not occupation — it is a civilizational maintenance function." → "This is a civilizational maintenance function, not occupation."
+R18. XXV.IV:386 "VMSS has no interest in governing -3 day-to-day. It has every interest in preventing…" → "VMSS has every interest in preventing…, and no interest in governing -3 day-to-day."
+R19. XXVII:424 "The civilization does not prevent births — it prices them." → "The civilization prices births rather than preventing them."
+R20. XXVII:426 "The lower layers are not exempt from consequence — the consequence is structural rather than direct." → "The lower layers still face consequence, but it is structural rather than direct."
+R21. XXVII:426 "VMSS does not direct this cascade. It initiates the treasury levy and the market does the rest." → "VMSS initiates the treasury levy and does not direct the cascade; the market does the rest."
+
+**Reversals kept, with reasons:**
+- Founding Line 1 (:153): inscribed text, frozen.
+- Ledger 25.2.0 note 8 (doctrine-bearing), all frozen: "not welfare, but birthright" (:181), "Null is not a number" (:177), "not a reward to be collected…" (:264), "The layers are not a hierarchy of suffering" (:267), "The veto is not ceremonial" (:285), "not a countdown" (:302), "This is not a promise — it is a direction" (:342).
+- "The absence of a judge is not a gap — it is the design." (:321): quoted verbatim at simulations.html:3093.
+- Founding Affirmation "does not force virtue. It structures reality…" (:463): ceremonial frame that echoes Founding Line 1's shape (flag 4).
+- "not because they cannot, but because…" (:464): the amendability hedge.
+- Already positive-first, so not reversals: "not because the child has been granted…" (:177); "It does not surrender civilizational sovereignty" (:371); "It does not guarantee identical outcomes…" (:366); "neither prohibited nor protected" (:415).
+
+## Em-dash cuts (extra scope; 255 → 54 in the body)
+
+These are punctuation-only unless noted. The words are unchanged except where "is/and/the/meaning/with/because/so/This is" was needed to close a clause.
+- Pre/I/II: immutable— → colon; "single qualifying event —" → ", meaning"; "unremediable pattern —" → colon; formula "dynamic —" → ", and it is"; "AI governance — but" → comma; "adapts — shifting" → "adapts by shifting"; "varies by layer —" → ", so… This reflects"; null STI ×3 (period; commas; parentheses).
+- III: time dividend → colon; "out of pocket — not funded" → comma; "civilizational function —" → colon; "civilizational dividends —" → colon; siloing → colon; "currency is issued —" → ". No currency… which preserves"; "3,100 freedom tokens in -3 —" → ". These are fewer… each carries"; pre-positioning → period; progressive scale → colon; joint assets → colon (+is/and); "same mechanism available to visitors" → comma; origin-layer posture → period; visiting status → period; implant ledger → period; "the pulse-at-start principle" → ". This is the…"; snapshot → comma; speculative instruments → ", because"; "no floor, no exemptions" → ", with no floor and no exemptions"; whale → colon; VMSS-distributed funds → colon; taxation → period; "no implant tracking required" → "and requires no implant tracking"; circulation loop → comma; III.VIII federal tier → period; market mechanisms → commas.
+- IV–X: non-transferable → period; hardware level → period; binary → colon; "Abortion illegal —" → "and"; fetus parenthetical → parentheses; perpetrator → period; autoparenting → comma; -3 row → colon; phasing and reassignment → period ×2; three downward mechanisms → colon ×3; linkage → period; maternity-specific → colon; murder → period; parental property → period; SADs → comma; "Exit from -3 is impossible — it is terminal." → "…impossible because the layer is terminal."
+- XI–XV: majority of the moment → period; policy preference → period; Sanctuary consensus → parentheses (pin `not a supermajority, full agreement` ×1 intact); vote options → parentheses; abstention → period; rescission list → parentheses; retained rights → parentheses; veto cycle → period; founding-core list → parentheses (matches :283/:399); honest path → comma; including Chief Architect → commas; structural criteria → parentheses; indefinite override → comma; federal ladder → colon; repeal → colon; cemented → colon; phasing definition → parentheses; remediate → period; Main Layer → comma; institutional error → parentheses; narrow by design → colon.
+- XVIII–XXII.II: associates → commas; active architects → parentheses; temporal clustering → parentheses; categorical evaluation → colon; participation anomalies → parentheses; composition → colon; jurisdiction → colon; behavioral profile → commas (simulations:3093's quoted span untouched); novelty filter → comma; novelty laundering → colon; novelty extinction → colon; active ranking → colon; small active body → comma; appointment politics → period; deputy → commas; audit authority → comma; President bridges → comma (+and); metric design → colon; weighting → colon; timing → semicolon; panel weighting → ", and"; same terms → colon; consecutive terms → period (pin intact); surpassed → period; STI gaming → ". This is the same…"; breadth → commas.
+- XXIII–XXVIII, Fin: leakage chain → parentheses; dependent systems → colon; fractions of a million → colon; federal floor → colon; healthcare access → colon (+and); approximately 1% → comma; medical completeness → parentheses; weather systems → colon; private justice → period; foundational promise → comma; self-tampering → parentheses; crude self-disabling → colon; overwhelming → colon; kill switch → colon; "Highly targeted —" → ", distinguishing"; XXV.VI framing → period; point in range → colon; bound populations → parentheses; repeal ladder → colon; founding core route → commas; lower-layer inclusion → parentheses; structural depths → colon; culpability → comma; STI mechanics → parentheses; 2.5 children → comma; household → period; fiscal escalation → period; untaxed absolute → period; district trigger → colon; misconduct flag → colon; cost curve → parentheses ("that" dropped); layers → ", the layers"; UBI drain → parentheses; pariah squeeze → colon; migrating children → period; coercive weight → colon (+is/and); regulatory gap → colon; 1% petition → colon; priority → colon; 12 months → period; expert panel → colon; 80% → comma; repeal → colon; -3 petitions → colon; contiguity → period; residency → colon; full cycle → parentheses; district 1% → colon; framework → comma; repeal mechanism → parentheses; structural criteria → comma; misclassification → colon; still wants them → comma; "a contract — not an escape" → comma.
+
+**The 54 dashes that remain are all frozen or structural:** Founding Line 1 (1); Art I/VI list labels (4); the Art II cognition sentence that plan item 3 keeps unchanged (1); note-8 reversals at :181/:264/:342 (3); LP-076 "The Charter fixes … — … — and reaches no …" formula sentences at :192/:198/:211/:237/:421 (10); XI and XXV.VI gate/track labels plus XXV.IV track labels (11); XIV (7; the XIV axis definitions, frozen per plan item 2); the :321 aphorism (1); the XXIII leakage timeline (12); the XXVIII.III hierarchy labels (4).
+
+## Other extra-scope changes
+
+- XV:303 grammar: "serves the resident's quality of life there, not as a mechanism for return." → "…there and is not a mechanism for return."
+- XV:303 spelling: "incentivising" → "incentivizing", matching "incentivize" at :302.
+
+## Declined
+
+- **Extra scope: consolidate or vary the 7× federal-law boilerplate** (:192, :198, :203, :211, :235, :237, :421). Declined. All seven entered with LP-076 (e7d640d) as the enabling-grant half of each grant-plus-principle pair. That amendment rewrote the older III.III wording ("enacted and recalibrated through") to the identical formula, so the uniformity is drafted legal meaning. Varying it invites a reader to infer different scope. Plan items 1 and 4 also require the clause byte-exact at :235 and :203. Consolidating would move grants between articles, which plan item 5 rules out for the same reason.
+
+## Flags for Jason
+
+1. **Plan item 5.** Art IV's closing sentence ("The STI formula is dynamic within a fixed seven-dimension structure…") reads as Art II material. Moving it would change which article carries the rule, so it stays in Art IV.
+2. **Plan item 3 nuance.** "No crossover to VMSS reassignment" read as absolute. The plan wording, "never by itself triggers layer reassignment", is weaker and matches XII/XIII (STI is one signal, never the sole determinant). Applied as specified.
+3. **The :321 aphorism** can be collapsed only in the same patch as simulations.html:3093.
+4. **Founding Affirmation opener (:463)** is kept as a reversal on purpose. Collapsing it would break the echo of Founding Line 1.
+5. **Whitepaper twins, not quotations.** whitepaper.html restates several edited sentences near-verbatim: :746 ("not automatically struck — it is flagged"), :417 and :1850 ("The founding core is not untouchable"), the cost-curve and stabilizer sentences (~:964), plus systems.html and faq.html parallels to III.IV/III.VII. Nothing quotes the Charter as Charter text, so nothing breaks, but the twins now differ in punctuation and order.
+6. **Unchanged, possibly worth a look:** "is abandoned here as honest language" (:288; 25.2.0 flag 9); "No speculative market exclusions and no … oversight … applies" (:240, subject-verb agreement); "their own layer" for a community (:427).

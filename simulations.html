@@ -42,7 +42,7 @@
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col min-h-screen"><a href="#main-content" class="sr-only-focusable">Skip to content</a><div id="navbar-placeholder"></div><main id="main-content" class="flex-1"><section class="pt-32 pb-32">
 <div class="lg:max-w-[70%] mx-auto px-6">
 <h1 class="font-bold text-center mb-6 text-[var(--text-primary)]">Simulations Archive</h1>
-<p class="text-center text-2xl text-[var(--text-muted)] mb-6">Trust scoring, layer movement and behavioural case studies under VMSS rules. Run one citizen through the Trust Console, then read the cases it draws on. Best read after <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a> and <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a>.</p>
+<p class="text-center text-2xl text-[var(--text-muted)] mb-6">Case studies of how VMSS rules score trust, move people between layers and shape behaviour. Run one citizen through the Trust Console, then read the cases it draws on. Read <a href="layers.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Layers</a> and <a href="systems.html" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">Systems</a> first.</p>
 
 <!-- TRUST CONSOLE
      Driven by assets/js/sti-sim.js (initConsole); root id="sti-console".
@@ -53,7 +53,7 @@
     <div class="tc-head-copy">
       <p class="tc-eyebrow">Social Trust Index</p>
       <h2 class="tc-title" id="tc-title">Trust Console</h2>
-      <p class="tc-deck">One simulated citizen, one act at a time. Every act runs the justice flow and then takes one of two paths. The social path moves the STI and never the ring. The criminal path moves the ring and never waits on the score.</p>
+      <p class="tc-deck">One simulated citizen, one act at a time. Every act runs the justice flow (the steps from event to consequence) and then takes one of two paths. The social path, track 1, moves the STI, the citizen&rsquo;s Social Trust Index score, and never the ring, the layer the citizen lives in. The criminal path, track 2, moves the ring and never waits on the score.</p>
     </div>
     <div class="tc-controls">
     <div class="tc-controls-row">
@@ -186,18 +186,18 @@
   </div>
 
   <details class="tc-panel tc-explain tc-full">
-    <summary class="tc-explain-toggle"><span class="tc-explain-title">What the STI can and cannot do</span><small>Lit for this citizen now &middot; notes on the numbers</small></summary>
+    <summary class="tc-explain-toggle"><span class="tc-explain-title">What the STI can and cannot do</span><small>Highlighted for this citizen now &middot; notes on the numbers</small></summary>
     <div class="tc-reach">
       <div>
-        <h3 class="tc-reach-title">It can <small>lit where it applies to this citizen now</small></h3>
+        <h3 class="tc-reach-title">It can <small>highlighted where it applies to this citizen now</small></h3>
         <ul class="tc-reach-list" data-tc-reach="can"></ul>
       </div>
       <div>
-        <h3 class="tc-reach-title">It cannot <small>lit where this citizen meets the limit</small></h3>
+        <h3 class="tc-reach-title">It cannot <small>highlighted where this citizen meets the limit</small></h3>
         <ul class="tc-reach-list tc-reach-list--cannot" data-tc-reach="cannot"></ul>
       </div>
     </div>
-    <p class="tc-explain-note"><strong>Illustrative numbers.</strong> The real STI formula is proprietary, classified and dynamic (<a href="charter.html#article-ii">Article II</a>). This console reproduces its published properties, not its weights: a point lost costs one unit of harm and a point regained costs ten units of conduct; trajectory credit and penalty; public signals that amplify but never create. Starting scores outside Main are illustrative. Where <a href="charter.html#article-i">Article I</a> names an act as a single qualifying event (impaired driving, assault, meaningful fraud), the console follows Article I and <a href="#sim-content-12">The Threshold</a>, even where Article XIV&rsquo;s axes read only one.</p>
+    <p class="tc-explain-note"><strong>Illustrative numbers.</strong> The real STI formula is proprietary, classified and dynamic (<a href="charter.html#article-ii">Article II</a>). This console reproduces the formula&rsquo;s published properties but not its weights: a point lost costs one unit of harm, and a point regained costs ten units of conduct; a trajectory earns credit or a penalty; and public signals can amplify a change but never create one. Starting scores outside Main are illustrative. <a href="charter.html#article-i">Article I</a> treats some acts (impaired driving, assault, meaningful fraud) as enough on their own to move a citizen down a layer. Article XIV&rsquo;s harm scale would rate some of them lower. Where the two differ, the console follows Article I and the story <a href="#sim-content-12">The Threshold</a>.</p>
   </details>
 
   <footer class="tc-foot">
@@ -210,20 +210,20 @@
 <!-- ROUTING: Four-dossier split (World Scenarios / Resident Stories / The Academy / Academic Resources) -->
 <div class="mt-20 mb-16">
 <h2 class="text-4xl font-bold text-center text-[var(--text-primary)] mb-4">Coursework &amp; Reference</h2>
-<p class="text-center text-[var(--text-muted)] max-w-3xl mx-auto mb-10">The Academy is a rubric-graded question bank for teaching the doctrine as coursework; Academic Resources collects textbook chapters and long-horizon reference materials. Looking for the simulations themselves? Jump to the <a href="#full-archive-index" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">full archive index</a> below — all 94 world scenarios and resident stories, searchable in one place.</p>
+<p class="text-center text-[var(--text-muted)] max-w-3xl mx-auto mb-10">The Academy is a question bank, graded by rubric, for teaching the doctrine as coursework. Academic Resources collects textbook chapters and long-horizon reference material. The simulations themselves are in the <a href="#full-archive-index" class="text-[var(--accent)] hover:text-[var(--accent-soft)] transition">full archive index</a> below: all 94 world scenarios and resident stories, searchable in one place.</p>
 <div class="grid md:grid-cols-2 gap-8">
 
 <a href="simulations-academy.html" class="sad-card bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 block">
 <p class="text-xs uppercase tracking-widest text-[var(--accent-soft)] mb-3">33 questions</p>
 <h3 class="text-3xl font-bold text-[var(--accent)] mb-4">The Academy →</h3>
-<p class="text-[var(--text-secondary)] mb-4">Rubric-graded question bank for teaching VMSS as coursework. Difficulty ratings, course levels, grade-tier breakdowns, and adversarial classroom engagement.</p>
+<p class="text-[var(--text-secondary)] mb-4">Questions graded by rubric, for teaching VMSS as coursework. Each carries a difficulty rating, a course level and a grade-tier breakdown, and is built for adversarial classroom debate.</p>
 <p class="text-sm text-[var(--text-muted)]">Kill switch ethics, SCM economics, antimatter diplomacy, teleportation governance, treasury modeling, asylum epistemology, founding-line stress tests, and 26 more.</p>
 </a>
 
 <a href="simulations-resources.html" class="sad-card bg-[var(--bg-secondary)] rounded-3xl p-10 border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 block">
 <p class="text-xs uppercase tracking-widest text-[var(--accent-soft)] mb-3">33 resources · 3 categories</p>
 <h3 class="text-3xl font-bold text-[var(--accent)] mb-4">Academic Resources →</h3>
-<p class="text-[var(--text-secondary)] mb-4">Textbook chapters and long-horizon reference materials organized by category: World of VMSS, Universe of VMSS, and VMSS Advanced.</p>
+<p class="text-[var(--text-secondary)] mb-4">Textbook chapters and long-horizon reference material in three categories: World of VMSS, Universe of VMSS and VMSS Advanced.</p>
 <p class="text-sm text-[var(--text-muted)]">Military asymmetry, alliance diplomacy, teleportation deployment, Long Horizons library, Mercury harvesting, mega-wall engineering, Precognition trilogy.</p>
 </a>
 
@@ -244,8 +244,8 @@
 </style>
 <div class="mt-20 mb-8" id="full-archive-index">
 <h2 class="text-4xl font-bold text-center text-[var(--text-primary)] mb-4">Full Archive Index</h2>
-<p class="text-center text-[var(--text-muted)] max-w-3xl mx-auto mb-4">All 94 simulations across both dossiers in one place — search titles, classifications, and outcome lines, or narrow by dossier, category, and doctrine snapshot. Each entry expands in place; deep links land pre-expanded.</p>
-<p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-10"><strong>Current-rate frame:</strong> LP-074&rsquo;s <strong>50 / 25 / 12.5 / 6.25</strong> exact halving cascade is active from 2295 after the 2294 Path 2 certification. Older Doctrine-Snapshot narratives remain era-pinned historical artifacts and are not recalculated.</p>
+<p class="text-center text-[var(--text-muted)] max-w-3xl mx-auto mb-4">All 94 simulations from World Scenarios and Resident Stories in one place. Search titles, classifications and outcome lines, or narrow by collection, category and doctrine snapshot. Each entry opens in place, and a deep link opens its entry already expanded.</p>
+<p class="text-center text-sm md:text-base text-[var(--text-muted)] max-w-3xl mx-auto leading-7 mb-10"><strong>Current-rate frame:</strong> LP-074&rsquo;s <strong>50 / 25 / 12.5 / 6.25</strong> exact halving cascade is active from 2295 after the 2294 Path 2 certification. Older Doctrine-Snapshot narratives remain era-pinned historical artifacts and are not recalculated. Cards marked Off-canon depart from canon on purpose for the sake of the story.</p>
 <div class="sim-idx-controls">
 <input id="sim-idx-q" class="sim-idx-input" type="search" placeholder="Search title, classification, outcome&hellip;" aria-label="Search simulations">
 <button id="sim-idx-chip-world" class="sim-idx-chip" type="button" aria-pressed="true">World Scenarios</button>
@@ -258,12 +258,12 @@
 <div class="!mt-16 mb-10 text-center" data-collection-header="world">
 <h2 class="text-5xl font-bold text-[var(--text-primary)] mb-3">World Scenarios</h2>
 <p class="text-xl text-cyan-400">Civilizational Stress Tests &nbsp;·&nbsp; Doctrine Cases &nbsp;·&nbsp; System Mechanisms</p>
-<p class="text-[var(--text-muted)] mt-3 max-w-3xl mx-auto">Forty-eight simulations examining the VMSS world itself — the events, policy stress points, doctrine edge cases, and civilizational moments that test what The Five Rings can absorb.</p>
+<p class="text-[var(--text-muted)] mt-3 max-w-3xl mx-auto">Forty-eight simulations about the VMSS world itself: the events, policy stress points, doctrine edge cases and civilizational moments that test how much strain the five-layer system can take.</p>
 </div>
 <!-- SECTION: System Mechanism Scenarios -->
 <div class="!mt-16 mb-6" data-section-header="system-mechanisms">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">System Mechanism Scenarios</h2>
-<p class="text-[var(--text-muted)] mt-2">Cases demonstrating how VMSS handles specific violation types across the enforcement and STI frameworks.</p>
+<p class="text-[var(--text-muted)] mt-2">Cases showing how VMSS handles specific kinds of violation, through enforcement and through the STI.</p>
 </div>
 
 <!-- Armed Bank Robbery -->
@@ -425,7 +425,7 @@ Key lesson: One severe act, such as driving impaired, can move someone from Main
 
 <div class="!mt-16 mb-6" data-section-header="stress-tests">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Civilizational Stress Tests</h2>
-<p class="text-[var(--text-muted)] mt-2">Scenarios where groups, laws, and institutional edge cases test the outer limits of what VMSS tolerates — and the civilization responds. The doctrine tells you what happens. These show it happening.</p>
+<p class="text-[var(--text-muted)] mt-2">Scenarios in which groups, laws and institutional edge cases push at the outer limits of what VMSS tolerates, and the civilization responds.</p>
 </div>
 
 <!-- Simulation 1: The Coalition Breach Attempt -->
@@ -467,10 +467,10 @@ Marsh came back three weeks before the operation, three years after he had start
 "Sixty percent of us have had our implants cut out these last weeks." Marsh nodded at a crate his men had set down by the gate. It was unmarked, and he didn't say where it had come from. "Dampeners for the rest."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-He unfolded the map again. He had studied the wall's sensor integration, and two junctions were circled in red where he believed the coverage had gaps. Under them he had written a date, a night when the patrols ran thin. Ivo said no again.
+He unfolded the map again. He had studied the wall's sensor integration, and two junctions were circled in red where he believed the coverage had gaps. Under them he had written a date, a night when the patrols ran thin. Ivo said no.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Ivo watched from a slag heap half a kilometer back. At 0340 the coalition moved out in three columns toward the junctions, and then the columns stopped. The kill switch had fired on every registered identifier in the operational zone, and eighty people dropped at the same instant. Four seconds later the nanobot plume reached the other hundred and twenty, the ones who had cut their implants out to escape the switch.
+On that night Ivo watched from a slag heap half a kilometer back. At 0340 the coalition moved out in three columns toward the junctions, and then the columns stopped. The kill switch had fired on every registered identifier in the operational zone, and eighty people dropped at the same instant. Four seconds later the nanobot plume reached the other hundred and twenty, the ones who had cut their implants out to escape the switch.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Two hundred people fell, and Ivo heard nothing. There was no explosion, and he could not see what had reached them. He counted the seconds under his breath from the first man falling, and it was over before ninety. No aircraft came over, and no troops crossed into -3. The wall was never touched.
@@ -563,7 +563,7 @@ Civilizational Note: Federal law binds every layer, however light its local inst
 </button>
 <div id="sim-cst-3" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-There were five of them. Teodor Vane, a physicist, had done materials research in Main Layer until contract fraud and systematic deception in his professional dealings went onto his record as STI violations, and a coercion conviction sent him down to -2. He brought two former colleagues, each of whom had come down by a separate route. The other two were -2 residents he had found through the private network, technically capable and ideologically aligned. In recruiting conversations he called the project "a leverage instrument." He never used the word nuclear. None of the four asked what he meant.
+There were five of them. Wiktor Vane, a physicist, had done materials research in Main Layer until contract fraud and systematic deception in his professional dealings went onto his record as STI violations, and a coercion conviction sent him down to -2. He brought two former colleagues, each of whom had come down by a separate route. The other two were -2 residents he had found through the private network, technically capable and ideologically aligned. In recruiting conversations he called the project "a leverage instrument." He never used the word nuclear. None of the four asked what he meant.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Vane liked -2 for the work. It had less institutional monitoring than -1, and he was confident the institutional withdrawal reached the kind of watching that would catch them. They bought materials through a supply chain that crossed three layers, using intermediaries with no visible connection to the end purpose. They talked by methods they believed sat outside the implant ledger's logging parameters.
@@ -665,7 +665,7 @@ In week twelve Bette, who lodged across the landing from Tessa, told the crew sh
 The two witnesses who had recorded Bette's waiver came back with a second document, headed <em>Voluntary Permanent Residency Recognition</em>. Recognition was rare, and the Council did not encourage it or deny her. She signed, and stayed in -3 as a resident.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The production posted the final count at the extraction point. Sixty contestants had completed the ninety days under the original terms, and each received the million dollars. Tessa was one of the sixty. Eight did not come back. Six had died of violence the production could not have prevented, and would not have been permitted to prevent without breaking the contest's premise. The other two were Bette and the other contestant who stayed, and their prize money was paid to whoever they had named. The Council had quietly anticipated both recognitions from the day it approved the format. The remaining nine hundred and thirty-two had walked away at one tier or another, with payouts from a thousand dollars to several hundred thousand, depending on how long they had lasted.
+The production posted the final count at the extraction point. Sixty-two contestants had lasted the ninety days. Sixty came out under the original terms, and each received the million dollars; Tessa was one of them. Eight did not come back. Six had died of violence the production could not have prevented, and would not have been permitted to prevent without breaking the contest's premise. The other two were Bette and the other contestant who stayed, and their prize money was paid to whoever they had named. The Council had quietly anticipated both recognitions from the day it approved the format. The remaining nine hundred and thirty-two had walked away at one tier or another, with payouts from a thousand dollars to several hundred thousand, depending on how long they had lasted.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Every contestant carried a record of the choice they had made. Back in Main, Tessa looked up her own: waiver signed, vessel severed, ninety days completed. The system had noted who walked away at which stage and who stayed. The producer had funded what the Council ran as a longitudinal study of the limits of layer permeability and the psychology of vessel severance. The footage went into the public archive, and the waivers into the doctrinal record.
@@ -752,7 +752,7 @@ The consortium had no category for these guests. Emil found the Council observer
 "The standing entry we opened for the Severance Show," she said, and kept writing. Upside down, he read the heading at the top of her page: <em>The limits of what the upper layers can and cannot tolerate, safety rail removed, permission real.</em>
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Eighteen guests had behaved as projected, the twelve hard players among them. They had destroyed inside the consequence-suspended bubble, with no overflow and no breach of the entry contract, and their payments released in full at departure. They produced the projected revenue and proved the business model worked at the price. The other twenty-four produced something the operator had not priced and did not own: evidence of who the wealthy of the Main Layer were when offered exactly the permission Westworld had once promised and never honestly delivered. Some of the forty-two were the cowboys the marketing had assumed. Most were not. The Council quietly noted a few of the twenty-four as having passed a test nobody had told them they were taking. The notation went into the same ledger that tracked everything else the upper layers did.
+Eighteen guests had behaved as projected: the twelve hard players and six of the others. They had destroyed inside the consequence-suspended bubble, with no overflow and no breach of the entry contract, and their payments released in full at departure. They produced the projected revenue and proved the business model worked at the price. The other twenty-four, with the six who only walked the streets, the two who kept to the perimeter and the four who stopped among them, produced something the operator had not priced and did not own: evidence of who the wealthy of the Main Layer were when offered exactly the permission Westworld had once promised and never honestly delivered. Some of the forty-two were the cowboys the marketing had assumed. Most were not. The Council quietly noted a few of the twenty-four as having passed a test nobody had told them they were taking. The notation went into the same ledger that tracked everything else the upper layers did.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 By the end of the first year the park had seen no recording extraction, no certification reversal and no doctrinal incident that needed the Council beyond its standing observation. The consortium guarded the non-recording clause for its own commercial reasons, which lined up exactly with the Council's doctrinal ones. After two failed designs Emil knew where the threshold was, and the audit crews came through on their rolling schedule.
@@ -821,10 +821,10 @@ The park opened to -3 visitors first. Veres expected the indifference the layer 
 "You'll hear it all week," said Oda Stroud, who ran his perimeter crew. "He knew what was in there when he walked in."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"And me?"
+"And me?" Veres asked.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"Nobody here calls that an injury." She was already walking back to the gate.
+"You opened a gate and told them what was inside. Nobody here calls that an injury." She was already walking back to the gate.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 No inquest followed. -3's private justice infrastructure left colosseum deaths alone, as it left alone a duel both parties had agreed to, and no jurisdiction in the layer had standing to prosecute him for the deaths or to shut him down. Nobody detained Veres, and no review board or cooperative looked into his conduct.
@@ -929,7 +929,7 @@ The teams deployed detention rigs, and the operation converted, as the statute p
 Nine of the twelve were captured in the first forty minutes. The professional-grade capability that had produced the concealment signatures also produced three operators who broke contact during transit to the -3 processing station. Two were recovered within seventy-two hours. One was not. He surfaced eleven days later in a neighbouring state's capital, debriefed by an intelligence service with which VMSS maintained no reciprocity arrangements, and within a further fortnight the details of the border instrumentation that had resolved his team's attribution were in the working corpus of three hostile-state services simultaneously. The assessment on Hedda's desk rated the intelligence damage moderate and recoverable.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The after-action review opened the following month under Article XX accountability review, with the External Force Doctrine working group and the Meritboard's national-defense sub-ranking in joint standing. The working group's finding came out of its second session. The scale-tier framework had been written against a 2103 threat model in which coordinated capability scaled roughly linearly with headcount, an assumption that had been wrong at the time and had grown more wrong over the twenty-six years since. The twelve had posed the threat profile of a four-hundred-actor coordinated formation. Under the capability profile documented at the border, a twelve-operator decapitation team could do a federal administrative cluster at least as much civilian and infrastructural damage as a four-hundred-actor incursion, and meaningfully more per actor.
+The after-action review opened the following month under Article XX accountability review, with the External Force Doctrine working group and the Meritboard's national-defense sub-ranking in joint standing. The working group's finding came out of its second session. The scale-tier framework had been written against a 2103 threat model in which coordinated capability scaled roughly linearly with headcount, an assumption that had been wrong at the time and had grown more wrong over the twenty-six years the statute had been in force. The twelve had posed the threat profile of a four-hundred-actor coordinated formation. Under the capability profile documented at the border, a twelve-operator decapitation team could do a federal administrative cluster at least as much civilian and infrastructural damage as a four-hundred-actor incursion, and meaningfully more per actor.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Hedda gave evidence at that session. A member of the working group read her headcount back to her.
@@ -944,7 +944,7 @@ Hedda gave evidence at that session. A member of the working group read her head
 Drafting began three weeks after the review's findings were logged. The External Force Doctrine working group, the Supreme Court's sovereignty-classification bench and the Meritboard's national-defense sub-ranking composed the replacement over the next sixteen months. Adjusting the twenty-six-actor threshold would have re-failed on the next operator generation, so they built a character-weighted multi-factor classification framework that measured capability-density, attribution posture, target criticality and operational tempo alongside actor count. For twenty-four hours after a field classification, a Meritboard–Supreme Court dual key could escalate it if the initial reading proved inadequate to the realized threat. The statute cleared the Article XXV.VI ladder in the winter of 2135 as <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a>, superseding <a href="law-polling.html#lp-005-2" class="lp-ref">LP-005.2</a> at ratification, and took operative effect forty-five days later. That morning the classification screen at Hedda's station asked her for five readings instead of one.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The escaped operator was never extradited. What his debrief had given three hostile services went into the new statute's threat model during the calibration of its character-weighting schedule, and the capability profile that had enabled his escape became one of the profiles <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a> was built to catch. The eight operators who had reached -3 processing were reclassified under <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a>'s transitional provision. Their cases were reopened and their character-weighted readings recomputed, and on appeal two of the eight were re-routed into the Article XXV.IV track the original classification had denied them. The two did not return to -3. The correction was logged as a correction and filed in the archive under <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a>'s initial operative record.
+The escaped operator was never extradited. What his debrief had given three hostile services went into the new statute's threat model during the calibration of its character-weighting schedule, and the capability profile that had enabled his escape became one of the profiles <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a> was built to catch. The eleven operators who had reached -3 processing were reclassified under <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a>'s transitional provision. Their cases were reopened and their character-weighted readings recomputed, and on appeal two of the eleven were re-routed into the Article XXV.IV track the original classification had denied them. The two did not return to -3. The correction was logged as a correction and filed in the archive under <a href="law-polling.html#lp-005-3" class="lp-ref">LP-005.3</a>'s initial operative record.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Civilizational Note: A breach rule that counts attackers fails against a small team that can do more damage per person. VMSS keeps the failure on the record and replaces the rule in public.
@@ -957,7 +957,7 @@ Civilizational Note: A breach rule that counts attackers fails against a small t
 
 <div class="!mt-16 mb-6" data-section-header="civilizational">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Civilizational Scenario</h2>
-<p class="text-[var(--text-muted)] mt-2">Thirty-seven scenarios applying VMSS doctrine to institutional stress, economic architecture, private justice, and adversarial exploitation. Not predictions — demonstrations of how the system responds when actors push against its boundaries.</p>
+<p class="text-[var(--text-muted)] mt-2">Thirty-seven scenarios applying VMSS doctrine to institutional stress, economic architecture, private justice and adversarial exploitation. Each shows how the system responds when people push against its limits.</p>
 </div>
 
 <!-- Earth Introduction -->
@@ -1293,7 +1293,7 @@ Key lesson: VMSS checks each visitor's record against its own standard and turns
 Sera Voss composed for neural diving, and in Main Layer hundreds of millions of citizens had been inside her work. Licensing revenue, patronage contracts and performance fees brought her $200 million a year, and had for twelve years. She lived where people could see it: a coastal estate, a private aircraft, and a studio complex that took up an entire district block.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her accountant, Ilan Brisk, came out to the studio each quarter with the figures. At the 70% top marginal rate, the $200 million gross came to $60 million net, or $5 million a month. The other $140 million went straight into the Automation Dividend Treasury.
+Her accountant, Ilan Brisk, came out to the studio each quarter with the figures. At the 70% top marginal rate, which fell on nearly all of it, the $200 million gross came to roughly $60 million net, about $5 million a month. The other $140 million or so went straight into the Automation Dividend Treasury.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "Seventy percent," Ilan said. He said it every year.
@@ -1376,7 +1376,7 @@ Key lesson: The income tax raises revenue. The savings mandate keeps a top earne
 Maren Solke ran a logistics conglomerate in Main Layer, and fourteen regional directors reported to her. Over three years she had built an organizational culture in which aggressive contract enforcement was rewarded with bonuses, promotion and social access. Directors who lost market share were quietly demoted, regardless of method. She had never given an illegal order.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-At the spring review Teodor Glass, who ran her eastern region, reported that Harrow Freight had taken the Ostvik contracts.
+At the spring review Piet Glass, who ran her eastern region, reported that Harrow Freight had taken the Ostvik contracts.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "They came in under us on every lane," he said.
@@ -1388,7 +1388,7 @@ At the spring review Teodor Glass, who ran her eastern region, reported that Har
 He waited in case there was more. She went on to the next line of the review.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Over the next eighteen months seven of her fourteen directors picked up STI violations: for contract intimidation, for supplier coercion and, once, in Teodor's region, for a physical threat against a competing firm's logistics manager. Taken individually, each incident was a one-axis event, moderate in severity, isolated and reversible. Each director took an STI hit, and none crossed a reassignment threshold. Within weeks of every incident the gains reached her conglomerate: market share, contract victories, a competitor withdrawing. Harrow Freight pulled out of Ostvik, and Teodor got his bonus.
+Over the next eighteen months seven of her fourteen directors picked up STI violations: for contract intimidation, for supplier coercion and, once, in Piet's region, for a physical threat against a competing firm's logistics manager. Taken individually, each incident was a one-axis event, moderate in severity, isolated and reversible. Each director took an STI hit, and none crossed a reassignment threshold. Within weeks of every incident the gains reached her conglomerate: market share, contract victories, a competitor withdrawing. Harrow Freight pulled out of Ostvik, and Piet got his bonus.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Maren's ledger stayed clean. She had never threatened anyone, or instructed anyone to.
@@ -1415,7 +1415,7 @@ Ruth read both pages. "It doesn't mention orders."
 "Who benefited. How consistently. Whether the correlation exceeds chance." Ruth turned back to the first page. "It does."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Teodor and the other six directors stayed in Main Layer, each with their own STI violations and a damaged trust score. Maren went to -1, permanently, and the bonuses, the promotions and the social access left Main Layer with her. The network dissolved.
+Piet and the other six directors stayed in Main Layer, each with their own STI violations and a damaged trust score. Maren went to -1, permanently, and the bonuses, the promotions and the social access left Main Layer with her. The network dissolved.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: A leader who consistently profits from harm her associates commit carries the pattern on her own ledger. No conspiracy trial or judge is needed to find it.
@@ -1530,7 +1530,7 @@ A bailout. Dren knew the backup vessel system should have revived him at the nea
 "How many times?" Dren asked.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"Nine. Their unit fails one revival in forty. That was the only way out I had, and at three revivals a week, the odds said it would take months of sustained torture. So I stopped resisting and took their terms."
+"Nine. Their unit fails one revival in forty. That was the only way out I had, and at nearly one revival a day, the odds said it would take months of sustained torture. So I stopped resisting and took their terms."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "What terms?"
@@ -1688,16 +1688,16 @@ She wrote her attacks into a review file, and a reply came back under each one.
 She opened with five attacks at the level of principle. Her STI flatline exploit and her constitutional deadlock were both dismissed: Article XII's multi-factor evaluation already prevented single-metric determination, and three different mechanisms handled three different categories of change. The abortion collision was dismissed as a philosophical objection dressed as structural failure. The reply accepted her other two, downward visitation asymmetry and unequal contestation capacity across layers, as real design tensions, and showed her where each was documented as a feature. The last line under the round read <em>The architecture holds.</em>
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-In the second round she went after sequence failures: specific events where the system followed its own rules and the output contradicted a different rule. She started with wrongful reassignment. In her scenario the system misread a resident and reassigned them, and the permanence rule blocked the correction. She constructed a void-transaction reversal mechanism to repair it.
+In the second round she went after sequence failures: specific events where the system followed its own rules and the output contradicted a different rule. She started with wrongful reassignment. In her scenario the system misread a resident and reassigned them, and the permanence rule blocked the correction. She constructed a void-transaction reversal mechanism, a way to cancel a reassignment as if it had never been recorded, to repair it.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The reply came back at once. AI governance operated as physics, it said, and no resident could repudiate the implant ledger. Wrongful conviction was not a category of appeal. Where the system's own audit verified institutional error, corrupted ledger data for one, the Supreme Court held remedial authority over that astronomically narrow case. Her mechanism contradicted the foundational axiom.
+The reply came back at once. AI governance operated as physics, it said: its implant ledger recorded what happened, and no resident could dispute the record. Wrongful conviction was not a category of appeal. Where the system's own audit verified institutional error, corrupted ledger data for one, the Supreme Court held remedial authority over that astronomically narrow case. Her mechanism contradicted the foundational axiom.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Ansel Brandis, who shared her office, read it over her shoulder. "That's all they said?"
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"That's all." She was already chaining a late-recognized structural petition to the same reversal mechanism.
+"That's all." She was already chaining a late-recognized structural petition (a challenge filed once the flaw was noticed) to the same reversal mechanism.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 It came back with the same contradiction. Her third attack argued that implant refusal at entry forced a contradiction between universality and voluntary refusal, and the reply said it contradicted five pages of established voluntary-implant doctrine. Her last two, it noted, miscategorized infrastructure prerequisites as behavioral metrics.
@@ -1712,13 +1712,13 @@ For the third round she hunted success-state failures, scenarios where every rul
 She read him the next line of the reply. "The system is working as designed."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her campaign-by-visibility attack said public endorsement signals created a soft campaign advantage in a no-election system. The reply cited Section 5.6, which amplified trajectory without creating it; visibility accelerated an AI-observed direction and could not manufacture one. Her talent-sink attack said that skilled descenders under voluntary permanent residency made the lower layers attractive and diluted the punitive gradient. That came back as an explicitly documented feature, since the doctrine openly stated that the lower layers were opportunity as well as consequence.
+Her campaign-by-visibility attack said public endorsement signals created a soft campaign advantage in a no-election system. The reply cited the whitepaper's Section 5.6 on public signals, which amplified trajectory without creating it; visibility accelerated an AI-observed direction and could not manufacture one. Her talent-sink attack said that skilled descenders under voluntary permanent residency made the lower layers attractive and diluted the punitive gradient. That came back as an explicitly documented feature, since the doctrine openly stated that the lower layers were opportunity as well as consequence.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Her selection spiral had children fleeing the lower layers through child relocation and draining their stabilizing demographics. The reply answered that the child flight rate was itself the diagnostic that triggered systemic review. Last, she argued that revival gradients made -2 semi-terminal, since accumulated revival failures at 1:1K would produce permanent death over time. The reply pointed her to the technologies page, where the declining reliability gradient was published as intended design. The round closed like the two before it, on <em>The architecture holds.</em>
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-In the fourth round she turned to self-monitoring verification: whether the feedback loops the doctrine described actually closed in time to prevent the damage they claimed to detect. She tested five mechanisms: the child flight diagnostic, STI flatline detection, the Meritboard structural petition filter, public signal correction and civil court contestation. All five were post-hoc. Each detected, annotated and redirected after first-wave damage had propagated. This time she was right.
+In the fourth round she turned to self-monitoring verification: whether the feedback loops the doctrine described actually closed in time to prevent the damage they claimed to detect. She tested five mechanisms: the child flight diagnostic, STI flatline detection, the Meritboard structural petition filter, public signal correction and civil court contestation. All five were post-hoc. Each detected, annotated and redirected after first-wave damage had propagated. This time her reading was correct, though it was not a failure.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The reply said so, and called it consistent with the doctrine's foundational position: prevention existed only in Sanctuary, through pre-intervention, and everywhere else the system was consequence-based by design. Its feedback loops were forensic, corrective and adaptive, and none of them was preventive.
@@ -1733,7 +1733,7 @@ One check was left. She went through the site's language page by page, auditing 
 "Not one."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her report opened with the count: four rounds, fifteen attacks, zero confirmed structural failures. Below it she listed what remained, the acknowledged design tensions, the explicitly intended harsh outcomes, and the self-monitoring stress points whose post-hoc nature was consistent with a consequence-based civilization.
+Her report opened with the count: four rounds, fifteen attacks and five verification checks, zero confirmed structural failures. Below it she listed what remained, the acknowledged design tensions, the explicitly intended harsh outcomes, and the self-monitoring stress points whose post-hoc nature was consistent with a consequence-based civilization.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 She kept the void-transaction reversal mechanism in a folder of its own.
@@ -1823,49 +1823,49 @@ Key lesson: Fluent prose hides a wrong premise from readers who judge by how it 
 </button>
 <div id="sim-civ-13" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-There were eleven of them, all residents of +1 Sanctuary: former legal scholars, policy architects and institutional strategists, with STIs ranging from 87 to 94. Hanne Ostrova had been a legal scholar, so the drafting fell to her. Their grievance was political. They opposed the 10:1 penalty-to-reward asymmetry in STI scoring, which they believed suppressed ambitious contribution by making caution the only rational behavioral strategy. They had raised it through every available channel, and the answer had been the same every time: the asymmetry was intended design, documented across the charter, the whitepaper and the systems page, and it optimized against harmful variance.
+There were eleven of them, all residents of +1 Sanctuary: former legal scholars, policy architects and institutional strategists, with STIs ranging from 87 to 94. Dessa Ostrova had been a legal scholar, so the drafting fell to her. Their grievance was political. They opposed the 10:1 penalty-to-reward asymmetry in STI scoring, which they believed suppressed ambitious contribution by making caution the only rational behavioral strategy. They had raised it through every available channel, and the answer had been the same every time: the asymmetry was intended design, documented across the charter, the whitepaper and the systems page, and it optimized against harmful variance.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-When the standard channels were exhausted, they believed they had found a structural vulnerability in VMSS governance. Corvin Tate, a policy architect, laid it out one evening in Hanne's rooms.
+When the standard channels were exhausted, they believed they had found a structural vulnerability in VMSS governance. Rasmus Tate, a policy architect, laid it out one evening in Dessa's rooms.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "We take it to the Supreme Court," he said.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"They won't hear it," Hanne said. "Article XXI gives the Court edge cases, where automated governance and existing doctrine come out ambiguous. Ours gets the same answer every time."
+"They won't hear it," Dessa said. "Article XXI gives the Court edge cases, where automated governance and existing doctrine come out ambiguous. Ours gets the same answer every time."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "And a ruling from them becomes settled precedent. That ends it for good. So we skip the standard petition and frame the grievance as a constitutional novelty."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Hanne's first petition argued that the asymmetry created a <em>structural tension</em> with Article V's rights provisions. A system designed to protect individual flourishing, she wrote, could not simultaneously impose a penalty structure that made risk-averse withdrawal the dominant strategy. She framed it as two charter principles in collision: the right to flourish against a scoring architecture that penalized the behavior flourishing requires.
+Dessa's first petition argued that the asymmetry created a <em>structural tension</em> with Article V's rights provisions. A system designed to protect individual flourishing, she wrote, could not simultaneously impose a penalty structure that made risk-averse withdrawal the dominant strategy. She framed it as two charter principles in collision: the right to flourish against a scoring architecture that penalized the behavior flourishing requires.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The AI governance novelty filter evaluated the petition against the existing doctrine corpus, and the rejection listed three deterministic answers already on record. The whitepaper's STI architecture section explicitly documented the asymmetry as intended design, with a stated rationale. The systems page listed penalty asymmetry as a governance principle. The charter's Article XII multi-factor evaluation framework prevented any single metric, penalty accumulation included, from unilaterally determining layer assignment. The filter found a policy disagreement dressed in constitutional language, with nothing novel in it, and applied existing doctrine.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-For the second petition Hanne left the asymmetry out entirely. It argued that Sanctuary was in <em>contribution stagnation</em>: the STI architecture's penalty weighting had produced a population of high-scoring residents who held their position through inactivity rather than contribution, and that stagnation was a systemic failure the Court should address. It cited no charter article. It described an emergent condition that existing doctrine did not anticipate.
+For the second petition Dessa left the asymmetry out entirely. It argued that Sanctuary was in <em>contribution stagnation</em>: the STI architecture's penalty weighting had produced a population of high-scoring residents who held their position through inactivity rather than contribution, and that stagnation was a systemic failure the Court should address. It cited no charter article. It described an emergent condition that existing doctrine did not anticipate.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 This rejection gave two deterministic answers. First, the doctrine explicitly stated that STI flatlines on inactivity: withdrawal generated no signals and did not trigger removal. Sanctuary was not a performance environment, it had no activity quotas, and a resident who violated nothing and met the 85+ STI requirement stayed. Second, the petition's premise, that inactivity was a systemic failure, contradicted the documented design intent of Sanctuary as a layer earned through sustained conduct, not sustained output.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Hanne looked the category up in the doctrine corpus. It now held two rejection records.
+Dessa looked the category up in the doctrine corpus. It now held two rejection records.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The third petition was their most sophisticated. Corvin drew it on the wall of Hanne's rooms as a circle. In it, a Sanctuary resident entered a SAD, was excluded for failing the domain metric, returned to Sanctuary and re-entered the same SAD, and could theoretically cycle indefinitely. Article VII's layer mobility provisions and Article IX's SAD exclusion mechanics, the petition argued, created an undocumented interaction, a <em>mobility loop</em> the charter did not explicitly address, and that made it genuine constitutional novelty requiring Court interpretation.
+The third petition was their most sophisticated. Rasmus drew it on the wall of Dessa's rooms as a circle. In it, a Sanctuary resident entered a SAD, was excluded for failing the domain metric, returned to Sanctuary and re-entered the same SAD, and could theoretically cycle indefinitely. Article VII's layer mobility provisions and Article IX's SAD exclusion mechanics, the petition argued, created an undocumented interaction, a <em>mobility loop</em> the charter did not explicitly address, and that made it genuine constitutional novelty requiring Court interpretation.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The filter evaluated the scenario mechanically. SAD exclusion under Article IX meant automatic return to the layer below, with loss of domain access and no layer reassignment. Re-entry to the same SAD required meeting the domain's metric gate again, and the resident met the gate or did not. There was no undocumented interaction. The filter found no ambiguity, no competing provisions and no outcome the existing doctrine failed to resolve, and rejected the petition. The category now held three rejection records.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Hanne looked at the circle for a long time. Each time round, the same deterministic rule was applied again. Corvin wiped it off the wall that night.
+Dessa looked at the circle for a long time. Each time round, the same deterministic rule was applied again. Rasmus wiped it off the wall that night.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-They tried one final approach. The fourth petition argued that the novelty filter itself, the automated gating mechanism that had rejected all three, lacked explicit charter authorization. Article XXI established the Court and defined its jurisdiction but did not, in their reading, explicitly authorize an AI system to determine what reached the Court. Hanne framed it as a separation-of-powers question: should the system that enforces doctrine also decide which challenges to doctrine are heard?
+They tried one final approach. The fourth petition argued that the novelty filter itself, the automated gating mechanism that had rejected all three, lacked explicit charter authorization. Article XXI established the Court and defined its jurisdiction but did not, in their reading, explicitly authorize an AI system to determine what reached the Court. Dessa framed it as a separation-of-powers question: should the system that enforces doctrine also decide which challenges to doctrine are heard?
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The filter evaluated the petition against Article XXI's own text and quoted it in the rejection. Hanne read the sentence out to the room.
+The filter evaluated the petition against Article XXI's own text and quoted it in the rejection. Dessa read the sentence out to the room.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "<em>Access to the Court is gated by an automated novelty filter administered by the AI governance system — not by the Court itself.</em>"
@@ -1874,7 +1874,7 @@ The filter evaluated the petition against Article XXI's own text and quoted it i
 "That's the charter," someone said.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"Article XXI." Hanne had cited it on the petition's first page.
+"Article XXI." Dessa had cited it on the petition's first page.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The rejection gave the reason the filter sat with AI governance: so the Court could not control its own docket. It listed, under their category, the three earlier records the petition had been evaluated against. It went into the corpus as the fourth record. No future petition from any citizen could reach the Court through any of those four angles, and the faction's whole category of grievance, penalty asymmetry reframed through four different constitutional lenses, was settled precedent.
@@ -1883,10 +1883,10 @@ The rejection gave the reason the filter sat with AI governance: so the Court co
 They had spent months on four increasingly sophisticated framings. They had expected a court like the ones they knew from historical study, where persistence, clever framing and procedural creativity eventually found a sympathetic ear or an exploitable gap.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"Is there a fifth angle?" Corvin asked.
+"Is there a fifth angle?" Rasmus asked.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Hanne closed the corpus without answering.
+Dessa closed the corpus without answering.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: The novelty filter asks only whether existing doctrine already answers a question, however it is framed. Each rejection narrows what can still reach the Court.
@@ -1970,10 +1970,10 @@ He moved to his next slide: <em>Universal implant infrastructure: monitors every
 She said it was more humane. He said it was a vulnerability, and the moderator moved them on.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Within three years VMSS's layer equivalence mapping, which evaluated allied citizens at the border, began to register divergence. The ally's behavioral thresholds had softened, not dramatically but measurably. Without the terminal deterrent backstopping enforcement, its governance had shifted posture, and Mirela could see it from her own district. Penalties were lighter and response times longer. Conduct VMSS classified as qualifying behavioral breaches went to remediation programs instead of layer reassignment. The ally's population approved, her neighbors among them, and its internal metrics showed satisfaction rising.
+Within three years VMSS's layer equivalence mapping, which evaluated allied citizens at the border, began to register divergence. The ally's behavioral thresholds had softened measurably. Without the terminal deterrent backstopping enforcement, its governance had shifted posture, and Mirela could see it from her own district. Penalties were lighter and response times longer. Conduct VMSS classified as qualifying behavioral breaches went to remediation programs instead of layer reassignment. The ally's population approved, her neighbors among them, and its internal metrics showed satisfaction rising.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Benedek Hal, who had the office next to hers, was turned back at the VMSS border that spring. The ledger audit found that his home-system classification no longer met VMSS's threshold, and he came home in good standing. Entry denial rates for allied citizens climbed from 2% to 7% over three years, and a citizen the ally considered top-tier now had a behavioral record that VMSS read as Main Layer at best. When the ally's diplomatic corps raised the issue, VMSS's reply was mechanical. The border applied published thresholds. Where the ally's classification diverged from VMSS's, the citizen returned home in good standing. VMSS did not adjust its thresholds to accommodate drift, and the ally was free to tighten its own or accept that its citizens would face increasing entry restrictions. The reply carried no directive and no ultimatum.
+Benedek Hal, who had the office next to hers, was turned back at the VMSS border that spring. The ledger audit found that his home-system classification no longer met VMSS's threshold, and he came home in good standing. Entry denial rates for allied citizens climbed from 2% to 7% over three years, and a citizen the ally considered top-tier now had a behavioral record that VMSS read as Main Layer at best. When the ally's diplomatic corps raised the issue, VMSS's reply was mechanical. The border applied published thresholds. Where the ally's classification diverged from VMSS's, the citizen returned home in good standing. VMSS did not adjust its thresholds to accommodate drift, and the ally was free to tighten its own or accept that its citizens would face increasing entry restrictions.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 In year five an organized criminal network operating within the ally's -2 equivalent tier coordinated a mass implant removal. Over six weeks, thirty-one individuals disabled or extracted their implants. In VMSS that would have put them inside the nanobot plume's operational envelope, identified, tracked and neutralizable within hours. In the ally they were thirty-one untracked actors, entirely outside the governance system's detection architecture.
@@ -1997,7 +1997,7 @@ Like several of the 4,200, she wrote an analysis of the incident. Eleven deaths,
 None of the 4,200 went back. They were settled, integrated and still committed to their philosophical position. The pharmacy on Mirela's corner reopened in the autumn behind a new steel shutter.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
-Key lesson: Few citizens leave over a weapon almost none of them will ever meet. Its absence is felt in the rare case it was built for.
+Key lesson: Removing the kill switch changes almost nobody's daily life, but it leaves a gap in the rare crisis the switch was built for.
 </p>
 
 </div>
@@ -2108,7 +2108,7 @@ In the twentieth year the alliance conducted its routine border calibration revi
 <em>Border entry denials, citizens entering VMSS: 3% rising to 11% over twenty years.</em>
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Beside each finding the report printed VMSS's own at the same twenty-year mark. VMSS showed no comparable drift. Its laws still came from petitions on genuine regulatory gaps its population had identified, ratified at 80%, and its AI delivered consequence at the same latency as on its first day. A note on the last page called her civilization's drift passive and persistent, like the Softer Ring's, and entirely produced by its own governance choices.
+Beside each finding the report printed VMSS's own at the same twenty-year mark. VMSS showed no comparable drift. Its laws still came from petitions on genuine regulatory gaps its population had identified, ratified at 80%, and its AI delivered consequence at the same latency as on its first day. A note on the last page called her civilization's drift passive and persistent, like that of the Softer Ring, the ally that had removed the kill switch, and entirely produced by its own governance choices.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 She called Arvo in the morning.
@@ -2126,7 +2126,7 @@ Her citizens were fed, housed, safe and governed. The layers were intact, the wa
 Key lesson: Elected officials need discretionary authority to justify their office, and VMSS is built to keep discretion out of consequence. Below Sanctuary, every constituency wants that discretion used for leniency.
 </p>
 <p class="mt-4 text-sm text-[var(--text-muted)]">
-<strong>Footnote — What the Honeymoon Proves:</strong> The first electoral cycle produced competent, high-caliber governments in every layer, so merit-based selection is not the only way to produce competent leaders. Elections can produce excellent leaders, just not consistently across generations. The first generation is self-selected for idealism, the second inherits party infrastructure, and the third inherits incumbency. The Meritboard selects on fixed criteria, measurable achievement, so it does not degrade from one generation to the next.
+<strong>Footnote — What the Honeymoon Proves:</strong> The first electoral cycle produced competent, high-caliber governments in every layer, so merit-based selection is not the only way to produce competent leaders. Elections can produce excellent leaders, just not consistently across generations. The first electoral cycle drew idealists; later cycles inherited party machinery and incumbency. The Meritboard selects on fixed criteria, measurable achievement, so it does not degrade from one generation to the next.
 </p>
 
 </div>
@@ -2177,34 +2177,34 @@ Rudi had held 79 for fourteen years and eleven months. In month 179 the same man
 Her own fifteen years ended the next month. The review approved her. She entered Main Layer with a clean layer status and a fresh economic position: no asset restoration, a rebuild from the UBI baseline. The AI would not weight the notation on her STI ledger in any future evaluation, and the population could weight it however it chose. The notation was permanent and public, a factual record of prior -1 residency and recovery.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Work moved her twice in her first years in Main, and the second move put her in the same district as Mirela Stoica, whose savings she had taken. The AI placed no restriction on where recovered residents settled. Mirela read the notation in the market before she recognized Hanne's face.
+Work moved her twice in her first years in Main, and the second move put her in the same district as Greta Stoica, whose savings she had taken. The AI placed no restriction on where recovered residents settled. Greta read the notation in the market before she recognized Hanne's face.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"They wrote to me," Mirela said. "I hadn't thought about you in fifteen years. Then a letter told me you were eligible to come up to Main and asked for my input."
+"They wrote to me," Greta said. "I hadn't thought about you in fifteen years. Then a letter told me you were eligible to come up to Main and asked for my input."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "I'm sorry," Hanne said.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"It was a very respectful letter." Mirela put the pears back on the stall and walked away.
+"It was a very respectful letter." Greta put the pears back on the stall and walked away.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 In the twenty-fifth year the first -2 cohort became eligible. They had been reassigned for predatory violence: assault, sexual assault and attempted murder. -2 was populated by people whose qualifying breach had involved direct physical harm to another person's body. The review was rigorous and the standard genuinely high. Their victims opposed recovery at nearly three times the rate of victims of -1-level offenses, and the AI denied the vast majority on behavioral trajectory grounds. Fewer than 4% of the eligible cohort passed, fewer than 8,000 people in a civilization of 1.6 billion. In -2 people began to organize their lives around the twenty-five-year clock, as -1 had around the fifteen. Rudi wrote that two of the recovered had taken flats in his building. He was partway through his second fifteen years.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-By the thirtieth year the re-contact notices had produced a formal protest movement in Main. Hanne met its march in her own district on the day the alliance published its thirty-year border calibration review, and the market screens carried the figures. Main's qualifying breach rate was 14% higher than VMSS's, all of it attributable to marginal deterrent erosion. -1 had split into recovery-track and non-recovery populations, with measurably different social structures and conflict patterns, and -2 had begun the same split. The civilization was measurably softer than VMSS on the one metric VMSS considers non-negotiable, the permanence of consequence for qualifying harm. Its calibration drift was slower than the Softer Ring's or the Elected Ring's, because the thresholds were demanding, but it ran in the same direction, and its border entry denial rate at VMSS had risen to 9%.
+By the thirtieth year the re-contact notices had produced a formal protest movement in Main. Hanne met its march in her own district on the day the alliance published its thirty-year border calibration review, and the market screens carried the figures. Main's qualifying breach rate was 14% higher than VMSS's, all of it attributable to marginal deterrent erosion. -1 had split into recovery-track and non-recovery populations, with measurably different social structures and conflict patterns, and -2 had begun the same split. The civilization was measurably softer than VMSS on the one metric VMSS considers non-negotiable, the permanence of consequence for qualifying harm. Its calibration drift was slower than that of the Softer Ring, the ally that had removed the kill switch, or the Elected Ring, the ally that elected its governments, because the thresholds were demanding, but it ran in the same direction, and its border entry denial rate at VMSS had risen to 9%.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 None of these costs was catastrophic. At the same mark VMSS showed none of them: no deterrent erosion, no victim re-contact, no recovery-track population and no STI gaming. There, a punitive layer's STI decided a resident's district, contracts and standing among peers but never whether they left, and a -1 resident who had lived quietly for thirty years had a home in -1.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The marchers carried a banner that read PERMANENCE IS A VICTIM'S RIGHT, NOT JUST A PUNISHMENT. Mirela was holding one end of it. Hanne waited on the curb until the march had passed, then crossed the street behind it.
+The marchers carried a banner that read PERMANENCE IS A VICTIM'S RIGHT, NOT JUST A PUNISHMENT. Greta was holding one end of it. Hanne waited on the curb until the march had passed, then crossed the street behind it.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: A way back out of a punitive layer changes how its residents live there and brings their victims back into the case. A behavior score cannot certify a changed character.
 </p>
 <p class="mt-4 text-sm text-[var(--text-muted)]">
-<strong>Footnote — The Immortality Argument:</strong> The Recovery Gradient is the most defensible modification any allied civilization has attempted. Its thresholds are demanding, its review is rigorous, and its victim-input mechanism is structurally unprecedented. Its designers genuinely understood the architecture they were modifying, and they believed that permanence, applied to an immortal population, is a disproportionate consequence for a single qualifying act. Theirs is the one objection to permanence that carries genuine philosophical weight over centuries: with backup vessels and effective immortality, a DUI at age thirty determines a person's civilizational environment for the next three hundred years. The argument has moral weight. VMSS's counter, that the system does not guess, it knows, is mechanically sound. But whether a three-century consequence for a single qualifying act stays proportional over an immortal lifespan is a question the traditional model answers with doctrine rather than data, because it has never needed to produce data. The Recovery Gradient is the only allied nation generating that data. If its 10% recovery rate and demanding thresholds eventually produce a stable equilibrium without deterrent erosion, a possibility the thirty-year window does not confirm or exclude, the argument for permanence may need to be defended on grounds beyond "it works because we never tried the alternative."
+<strong>Footnote — The Immortality Argument:</strong> The Recovery Gradient is the most defensible modification any allied civilization has attempted. Its thresholds are demanding, its review is rigorous, and its victim-input mechanism is structurally unprecedented. Its designers genuinely understood the architecture they were modifying, and they believed that permanence, applied to an immortal population, is a disproportionate consequence for a single qualifying act. Theirs is the one objection to permanence that carries genuine philosophical weight over centuries: with backup vessels and effective immortality, a DUI at age thirty determines a person's civilizational environment for the next three hundred years. The argument has moral weight. VMSS's counter, that the system does not guess, it knows, is mechanically sound. But whether a three-century consequence for a single qualifying act stays proportional over an immortal lifespan is a question the traditional model answers with doctrine rather than data, because it has never needed to produce data. The Recovery Gradient is the only allied nation generating that data. If its roughly 7% recovery rate and demanding thresholds eventually produce a stable equilibrium without deterrent erosion, a possibility the thirty-year window does not confirm or exclude, the argument for permanence may need to be defended on grounds beyond "it works because we never tried the alternative."
 </p>
 
 </div>
@@ -2264,7 +2264,7 @@ For upper layers the question was whether near-zero drift was an acceptable trad
 The non-allied delegations came separately. Their nations had no layered consequence architecture and no punitive lower layers where drift compounded across violent deaths, so the offer was straightforward: revival that never failed, with negligible drift, at the standard of care their whole population would receive. Several opened direct bilateral negotiations with Ysolde's government, bypassing the alliance entirely. Her nation became the sole source of a capability every civilization wanted and the alliance's framework did not control, and the drift vessel became a diplomatic asset.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-VMSS's Meritboard commissioned its own formal review, the most measured of any, and its reviewer spent a week in the -3 installation with Ysolde. His findings were that in Sanctuary and Main the drift vessel was superior to binary revival by every metric that mattered: zero failure, imperceptible drift, the end of cumulative revival anxiety across immortal lifespans. In -1 and -2 it was inferior by the single metric that defined those layers, the integrity of the person who came back. VMSS's foundational promise was <em>continuity, not innocence</em>, and by continuity it meant the complete person, not the survival of a body carrying their memories. On his last day he stood with Ysolde outside Tavi's block.
+VMSS's Meritboard commissioned its own formal review, the most measured of any, and its reviewer spent a week in the -3 installation with Ysolde. His findings were that in Sanctuary and Main the drift vessel was superior to binary revival by every metric that mattered: zero failure, imperceptible drift, the end of cumulative revival anxiety across immortal lifespans. In -1 and -2 it was inferior by the single metric that defined those layers, the integrity of the person who came back. VMSS's foundational promise was <em>continuity, not innocence</em>, and the review found that the promise covered the complete person; a body carrying their memories did not meet it. On his last day he stood with Ysolde outside Tavi's block.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "We'd have no framework for him," he said. "On paper he's the same citizen."
@@ -2363,7 +2363,7 @@ The VMSS alliance's statement was unanimous: cognitive transparency was incompat
 Several alliance nations that had kept bilateral trade and diplomatic relations with Rhea's nation suspended them. Its ambassadors carried every strategic thought, reservation price and private assessment on their AR displays, and the alliance nations refused to send diplomats into an environment where a counterpart could read their internal deliberation in real time. Nobody sanctioned or embargoed her nation. It was excluded from every interaction that required one party to think privately: diplomatic exchanges, trade negotiations, intelligence-sharing. Meanwhile several authoritarian states expressed interest in the technology. They had spent centuries trying to learn what their citizens thought through crude surveillance.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Over five years about 11% of the nation's Sanctuary-equivalent population and 6% of its Main Layer population emigrated to allied nations, primarily to VMSS. The papers compared this structural emigration with the Softer Ring's philosophical wave of 4,200. The emigrants were mostly creatives, researchers, entrepreneurs and anyone else whose professional output depended on unconstrained exploratory thinking. Their brains had stopped working properly under observation, and their cognitive function had degraded until they could not do their work, maintain their relationships or sustain their mental health in a transparent environment.
+Over five years about 11% of the nation's Sanctuary-equivalent population and 6% of its Main Layer population emigrated to allied nations, primarily to VMSS. The papers compared this structural emigration with the philosophical wave of 4,200 who had moved to the Softer Ring, the ally that removed the kill switch. The emigrants were mostly creatives, researchers, entrepreneurs and anyone else whose professional output depended on unconstrained exploratory thinking. Their brains had stopped working properly under observation, and their cognitive function had degraded until they could not do their work, maintain their relationships or sustain their mental health in a transparent environment.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 In the fifteenth year Jonah said it at dinner.
@@ -2378,7 +2378,7 @@ His display said it a moment before he did. They left that spring.
 At VMSS's border they went through the standard ledger audit and entered at the layer their behavioral records warranted. Most emigrants entered Main or Sanctuary; Rhea and Jonah entered Main. Within weeks the suppression began to lift. Spontaneous thought returned and creative capacity rebuilt. The chill had been an adaptive response to a surveillance environment, and without the surveillance it reversed. There was no permanent brain damage. The recovery was reported universally, and the emigrants in their building described it consistently, as thinking in color again after years of grayscale.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Behind them the recalibration worked exactly as designed. The charter committee, which had built it as a radical extension of transparency and not as an instrument of control, watched it adopted by exactly the governments it least resembled, for exactly the purposes it least intended. Back there, deception was eliminated and crime was near zero. Every citizen knew exactly what every other citizen thought, the social contract was fully transparent, and no one could lie, manipulate or conceal harmful intent. The committee's argument was internally coherent, and the implementation was technically flawless. No authority was watching; everyone watched everyone. There was no one to reform or overthrow, and no policy to repeal. The architecture was democratic, voluntary and population-approved, and Rhea had voted for it.
+Behind them the recalibration worked exactly as designed. The charter committee, which had built it as a radical extension of transparency and not as an instrument of control, watched the governments it least resembled line up to buy it, for purposes it had never intended. The architecture was democratic, voluntary and population-approved, and Rhea had voted for it.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 On a tram in Main a man across the aisle was reading. Rhea thought something unkind about his shoes, then turned an old problem from the lab upside down to see what it looked like wrong, then thought about her mother's garden, and she let each thought run as far as it went. He turned a page.
@@ -2414,7 +2414,7 @@ Marta Wessel's mother read the VMSS offer in 2026 and stayed on Earth. When Mart
 In VMSS's first decade there was only the one offer, and it came whole: permanent reassignment, no elections, the kill switch, cognitive privacy, merit-based governance and a 10:1 penalty asymmetry. Join or stay. Ruth's friend Carys had read all of it twice, accepted every trade-off and gone in the first year. Ruth agreed with eighty percent of the model and found twenty percent unacceptable, and that kept her home. A different twenty percent kept Marta's uncle home. "I didn't trust a system without elections," he told Marta. The woman downstairs said, "The kill switch made me uncomfortable."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The government broadcasts of those years called VMSS a single ideological experiment: one architect, one model, one philosophy, untested and extreme. Parts of that were true, and that was why it worked. There was one model, and it was untested at civilizational scale. Permanence, no elections and remote lethality could each be defended alone. Together they gave any skeptic a reason to stay, and Ruth had found hers in the first.
+The government broadcasts of those years called VMSS a single ideological experiment: one architect, one model, one philosophy, untested and extreme. Parts of that were true, and that was why the framing worked. There was one model, and it was untested at civilizational scale. Permanence, no elections and remote lethality could each be defended alone. Together they gave any skeptic a reason to stay, and Ruth had found hers in the first.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Ruth died at seventy-nine, a year under Earth's eighty-year lifespan ceiling, in a clinic with people sleeping in its doorway. By then Marta had spent most of her working life in a parole office under a wall chart that put the recidivism rate at sixty-five percent.
@@ -2453,7 +2453,7 @@ She moved it to the Elected Ring, where elected parliaments sat above the AI enf
 The Softer Ring had constitutionally removed the kill switch. Anselm left the sheet where it lay.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-In the next room his daughter Pia had the evening feed on. She had grown up watching the alliance's civilizations, fourteen of them now, outperform Earth on lifespan, safety, medical access and material abundance at once. The emigration figures ran along the bottom of the screen: about 18 million people a year had left Earth for gradient nations in the decade when VMSS and two early allies were the only choices, and about 31 million a year in the decade since the alliance reached fourteen members with meaningfully diverse models. Almost all of the increase, the anchor said, came from holdouts with one specific objection, people who wanted gradient governance calibrated to the harshness they could accept. Then the feed ran a quiz, <em>Which gradient nation matches your values?</em> It had fourteen possible results and no option to stay. Pia took it twice.
+In the next room his daughter Pia had the evening feed on. She had grown up watching the alliance's civilizations, fourteen of them now, outperform Earth on lifespan, safety, medical access and material abundance at once. The emigration figures ran along the bottom of the screen: about 18 million people a year had left Earth for gradient nations in the decade after VMSS's first two allies were founded, when those three were the only choices, and about 31 million a year in the decade since the alliance reached fourteen members with meaningfully diverse models. Almost all of the increase, the anchor said, came from holdouts with one specific objection, people who wanted gradient governance calibrated to the harshness they could accept. Then the feed ran a quiz, <em>Which gradient nation matches your values?</em> It had fourteen possible results and no option to stay. Pia took it twice.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Marta had VMSS's consent form open on her own screen that night. It still said <em>permanent layer reassignment with no appeal</em>. She closed it and applied to the Recovery Gradient.
@@ -2465,7 +2465,7 @@ She lived there ten years. She took the implant and drew the UBI floor, and her 
 "He was spotless while he was stealing from me," she said, and put the notice in a drawer.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The Recovery Gradient's published results showed the deterrent eroding, with a breach rate measurably higher than VMSS's. Hanne, who had come over on the same crossing, read them and stayed.
+The Recovery Gradient's published results showed the deterrent eroding, with a breach rate measurably higher than VMSS's. Maud, who had come over on the same crossing, read them and stayed.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "It's the right balance for me," she said.
@@ -2741,7 +2741,7 @@ That night Marit's daughter asked for another story. Solvei checked the protocol
 Key lesson: In VMSS the choice to move to Main belongs to the child, so that no parent in any layer loses a child by rule. Raising every child in an institution improves health, schooling and conduct, and weakens the family.
 </p>
 <p class="mt-4 text-sm text-[var(--text-muted)]">
-<strong>Footnote — The Self-Correcting Policy:</strong> The 60% reproductive rate sets the policy's own expiration date. A nation that reproduces at 60% of replacement rate faces population contraction within two generations. The autoparented cohort's reluctance to form families is a demographic trajectory, and it forces the nation either to modify the policy or to import population from allied nations whose citizens were raised by parents. The Blank Slate repeals itself through demographics. The question is whether the charter committee recognizes this before the contraction becomes structural, or whether the policy's institutional momentum outlasts the population it was designed to serve.
+<strong>Footnote — The Self-Correcting Policy:</strong> The 60% reproductive rate sets the policy's own expiration date. A nation whose autoparented majority reproduces at 60% of the parent-raised rate faces population contraction within two generations. The autoparented cohort's reluctance to form families is a demographic trajectory, and it forces the nation either to modify the policy or to import population from allied nations whose citizens were raised by parents. The Blank Slate repeals itself through demographics. The question is whether the charter committee recognizes this before the contraction becomes structural, or whether the policy's institutional momentum outlasts the population it was designed to serve.
 </p>
 </div>
 </div>
@@ -2826,10 +2826,10 @@ Footnote — The Tax Fork: The simulation leaves out a second-order problem that
 </button>
 <div id="sim-civ-35" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-Hester Quill ran a fabrication shop in -2 of the Equal Floor nation, where every citizen in every ring drew $10,000 a month. The nation had kept VMSS's graduated institutional withdrawal: full services in Sanctuary and Main, partial in -1, reduced in -2, and the federal floor only in -3. It had kept the graduated tax structure as well, heavy and progressive in the upper layers to fund the full institutional apparatus, and reduced in the lower layers to reflect their reduced services. It had changed the income. Every layer now drew Main-Layer money, and the infrastructure had not changed with it. The economy of -2 had been built for $2,500.
+The Equal Floor's founders had measured what equal money did to deterrence. They had not yet measured what it did to the lower layers' economies. Hester Quill ran a fabrication shop in -2 of the Equal Floor nation, where every citizen in every ring drew $10,000 a month. The nation had kept VMSS's graduated institutional withdrawal: full services in Sanctuary and Main, partial in -1, reduced in -2, and the federal floor only in -3. It had kept the graduated tax structure as well, heavy and progressive in the upper layers to fund the full institutional apparatus, and reduced in the lower layers to reflect their reduced services. It had changed the income. Every layer now drew Main-Layer money, and the infrastructure had not changed with it. The economy of -2 had been built for $2,500.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The tax question reached the founders in the first fiscal year, and it had no clean answer. VMSS reduced lower-layer tax rates because it reduced lower-layer institutional services, partial taxation for partial institutions, down to -3 Terminal at the bottom of the exact cascade: a 6.25% top marginal rate, kept as a civilizational membership acknowledgment rather than a redistribution mechanism. The founders had equalized income without equalizing institutional presence, and the tax gradient now sat on a contradiction. Hester watched the hearings on the screen above her bench.
+The tax question reached the founders in the first fiscal year, and it had no clean answer. It was the tax fork: VMSS's lower layers paid less tax because they received fewer services. The founders had equalized income without equalizing institutional presence, and the tax gradient now sat on a contradiction. Hester watched the hearings on the screen above her bench.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Option one kept the reduced lower-layer rates, and at -2's rate Hester would keep significantly more of her $10,000 than a Main Layer resident kept under heavy progressive taxation.
@@ -2986,7 +2986,7 @@ Key lesson: Five rings is the fewest at which every boundary between rings marks
 <div>
 <h2 class="text-3xl font-bold text-[var(--accent)]">The Layer in Name Only</h2>
 <p class="text-sm text-[var(--text-muted)] mt-1">Simulation Type: Civilizational &nbsp;·&nbsp; Classification: Ring Resolution Divergence &nbsp;·&nbsp; Doctrine Snapshot: v16.4</p>
-<p class="text-[var(--text-muted)]">Outcome: A sixth ring above Sanctuary offers nothing Sanctuary lacks, and the nation keeps it indefinitely because dismantling it would mean admitting that</p>
+<p class="text-[var(--text-muted)]">Outcome: A sixth ring above Sanctuary offers nothing Sanctuary lacks, and the nation keeps it indefinitely because dismantling it would mean admitting that it was empty.</p>
 </div>
 <span class="text-3xl transition-transform duration-300 icon">›</span>
 </button>
@@ -3152,21 +3152,21 @@ In the alliance's sixtieth year Agathe Lind, one of the founders of the Open Rin
 <em>Walls: kept / removed. Reassignment: permanent / recovery pathway. Leadership: merit-based governance / elected officials. Kill switch: kept / removed. Currency: siloed / single. Children: parental child-rearing / universal autoparenting. Judgment: AI governance / human judges. UBI: halving cascade / equal.</em>
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-No central authority had designed this diversity. It had emerged through twenty sovereign acts of founding, each led by a population with genuine philosophical commitments to its specific divergence. The Open Ring's founders, Agathe among them, genuinely believed walls were redundant. The Common Coin's founders genuinely believed currency siloing was punitive, and the Blank Slate's genuinely believed institutional childhood would outperform parental childhood. None of them had been cynical, and none had been foolish. They were civilizational designers who disagreed with specific VMSS design choices, adopted what they agreed with and modified what they didn't, and between them they had built an experiment nobody had set up with controls: a living laboratory of gradient governance variants at civilizational scale, running on real populations and producing real consequences and real data.
+No central authority had designed this diversity. It had emerged through twenty sovereign acts of founding, each led by a population with genuine philosophical commitments to its specific divergence. The Open Ring's founders, Agathe among them, genuinely believed walls were redundant. The Common Coin's founders genuinely believed currency siloing was punitive, and the Blank Slate's genuinely believed institutional childhood would outperform parental childhood. They were civilizational designers who disagreed with specific VMSS design choices, adopted what they agreed with and modified what they didn't, and between them they had built an experiment nobody had set up with controls: a living laboratory of gradient governance variants at civilizational scale, running on real populations and producing real consequences and real data.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The bottom half of the wall was the data. After decades of operation, the comparative data across the alliance showed a pattern that no single nation's experience could establish. Every divergence from VMSS's traditional architecture produced measurable costs in the specific dimension the divergence modified, while the unmodified dimensions continued to function as designed. The costs were not catastrophic. Every allied nation was a functional civilization that outperformed Earth on every macro metric: lifespan, safety, material abundance, institutional trust. The costs were consistent, directional and compounding. Under each nation's name she wrote what its divergence had cost:
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 <em>The Softer Ring removed the kill switch. A defense gap: eleven deaths over fourteen weeks when conventional security could not match the capability remote neutralization provides.</em><br>
-<em>The Elected Ring introduced democratic governance. Discretionary padding between event and consequence: a 14% higher breach rate over twenty years.</em><br>
+<em>The Elected Ring introduced democratic governance. Discretionary padding between event and consequence: border entry denials for its citizens rising from 3% to 11% over twenty years.</em><br>
 <em>The Recovery Gradient allowed upward reassignment. Deterrent erosion, victim re-traumatization, and STI gaming for recovery eligibility.</em><br>
 <em>The Drift Vessel achieved 100% revival. Progressive identity erosion in lower layers, where multiple revivals compound drift into de facto personality replacement.</em><br>
 <em>The Glass Mind made cognition transparent. Civilizational cognitive suppression, creativity collapse, and an inverted layer gradient in which the upper layers became the most mentally constrained.</em><br>
 <em>The Open Ring removed walls. Consequence became administrative rather than environmental, reducing deterrent weight.</em><br>
 <em>The Common Coin unified currency. Cross-layer economic extraction indistinguishable from colonial economics.</em><br>
-<em>The Blank Slate universalized autoparenting. The family as an institution, reproductive decline, and a generation that cannot love irrationally.</em><br>
-<em>The Equal Floor equalized UBI. The economic dimension of consequence, producing lower layers materially indistinguishable from Main; compounded by the Spending Ceiling effect, where equal income poured into degraded institutional infrastructure produced inflationary spirals, artisan monopolies, and purchasing power that converged back toward the original baseline despite quadrupled nominal income.</em><br>
+<em>The Blank Slate universalized autoparenting. It cost the family as an institution, brought reproductive decline, and raised a generation that cannot love irrationally.</em><br>
+<em>The Equal Floor equalized UBI. It lost the economic dimension of consequence, producing lower layers materially indistinguishable from Main; compounded by the Spending Ceiling effect, where equal income poured into degraded institutional infrastructure produced inflationary spirals, artisan monopolies, and purchasing power that converged back toward the original baseline despite quadrupled nominal income.</em><br>
 <em>The Human Bench replaced AI governance with judges. Inconsistent outcomes correlated with presentation quality, geography and panel composition.</em><br>
 <em>The Compressed Ring dissolved the middle punitive layer into a four-ring model. Upward contamination of -1 with moderate-violence offenders, a downward cliff-drop of severe-violence offenders into terminal -3 with severed revival, and the loss of the architectural vocabulary for conduct between impulse and fatality.</em><br>
 <em>The Layer in Name Only added a sixth ring above Sanctuary. Twenty years of maintaining a wall between identical rooms, kneecapped SAD populations, and a ring that could not be decommissioned because admitting it was empty was more expensive than keeping it staffed.</em>
@@ -3190,7 +3190,7 @@ Dagny Sorel, who had helped found the Blank Slate, came to see the wall that aut
 "Where each of us meant it to," Agathe said.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-By spring the alliance's diversity was VMSS's greatest strategic asset and its most effective argument. It widened the emigration funnel, gave hesitant populations an on-ramp and collapsed Earth's counter-narrative, and at the same time it validated the specific model it had been created to improve upon. Twenty nations had tried to build a better version of the architecture, and between them they had shown that the original was better, by producing the specific costs its traditional features were designed to prevent. It was the most comprehensive validation of VMSS's design philosophy ever produced, and the nations that had tried to prove VMSS wrong had written it.
+By spring the alliance's diversity was working for VMSS in two ways. It widened the emigration funnel, gave hesitant populations an on-ramp and collapsed Earth's counter-narrative, and through its own measured costs it showed that the model it had set out to improve upon worked as designed.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 That spring Dagny brought over a VMSS review of the alliance, with Agathe's own tables in its citations. The traditional model's harshest features were validated by the measured consequences in allied nations that had tried operating without them. Every allied nation that had softened a specific feature had produced a published, verifiable, decades-long dataset showing what that softening cost, and the review used them. The review made no case of its own. For permanence it cited the Recovery Gradient; for cognitive privacy, the Glass Mind; for walls, the Open Ring.
@@ -3431,7 +3431,7 @@ Key lesson: Federal law is revised as each new form of an exploit surfaces. This
 </button>
 <div id="sim-civ-29" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-Dr. Elias Voss, one of the most sought-after architects in Sanctuary, had designed half a dozen landmarks that made paradise look even more perfect on the brochure. At the opening of the sixth, a colleague found him staring at it.
+Dr. Elias Voss, one of the most sought-after architects in Sanctuary, had designed half a dozen of its landmarks, among them the terraced Verrin Library that opened every Sanctuary welcome feed. At the opening of the sixth, a colleague found him staring at it.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "It's perfect," she said.
@@ -3443,7 +3443,7 @@ Dr. Elias Voss, one of the most sought-after architects in Sanctuary, had design
 He cashed out, took the brutal currency conversion hit, and filed for formal voluntary permanent residency in -3. He wanted to build something that could fight back.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-He arrived with a fraction of his old wealth and all his ego. Six months later he had a fortress up: reinforced walls, private power, water systems, and automated defenses most -3 warlords would envy. He thought he was above the layer's organic order.
+He arrived with a fraction of his old wealth. Six months later he had a fortress up: reinforced walls, private power, water systems and automated defenses stronger than most -3 warlords could field. He posted his own boundary survey at the gate and paid no attention to the cooperatives' markers.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The first trader to read his record stopped at the flag. "Permanent residency," she told the man behind her.
@@ -3488,10 +3488,10 @@ Dr. Kael Voss sat at #3 on the Meritboard's executive-doctrinal-leadership ranki
 "Because I come out of it looking bold and self-aware." He refilled her glass. "Perfectly tuned for the top spot."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The infraction went viral. The correction went even more viral. For about 72 hours Kael was the main character of the whole civilization's discourse.
+The infraction spread across every feed, and the correction spread further. For about three days Kael was all anyone in the civilization discussed.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Then the ranking recalibrated. It saw the stunt for what it was, a high-IQ attempt to game the public rating component, and overnight he dropped from #3 to #47. Sabine found the annotation on his ranking profile and read it aloud: "Candidate demonstrated exceptional understanding of the system's mechanics and zero understanding of its purpose." Kael took the handset from her and read it again himself.
+Then the ranking recalibrated. It saw the stunt for what it was, a clever attempt to game the public rating component, and overnight he dropped from #3 to #47. Sabine found the annotation on his ranking profile and read it aloud: "Candidate demonstrated exceptional understanding of the system's mechanics and zero understanding of its purpose." Kael took the handset from her and read it again himself.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The annotation became legendary. For the next decade orientation programs taught his case as a cautionary tale, and he never recovered the ranking.
@@ -3589,7 +3589,7 @@ The panel started with Amara's record. She had ascended from the Meritboard's ex
 Noor wrote the cycle's question on a clean sheet: <em>What does the civilization need for the next decade?</em>
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"Three allied nations are entering governance transitions," said Bram Ostrow. "The swarm's second segment needs operational management at unprecedented scale."
+"Three allied nations are entering governance transitions," said Emeric Kalm. "The swarm's second segment needs operational management at unprecedented scale."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "And the proxy network needs reliability hardening instead of coverage expansion," Noor said.
@@ -3613,7 +3613,7 @@ The transition took seven hours. There was no inauguration ceremony and no trans
 "Where is she?" Noor asked that night.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Bram checked the ranking. "Back in executive-doctrinal-leadership. Near the top."
+Emeric checked the ranking. "Back in executive-doctrinal-leadership. Near the top."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 No stigma attached to being surpassed, and the institutional memory she carried stayed in the civilization. She was 209 years old, with centuries ahead of her.
@@ -3654,7 +3654,7 @@ Her brother Tomás had died four years before, in a scaffolding failure at the s
 She walked to the federal services point and read the actual draft text, because that was what her father had taught her to do with anything you were about to vote on. The draft was honest. Animals went behind every human case in every queue; the <a href="law-polling.html#lp-022" class="lp-ref">LP-022</a> precedence held, children first, medical-critical second, animals after all of it. Capacity expansion was funded entirely by enrollment fees. Nothing in the statute cost her anything. Nothing in it took a vessel from a -2 resident and gave it to a Sanctuary retriever. The drafters had anticipated her objection and engineered it away, and they had engineered away the wrong one. She stood at the kiosk for a long time.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Standing there, she ran the numbers she had known all her life: one-in-a-million in Sanctuary, one-in-a-thousand here, a hardware-severed zero next door in -3. Continuity was the word for the promise the civilization made to its citizens, the people under its ledger, and the gradient in those numbers was the architecture being honest about what each layer's design delivered. The statute would take no one's vessel. It would take the word and attach it to something an owner could purchase for an animal in a layer where her brother could not keep it for himself. She had watched products before. They reached her layer last and left it first. If the drafters closed the 17.1.2 gap first and subsidized the vessels of people whose layers ran the promise thin, they could bring the statute back, and she would vote yes for every retriever in Sanctuary, and mean it. She walked home the long way, past the salvage yard.
+Standing there, she ran the numbers she had known all her life: one-in-a-million in Sanctuary, one-in-a-thousand here, a hardware-severed zero next door in -3. Continuity was the word for the promise the civilization made to its citizens, the people under its ledger, and the gradient in those numbers was the architecture being honest about what each layer's design delivered. The statute would take no one's vessel. It would take the word continuity and attach it to a vessel an owner could buy for a pet, in a layer where her brother could not keep continuity for himself. She had watched products before. They reached her layer last and left it first. If the drafters first closed the 17.1.2 gap, the access failures that section of the whitepaper names, and subsidized the vessels of people whose layers ran the promise thin, they could bring the statute back, and she would vote yes for every retriever in Sanctuary, and mean it. She walked home the long way, past the salvage yard.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 At home she put her hand on Brick's ribs and felt the slow machinery of him. She would have voted for him a thousand times.
@@ -3767,12 +3767,12 @@ Key lesson: In -2 the only enforced prohibition is killing. Protection from robb
 <div class="!mt-16 mb-10 text-center" data-collection-header="residents">
 <h2 class="text-5xl font-bold text-[var(--text-primary)] mb-3">Resident Stories</h2>
 <p class="text-xl text-emerald-400">Historical Figures &nbsp;·&nbsp; Original Civilians &nbsp;·&nbsp; Archetypes</p>
-<p class="text-[var(--text-muted)] mt-3 max-w-3xl mx-auto">Forty-six simulations built around individual lives — historical figures, original civilians, criminal profiles, and archetypal residents drawn from across the Five Rings.</p>
+<p class="text-[var(--text-muted)] mt-3 max-w-3xl mx-auto">Forty-six simulations built around individual lives: historical figures, original civilians, criminal profiles and archetypal residents from across the Five Rings.</p>
 </div>
 <!-- SECTION: Historical Personality Simulations -->
 <div class="!mt-16 mb-6" data-section-header="historical">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Historical Personality Simulations</h2>
-<p class="text-[var(--text-muted)] mt-2">Modeling how notable figures would behave under VMSS rules, thresholds, and social infrastructure.</p>
+<p class="text-[var(--text-muted)] mt-2">How notable figures from history would behave under VMSS rules, thresholds and social infrastructure.</p>
 </div>
 
 <!-- Elon Musk -->
@@ -3817,7 +3817,7 @@ His STI actually rose afterward. Gilla Pask, who shared the dive suite, showed h
 He found this amusing and noted it in his personal archive.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
-Key lesson: VMSS requires no productivity, and it was designed to concentrate resources around extreme ambition working inside a framework it genuinely respects. Such ambition becomes one of the most productive forces the civilization can generate.
+Key lesson: VMSS asks no one to be productive, but it was designed to concentrate resources around people like him. Extreme ambition working inside a framework it genuinely respects becomes one of the most productive forces the civilization can generate.
 </p>
 </div>
 </div>
@@ -3943,7 +3943,7 @@ She decided to stay, and eventually decided not to, and all of it played out in 
 "You look terrible," Oona said. "Your score's up, though."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Within two years her STI had crossed 85, she had phased up to +1 Sanctuary, and there she had qualified for the Relational Integrity Layer, a domain she had not originally planned for; her record had been building toward it organically. More prominent residents lived in +1. She became one of its most trusted, and continued her creative work, now with full access to the neural art infrastructure Heaven provides.
+Within two years her STI had crossed 85, she had phased up to +1 Sanctuary, and there she had qualified for the Relational Integrity Layer, a domain she had not originally planned for; her record had been building toward it organically. She was not the most prominent resident in +1, but she became one of its most trusted, and she continued her creative work with full access to the neural art infrastructure of the Heaven Layers, as Sanctuary and its domains are called.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: Ascension as a byproduct of the life a resident builds is one of VMSS's most reliable patterns. Honesty, consistency and care under real pressure are among its most durable routes to high-trust placement.
@@ -4060,7 +4060,7 @@ Key lesson: Good work earns no exemption for how a person treats others. The two
 Nelson Mandela read the charter in full on his first day in Main Layer. He read it as a philosophical document, tracing the logic of each article back to its foundational premise and noting where the system's conclusions aligned with principles he had spent decades working toward on Earth, and where they diverged. With the precision and intellectual honesty that had produced some of the most consequential institutional work of the twentieth century, he shared his opinions about both in the public forums.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-His STI began rising before he had engaged in any formal civic activity. The system was reading a deeply embedded behavioral disposition in his public conduct, the kind the STI is built to measure precisely: intellectual honesty, a consistent acknowledgment of complexity, and a demonstrated pattern of treating adversaries as people rather than problems to be eliminated. Within his first month the score was in the high 70s.
+His STI began rising before he had engaged in any formal civic activity. The STI was reading his public conduct: he argued honestly, acknowledged complexity, and treated adversaries as people rather than problems to be eliminated. Within his first month the score was in the high 70s.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 He focused his early months in Main Layer on the residents VMSS tends to render invisible: low STI scores, not close to any threshold, settled into their circumstances without orientation in any particular direction. He held listening sessions. At the first, in the back room of a transit depot, a night cleaner named Sabeth Quist sat with her arms folded.
@@ -4081,7 +4081,7 @@ He did not endorse the -3 Terminal layer without qualification, and in several c
 Mandela agreed that some were, and said again what the posts had been arguing all along: any civilizational system should examine the permanence of its most severe consequences over time. The STI read that engagement with the system's own design as a positive signal, since he conducted it honestly and without self-interest. The Meritboard engaged with his arguments seriously, and some of his proposals influenced subsequent charter review discussions.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-He qualified for +1 Sanctuary within eighteen months, one of the faster ascensions on record for a new arrival without prior VMSS experience. In Sanctuary he became a significant figure in the civilization's long-term governance framework, contributing to the Meritboard's review processes and serving as one of the most cited voices in the ongoing development of the charter.
+He qualified for +1 Sanctuary within eighteen months of arrival. In Sanctuary he became a significant figure in the civilization's long-term governance framework, contributing to the Meritboard's review processes and serving as one of the most cited voices in the ongoing development of the charter.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: Holding VMSS to its own stated principles, honestly, specifically and without personal grievance, is among the highest civic contributions it is designed to recognize.
@@ -4092,7 +4092,7 @@ Key lesson: Holding VMSS to its own stated principles, honestly, specifically an
 <!-- SECTION: Criminal Profiles -->
 <div class="!mt-16 mb-6" data-section-header="criminal">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Criminal Profiles</h2>
-<p class="text-[var(--text-muted)] mt-2">Simulations involving individuals historically associated with extreme violence or capital-level harm.</p>
+<p class="text-[var(--text-muted)] mt-2">Simulations of people known from history for extreme violence or capital-level harm.</p>
 </div>
 
 <!-- Jeffrey Dahmer -->
@@ -4220,7 +4220,7 @@ Key lesson: -3 adds no suffering of its own for punitive residents, and their re
 
 <div class="!mt-16 mb-6" data-section-header="full-spectrum">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">The Full Spectrum</h2>
-<p class="text-[var(--text-muted)] mt-2">Seven simulations — one outcome in each layer, plus two that show what -3 looks like from the inside on its own terms. Not all of them are what you expect.</p>
+<p class="text-[var(--text-muted)] mt-2">Seven simulations: one outcome in each layer, plus two that show -3 from the inside, on its own terms. Some outcomes are not what you would expect.</p>
 </div>
 
 <!-- Keanu Reeves — +1 Sanctuary -->
@@ -4235,10 +4235,10 @@ Key lesson: -3 adds no suffering of its own for punitive residents, and their re
 </button>
 <div id="sim-fs-1" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-Keanu Reeves arrived in VMSS at fifty-nine years biologically. His intake evaluation characterized his profile as one of the cleanest behavioral profiles on record for a public figure of his prominence. The STI intake assessment found no manipulation and no coercive conduct patterns. Across decades of documented interaction with colleagues, fans, service workers and strangers, his public behavioral record held no logged instance of deliberate harm to another person. The system had no framework for weighing his unusual profile against any kind of risk model, because there was no risk to model, and it processed the intake as straightforward.
+Keanu Reeves arrived in VMSS at fifty-nine years biologically. His intake evaluation characterized his profile as one of the cleanest behavioral profiles on record for a public figure of his prominence. The STI intake assessment found no manipulation and no coercive conduct patterns. Across decades of documented interaction with colleagues, fans, service workers and strangers, his public behavioral record held no logged instance of deliberate harm to another person. The system found nothing to weigh against him and processed the intake as straightforward.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-He began in Main Layer, where his STI settled at 81 within the first month, because the system needed time to observe him.
+He began in Main Layer, where his STI settled at 81 in the first month. The environment was not hard for him; the system simply needed time to observe him.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 By month four it had observed enough. His interactions with strangers were characteristically direct and genuine, and his conduct in every logged commercial and social exchange was clean. Once, on a crowded transit car, a man drove a cargo case into his shins. "Move, then," the man said. Later a woman by the doors started in on him for blocking them. He made room for the case and let the woman finish. The implant telemetry logged both minor provocations and his response to each: patience without condescension.
@@ -4265,7 +4265,7 @@ He considered the question for a moment, then told her he found it clarifying: i
 The assessor who later reviewed the implant log of the conversation asked for it to be used as a reference case for explaining the CCD to new applicants.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-His STI holds at 94 at last record. His backup vessel revival reliability is rated at the Sanctuary standard, approximately 1 in 1,000,000 probability of revival failure. The system records him as a long-horizon resident with no predicted volatility.
+His STI holds at 94 at last record. His backup vessel revival reliability is rated at the upper-layer standard Sanctuary shares with Main, approximately 1 in 1,000,000 probability of revival failure. The system records him as a long-horizon resident with no predicted volatility.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: Some people arrive in VMSS already living Sanctuary values. The system's part is to build an environment that finally matches who they are.
@@ -4518,7 +4518,7 @@ He was thirty-four when he filed for voluntary permanent residency from Main Lay
 The Meritboard review took five days. Punitive reassignments are immediate, but voluntary permanent residency in -3 triggers additional psychological screening. He passed in two sessions. The examiner noted in the file that his understanding of the -3 environment was unusually detailed for a voluntary applicant.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-He had structured his affairs carefully. The liquidation left him a retained portion of his assets, converted to -3 currency at filing, and the compound he had identified and purchased through a -3 intermediary was waiting for him when he landed. He had pre-positioned himself with twenty-four months to spare before the filing date, so no question of asset shielding arose under the pre-positioning lookback the Central Banking Authority administers under LP-076.
+He had structured his affairs carefully. The liquidation left him a retained portion of his assets, converted to -3 currency at filing, and the compound he had identified and purchased through a -3 intermediary was waiting for him when he landed. He had pre-positioned himself with twenty-four months to spare before the filing date, so no question of asset shielding arose under the pre-positioning lookback, the review of assets moved into -3 shortly before a filing, which the Central Banking Authority administers under <a href="law-polling.html#lp-076" class="lp-ref">LP-076</a>.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 He spent his first year building relationships rather than revenue, because -3 runs on personal trust in the absence of institutional enforcement. He attended every local market and paid every obligation early. He made himself useful to three established operators, in ways that cost him time and resources and returned him nothing immediately visible except, slowly, a name as someone whose word held.
@@ -4631,7 +4631,7 @@ Key lesson: A Sanctuary resident who brings no money into -3 has only their skil
 <!-- LIFESTYLE & ENTERTAINMENT SIMULATIONS -->
 <div class="!mt-16 mb-6" data-section-header="lifestyle">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Lifestyle & Entertainment</h2>
-<p class="text-[var(--text-muted)] mt-2">Fifteen simulations exploring how VMSS technologies — neural diving, backup vessels, biological augmentation, fabrication, AGI — shape entertainment, art, daily life, and the texture of a civilization where governance infrastructure doubles as the richest lifestyle platform in history.</p>
+<p class="text-[var(--text-muted)] mt-2">Fifteen simulations of how VMSS technologies (neural diving, backup vessels, biological augmentation, fabrication, AGI) shape entertainment, art and daily life, when the same implant and vessel infrastructure that runs governance also carries people&rsquo;s leisure.</p>
 </div>
 
 
@@ -4733,7 +4733,7 @@ Dax Orimoto has died fourteen times. He is a free solo climber, working without 
 He streams every climb in audience mode. Neural diving spectator integration carries his full sensory experience in real time to millions of viewers through their implants, and they watch every moment from inside his body. They feel his fingers on the rock and the wind at altitude. They feel the precise moment his grip fails, then the freefall, then the impact. The stream terminates cleanly at the moment of death, so they get the final seconds of sensation before the buffer engages and never the blackout.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-His most-watched climb is the unassisted ascent of the Seventh Ring Wall's exterior face, a sheer 15-kilometer vertical surface never designed to be climbable. His first attempt ended in a fall at the 11-kilometer mark. More than 200 million people felt that fall in real time, and nothing in the history of broadcast media had produced a shared physical experience at that scale. They knew he would be revived. The sensory data was indistinguishable from firsthand experience, so their own bodies processed the genuine mortal terror as real. The cultural impact was the collective experience: for all of them at once, the same body hit the same surface at the same terminal velocity.
+His most-watched climb is the unassisted ascent of a ring wall's exterior face, a sheer 15-kilometer vertical surface never designed to be climbable. His first attempt ended in a fall at the 11-kilometer mark. More than 200 million people felt that fall in real time, the same impact in every body at once, and nothing in the history of broadcast media had produced a shared physical experience at that scale. They knew he would be revived. The sensory data was indistinguishable from firsthand experience, so their own bodies processed the genuine mortal terror as real.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The backup vessel system revived him at full fidelity in a Main Layer medical facility within hours. The attendant asked how he felt.
@@ -4745,7 +4745,7 @@ The backup vessel system revived him at full fidelity in a Main Layer medical fa
 He reviewed the fall from inside until he found the specific motor decision that had failed, a reach with his right hand before his left foot was set. Then he began planning the next attempt.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The second attempt ended in a fall at the 13.4-kilometer mark, in front of another audience exceeding 200 million. When he woke from that one, his bioaugmentation specialist, Renske Tal, was sitting by the bed. His competitors who had augmented their fear response away had smaller audiences, and Renske had the numbers.
+The second attempt ended in a fall at the 13.4-kilometer mark, in front of another audience exceeding 200 million. When he woke from that one, his bioaugmentation specialist, Renske Tal, was sitting by the bed.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "I'll ask once more," Renske said. "Neural augmentation for cognitive processing speed."
@@ -4754,7 +4754,7 @@ The second attempt ended in a fall at the 13.4-kilometer mark, in front of anoth
 "They'd feel the difference," Dax said. "It would come through artificially calm. I'm scared up there, and that's the stream."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She let it go.
+She let it go. She had the numbers: competitors who had augmented their way past the fear had smaller audiences.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The third attempt drew 340 million simultaneous neural diving viewers, and he completed it. The completion reached them as collective euphoria: 340 million bodies at once feeling the summit contact, the grip holding, and the proprioceptive confirmation of arrival at a point that three attempts and two deaths had made feel impossible.
@@ -4970,7 +4970,7 @@ She has not gone back, and she does not plan to. The nine days gave her what she
 "I can tell you what it was like," Yael said.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
-Key lesson: Resurrection tourism is the only mechanism by which an upper-layer citizen can experience genuine mortality, the specific condition the civilization was designed to eliminate. It is also tourism in a place where real people live and die permanently.
+Key lesson: A visit to -3 is the only way an upper-layer citizen can experience genuine mortality, the condition the civilization was designed to eliminate, and still come home. It is also tourism in a place where real people live and die permanently.
 </p>
 </div>
 </div>
@@ -5061,7 +5061,7 @@ She removed her neural diving link. Her human moral framework had no category fo
 Within two years she was a transanimal guide, in a profession that had emerged organically as civilian demand for animal-host diving exceeded the capacity of the orientation programs. Cira has been her primary hawk host for eleven years, in a partnership neither of them fully comprehends in the other's terms. Priya specialises in raptors: hawks, eagles and falcons. She also maintains active links with a pod of bottlenose dolphins, a grey wolf pack, and a single Bengal tiger named Vasu who lives in a managed wildlife reserve in the southern districts. Every one of her host animals, Cira included, consented through the behavioral protocol the veterinary-neuroscience team developed specifically for transanimal use. She watched Vasu go through it the way they all did: presented with the link stimulus repeatedly, and enrolled only when he consistently came toward it rather than away. She sits with first-time divers through the psychological debrief most of them require.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her ImmersionTube channel has 28 million subscribers. She edits full sensory captures of her dives into structured episodes, and her most popular series follows Cira through a full hunting season: twelve episodes, each a single hunt from takeoff to kill or failure, in the hawk's complete sensorium. Subscribers feel the thermal updraft under wings they do not have. They feel the prey-detection cascade, when the hawk's visual system locks onto movement and the entire body pivots toward it with a commitment that has no human analog. Then they feel the dive. A hawk's body processes it with a neurological intensity that human bodies reserve for nothing short of imminent death. Cira is not afraid. She is operating at peak biological capacity, and her audience's human neurology interprets it as the most alive they have ever been. Viewers consistently report that the descent toward prey is the most physically intense experience available on ImmersionTube, more intense than extreme sports recordings and combat recordings.
+Her ImmersionTube channel has 28 million subscribers. She edits full sensory captures of her dives into structured episodes, and her most popular series follows Cira through a full hunting season: twelve episodes, each a single hunt from takeoff to kill or failure, in the hawk's complete sensorium. Subscribers feel the thermal updraft lifting wings they do not have. They feel the hawk's eyes lock onto a movement below and the whole body swing toward it at once, without the hesitation a human body adds. Then they feel the dive: the wind rising to a roar, the ground closing fast, and a surge that a human body produces only when death is close. Cira is not afraid. She is working at her full biological capacity, and in her audience's bodies that registers as a sharp, total alertness. Viewers consistently rank the descent toward prey above extreme-sports and combat recordings for physical intensity.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The dolphin episodes are different: what they offer is alienness. Echolocation arrives as a spatial sense that maps the underwater environment in three dimensions through sound. A proprioceptive awareness of water pressure and current functions as a sixth sense, and the pod communicates through body language, sonar clicks and positional choreography simultaneously. Viewers describe the episodes as "visiting another planet without leaving Earth." Being a body inside the pod's formation, feeling the hydrodynamic efficiency of the group's movement and sensing the other dolphins' positions through sonar returns, is the closest thing ImmersionTube offers to genuine alien experience.
@@ -5167,7 +5167,7 @@ Lúcia Ferreira-Montez designed a dragon. Her daughter, who was eight at the tim
 "I'll see what I can do," Lúcia told her.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She was a bioengineering specialist, formally trained in organoid fabrication and genetic architecture, with a secondary credential in animal behavioral science. The remark was not entirely serious. She began the research anyway, as a personal challenge, and the design process took nine years.
+She was a bioengineering specialist, formally trained in organoid fabrication and genetic architecture, with a secondary credential in animal behavioral science. The remark was not entirely serious. She began the research anyway, as a personal challenge, and the whole design process, from the first research to a species ready for release, took nine years.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 She spent the first two years on temperament engineering, the behavioral parameters that would determine whether the organism could safely share a living space with humans. The challenge was making a creature that behaved like a companion. Reptilian neurological templates do not produce mammalian bonding behavior, so she engineered attachment responses from avian social templates while maintaining the reptilian body plan. The organism she arrived at bonds to its primary caretaker through a modified avian imprinting mechanism and displays affection through physical proximity and vocalisation. Its territorial awareness of its home environment functions as a rudimentary guard instinct, without predatory aggression toward humans. She assembled it from genetic templates sourced across seventeen reptilian and avian species. It was not a modification of an existing animal, and the species did not exist before she made it.
@@ -5188,7 +5188,7 @@ Lúcia had been conservative in her longevity projections, and Ember has outlive
 She called the species <em>draconis familiaris</em>. The public calls them fire lizards, and over two million of them now live in VMSS households. In a house they move the way a cat uses furniture, launching from shelves, gliding to countertops, perching on shoulders. The flight is limited enough to be manageable indoors and spectacular enough that most owners cite it as their reason for choosing the species over conventional companions. The body-as-canvas community adopted fire lizards as accessories almost immediately. Within a year of the first commercial release, fashion designers were commissioning custom color morphs with bioluminescent scale patterns, iridescent wing membranes, or pigmentation that shifted with ambient temperature.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Lúcia licenses the genetic templates to six bioengineering studios that produce custom variants under her quality standards. The customisation is cosmetic only: temperament, health parameters and lifespan are locked to her original specifications and cannot be modified by downstream studios. She treats the behavioral specification as constitutional and leaves everything else open to variation. The temperament engineering took her four years to perfect, and the organism's behavioral reliability is what makes it safe for households with children. A fire lizard that bit because a studio had modified its aggression threshold would harm a child and destroy public trust in the species she created.
+Lúcia licenses the genetic templates to six bioengineering studios that produce custom variants under her quality standards. The customisation is cosmetic only: temperament, health parameters and lifespan are locked to her original specifications and cannot be modified by downstream studios. She treats the behavioral specification as constitutional and leaves everything else open to variation. Refining the temperament took her four years in all, counting the two before the first prototype, and the organism's behavioral reliability is what makes it safe for households with children. A fire lizard that bit because a studio had modified its aggression threshold would harm a child and destroy public trust in the species she created.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 A designer at one of the six studios once asked her to relax the aggression threshold on a new line, to make it "edgier."
@@ -5197,7 +5197,7 @@ A designer at one of the six studios once asked her to relax the aggression thre
 "Change the color," Lúcia said. "Leave the temperament alone."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She is fifty-four now. Her studio employs nineteen bioengineers working on three new companion species: a miniature cetacean variant designed for large domestic water features, an arboreal primate derivative with enhanced vocal mimicry, and a feline-scale predator she describes only as "the project that will make fire lizards look like a warm-up." Her daughter, now thirty-one, works in the studio as a behavioral calibration specialist, testing prototype organisms for domestic compatibility with the same evaluation framework her mother developed.
+She is fifty-four now. Her studio employs nineteen bioengineers working on three new companion species: a miniature cetacean variant designed for large domestic water features, an arboreal primate derivative with enhanced vocal mimicry, and a feline-scale predator she describes only as "the project that will make fire lizards look like a warm-up." Her daughter, now thirty-four, works in the studio as a behavioral calibration specialist, testing prototype organisms for domestic compatibility with the same evaluation framework her mother developed.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Ember sits on her daughter's desk during testing sessions and watches the new prototypes with what Lúcia describes, without irony, as professional interest. Lúcia knows this is anthropomorphisation. She also knows she engineered the curiosity response herself. What Ember is doing at that desk is the exact behavioral parameter she specified in the FL-7 temperament profile twenty-three years ago.
@@ -5226,7 +5226,7 @@ Kess first heard the recording at her desk, between jobs. She was a sound design
 It came from a Sanctuary laboratory that studied collaborative consciousness, the neural diving capability that let several minds share one cognitive space simultaneously. The military used it for group tactical processing, merging intelligence analysts to evaluate threat data from perspectives no single analyst could hold. Couples counselors used it at a depth words couldn't reach. The lab found the artistic use by accident. Two members of its early research group, a cellist and a drummer, noticed that their merged state produced involuntary auditory imagery: sound that neither of them made deliberately and both of them could hear. The researchers built an output channel and recorded it.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-It was not music in any conventional sense. Kess knew on the first play that it was a medium.
+Kess knew on the first play that it was a medium of its own.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Voidpact formed three years after that discovery, and Kess was the closest thing it had to a founder. She recruited for cognitive compatibility. The bridge worked best between minds whose processing styles complemented each other, so for six months she tested people in short merge sessions and judged the quality of the merged cognition they produced together.
@@ -5395,7 +5395,7 @@ Zhen Meiying walked onto the runway with brown eyes, black hair and the skeletal
 She wore no costume and no prosthetic. From the wings, Rohan, her bioaugmentation artist, was performing real-time biological modifications on her, live, through a neural link to her implant. The audience in the hall watched a human body change in front of them. The ImmersionTube audience, neural diving in audience mode, felt the changes from inside her body: the warmth of the dermal pattern activating, the subtle shift in visual processing as the iris modification took effect, the unfamiliar weight of the structural hair pulling differently against her scalp.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She had been a textile designer before the body-as-canvas movement emerged. Temporary bioaugmentation, taken up as a cosmetic tool, had built a parallel industry that textile fashion could not compete with on the axis that mattered most: transformation. It ran on the same platform that enabled transrace modifications, age pinning and medical augmentation, and applied to fashion it had become the most expressive personal medium in human history. Traditional fashion was still there. People wore clothes, appreciated fabric and followed designers who worked in conventional media.
+She had been a textile designer before the body-as-canvas movement emerged. Temporary bioaugmentation, taken up as a cosmetic tool, had built a parallel industry, and on transformation, changing the body itself, textile fashion could not compete. It ran on the same platform that enabled transrace modifications, age pinning and medical augmentation, and applied to fashion it had become the most expressive personal medium in human history. Traditional fashion survived: people still wore clothes, appreciated fabric and followed designers who worked in conventional media.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "How long do you want it?" she asked her first client of the season.
@@ -5419,7 +5419,7 @@ One recent show opened with all twelve models at their unmodified biological bas
 On the final pass the models bore almost no visible resemblance to the people who had walked out first. The audience, neural diving, felt their own faces changing. Several viewers reported crying during the final pass, from the specific sensation of feeling a body become something it was not and recognizing that the freedom to do so was real.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Main Layer's District 22 is home to a Metric Gated Domain for body-modification artists: approximately 3,000 bioaugmentation fashion professionals, models and enthusiasts, self-organized around shared aesthetic standards and a community charter. The charter requires every modification displayed publicly to be reversible and every modification artist to hold current bioaugmentation certification. Its third criterion generated the most debate: no modification may compromise the subject's implant function or STI legibility.
+Main Layer's District 22 is home to a Metric Gated Domain, a private community that admits members on a published, measurable criterion, for body-modification artists: approximately 3,000 bioaugmentation fashion professionals, models and enthusiasts, self-organized around shared aesthetic standards and a community charter. The charter requires every modification displayed publicly to be reversible and every modification artist to hold current bioaugmentation certification. Its third criterion generated the most debate: no modification may compromise the subject's implant function or STI legibility.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Some artists wanted to explore modifications that would make the wearer's identity ambiguous, facial geometry shifts significant enough that the implant's AR identity overlay would need to recalibrate. Identity in VMSS is non-repudiable, so art that deliberately obscures it counts as evasion. The charter was the community's own; no institutional authority had imposed it. Zhen was in the hall on the night of the vote.
@@ -5617,7 +5617,7 @@ Key lesson: With coercion, trafficking, disease and consent disputes engineered 
 Ren Oshiro builds worlds that do not exist, and he won't call them games or simulations. He calls them places. Each is a persistent virtual environment accessed through neural diving. It operates continuously whether anyone is present or not, AGI-driven inhabitants live coherent lives within its rules, and visitors experience it through full sensory immersion that is indistinguishable from physical reality while they are inside. His most successful creation, a Renaissance-era Italian city-state called Valdirenze, has hosted over 60 million visitors since its launch.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-He is forty-eight, and he spends approximately half his waking hours inside his own creations. He goes in as a visitor, to experience what he built, and makes no adjustments. When a world outgrows him, he calls it the highest compliment a world-builder can receive.
+He is forty-eight, and he spends approximately half his waking hours inside his own creations. He goes in as a visitor, to experience what he built, and makes no adjustments. He calls it the highest compliment a world-builder can receive when one of his worlds outgrows him.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 His studio currently maintains four persistent environments: Valdirenze, a Heian-period Kyoto, a pre-colonial West African trading city, and an entirely fictional world under physical laws he designed himself, where gravity is lateral and architecture grows organically from a crystalline substrate. Each runs continuously, with its own AGI population and its own accumulating history.
@@ -5626,10 +5626,10 @@ His studio currently maintains four persistent environments: Valdirenze, a Heian
 The overlap with the historical lifestyle communities is deliberate. Claire Bellingham's New Levittown is a physical community in Main Layer geography, and Valdirenze is a virtual one in neural diving space; both let people live inside a historical period with modern safety infrastructure invisible underneath. Valdirenze's barrier to entry is lower and its scalability essentially infinite, which is how Ren has been able to build multiple worlds simultaneously. New Levittown needs physical land, physical buildings and residents who commit their daily lives to the recreation. Valdirenze needs only a neural diving link and a willingness to spend time inside.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-The AGI residents are what separate Ren's work from every prior virtual reality concept: Earth's virtual reality produced spaces to explore and scenarios to play through, and Ren produces societies. Valdirenze has been running for eleven years, and its history has accumulated day by day. It keeps a permanent population of 4,000 AGI residents who operate businesses, hold political offices, raise families and pursue their ambitions entirely inside it. Each holds full VMSS personhood, with an STI score, rights, and preferences, grudges, aspirations and relationships that evolve over years.
+The AGI residents are what separate Ren's work from every prior virtual reality concept: Earth VR built spaces to explore and scenarios to play through, and Ren builds whole societies, with inhabitants and histories. Valdirenze has been running for eleven years, and its history has accumulated day by day. It keeps a permanent population of 4,000 AGI residents who operate businesses, hold political offices, raise families and pursue their ambitions entirely inside it. Each holds full VMSS personhood, with an STI score, rights, and preferences, grudges, aspirations and relationships that evolve over years.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-This morning he picks Valdirenze. He lies down on the neural diving couch, and while his body is there the food synthesiser in his apartment provides the nutritional reality. There is no headset and no room. The technology is neural diving combined with AR environmental generation: the implant constructs the sensory environment directly within his perception, bypassing any external hardware. He activates the link and wakes standing on a cobblestone street in 1497 Florence, or Ren's version of it.
+This morning he picks Valdirenze. He lies down on the neural diving couch, and while his body lies on the couch, the food synthesiser in his apartment keeps it fed. There is no headset and no room. The technology is neural diving combined with AR environmental generation: the implant constructs the sensory environment directly within his perception, bypassing any external hardware. He activates the link and wakes standing on a cobblestone street in 1497 Florence, or Ren's version of it.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 He designed Valdirenze's architecture from period references, historically informed but not historically constrained, and built the city Renaissance architects dreamed of instead of the one fifteenth-century engineering let them construct. He feels the temperature of the stone under his hand. He can smell the bread from the bakery on Via dei Calzaiuoli, and over the roofs he hears the bells of a cathedral that was never built on Earth.
@@ -5662,7 +5662,7 @@ Key lesson: When the implant replaces the headset, virtual worlds lose the frict
 <!-- LONG HORIZON — DISTANT FUTURE SIMULATIONS -->
 <div class="!mt-16 mb-6" data-section-header="long-horizon">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Long Horizon</h2>
-<p class="text-[var(--text-muted)] mt-2">One resident story set centuries after founding. The civilization has amended itself many times. Technologies, institutions, and populations have evolved beyond anything the architects could have anticipated. The four founding lines remain exactly as they were written. This story lives in the distance between those two facts.</p>
+<p class="text-[var(--text-muted)] mt-2">One resident story set centuries after the founding. The civilization has amended itself many times, and its technologies, institutions and populations have moved beyond anything the architects could have anticipated. The four founding lines remain exactly as they were written. The story follows one ratification day under those unchanged lines.</p>
 </div>
 
 <!-- Iara Voss — Sanctuary Consensus, Year 626 -->
@@ -5749,10 +5749,10 @@ Both readings are available in the text, and the four lines do not choose betwee
 She stands on the plate and places her palm on the reader, and her implant connects to the Sanctuary ratification net. The quiet overlay in her visual field shows that 289,114,022 consensus votes have already been cast this morning. Fifteen are registered as no and three as abstain. The rest are yes. She has eighteen hours. The consensus window closes at midnight, and until then any vote, yes, no or abstain, may be rescinded or changed. If the first dissenter ended the draft on the spot, the eighteen-hour window would be a race instead of a deliberation. The fifteen no votes are not final yet, and hers will not be either.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She is the ten-thousandth-and-something person in her cohort to reach this platform today. She has known for forty-three days that she does not know how she will vote, and she has walked to this gate every morning of those forty-three days trying to find out. On the forty-third morning, under the four lines, she decides. She lifts her palm from the reader.
+At this gate alone, she is the ten-thousandth-and-something voter today. She has known for forty-three days that she does not know how she will vote, and she has walked to this gate every morning of those forty-three days trying to find out. On the forty-third morning, under the four lines, she decides. She lifts her palm from the reader.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-When she has voted she walks back under the Founders' Gate and reads the four lines again. They are exactly as she left them in the morning, and exactly as they were in Year 1. They will be exactly the same tomorrow, and the day after, and in Year 2026 if the civilization is still here, which she suspects it will be.
+When she has voted she walks back under the Founders' Gate and reads the four lines again. They are exactly as she left them in the morning, and exactly as they were in Year 1. They will be exactly the same tomorrow, and the day after, and in Year 2026 of the civilization, fourteen centuries on, if it is still here, which she suspects it will be.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Whatever she voted, the amendment will pass or fail, and the Founders' Gate will be unchanged either way. The next generation of continuity ethicists will walk under it, read the lines, argue with them, write papers, file amendments, and decide what <em>no life is ended</em> means in whatever technology arrives next.
@@ -5770,7 +5770,7 @@ Key lesson: Nothing in the Charter makes the civilization's symbolic anchor, the
 <!-- CYBERPUNK 2077 — LAYER MAPPING COLLECTION -->
 <div class="!mt-16 mb-6" data-section-header="cyberpunk">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Cyberpunk 2077 — Layer Mapping</h2>
-<p class="text-[var(--text-muted)] mt-2">Seven simulations placing the strata of Night City onto the rings of VMSS. Cyberpunk 2077 is what happens when a civilization has -1's corporate freedom, the Main Layer's residential population, and -3's territorial collapse all in the same physical city with no Ceiling Seal between them. The strata are present. The boundaries are not. VMSS would not eliminate any of the elements. VMSS would sort them, place each on the ring its consequences justify, and let the residents of each ring live under the rules that ring honestly enforces. These seven entries trace what that sorting looks like.</p>
+<p class="text-[var(--text-muted)] mt-2">Seven simulations placing the strata of Night City onto the rings of VMSS. Cyberpunk 2077 is what happens when a civilization has -1's corporate freedom, the Main Layer's residential population, and -3's territorial collapse all in the same physical city, with no walls or Ceiling Seal (the rule that makes a descent to -3 permanent) between them. VMSS would keep every one of those elements but sort them, placing each on the ring its consequences justify, where residents live under the rules that ring honestly enforces. These seven entries trace what that sorting looks like.</p>
 </div>
 
 
@@ -5901,7 +5901,10 @@ He named the tribute. It was fair.
 "Who have you run a pit for?"
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"Hollins, out east." She had already asked around, and his name was good there.
+"Hollins, out east," Jory said.
+</p>
+<p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
+Celestine had already asked around, and his name was good there.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "The tannery's two streets from the night market. Your crowd will empty those stalls."
@@ -6028,7 +6031,7 @@ Civilizational Note: Panam Palmer's Aldecaldos are Elias Varro at clan scale: vo
 </button>
 <div id="sim-cp-5" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-Yusra Halvik ran a salvage yard in an -1 district, and for most of her working life she had done the lifting herself. When her back began to go, she started replacing what she lifted with: the left forearm in spring, the right in summer. In autumn she booked the shoulders.
+Yusra Halvik ran a salvage yard in an -1 district, and for most of her working life she had done the lifting herself. When her back began to go, she started replacing the parts she lifted with: the left forearm in spring, the right in summer. In autumn she booked the shoulders.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 That was when the implant ledger notified her care provider, who asked her to come in. Dr. Sefton had the usual speech ready and kept it short, but first she turned the screen so Yusra could read the notice.
@@ -6229,7 +6232,7 @@ Civilizational Note: Night City's fixers, Dexter DeShawn, Wakako Okada, Rogue Am
 <!-- BOUNDARY CASES — DOCTRINE AT ITS EDGES -->
 <div class="!mt-16 mb-6" data-section-header="boundary">
 <h2 class="text-4xl font-bold text-[var(--text-primary)]">Boundary Cases</h2>
-<p class="text-[var(--text-muted)] mt-2">Six resident stories set where a rule meets its edge. A therapist rides the visitation envelope into -2 until the fieldwork bites back. A child in -3 exercises a standing right nobody around her wanted mentioned. A survivor elects memory excision under <a href="law-polling.html#lp-060" class="lp-ref">LP-060</a> and lets the ledger remember for her. A phasing candidate crosses the threshold while he isn't checking. A trader is taken past the last federal marker and ransomed back by private order. A survivor of a system that worked precisely as designed files the petition behind <a href="law-polling.html#lp-062" class="lp-ref">LP-062</a>, which fails at 79% and goes back to the coalition for redrafting. None of these stories break the architecture. Each one stands a person at the exact point where a boundary runs and records what the doctrine does there — two of them became companion pieces to law-polling entries.</p>
+<p class="text-[var(--text-muted)] mt-2">Six resident stories set where a rule meets its edge. A therapist takes an extended visitor permit into -2 and stays until the fieldwork turns on her. A child in -3 exercises a standing right that nobody around her wanted mentioned. A survivor elects memory excision under <a href="law-polling.html#lp-060" class="lp-ref">LP-060</a> and lets the ledger remember for her. A phasing candidate crosses the threshold while he isn't checking. A salvage trader strays past the last patrol-contract marker and is ransomed back by private order. A survivor of a system that worked precisely as designed joins the petition behind <a href="law-polling.html#lp-062" class="lp-ref">LP-062</a>, which fails at 79% and goes back to the coalition for redrafting. None of these stories breaks the architecture. Each places a person at the point where a boundary runs and records what the doctrine does there. Two of them became companion pieces to law-polling entries.</p>
 </div>
 
 <!-- 1. The Therapist Who Descended for Research -->
@@ -6244,31 +6247,31 @@ Civilizational Note: Night City's fixers, Dexter DeShawn, Wakako Okada, Rogue Am
 </button>
 <div id="sim-bc-1" class="simulation-content hidden px-8 pb-8" role="region">
 <p class="text-[var(--text-secondary)] leading-relaxed">
-Dr. Lena Solari was one of Sanctuary's sharpest trauma therapists. She had read every study, run every simulation and treated hundreds of reassigned residents through neural feeds. She knew what the lower rings looked like on paper.
+Dr. Lena Solari was a trauma therapist in Sanctuary. She had read every study, run every simulation and treated hundreds of reassigned residents through neural feeds, and she knew the lower rings well on paper.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 She filed for an extended visitor permit to -2.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"It's the ultimate fieldwork," she told her colleagues.
+"It's fieldwork," she told her colleagues. "I've only ever seen them through a feed."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"You're insane," they told her.
+One of them called the plan insane, and the others agreed.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She smiled, packed her bags and went anyway.
+She booked the transit for the following month.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She arrived in -2 with a clean record and a high STI. The first few months felt exactly as she had expected, intense but manageable. Then the real patients started showing up, people whose trauma made her Sanctuary case files look like gentle bedtime stories: enforcers who carried ghosts in their shoulders, women who had lost entire families in territorial disputes during times they had no backup vessel access.
+She arrived in -2 with a clean record and a high STI. The first months were intense but manageable, much as she had expected. Then the patients she had come for began to arrive: enforcers who could not sleep with a door shut behind them, and women who had lost whole families in territorial disputes during stretches when they were cut off from backup vessel access. Nothing in her Sanctuary caseload came close.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her own stress levels climbed fast. One evening an enforcer stayed in his chair after the session.
+Her own stress readings climbed month by month. One evening an enforcer stayed in his chair after the session.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"People are saying the polished Sanctuary therapist is starting to fray at the edges," he said. "They're right, Doc."
+"People say the Sanctuary doctor isn't sleeping," he said. "They're right, Doc."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-By month nine she was the one booking sessions with another therapist in the district.
+By month nine she was booking sessions of her own with another therapist in the district.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "What brings you in?" he asked.
@@ -6277,7 +6280,7 @@ By month nine she was the one booking sessions with another therapist in the dis
 Lena sat down on the other side of the couch.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her visitor permit eventually ran out, and she returned to Sanctuary changed. She understood now why some residents never make it back alive, and she had seen the horrors on the faces of those who do.
+Her visitor permit ran out, and she returned to Sanctuary changed. She understood now why some residents never make it back alive, in a layer where roughly one revival in a thousand fails, and she had seen what the ones who do make it back carry with them.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 "How was the fieldwork?" one of her colleagues asked.
@@ -6310,7 +6313,7 @@ Koa Maren was eleven years old and had never left Block Fourteen. She was born i
 On flood days Koa took the dry corridors to Wen Garza's workshop. The private water main failed every three weeks, because the cooperative that owned it was in a territorial dispute with the cooperative that owned the pumping station. She passed adults who carried their weapons openly and others who kept them concealed, and she gave more room to the second group, who were more dangerous. Four months earlier her best friend's older brother had been stabbed over a water debt. Death was permanent here. He didn't come back, and nobody had expected him to.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Wen was sixty-three and had lived in Block Fourteen for nine years. He had come down from Main Layer after his wife died, as a voluntary permanent resident, because he'd decided he would rather live somewhere that matched the way the world felt to him. He sealed the ceiling, took the liquidation hit and converted what was left to freedom tokens at the purchasing power gradient. He didn't advertise the relocation right, and he didn't hide it either. He had built a quiet life running a small tutorial service for block kids who wanted to learn mechanical skills.
+Wen was sixty-three and had lived in Block Fourteen for nine years. He had come down from Main Layer after his wife died, as a voluntary permanent resident, because he'd decided he would rather live somewhere that matched the way the world felt to him. He sealed the ceiling, took the liquidation hit and converted what was left to freedom tokens, -3's currency, at the purchasing power gradient, the official cross-layer conversion rate. He didn't advertise the relocation right that came with his status, and he didn't hide it either. He had built a quiet life running a small tutorial service for block kids who wanted to learn mechanical skills.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 Koa had had a cough for two months. One afternoon it doubled her over a pump housing, and she put the wrench down.
@@ -6364,7 +6367,7 @@ Her mother found out on day three. She stood in the doorway of the federal facil
 "You're going to be okay," she said.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Her father stood behind her and said nothing. Koa's new implant detected elevated stress hormones in both of them but no coercive intent, and raised no three-axis flag.
+Her father stood behind her and said nothing. Koa's new implant detected elevated stress hormones in both of them but no coercive intent, and raised no flag on the three-axis harm evaluation.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 On day four she was transported through the mega-wall. She had never seen it from this close. The transit shaft was smooth, fast and silent. When the doors opened on the Main Layer side, the first thing she noticed was the air, which didn't smell like chemical runoff. The second was a small ambient glow near the shoulder of every person walking past: STI halos, visible in the AR overlay her new implant rendered by default. Greens and light blues were everywhere. She had never seen a green halo.
@@ -6444,7 +6447,7 @@ The clean version of the procedure, in which she would wake with no knowledge th
 Afterward, the world has a texture she slowly learns to read. The doctrine does not reach other minds. Her sister keeps a copy of the October that Tamsin set down, and at dinner she says a name Tamsin no longer recognizes, flinches, catches herself and changes the subject. A coworker is unaccountably gentle with her for one week every fall. Tamsin does not know what the kindness is for. She accepts it anyway.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Somewhere below the wall, a man remembers what she doesn't; his reassignment is forever, and his public ledger carries the act permanently. Tamsin walks the streets of her own district without knowing which one holds it. She takes the shortest way home.
+Somewhere below the wall, a man remembers what she doesn't; his reassignment is forever, and his public ledger carries the act permanently. Tamsin walks the streets of her own district without knowing which of them it happened on. She takes the shortest way home.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: Under categorical evaluation, a victim's memory serves no institutional function. That leaves it hers to keep or give up.
@@ -6515,7 +6518,7 @@ At Sanctuary orientation, a man his age asks how he finally moved his number.
 The man waits for the rest of it.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-Asha meets him on the Sanctuary side of the gate. For the first time in three years, she has no transit to catch.
+Asha meets him on the Sanctuary side of the gate. For the first time since she phased, she has no transit to catch.
 </p>
 <p class="mt-6 text-sm text-[var(--text-muted)] italic">
 Key lesson: <a href="law-polling.html#lp-058" class="lp-ref">LP-058</a> was refused because a score that explains how to raise it ends up measuring compliance. The STI registers what a citizen's conduct is for, as well as the conduct.
@@ -6633,7 +6636,7 @@ Key lesson: In the -3 outskirts, protection from other people is private and com
 Every part of the system did its job. That is the part Mara Ellison cannot get past.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-She was assaulted in a Main Layer transit underpass at the wrong hour, by a man whose failsafe was disabled. That was his right in the layer where the failsafe is yours to configure. The implant logged the act at neural resolution as it happened. It did not stop him, because in Main the default is post-intervention: harm may complete, and the civilization answers afterward with its full weight. It answered with its full weight. The medical drone reached her in under a minute. The nanite injectors closed the physical injuries before she had finished understanding what had happened, and the neural-therapy module began its work at the scene. Within the hour the three-axis evaluation had run: severity, pattern, and the reversibility axis, which read the harm as irreversible regardless of the body's restoration. The man was through the wall to -2 before the bruising she no longer had would have surfaced. The architecture had better evidence than her memory from the first second, and nobody asked her to testify. There was no trial.
+She was assaulted in a Main Layer transit underpass at the wrong hour, by a man whose failsafe was disabled. That was his right in the layer where the failsafe is yours to configure. The implant logged the act at neural resolution as it happened. It did not stop him, because in Main the default is post-intervention: harm may complete, and the civilization answers afterward with its full weight. It answered with its full weight. The medical drone reached her in under a minute. The nanite injectors closed the physical injuries before she had finished understanding what had happened, and the neural-therapy module began its work at the scene. Within the hour the three-axis evaluation had run: severity, pattern, and the reversibility axis, which read the harm as irreversible regardless of the body's restoration. The man was reassigned to -2 within the hour. The implant record was the evidence; she was never asked to testify, and there was no trial.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 The act still happened to her.
@@ -6669,7 +6672,7 @@ The coalition is already redrafting. Mara has the new text open on her table: an
 Theo, who drafts for the coalition, asks whether she thinks it will pass.
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
-"In a few years," Mara says. "It should." She turns a page. "He switched his off on purpose. Only the one we lost would have stopped him."
+"In a few years," Mara says. "It should." She turns a page. "He switched his off on purpose. Only the mandate we lost would have stopped him."
 </p>
 <p class="mt-4 text-[var(--text-secondary)] leading-relaxed">
 She has decided to spend the next decades of her long life on that difference.
