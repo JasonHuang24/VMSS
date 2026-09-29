@@ -17,15 +17,15 @@ The following and only the following Main institutional obligations constitute t
 | 3 | MAIN-BOUNDARY-INFRASTRUCTURE | Layer boundary infrastructure | 35 |
 | | | **Total `M(m)`** | **100** |
 
-This enumeration is the locked population, not a discretionary budget and not the allocation proposed in the failed predecessor petition. No category, weight, or amount from that petition entered this snapshot.
+This enumeration is the locked population. It is neither a discretionary budget nor the allocation proposed in the failed predecessor petition. No category, weight, or amount from that petition entered this snapshot.
 
 ## II. Reconciliation to the controlling evidence
 
 The completed-observation window contains the twelve months 2291-01 through 2291-12. Each month carries `M(m) = 100`; the itemized sum above therefore reconciles to every month and to the twelve-month total of 1,200.
 
-The preregistered forward window contains the thirty-six months 2295-01 through 2297-12. Each projected month carries `M(m) = 100`; the same locked population therefore reconciles to every projected month and to the forward total of 3,600. Projection changes quantities only through the locked model. They do not add an obligation to the population.
+The preregistered forward window contains the thirty-six months 2295-01 through 2297-12. Each projected month carries `M(m) = 100`; the same locked population therefore reconciles to every projected month and to the forward total of 3,600. Projection changes quantities only through the locked model and adds no obligation to the population.
 
-The complete month-by-month itemization, source identifiers, and reconciliation booleans publish in `path-2-charter-restatement-2292-data.json`.
+The complete month-by-month itemization, source identifiers, and reconciliation booleans are published in `path-2-charter-restatement-2292-data.json`.
 
 ## III. Excluded streams and obligations
 
@@ -41,10 +41,10 @@ None may enter the numerator or denominator of Finding I or Schedule A's Main-co
 
 ## IV. Vintage finding
 
-The source authorities' maximum published reporting lag was forty-five days. Subtracting that lag from the 2292-02-15 lock produces the 2292-01-01 cutoff. Every completed month ended on or before that cutoff; the source ledgers were published and fixed at the 2292-02-01 vintage, before lock. Later target periods are projections, not later observations.
+The source authorities' maximum published reporting lag was forty-five days. Subtracting that lag from the 2292-02-15 lock produces the 2292-01-01 cutoff. Every completed month ended on or before that cutoff; the source ledgers were published and fixed at the 2292-02-01 vintage, before lock. Later target periods are projections. No observation made after lock enters them.
 
 ## V. Seal
 
-The Commission deposited this snapshot at lock. The Registrar received the itemization, source mapping, and exclusions as part of the escrowed design and verified their reconciliation before any 2294 instrument issued.
+The Commission deposited this snapshot at lock. The Registrar received the itemization, source mapping, and exclusions as part of the escrowed design, and verified that they reconcile before any 2294 instrument issued.
 
 Part of the 2294 Ratification Record

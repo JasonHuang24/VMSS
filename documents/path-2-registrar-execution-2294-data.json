@@ -43,8 +43,8 @@
     "certificationPageGenerator": {
       "path": "tools/build-path2-certification-page.mjs",
       "algorithm": "sha256",
-      "digest": "eecb3345840b324b214aae8c37ef1a5162b28d9b2d3cc1ba680d16c64bcf1fb1",
-      "bytes": 17080
+      "digest": "1efe79c275b47592d609ec30e6912c6258dce0ea89ea168595cc04a36c4f35fe",
+      "bytes": 17214
     },
     "restatement": {
       "path": "documents/path-2-charter-restatement-2292-data.json",
@@ -61,7 +61,7 @@
     "compendiumAnnex": {
       "path": "documents/path-2-section-11-compendium-2294-annex.json",
       "algorithm": "sha256",
-      "digest": "b721711074ff4f89ba9267d219d29855bc0d8b889914ef2383d4aec6c5d0e465",
+      "digest": "a5f6f693790072ba978f3ae840a9c03b920101adfab0dca80129bf5d8ba3f690",
       "bytes": 140776
     }
   },

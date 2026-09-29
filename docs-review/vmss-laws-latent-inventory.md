@@ -1998,8 +1998,8 @@ an instrument named above or by an enacted LP.
 - path2-record-098 — RR-9 imposes a live affirmative duty on the Registrar to publish ledger-coverage
   statistics with every run, but that duty is stated only inside the Residual-Risk Register, not in the
   Path 2 Charter's or Schedule's operative text. Worth a home check.
-- path2-record-116 — "Lower collections remain siloed and layer-attributed; the certification does not
-  universalize SCM." An operative cross-layer boundary stated only in a certification banner, carried
+- path2-record-116 — "Lower collections remain siloed and attributed by layer. The certification does not
+  extend SCM beyond its layer-specific scope." An operative cross-layer boundary stated only in a certification banner, carried
   by no named instrument's text on that surface. Its real home may be LP-074 §6 or the systems corpus.
 - path2-record-124 — canon names "the closed-line rule" (a closed petition line permits no
   resubmission; a successor must be a new line) but its operative text is not on any surface mined.

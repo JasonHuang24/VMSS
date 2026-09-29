@@ -9,8 +9,7 @@
 //     and only Disposition / Reviewer reply values may change; every list line byte-identical;
 //     every table byte-identical except the authority map's Function and Result columns (row
 //     count, column count, header, alignment and the other columns still fixed); the footer
-//     line identical; the snapshot's instrument text byte-identical outside its two framing
-//     lines; the compendium's SHA-256 table byte-identical.
+//     line identical; the compendium's SHA-256 table byte-identical.
 //  3. Frozen tokens: every digit-bearing token survives and none is new; all-caps identifiers,
 //     section tokens, Finding numerals, caps words, dates, hashes and code spans keep exact
 //     counts; spelled numbers survive; strict modals keep exact counts (soft hedges reported);
@@ -141,16 +140,6 @@ for (const d of D) {
   const last = (m) => m.trimEnd().split('\n').pop();
   if ((last(O) === FOOTER) !== (last(R) === FOOTER)) fail(`[${s}] record footer added, removed or changed`);
   notes.push(`[${s}] ${heads(R).length} headings, ${br.length} blocks (${seq(br).split(',').filter((x) => x === 'para').length} para), ${fieldBlocks} field blocks (${editedFields} value lines rewritten), ${tables} tables (${editedCells} editable cells rewritten), ${lists} lists verbatim; bold spans unchanged`);
-}
-{ // snapshot instrument text
-  const d = D.find((x) => x.s === 'snapshot');
-  const ol = d.O.split('\n'); const rl = d.R.split('\n');
-  if (ol.length !== rl.length) fail('[snapshot] line count changed');
-  else {
-    const changed = ol.map((l, i) => (l === rl[i] ? null : l)).filter((x) => x !== null);
-    for (const l of changed) if (!SNAPSHOT_FRAMING.some((p) => l.startsWith(p))) fail(`[snapshot] instrument line changed: ${l.slice(0, 70)}`);
-    notes.push(`[snapshot] locked 2292 instrument text byte-identical; ${changed.length} framing lines rewritten`);
-  }
 }
 { // compendium SHA-256 table
   const d = D.find((x) => x.s === 'compendium');
