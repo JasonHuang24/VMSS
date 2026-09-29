@@ -36,7 +36,7 @@
   const RINGS = {
     '+1': {
       name: '+1 Sanctuary', short: 'Sanctuary', informal: 'Heaven Layer · pre-intervention', pop: '~300M',
-      summary: 'The innermost ring. Everyone here has shown sustained non-harm, so harm cannot complete. Earned continuously, not awarded: the highest-upkeep residency in the civilization.',
+      summary: 'The innermost ring. Everyone here has shown sustained non-harm, so harm cannot complete. Residency is earned continuously, not awarded, and carries the highest upkeep in the civilization.',
       facts: [
         ['Population', 'About 300 million residents; about 1.4 billion eligible across the civilization.'],
         ['Enforcement', 'Pre-intervention. The Threshold Inhibition Protocol halts harmful acts before they complete. Implants are mandatory.'],
@@ -57,14 +57,14 @@
         ['Economy', '$10,000/month UBI plus job subsidy, in the currency shared with Sanctuary.'],
         ['Continuity', 'Revival at full fidelity.']
       ],
-      sti: 'Opens or narrows trust-dependent access, and counts toward Sanctuary once held above 85. Minor infractions stay clearable: the correction window lives here. The score never moves a resident down.',
+      sti: 'Opens or narrows trust-dependent access, and counts toward Sanctuary once held above 85. Minor infractions stay clearable; this ring holds the correction window. The score never moves a resident down.',
       waysIn: ['Born or raised here, or arrived as a new entrant (typically 70 to 84)', 'Phase-back from Sanctuary', 'Children relocating from the lower rings', 'Sanctuary residents living here by election'],
       waysOut: ['Ascension to Sanctuary', 'Reassignment: a qualifying act or an unremediated pattern', 'Visitation, elective or permanent residency below', 'Exit from the civilization (Article X)'],
       cites: [A('I', 'i'), A('VII', 'vii'), A('XV', 'xv'), WP('§4.2')]
     },
     '-1': {
       name: '-1 Noncompliance', short: 'Noncompliance', informal: 'The Balanced Layer', pop: '~600M',
-      summary: 'The lower-harm breach tier: fraud, harassment, compulsive deception, impaired driving. A trust deficit, not a physical threat. Life stays materially full; status and access contract, and a commercial culture fills the space.',
+      summary: 'The lower-harm breach tier: fraud, harassment, compulsive deception, impaired driving. The harm is a trust deficit, not a physical threat. Life stays materially full; status and access contract, and a commercial culture fills the space.',
       facts: [
         ['Population', 'About 600 million: penalized, elective and voluntary permanent residents together.'],
         ['Enforcement', 'Post-intervention with partial institutional presence: logging-only AI, slower drones.'],
@@ -115,7 +115,7 @@
   const MOVES = {
     ascend: {
       name: 'Ascension', from: '0', to: '+1', stops: ['+1'], up: true, slot: -0.7,
-      rule: 'Main to Sanctuary. Earned through sustained compliance and a demonstrated trajectory; an STI of 85 or above is the qualifying condition, typically earned over 8 to 12 years of conduct. Voluntary: many eligible residents stay in Main.',
+      rule: 'Main to Sanctuary. Earned through sustained compliance and a demonstrated trajectory. The qualifying condition is an STI of 85 or above, typically reached over 8 to 12 years of conduct. Voluntary: many eligible residents stay in Main.',
       cites: [A('VII', 'vii'), WP('§4.2, §5.2')]
     },
     phase: {
@@ -135,7 +135,7 @@
     },
     visit: {
       name: 'Visitation', from: '+1', to: '-3', stops: ['0', '-1', '-2', '-3'], both: true, slot: 0.56,
-      rule: 'Downward only, and temporary. Origin status, assets and the origin consequence contract travel with the visitor. Into −3 the backup vessel link is suspended for the visit. No one visits upward.',
+      rule: 'Downward only, and temporary. Origin status, assets and the origin consequence contract travel with the visitor. On a visit into −3, the backup vessel link is suspended. No one visits upward.',
       cites: [A('VII', 'vii'), WP('§19.11'), LAW('LP-004.2', 'lp-004-2')]
     },
     elective: {
@@ -145,7 +145,7 @@
     },
     vpr: {
       name: 'Permanent residency', from: '+1', to: '-3', stops: ['0', '-1', '-2', '-3'], slot: 0.84,
-      rule: 'Voluntary and irreversible. Psychological screening, origin assets liquidated under Article III.V, and the upward path closed for good. Status and territory realign.',
+      rule: 'Voluntary and irreversible. It requires psychological screening, liquidates origin assets under Article III.V, and closes the upward path for good. Status and territory realign.',
       cites: [A('VII', 'vii'), WP('§19.11')]
     }
   };

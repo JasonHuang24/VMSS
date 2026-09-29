@@ -64,7 +64,7 @@
     '0':  { sti: 76, punitive: false, profile: 'New entrant',
             line: 'Arrived in Main Layer. New entrants typically start between 70 and 84.' },
     '+1': { sti: 92, punitive: false, profile: 'Sanctuary resident',
-            line: 'Resident of Sanctuary on a sustained record above the 85 floor.' },
+            line: 'Lives in Sanctuary, held there by a sustained record above the 85 floor.' },
     '-1': { sti: 41, punitive: true, profile: 'Reassigned resident',
             line: 'Reassigned to −1 for fraud at meaningful scale. The placement is permanent.',
             record: { label: 'Fraud at meaningful scale', status: 'record' } },
@@ -72,7 +72,7 @@
             line: 'Reassigned to −2 for predatory violence. The placement is permanent.',
             record: { label: 'Predatory violence', status: 'permanent' } },
     '-3': { sti: 8, punitive: true, profile: 'Terminal resident',
-            line: 'Reassigned to −3 for a killing. No revival and no daily institution; the public ledger travels with every resident.',
+            line: 'Reassigned to −3 for a killing. No revival and no institution in daily life; the public ledger travels with every resident.',
             record: { label: 'Killing', status: 'permanent' } }
   };
 
@@ -277,10 +277,10 @@
     const act = ACTS[key];
     const o = blankOutcome(key);
     o.title = act.name;
-    o.failsafe = 'Nothing to stop: no harm threshold approached.';
+    o.failsafe = 'Nothing to stop: no harm threshold was approached.';
     o.detect = 'The ledger records outwardly expressed conduct; thoughts never enter it.';
     o.classify = 'Positive conduct. The recovery dimension reads it as trajectory.';
-    o.criminal.reason = 'Nothing to evaluate. The criminal record track only receives qualifying acts.';
+    o.criminal.reason = 'Nothing to evaluate. The criminal record track takes only qualifying acts.';
     s.year = round1(s.year + act.years);
 
     o.line = {
@@ -301,7 +301,7 @@
       };
       o.cites.push(C.wp('§5.6'));
       s.recent.push('0');
-      o.announce = 'Peer endorsements. No movement: public signals amplify a trajectory, they never create one.';
+      o.announce = 'Peer endorsements. No movement: public signals amplify a trajectory but never create one.';
       return o;
     }
 
@@ -315,7 +315,7 @@
       placement: s.ring === '-3'
         ? 'Standing inside −3 improves: market associations, cooperatives and compounds read the public ledger. It is not a way out.'
         : s.ring === '-1' || s.ring === '-2'
-        ? 'Local standing improves: districts, cooperatives, private domains. It is not a way back up.'
+        ? 'Local standing improves with districts, cooperatives and private domains. It is not a way back up.'
         : 'None. STI moves trust, not rings.'
     };
     o.cites.push(C.II, C.XV);
@@ -347,7 +347,7 @@
     o.line = `Fines paid and conduct corrected on ${open.length} open item${open.length === 1 ? '' : 's'}.`;
     o.failsafe = 'Nothing to stop.';
     o.detect = 'The ledger records the corrective signal.';
-    o.classify = 'Correction. Clearing the record is the behaviour the system exists to reward, not a loophole.';
+    o.classify = 'Correction. Clearing the record is not a loophole; it is the behaviour the system exists to reward.';
     o.social.state = 'lit';
     o.social.rows = {
       ledger: 'Items leave the active profile; the historical ledger keeps them.',
@@ -379,8 +379,8 @@
     o.social.rows = {
       ledger: 'No entry. Moving is not conduct.',
       score: `Unchanged at ${Math.round(s.sti)}.`,
-      fallout: 'Pre-intervention now applies: harmful acts halt before completion. The implant is mandatory here.',
-      recovery: 'Residency is upkeep, not a prize: it holds only while the condition holds.',
+      fallout: 'Pre-intervention now applies: harmful acts are halted before they complete. The implant is mandatory here.',
+      recovery: 'Residency has to be kept up: it lasts only while the condition holds.',
       placement: `Moved to +1 Sanctuary. Below ${SANCTUARY_FLOOR}, or after a high-impact breach, the citizen phases back.`
     };
     o.criminal.reason = 'Nothing to evaluate.';
@@ -410,7 +410,7 @@
     s.year = round1(s.year + act.years);
 
     o.classify = key === 'breach'
-      ? 'Major non-criminal breach. Serious enough for real consequence, not for enforcement.'
+      ? 'Major non-criminal breach: serious enough for real consequence, not for enforcement.'
       : 'Minor, clearable. Correction happens inside the ring.';
     const r = applyHarm(s, act.points);
     addLedger(s, { label: act.name, kind: key, track: 1, tier: act.tier, status: act.clearable ? 'active' : 'entry', clearable: !!act.clearable, delta: r.delta });
@@ -473,7 +473,7 @@
     s.punitive = true;
     s.credentialed = false;
     addLedger(s, { label: 'Unremediated pattern', track: 2, tier: 'public', status: 'record', delta: null });
-    o.title = `${o.title}: the pattern crosses`;
+    o.title = `${o.title}: the pattern crosses the threshold`;
     o.axes.pattern = 'repeated';
     o.classify = 'Unremediable pattern: accumulation continued after a documented correction opportunity.';
     o.criminal.state = 'lit';
@@ -528,7 +528,7 @@
 
     // −3: the institution has withdrawn from daily conduct; the ledger has not.
     if (s.ring === '-3') {
-      o.classify = 'Unclassified institutionally. The federal floor acts only on absolute federal law or the External Force Doctrine.';
+      o.classify = 'No institution classifies it. The federal floor acts only on absolute federal law or the External Force Doctrine.';
       o.social.state = 'side';
       o.social.rows = {
         ledger: 'Public ledger entry: −3\'s associations, cooperatives and crews read it.',
@@ -538,7 +538,7 @@
         placement: 'None. There is no ring below −3.'
       };
       o.criminal.state = 'side';
-      o.criminal.reason = 'No daily institutional response. Private order answers, however the layer\'s organic order decides.';
+      o.criminal.reason = 'No daily institutional response. Private order answers, in whatever way the layer\'s organic order decides.';
       o.criminal.rows = {
         threshold: 'Below the federal floor triggers.',
         enforcement: 'None from the institution.',
@@ -558,7 +558,7 @@
       dest = act.dest;
       destWhy = act.named
         ? 'Article I names this act a single qualifying event for −1: the threshold is categorical, not a count.'
-        : axisCount >= 3 ? 'Three axes: a qualifying event.'
+        : axisCount >= 3 ? 'All three axes met: a qualifying event.'
         : 'Severe and irreversible: formal multi-factor evaluation, and the act\'s class sets the destination.';
     } else if (s.ring === '-1') {
       /* −1 dossier: a bar fight reads one axis (corrective, STI hit); violence
@@ -577,7 +577,7 @@
     o.social.rows = {
       ledger: 'Public entry: the violations dimension registers the hard flag.',
       score: `${signed(r.delta)} (${Math.round(r.before)} → ${Math.round(s.sti)})`,
-      fallout: 'Recorded on both tracks. The score falls, but it did not decide anything.',
+      fallout: 'Recorded on both tracks. The score falls, but it decided nothing.',
       recovery: s.ring === '0' || s.ring === '+1' ? 'Whatever the score does next, it cannot undo a reassignment.' : rebuildLine(Math.abs(r.delta)),
       placement: 'None. STI has no crossover to reassignment.'
     };
@@ -593,7 +593,7 @@
         enforcement: act.violent
           ? (halted ? 'Subdued on the spot by inhibition and drones.' : 'Enforcement drones respond; sedation and restraint if needed; drone transport.')
           : 'Identified from implant telemetry and transported to intake.',
-        review: 'Evidence, telemetry, context and severity reviewed. Minutes to hours; no plea, no bail.',
+        review: 'Evidence, telemetry, context and severity are reviewed in minutes to hours. No plea, no bail.',
         placement: `Reassigned to ${ringName(dest)}. Immediate and permanent.`
       };
       if (key === 'killing' || key === 'predatory' || key === 'assault') {
@@ -631,7 +631,7 @@
         o.criminal.reason = 'Logged on the record track. A first fight in −1 draws corrective intervention and an STI hit; repeated violence builds the pattern that moves a resident to −2.';
       } else {
         o.classify = 'Already at this act\'s tier.';
-        o.criminal.reason = 'Logged on the record track. Canon names no further ring step for this act inside −1, so placement holds; −1\'s private courts act within Article XIV proportionality.';
+        o.criminal.reason = 'Logged on the record track. The law names no further ring step for this act inside −1, so placement holds; −1\'s private courts act within Article XIV proportionality.';
       }
       o.criminal.rows = { placement: 'Unchanged.' };
       o.cites.push(C.dossier('−1'));
@@ -669,7 +669,7 @@
     { k: 'ascent',   can: true,  on: (s) => s.ring === '0' && !s.punitive,
       text: `Opens Sanctuary eligibility at ${SANCTUARY_FLOOR} or above, including after a phase-back. The move is the citizen's choice.`, cite: [C.VII, C.wp('§5.2')] },
     { k: 'phase',    can: true,  on: (s) => s.ring === '+1',
-      text: `Returns a Sanctuary resident to Main below ${SANCTUARY_FLOOR}. A condition lapsing, not a punishment: its only placement effect.`, cite: [C.VII, C.XII, C.XIII] },
+      text: `Returns a Sanctuary resident to Main below ${SANCTUARY_FLOOR}. This is a condition lapsing, not a punishment, and the score's only placement effect.`, cite: [C.VII, C.XII, C.XIII] },
     { k: 'flag',     can: true,  on: (s) => s.sti < VISIBILITY_FLAG,
       text: `Below ${VISIBILITY_FLAG}, raises automatic social visibility flags.`, cite: [C.wp('§5.2')] },
     { k: 'input',    can: true,  on: (s) => s.ring !== '-3',
@@ -681,7 +681,7 @@
     { k: 'thought',  can: false, on: () => true,
       text: 'Read thought. Only outwardly expressed actions move it; cognition is non-public.', cite: [C.II] },
     { k: 'crowd',    can: false, on: () => true,
-      text: 'Move against conduct. Public approval and disapproval amplify a trajectory; they never create one.', cite: [C.wp('§5.6')] },
+      text: 'Move against the conduct record. Public approval and disapproval amplify a trajectory; they never create one.', cite: [C.wp('§5.6')] },
     { k: 'terminal', can: false, on: (s) => s.ring === '-3',
       text: 'Summon an institution in −3. The score and ledger travel with the resident; daily conduct meets private order.', cite: [C.VI, C.dossier('−3')] }
   ];

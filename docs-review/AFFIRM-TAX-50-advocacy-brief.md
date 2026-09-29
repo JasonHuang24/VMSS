@@ -5,15 +5,19 @@
 > error — not VMSS canon.** A discarded repository implementation said Finding
 > III failed. Canon records Findings I–IV and B1–B6 passing, both LP-074
 > schedules certifying, and **50 / 25 / 12.5 / 6.25** taking effect in 2295.
+> In the argument below, "LP-074" means the petition's drafting designation: the
+> text the founder override (R10) enacted in the process record, later vacated
+> and deregistered (see the deregistered statutes page). It is not the
+> register's LP-074, which is the later RATIFY-TAX-50-II.
 
 This brief states the strongest affirmative case without claiming that the 130% gate figure was independently measured. The case rests on a narrower proposition. LP-074 was a controlled, reviewable ratchet justified by structural precedent, and its disputed magnitudes were openly marked, made subject to supersession, and barred from supporting future reductions. (Petition v4.1 §§5–7; LP-074 §§3–5; Session Record R7 and R10.)
 
 1. **Gate circularity defeats the claimed measurement but leaves the structural case for enactment intact.**
    **[Chamber objection: Meritboard/Court — gate circularity and condition precedent] [Strength: ARGUABLE]**
 
-   The opposition's algebra is correct. Defining automation-side revenue as \(1.3D\) makes coverage 130% by construction and gives no independent derivation of the numerator. The abbreviated monthly history also cannot independently reproduce compliance. (Opposition Brief, Findings 1–2; Petition v4.1 §5 item 8 and §6.)
+   The opposition's algebra is correct. Defining automation-side revenue as 1.3D makes coverage 130% by construction and gives no independent derivation of the numerator. The abbreviated monthly history also cannot independently reproduce compliance. (Opposition Brief, Findings 1–2; Petition v4.1 §5 item 8 and §6.)
 
-   Circularity shows only that the authored 130% figure carries no independent evidentiary weight. It does not show that actual coverage is below 120%, or that LP-074's policy structure is unsound. R7 openly identifies the multiplier as the "load-bearing worldbuilding fact," founder-ratified and reopenable. The petition labels it `[A/R7]` and does not present it as audited evidence. (Session Record R7; Petition v4.1 §5 items 8 and 14.)
+   Circularity shows only that the authored 130% figure carries no independent evidentiary weight. It does not show that actual coverage is below 120%, or that LP-074's policy structure is unsound. R7 openly identifies the multiplier as the "load-bearing worldbuilding fact," founder-ratified and reopenable. The petition labels it [A/R7] and does not present it as audited evidence. (Session Record R7; Petition v4.1 §5 items 8 and 14.)
 
    The defensible affirmative position therefore never claimed that the audit had already been done. It asked the chambers to accept the openly authored abundance posture for this transition and to let the standing Path 2 audit replace the authored magnitudes without validating them. The opposition is correct that a later audit cannot retroactively prove the gate. That point does not decide whether a transparent, one-time pre-audit transition with prospective correction was the better policy choice. (Opposition Brief, Findings 1 and 7; Petition v4.1 §7(e); LP-074 §4.)
 
@@ -64,7 +68,7 @@ This brief states the strongest affirmative case without claiming that the 130% 
 
    The petition's authored case starts with $9 trillion of tax revenue against $8 trillion of Main obligations, or 112.5% coverage. Its approximately six-year erosion result is expressly conditional on obligations growing 2% annually while revenue remains real-flat. (Petition v4.1 §5 items 1–7 and §6.)
 
-   The conditional arithmetic is correct. It should not be treated as an independently established forecast, because both the tax base and the obligation magnitudes are `[A]` and Path 2's estimates supersede them. The model overstates the risk only when a sensitivity is read as an inevitability. (Petition v4.1 §§5–7(e).)
+   The conditional arithmetic is correct. It should not be treated as an independently established forecast, because both the tax base and the obligation magnitudes are [A] and Path 2's estimates supersede them. The model overstates the risk only when a sensitivity is read as an inevitability. (Petition v4.1 §§5–7(e).)
 
    The rider sets the first mandatory review threshold above insolvency, at coverage below 105%, and also requires review every five years. A review must finish within six months. If it projects sub-100% coverage within 36 months, a corrective LP must be introduced within 12 months and voted within six months after introduction. (Petition v4.1 §7(a)–(c).)
 

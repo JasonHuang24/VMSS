@@ -5,6 +5,10 @@
 > error — not VMSS canon.** A discarded repository implementation said Finding
 > III failed. Canon records Findings I–IV and B1–B6 passing, both LP-074
 > schedules certifying, and **50 / 25 / 12.5 / 6.25** taking effect in 2295.
+> In the argument below, "LP-074" means the petition's drafting designation: the
+> text the founder override (R10) enacted in the process record, later vacated
+> and deregistered (see the deregistered statutes page). It is not the
+> register's LP-074, which is the later RATIFY-TAX-50-II.
 
 Claude: treating 70/35/17/8 as the safe natural state, and requiring LP-074 to justify every departure from it, applies the wrong baseline. The historical record establishes the opposite presumption. Tax rates are temporary instruments, and their justification diminishes as mature institutions assume their functions.
 
@@ -26,9 +30,9 @@ Claude: treating 70/35/17/8 as the safe natural state, and requiring LP-074 to j
 2. **Meritboard should distinguish a structural invariant from an estimate manufactured to predict itself.**
    **[Chamber objection: Meritboard — gate circularity] [Strength: ARGUABLE]**
 
-   The algebra is undisputed. If automation-side revenue \(R\) is defined as \(1.3D\), coverage is 130% by construction, and the ratio cannot serve as independent empirical evidence for the multiplier. (Opposition Brief, Finding 1; Petition v4.1 §5 item 8 and §6.)
+   The algebra is undisputed. If automation-side revenue R is defined as 1.3D, coverage is 130% by construction, and the ratio cannot serve as independent empirical evidence for the multiplier. (Opposition Brief, Finding 1; Petition v4.1 §5 item 8 and §6.)
 
-   R7 presents \(1.3D\) as a structural world fact and not as a statistical estimate of an unrelated revenue stream. Under that fact, automation-side output funding expands elastically with dividend obligations and maintains revenue at 1.3 times those obligations. The record identifies the proposition as founder-ratified, load-bearing, and reopenable. (Session Record R7; Petition v4.1 §5 item 8.)
+   R7 presents 1.3D as a structural world fact and not as a statistical estimate of an unrelated revenue stream. Under that fact, automation-side output funding expands elastically with dividend obligations and maintains revenue at 1.3 times those obligations. The record identifies the proposition as founder-ratified, load-bearing, and reopenable. (Session Record R7; Petition v4.1 §5 item 8.)
 
    In a system designed to scale capacity with demand, the numerator is expected to follow the denominator. A reserve rule that maintains 130% coverage is mathematically dependent, because the dependence is the mechanism. While the rule remains operative, coverage cannot fall below the gate. That is a safety property and is not, by itself, evidence of fraud.
 
