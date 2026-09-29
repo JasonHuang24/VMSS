@@ -16,13 +16,13 @@ Every datum admitted to the run is deposited and published. The public record co
 | `path-2-effective-notice-2295.json` | `eb727680b076157f8b97e362bd500dba5d53a68e2cdf6bfcbd54d5e80b779c79` |
 | `path-2-charter-restatement-2292-data.json` | `9cebb385e4bebcc671f036e912131d8f5afae61b926c5b04e0481b5772c383de` |
 | `path-2-lower-incidence-certificate-2294-data.json` | `bb8d14e7e489ce1da66f381604281df47636a446a79dbf3b9a3506c95c02df12` |
-| `path-2-section-11-compendium-2294-annex.json` | `b721711074ff4f89ba9267d219d29855bc0d8b889914ef2383d4aec6c5d0e465` |
-| `path-2-registrar-execution-2294-data.json` | `4569db5cf9f34ef877f0903ba97d19110e9220026d520ef7c4cf714dc7dd0ec3` |
+| `path-2-section-11-compendium-2294-annex.json` | `20b25cfb6f30bbd040d0c714dad4a8167790ade6a3014d517aab0454c63d2a1c` |
+| `path-2-registrar-execution-2294-data.json` | `95b9a12f7824bbd86f150ff4572f712e8b01bbf28a60896fff73b083839a9fb0` |
 | `lp-075-section-13-review-set-data.json` | `7238210a634a62e89bb3d4705416dbff0850fe57367c5974f50bbf987788f695` |
 | `verify-path2-certification-2294.mjs` | `e82e0a2a090ece303ab76732355e5f18c629457b901648e40768e41730b6459a` |
 | `verify-path2-record-annexes.mjs` | `4987fd98b2068bd5bc253280da66d4e8287d3bb1606a8c862c57946de510fd0d` |
 | `build-path2-record-annexes.mjs` | `72665c10d124efe159f4589224cf7afd661ad1a3e94ad2189040e41296d5243f` |
-| `build-path2-certification-page.mjs` | `eecb3345840b324b214aae8c37ef1a5162b28d9b2d3cc1ba680d16c64bcf1fb1` |
+| `build-path2-certification-page.mjs` | `dc2510dad05f2fbd4d4095bd853359fb56f547100e853811d8d03b9e52e72e49` |
 
 ## II. Complete §4 union
 
