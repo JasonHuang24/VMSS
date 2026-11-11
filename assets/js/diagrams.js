@@ -57,7 +57,7 @@
         ['Economy', '$10,000/month UBI plus job subsidy, in the currency shared with Sanctuary.'],
         ['Continuity', 'Revival at full fidelity.']
       ],
-      sti: 'Opens or narrows trust-dependent access, and counts toward Sanctuary once held above 85. Minor infractions stay clearable; this ring holds the correction window. The score never moves a resident down.',
+      sti: 'Opens or narrows trust-dependent access, and counts toward Sanctuary once held above 85. Minor infractions stay clearable; this ring holds the correction window. The score cannot by itself move a resident down.',
       waysIn: ['Born or raised here, or arrived as a new entrant (typically 70 to 84)', 'Phase-back from Sanctuary', 'Children relocating from the lower rings', 'Sanctuary residents living here by election'],
       waysOut: ['Ascension to Sanctuary', 'Reassignment: a qualifying act or an unremediated pattern', 'Visitation, elective or permanent residency below', 'Exit from the civilization (Article X)'],
       cites: [A('I', 'i'), A('VII', 'vii'), A('XV', 'xv'), WP('§4.2')]

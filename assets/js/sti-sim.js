@@ -11,7 +11,8 @@
  *     Whitepaper §6.5).
  *   Criminal escalation path — track 2, the criminal record log. Qualifying
  *     acts go to enforcement and review, and reassignment follows the act's
- *     classification, never the score (Charter I, II, XII–XV; Whitepaper §5.4).
+ *     classification; the score cannot by itself trigger it (Charter I, II,
+ *     XII–XV; Whitepaper §5.4).
  *
  * The real STI formula is proprietary, classified and dynamic (Charter II).
  * The numbers here are illustrative; the model reproduces the formula's
@@ -577,9 +578,9 @@
     o.social.rows = {
       ledger: 'Public entry: the violations dimension registers the hard flag.',
       score: `${signed(r.delta)} (${Math.round(r.before)} → ${Math.round(s.sti)})`,
-      fallout: 'Recorded on both tracks. The score falls, but it decided nothing.',
+      fallout: 'Recorded on both tracks. The score falls; it is one weighted input to the evaluation, not the decision.',
       recovery: s.ring === '0' || s.ring === '+1' ? 'Whatever the score does next, it cannot undo a reassignment.' : rebuildLine(Math.abs(r.delta)),
-      placement: 'None. STI has no crossover to reassignment.'
+      placement: 'None. STI cannot by itself trigger reassignment.'
     };
     o.cites.push(C.II);
 
@@ -614,7 +615,7 @@
       if (act.named && from === '0') o.cites.push(C.threshold);
       if (from === '-1') o.cites.push(C.dossier('−1'));
       if (from === '-2') o.cites.push(C.dossier('−2'));
-      o.announce = `${act.name}. Criminal path. Reassigned to ${ringName(dest)}. STI did not decide it.`;
+      o.announce = `${act.name}. Criminal path. Reassigned to ${ringName(dest)}. STI cannot by itself decide reassignment.`;
     } else if (s.ring === '-2') {
       o.classify = 'Below the killing line.';
       o.criminal.state = 'side';

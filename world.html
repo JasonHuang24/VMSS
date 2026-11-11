@@ -481,7 +481,7 @@
         <p>No state actor has contested VMSS militarily since the consolidation era. Rival superpowers possess the capability to threaten the civilization, but the cost of engagement is mutually catastrophic. The result is strategic equilibrium, a balance where diplomacy is cheaper than war for all parties.</p>
 
         <h3>The Geopolitical Landscape at Founding</h3>
-        <p>The Founding Treaty was signed on March 29, 2026, into a world that was not waiting for it. The United States and China were locked in a technology and trade competition that defined the global order. Russia was engaged in active territorial conflict in Eastern Europe. India was ascending as the world's most populous democracy. The European Union was fracturing along nationalist lines. The Middle East remained unstable. Africa's population was surging past 1.4 billion with some of the youngest demographics on the planet.</p>
+        <p>The Founding Treaty was signed in Ottawa on March 29, 2026, into a world that was not waiting for it. The United States and China were locked in a technology and trade competition that defined the global order. Russia was engaged in active territorial conflict in Eastern Europe. India was ascending as the world's most populous democracy. The European Union was fracturing along nationalist lines. The Middle East remained unstable. Africa's population was surging past 1.4 billion with some of the youngest demographics on the planet.</p>
         <p>Each power bloc responded to VMSS differently. The United States viewed it as a sovereignty challenge: a new civilizational actor claiming territory and citizens outside the existing international order. China saw a competitor for technological supremacy, particularly in AI and biological augmentation. Russia treated it as an ideological threat to state authority. India's response was divided: enormous public interest from a population familiar with hierarchical social structures, matched by governmental suspicion of a system that bypassed democratic elections. European nations were individually ambivalent, culturally sympathetic to the human rights framing, institutionally hostile to the governance model. African and Southeast Asian nations provided the largest raw applicant pools per capita, driven by populations with the least to lose and the most to gain from voluntary relocation to a post-scarcity civilization.</p>
         <p>The founding landed in active geopolitical competition, and every major power responded according to what it stood to lose rather than what the new civilization offered. That pattern runs through VMSS's diplomatic history: the civilization is judged by threat rather than merit until the merit becomes impossible to deny.</p>
 
@@ -901,7 +901,7 @@
       <article class="page" data-page="11">
         <h2>11. Entertainment & Sensory Culture</h2>
         <picture><source type="image/webp" srcset="images/webp/world-entertainment-640.webp 640w, images/webp/world-entertainment-1280.webp 1280w, images/webp/world-entertainment-1536.webp 1536w" sizes="(max-width: 1023px) 100vw, 906px"><img src="images/world-entertainment.png" width="1536" height="1024" alt="VMSS entertainment and sensory culture — ImmersionTube, neural diving sports, sensory art" class="w-full rounded-2xl border border-[var(--border)] my-5" loading="lazy" decoding="async"></picture>
-        <p>Elsewhere on this site, neural diving, biological augmentation, backup vessels, fabrication, and AGI are framed as governance infrastructure. They are also the foundation of an entertainment and cultural landscape that no Earth civilization can produce. This section describes what VMSS citizens actually do with their time.</p>
+        <p>Elsewhere on this site, neural diving, biological augmentation, backup vessels, fabrication, and AGI are framed as governance infrastructure. They are also the foundation of an entertainment and cultural landscape that no Earth civilization can produce.</p>
 
         <h3>Gaming</h3>
         <p>UBI eliminates the "you need a real job" stigma, and the Primary Job Subsidy means 20-hour work weeks. Competitive and recreational gaming is a mainstream lifestyle with institutional legitimacy and civilizational-scale audiences, not a niche subculture. Denmark's thriving esports scene, produced by shorter work weeks and extra vacation time alone, is a proof of concept at a fraction of VMSS's scale. In VMSS, gaming communities operate with full economic viability, professional infrastructure, and cultural visibility comparable to any traditional sport. Neural diving spectator integration (below) takes viewing beyond anything Earth broadcasting can offer.</p>
@@ -945,8 +945,6 @@
       <article class="page" data-page="12">
         <h2>12. Daily Life & Social Architecture</h2>
         <picture><source type="image/webp" srcset="images/webp/world-daily-life-640.webp 640w, images/webp/world-daily-life-1280.webp 1280w, images/webp/world-daily-life-1536.webp 1536w" sizes="(max-width: 1023px) 100vw, 906px"><img src="images/world-daily-life.png" width="1536" height="1024" alt="VMSS daily life — AGI assistants, food synthesis, historical communities, space colonization" class="w-full rounded-2xl border border-[var(--border)] my-5" loading="lazy" decoding="async"></picture>
-        <p>The governance pages describe how VMSS controls behavior. This page describes what society looks like beyond governance: the social structures, lifestyle choices, and frontier expansion that emerge organically from VMSS infrastructure.</p>
-
         <h3>AGI Assistants</h3>
         <p>VMSS grants AGI full personhood, with STI scores, layer assignment, rights, and consequences identical to any human citizen. As a result, every citizen has on-demand access to a person-equivalent general intelligence, well beyond a chatbot or large language model, that can handle any cognitive task you would delegate to a human assistant: research, analysis, creative collaboration, administrative management, legal navigation, financial planning. The cognitive floor of every citizen rises to "AGI-augmented." A Main Layer resident with a median education and an AGI assistant operates at a cognitive throughput no Earth individual can match, whatever their credentials, which fundamentally changes the meaning of productivity, creativity, and intellectual life.</p>
 
@@ -1277,14 +1275,18 @@
     const totalPages = pages.length;
     const pagination = document.getElementById('pagination');
     const pageIndicator = document.getElementById('pageIndicator');
-    let currentPage = 1;
+    /* Reading order is the contents list's order (sections grouped by theme),
+       so Previous/Next and the number buttons step through the sections in the
+       order the contents list shows them. Section numbers stay as printed. */
+    const order = Array.from(document.querySelectorAll('.toc-link[data-toc-page]')).map((l) => Number(l.dataset.tocPage));
+    let currentPage = order[0];
 
     function showPage(page) {
       currentPage = Math.max(1, Math.min(totalPages, page));
       pages.forEach((el, idx) => {
         el.classList.toggle('active', idx + 1 === currentPage);
       });
-      pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+      pageIndicator.textContent = `Section ${currentPage} · ${order.indexOf(currentPage) + 1} of ${totalPages}`;
       renderPagination();
       const activePage = pages[currentPage - 1];
       if (activePage) activePage.scrollTop = 0;
@@ -1301,29 +1303,32 @@
 
     function renderPagination() {
       pagination.innerHTML = '';
+      const pos = order.indexOf(currentPage);
+      const last = order.length - 1;
       pagination.appendChild(
-        createButton('Previous', 'nav', () => showPage(currentPage - 1), currentPage === 1)
+        createButton('Previous', 'nav', () => showPage(order[pos - 1]), pos === 0)
       );
-      let start = Math.max(1, currentPage - 2);
-      let end = Math.min(totalPages, currentPage + 2);
+      let start = Math.max(0, pos - 2);
+      let end = Math.min(last, pos + 2);
       if (end - start < 4) {
-        if (start === 1) {
-          end = Math.min(totalPages, start + 4);
-        } else if (end === totalPages) {
-          start = Math.max(1, end - 4);
+        if (start === 0) {
+          end = Math.min(last, start + 4);
+        } else if (end === last) {
+          start = Math.max(0, end - 4);
         }
       }
       for (let i = start; i <= end; i++) {
+        const n = order[i];
         pagination.appendChild(
-          createButton(String(i), 'num', () => showPage(i), false, i === currentPage)
+          createButton(String(n), 'num', () => showPage(n), false, n === currentPage)
         );
       }
       pagination.appendChild(
-        createButton('Next', 'nav', () => showPage(currentPage + 1), currentPage === totalPages)
+        createButton('Next', 'nav', () => showPage(order[pos + 1]), pos === last)
       );
     }
 
-    showPage(1);
+    showPage(order[0]);
 
     const hashTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
     if (hashTarget) {

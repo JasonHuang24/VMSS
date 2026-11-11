@@ -318,6 +318,19 @@ const banner = () => `
           </div>
         </div>`;
 
+/* Sub-page banner (v25.8.7). The five retained documents carry one short
+   notice: what the page is, the in-world outcome, and a link to the hub. The
+   full Process-tier declaration and rulings R22/R23 live on the hub only, so a
+   reader meets the document after one notice rather than four. */
+const subBanner = () => `
+        <div class="pending-banner mb-10" role="note" aria-label="Record tier">
+          <i class="fas fa-box-archive" aria-hidden="true"></i>
+          <div>
+            <span class="pb-label">Process Record — not world canon</span>
+            <p>This document is retained in the <a href="pending-ratification.html">Ratification Record</a>, which explains the archive and its rulings. In world, RATIFY-TAX-50 failed, 1–4 at gauntlet and 3–2 on advocacy review, and nothing on this page is in force. The separate <a href="law-polling.html#lp-074">LP-074</a> successor certified in 2294, and <strong>50 / 25 / 12.5 / 6.25</strong> took effect in 2295.</p>
+          </div>
+        </div>`;
+
 /* Statute typography, carried over from the law register unchanged (R16). The
    text moved; how it reads should not have. Scoped under .law-statute, so it
    touches only the one page that renders the instrument. */
@@ -476,12 +489,36 @@ const SRC = {
   supp: 'docs-review/AFFIRM-TAX-50-supplemental-brief.md',
   record: 'docs-review/RATIFY-TAX-50-session-record.md',
 };
+/* Publication edit (v25.8.7). The docs-review sources are immutable drafts.
+   One line of working-room status ("Status: docs-review only.") is dropped
+   from the published ballot. Reviewer-seat names, commit hashes and other
+   authorship history stay: these pages are the Process-tier record, the
+   proper home for that history under the layer rule. The pattern must match
+   exactly once, so a source change fails the build instead of silently
+   leaving residue; the verbatim check then runs against the edited text.
+   Patterns match across the sources' hard line wraps. */
+const ws = (phrase) => new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+'), 'g');
+const PUBLISH_EDITS = {
+  ballot: [
+    ['Status: docs-review only. The petition runs', 'The petition runs', 1],
+  ],
+};
+const publish = (key, text) => {
+  let out = text;
+  for (const [find, repl, n] of PUBLISH_EDITS[key] || []) {
+    const re = ws(find);
+    const hits = (out.match(re) || []).length;
+    if (hits !== n) throw new Error(`publish edit (${key}): expected ${n} match(es) of ${JSON.stringify(find)}, found ${hits}`);
+    out = out.replace(re, repl);
+  }
+  return out;
+};
 const md = {
-  ballot: read(SRC.ballot),
-  opp: read(SRC.opp),
-  adv: read(SRC.adv),
-  supp: read(SRC.supp),
-  record: read(SRC.record),
+  ballot: publish('ballot', read(SRC.ballot)),
+  opp: publish('opp', read(SRC.opp)),
+  adv: publish('adv', read(SRC.adv)),
+  supp: publish('supp', read(SRC.supp)),
+  record: publish('record', read(SRC.record)),
 };
 
 /* The successor statute is the section's one HTML-sourced page, and the reason
@@ -532,7 +569,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.ballot),
   verbatim: { md: md.ballot },
-  framing: true,
+  statusBanner: subBanner(),
 }));
 
 /* Opposition brief — the case that held two chambers at both adjudications. */
@@ -551,7 +588,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.opp),
   verbatim: { md: md.opp },
-  framing: true,
+  statusBanner: subBanner(),
 }));
 
 /* Advocacy brief — the affirmative review that re-ran the vote at 3–2. */
@@ -570,7 +607,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.adv),
   verbatim: { md: md.adv },
-  framing: true,
+  statusBanner: subBanner(),
 }));
 
 /* Supplemental steelman — registered after adjudication; did not reopen it. */
@@ -589,7 +626,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.supp),
   verbatim: { md: md.supp },
-  framing: true,
+  statusBanner: subBanner(),
 }));
 
 /* Session record — provenance. */
@@ -609,7 +646,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.record),
   verbatim: { md: md.record },
-  framing: true,
+  statusBanner: subBanner(),
 }));
 
 /* The successor statute, in full (R16). The register entry carries the law's

@@ -119,10 +119,6 @@ export function buildCertificationHtml(data, notice) {
     <div class="cert-banner mt-10" role="status" aria-label="Certification disposition"><p><strong>SCHEDULES A AND B CERTIFIED.</strong> The ${auditYear} Path 2 audit passed Findings I–IV across exactly ${C.annualObservations} keyed annual observations, Schedule A conditions A1–A8, and Schedule B conditions B1–B6. The effective notice was valid. The complete <strong>${activeSchedule}</strong> exact halving cascade entered force in ${effectiveYear}. LP-073 is preserved historically at ${historicalSchedule} and is superseded as operative rate law. LP-075 remains procedural only. The ${esc(C.unchangedCanon.threshold)} threshold and SCM remain unchanged.</p></div>
     <div class="cert-links">
       <a href="documents/path-2-certification-2294-authority.md"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Authority map</a>
-      <a href="${DATA_FILE}"><i class="fas fa-database" aria-hidden="true"></i> Controlling dataset</a>
-      <a href="${NOTICE_FILE}"><i class="fas fa-bell" aria-hidden="true"></i> Effective notice</a>
-      <a href="tools/verify-path2-certification-2294.mjs"><i class="fas fa-code" aria-hidden="true"></i> Verifier</a>
-      <a href="tools/test-path2-certification-mutations.mjs"><i class="fas fa-vial" aria-hidden="true"></i> Mutation tests</a>
       <a href="documents/path-2-section-11-compendium-2294.md"><i class="fas fa-box-archive" aria-hidden="true"></i> Complete §11.1 compendium</a>
       <a href="documents/path-2-registrar-execution-record-2294.md"><i class="fas fa-stamp" aria-hidden="true"></i> Registrar execution</a>
       <a href="documents/path-2-lower-incidence-certificate-2294.md"><i class="fas fa-layer-group" aria-hidden="true"></i> Lower certificate</a>
