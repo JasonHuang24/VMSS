@@ -653,7 +653,7 @@ baseline mean and Flow Test holds every year (III) · net marginal
 value > 0 and attributable concentration events = 0 (IV) · baselines = ten
 years ending at cutoff · intervals one-sided 95%, simultaneous over
 horizon, worst-year operative · precision ceiling = |threshold −
-baseline mean| · window = max(20y, 2 cycles) ending at cutoff · cutoff =
+baseline mean| (Finding II: sample SD of the ten enacted-70 baseline dividend observations, 2291) · window = max(20y, 2 cycles) ending at cutoff · cutoff =
 lock − max reporting lag · vintage = lock date · validation floor = beat
 persistence benchmark out-of-sample · acceptance ≤ 90 days else deemed ·
 publication ≤ 2 years from lock (breach = escrow publication) ·

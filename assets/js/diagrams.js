@@ -64,7 +64,7 @@
     },
     '-1': {
       name: '-1 Noncompliance', short: 'Noncompliance', informal: 'The Balanced Layer', pop: '~600M',
-      summary: 'The lower-harm breach tier: fraud, harassment, compulsive deception, impaired driving. The harm is a trust deficit, not a physical threat. Life stays materially full; status and access contract, and a commercial culture fills the space.',
+      summary: 'The lower-harm breach tier: fraud, harassment, compulsive deception, impaired driving. The harm is a trust deficit, not a predatory threat. Life stays materially full; status and access contract, and a commercial culture fills the space.',
       facts: [
         ['Population', 'About 600 million: penalized, elective and voluntary permanent residents together.'],
         ['Enforcement', 'Post-intervention with partial institutional presence: logging-only AI, slower drones.'],

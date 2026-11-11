@@ -104,9 +104,9 @@ by design.
 
 | # | Sev | Status | v4 disposition |
 |---:|---|---|---|
-| O-1 | 1 | CURED | §4.4 is rebuilt. Panels hold mandates and are not interested parties. Addition is a duty: the strongest surviving candidate per Finding, or a signed statement that none exists. Performance is scored on the Meritboard, so merit stakes replace the financial stakes the quarantine bars. §1.4 carve-out: the mandate is not an "advocacy role." Residue → RR-7: merit incentives against true partisan motive. |
+| O-1 | 1 | MITIGATED | §4.4 is rebuilt. Panels hold mandates and are not interested parties. Addition is a duty: the strongest surviving candidate per Finding, or a signed statement that none exists. Performance is scored on the Meritboard, so merit stakes replace the financial stakes the quarantine bars. §1.4 carve-out: the mandate is not an "advocacy role." Residue → RR-7: merit incentives against true partisan motive. |
 | O-2 | 1 | CURED | §1.6 binds votes symmetrically: a vote failing a passing Finding is void exactly as a vote certifying a failing one. §11.4 verifies that disposition matches comparison for every instrument, certifying or failing. |
-| O-3 | 1 | CURED | §9.5 is inverted. Recomputable deviations no longer void, and the run publishes on the recomputed result, so deviation gives no exit. Only recomputation-defeating deviations void, non-consuming with replacement (§12.4(b)(iv)), and the attributed entity is removed, sanctioned and excluded. Residue → RR-6. |
+| O-3 | 1 | MITIGATED | §9.5 is inverted. Recomputable deviations no longer void, and the run publishes on the recomputed result, so deviation gives no exit. Only recomputation-defeating deviations void, non-consuming with replacement (§12.4(b)(iv)), and the attributed entity is removed, sanctioned and excluded. Residue → RR-6. |
 | O-4 | 1 | CURED | Dead states are closed on all three routes. (a) §2.1: a deputy Registrar and a ninety-day fill, with clocks tolled while vacant. (b) The §9.2 executability check at acceptance and §11.4 execution over class representatives bound the burden at lock. (c) §11.4 makes a missing §2.5 deposit a recomputation-defeating deviation attributed to Commission conduct, resolved through §12.4(b)(iv). |
 | O-5 | 2 | CURED | §9.2: the clerk's co-signature is ministerial and deemed given after ten days. Registrar publication alone completes lock. |
 | O-6 | 2 | CURED | §13.1: reviewer selection is mechanical, taking the top-ranked eligible entity on the audit-methodology ranking, quarantined from sponsors. No party picks its own reviewer. |
@@ -150,7 +150,7 @@ prospectively constrained.
 
 | # | Sev | Status | Schedule v2 disposition |
 |---:|---|---|---|
-| S-1 | 1 | CURED | A.1.1 makes the contrast executable: treatment is traced through the standing SCM property-attribution ledger, and the counterfactual is the public allocation function from that ledger's trailing decade. Untraceable flows generate zero margin, always in the activation-unfavorable direction. Residue → RR-9: ledger coverage. |
+| S-1 | 1 | MITIGATED | A.1.1 makes the contrast executable: treatment is traced through the standing SCM property-attribution ledger, and the counterfactual is the public allocation function from that ledger's trailing decade. Untraceable flows generate zero margin, always in the activation-unfavorable direction. Residue → RR-9: ledger coverage. |
 | S-2 | 1 | CURED | A.2 fixes the conventions in text: Marshallian surplus, willingness-to-pay, uncompensated demand, registry market boundaries, the canonical new-goods reservation-price method, taxes and transfers excluded, a single deflator. |
 | S-3 | 1 | CURED | A.1.5 nets external costs per the canonical damage schedules. Unscheduled demonstrated costs enter through challenge-side damage models under §4.4, with §4.5 pricing the ambiguity against activation. No cost is zeroed for lack of a schedule. |
 | S-4 | 1 | CURED | A.1.6 accounting identity: each venture appears once and each cost is netted once, verified arithmetically in the §11.4 execution. |
