@@ -96,7 +96,7 @@ const PROBES = [
       { file: 'simulations.html', find: 'Doctrine Snapshot:', replace: 'Doctrine Snapshot: Doctrine Snapshot:' }] },
   { family: 'archive: advertised totals', expect: 'archive intro count',
     label: 'the intro prose advertises a stale simulation total',
-    edits: [{ file: 'simulations.html', find: 'All 94 simulations', replace: 'All 93 simulations' }] },
+    edits: [{ file: 'simulations.html', find: 'All 93 simulations', replace: 'All 92 simulations' }] },
 
   /* ---- 2. Redirect stubs + sitemap ---- */
   { family: 'redirect stubs: noindex', expect: 'simulations-world.html: noindex',
@@ -115,7 +115,7 @@ const PROBES = [
   /* ---- 3. Academy / Resources ---- */
   { family: 'academy: stamped count', expect: 'academy-source stamped count',
     label: 'the academy source advertises a stale stamped total',
-    edits: [{ file: 'documents/academy-source.html', find: '94 stamped simulations', replace: '93 stamped simulations' }] },
+    edits: [{ file: 'documents/academy-source.html', find: '93 stamped simulations', replace: '92 stamped simulations' }] },
   { family: 'academy: hub card counts', expect: 'hub academy card count',
     label: 'a question is added to the academy without updating the hub card',
     edits: [{ file: 'documents/academy-source.html', find: 'Question 33', replace: 'Question 34' }] },
