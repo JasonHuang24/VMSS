@@ -1,0 +1,79 @@
+# The Five Rings (VMSS)
+
+> The doctrine of an invented civilization, published as a body of founding documents, law, description and stories. The index page calls it "A proposed voluntary civilization" and a "Conceptual civilization study". The Five Rings is the civilization's name; VMSS (Vertical Moral Stratification System) is the system it runs on.
+
+When pages conflict, trust them in the order the site uses to reconcile its own texts:
+
+1. The Charter.
+2. Enacted law: laws.html and the enacted entries in law-polling.html. An enacted register entry is the primary record; laws.html consolidates it (LP-042).
+3. The whitepaper.
+4. The descriptive pages.
+5. Academic Resources, the Academy and the stories.
+
+## Founding documents and law
+
+- [Charter](charter.html): the constitution. Tier 1.
+- [VMSS Laws](laws.html): the consolidated code; it "states current force only". Tier 2.
+- [Law Polling](law-polling.html): the enactment register, failed and superseded filings included. Enacted entries are tier 2; the rest is history.
+- [White Paper](whitepaper.html): the comprehensive explanation. Glossary on pages 32-34, one id per entry (whitepaper.html#gl-failsafe). Tier 3.
+
+## Descriptive pages (tier 4)
+
+- [Home](index.html), [The Layers](layers.html) and one page per layer: [+1](layer-+1.html), [0](layer-0.html), [-1](layer--1.html), [-2](layer--2.html), [-3](layer--3.html).
+- [World](world.html): geography, history, foreign relations. [Systems](systems.html): governance and enforcement. [Technologies](technologies.html): the implant and other machinery. [Ascension domains](sads.html): domains nested in Sanctuary. [Roadmap](roadmap.html): phases to the year 3000. [FAQ](faq.html), [Why VMSS?](why-vmss.html): the argument for it.
+
+## Teaching texts and stories (tier 5)
+
+- [Academic Resources](simulations-resources.html): reference texts (PDF).
+- [The Academy](simulations-academy.html): graded questions (PDF). A graded answer is a student's reasoning, not doctrine.
+- [Simulations](simulations.html): the stories and the trust console.
+
+## Records
+
+- [Rate-History Record](rate-history.html) and the path-2-*.html pages: in-world records of the tax rates and of the Path 2 rate-law certification.
+- [Ratification Record](pending-ratification.html), [Deregistered Statutes](deregistered-statutes.html): marked "Process Record", not world canon.
+
+## How to read the register
+
+- Each entry has a status badge: Enacted, Failed at a named gate, Rerouted, Superseded, Cross-Layer Variance (filtered as Mixed) or Advisory-Only. The filter buttons sort entries by status.
+- A Failed entry never became law, even where written in the present tense. Some "no" answers exist only as failed entries.
+- Redrafts share the parent's number with a suffix (LP-062, LP-062.2, LP-062.3). Each number has its own badge.
+
+## How to read stories
+
+- Each story carries a "Doctrine Snapshot" stamp naming the site version it was written against, and deliberately shows that version's doctrine. Its numbers and rates are "era-pinned" and "not recalculated".
+- An "Off-canon" chip marks a deliberate departure from canon.
+- A story is evidence of how a rule was shown working, not a source of rules; neither its "Key lesson" nor its characters' speech is a rule.
+
+## Defaults are not prohibitions
+
+A layer's stated enforcement posture is its default, not a ban on a resident's own election: "post-intervention in Main" names "the layer's default, not a prohibition on pre-intervention" (law-polling.html#lp-062).
+
+## Words with two meanings
+
+- Failsafe: the implant's warn-and-hold inhibition, which can be pushed through (whitepaper.html#gl-failsafe). TIP: the full protocol, which cannot (whitepaper.html#gl-threshold-inhibition-protocol).
+- Phasing: the STI-driven, non-punitive move between Sanctuary and Main; a change of standing that need not change address (whitepaper.html#gl-phasing; layer-0.html). Reassignment: permanent punitive descent into -1, -2 or -3 (whitepaper.html#gl-layer-reassignment).
+- Ledger: the STI ledger has two tracks, the STI score and the criminal record log (whitepaper.html#gl-sti-ledger).
+- Non-public cognition: "non-public means non-broadcast, not non-captured" (laws.html); it "triggers nothing by itself" (faq.html).
+- Placement: a child born abroad is "assigned Main Layer regardless of parental placement" (world.html), meaning standing; children born in lower layers "remain with their parents" (charter.html).
+- Ring: a territorial layer (whitepaper.html#gl-the-five-rings) or the walled structure (whitepaper.html#gl-mega-wall).
+- Fabrication: making backup vessels, only in Main and Sanctuary (charter.html). Fabrication proxy: closed federal revival installations in -1 and -2 (whitepaper.html#gl-fabrication-proxy).
+- Voluntary: Voluntary Permanent Residency is an irreversible move down (whitepaper.html#gl-voluntary-permanent-residency); elective residency is a stay with return open (whitepaper.html#gl-elective-residency).
+- "Council" and STI colour bands appear without a definition. Do not infer one.
+
+## Standing corrections
+
+- The trust index (STI) never by itself moves anyone below Main (charter.html, Article II; whitepaper.html §5.4, §5.9).
+- The move between Sanctuary and Main at STI 85 is phasing, the index's doing, and no punishment (charter.html, Article VII; whitepaper.html §5.9).
+- The failsafe is in every Main Layer implant: it warns and holds, stays on unless its bearer switches it off, and can be pushed through (technologies.html).
+- The full protocol (TIP) cannot be pushed through. It is mandatory in Sanctuary and all SADs, opt-in in every other implant-bearing layer, and on by default in Main against sexual assault under LP-062.2 (technologies.html; laws.html).
+- Opt-in TIP reaches -1 and -2, not -3, where a resident's implant goes silent to its bearer at terminal reassignment. Visitors keep their home configuration under LP-082 (whitepaper.html §15.4).
+- Early revival failed often; the "risk-free" visitors of LP-006 were so described by their promoters (law-polling.html; roadmap.html).
+
+## Reading the pages
+
+whitepaper.html and world.html show one section at a time, but the whole text is in the HTML.
+
+## Unsettled: do not rely on
+
+Open questions: which present a page speaks from, the founding-era population, and the epoch of era years (Y112, Year 626); do not convert those to calendar years. The pages mix a 2026 vantage (why-vmss.html: about 10% of the promise delivered "today") with a later one (the same page: a cascade "operative since 2295").
