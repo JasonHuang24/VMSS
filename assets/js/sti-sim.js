@@ -984,7 +984,7 @@
       o.line = s.history.length > 1 ? 'Session restored. Choose the next act.' : STARTS[startRing].line;
       o.social.state = 'idle';
       o.criminal.state = 'idle';
-      o.failsafe = 'Implant warnings, motor overrides and restraint: the chance to stop.';
+      o.failsafe = 'The failsafe warns and holds the motion; heeding it, or restraint, is the chance to stop.';
       o.detect = 'The implant and AR context register what happened and who was involved.';
       o.classify = 'Severity, pattern and reversibility decide which path the act takes.';
       o.social.reason = 'Trust damage without criminal enforcement. The STI moves; the ring does not.';
