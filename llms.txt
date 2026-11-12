@@ -76,4 +76,4 @@ whitepaper.html and world.html show one section at a time, but the whole text is
 
 ## Unsettled: do not rely on
 
-Open questions: which present a page speaks from, the founding-era population, and the epoch of era years (Y112, Year 626); do not convert those to calendar years. The pages mix a 2026 vantage (why-vmss.html: about 10% of the promise delivered "today") with a later one (the same page: a cascade "operative since 2295").
+Open questions: which present a page speaks from, the founding-era population, and the epoch of era years (Y112, Year 626); do not convert those to calendar years. The pages mix a 2026 vantage (roadmap.html: "VMSS today delivers roughly 10% of its stated promise") with a later one (why-vmss.html: a cascade "operative since 2295").
