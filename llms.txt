@@ -35,7 +35,7 @@ When pages conflict, trust them in the order the site uses to reconcile its own 
 
 ## How to read the register
 
-- Each entry has a status badge: Enacted, Failed at a named gate, Rerouted, Superseded, Cross-Layer Variance (filtered as Mixed) or Advisory-Only. The filter buttons sort entries by status.
+- Each entry has a status badge: Enacted, Failed at a named gate, Rejected at dual-key review, Rerouted, Superseded, Cross-Layer Variance (filtered as Mixed) or Advisory-Only; a replaced law usually carries a Superseded badge, but LP-005.2 keeps its Enacted badge with a 'Superseded by LP-005.3' note. The filter buttons sort entries by status.
 - A Failed entry never became law, even where written in the present tense. Some "no" answers exist only as failed entries.
 - Redrafts share the parent's number with a suffix (LP-062, LP-062.2, LP-062.3). Each number has its own badge.
 
