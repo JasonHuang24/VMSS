@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 25.9.6
+**Version:** 25.9.7
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -166,7 +166,7 @@ Editing any generator source (`documents/path-2-*-source.md`, `documents/ratify-
 
 **Founding Core** — Four founding lines inscribed in the Charter preamble by the Chief Architect. Not legally immutable — every clause is amendable through the Article XI gauntlet — but protected by structural improbability and by six hundred years of cultural anchoring. The Charter is how the civilization does the work. The four lines are what the civilization is for.
 
-**External Force Doctrine** — Four imminence tiers governing VMSS's use of force beyond its borders, with a parallel three-tier sanctions architecture that operates beneath the force framework and transitions into the national defense track at its highest tier. Alliance reciprocity under the Federation Treaty operates on a separate track from sanctions — an attack on a treaty ally triggers Tier 4 response directly.
+**External Force Doctrine** — Four imminence tiers governing VMSS's use of force beyond its borders, with a parallel three-tier sanctions architecture that operates beneath the force framework and transitions into the national defense track at its highest tier. Alliance reciprocity under the Federation Treaty operates on a separate track from sanctions — an attack on a treaty ally triggers External Force Tier 4 directly.
 
 **Leakage** — The gap between stated consequence and actual consequence delivery. Starting reality: ~90%. Founding aspiration: 0%. Target by 3000: ~0.01%.
 

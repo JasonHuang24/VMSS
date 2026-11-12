@@ -39,7 +39,7 @@
   const GRADIENT_START = 2150;
 
   const ERA_LABELS = {
-    now: '21st Century — Where We Actually Are',
+    now: '21st Century — Where the Founding Stood',
     p0: 'Phase 0 — Foundation & Research',
     p1: 'Phase 1 — Threshold Crossing',
     p2: 'Phase 2 — Planetary Consolidation',

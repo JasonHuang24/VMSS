@@ -73,7 +73,7 @@
       ],
       sti: 'Sets local standing: better districts, contracts, reputation-gated blocks and cooperatives. It is never a route back up.',
       waysIn: ['Reassignment from Main or Sanctuary', 'Visitors, elective and voluntary permanent residents'],
-      waysOut: ['Further reassignment: violence toward −2, a murder to −3', 'Visitation below', 'The standing right of children to relocate to Main'],
+      waysOut: ['Further reassignment: violence toward −2, a murder to −3', 'Visitation below', 'The standing right of children to relocate to Main', 'Tier-equivalent transfer to an allied jurisdiction (a change of custody, not an exit)'],
       cites: [A('I', 'i'), A('XV', 'xv'), WP('§4.2, §6.3')]
     },
     '-2': {
@@ -87,7 +87,7 @@
       ],
       sti: 'Sets local standing: better-run districts, acceptance by security cooperatives, contracts. Reputation is real currency where no institution backs it.',
       waysIn: ['Reassignment for rape, severe assault, escalating coercive violence, predatory conduct', 'Visitors and voluntary residents'],
-      waysOut: ['Capital harm: immediate reassignment to −3', 'Visitation to −3', 'The standing right of children to relocate to Main'],
+      waysOut: ['Capital harm: immediate reassignment to −3', 'Visitation to −3', 'The standing right of children to relocate to Main', 'Tier-equivalent transfer to an allied jurisdiction (a change of custody, not an exit)'],
       cites: [A('VI', 'vi'), A('VII', 'vii'), WP('§4.2')]
     },
     '-3': {
