@@ -73,8 +73,8 @@
             line: 'Reassigned to −2 for predatory violence. The placement is permanent.',
             record: { label: 'Predatory violence', status: 'permanent' } },
     '-3': { sti: 8, punitive: true, profile: 'Terminal resident',
-            line: 'Reassigned to −3 for a killing. No revival and no institution in daily life; the public ledger travels with every resident.',
-            record: { label: 'Killing', status: 'permanent' } }
+            line: 'Reassigned to −3 for a murder. No revival and no institution in daily life; the public ledger travels with every resident.',
+            record: { label: 'Murder', status: 'permanent' } }
   };
 
   // =========================
@@ -96,7 +96,7 @@
     assault:   { name: 'Assault',             points: 14, years: 0.02, dest: '-1', named: true, violent: true },
     fraud:     { name: 'Fraud at scale',      points: 16, years: 0.02, dest: '-1', named: true },
     predatory: { name: 'Predatory violence',  points: 30, years: 0.02, dest: '-2', violent: true, permanent: true },
-    killing:   { name: 'Killing',             points: 40, years: 0.02, dest: '-3', violent: true, permanent: true },
+    killing:   { name: 'Murder',              points: 40, years: 0.02, dest: '-3', violent: true, permanent: true },
     ascend:    { name: 'Sanctuary residency', years: 0.05 }
   };
 
@@ -503,7 +503,7 @@
       assault: 'Struck a stranger in a dispute outside a bar.',
       fraud: 'Ran a false-invoicing scheme across dozens of clients.',
       predatory: 'Sexual violence against another resident.',
-      killing: 'Killed another resident.'
+      killing: 'Murdered another resident.'
     };
     o.title = act.name;
     o.line = lines[key];
@@ -570,7 +570,7 @@
       else if (key === 'predatory') { dest = '-2'; destWhy = 'Predatory violence: severe and irreversible, the class −2 exists for.'; }
       else if (key === 'assault' && priorViolence) { dest = '-2'; destWhy = 'Repeated violence in −1: severe and patterned. Formal evaluation moves the resident to −2.'; }
     } else if (s.ring === '-2') {
-      if (key === 'killing') { dest = '-3'; destWhy = 'Capital harm is −2\'s one law, and a killing crosses it: immediate reassignment to −3.'; }
+      if (key === 'killing') { dest = '-3'; destWhy = 'Capital harm is −2\'s one law, and a murder crosses it: immediate reassignment to −3.'; }
     }
 
     o.social.state = 'side';

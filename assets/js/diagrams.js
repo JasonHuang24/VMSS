@@ -73,12 +73,12 @@
       ],
       sti: 'Sets local standing: better districts, contracts, reputation-gated blocks and cooperatives. It is never a route back up.',
       waysIn: ['Reassignment from Main or Sanctuary', 'Visitors, elective and voluntary permanent residents'],
-      waysOut: ['Further reassignment: violence toward −2, a killing to −3', 'Visitation below', 'The standing right of children to relocate to Main'],
+      waysOut: ['Further reassignment: violence toward −2, a murder to −3', 'Visitation below', 'The standing right of children to relocate to Main'],
       cites: [A('I', 'i'), A('XV', 'xv'), WP('§4.2, §6.3')]
     },
     '-2': {
       name: '-2 Violent Offense', short: 'Violent Offense', informal: 'The Lower Restrictions Layer', pop: '~300M',
-      summary: 'The severe-harm tier, and a frontier by choice for some. Institutions step back; private security, cooperatives and territorial order run daily life. One law is enforced with certainty: capital harm, a killing or another capital act such as child rape, sends the actor to −3.',
+      summary: 'The severe-harm tier, and a frontier by choice for some. Institutions step back; private security, cooperatives and territorial order run daily life. One law is enforced with certainty: capital harm, a murder or another capital act such as child rape, sends the actor to −3.',
       facts: [
         ['Population', 'About 300 million, punitive and voluntary residents together.'],
         ['Enforcement', 'Logging only. Below the capital-harm line, private justice answers.'],
@@ -130,7 +130,7 @@
     },
     reassign: {
       name: 'Reassignment', from: '+1', to: '-3', stops: ['-1', '-2', '-3'], slot: 0.42,
-      rule: 'Downward and one-way. A qualifying act on the criminal record track, then enforcement and review. The act sets the destination and can skip rings: a killing in Main goes straight to −3. Immediate and permanent; the score cannot trigger it.',
+      rule: 'Downward and one-way. A qualifying act on the criminal record track, then enforcement and review. The act sets the destination and can skip rings: a murder in Main goes straight to −3. Immediate and permanent; the score cannot trigger it.',
       cites: [A('I', 'i'), A('VII', 'vii'), A('XII', 'xii'), A('XV', 'xv')]
     },
     visit: {

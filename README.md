@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 25.9.5
+**Version:** 25.9.6
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -13,7 +13,7 @@ A voluntary civilization framework built on moral causality, layered governance,
 
 The Five Rings is a proposed civilization model organized around five concentric governance rings (+1 to -3). Citizens are placed in rings based on demonstrated behavior — not birth, wealth, or ideology. The system combines technoneural enforcement, a Social Trust Index, automation-funded UBI, backup vessel continuity, and consequence-bound freedom into a single coherent architecture.
 
-This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, current-state technology annotations, a 34-section paginated whitepaper, a 28-article Charter, a filterable simulations archive, a rubric-graded Academy course packet, and an Academic Resources reference library.
+This is the **full site** — the complete doctrine portal with interactive tools, detailed layer dossiers with narrative simulations, STI console, founding-era (2026) technology annotations, a 34-section paginated whitepaper, a 28-article Charter, a filterable simulations archive, a rubric-graded Academy course packet, and an Academic Resources reference library.
 
 A **lite version** of the site exists at the companion repository (VMSSLite) for readers who want the core doctrine in a faster, more focused reading experience.
 
@@ -31,7 +31,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 | `layer--2.html` | -2 Violent Offense — The Lower Restrictions Layer, narrative simulation |
 | `layer--3.html` | -3 Terminal — The Freedom Layer, narrative simulation |
 | `systems.html` | Economy, enforcement architecture, savings circulation mandate |
-| `technologies.html` | Implants, neural diving, backup vessels, augmentation — with current-state delivery annotations |
+| `technologies.html` | Implants, neural diving, backup vessels, augmentation — with founding-era (2026) delivery annotations |
 | `sads.html` | Selective Ascension Domains — opt-in metric-gated domains within +1 |
 | `simulations.html` | Consolidated simulations archive — all World Scenario and Resident Story cards on one page with search, category, and doctrine-snapshot filters; plus Academy and Academic Resources coursework links |
 | `simulations-world.html`, `simulations-residents.html` | Redirect stubs — `noindex`, hash-preserving redirect to `simulations.html` (the two dossiers were merged into the consolidated archive) |
@@ -174,7 +174,7 @@ Editing any generator source (`documents/path-2-*-source.md`, `documents/ratify-
 
 ## Companion Repository
 
-The **VMSSLite** repository contains a condensed version of the site — same doctrine, faster read. No interactive widgets, no current-state annotations, condensed pages, six archetypal simulations instead of the full archive. Ideal for first-time readers.
+The **VMSSLite** repository contains a condensed version of the site — same doctrine, faster read. No interactive widgets, no founding-era annotations, condensed pages, six archetypal simulations instead of the full archive. Ideal for first-time readers.
 
 ---
 
