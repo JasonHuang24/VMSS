@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 25.9.2
+**Version:** 25.9.3
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -85,6 +85,11 @@ The homepage artwork was generated with the built-in image generation tool and o
 ├── whitepaper.html
 ├── charter.html
 ├── laws.html
+├── law-polling.html     # Law polling record (the register)
+├── deregistered-statutes.html
+├── rate-history.html
+├── path-2-*.html        # Path 2 record pages (several generated; see the note below the tree)
+├── pending-ratification.html  pending-ratify-tax-50-*.html   # Pending Ratification section (pre-vote material; generated pages noted below the tree)
 ├── faq.html
 ├── roadmap.html
 ├── audiobook.html
@@ -113,15 +118,18 @@ The homepage artwork was generated with the built-in image generation tool and o
 │   ├── path-2-*-data.json / *-annex.json     # Machine annexes derived from the dataset (npm run build:path2-record)
 │   ├── path-2-*-2294.md / *-2292.md / lp-075-section-13-review-set.md  # Published raw-Markdown record artifacts, linked from path-2-certification-2294.html
 │   └── lp-073-editorial-corrigendum.md       # One-paragraph archival note, linked from law-polling.html#lp-073
-├── docs-review/                     # Generator sources + CI inputs (pruned to 7 keepers 2026-07-24; git history holds the rest)
+├── docs-review/                     # Generator sources, CI inputs, and per-release review records (59 tracked top-level entries; untracked working files are not counted)
 │   ├── RATIFY-TAX-50-*.md, AFFIRM-TAX-50-*.md  # 5 verbatim sources → the pending-ratify-tax-50-* pages (npm run build:pending)
 │   ├── RATIFY-TAX-50-II-petition.md  # Retained drafting history — deliberately NOT a build source (statute page builds from documents/)
-│   └── vmss-laws-latent-inventory.md # CI gate: check-canon parses its PART 1 heading count against laws.html founding entries
+│   ├── vmss-laws-latent-inventory.md # CI gate: check-canon parses its PART 1 heading count against laws.html founding entries
+│   ├── prose-style-guide.md          # House prose rules for stories and descriptive pages
+│   └── prose-lift-*/, records-*/, hardening-*/, doctrine-reconciliation-*/, and related .md files  # Per-release review and reconciliation records
 ├── images/
 │   ├── emblem.jpg
 │   ├── civilization.jpg     # New cinematic homepage hero (WebP variants in webp/)
 │   ├── world-*.png          # World page imagery (geography, military, alliance, etc.)
 │   └── Audiobook/           # Audiobook cover art (free intro + 5 volumes)
+├── llms.txt             # Plain-text orientation for language models, with standing corrections
 ├── sitemap.xml
 └── robots.txt
 ```

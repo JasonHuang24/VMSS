@@ -78,16 +78,16 @@
     },
     '-2': {
       name: '-2 Violent Offense', short: 'Violent Offense', informal: 'The Lower Restrictions Layer', pop: '~300M',
-      summary: 'The severe-harm tier, and a frontier by choice for some. Institutions step back; private security, cooperatives and territorial order run daily life. One law is enforced with certainty: a killing sends the killer to −3.',
+      summary: 'The severe-harm tier, and a frontier by choice for some. Institutions step back; private security, cooperatives and territorial order run daily life. One law is enforced with certainty: capital harm, a killing or another capital act such as child rape, sends the actor to −3.',
       facts: [
         ['Population', 'About 300 million, punitive and voluntary residents together.'],
-        ['Enforcement', 'Logging only. Below the killing line, private justice answers.'],
+        ['Enforcement', 'Logging only. Below the capital-harm line, private justice answers.'],
         ['Economy', '$2,500/month UBI in siloed currency; a predominantly private economy.'],
         ['Continuity', 'Revival through proxy installations; about 1 in 1,000 revivals fail.']
       ],
       sti: 'Sets local standing: better-run districts, acceptance by security cooperatives, contracts. Reputation is real currency where no institution backs it.',
       waysIn: ['Reassignment for rape, severe assault, escalating coercive violence, predatory conduct', 'Visitors and voluntary residents'],
-      waysOut: ['A killing: immediate reassignment to −3', 'Visitation to −3', 'The standing right of children to relocate to Main'],
+      waysOut: ['Capital harm: immediate reassignment to −3', 'Visitation to −3', 'The standing right of children to relocate to Main'],
       cites: [A('VI', 'vi'), A('VII', 'vii'), WP('§4.2')]
     },
     '-3': {
