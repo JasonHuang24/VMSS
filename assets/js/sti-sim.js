@@ -570,7 +570,7 @@
       else if (key === 'predatory') { dest = '-2'; destWhy = 'Predatory violence: severe and irreversible, the class −2 exists for.'; }
       else if (key === 'assault' && priorViolence) { dest = '-2'; destWhy = 'Repeated violence in −1: severe and patterned. Formal evaluation moves the resident to −2.'; }
     } else if (s.ring === '-2') {
-      if (key === 'killing') { dest = '-3'; destWhy = 'Killing is −2\'s one law: immediate reassignment to −3.'; }
+      if (key === 'killing') { dest = '-3'; destWhy = 'Capital harm is −2\'s one law, and a killing crosses it: immediate reassignment to −3.'; }
     }
 
     o.social.state = 'side';
@@ -617,13 +617,13 @@
       if (from === '-2') o.cites.push(C.dossier('−2'));
       o.announce = `${act.name}. Criminal path. Reassigned to ${ringName(dest)}. STI cannot by itself decide reassignment.`;
     } else if (s.ring === '-2') {
-      o.classify = 'Below the killing line.';
+      o.classify = 'Below the capital-harm line.';
       o.criminal.state = 'side';
-      o.criminal.reason = 'Logged on the record track. Below the killing line, −2 brings no federal response: the ledger fills and private order answers.';
+      o.criminal.reason = 'Logged on the record track. Below the capital-harm line, −2 brings no federal response: the ledger fills and private order answers.';
       o.criminal.rows = { placement: 'Unchanged.' };
       o.social.rows.fallout = 'Public ledger entry: every private operator deciding access can read it.';
       o.cites.push(C.dossier('−2'));
-      o.announce = `${act.name} in −2. Logged; no federal response below the killing line. STI ${signed(r.delta)}.`;
+      o.announce = `${act.name} in −2. Logged; no federal response below the capital-harm line. STI ${signed(r.delta)}.`;
     } else {
       // −1: a first fight, or a non-violent act canon gives no further ring step.
       o.criminal.state = 'side';
