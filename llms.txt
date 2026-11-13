@@ -46,6 +46,7 @@ The home page restates this order for human readers (index.html#reading-this-arc
 - Each story carries a "Doctrine Snapshot" stamp naming the site version it was written against, and deliberately shows that version's doctrine. Its numbers and rates are "era-pinned" and "not recalculated".
 - An "Off-canon" chip marks a deliberate departure from canon.
 - A story is evidence of how a rule was shown working, not a source of rules; neither its "Key lesson" nor its characters' speech is a rule.
+- The stories are separate illustrations, not one continuity. Each shows a rule at work under its own stamp. Where two stories differ on a name, a number, a date or a detail of procedure, neither binds the other and the doctrine pages govern; a name shared by two stories does not make them the same person.
 
 ## Defaults are not prohibitions
 
