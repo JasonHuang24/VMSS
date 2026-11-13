@@ -595,10 +595,10 @@ built.push(page({
 built.push(page({
   file: ADV,
   title: 'AFFIRM-TAX-50 Advocacy Brief (Retained) • The Five Rings',
-  description: 'The affirmative advocacy brief for RATIFY-TAX-50, a cold, citation-verified review. It re-ran the chamber vote at 3–2 and moved Court, Sanctuary, and Main. The result fell short of the zero-fail enactment threshold. Retained as permanent record.',
+  description: 'The affirmative advocacy brief for RATIFY-TAX-50, a cold, citation-verified review. It re-ran the chamber vote at 3–2, and carried Court and Sanctuary over (Main, which had already passed, passed again). The result fell short of the zero-fail enactment threshold. Retained as permanent record.',
   heroKicker: 'Ratification Record · Advocacy Brief',
   heroTitle: 'AFFIRM-TAX-50 — Advocacy Brief',
-  heroSub: 'The strongest affirmative case the record supports, argued cold with every citation verified. It re-ran the vote and moved three chambers: Court, Sanctuary, and Main. Meritboard and Lower held, and enactment requires zero failing chambers. Retained as permanent record.',
+  heroSub: 'The strongest affirmative case the record supports, argued cold with every citation verified. It re-ran the vote and carried Court and Sanctuary over (Main, which had already passed, passed again). Meritboard and Lower held, and enactment requires zero failing chambers. Retained as permanent record.',
   crosslinks: [
     ...briefLinks(ADV),
     link(BALLOT, '', 'fa-file-lines', 'The Ballot (petition v4.1)'),

@@ -987,7 +987,7 @@
       o.failsafe = 'The failsafe warns and holds the motion; heeding it, or restraint, is the chance to stop.';
       o.detect = 'The implant and AR context register what happened and who was involved.';
       o.classify = 'Severity, pattern and reversibility decide which path the act takes.';
-      o.social.reason = 'Trust damage without criminal enforcement. The STI moves; the ring does not.';
+      o.social.reason = 'Trust damage without criminal enforcement. The STI moves; the ring moves only by phasing between Sanctuary and Main.';
       o.criminal.reason = 'A qualifying act: enforcement, review, and reassignment set by the act.';
       o.cites.push(C.II, C.XIV, C.XII);
       return o;

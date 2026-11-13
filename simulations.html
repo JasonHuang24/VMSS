@@ -53,7 +53,7 @@
     <div class="tc-head-copy">
       <p class="tc-eyebrow">Social Trust Index</p>
       <h2 class="tc-title" id="tc-title">Trust Console</h2>
-      <p class="tc-deck">One simulated citizen, one act at a time. Every act runs the justice flow (the steps from event to consequence) and then takes one of two paths. The social path, track 1, moves the STI, the citizen&rsquo;s Social Trust Index score, and never the ring, the layer the citizen lives in. The criminal path, track 2, moves the ring and never waits on the score.</p>
+      <p class="tc-deck">One simulated citizen, one act at a time. Every act runs the justice flow (the steps from event to consequence) and then takes one of two paths. The social path, track 1, moves the STI, the citizen&rsquo;s Social Trust Index score, and never moves the citizen below Main; its only effect on the ring, the layer the citizen lives in, is phasing between Sanctuary and Main at an STI of 85. The criminal path, track 2, moves the ring and never waits on the score.</p>
     </div>
     <div class="tc-controls">
     <div class="tc-controls-row">
@@ -145,8 +145,8 @@
       <div class="tc-lanes">
         <section class="tc-lane" data-tc-lane="social" data-state="idle" aria-labelledby="tc-lane-social">
           <header class="tc-lane-head"><h4 id="tc-lane-social">Social consequence path</h4><p>Track 1 &middot; the STI score</p></header>
-          <p class="tc-lane-reason" data-tc-lane-reason>Trust damage without criminal enforcement. The STI moves; the ring does not.</p>
-          <p class="tc-lane-summary" data-tc-lane-summary>Trust damage without criminal enforcement. The STI moves; the ring does not.</p>
+          <p class="tc-lane-reason" data-tc-lane-reason>Trust damage without criminal enforcement. The STI moves; the ring moves only by phasing between Sanctuary and Main.</p>
+          <p class="tc-lane-summary" data-tc-lane-summary>Trust damage without criminal enforcement. The STI moves; the ring moves only by phasing between Sanctuary and Main.</p>
           <dl class="tc-rows">
             <div data-tc-row="ledger"><dt>Ledger</dt><dd class="tc-row-val">&mdash;</dd></div>
             <div data-tc-row="score"><dt>Score</dt><dd class="tc-row-val">&mdash;</dd></div>

@@ -55,7 +55,7 @@ A layer's stated enforcement posture is its default, not a ban on a resident's o
 - Phasing: the STI-driven, non-punitive move between Sanctuary and Main; a change of standing that need not change address (whitepaper.html#gl-phasing; layer-0.html). Reassignment: permanent punitive descent into -1, -2 or -3 (whitepaper.html#gl-layer-reassignment).
 - Ledger: the STI ledger has two tracks, the STI score and the criminal record log (whitepaper.html#gl-sti-ledger).
 - Non-public cognition: "non-public means non-broadcast, not non-captured" (laws.html); it "triggers nothing by itself" (faq.html).
-- Placement: a child born abroad is "assigned Main Layer regardless of parental placement" (world.html), meaning standing; children born in lower layers "remain with their parents" (charter.html).
+- Placement: a child born abroad "holds Main Layer standing regardless of parental placement" (world.html); children born in lower layers "remain with their parents" (charter.html).
 - Ring: a territorial layer (whitepaper.html#gl-the-five-rings) or the walled structure (whitepaper.html#gl-mega-wall).
 - Fabrication: making backup vessels, only in Main and Sanctuary (charter.html). Fabrication proxy: closed federal revival installations in -1 and -2 (whitepaper.html#gl-fabrication-proxy).
 - Voluntary: Voluntary Permanent Residency is an irreversible move down (whitepaper.html#gl-voluntary-permanent-residency); elective residency is a stay with return open (whitepaper.html#gl-elective-residency).
