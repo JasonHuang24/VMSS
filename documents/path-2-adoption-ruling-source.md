@@ -1,6 +1,6 @@
 # RULING OF THE PRESIDENCY
 ## In re: Adoption of the Path 2 Charter and its Residual-Risk Register
-### 2279 (Y178) · Final executive-doctrinal review
+### 2279 · Final executive-doctrinal review
 
 The office has read the amended Charter; the regression record of the
 first hostile review against it; the twelve findings of the second
@@ -62,4 +62,4 @@ them.
 So ruled. So adopted.
 
 **THE PRESIDENCY OF VMSS**
-*2279 (Y178)*
+*2279*

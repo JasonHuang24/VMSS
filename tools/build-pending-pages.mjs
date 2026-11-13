@@ -322,12 +322,12 @@ const banner = () => `
    notice: what the page is, the in-world outcome, and a link to the hub. The
    full Process-tier declaration and rulings R22/R23 live on the hub only, so a
    reader meets the document after one notice rather than four. */
-const subBanner = () => `
+const subBanner = (note = '') => `
         <div class="pending-banner mb-10" role="note" aria-label="Record tier">
           <i class="fas fa-box-archive" aria-hidden="true"></i>
           <div>
             <span class="pb-label">Process Record — not world canon</span>
-            <p>This document is retained in the <a href="pending-ratification.html">Ratification Record</a>, which explains the archive and its rulings. In world, RATIFY-TAX-50 failed, 1–4 at gauntlet and 3–2 on advocacy review, and nothing on this page is in force. The separate <a href="law-polling.html#lp-074">LP-074</a> successor certified in 2294, and <strong>50 / 25 / 12.5 / 6.25</strong> took effect in 2295.</p>
+            <p>This document is retained in the <a href="pending-ratification.html">Ratification Record</a>, which explains the archive and its rulings. In world, RATIFY-TAX-50 failed, 1–4 at gauntlet and 3–2 on advocacy review, and nothing on this page is in force. The separate <a href="law-polling.html#lp-074">LP-074</a> successor certified in 2294, and <strong>50 / 25 / 12.5 / 6.25</strong> took effect in 2295.${note}</p>
           </div>
         </div>`;
 
@@ -496,11 +496,24 @@ const SRC = {
    proper home for that history under the layer rule. The pattern must match
    exactly once, so a source change fails the build instead of silently
    leaving residue; the verbatim check then runs against the edited text.
-   Patterns match across the sources' hard line wraps. */
+   Patterns match across the sources' hard line wraps.
+
+   Era-year edits (v25.10.0, owner ruling: Y0 is 2026, the founding). The
+   session record named in-world years by era numbers read against a Y0 of
+   2101 ("Y112" for 2213). Those numbers are replaced by their calendar years.
+   The R16 §3 paragraph, which records how that epoch was inferred, is left as
+   written; the record page's banner carries the correction. */
 const ws = (phrase) => new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+'), 'g');
 const PUBLISH_EDITS = {
   ballot: [
     ['Status: docs-review only. The petition runs', 'The petition runs', 1],
+  ],
+  record: [
+    ['in-world present ~Y175 (canon v22.3)', 'in-world present ~2276 (canon v22.3)', 1],
+    ['after the Y112 failure', 'after the 2213 failure', 1],
+    ['removed the Y112 objections', 'removed the 2213 objections', 1],
+    ['advances to approximately Y175.', 'advances to approximately 2276.', 1],
+    ['are adopted in 2279 (Y178), via', 'are adopted in 2279, via', 1],
   ],
 };
 const publish = (key, text) => {
@@ -595,10 +608,10 @@ built.push(page({
 built.push(page({
   file: ADV,
   title: 'AFFIRM-TAX-50 Advocacy Brief (Retained) • The Five Rings',
-  description: 'The affirmative advocacy brief for RATIFY-TAX-50, a cold, citation-verified review. It re-ran the chamber vote at 3–2, and carried Court and Sanctuary over (Main, which had already passed, passed again). The result fell short of the zero-fail enactment threshold. Retained as permanent record.',
+  description: 'The affirmative advocacy brief for RATIFY-TAX-50, a cold, citation-verified review. It re-ran the chamber vote at 3–2, and carried Court and Sanctuary over (Main, which had already passed, passed again). Every chamber after the Meritboard, Lower included, published an advisory position on a draft that had already died there. The result fell short of the zero-fail enactment threshold. Retained as permanent record.',
   heroKicker: 'Ratification Record · Advocacy Brief',
   heroTitle: 'AFFIRM-TAX-50 — Advocacy Brief',
-  heroSub: 'The strongest affirmative case the record supports, argued cold with every citation verified. It re-ran the vote and carried Court and Sanctuary over (Main, which had already passed, passed again). Meritboard and Lower held, and enactment requires zero failing chambers. Retained as permanent record.',
+  heroSub: 'The strongest affirmative case the record supports, argued cold with every citation verified. It re-ran the vote and carried Court and Sanctuary over (Main, which had already passed, passed again). Every chamber after the Meritboard, Lower included, gave an advisory position on a draft that had already died there. Meritboard and Lower held, and enactment requires zero failing chambers. Retained as permanent record.',
   crosslinks: [
     ...briefLinks(ADV),
     link(BALLOT, '', 'fa-file-lines', 'The Ballot (petition v4.1)'),
@@ -646,7 +659,7 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.record),
   verbatim: { md: md.record },
-  statusBanner: subBanner(),
+  statusBanner: subBanner(' Era years count from the Founding Treaty: Y0 is 2026. The R16 §3 paragraph below, which infers a Y0 of 2101 from one mapping and pairs era years with calendar years, is superseded on both points; elsewhere on this page era numbers are given as their calendar years.'),
 }));
 
 /* The successor statute, in full (R16). The register entry carries the law's
@@ -699,7 +712,7 @@ const hubBody = [
   `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Failed petition</h2>`,
   `<p class="pending-p"><strong>FAILED PETITION.</strong> The original petition would have reduced the §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>. It failed 1–4 at gauntlet and 3–2 on advocacy review. Its authored evidence activated nothing. The later LP-074 conditional successor was a separate enactment. Its 2294 Path 2 audit passed Findings I&ndash;IV and certified Schedules A and B independently, and the complete cascade took effect in 2295.</p>`,
   `<p class="pending-p">The direction of the original petition survived its failure. Every chamber endorsed the trajectory principle, 5–0 across the ratification chambers, while refusing the magnitude then supported. The principle stands as the <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> at Whitepaper §12.1. The later successor proceeded on independently locked audit evidence and did not retroactively validate the failed petition&rsquo;s authored figures. All three original briefs are published as permanent historical record.</p>`,
-  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval, on an authorial override of the failed chamber result, the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>. A trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1, and both entries were deregistered at v22.2. The first was deregistered because it described an enactment that never occurred in world. The second was deregistered because its principle belongs in doctrine and not in the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the <a href="pending-ratify-tax-50-record.html">session record</a> sets out the full sequence. None of that drafting designation history is world canon. The register’s LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, filed at ~Y175 (2276) and enacted 5–0 in 2278. The former drafting designation LP-075 remains non-canon. Its number was later issued in world to <a href="law-polling.html#lp-075">LP-075, the Path 2 Commencement Duty Act</a>, enacted 2291. That later issuance does not validate the deregistered text.</p>`,
+  `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval, on an authorial override of the failed chamber result, the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>. A trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1, and both entries were deregistered at v22.2. The first was deregistered because it described an enactment that never occurred in world. The second was deregistered because its principle belongs in doctrine and not in the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the <a href="pending-ratify-tax-50-record.html">session record</a> sets out the full sequence. None of that drafting designation history is world canon. The register’s LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, filed in 2276 and enacted 5–0 in 2278. The former drafting designation LP-075 remains non-canon. Its number was later issued in world to <a href="law-polling.html#lp-075">LP-075, the Path 2 Commencement Duty Act</a>, enacted 2291. That later issuance does not validate the deregistered text.</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +
     [link(STATUTE, 'is-primary', 'fa-scale-balanced', 'RATIFY-TAX-50-II — the full conditional statute'),
      link(BALLOT, 'is-primary', 'fa-file-lines', 'The Ballot — petition v4.1'),

@@ -1,6 +1,6 @@
 # RULING OF THE PRESIDENCY
 ## In re: Adoption Posture of the Path 2 Charter (LP-074 Schedule A Methodology)
-### 2279 (Y178) · Executive-doctrinal review prior to chamber adoption
+### 2279 · Executive-doctrinal review prior to chamber adoption
 
 The office has read the draft Charter, the forty findings of the
 commissioned hostile methodological review, and the drafting office's six
@@ -105,4 +105,4 @@ amendments that write the difference between the two into the Charter.
 So ruled.
 
 **THE PRESIDENCY OF VMSS**
-*2279 (Y178)*
+*2279*

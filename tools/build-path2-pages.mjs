@@ -486,7 +486,7 @@ const built = [];
   built.push([SCHEDULE, page({
     file: SCHEDULE,
     title: 'The §10.4 Schedule to the Path 2 Charter • The Five Rings',
-    description: 'The enumerated Schedule to the Path 2 Charter (§10.4), second draft, terminal: the Operative Measure, welfare measurement conventions, interval families, and preprocessing methods that the certification audit computes against. Adopted with the Charter in 2279 (Y178); amendable only per §13.1.',
+    description: 'The enumerated Schedule to the Path 2 Charter (§10.4), second draft, terminal: the Operative Measure, welfare measurement conventions, interval families, and preprocessing methods that the certification audit computes against. Adopted with the Charter in 2279; amendable only per §13.1.',
     heroKicker: 'The Five Rings · Path 2 · Enumerated Schedule',
     heroTitle: 'The §10.4 Schedule',
     heroSub: 'The Charter’s enumerated schedule of welfare measures, interval families and preprocessing methods. It fixes one Operative Measure in text, publishes rival conceptions of value as diagnostics, and confines the union to estimators of that measure. Adopted with the Charter and amendable only per §13.1.',
@@ -553,14 +553,14 @@ const built = [];
   built.push([RULINGS, page({
     file: RULINGS,
     title: 'Presidential Rulings — Path 2 Charter • The Five Rings',
-    description: 'The two Rulings of the Presidency on the Path 2 Charter (LP-074 Schedule A methodology), 2279 (Y178): the adoption-posture review directing the chambers to take the Charter up only in amended form, and the final adoption ruling that lifts the noticed veto and adopts the Charter with its Residual-Risk Register. Part of the TAX-50 Ratification Record.',
+    description: 'The two Rulings of the Presidency on the Path 2 Charter (LP-074 Schedule A methodology), 2279: the adoption-posture review directing the chambers to take the Charter up only in amended form, and the final adoption ruling that lifts the noticed veto and adopts the Charter with its Residual-Risk Register. Part of the TAX-50 Ratification Record.',
     heroKicker: 'Ratification Record · Presidential Rulings',
     heroTitle: 'Presidential Rulings — Path 2 Charter',
-    heroSub: 'The two Rulings of the Presidency on the Path 2 Charter, issued in 2279 (Y178). The first, the adoption-posture review, directed the chambers to take up the Charter only in its amended form. The second, the final ruling, lifted the veto noticed in the first and adopted the Charter with its Residual-Risk Register. Read them alongside the instruments they adjudicate, which are linked below.',
+    heroSub: 'The two Rulings of the Presidency on the Path 2 Charter, issued in 2279. The first, the adoption-posture review, directed the chambers to take up the Charter only in its amended form. The second, the final ruling, lifted the veto noticed in the first and adopted the Charter with its Residual-Risk Register. Read them alongside the instruments they adjudicate, which are linked below.',
     banner: `        <div class="p2-banner mb-10" role="note" aria-label="Rulings status">
           <i class="fas fa-gavel" aria-hidden="true"></i>
           <div>
-            <span class="pb-label">Historical adoption record — 2279 (Y178)</span>
+            <span class="pb-label">Historical adoption record — 2279</span>
             <p><strong>THE ADJUDICATION OF RECORD.</strong> These 2279 rulings adopted the <a href="path-2-charter.html">Path 2 Charter</a> and its <a href="path-2-risk-register.html">Residual-Risk Register</a>. They changed no rate. LP-075 later compelled a process that the original Charter did not require. The <a href="${CERTIFICATION}">2294 certification</a> applied the locked methodology and certified both LP-074 schedules. Notice later made its certificates effective. The historical rulings remain unchanged.</p>
           </div>
         </div>`,

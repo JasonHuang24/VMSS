@@ -1,7 +1,7 @@
 # SCHEDULE TO THE PATH 2 CHARTER (§10.4) — SECOND DRAFT (TERMINAL)
 ## Enumerated Welfare Measures, Interval Families, and Preprocessing
 ## Methods · Adopted by the chambers with the Charter · Amendable only
-## per §13.1 · 2279 (Y178) · Amended after cold methodological review;
+## per §13.1 · 2279 · Amended after cold methodological review;
 ## residues engraved at Register entries RR-9 through RR-12
 
 ---

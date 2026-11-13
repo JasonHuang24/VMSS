@@ -1,7 +1,7 @@
 # THE PATH 2 CHARTER — FOURTH DRAFT (TERMINAL), AS AMENDED
 ## Certification Methodology for LP-074 Schedule A
-### Adopted under the rule enacted 2278 (Y177) · Adopted, 2279 (Y178)
-### Amended by LP-075, the Path 2 Commencement Duty Act, 2291 (Y190)
+### Adopted under the rule enacted 2278 · Adopted, 2279
+### Amended by LP-075, the Path 2 Commencement Duty Act, 2291
 ### Conforms to the Ruling of the Presidency, 2279 · Amended per the
 ### institutional-design review · Ships with its Residual-Risk Register,
 ### which is part of the adoption record
