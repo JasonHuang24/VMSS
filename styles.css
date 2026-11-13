@@ -206,13 +206,6 @@ main {
   color: var(--accent);
 }
 
-/* Preserve the navigation toggle breakpoint even when stylesheet order changes. */
-@media (min-width: 1366px) {
-  .vmss-icon-button.min-\[1366px\]\:hidden {
-    display: none;
-  }
-}
-
 .vmss-mobile-menu {
   background: color-mix(in srgb, var(--bg-secondary) 92%, transparent);
   border-color: var(--border);
@@ -1438,25 +1431,17 @@ body { background: var(--bg-primary); font-size: 1rem; }
 .archive-brand-title { display: block; font-family: var(--archive-display); font-size: 1.5rem; letter-spacing: .11em; line-height: 1.2; font-weight: 600; }
 .archive-brand-caption { display: block; font-family: var(--archive-mono); color: var(--text-muted); font-size: .75rem; letter-spacing: .08em; margin-top: .2rem; }
 .archive-desktop-nav { display: flex; align-items: center; gap: 1.2rem; margin-left: auto; }
-.archive-desktop-nav > .nav-link, .archive-nav-group summary { font-size: .875rem; color: var(--text-secondary); padding: .65rem .1rem; cursor: pointer; }
-.archive-nav-group { position: relative; }
-.archive-nav-group summary { list-style: none; display: flex; align-items: center; gap: .4rem; }
-.archive-nav-group summary::-webkit-details-marker { display: none; }
-.archive-nav-group summary:hover, .archive-nav-group[open] summary, .archive-desktop-nav .nav-link-active, .archive-nav-group.has-active-page summary { color: var(--accent); }
-.archive-nav-dropdown { position: absolute; z-index: 70; top: calc(100% + .4rem); right: -.75rem; min-width: 230px; display: grid; background: var(--bg-secondary); padding: .6rem; border: 1px solid var(--border-strong); border-top: 2px solid var(--accent); box-shadow: 0 16px 40px #0005; }
-.archive-nav-dropdown a { padding: .8rem 1rem; font-size: .875rem; }
-.archive-nav-dropdown a:hover { background: var(--bg-tertiary); color: var(--accent); }
+.archive-desktop-nav > .nav-link { font-size: .875rem; color: var(--text-secondary); padding: .65rem .1rem; cursor: pointer; }
+.archive-desktop-nav .nav-link-active { color: var(--accent); }
 .archive-nav-actions { display: flex; gap: .6rem; flex-shrink: 0; }
 .vmss-nav .vmss-icon-button { width: 40px; height: 40px; border-radius: 2px; background: transparent; }
-.archive-desktop-nav .nav-link-join { padding: .65rem 1rem; border-radius: 2px; color: var(--accent); background: var(--accent-glow); }
 .nav-link-active { color: var(--accent); }
 #mobile-menu > div { padding: 1rem 1.5rem 1.5rem; display: block; }
 #mobile-menu .nav-link { display: block; padding: .8rem 0; border-bottom: 1px solid var(--border); font-size: .9375rem; }
 #mobile-menu .archive-mobile-group { margin-top: 1.25rem; }
 #mobile-menu .archive-mobile-group .archive-eyebrow { display: block; padding-bottom: .5rem; }
 #mobile-menu .nav-link-join { margin-top: 1.25rem; border-bottom: 0; border-radius: 2px; padding: .8rem 1rem; color: var(--accent); background: var(--accent-glow); }
-@media (min-width: 1366px) { .archive-nav-actions #menu-toggle { display: none; } }
-@media (max-width: 1365px) { .archive-desktop-nav { display: none; } }
+@media (max-width: 1023px) { .archive-desktop-nav { display: none; } }
 .archive-container { width: min(100% - 5rem, 1360px); margin-inline: auto; }
 .archive-eyebrow, .archive-secondary-label, .archive-section-heading, .archive-image-caption, .archive-hero-baseline, .archive-index { font-family: var(--archive-mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; }
 .archive-eyebrow { color: var(--instrument); }
@@ -1600,7 +1585,7 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
   .archive-context { padding-inline: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .archive-nav-dropdown, .archive-hero *, .archive-inline-link { animation: none !important; transition: none !important; }
+  .archive-hero *, .archive-inline-link { animation: none !important; transition: none !important; }
 }
 @media print {
   .archive-context, .archive-hero-baseline, .archive-nav-inner { display: none; }
@@ -1727,8 +1712,6 @@ body[data-ring="-3"] { --ring-light: #c24b5a; --ring-field-opacity: .32; }
 /* Chrome: glass over the field, a lit seam instead of a solid bar. */
 .vmss-nav { border-top: 0; background: color-mix(in srgb, var(--bg-primary) 76%, transparent); backdrop-filter: blur(16px) saturate(1.25); -webkit-backdrop-filter: blur(16px) saturate(1.25); border-bottom: 1px solid var(--border); }
 .vmss-nav::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--ring-light) 50%, transparent); box-shadow: 0 0 18px 1px var(--ring-glow); pointer-events: none; }
-.archive-nav-dropdown { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--ring-edge); background: color-mix(in srgb, var(--bg-secondary) 96%, transparent); }
-.archive-nav-dropdown a { border-radius: var(--shape-btn); }
 .archive-context { background: color-mix(in srgb, var(--bg-primary) 60%, transparent); }
 .vmss-hud { border-radius: var(--shape-card); border: 1px solid var(--border); border-top-color: var(--instrument); background: color-mix(in srgb, var(--bg-secondary) 82%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 18px 50px -20px #000a, 0 0 0 1px color-mix(in srgb, var(--instrument) 10%, transparent); }
 
@@ -1753,7 +1736,7 @@ body .rounded-3xl.bg-\[var\(--bg-secondary\)\], body .rounded-2xl.bg-\[var\(--bg
 }
 
 /* Controls. Cut corners on two sides; the primary action carries the light. */
-.vmss-cta-primary, .vmss-cta-secondary, button#open-entry-modal, button[type="submit"], .archive-desktop-nav .nav-link-join, #mobile-menu .nav-link-join, .vmss-nav .vmss-icon-button, .vmss-hud-toggle, .vmss-back-to-top, body .back-arrow, body .page-btn, .vmss-hud-btn, .vmss-hud.is-minimized, .vmss-hud.is-minimized .vmss-hud-toggle, body .card-search, body .sim-idx-input, body .sim-idx-select, body .sim-idx-chip, body .law-chip, body .pending-crosslink, body .act-links a, body .cert-links a {
+.vmss-cta-primary, .vmss-cta-secondary, button#open-entry-modal, button[type="submit"], #mobile-menu .nav-link-join, .vmss-nav .vmss-icon-button, .vmss-hud-toggle, .vmss-back-to-top, body .back-arrow, body .page-btn, .vmss-hud-btn, .vmss-hud.is-minimized, .vmss-hud.is-minimized .vmss-hud-toggle, body .card-search, body .sim-idx-input, body .sim-idx-select, body .sim-idx-chip, body .law-chip, body .pending-crosslink, body .act-links a, body .cert-links a {
   border-radius: var(--shape-btn);
 }
 .vmss-cta-primary, button#open-entry-modal, button[type="submit"] {
@@ -1764,8 +1747,6 @@ body .rounded-3xl.bg-\[var\(--bg-secondary\)\], body .rounded-2xl.bg-\[var\(--bg
 .vmss-cta-primary:hover, button#open-entry-modal:hover, button[type="submit"]:hover {
   filter: brightness(1.06); box-shadow: inset 0 1px 0 #fff8, 0 0 0 1px #e9bb7255, 0 12px 36px -10px rgba(243,193,95,.45);
 }
-.archive-desktop-nav .nav-link-join { border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
-.archive-desktop-nav .nav-link-join:hover { box-shadow: 0 0 22px -4px var(--accent-glow); }
 
 /* Headings and dividers. Display face for section heads; lines catch the light. */
 main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); font-weight: 500; letter-spacing: -.005em; }
@@ -1801,10 +1782,6 @@ main h2, body .paper h2, .vmss-prose h2 { font-family: var(--archive-display); f
 .archive-context .back-arrow { position: static; width: 1.75rem; height: 1.75rem; padding: 0; font-size: .95rem; box-shadow: none; transform: none; background: transparent; border: 1px solid var(--border); color: color-mix(in srgb, var(--accent) 60%, var(--bg-primary)) !important; }
 .archive-context .back-arrow:hover { transform: none; border-color: var(--ring-edge); }
 [data-theme="light"] .archive-context .back-arrow { color: var(--accent) !important; }
-
-/* Nav dropdown caret: a thin drawn chevron instead of a glyph. */
-.archive-caret { display: inline-block; width: 5px; height: 5px; margin-left: .15rem; border-right: 1.25px solid currentColor; border-bottom: 1.25px solid currentColor; opacity: .55; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
-.archive-nav-group[open] .archive-caret { transform: translateY(1px) rotate(-135deg); }
 
 /* Footer descent line: one continuous fall from Sanctuary light to Terminal dark. */
 .archive-footer-rule { position: relative; }
@@ -2057,7 +2034,7 @@ body.vmss-page-shell .back-arrow:not(.archive-context .back-arrow) { visibility:
 .tc-foot p strong { color: var(--text-secondary); }
 .tc-map-link { font-weight: 600; white-space: nowrap; }
 .atlas-key a { font-weight: 600; }
-.tc-fork { scroll-margin-top: 6.5rem; }
+.tc-fork { scroll-margin-top: 1rem; }
 @supports (corner-shape: bevel) {
   .atlas-key-dot, .vmss-hud-ring::before { corner-shape: round; }
 }
@@ -2248,4 +2225,106 @@ body.vmss-page-shell .back-arrow:not(.archive-context .back-arrow) { visibility:
   .tc-fork.is-running .tc-lane, .tc-fork.is-running .tc-event { animation: none; }
   .atlas-citizen-halo { animation: none; opacity: .6; transform: scale(1.2); }
   :is(.tc, .atlas) * { transition: none !important; }
+}
+
+/* ----- 26. NAVIGATION & READING (v25.11.0) -----
+   Sticky header, inline primary links, the reference-page find bar
+   (assets/js/law-finder.js), floating-widget placement, reading measure. */
+:root { --vmss-nav-h: 5.5rem; --vmss-nav-compact: 3.5rem; --vmss-measure: 64ch; }
+@media (max-width: 900px) { :root { --vmss-nav-h: 5rem; } }
+@media (max-width: 600px) { :root { --vmss-nav-h: 4.5rem; --vmss-nav-compact: 3.25rem; } }
+
+/* Decorative ring behind page intros: a square rotating about its centre
+   pokes its corners past the page edge (scrollWidth up to ~1100 at 950px).
+   The drawn rings sit inside the inscribed circle, so clipping the
+   horizontal overflow at the intro's box hides nothing. The root clip is
+   the second guard against any future decorative overflow. */
+.vmss-page-intro { overflow-x: clip; }
+html { overflow-x: clip; scroll-padding-top: calc(var(--vmss-nav-compact) + .75rem); }
+html.has-law-finder { scroll-padding-top: calc(var(--vmss-nav-compact) + var(--vmss-finder-h, 3rem) + 1.25rem); }
+
+/* Sticky header. The placeholder steps out of the box tree so the nav's
+   sticky range is the whole body. Height is fixed per state; the compact
+   state gives the difference back as margin so the page never moves. */
+#navbar-placeholder { display: contents; }
+.vmss-nav { position: sticky; top: 0; z-index: 45; transition: margin-bottom .2s ease, background-color .2s ease; }
+.archive-nav-inner { height: var(--vmss-nav-h); padding-block: 0; transition: height .2s ease; }
+.archive-brand-title, .archive-brand-mark { transition: font-size .2s ease, width .2s ease, height .2s ease; }
+.vmss-nav.is-compact { margin-bottom: calc(var(--vmss-nav-h) - var(--vmss-nav-compact)); background: color-mix(in srgb, var(--bg-primary) 90%, transparent); }
+.vmss-nav.is-compact .archive-nav-inner { height: var(--vmss-nav-compact); }
+.vmss-nav.is-compact .archive-brand-caption { display: none; }
+.vmss-nav.is-compact .archive-brand-title { font-size: 1.2rem; }
+.vmss-nav.is-compact .archive-brand-mark { width: 30px; height: 30px; }
+
+/* The full menu is an overlay under the header (never pushes the page);
+   from 1024px it is a right-hand panel beside the inline links. */
+#mobile-menu { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100dvh - var(--vmss-nav-compact)); overflow-y: auto; overscroll-behavior: contain; background: var(--bg-secondary); box-shadow: 0 28px 50px -30px #000c; }
+@media (min-width: 1024px) {
+  #mobile-menu { left: auto; right: max(1rem, calc((100% - 1600px) / 2 + 2rem)); width: 21rem; border: 1px solid var(--border); border-top: 0; }
+}
+
+/* Inline primary links, current page underlined. */
+.archive-desktop-nav { gap: 1.4rem; }
+.archive-desktop-nav > .nav-link { position: relative; white-space: nowrap; }
+.archive-desktop-nav > .nav-link-active::after { content: ''; position: absolute; left: .1rem; right: .1rem; bottom: .25rem; height: 2px; background: var(--accent); }
+.vmss-nav.is-compact .archive-desktop-nav > .nav-link-active::after { bottom: .15rem; }
+
+/* Find bar on laws.html and law-polling.html. */
+section.vmss-main-section:has(> div > .lf-bar) { padding-top: .5rem !important; }
+.lf-bar { position: sticky; top: var(--vmss-nav-compact); z-index: 30; padding-top: .5rem; margin-bottom: 1.75rem; }
+/* Pinned, the bar's own column gets a backdrop up to the header so text
+   never shows through the seam. */
+.lf-bar::before { content: ''; position: absolute; inset: 0 0 50%; z-index: -1; pointer-events: none; }
+.lf-bar.is-stuck::before { background: var(--bg-primary); }
+.lf-row { display: flex; align-items: center; gap: .5rem; padding: .4rem; border: 1px solid var(--border); border-top-color: var(--ring-edge, var(--border)); border-radius: var(--shape-card, 3px); background: color-mix(in srgb, var(--bg-secondary) 90%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 16px 36px -24px #000c; }
+.lf-toc-btn { flex: 0 0 auto; display: inline-flex; align-items: center; gap: .5rem; height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--border); border-radius: var(--shape-btn, 2px); background: var(--bg-tertiary); color: var(--text-primary); font-family: var(--archive-mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: border-color .15s, color .15s; }
+.lf-toc-btn i { color: var(--accent); font-size: .8rem; }
+.lf-toc-btn:is(:hover, [aria-expanded="true"]) { border-color: var(--accent); color: var(--accent); }
+.lf-search { position: relative; flex: 1 1 10rem; min-width: 0; display: flex; align-items: center; }
+.lf-search > i { position: absolute; left: .8rem; color: var(--text-muted); font-size: .8rem; pointer-events: none; }
+.lf-input { width: 100%; height: 2.25rem; padding: 0 2.3rem 0 2.2rem; border: 1px solid var(--border); border-radius: var(--shape-btn, 2px); background: var(--bg-primary); color: var(--text-primary); font-size: .875rem; }
+.lf-input::placeholder { color: var(--text-muted); opacity: 1; }
+.lf-input:focus-visible { outline-offset: 1px; border-color: var(--accent); }
+.lf-input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.lf-clear { position: absolute; right: .25rem; width: 1.8rem; height: 1.8rem; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: var(--shape-btn, 2px); background: none; color: var(--text-muted); cursor: pointer; }
+.lf-clear:hover { color: var(--accent); }
+.lf-clear:focus-visible { outline-offset: 0; }
+.lf-clear[hidden], .lf-panel[hidden] { display: none; }
+.lf-row .lf-count { flex: 0 0 auto; margin: 0; padding-inline: .35rem .45rem; font-family: var(--archive-mono); font-size: .72rem; letter-spacing: .04em; text-align: right; white-space: nowrap; color: var(--text-muted); }
+.lf-panel { position: absolute; top: calc(100% + .4rem); left: 0; right: 0; z-index: 31; }
+.lf-panel .law-toc { margin: 0; max-height: calc(100dvh - var(--vmss-nav-compact) - var(--vmss-finder-h, 3rem) - 2.5rem); overflow-y: auto; overscroll-behavior: contain; border-color: var(--border-strong); box-shadow: 0 26px 60px -26px #000d; }
+.lf-panel .toc-toggle { display: none; }
+.lf-panel .toc-body { padding-top: 1.1rem; }
+.lf-miss, .lf-empty { display: none !important; }
+@media (max-width: 640px) {
+  .lf-row { flex-wrap: wrap; gap: .4rem; }
+  .lf-toc-btn { padding: 0 .7rem; }
+  .lf-row .lf-count { flex-basis: 100%; text-align: left; padding: 0 .3rem .1rem; }
+}
+
+/* Floating widgets share the bottom-right corner: the minimised panel is a
+   small chip and back-to-top stacks above whatever the panel is showing
+   (script.js publishes --vmss-hud-h), so neither sits over the text column. */
+.vmss-hud { right: .75rem; bottom: .75rem; }
+.vmss-hud.is-minimized { min-width: 0; width: auto; padding: .3rem; left: auto; right: .75rem; bottom: .75rem; }
+.vmss-hud.is-minimized .vmss-hud-kicker { display: none; }
+.vmss-hud.is-minimized .vmss-hud-top { margin-bottom: 0; gap: 0; }
+.vmss-hud.is-minimized .vmss-hud-toggle { width: 1.85rem; height: 1.85rem; }
+.vmss-back-to-top { left: auto; right: .75rem; bottom: calc(.75rem + var(--vmss-hud-h, 0px) + .5rem); width: 2.6rem; height: 2.6rem; }
+/* Phones: tuck both into the outer gutter, clear of card text. */
+@media (max-width: 640px) {
+  .vmss-hud.is-minimized { right: .3rem; bottom: .5rem; padding: .25rem; }
+  .vmss-hud.is-minimized .vmss-hud-toggle { width: 1.6rem; height: 1.6rem; }
+  .vmss-back-to-top { right: .3rem; bottom: calc(.5rem + var(--vmss-hud-h, 0px) + .4rem); width: 2.25rem; height: 2.25rem; }
+}
+
+/* Reading measure: long-form prose stops at ~70-80 characters a line,
+   left-aligned in its card; tables, fact grids and figures keep the width. */
+.law-summary, .law-section-sub, .code-preamble p, .code-preamble ul,
+body .page p, body .page ul, body .page ol,
+.faq-content p, .faq-content ul, .faq-content ol,
+.vmss-prose p, .vmss-prose ul, .vmss-prose ol { max-width: var(--vmss-measure); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vmss-nav, .archive-nav-inner, .archive-brand-title, .archive-brand-mark, .lf-toc-btn { transition: none; }
 }

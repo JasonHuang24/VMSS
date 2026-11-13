@@ -19,11 +19,13 @@
   --rm-strand-m1: #ffb43c;           /* -1 — amber */
   --rm-strand-m2: #ff7d7d;           /* -2 — red */
   --rm-strand-m3: #c83232;           /* -3 — deep red */
-  --rm-stage-h: 100vh;
+  /* Stages pin under the sticky site header (styles.css --vmss-nav-compact). */
+  --rm-pin-top: var(--vmss-nav-compact, 0px);
+  --rm-stage-h: calc(100vh - var(--rm-pin-top));
   --rm-scene-len: 240vh;
 }
 @supports (height: 100svh) {
-  :root { --rm-stage-h: 100svh; }
+  :root { --rm-stage-h: calc(100svh - var(--rm-pin-top)); }
 }
 [data-theme="light"] {
   --rm-strand-agg: #2f56b8;
@@ -117,7 +119,7 @@
 
 .rm-rail {
   position: sticky;
-  top: 0;
+  top: var(--rm-pin-top);
   height: var(--rm-stage-h);
   display: flex;
   align-items: center;
@@ -232,7 +234,7 @@
 
 .rm-stage {
   position: sticky;
-  top: 0;
+  top: var(--rm-pin-top);
   height: var(--rm-stage-h);
   display: flex;
   flex-direction: column;
@@ -495,7 +497,7 @@
   /* Rail becomes a slim sticky strip on top */
   .rm-rail {
     position: sticky;
-    top: 0;
+    top: var(--rm-pin-top);
     height: auto;
     display: block;
     z-index: 30;

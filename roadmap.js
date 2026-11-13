@@ -146,8 +146,11 @@
     const scrollY = window.scrollY;
     segments = sceneEls.map((el) => {
       const rect = el.getBoundingClientRect();
-      const top = rect.top + scrollY;
-      const end = top + el.offsetHeight - stageH;
+      /* Stages pin below the site header: pinning starts that much earlier,
+         and ends when the scene's foot reaches the viewport's. */
+      const pin = parseFloat(getComputedStyle(el.querySelector('.rm-stage')).top) || 0;
+      const top = rect.top + scrollY - pin;
+      const end = rect.top + scrollY + el.offsetHeight - stageH;
       return {
         el,
         key: el.dataset.scene,

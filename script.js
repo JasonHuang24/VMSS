@@ -326,6 +326,7 @@ function initVmssHud() {
     toggleBtn.textContent = minimized ? '+' : '−';
     toggleBtn.setAttribute('aria-expanded', minimized ? 'false' : 'true');
     toggleBtn.setAttribute('aria-label', minimized ? 'Expand live state panel' : 'Minimize live state panel');
+    toggleBtn.title = minimized ? 'Simulated citizen' : '';
   };
   toggleBtn?.addEventListener('click', () => {
     const next = !hud.classList.contains('is-minimized');
@@ -347,8 +348,17 @@ function initVmssHud() {
   if (footerHost && 'IntersectionObserver' in window) {
     new IntersectionObserver((entries) => {
       hud.classList.toggle('is-footer-clear', entries.some((en) => en.isIntersecting));
+      publishHudHeight();
     }, { threshold: 0 }).observe(footerHost);
   }
+  /* The back-to-top button stacks above the panel in the same corner, so it
+     needs the panel's current height (minimised chip, expanded, or stepped
+     aside for the footer). */
+  function publishHudHeight() {
+    const h = hud.classList.contains('is-footer-clear') ? 0 : hud.offsetHeight;
+    document.documentElement.style.setProperty('--vmss-hud-h', `${h}px`);
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(publishHudHeight).observe(hud);
   const apply = (state = window.VMSS?.getState?.() || VMSS_DEFAULT_STATE) => {
     const layer = vmssLayerDescriptor(state.placement);
     hud.dataset.layer = layer.key;
@@ -364,28 +374,9 @@ function initVmssHud() {
     scheduleIdle();
   };
   document.addEventListener('vmss:state-change', (event) => apply(event.detail?.state));
-  const isMobile = () => window.innerWidth < 768;
-  const isInteractivePage = /(?:layers|simulations)\.html$/.test(window.location.pathname);
-  const defaultMinimized = () => isMobile() || !isInteractivePage;
-
-  /* Auto-minimise for reading pages and mobile unless the user has a preference */
-  const hasUserPref = vmssStorageGet('vmss_hud_minimized') !== null;
-  if (hasUserPref) {
-    setMinimized(savedHudMinimized);
-  } else {
-    setMinimized(defaultMinimized());
-  }
-
-  /* Re-evaluate on resize — only when no user preference is stored */
-  let resizeRaf = null;
-  window.addEventListener('resize', () => {
-    if (vmssStorageGet('vmss_hud_minimized') !== null) return;
-    if (resizeRaf) return;
-    resizeRaf = requestAnimationFrame(() => {
-      setMinimized(defaultMinimized());
-      resizeRaf = null;
-    });
-  }, { passive: true });
+  /* Starts as the corner chip on every page (the expanded panel would sit
+     over the text column at any width); an explicit preference wins. */
+  setMinimized(vmssStorageGet('vmss_hud_minimized') !== null ? savedHudMinimized : true);
 
   apply();
 }
@@ -398,12 +389,12 @@ function initVmssHud() {
  * vmssRevealHashTarget — make a fragment target visible before scrolling.
  *
  * Deep links land inside collapsed accordions (technologies, why-vmss, faq)
- * and inside law-polling entries hidden by a status filter. The browser
- * scrolls to a hidden target's position but shows nothing. This walks up
- * from the target: any `.hidden` ancestor controlled by an [aria-controls]
- * trigger is opened through that trigger (so aria-expanded and the chevron
- * follow), and a filtered-out `.law-entry` asks the page to reset its
- * filter through the window.vmssApplyLawFilter hook it exposes.
+ * and inside register/Code entries hidden by a status filter or search.
+ * The browser scrolls to a hidden target's position but shows nothing. This
+ * walks up from the target: any `.hidden` ancestor controlled by an
+ * [aria-controls] trigger is opened through that trigger (so aria-expanded
+ * and the chevron follow), and a filtered-out entry asks the page to reset
+ * its filters through the window.vmssResetLawView hook law-finder.js exposes.
  */
 function vmssRevealHashTarget() {
   const raw = (window.location.hash || '').slice(1);
@@ -424,9 +415,11 @@ function vmssRevealHashTarget() {
     }
     el = el.parentElement;
   }
-  const entry = target.closest('.law-entry');
-  if (entry && entry.style.display === 'none' && typeof window.vmssApplyLawFilter === 'function') {
-    window.vmssApplyLawFilter('all');
+  /* A register or Code entry hidden by a status chip or the search box:
+     assets/js/law-finder.js exposes the reset (clears both). */
+  const entry = target.closest('.law-entry, .code-entry');
+  if (entry && !entry.getClientRects().length && typeof window.vmssResetLawView === 'function') {
+    window.vmssResetLawView();
     changed = true;
   }
   if (changed) {
@@ -524,6 +517,11 @@ function initMobileMenu() {
 
   menuToggle.addEventListener('click', () => setExpanded(mobileMenu.classList.contains('hidden')));
   navLinks.forEach((link) => link.addEventListener('click', () => setExpanded(false)));
+  /* The menu is an overlay panel under the sticky header: a click anywhere
+     outside the header dismisses it. */
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('hidden') && !e.target.closest('.vmss-nav')) setExpanded(false);
+  });
 
   /* Escape closes the drawer and returns focus to the toggle. */
   document.addEventListener('keydown', (e) => {
@@ -534,32 +532,18 @@ function initMobileMenu() {
   });
 }
 
-/** Native disclosure navigation: one group at a time, with Escape and outside dismissal. */
+/** Sticky header: compact once the page leaves the top, plus the page-context breadcrumb. */
 function initArchiveNavigation() {
-  const groups = Array.from(document.querySelectorAll('.archive-nav-group'));
-  groups.forEach((group) => {
-    group.classList.toggle('has-active-page', Boolean(group.querySelector('.nav-link-active')));
-    group.addEventListener('toggle', () => {
-      if (group.open) groups.forEach((other) => { if (other !== group) other.open = false; });
-    });
-    group.addEventListener('focusout', () => {
-      requestAnimationFrame(() => { if (!group.contains(document.activeElement)) group.open = false; });
-    });
-  });
-  document.addEventListener('click', (event) => groups.forEach((group) => {
-    if (!group.contains(event.target)) group.open = false;
-  }));
-  document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape') return;
-    const open = groups.find((group) => group.open);
-    if (open) { open.open = false; open.querySelector('summary').focus(); }
-  });
-  const desktop = window.matchMedia('(min-width: 1366px)');
-  desktop.addEventListener('change', (event) => {
-    groups.forEach((group) => { group.open = false; });
-    const toggle = document.getElementById('menu-toggle');
-    if (event.matches && toggle?.getAttribute('aria-expanded') === 'true') toggle.click();
-  });
+  const nav = document.querySelector('.vmss-nav');
+  if (nav) {
+    let raf = null;
+    const sync = () => {
+      raf = null;
+      nav.classList.toggle('is-compact', window.scrollY > 16);
+    };
+    window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(sync); }, { passive: true });
+    sync();
+  }
 
   if (document.body.classList.contains('home-page')) return;
   const heading = document.querySelector('main h1') || document.querySelector('h1');
@@ -942,8 +926,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * initBackToTop — injects a floating back-to-top button (bottom-left,
-   * opposite the HUD) that appears after ~1.5 viewport heights of scroll.
+   * initBackToTop — injects a floating back-to-top button (bottom-right,
+   * stacked above the HUD chip) that appears after ~500px of scroll.
    * Site-wide: every doctrine page is long enough to want it.
    */
   function initBackToTop() {

@@ -2,7 +2,7 @@
 
 A voluntary civilization framework built on moral causality, layered governance, continuity, and consequence.
 
-**Version:** 25.10.2
+**Version:** 25.11.0
 **Live site:** https://jasonhchronicles.com/VMSS/
 **Lite site:** https://jasonhuang24.github.io/VMSSLite/
 **Whitepaper:** https://jasonhchronicles.com/VMSS/whitepaper.html
@@ -52,7 +52,7 @@ A **lite version** of the site exists at the companion repository (VMSSLite) for
 
 ## Interface
 
-The civilization archive combines cinematic ring-city artwork, a grouped navigation system, instrument-inspired dossier surfaces, and a responsive archive index. Both light and dark themes are supported. The simulation HUD defaults to collapsed on reading pages; saved preferences still take priority.
+The civilization archive combines cinematic ring-city artwork, a grouped navigation system, instrument-inspired dossier surfaces, and a responsive archive index. Both light and dark themes are supported. The header stays pinned (compact once scrolled) with inline primary links from 1024px; the full menu stays behind the menu button. The simulation HUD starts as a small chip in the bottom-right corner, with back-to-top stacked above it; saved preferences still take priority. VMSS Laws and the Law Polling record carry a sticky find bar (search, entry count, contents panel).
 
 The homepage artwork was generated with the built-in image generation tool and optimized into responsive WebP assets with a JPEG fallback. See [artwork provenance and exact prompt](images/artwork-provenance.md).
 
@@ -105,7 +105,8 @@ The homepage artwork was generated with the built-in image generation tool and o
 │   └── js/
 │       ├── diagrams.js     # Interactive SVG ring diagram
 │       ├── sti-sim.js      # STI simulation console
-│       └── card-filter.js  # Shared search/chip/select filter (simulations, faq, why-vmss)
+│       ├── card-filter.js  # Shared search/chip/select filter (simulations, faq, why-vmss)
+│       └── law-finder.js   # Sticky find bar on laws.html + law-polling.html: search, entry count, contents panel
 ├── documents/                       # Published record annex + generator sources — not drafts
 │   ├── design-principles.md         # The reasoning patterns behind the doctrine (companion to whitepaper §12, §28.0; Charter XI)
 │   ├── academy-source.html          # Source for the Academy course packet PDF

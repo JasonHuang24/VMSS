@@ -1,7 +1,4 @@
 [
-  ".archive-nav-group summary:hover || .archive-nav-group.has-active-page summary || color",
-  ".archive-nav-group summary:hover || .archive-nav-group[open] summary || color",
-  ".archive-nav-group[open] summary || .archive-nav-group.has-active-page summary || color",
   ".atlas-band:hover || .atlas-band.is-focus || fill-opacity",
   ".atlas-band:hover || [data-theme=\"light\"] .atlas-band.is-focus || fill-opacity",
   ".atlas-move-btn:hover || .atlas-move-btn[aria-pressed=\"true\"] || border-color",
