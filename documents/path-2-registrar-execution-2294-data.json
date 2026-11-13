@@ -19,14 +19,14 @@
     "controllingData": {
       "path": "documents/path-2-certification-2294-data.json",
       "algorithm": "sha256",
-      "digest": "5ade772de3339134b52bdcabc28586cc15494bbe76ebeffd769e2ccad3c16e6e",
-      "bytes": 60180
+      "digest": "694e4a68f9ae72fdde063ad3cc30f23edd77fbb612d21e97ab5726cbe1a064b6",
+      "bytes": 60207
     },
     "verifier": {
       "path": "tools/verify-path2-certification-2294.mjs",
       "algorithm": "sha256",
-      "digest": "e82e0a2a090ece303ab76732355e5f18c629457b901648e40768e41730b6459a",
-      "bytes": 46216
+      "digest": "5b69a568684ce4548fabab462dddf06b71656ca998d128d828d27979ef636a62",
+      "bytes": 46243
     },
     "recordVerifier": {
       "path": "tools/verify-path2-record-annexes.mjs",
@@ -61,7 +61,7 @@
     "compendiumAnnex": {
       "path": "documents/path-2-section-11-compendium-2294-annex.json",
       "algorithm": "sha256",
-      "digest": "e583a4f7a970b7fcedb8faf7b37cf6c7129e81739b26a1bef08912cd50355718",
+      "digest": "1258cc1d0f0f0e47d68c6cb5873f7a906a9539da34b5499f09d860a0b64a92b3",
       "bytes": 140776
     }
   },

@@ -759,7 +759,7 @@ const lp075 = law.split(/(?=<article class="law-entry)/).find((b) => b.includes(
       { id: 'III.VII -1 equilibrium illustration', to: 'code-lp-070', alts: [
         'a citizen holding $50,000 loses $2,500/month'] },
       { id: 'III.VII terminal-layer triggers', to: 'code-lp-069', alts: [
-        '$25 billion aggregate UBI-origin savings in -2', '$10 billion aggregate UBI-origin savings in -3'] },
+        '$25 billion district-aggregate UBI-origin savings in -2', '$10 billion district-aggregate UBI-origin savings in -3'] },
       { id: 'III.VII attribution window', to: 'code-lp-069', alts: [
         '24-month rolling window of UBI and subsidy receipts', '24-month cumulative UBI receipts'] },
       { id: 'III.VIII restatement of the terminal trigger and rate (N-2)', to: 'code-lp-069', alts: [

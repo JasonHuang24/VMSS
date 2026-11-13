@@ -29,6 +29,14 @@
   <link rel="preload" as="image" imagesrcset="images/webp/civilization-960.webp 960w, images/webp/civilization-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="assets/css/tailwind.css">
+  <style>
+    .archive-orient { max-width: 760px; margin: 2.5rem 0 0; border: 1px solid var(--border); border-radius: 1rem; text-align: left; }
+    .archive-orient > summary { padding: .9rem 1.2rem; cursor: pointer; list-style: none; }
+    .archive-orient > summary::-webkit-details-marker { display: none; }
+    .archive-orient > summary::before { content: "\25B6"; display: inline-block; margin-right: .6rem; font-size: .6rem; color: var(--accent); transition: transform .2s ease; }
+    .archive-orient[open] > summary::before { transform: rotate(90deg); }
+    .archive-orient > p { padding: 0 1.2rem 1.2rem; color: var(--text-secondary); line-height: 1.75; font-size: .95rem; }
+  </style>
 <noscript><style>body{opacity:1}</style></noscript>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -388,6 +396,7 @@
           <a href="https://jasonhuang24.github.io/VMSSLite/" class="archive-library-card"><h3>The essentials</h3><p>New to VMSS? The lite site offers a faster, more focused introduction to the core doctrine.</p><span class="archive-card-type">Visit the lite site</span></a>
         </div>
         <div class="archive-entry"><div><span class="archive-eyebrow">The entry principle</span><h3>A voluntary civil choice.</h3><p>Entry is opt-in. Understand implant consent, moral accounting, and the consequences before taking the next step.</p></div><a href="join.html" class="vmss-cta-primary">Explore the entry path <span aria-hidden="true">→</span></a></div>
+        <details class="archive-orient" id="reading-this-archive"><summary><span class="archive-eyebrow">Reading this archive</span></summary><p>The descriptive pages, the Code, the register and the whitepaper speak from the early 24th century, when the civilization houses approximately 4.3 billion residents. The roadmap is the founding-era projection, written in 2026; era years count from that founding, so Y0 is 2026. Where pages differ, the Charter governs, then enacted law (an enacted Law Polling entry is the primary record and VMSS Laws consolidates it), then the whitepaper, then the descriptive pages; Academic Resources, the Academy and the stories come last, and a story under an Off-canon chip departs from canon on purpose. A ring is one of the five territorial layers; the mega-walls that bound them are a 22nd-to-24th-century build. &ldquo;Tier&rdquo; names several separate ladders: the four tiers of law (Charter, federal, layer-wide, district), export Tiers 0&ndash;3, sanctions Tiers 1&ndash;3 and External Force Tiers 1&ndash;4. The failsafe warns and holds and can be pushed through; the Threshold Inhibition Protocol cannot. Phasing is the non-punitive move between Sanctuary and Main at an STI of 85; reassignment is permanent punitive descent into -1, -2 or -3.</p></details>
         <p class="archive-glossary">Unfamiliar with a term? Consult the <a href="whitepaper.html#glossary">whitepaper glossary</a>.</p>
       </div>
     </section>

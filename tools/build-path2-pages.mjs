@@ -548,7 +548,10 @@ const built = [];
   const body =
     `<div class="ls-ruling" id="ruling-adoption-posture">\n${b1}\n</div>\n` +
     `<hr class="ls-hr">\n` +
-    `<div class="ls-ruling" id="ruling-adoption">\n${b2}\n</div>`;
+    `<div class="ls-ruling" id="ruling-adoption">\n${b2}\n</div>\n` +
+    /* Publication note (v26.0), authored and outside the verbatim body: the
+       ruling's counts are its own, so the reconciliation sits beneath it. */
+    `<p class="ls-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Note</strong> &mdash; the ruling counts the eight residues of the Charter text (RR-1 to RR-8); RR-9 to RR-12 were engraved when the &sect;10.4 Schedule was adopted with it. Its &ldquo;resolved fifty-nine&rdquo; is likewise its own count: the Register&rsquo;s status codes mark 49 of the 62 findings cured and 13 mitigated or accepted.</p>`;
   report.push(`  ${RULINGS}: verbatim ${c1} + ${c2} chars (two rulings)`);
   built.push([RULINGS, page({
     file: RULINGS,

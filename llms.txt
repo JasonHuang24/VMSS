@@ -5,15 +5,17 @@
 When pages conflict, trust them in the order the site uses to reconcile its own texts:
 
 1. The Charter.
-2. Enacted law: laws.html and the enacted entries in law-polling.html. An enacted register entry is the primary record; laws.html consolidates it (LP-042).
+2. Enacted law: an enacted entry in law-polling.html is the primary record, and laws.html consolidates it (LP-042).
 3. The whitepaper.
 4. The descriptive pages.
-5. Academic Resources, the Academy and the stories.
+5. Academic Resources, the Academy and the stories; a story under an Off-canon chip departs from canon on purpose.
+
+The home page restates this order for human readers (index.html#reading-this-archive).
 
 ## Founding documents and law
 
 - [Charter](charter.html): the constitution. Tier 1.
-- [VMSS Laws](laws.html): the consolidated code; it "states current force only". Tier 2.
+- [VMSS Laws](laws.html): the consolidated code; it "states current force only". Tier 2 (a consolidation: where it and an enacted register entry differ, the entry controls).
 - [Law Polling](law-polling.html): the enactment register, failed and superseded filings included. Enacted entries are tier 2; the rest is history.
 - [White Paper](whitepaper.html): the comprehensive explanation. Glossary on pages 32-34, one id per entry (whitepaper.html#gl-failsafe). Tier 3.
 
@@ -76,4 +78,4 @@ whitepaper.html and world.html show one section at a time, but the whole text is
 
 ## Founding-era rulings
 
-The founding was gradual: thousands at the founding, about a million citizens by the mid-21st century (LP-072), billions by the 2120s (LP-001, LP-024). Era years count from the Founding Treaty: Y0 is 2026. Where a page pairs an era year with a calendar year, read the calendar year. The whitepaper governs hardware dates: the mega-walls are a 22nd-to-24th-century build, and no civilian implants or kill-switch use came in the 2030s. The five layers existed as territories, voting as layers, before the walls made them rings. The descriptive pages speak from the early 24th century (world.html: "As of the early 24th century the civilization houses approximately 4.3 billion residents"; why-vmss.html: a cascade "operative since 2295"), and the Charter page is the current consolidated Charter, so its figures are early-24th-century ones. The roadmap is "the founding-era projection, written in 2026".
+The founding was gradual: thousands at the founding, about a million citizens by the mid-21st century (LP-072), billions by the 2120s (LP-001, LP-024). Era years count from the Founding Treaty: Y0 is 2026. Where a page pairs an era year with a calendar year, read the calendar year. The whitepaper governs hardware dates: the mega-walls are a 22nd-to-24th-century build; civilian implants arrived in the 2050s, alongside the first trial vessels, so there were no civilian implants or kill-switch use in the 2020s-2040s; revival became reliable in the last decades of the 21st century. World's four eras are dated: Founding (2026-2046), Contested Period (2046 to the late 21st century), Consolidation (the 22nd century), Superpower (the 23rd century to the present). The five layers existed as territories, voting as layers, before the walls made them rings. The descriptive pages speak from the early 24th century (world.html: "As of the early 24th century the civilization houses approximately 4.3 billion residents"; why-vmss.html: a cascade "operative since 2295"), and the Charter page is the current consolidated Charter, so its figures are early-24th-century ones. The roadmap is "the founding-era projection, written in 2026".

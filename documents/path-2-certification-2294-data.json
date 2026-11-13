@@ -19,7 +19,7 @@
     {"year":2292,"event":"Audit design, evidence rules, methods, and source definitions locked"},
     {"year":2294,"event":"Audit completed; Schedules A and B independently certified; effective notice published"},
     {"year":2295,"event":"The complete LP-074 exact halving cascade entered force"},
-    {"year":2300,"event":"Current canon operates at 50 / 25 / 12.5 / 6.25"}
+    {"years":"2295 onward","event":"The 50 / 25 / 12.5 / 6.25 cascade remains the operative schedule"}
   ],
   "authority": {
     "lp073": {

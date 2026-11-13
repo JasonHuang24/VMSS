@@ -410,7 +410,7 @@ const processFrame = () => `
           <p><strong>Process ruling R23 &mdash; The Codification Sweep</strong> (registered 2026-07-20, process record). Naming an instrument latent in the founding corpus is declaratory codification: the rule was always in force; the name is publication apparatus. Content controls over name. The sweep changes no rule, magnitude, right, or history, and creates no ladder record. Founding-corpus instruments are consolidated in <a href="laws.html">VMSS Laws</a> with their canon anchors as source; the Law Polling record remains the complete record of ladder enactments.</p>
         </div>`;
 
-function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing, statusBanner, extraStyle }) {
+function page({ file, title, description, heroKicker, heroTitle, heroSub, crosslinks, body, verbatim, framing, statusBanner, extraStyle, notes = [] }) {
   const chrome = `<!DOCTYPE html>
 <html data-theme="dark" lang="en">
 <head>
@@ -475,7 +475,18 @@ ${body.split('\n').map((l) => (l ? '          ' + l : l)).join('\n')}
 </html>
 `;
   if (verbatim) assertVerbatim(verbatim.md, body, file);
-  write(file, chrome);
+  /* Publication notes (v26.0): authored lines placed beneath a verbatim
+     paragraph after the verbatim check, so the source text is never edited
+     from inside. Each anchor must match exactly once and end a paragraph. */
+  let out = chrome;
+  for (const [after, note] of notes) {
+    if (!after.endsWith('</p>')) throw new Error(`publication note (${file}): anchor must end at a paragraph boundary: ${JSON.stringify(after)}`);
+    const hits = out.split(after).length - 1;
+    if (hits !== 1) throw new Error(`publication note (${file}): expected 1 match of ${JSON.stringify(after)}, found ${hits}`);
+    out = out.replace(after, () => `${after}
+          ${note}`);
+  }
+  write(file, out);
   return file;
 }
 
@@ -659,6 +670,10 @@ built.push(page({
   ].join('\n'),
   body: renderDoc(md.record),
   verbatim: { md: md.record },
+  notes: [[
+    'has not been done. Canon check 79 → 82.</p>',
+    '<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Note</strong> &mdash; the paragraph above is superseded: Y0 is 2026, not 2101. See the note at the head of this page.</p>',
+  ]],
   statusBanner: subBanner(' Era years count from the Founding Treaty: Y0 is 2026. The R16 §3 paragraph below, which infers a Y0 of 2101 from one mapping and pairs era years with calendar years, is superseded on both points; elsewhere on this page era numbers are given as their calendar years.'),
 }));
 
@@ -710,7 +725,7 @@ built.push(page({
 const hubBody = [
   `<p class="pending-p">This section is the <strong>drafting archive</strong> behind the civilization’s ratification record. It holds proposals that were drafted, adversarially reviewed and carried to a decision, with the briefs published alongside each. Outcomes are not decided in advance. A failed vote is a legitimate output and a boundary marker under standing doctrine (LP-062 / LP-065). As an archive of authorship, it keeps the interventions made during drafting and their withdrawal. The world’s own record keeps only what the world decided.</p>`,
   `<h2 class="pending-h pending-h2">RATIFY-TAX-50 — Failed petition</h2>`,
-  `<p class="pending-p"><strong>FAILED PETITION.</strong> The original petition would have reduced the §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>. It failed 1–4 at gauntlet and 3–2 on advocacy review. Its authored evidence activated nothing. The later LP-074 conditional successor was a separate enactment. Its 2294 Path 2 audit passed Findings I&ndash;IV and certified Schedules A and B independently, and the complete cascade took effect in 2295.</p>`,
+  `<p class="pending-p"><strong>FAILED PETITION.</strong> The original petition would have reduced the Whitepaper §12.1 top-marginal schedule to <strong>50&nbsp;/&nbsp;25&nbsp;/&nbsp;12.5&nbsp;/&nbsp;6.25</strong>. It failed 1–4 at gauntlet and 3–2 on advocacy review. Its authored evidence activated nothing. The later LP-074 conditional successor was a separate enactment. Its 2294 Path 2 audit passed Findings I&ndash;IV and certified Schedules A and B independently, and the complete cascade took effect in 2295.</p>`,
   `<p class="pending-p">The direction of the original petition survived its failure. Every chamber endorsed the trajectory principle, 5–0 across the ratification chambers, while refusing the magnitude then supported. The principle stands as the <a href="whitepaper.html#trajectory-doctrine">Trajectory Doctrine</a> at Whitepaper §12.1. The later successor proceeded on independently locked audit evidence and did not retroactively validate the failed petition&rsquo;s authored figures. All three original briefs are published as permanent historical record.</p>`,
   `<p class="pending-p" style="font-size:.9rem;color:var(--text-muted)"><strong>Drafting note.</strong> During the v22.0–v22.1 interval, on an authorial override of the failed chamber result, the reduced schedule was written into the law register as an enacted statute under the drafting designation <strong>LP-074</strong>. A trajectory statute was registered beside it as <strong>LP-075</strong>. The override was withdrawn at v22.1, and both entries were deregistered at v22.2. The first was deregistered because it described an enactment that never occurred in world. The second was deregistered because its principle belongs in doctrine and not in the register. Both texts are preserved verbatim at the <a href="deregistered-statutes.html">deregistered statutes of record</a>, and the <a href="pending-ratify-tax-50-record.html">session record</a> sets out the full sequence. None of that drafting designation history is world canon. The register’s LP-074 is <a href="law-polling.html#lp-074">RATIFY-TAX-50-II</a>, filed in 2276 and enacted 5–0 in 2278. The former drafting designation LP-075 remains non-canon. Its number was later issued in world to <a href="law-polling.html#lp-075">LP-075, the Path 2 Commencement Duty Act</a>, enacted 2291. That later issuance does not validate the deregistered text.</p>`,
   `<div class="pending-crosslinks" style="margin-top:1.25rem">\n` +

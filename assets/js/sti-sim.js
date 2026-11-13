@@ -519,6 +519,7 @@
       ? (s.ring === '+1'
         ? 'Threshold Inhibition Protocol: motor inhibition and drones halt the act. No harm completes.'
         : s.ring === '-3' ? 'No failsafe network in daily −3 life.'
+        : s.ring === '0' && key === 'predatory' ? 'Default-on TIP against sexual assault had been publicly disabled beforehand (LP-062.2); only the failsafe stood in the way, and the citizen overrode it.'
         : 'The failsafe warned as intent built; the citizen overrode it. Disabling it is itself logged.')
       : key === 'dui' ? (s.ring === '-3' ? 'No failsafe network in daily −3 life.' : 'The implant warned before the vehicle moved. The warning was dismissed.')
       : 'No motor failsafe applies to a non-violent act.';
