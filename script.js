@@ -532,7 +532,11 @@ function initMobileMenu() {
   });
 }
 
-/** Sticky header: compact once the page leaves the top, plus the page-context breadcrumb. */
+/**
+ * Sticky header: compact once the page leaves the top; category dropdowns
+ * (native disclosure, one open at a time, Escape and outside dismissal);
+ * plus the page-context breadcrumb.
+ */
 function initArchiveNavigation() {
   const nav = document.querySelector('.vmss-nav');
   if (nav) {
@@ -544,6 +548,30 @@ function initArchiveNavigation() {
     window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(sync); }, { passive: true });
     sync();
   }
+
+  const groups = Array.from(document.querySelectorAll('.archive-nav-group'));
+  groups.forEach((group) => {
+    group.addEventListener('toggle', () => {
+      if (group.open) groups.forEach((other) => { if (other !== group) other.open = false; });
+    });
+    group.addEventListener('focusout', () => {
+      requestAnimationFrame(() => { if (!group.contains(document.activeElement)) group.open = false; });
+    });
+  });
+  document.addEventListener('click', (event) => groups.forEach((group) => {
+    if (!group.contains(event.target)) group.open = false;
+  }));
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const open = groups.find((group) => group.open);
+    if (open) { open.open = false; open.querySelector('summary').focus(); }
+  });
+  /* Crossing the bar breakpoint closes whichever menu belongs to the other side. */
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+    groups.forEach((group) => { group.open = false; });
+    const toggle = document.getElementById('menu-toggle');
+    if (event.matches && toggle && toggle.getAttribute('aria-expanded') === 'true') toggle.click();
+  });
 
   if (document.body.classList.contains('home-page')) return;
   const heading = document.querySelector('main h1') || document.querySelector('h1');

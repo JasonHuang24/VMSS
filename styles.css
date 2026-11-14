@@ -144,11 +144,11 @@ main {
   width: 100%;
 }
 
-/* The legacy 70% content utility was designed against 4K screens. At laptop
-   and standard desktop widths it made two-column layouts much narrower than
-   their own responsive breakpoints expected. Keep a readable fixed ceiling
-   below 1920px, while preserving the original 70% presentation on 4K. */
-@media (min-width: 1024px) and (max-width: 1919px) {
+/* The legacy 70% content utility made frames far wider than their content
+   on desktop screens. Cap it at a rem ceiling at every desktop width; above
+   1920px the root size grows (section 26), so the ceiling grows with the type
+   instead of the frame stretching to 70% of a 4K screen. */
+@media (min-width: 1024px) {
   .lg\:max-w-\[70\%\] {
     max-width: 80rem !important;
   }
@@ -1425,16 +1425,16 @@ body { background: var(--bg-primary); font-size: 1rem; }
 :focus-visible { outline: 2px solid var(--instrument); outline-offset: 5px; }
 #navbar-placeholder { z-index: 40; }
 .vmss-nav { background: var(--bg-primary); box-shadow: none; border-top: 3px solid var(--accent); }
-.archive-nav-inner { max-width: 1600px; margin: auto; padding: 1.15rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.archive-nav-inner { max-width: 100rem; margin: auto; padding: 1.15rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .archive-brand { display: flex; align-items: center; gap: .8rem; flex-shrink: 0; }
-.archive-brand-mark { width: 42px; height: 42px; color: var(--accent); stroke-width: 1.25; }
+.archive-brand-mark { width: 2.625rem; height: 2.625rem; color: var(--accent); stroke-width: 1.25; }
 .archive-brand-title { display: block; font-family: var(--archive-display); font-size: 1.5rem; letter-spacing: .11em; line-height: 1.2; font-weight: 600; }
 .archive-brand-caption { display: block; font-family: var(--archive-mono); color: var(--text-muted); font-size: .75rem; letter-spacing: .08em; margin-top: .2rem; }
 .archive-desktop-nav { display: flex; align-items: center; gap: 1.2rem; margin-left: auto; }
 .archive-desktop-nav > .nav-link { font-size: .875rem; color: var(--text-secondary); padding: .65rem .1rem; cursor: pointer; }
 .archive-desktop-nav .nav-link-active { color: var(--accent); }
 .archive-nav-actions { display: flex; gap: .6rem; flex-shrink: 0; }
-.vmss-nav .vmss-icon-button { width: 40px; height: 40px; border-radius: 2px; background: transparent; }
+.vmss-nav .vmss-icon-button { width: 2.5rem; height: 2.5rem; border-radius: 2px; background: transparent; }
 .nav-link-active { color: var(--accent); }
 #mobile-menu > div { padding: 1rem 1.5rem 1.5rem; display: block; }
 #mobile-menu .nav-link { display: block; padding: .8rem 0; border-bottom: 1px solid var(--border); font-size: .9375rem; }
@@ -1442,7 +1442,7 @@ body { background: var(--bg-primary); font-size: 1rem; }
 #mobile-menu .archive-mobile-group .archive-eyebrow { display: block; padding-bottom: .5rem; }
 #mobile-menu .nav-link-join { margin-top: 1.25rem; border-bottom: 0; border-radius: 2px; padding: .8rem 1rem; color: var(--accent); background: var(--accent-glow); }
 @media (max-width: 1023px) { .archive-desktop-nav { display: none; } }
-.archive-container { width: min(100% - 5rem, 1360px); margin-inline: auto; }
+.archive-container { width: min(100% - 5rem, 85rem); margin-inline: auto; }
 .archive-eyebrow, .archive-secondary-label, .archive-section-heading, .archive-image-caption, .archive-hero-baseline, .archive-index { font-family: var(--archive-mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; }
 .archive-eyebrow { color: var(--instrument); }
 .archive-secondary-label { color: var(--text-muted); }
@@ -1596,10 +1596,10 @@ a.vmss-mini-panel:hover { border-left-color: var(--accent); background: var(--bg
 /* Page-local dossier styles are intentionally more specific than their
    inline legacy counterparts. Content and pagination remain unchanged. */
 body .world-main, body .whitepaper-main { padding-top: 3rem; }
-/* World/Whitepaper shells track the shared content frame (lg:max-w-[70%] with the
-   80rem ceiling below 1920px) so every page lines up at every width. */
+/* World/Whitepaper shells track the shared content frame (lg:max-w-[70%] with its
+   80rem ceiling) so every page lines up at every width. */
 body .shell { padding-inline: 1.5rem; }
-@media (min-width: 1024px) and (max-width: 1919px) { body .shell { max-width: 80rem; } }
+@media (min-width: 1024px) { body .shell { max-width: 80rem; } }
 body .shell > .hero { border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
 body .shell > .hero h1 { font-family: var(--archive-display); font-size: clamp(3rem,6vw,6rem); font-weight: 500; letter-spacing: -.02em; }
 body .paper { border-radius: 3px; box-shadow: none; }
@@ -2254,20 +2254,35 @@ html.has-law-finder { scroll-padding-top: calc(var(--vmss-nav-compact) + var(--v
 .vmss-nav.is-compact .archive-nav-inner { height: var(--vmss-nav-compact); }
 .vmss-nav.is-compact .archive-brand-caption { display: none; }
 .vmss-nav.is-compact .archive-brand-title { font-size: 1.2rem; }
-.vmss-nav.is-compact .archive-brand-mark { width: 30px; height: 30px; }
+.vmss-nav.is-compact .archive-brand-mark { width: 1.875rem; height: 1.875rem; }
 
-/* The full menu is an overlay under the header (never pushes the page);
-   from 1024px it is a right-hand panel beside the inline links. */
+/* Below 1024px the full grouped menu is an overlay under the header (never
+   pushes the page). From 1024px the category bar replaces it entirely. */
 #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100dvh - var(--vmss-nav-compact)); overflow-y: auto; overscroll-behavior: contain; background: var(--bg-secondary); box-shadow: 0 28px 50px -30px #000c; }
-@media (min-width: 1024px) {
-  #mobile-menu { left: auto; right: max(1rem, calc((100% - 1600px) / 2 + 2rem)); width: 21rem; border: 1px solid var(--border); border-top: 0; }
-}
+@media (min-width: 1024px) { #menu-toggle, #mobile-menu { display: none; } }
 
-/* Inline primary links, current page underlined. */
+/* Category bar: Layers, World, Simulations, three dropdown groups, entry
+   portal. The current page is underlined; inside a group it is marked in
+   the panel and its group label carries the underline. */
 .archive-desktop-nav { gap: 1.4rem; }
-.archive-desktop-nav > .nav-link { position: relative; white-space: nowrap; }
-.archive-desktop-nav > .nav-link-active::after { content: ''; position: absolute; left: .1rem; right: .1rem; bottom: .25rem; height: 2px; background: var(--accent); }
-.vmss-nav.is-compact .archive-desktop-nav > .nav-link-active::after { bottom: .15rem; }
+.archive-desktop-nav > .nav-link, .archive-nav-group summary { position: relative; white-space: nowrap; }
+.archive-nav-group { position: relative; }
+.archive-nav-group summary { list-style: none; display: flex; align-items: center; gap: .4rem; font-size: .875rem; color: var(--text-secondary); padding: .65rem .1rem; cursor: pointer; }
+.archive-nav-group summary::-webkit-details-marker { display: none; }
+.archive-nav-group summary:hover, .archive-nav-group[open] summary, .archive-nav-group:has(.nav-link-active) summary { color: var(--accent); }
+.archive-nav-group:has(.nav-link-active) summary { font-weight: 700; }
+.archive-desktop-nav > .nav-link-active::after, .archive-nav-group:has(.nav-link-active) summary::after { content: ''; position: absolute; left: .1rem; right: .1rem; bottom: .25rem; height: 2px; background: var(--accent); }
+.vmss-nav.is-compact :is(.archive-desktop-nav > .nav-link-active, .archive-nav-group:has(.nav-link-active) summary)::after { bottom: .15rem; }
+.archive-caret { display: inline-block; width: .3125rem; height: .3125rem; margin-left: .15rem; border-right: 1.25px solid currentColor; border-bottom: 1.25px solid currentColor; opacity: .55; transform: translateY(-2px) rotate(45deg); transition: transform .2s ease; }
+.archive-nav-group[open] .archive-caret { transform: translateY(1px) rotate(-135deg); }
+.archive-nav-dropdown { position: absolute; z-index: 70; top: calc(100% + .4rem); left: -1rem; min-width: 14.5rem; display: grid; padding: .6rem; background: var(--bg-secondary); border: 1px solid var(--border); border-top: 2px solid var(--ring-edge, var(--accent)); border-radius: var(--shape-card, 3px); box-shadow: 0 16px 40px #0005; }
+.archive-nav-group:last-of-type .archive-nav-dropdown { left: auto; right: -.75rem; }
+.archive-nav-dropdown a { padding: .8rem 1rem; font-size: .875rem; border-radius: var(--shape-btn, 2px); white-space: nowrap; }
+.archive-nav-dropdown a:hover { background: var(--bg-tertiary); }
+.archive-nav-dropdown a.nav-link-active { box-shadow: inset 2px 0 0 var(--accent); background: var(--accent-glow); }
+.archive-desktop-nav .nav-link-join { padding: .65rem 1rem; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: var(--shape-btn, 2px); color: var(--accent); background: var(--accent-glow); }
+.archive-desktop-nav .nav-link-join:hover { box-shadow: 0 0 22px -4px var(--accent-glow); }
+.archive-desktop-nav > .nav-link-join.nav-link-active::after { content: none; }
 
 /* Find bar on laws.html and law-polling.html. */
 section.vmss-main-section:has(> div > .lf-bar) { padding-top: .5rem !important; }
@@ -2318,12 +2333,46 @@ section.vmss-main-section:has(> div > .lf-bar) { padding-top: .5rem !important; 
   .vmss-back-to-top { right: .3rem; bottom: calc(.5rem + var(--vmss-hud-h, 0px) + .4rem); width: 2.25rem; height: 2.25rem; }
 }
 
-/* Reading measure: long-form prose stops at ~70-80 characters a line,
+/* Reading measure: long-form prose stops at ~80-88 characters a line,
    left-aligned in its card; tables, fact grids and figures keep the width. */
 .law-summary, .law-section-sub, .code-preamble p, .code-preamble ul,
 body .page p, body .page ul, body .page ol,
 .faq-content p, .faq-content ul, .faq-content ol,
 .vmss-prose p, .vmss-prose ul, .vmss-prose ol { max-width: var(--vmss-measure); }
+@media (min-width: 1024px) { :root { --vmss-measure: 70ch; } }
+
+/* Large screens: the root size grows from 16px at 1920 to 20px at 2560 and
+   24px at 3840, so rem-sized type, chrome and frames scale together. */
+@media (min-width: 1921px) { html { font-size: min(calc(100% + (100vw - 1920px) * .00625), 125%); } }
+@media (min-width: 2561px) { html { font-size: min(calc(125% + (100vw - 2560px) * .003125), 150%); } }
+
+/* Reading column (1024px up). On reading pages every frame narrows to one
+   centred column: --vmss-col of text plus 2rem of card padding a side plus
+   the frame's own 1.5rem gutter, so the boxes stacked down the page (intro
+   box, TOC or find bar, article panel, entries) share one outer width and
+   one left edge. World and whitepaper: the paper hugs the same column and
+   its figures, stat rows and tables take the paper's inner width; the hero
+   matches the paper. Only the page title block may run wider. App-like
+   pages (home, layers atlas, simulations, roadmap, join, audiobooks) keep
+   the 80rem frame. */
+@media (min-width: 1024px) {
+  :root { --vmss-col: 38rem; }
+  main .lg\:max-w-\[70\%\].max-w-4xl { --vmss-col: 32rem; }
+  body:is(:has(#charterToc), :has(#faq-q), :has(#why-q), :has(#sysToc), :has(#tech-content-1), :has(#mgd-examples), :has(#laws-filter-bar), :has(#law-filter-bar)) main .lg\:max-w-\[70\%\],
+  body[data-ring] main .lg\:max-w-\[70\%\],
+  main .lg\:max-w-\[70\%\].max-w-4xl { max-width: calc(var(--vmss-col) + 7rem) !important; }
+  body:is(:has(#charterToc), :has(#faq-q), :has(#why-q), :has(#sysToc), :has(#tech-content-1), :has(#mgd-examples), :has(#laws-filter-bar), :has(#law-filter-bar), [data-ring]) main .lg\:max-w-\[70\%\] > .vmss-page-intro {
+    width: min(50rem, 100vw - 3rem); margin-inline: calc((100% - min(50rem, 100vw - 3rem)) / 2);
+  }
+  /* Grids that cannot hold their desktop column count at this width keep
+     the column count they use one breakpoint down. */
+  body:has(#mgd-examples) main .grid.lg\:grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body:has(#sysToc) .not-prose .lg\:flex-row { flex-direction: column; }
+  body:has(#sysToc) .not-prose .lg\:flex-row > :is(.lg\:flex, .lg\:block) { display: none; }
+  body:is(:has(#faq-q), :has(#why-q)) main .card-search { max-width: none; }
+  body .shell { max-width: calc(var(--vmss-col) + 6rem); }
+  body .shell > .lg\:max-w-\[70\%\] { max-width: none !important; padding-inline: 0; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .vmss-nav, .archive-nav-inner, .archive-brand-title, .archive-brand-mark, .lf-toc-btn { transition: none; }
